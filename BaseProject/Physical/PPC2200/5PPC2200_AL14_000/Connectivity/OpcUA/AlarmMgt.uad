@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="C4.91">
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleName="Service" Access="0x015F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+        <ACE RoleName="Operators" Access="0x015F" />
+        <ACE RoleName="Everyone" Access="0x015F" />
+      </ACL>
+      <ACL Id="3">
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x017F" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView AclId="3">
+    <Module Name="&lt;Default&gt;">
+      <Task Name="AlarmMgt">
+        <Variable Name="MpAlarmXCore_0">
+          <Variable Name="ActiveAlarms" />
+          <Variable Name="PendingAlarms" />
+          <Variable Name="ErrorReset" />
+          <Variable Name="Error" />
+        </Variable>
+        <Variable Name="MpAlarmXHistory_0">
+          <Variable Name="ErrorReset" />
+          <Variable Name="Error" />
+        </Variable>
+        <Variable Name="MpAlarmXHistoryUI_0">
+          <Variable Name="ErrorReset" />
+          <Variable Name="Error" />
+        </Variable>
+        <Variable Name="MpAlarmXListUI_0">
+          <Variable Name="ErrorReset" />
+          <Variable Name="Error" />
+        </Variable>
+        <Variable Name="uInstanceID" />
+        <Variable Name="MpAlarmXListUIConnect">
+          <Variable Name="Details">
+            <Variable Name="Backtrace">
+              <Variable Name="RecordID" EnableArrayElements="True" />
+              <Variable Name="LogbookName" EnableArrayElements="True" />
+              <Variable Name="EventID" EnableArrayElements="True" />
+              <Variable Name="Description" EnableArrayElements="True" />
+            </Variable>
+          </Variable>
+        </Variable>
+        <Variable Name="ExportAlarms" />
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

@@ -1,0 +1,1412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="Recipe_EventBinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="Recipe_Eventbinding_1">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentMpRecipe" widgetRefId="BtnDelete" event="Click" />
+      <Operand datatype="ANY_STRING" name="myDeleteRecipeText">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDeleteRecipeText">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="=myDeleteRecipeText" header="$IAT/Recipe/Delete" icon="Question" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 1">
+              <Parallel>
+                <Action>
+                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Confirm">
+                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                  </Target>
+                </Action>
+                <Action>
+                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Delete">
+                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                  </Target>
+                </Action>
+              </Parallel>
+            </ResultHandler>
+            <ResultHandler condition="result = 2">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Cancel">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_2">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentMpRecipe" widgetRefId="BtnLoad" event="Click" />
+      <Operand datatype="ANY_STRING" name="myLoadRecipeText">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarLoadRecipeText">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="=myLoadRecipeText" header="$IAT/Recipe/Load" icon="Question" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 1">
+              <Parallel>
+                <Action>
+                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Confirm">
+                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                  </Target>
+                </Action>
+                <Action>
+                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Load">
+                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                  </Target>
+                </Action>
+              </Parallel>
+            </ResultHandler>
+            <ResultHandler condition="result = 2">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Cancel">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_3">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentMpRecipe" widgetRefId="BtnCreate" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="CreateNewRecipe_Dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_4">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentCreateNewRecipe" widgetRefId="CancelButton" event="Click" />
+      <EventHandler>
+        <Parallel>
+          <Action>
+            <Target xsi:type="clientSystem.Action">
+              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="CreateNewRecipe_Dialog" />
+            </Target>
+          </Action>
+          <Action>
+            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Cancel">
+              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            </Target>
+          </Action>
+        </Parallel>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_5">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentCreateNewRecipe" widgetRefId="CreateButton" event="Click" />
+      <EventHandler>
+        <Parallel>
+          <Action>
+            <Target xsi:type="opcUa.NodeAction" refId="::MainCtrl:bCopyPreviewParameters">
+              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            </Target>
+          </Action>
+          <Action>
+            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Confirm">
+              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            </Target>
+          </Action>
+          <Action>
+            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.New.Create">
+              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            </Target>
+          </Action>
+          <Action>
+            <Target xsi:type="clientSystem.Action">
+              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="CreateNewRecipe_Dialog" />
+            </Target>
+          </Action>
+        </Parallel>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_6">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentMpRecipe" widgetRefId="BtnEdit" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="EditRecipe_Dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_7">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentEditRecipe" widgetRefId="CancelButton" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="11">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="12">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="13">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum3">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="14">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum4">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="15">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum5">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="16">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="17">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="18">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength3">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="19">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength4">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="20">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength5">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="21">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="22">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="23">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="24">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="25">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="26">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="27">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="28">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="29">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDGain">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="30">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDDerivativeTime">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="31">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDIntegrationTime">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="32">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDFilterTime">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="33">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDMinOut">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="34">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDMaxOut">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="35">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDSetValue">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="36">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::MainCtrl:bResetEditValues">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="37">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeXml_Pre.Load">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="38">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_Dialog" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_8">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentEditRecipe" widgetRefId="SaveButton" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum3">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="3">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum4">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="4">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum5">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="5">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="6">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="7">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength3">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="8">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength4">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="9">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength5">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="10">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="11">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="12">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="13">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="14">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="15">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="16">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="17">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="18">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDGain">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="19">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDDerivativeTime">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="20">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDIntegrationTime">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="21">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDFilterTime">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="22">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDMinOut">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="23">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDMaxOut">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="24">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDSetValue">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="25">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::MainCtrl:bCopyPreviewParameters">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="26">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Save">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="27">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_Dialog" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_9">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInLength1" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductLength[0]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.ProductLength[0]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_10">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInLength2" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductLength[1]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.ProductLength[1]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_12">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInLength3" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductLength[2]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.ProductLength[2]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength3">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength3">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_14">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInNum1" event="ValueChanged" />
+      <Operand datatype="ANY_INT" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductNumber[0]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_INT" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.ProductNumber[0]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_15">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInNum2" event="ValueChanged" />
+      <Operand datatype="ANY_INT" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductNumber[1]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_INT" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.ProductNumber[1]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_16">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInNum3" event="ValueChanged" />
+      <Operand datatype="ANY_INT" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductNumber[2]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_INT" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.ProductNumber[2]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum3">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum3">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_17">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInNum4" event="ValueChanged" />
+      <Operand datatype="ANY_INT" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductNumber[3]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_INT" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.ProductNumber[3]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum4">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum4">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_18">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInNum5" event="ValueChanged" />
+      <Operand datatype="ANY_INT" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductNumber[4]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_INT" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.ProductNumber[4]" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum5">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum5">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_Ax1Vel_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx1" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[0].Velocity" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.AxPar[0].Velocity" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_Ax1Acc_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx1" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[0].Acceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.AxPar[0].Acceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_Ax1Dec_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx1" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[0].Deceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.AxPar[0].Deceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_Ax1StopDec_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx1" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[0].Stop.Deceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.AxPar[0].Stop.Deceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx1">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_Ax2Vel_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx2" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[1].Velocity" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.AxPar[1].Velocity" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_Ax2Acc_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx2" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[1].Acceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.AxPar[1].Acceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_Ax2Dec_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx2" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[1].Deceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.AxPar[1].Deceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_EventBinding_Ax2StopDec_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx2" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[1].Stop.Deceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.AxPar[1].Stop.Deceleration" serverAlias="">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx2">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_PidDerivativeTime_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDDerivativeTime" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDDerivativeTime">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_PidGain_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDGain" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDGain">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_PidIntegrationTime_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDIntegrationTime" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDIntegrationTime">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_PidFilterTime_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDFilterTime" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDFilterTime">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_PidMinOut_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDMinOut" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDMinOut">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_PidMaxOut_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDMaxOut" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDMaxOut">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_PidSetValue_Changed">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDSetValue" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDSetValue">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_EditDialogOpenEvent">
+      <Source xsi:type="clientSystem.Event" event="DialogOpened" />
+      <EventHandler condition="dialogId = &quot;EditRecipe_Dialog&quot;">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::MainCtrl:bResetEditValues">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeXml_Pre.Load">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_2">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInLength4" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductLength[3]">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.ProductLength[3]">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength4">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength4">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_3">
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="ContentEditRecipe" widgetRefId="NumInLength5" event="ValueChanged" />
+      <Operand datatype="ANY_REAL" name="OrigValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductLength[4]">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_REAL" name="ModifiedValue">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:MainCtrl.Para.ProductLength[4]">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength5">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="OrigValue = ModifiedValue">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength5">
+            <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_4">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentEditRecipe" widgetRefId="ButtonSaveAndApply" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum3">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="3">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum4">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="4">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInNum5">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="5">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="6">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="7">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength3">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="8">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength4">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="9">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInLength5">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="10">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="11">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputAccAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="12">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="13">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputDecAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="14">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="15">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputSetSpeedAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="16">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx1">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="17">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumericInputStopDecAx2">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="18">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDDerivativeTime">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="19">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDFilterTime">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="20">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDGain">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="21">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDIntegrationTime">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="22">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDMaxOut">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="23">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDMinOut">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="24">
+            <Action>
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="ContentEditRecipe" widgetRefId="NumInPIDSetValue">
+                <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="25">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::MainCtrl:bCopyPreviewParameters">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="26">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Save">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="27">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeXml_0.UpdateNotification">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="28">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_Dialog" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_5">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentCreateNewRecipe" widgetRefId="ButtonCreateAndApply" event="Click" />
+      <EventHandler>
+        <Parallel>
+          <Action>
+            <Target xsi:type="opcUa.NodeAction" refId="::MainCtrl:bCopyPreviewParameters">
+              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            </Target>
+          </Action>
+          <Action>
+            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Confirm">
+              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            </Target>
+          </Action>
+          <Action>
+            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.New.Create">
+              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            </Target>
+          </Action>
+          <Action>
+            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeXml_0.UpdateNotification">
+              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            </Target>
+          </Action>
+          <Action>
+            <Target xsi:type="clientSystem.Action">
+              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="CreateNewRecipe_Dialog" />
+            </Target>
+          </Action>
+        </Parallel>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_RecipePageDown">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentMpRecipe" widgetRefId="ButtonRecipePageDown" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.SelectedIndex">
+                <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="9" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.PageDown">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_RecipePageUp">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentMpRecipe" widgetRefId="ButtonRecipePageUp" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.SelectedIndex">
+                <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="0" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.PageUp">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

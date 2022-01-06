@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">EventLog</prop>
+  </header>
+  <body>
+    <tu tuid="Root">
+      <tuv xml:lang="zh">
+        <seg> {=$EventLog/{&amp;ev}}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{=$EventLog/{&amp;ev}}</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>{&amp;evtime[TIME=%u%R]} {&amp;op} {=$MpAudit/SysF/Event/{&amp;ev}}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="2">
+      <tuv xml:lang="zh">
+        <seg>{=$User/{&amp;act}}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{=$User/{&amp;act}}</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>{=$MpAudit/SysF/User/{&amp;act}}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="16">
+      <tuv xml:lang="zh">
+        <seg>changed value of {&amp;dpid} from {&amp;old} to {&amp;new}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>changed value of {&amp;dpid} from {&amp;old} to {&amp;new}</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>hat Wert {&amp;dpid} von {&amp;old} auf {&amp;new} geändert</seg>
+      </tuv>
+    </tu>
+    <tu tuid="17">
+      <tuv xml:lang="zh">
+        <seg>changed value of (UserID: {&amp;dpid}) from {&amp;old} to {&amp;new}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>changed value of (UserID: {&amp;dpid}) from {&amp;old} to {&amp;new}</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>hat Wert (UserID: {&amp;dpid}) von {&amp;old} auf {&amp;new} geändert</seg>
+      </tuv>
+    </tu>
+    <tu tuid="33">
+      <tuv xml:lang="zh">
+        <seg>报警 {&amp;name} 状态变化: {&amp;stold} to {&amp;stnew}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Alarm {&amp;name} changed state: {&amp;stold} to {&amp;stnew}</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Alarm {&amp;name} Status geändert: {&amp;stold} -&gt; {&amp;stnew}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="48">
+      <tuv xml:lang="zh">
+        <seg>{=$Recipe/{&amp;act}}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{=$Recipe/{&amp;act}}</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>{=$MpAudit/SysF/Recipe/{&amp;act}}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="19">
+      <tuv xml:lang="zh">
+        <seg>参数修改： "{=$IAT/Audit/DP/{&amp;dpid}}"由 {&amp;old|.1f} 修改为 {&amp;new|.1f}{&amp;new[UNIT= %s]}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Changed value of "{=$IAT/Audit/DP/{&amp;dpid}}" from {&amp;old|.1f} to {&amp;new|.1f}{&amp;new[UNIT= %s]}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="18">
+      <tuv xml:lang="zh">
+        <seg>test{&amp;sTempStr${TEXT=EventLog/Custom}}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{&amp;typ${TEXT=EventLog/Custom}}</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

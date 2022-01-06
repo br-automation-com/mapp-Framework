@@ -1,0 +1,32 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * Program: FolderHandling
+ * File: FolderHandling.var
+ * Author: Bernecker + Rainer
+ * Created: December , 2020
+ ********************************************************************
+ * Local variables of program Visualization Control
+ ********************************************************************)
+(*Variable Declaration-------------------------------------------------------------------------*)
+VAR
+	EthConfig : EthConfig_type; (*Ethernet configuration*)
+	CpuIoMap : CpuIoMap_typ; (*Cpu IO Mapping*)
+	CfgGetSubnetMask_0 : CfgGetSubnetMask; (*GetSubnetMask*)
+	CfgGetIPAddr_0 : CfgGetIPAddr; (*GetIPAddr*)
+	CfgGetDefaultGateway_0 : CfgGetDefaultGateway; (*GetDefaultGateway*)
+	CfgSetSubnetMask_0 : CfgSetSubnetMask; (*GetSubnetMask*)
+	CfgSetIPAddr_0 : CfgSetIPAddr; (*GetIPAddr*)
+	CfgSetDefaultGateway_0 : CfgSetDefaultGateway; (*GetDefaultGateway*)
+	sCurrentMode : STRING[80]; (*Current Mode(Simulation/Runtime)*)
+	bSimulation : BOOL; (*Simulation Mode Flag(1: Simulation 0: Runtime)*)
+	bReadEthConfig : BOOL;
+	bWriteEthConfig : BOOL;
+	DTStructureSetTime_0 : DTStructureGetTime;
+	DTStructureGetTime_0 : DTStructureSetTime;
+	DateTimeCfg : DTStructure; (*Date Structure*)
+	ClientInfo : ARRAY[0..MAX_IDX_CLIENTS] OF ClientInfo_typ;
+END_VAR
+VAR CONSTANT
+	MAX_IDX_CLIENTS : USINT := 3;
+END_VAR

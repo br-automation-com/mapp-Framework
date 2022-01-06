@@ -1,0 +1,45 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * Program: FolderHandling
+ * File: FolderHandling.var
+ * Author: Bernecker + Rainer
+ * Created: December , 2020
+ ********************************************************************
+ * Local variables of program AlarmManagement
+ ********************************************************************)
+(*Function Blocks--------------------------------------------------------------------------------------------------------------------*)
+VAR
+	MpAlarmXHistory_0 : MpAlarmXHistory; (*MpAlarmXHistory instance*)
+	MpAlarmXHistoryUI_0 : MpAlarmXHistoryUI; (*MpAlarmXHistoryUI instance*)
+	MpAlarmXListUI_0 : MpAlarmXListUI; (*MpAlarmXList instance*)
+	MpAlarmXCore_0 : MpAlarmXCore; (*MpAlarmXCore instance*) (*ChangeStyleAlarmButton : USINT := 0; (*changeStyle of a AlarmFlyout in mappView*)
+END_VAR
+(*Alarm Management Variables------------------------------------------------------------------------------------------------*)
+VAR
+	Index : USINT; (*Index to loop through alarm list*)
+	MaxIndex : USINT; (*Maximum index for the alarm list*)
+	uInstanceID : UINT; (*Instance ID*)
+	ExportAlarms : BOOL; (*Exports alarms*)
+	MpAlarmXListUIConnect : MpAlarmXListUIConnectType := (0); (*AlarmVideo : WSTRING[255] := "";
+	AlarmInfo : BOOL := 0;*)
+	MpAlarmXHistoryUIConnect : MpAlarmXHistoryUIConnectType; (*AlarmX History connection to UI*)
+	AlarmQuery : {REDUND_UNREPLICABLE} AlarmQueryType; (*Query Results*)
+	MpAlarmXQueryActiveAlarmsFB : {REDUND_UNREPLICABLE} MpAlarmXQuery; (*MpAlarmXQuery instance*)
+END_VAR
+(*Safety Inputs*)
+VAR
+	SafetyInputs : MachineDigitalInputs_type;
+END_VAR
+(*Defines*)
+VAR CONSTANT
+	MAX_IDX_ESTOP : UINT := 2;
+	MAX_IDX_SAFETY_DOOR : UINT := 5;
+END_VAR
+(*Examples*)
+VAR
+	CommissioningModeActive : {REDUND_UNREPLICABLE} BOOL; (*Inhibits the Alarms[0] alarm*)
+	Alarms : {REDUND_UNREPLICABLE} ARRAY[0..99] OF BOOL; (*Array of active alarm*)
+	AlarmExamples : {REDUND_UNREPLICABLE} AlarmExamples_typ; (*Sample alarms for different monitoring types*)
+	MpAlarmXControlExampleFB : {REDUND_UNREPLICABLE} MpAlarmXAlarmControl; (*MpAlarmXAlarmControl instance*)
+END_VAR

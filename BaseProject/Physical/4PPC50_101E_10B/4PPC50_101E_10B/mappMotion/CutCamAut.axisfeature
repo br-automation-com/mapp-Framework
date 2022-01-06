@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="CutterCamAutomat" Type="axisfeature">
+    <Selector ID="Type" Value="CamAutomat">
+      <Selector ID="CamAutomatType" Value="ACOPOS">
+        <Group ID="CommonParameters">
+          <Group ID="Master">
+            <Selector ID="ValueSource" Value="SetPosition">
+              <Property ID="AxisReference" Value="gAxisConveyor" />
+              <Property ID="MaxVelocity" Value="1000" />
+            </Selector>
+            <Property ID="StartPosition" Value="0" />
+            <Selector ID="StartInterval" Value="SpecifyValue">
+              <Property ID="Interval" Value="100" />
+            </Selector>
+          </Group>
+          <Group ID="AdvancedParameters">
+            <Group ID="StartStateParameters">
+              <Property ID="StartState" Value="0" />
+              <Property ID="RelMasterStartPos" Value="0.0" />
+            </Group>
+            <Group ID="AdditiveAxes">
+              <Selector ID="AdditiveMasterValueSource" Value="NotUsed" />
+              <Selector ID="AdditiveSlaveValueSource" Value="NotUsed" />
+            </Group>
+            <Property ID="MasterStartPositionMode" Value="NotEvaluatedAnew" />
+            <Group ID="ControlSettings">
+              <Property ID="CrossLeftBoundary" Value="PositionLimitedHorizontal" />
+              <Property ID="CamChangeImmediately" Value="CurrentMasterMoveDir" />
+            </Group>
+            <Group ID="MessageSettings">
+              <Property ID="ErrorsInStandby" Value="NoErrorMessages" />
+            </Group>
+            <Group ID="TriggerAndLatch">
+              <Property ID="Trigger1Delay" Value="0.0" />
+              <Property ID="Trigger2Delay" Value="0.0" />
+              <Property ID="SlaveLatchParID" Value="0" />
+            </Group>
+            <Group ID="EventParIDs" />
+            <Group ID="StartIntervals" />
+            <Group ID="Factors">
+              <Property ID="SlaveFactorParID" Value="0" />
+            </Group>
+          </Group>
+        </Group>
+        <Group ID="States">
+          <Selector ID="State0" Value="Used">
+            <Group ID="Events">
+              <Group ID="Event[0]">
+                <Property ID="Type" Value="MasterStartPosition" />
+                <Property ID="Transition" Value="Immediately" />
+                <Property ID="SynchronousUpdate" Value="Used" />
+                <Property ID="NextState" Value="1" />
+              </Group>
+            </Group>
+          </Selector>
+          <Group ID="State[1]" Description="Execute first cut">
+            <Selector ID="Cam" Value="Predefined">
+              <Property ID="PredefinedCam" Value="OneToOne" />
+            </Selector>
+            <Property ID="MasterFactor" Value="2000" />
+            <Property ID="SlaveFactor" Value="2000" />
+            <Selector ID="CompensationMode" Value="DistancesBetweenExitEntryPoints">
+              <Property ID="MasterDistance" Value="50" />
+              <Property ID="SlaveDistance" Value="170" />
+              <Selector ID="AdvancedParameters" Value="NotUsed" />
+            </Selector>
+            <Group ID="AdvancedParameters">
+              <Property ID="RepeatCounterInit" Value="0" />
+              <Selector ID="MasterValueSource" Value="CommonMaster" />
+            </Group>
+            <Group ID="Events">
+              <Group ID="Event[0]" Description="Stop cutting after next cut">
+                <Property ID="Type" Value="Signal1FromPLC" />
+                <Property ID="Transition" Value="EndOfState" />
+                <Property ID="SynchronousUpdate" Value="Used" />
+                <Property ID="NextState" Value="3" />
+              </Group>
+              <Group ID="Event[1]">
+                <Property ID="Type" Value="StateEnd" />
+                <Property ID="Transition" Value="EndOfState" />
+                <Property ID="SynchronousUpdate" Value="Used" />
+                <Property ID="NextState" Value="2" />
+              </Group>
+            </Group>
+          </Group>
+          <Group ID="State[2]" Description="Execute cuts">
+            <Selector ID="Cam" Value="Predefined">
+              <Property ID="PredefinedCam" Value="OneToOne" />
+            </Selector>
+            <Property ID="MasterFactor" Value="2000" />
+            <Property ID="SlaveFactor" Value="2000" />
+            <Selector ID="CompensationMode" Value="DistancesBetweenCamCenterPoints">
+              <Property ID="MasterDistance" Value="100" />
+              <Property ID="SlaveDistance" Value="360" />
+              <Selector ID="AdvancedParameters" Value="NotUsed" />
+            </Selector>
+            <Group ID="AdvancedParameters">
+              <Property ID="RepeatCounterInit" Value="0" />
+              <Selector ID="MasterValueSource" Value="CommonMaster" />
+            </Group>
+            <Group ID="Events">
+              <Group ID="Event[0]" Description="Stop cutting after next cut">
+                <Property ID="Type" Value="Signal1FromPLC" />
+                <Property ID="Transition" Value="EndOfState" />
+                <Property ID="SynchronousUpdate" Value="Used" />
+                <Property ID="NextState" Value="3" />
+              </Group>
+              <Group ID="Event[1]">
+                <Property ID="Type" Value="StateEnd" />
+                <Property ID="Transition" Value="EndOfState" />
+                <Property ID="SynchronousUpdate" Value="Used" />
+                <Property ID="NextState" Value="2" />
+              </Group>
+            </Group>
+          </Group>
+          <Group ID="State[3]" Description="decelerate and stop at home position">
+            <Selector ID="Cam" Value="Predefined">
+              <Property ID="PredefinedCam" Value="ZeroPoint" />
+            </Selector>
+            <Property ID="MasterFactor" Value="1000" />
+            <Property ID="SlaveFactor" Value="0" />
+            <Selector ID="CompensationMode" Value="DistancesBetweenCamCenterPoints">
+              <Property ID="MasterDistance" Value="50" />
+              <Property ID="SlaveDistance" Value="180" />
+              <Selector ID="AdvancedParameters" Value="NotUsed" />
+            </Selector>
+            <Group ID="AdvancedParameters">
+              <Property ID="RepeatCounterInit" Value="0" />
+              <Selector ID="MasterValueSource" Value="CommonMaster" />
+            </Group>
+            <Group ID="Events">
+              <Group ID="Event[0]">
+                <Property ID="Type" Value="StateEnd" />
+                <Property ID="Transition" Value="EndOfState" />
+                <Property ID="SynchronousUpdate" Value="Used" />
+                <Property ID="NextState" Value="0" />
+              </Group>
+            </Group>
+          </Group>
+        </Group>
+      </Selector>
+    </Selector>
+  </Element>
+</Configuration>

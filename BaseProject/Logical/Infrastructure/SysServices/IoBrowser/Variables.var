@@ -1,0 +1,31 @@
+(*Io process related variables*)
+VAR
+	GatIoForcingHandler_0 : GatIoForcingHandler; (*Function block for Io handling (browser & forcing)*)
+	IoModules : ARRAY[0..gatMAX_IDX_IO_MODULES] OF GatIoModulesType;
+	pIoChannelTemp : REFERENCE TO GatIoChannelType;
+	pIoChannel : REFERENCE TO GatIoChannelType;
+END_VAR
+(*Helper variables for mappView*)
+VAR
+	sStationList : ARRAY[0..gatMAX_IDX_IO_MODULES] OF STRING[80];
+	sModuleList : ARRAY[0..gatMAX_IDX_IO_MODULES] OF STRING[80];
+	sIoChannelList : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF STRING[80];
+	sIoPvList : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF STRING[80];
+	sIoValueList : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF STRING[20];
+	iIoValueList : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF DINT;
+	uStationIdx : UINT;
+	uModuleIdx : UINT;
+	uChannelIdx : UINT;
+	sSelectedStation : STRING[80];
+	uSelectedStation : UINT;
+	uLastSelectedStation : UINT;
+	uSelectedModule : UINT;
+	uLastSelectedModule : UINT;
+	uSelectedChannel : UINT;
+	uLastSelectedChannel : UINT;
+	sTableConfigChannels : STRING[200];
+	sTableConfigStations : STRING[200];
+	sTableConfig : STRING[200];
+	sTempStationPath : STRING[80];
+	bLastModuleInvisible : BOOL;
+END_VAR

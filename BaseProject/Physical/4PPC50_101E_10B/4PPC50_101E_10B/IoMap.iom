@@ -1,0 +1,15 @@
+VAR_CONFIG
+	::SysServs:CpuIoMap.SerialNumber_CPU AT %ID."4PPC50_101E_10B".SerialNumber_CPU;
+	::SysServs:CpuIoMap.ModuleID_CPU AT %IW."4PPC50_101E_10B".ModuleID_CPU;
+	::SysServs:CpuIoMap.HardwareVariant AT %IW."4PPC50_101E_10B".HardwareVariant;
+	::SysServs:CpuIoMap.FirmwareVersion AT %IW."4PPC50_101E_10B".FirmwareVersion;
+	::SysServs:CpuIoMap.TemperatureCPU AT %IW."4PPC50_101E_10B".TemperatureCPU;
+	::SysServs:CpuIoMap.TemperatureENV AT %IW."4PPC50_101E_10B".TemperatureENV;
+	::SysServs:CpuIoMap.TerminalTemperatureCPU AT %IW."4PPC50_101E_10B".TerminalTemperatureCPU;
+	::SysServs:CpuIoMap.TerminalOK AT %IX."4PPC50_101E_10B".TerminalOk;
+	::SysServs:CpuIoMap.TerminalStatus AT %IB."4PPC50_101E_10B".TerminalStatus;
+	::SysServs:CpuIoMap.TerminalLoadCPU0 AT %IB."4PPC50_101E_10B".TerminalLoadCPU0;
+	::SysServs:CpuIoMap.TerminalLoadCPU1 AT %IB."4PPC50_101E_10B".TerminalLoadCPU1;
+	::AlarmMgt:SafetyInputs.SafetyPLC AT %IX."X20DI9371".DigitalInput02;
+	::AlarmMgt:SafetyInputs.EmergencyStop[0]  AT %IX."X20DI9371a".DigitalInput06;
+END_VAR

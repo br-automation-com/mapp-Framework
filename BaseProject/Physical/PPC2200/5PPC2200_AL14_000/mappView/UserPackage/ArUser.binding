@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="ContentUser_Binding">
+	<Bindings>
+
+		<!-- Read user names from session />-->	
+		<!--<Binding mode="oneWayToSource">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xsi:type="be:opcUa" attribute="value">
+					<bt:Element index="0" refId="::UserMgt:gUser.DAT.UserActive[0]" />
+					<bt:Element index="1" refId="::UserMgt:gUser.DAT.UserActive[1]" />
+					<bt:Element index="2" refId="::UserMgt:gUser.DAT.UserActive[2]" />
+				</be:List>
+			</Source>
+			<Target xsi:type="session" refId="::SYSTEM:clientInfo.userId" attribute="value" />
+		</Binding>-->
+		
+	</Bindings>
+</BindingsSet>

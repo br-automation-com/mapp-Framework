@@ -1,0 +1,36 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * Program: FolderHandling
+ * File: FolderHandling.var
+ * Author: Bernecker + Rainer
+ * Created: December , 2020
+ ********************************************************************
+ * Local variables of program AlarmManagement
+ ********************************************************************)
+(*Function Block Declaration----------------------------------------------------------------------------------------*)
+VAR
+	MpRecipeXml_Pre : MpRecipeXml;
+	MpRecipeXml_0 : MpRecipeXml; (*Recipe Management Function Block*)
+	MpRecipeUI_0 : MpRecipeUI; (*Recipe to UI*)
+END_VAR
+(*Recipe Management Variables---------------------------------------------------------------------------------*)
+VAR
+	Index : USINT; (*Index to loop through file devices*)
+	MpRecipeUIConnect : MpRecipeUIConnectType := (Recipe:=(Filter:='*xml'),New:=(FileName:='newRecipe.xml')); (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
+	hmiRecipe : RecipeHmiInterface_type;
+	Header : MpRecipeXmlHeaderType;
+	DTGetTime_0 : DTGetTime;
+END_VAR
+(*File Management Variables-----------------------------------------------------------------------------------------*)
+VAR
+	MpFileManagerUIConnect : MpFileManagerUIConnectType;
+	MpFileManagerUI_0 : MpFileManagerUI;
+END_VAR
+(*Defines*)
+VAR CONSTANT
+	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 1;
+	PRODUCT_CATEGORY : STRING[7] := 'Product';
+	MACHINE_CATEGORY : STRING[7] := 'Machine';
+	MACHINE_FILENAME : STRING[11] := 'Machine.fix';
+END_VAR

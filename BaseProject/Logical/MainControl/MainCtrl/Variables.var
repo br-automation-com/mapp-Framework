@@ -1,0 +1,36 @@
+(*Main Control----------------------------------------*)
+VAR
+	MainCtrl : MainCtrl_typ; (*Main Control Variable*)
+	MpAxisBasic_x : ARRAY[0..MAX_IDX_AXIS] OF MpAxisBasic; (*MpAxis Declaration*)
+	PreviewParameters : MainParameters_typ;
+	MpRecipeRegPar_M : MpRecipeRegPar; (*Register fix parameters to MpRecipe*)
+	MpRecipeRegPar_Pre1 : MpRecipeRegPar; (*Register preview parameters*)
+	MpRecipeRegPar_Pre2 : MpRecipeRegPar; (*Register preview parameters*)
+	MpRecipeRegPar_P : MpRecipeRegPar; (*Register product parameters to MpRecipe*)
+	sReactionName : STRING[80]; (*String to check for MpAlarmX reactions*)
+	bLastAutoModeOn : BOOL; (*Last cycle's status of auto mode on switch*)
+	bResetEditValues : BOOL;
+	bCopyPreviewParameters : BOOL;
+END_VAR
+(*Motion Control Related Variables ------------------------------------------------------------------------------------------------*)
+VAR
+	AxisControl : ARRAY[0..MAX_IDX_AXIS] OF AxControl_typ; (*control structure*)
+	McCamAutDefine : McAcpAxCamAutDefineType; (*Definition of cam automat parameters*)
+	McCamAutPar : McAcpAxCamAutParType; (*Cam automat parameters*)
+	MC_ReadAxisError_x : ARRAY[0..MAX_IDX_AXIS] OF MC_ReadAxisError; (*Read Axis Error Function Block*)
+	MC_ReadActualTorque_x : ARRAY[0..MAX_IDX_AXIS] OF MC_ReadActualTorque; (*Read Actual PositionFunction Block *)
+	MC_BR_CamAutomatCommand_0 : MC_BR_CamAutomatCommand; (*Cam Automat Command Function Block*)
+	MC_BR_CamAutomatGetPar_AcpAx_0 : MC_BR_CamAutomatGetPar_AcpAx; (*Get Cam Automat Parameters Function Block*)
+	MC_BR_CamAutomatSetPar_AcpAx_0 : MC_BR_CamAutomatSetPar_AcpAx; (*Set Cam Automat Parameters Function Block*)
+	bStopMovementsReaction : BOOL; (*Stop movements on positive edge of alarm reaction*)
+	uAxIndex : USINT := 0; (*Index for Axis in FOR Statement*)
+	uInitCamAut : USINT; (*state of initializing camaut data*)
+	bUpdateCamAutomat : BOOL;
+	uCamUpdateState : USINT;
+END_VAR
+(*Constants---------------------------------------------------------------------------------------------------------------------------------*)
+VAR CONSTANT
+	AXIS_IDX_FEEDER : USINT := 0; (*Axis index of the feeder axis*)
+	AXIS_IDX_CUTTER : USINT := 1; (*Axis index of the cutter axis*)
+	MAX_IDX_AXIS : USINT := 1; (*Max axis index*)
+END_VAR

@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="settingsContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::SysServs:EthConfig.Gateway" attribute="value" />
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="TextInputEthGateway" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::SysServs:EthConfig.SubnetMask" attribute="value" />
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="TextInputEthSubnetMask" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::SysServs:EthConfig.Ip" attribute="value" />
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="TextInputEthIp" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AsGlobalPV:gVisuCtrl.cmd.bEnableMpUserX" attribute="value" />
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="TabItem3" attribute="visible" />
+		</Binding>
+
+		<!-- Multiple bindings from mappView to PLC />-->
+		<Binding mode="oneWayToSource">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::UserMgt:gUser.VIS[0].ListUserIndex" />
+					<bt:Element index="1" refId="::UserMgt:gUser.VIS[1].ListUserIndex" />
+					<bt:Element index="2" refId="::UserMgt:gUser.VIS[2].ListUserIndex" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="lstUsers" attribute="selectedIndex" />
+		</Binding>
+		
+		<Binding mode="oneWayToSource">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::UserMgt:gUser.VIS[0].ListUserRoleIndex" />
+					<bt:Element index="1" refId="::UserMgt:gUser.VIS[1].ListUserRoleIndex" />
+					<bt:Element index="2" refId="::UserMgt:gUser.VIS[2].ListUserRoleIndex" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="lstUserRole" attribute="selectedIndex" />
+		</Binding>
+		
+		<Binding mode="oneWayToSource">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::UserMgt:gUser.VIS[0].ListRoleIndex" />
+					<bt:Element index="1" refId="::UserMgt:gUser.VIS[1].ListRoleIndex" />
+					<bt:Element index="2" refId="::UserMgt:gUser.VIS[2].ListRoleIndex" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="lstRoles" attribute="selectedIndex" />
+		</Binding>
+	
+		<!-- Multiple bindings from vis PLC to mappView />-->	
+		<Binding mode="oneWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::UserMgt:gUser.VIS[0].ListUsers" />
+					<bt:Element index="1" refId="::UserMgt:gUser.VIS[1].ListUsers" />
+					<bt:Element index="2" refId="::UserMgt:gUser.VIS[2].ListUsers" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="lstUsers" attribute="dataProvider" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::UserMgt:gUser.VIS[0].ListUserRole" />
+					<bt:Element index="1" refId="::UserMgt:gUser.VIS[1].ListUserRole" />
+					<bt:Element index="2" refId="::UserMgt:gUser.VIS[2].ListUserRole" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="lstUserRole" attribute="dataProvider" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::UserMgt:gUser.VIS[0].ListRoles" />
+					<bt:Element index="1" refId="::UserMgt:gUser.VIS[1].ListRoles" />
+					<bt:Element index="2" refId="::UserMgt:gUser.VIS[2].ListRoles" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="lstRoles" attribute="dataProvider" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::UserMgt:gUser.VIS[0].UserDeleteEnabled" />
+					<bt:Element index="1" refId="::UserMgt:gUser.VIS[1].UserDeleteEnabled" />
+					<bt:Element index="2" refId="::UserMgt:gUser.VIS[2].UserDeleteEnabled" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="btnDeleteUser" attribute="enable" />
+		</Binding>
+		
+		<Binding mode="oneWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::UserMgt:gUser.VIS[0].RoleDeleteEnabled" />
+					<bt:Element index="1" refId="::UserMgt:gUser.VIS[1].RoleDeleteEnabled" />
+					<bt:Element index="2" refId="::UserMgt:gUser.VIS[2].RoleDeleteEnabled" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="btnReleaseRole" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::UserMgt:gUser.VIS[0].UserDeleteEnabled" />
+					<bt:Element index="1" refId="::UserMgt:gUser.VIS[1].UserDeleteEnabled" />
+					<bt:Element index="2" refId="::UserMgt:gUser.VIS[2].UserDeleteEnabled" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="btnRenameUser" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="brease" contentRefId="settingsContent" widgetRefId="lstUsers" attribute="selectedValue" />
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="txtInUserNameManagment" attribute="value" />
+		</Binding>
+		<!--<Binding mode="twoWay">
+		<Source xsi:type="opcUa" refId="::UserX:bUserErrorActive[2]" attribute="value" />
+		<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="ImageList9" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+		<Source xsi:type="opcUa" refId="::UserX:bUserErrorActive[1]" attribute="value" />
+		<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="ImageList10" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+		<Source xsi:type="opcUa" refId="::UserX:bUserErrorActive[0]" attribute="value" />
+		<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="ImageList8" attribute="selectedIndex" />
+		</Binding>-->
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::SysServs:DateTimeCfg.year" attribute="value" />
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="NumInYear" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::SysServs:DateTimeCfg.month" attribute="value" />
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="NumInMonth" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::SysServs:DateTimeCfg.day" attribute="value" />
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="NumInDay" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::SysServs:DateTimeCfg.hour" attribute="value" />
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="NumInHours" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::SysServs:DateTimeCfg.minute" attribute="value" />
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="NumInMinutes" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::SysServs:DateTimeCfg.second" attribute="value" />
+			<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="NumInSeconds" attribute="value" />
+		</Binding>
+		
+		<Binding mode="oneWayToSource">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xsi:type="be:opcUa" attribute="value">
+					<bt:Element index="0" refId="::SysServs:ClientInfo[0].userId" />
+					<bt:Element index="1" refId="::SysServs:ClientInfo[1].userId" />
+					<bt:Element index="2" refId="::SysServs:ClientInfo[2].userId" />
+					<bt:Element index="3" refId="::SysServs:ClientInfo[3].userId" />
+					<bt:Element index="4" refId="::SysServs:ClientInfo[4].userId" />
+				</be:List>
+			</Source>
+			<Target xsi:type="session" refId="::SYSTEM:clientInfo.userId" attribute="value" />
+		</Binding>
+		<Binding mode="oneWayToSource">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xsi:type="be:opcUa" attribute="value">
+					<bt:Element index="0" refId="::SysServs:ClientInfo[0].ipAddress" />
+					<bt:Element index="1" refId="::SysServs:ClientInfo[1].ipAddress" />
+					<bt:Element index="2" refId="::SysServs:ClientInfo[2].ipAddress" />
+					<bt:Element index="3" refId="::SysServs:ClientInfo[3].ipAddress" />
+					<bt:Element index="4" refId="::SysServs:ClientInfo[4].ipAddress" />
+				</be:List>
+			</Source>
+			<Target xsi:type="session" refId="::SYSTEM:clientInfo.ipAddress" attribute="value" />
+		</Binding>
+		<Binding mode="oneWayToSource">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xsi:type="be:opcUa" attribute="value">
+					<bt:Element index="0" refId="::SysServs:ClientInfo[0].activityCount" />
+					<bt:Element index="1" refId="::SysServs:ClientInfo[1].activityCount" />
+					<bt:Element index="2" refId="::SysServs:ClientInfo[2].activityCount" />
+					<bt:Element index="3" refId="::SysServs:ClientInfo[3].activityCount" />
+					<bt:Element index="4" refId="::SysServs:ClientInfo[4].activityCount" />
+				</be:List>
+			</Source>
+			<Target xsi:type="session" refId="::SYSTEM:clientInfo.activityCount" attribute="value" />
+		</Binding>
+		<Binding mode="oneWayToSource">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xsi:type="be:opcUa" attribute="value">
+					<bt:Element index="0" refId="::SysServs:ClientInfo[0].languageId" />
+					<bt:Element index="1" refId="::SysServs:ClientInfo[1].languageId" />
+					<bt:Element index="2" refId="::SysServs:ClientInfo[2].languageId" />
+					<bt:Element index="3" refId="::SysServs:ClientInfo[3].languageId" />
+					<bt:Element index="4" refId="::SysServs:ClientInfo[4].languageId" />
+				</be:List>
+			</Source>
+			<Target xsi:type="session" refId="::SYSTEM:clientInfo.languageId" attribute="value" />
+		</Binding>
+		<Binding mode="oneWayToSource">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xsi:type="be:opcUa" attribute="value">
+					<bt:Element index="0" refId="::SysServs:ClientInfo[0].isValid" />
+					<bt:Element index="1" refId="::SysServs:ClientInfo[1].isValid" />
+					<bt:Element index="2" refId="::SysServs:ClientInfo[2].isValid" />
+					<bt:Element index="3" refId="::SysServs:ClientInfo[3].isValid" />
+					<bt:Element index="4" refId="::SysServs:ClientInfo[4].isValid" />
+				</be:List>
+			</Source>
+			<Target xsi:type="session" refId="::SYSTEM:clientInfo.isValid" attribute="value" />
+		</Binding>
+		<Binding mode="oneWayToSource">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xsi:type="be:opcUa" attribute="value">
+					<bt:Element index="0" refId="::SysServs:ClientInfo[0].currentPageId" />
+					<bt:Element index="1" refId="::SysServs:ClientInfo[1].currentPageId" />
+					<bt:Element index="2" refId="::SysServs:ClientInfo[2].currentPageId" />
+					<bt:Element index="3" refId="::SysServs:ClientInfo[3].currentPageId" />
+					<bt:Element index="4" refId="::SysServs:ClientInfo[4].currentPageId" />
+				</be:List>
+			</Source>
+			<Target xsi:type="session" refId="::SYSTEM:clientInfo.currentPageId" attribute="value" />
+		</Binding>
+		<Binding mode="oneWayToSource">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
+				<be:List xsi:type="be:opcUa" attribute="value">
+					<bt:Element index="0" refId="::SysServs:ClientInfo[0].measurementSystemId" />
+					<bt:Element index="1" refId="::SysServs:ClientInfo[1].measurementSystemId" />
+					<bt:Element index="2" refId="::SysServs:ClientInfo[2].measurementSystemId" />
+					<bt:Element index="3" refId="::SysServs:ClientInfo[3].measurementSystemId" />
+					<bt:Element index="4" refId="::SysServs:ClientInfo[4].measurementSystemId" />
+				</be:List>
+			</Source>
+			<Target xsi:type="session" refId="::SYSTEM:clientInfo.measurementSystemId" attribute="value" />
+		</Binding>
+	
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gVisuCtrl.cmd.bEnableArUser" attribute="value" />
+<Target xsi:type="brease" contentRefId="settingsContent" widgetRefId="TabItem2" attribute="visible" />
+</Binding>
+
+</Bindings>
+</BindingsSet>

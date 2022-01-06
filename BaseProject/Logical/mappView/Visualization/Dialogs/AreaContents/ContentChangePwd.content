@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="ContentChangePwd" height="500" width="700" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="0" left="0" width="700" height="500" zIndex="0" backColor="rgba(255, 255, 255, 0)" headerBackColor="rgba(220, 220, 220, 1)">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.Label" id="Label1" top="100" left="80" width="190" height="45" zIndex="0" text="$IAT/UserMgmt/User" fontSize="22px" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelCurrentPwd" top="160" left="80" width="190" height="45" zIndex="1" text="$IAT/UserMgmt/CurrentPassword" fontSize="22px" />
+        <Widget xsi:type="widgets.brease.Password" id="PasswordCurrent" top="160" left="360" width="280" height="45" zIndex="2" fontSize="20px" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutputUserName" top="100" left="360" width="280" height="50" zIndex="3" style="Output" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelNewPwd" top="220" left="80" width="190" height="45" zIndex="4" text="$IAT/UserMgmt/NewPassword" fontSize="22px" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelConfirmPwd" top="280" left="80" width="190" height="45" zIndex="5" text="$IAT/UserMgmt/ConfirmPassword" fontSize="22px" />
+        <Widget xsi:type="widgets.brease.Password" id="PasswordNew" top="220" left="360" width="280" height="45" zIndex="6" fontSize="20px" />
+        <Widget xsi:type="widgets.brease.Password" id="PasswordConfirm" top="280" left="360" width="280" height="45" zIndex="7" fontSize="20px" />
+        <Widget xsi:type="widgets.brease.PushButton" id="PushButtonConfirm" top="380" left="100" width="200" height="60" zIndex="8" text="$IAT/UserMgmt/Confirm" fontSize="20px" style="Br_White" />
+        <Widget xsi:type="widgets.brease.PushButton" id="PushButtonCancel" top="380" left="400" width="200" height="60" zIndex="9" text="$IAT/UserMgmt/Cancel" fontSize="20px" style="Br_White" />
+      </Widgets>
+    </Widget>
+  </Widgets>
+</Content>

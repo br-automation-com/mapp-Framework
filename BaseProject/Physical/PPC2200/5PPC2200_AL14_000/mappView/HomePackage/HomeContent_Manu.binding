@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="ContentHomeManu_Binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.AutoModeOn" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="LblSwitchOffAuto" attribute="visible" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Parameter.AxPar.Velocity" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumInAx1SetSpeed" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.ActVelocity" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutAx1ActSpeed1" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.ActPosition" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutAx1ActPos" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.ActPosition" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutAx2ActPos" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.ActVelocity" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutAx2ActSpeed1" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Parameter.AxPar.Velocity" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumInAx2SetSpeed" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Parameter.AxPar.Distance" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumInAx2SetDistance" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Parameter.AxPar.Position" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumInAx2Position" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Command.Power" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="ToggleSwitchPowerAx1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Command.Power" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="ToggleSwitchPowerAx2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Parameter.AxPar.Distance" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumInAx1SetDistanceMan" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Parameter.AxPar.Position" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumInAx1Position" attribute="node" />
+		</Binding>
+
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Parameter.AxPar.LimitLoad.Load" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumInAx2MaxTorque" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Parameter.AxPar.LimitLoad.Load" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumInAx1MaxTorque" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Command.MoveAdditive" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnAdditiveMove" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.AutoModeOn" attribute="value" />
+			<Target xsi:type="expression" refId="ManualModeActive" attribute="inA" />
+		</Binding>
+
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Command.Stop" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnStopAx2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Command.MoveAbsolute" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnMoveAbsAx2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Command.TorqueControl" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TSwTorqueCtrlAx1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Command.TorqueControl" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TSwTorqueCtrlAx2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Command.MoveAbsolute" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnMoveAbsAx1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Command.MoveAdditive" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnAdditiveMoveAx1" attribute="value" />
+		</Binding>
+
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Command.ErrorAcknowledge" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnErrorReset" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Command.ErrorAcknowledge" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnErrorResetAx2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.ActTorque" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutAx2ActTorque" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.ActTorque" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutAx1ActTorque" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Command.Stop" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnStopAx1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Command.MoveJogNeg" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnJogNegAx1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Command.MoveJogPos" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnJogPosAx1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Command.MoveJogNeg" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnJogNegAx2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Command.MoveJogPos" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnJogPosAx2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Command.Home" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnHomeAx1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Command.Home" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnHomeAx2" attribute="value" />
+		</Binding>
+		
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.PowerOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax1ReadyManual" attribute="inA" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.IsHomed" attribute="value" />
+			<Target xsi:type="expression" refId="Ax1ReadyManual" attribute="inB" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.AutoModeOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax1ReadyManual" attribute="inC" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.PowerOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax1ReadyManualHome" attribute="inA" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.AutoModeOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax1ReadyManualHome" attribute="inB" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.PowerOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax2ReadyManual" attribute="inA" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.IsHomed" attribute="value" />
+			<Target xsi:type="expression" refId="Ax2ReadyManual" attribute="inB" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.AutoModeOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax2ReadyManual" attribute="inC" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.PowerOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax2ReadyManualHome" attribute="inA" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.AutoModeOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax2ReadyManualHome" attribute="inB" />
+		</Binding>
+		
+		
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax1ReadyManual" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnMoveAbsAx1" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax1ReadyManual" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnJogPosAx1" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax1ReadyManual" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnJogNegAx1" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax1ReadyManual" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnAdditiveMoveAx1" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax2ReadyManual" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnJogPosAx2" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax2ReadyManual" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnJogNegAx2" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax2ReadyManual" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnAdditiveMove" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax2ReadyManual" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnMoveAbsAx2" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax1ReadyManualHome" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnHomeAx1" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax2ReadyManualHome" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnHomeAx2" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="ManualModeActive" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="ToggleSwitchPowerAx1" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="ManualModeActive" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="ToggleSwitchPowerAx2" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].AxisState" attribute="value" />
+			<Target xsi:type="expression" refId="Ax1HasError" attribute="inA" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].AxisState" attribute="value" />
+			<Target xsi:type="expression" refId="Ax2HasError" attribute="inA" />
+		</Binding>
+	<Binding mode="oneWay">
+<Source xsi:type="expression" refId="Ax1HasError" attribute="result" />
+<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnErrorReset" attribute="enable" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="expression" refId="Ax2HasError" attribute="result" />
+<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnErrorResetAx2" attribute="enable" />
+</Binding>
+</Bindings>
+</BindingsSet>

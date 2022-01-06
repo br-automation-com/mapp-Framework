@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="HomeContent_EventBinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="EventBinding_TorqueLimitedAx1">
+      <Source xsi:type="opcUa.Event" refId="::MainCtrl:AxisControl[0].Status.TorqueLimited" event="ValueChanged" />
+      <EventHandler condition="newValue = true">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="HomeContent" widgetRefId="NumOutAx1ActTorque">
+            <Method xsi:type="widgets.brease.NumericOutput.Action.SetStyle" value="Br_OutputWhiteRedText" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue = false">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="HomeContent" widgetRefId="NumOutAx1ActTorque">
+            <Method xsi:type="widgets.brease.NumericOutput.Action.SetStyle" value="Br_OutputWhite" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_TorqueLimitedAx2">
+      <Source xsi:type="opcUa.Event" refId="::MainCtrl:AxisControl[1].Status.TorqueLimited" event="ValueChanged" />
+      <EventHandler condition="newValue = true">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="HomeContent" widgetRefId="NumOutAx2ActTorque">
+            <Method xsi:type="widgets.brease.NumericOutput.Action.SetStyle" value="Br_OutputWhiteRedText" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue = false">
+        <Action>
+          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="HomeContent" widgetRefId="NumOutAx2ActTorque">
+            <Method xsi:type="widgets.brease.NumericOutput.Action.SetStyle" value="Br_OutputWhite" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_PidSaveAndApply">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="HomeContent" widgetRefId="ButtonSaveAndApply" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::MainCtrl:bCopyPreviewParameters">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.SaveCurrentRecipe">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeXml_0.UpdateNotification">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_TuningDone">
+      <Source xsi:type="opcUa.Event" refId="::PIDControl:MTBasicsOscillationTuning_0.TuningDone" event="ValueChanged" />
+      <EventHandler condition="newValue = true">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Home/TuningDone" header="$IAT/Home/PIDTuning" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="HomeContent" widgetRefId="ToggleButtonPidTuning">
+                <Method xsi:type="widgets.brease.ToggleButton.Action.SetValue" value="0" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

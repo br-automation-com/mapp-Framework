@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="PureVAxCfg_Conveyor" Type="purevaxcfg">
+    <Property ID="TypeID" Value="PureVAxConfig" />
+    <Group ID="PureVAxis">
+      <Property ID="AxisReference" Value="gAxisConveyor" />
+      <Group ID="Homing">
+        <Selector ID="Mode" Value="Direct">
+          <Property ID="Position" Value="0.0" />
+          <Selector ID="ReferencePulse" Value="NotUsed" />
+        </Selector>
+        <Property ID="RestorePositionVariable" />
+      </Group>
+      <Selector ID="JerkFilter" Value="NotUsed" />
+    </Group>
+  </Element>
+</Configuration>

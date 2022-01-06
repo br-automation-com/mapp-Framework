@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="AutomaticSettingsBackupContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Bindings>
+        
+        
+        
+        
+        
+        <Binding mode="twoWay">
+            <Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="LabelTimeOfDay" attribute="visible" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxOverwriteOldest" attribute="visible" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="DropDownBoxDevice" attribute="visible" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="NumericInputOverwrite" attribute="visible" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="LabelInterval" attribute="visible" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="LabelPrefix" attribute="visible" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="DropDownInterval" attribute="visible" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="LabelDevice" attribute="visible" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="TextInputPrefix" attribute="visible" />
+        </Binding>
+        
+    <Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.DeviceDataProvider" attribute="value" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="DropDownBoxDevice" attribute="dataProvider" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxOverwriteOldest" attribute="value" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="NumericInputOverwrite" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Mode.Hour" attribute="node" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="NumInHour" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Mode.Minute" attribute="node" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="NumInMinute" attribute="node" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="NumInHour" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="NumInMinute" attribute="visible" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Device" attribute="value" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="DropDownBoxDevice" attribute="selectedValue" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Prefix" attribute="value" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="TextInputPrefix" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Mode.Interval" attribute="value" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="DropDownInterval" attribute="selectedIndex" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Enable" attribute="value" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxEnable" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.OverwriteOldest.MaximumNumberOfBackups" attribute="node" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="NumericInputOverwrite" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.OverwriteOldest.Enabled" attribute="value" />
+<Target xsi:type="brease" contentRefId="AutomaticSettingsBackupContent" widgetRefId="CheckBoxOverwriteOldest" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

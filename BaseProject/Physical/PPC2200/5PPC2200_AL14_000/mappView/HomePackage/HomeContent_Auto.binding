@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="ContentHomeAuto_Binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+		
+		
+		
+
+		
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.LastLoadedRecipe" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="txtOutRecipeName" attribute="value" />
+		</Binding>
+
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Status.ProductsCutTotal" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutAlreadyCutTotal" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Status.CurrentBatchLength" attribute="node" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutLength" attribute="node" />
+		</Binding>
+		
+
+		
+
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.AutoModeOn" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TSwMachineOn" attribute="value" />
+		</Binding>
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MpAxisBasic_x[0].MoveActive" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="PushButtonUpdate" attribute="enable" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MpAxisBasic_x[0].Update" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="PushButtonUpdate" attribute="value" />
+		</Binding>
+		
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MC_BR_CamAutomatCommand_0.Running" attribute="value" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="ImageGearIn" attribute="visible" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MC_BR_CamAutomatCommand_0.Running" attribute="value" />
+			<Target xsi:type="expression" refId="CamNotRunning" attribute="inA" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="expression" refId="CamNotRunning" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="ImageGearOut" attribute="visible" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.PowerOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax1ReadyAuto" attribute="inA" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.IsHomed" attribute="value" />
+			<Target xsi:type="expression" refId="Ax1ReadyAuto" attribute="inB" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.AutoModeOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax1ReadyAuto" attribute="inC" />
+		</Binding>
+
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax1ReadyAuto" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnStartStop" attribute="enable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="Ax2ReadyAuto" attribute="result" />
+			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnSyncOnOff" attribute="enable" />
+		</Binding>
+
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.PowerOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax2ReadyAuto" attribute="inA" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.IsHomed" attribute="value" />
+			<Target xsi:type="expression" refId="Ax2ReadyAuto" attribute="inB" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.AutoModeOn" attribute="value" />
+			<Target xsi:type="expression" refId="Ax2ReadyAuto" attribute="inC" />
+		</Binding>
+
+        
+        <Binding mode="twoWay">
+            <Source xsi:type="opcUaComplexObject" refId="::CrossCutte:AxisControl" />
+            <Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="AxisManualControlWidget2" attribute="AxisControl" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="opcUaComplexObject" refId="::Conveyor:AxisControl" />
+            <Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="AxisManualControlWidget1" attribute="AxisControl" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Velocity" attribute="node" />
+            <Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumericInputFeederSetVel" attribute="node" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Status.Position" attribute="node" />
+            <Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutFeedPos" attribute="node" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Status.Velocity" attribute="node" />
+            <Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutFeederActSpeed" attribute="node" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Status.Position" attribute="node" />
+            <Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutCutterPos" attribute="node" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Status.Velocity" attribute="node" />
+            <Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutCutterActSpeed" attribute="node" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Command.Start" attribute="value" />
+            <Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnStartStop" attribute="value" />
+        </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Command.Start" attribute="value" />
+            <Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnSyncOnOff" attribute="value" />
+        </Binding>
+        
+	</Bindings>
+</BindingsSet>

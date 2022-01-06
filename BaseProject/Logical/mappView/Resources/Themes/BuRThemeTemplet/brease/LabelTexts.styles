@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Styles id="BuRThemeTempletlabelTextsStyles" xmlns="http://www.br-automation.com/iat2015/styles/engineering/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<Style id="Caption" xsi:type="widgets.brease.Label" 
+		fontSize="16px" 
+		textColor="#646464" 
+		backColor="transparent" 
+		borderStyle="none" 
+		padding="20px" 
+		bold="true"/>
+	
+	<Style id="Title1" xsi:type="widgets.brease.Label" 
+		fontSize="22px" 
+		textColor="#FF8800" 
+		bold="false" 
+		backColor="transparent"
+		borderStyle="none" 
+		padding="5px" />
+	
+	<Style id="Title2" xsi:type="widgets.brease.Label" 
+		fontSize="18px" 
+		textColor="#FF8800" 
+		bold="false" 
+		backColor="transparent" 
+		borderStyle="none" 
+		padding="5px" />
+	
+	<Style id="Title3" xsi:type="widgets.brease.Label" 
+		fontSize="16px" 
+		textColor="#FF8800" 
+		bold="false" 
+		italic="true" 
+		backColor="transparent" 
+		borderStyle="none" 
+		padding="5px" />
+	
+	<Style id="Description" xsi:type="widgets.brease.Label" 
+		fontSize="16px" 
+		textColor="#646464" 
+		backColor="transparent" 
+		borderColor="#646464" 
+		borderWidth="2px" 
+		borderStyle="solid" 
+		padding="5px" 
+		bold="false"/>
+	
+	<Style id="Information" xsi:type="widgets.brease.Label" 
+		fontSize="16px" 
+		textColor="#646464" 
+		backColor="transparent" 
+		borderColor="#FF8800" 
+		borderWidth="2px" 
+		borderStyle="solid" 
+		padding="5px" 
+	bold="false"/>
+	
+	<Style id="NotInForce" xsi:type="widgets.brease.Label" 
+		fontSize="16px" 
+		textColor="#646464" 
+		backColor="rgba(59, 134, 255, 1)" 
+		borderColor="rgba(200, 200, 200, 1)" 
+		borderWidth="0px" 
+		borderStyle="solid" 
+		textAlign="left"
+		cornerRadius="4px"
+		fontName="NotoSansSCRegular"
+	bold="false"/>
+	
+	<Style id="Br_Gray" xsi:type="widgets.brease.Label" 
+		fontSize="16px" 
+		textColor="rgba(124, 125, 127, 1)" 
+		backColor="rgba(255, 255, 255, 0)" 
+		borderColor="rgba(200, 200, 200, 1)" 
+		borderWidth="0px" 
+		borderStyle="none" 
+		textAlign="left"
+		cornerRadius="0px"
+		fontName="NotoSansSCRegular"
+	bold="false"/>
+	
+	<!--text output-->
+	
+	<Style id="Output" xsi:type="widgets.brease.TextOutput" 
+		textColor="#646464" 
+		fontSize="20px" 
+		backColor="transparent" 
+		bold="false" />
+
+	<Style id="OutputLarge" xsi:type="widgets.brease.TextOutput" 
+		textColor="#646464" 
+		fontSize="32px" 
+		backColor="transparent" 
+		bold="false" />
+		
+	<Style id="Overview" xsi:type="widgets.brease.TextOutput" 
+		textColor="#646464" 
+		fontSize="52px" 
+		bold="false"
+	backColor="transparent" />
+			
+	<Style id="Br_gray" xsi:type="widgets.brease.TextOutput" 
+		textColor="rgba(124, 125, 127, 1)" 
+		textAlign="right"
+		borderWidth="2px"
+		borderColor="rgba(255, 136, 0, 1)" 
+		borderStyle="none"
+		cornerRadius="0px"
+		fontSize="12px" 
+		backColor="rgba(255, 255, 255, 0)" 
+		bold="false" />	
+	
+	<Style id="gatStatusIdle" xsi:type="widgets.brease.TextOutput" 
+		textColor="rgba(150, 150, 150, 1)" />	
+
+	<Style id="gatStatusActive" xsi:type="widgets.brease.TextOutput" 
+		textColor="rgba(50, 205, 50, 1)" />	
+
+	<Style id="gatStatusError" xsi:type="widgets.brease.TextOutput" 
+		textColor="rgba(255, 0, 0, 1)" />	
+
+	<!--text input-->
+	
+	<Style id="Input" xsi:type="widgets.brease.TextInput" 
+		textAlign="center" 
+		textColor="#fff"
+		borderWidth="0px 0px 0px 6px" 
+		borderColor="#ff8800" 
+		activeBorderColor="#d6d6d6" 
+		fontSize="20px" 
+		backColor="#646464" 
+		activeBackColor="#d6d6d6" 
+		activeTextColor="#ff8800" 
+		bold="false" />
+
+	<Style id="InputLarge" xsi:type="widgets.brease.TextInput" 
+		textAlign="center" 
+		textColor="#fff" 
+		borderWidth="0px 0px 0px 6px" 
+		borderColor="#ff8800" 
+		activeBorderColor="#d6d6d6" 
+		fontSize="32px" 
+		backColor="#646464" 
+		activeBackColor="#d6d6d6" 
+		activeTextColor="#ff8800" 
+		bold="false" />
+
+	<Style id="InputCommand" xsi:type="widgets.brease.TextInput" 
+		textColor="#646464" 
+		borderWidth="0px 0px 0px 6px" 
+		borderColor="#d7d7d7" 
+		activeBorderColor="#646464" 
+		cornerRadius="0px" 
+		fontSize="16px" 
+		backColor="#FFF" 
+		activeBackColor="#646464" 
+		activeTextColor="#FFF" 
+		bold="false" 
+	textAlign="center" />
+	
+	<Style id="Br_gray" xsi:type="widgets.brease.TextInput" 
+		textColor="rgba(255, 255, 255, 1)" 
+		textAlign="right"
+		borderWidth="0px 0px 0px 3px"
+		borderColor="rgba(255, 136, 0, 1)" 
+		borderStyle="solid"
+		cornerRadius="0px"
+		activeBorderWidth="2px 6px 2px 2px" 
+		activeBorderColor="rgba(214, 214, 214, 1)" 
+		fontSize="12px" 
+		backColor="rgba(111, 113, 115, 0.7)" 
+		activeBackColor="rgba(214, 214, 214, 1)" 
+		activeTextColor="rgba(255, 136, 0, 1)" 
+	bold="false" />
+	
+	<!--login info-->
+
+	<Style id="Output" xsi:type="widgets.brease.LoginInfo" 
+	textColor="#646464"
+		borderStyle="solid" 
+		borderWidth="1px" 
+		borderColor="#646464" 
+		fontSize="20px" 
+		backColor="transparent"
+		bold="false" />
+
+	<!--favorite watch-->
+	
+	<Style id="FavoriteWatch" xsi:type="widgets.brease.Label" 
+		fontSize="14px" 
+		textColor="#474747" 
+		backColor="#ff8500" 
+		borderStyle="none" 
+		padding="5px" />
+
+
+</Styles>

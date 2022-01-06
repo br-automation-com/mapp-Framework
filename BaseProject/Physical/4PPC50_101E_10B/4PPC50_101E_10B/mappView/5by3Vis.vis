@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<vdef:Visualization id="MyVisu" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+	<StartPage pageRefId="Welcome_Page" />
+	<Pages>
+		<Page refId="Home_Page"/> 
+		<Page refId="Welcome_Page" />
+		<Page refId="Trend_Page"/> 
+		<Page refId="Report_Page" />
+		<Page refId="Parameter_Page" />
+		<Page refId="Diagnose_Page"/> 
+		<Page refId="Settings_Page" />
+		<Page refId="Help_Page" />
+		<Page refId="Recipe_Page" />
+		<Page refId="Alarm_Page"/>
+		<Page refId="Data_Page"/>
+		<Page refId="Audit_Page"/>
+		<Page refId="page_WidgetSample"/>
+	</Pages>
+	<Navigations>
+		<!--<Navigation refId="" />-->
+	</Navigations>  
+	<BindingsSets>
+		<BindingsSet refId="ContentUser_Binding" />
+        <BindingsSet refId="ContentRecipe_Binding" />
+        <BindingsSet refId="ContentEditRecipe_binding" />
+        <BindingsSet refId="ContentCreateNewRecipe_binding" />
+        <BindingsSet refId="ContentReport_Binding" />
+		<BindingsSet refId="ContentAlarm_Binding" />
+		<BindingsSet refId="ContentTrend_Binding" />
+		<BindingsSet refId="ContentTop_Binding" />
+		<BindingsSet refId="Parameters_Binding" />
+		<BindingsSet refId="ContentHomeAuto_Binding" />
+        <BindingsSet refId="ContentHomeManu_Binding" />
+        <BindingsSet refId="HomeContent_binding" />
+		<BindingsSet refId="ContentWelcome_Binding" />
+		<BindingsSet refId="ContentData_Binding" />
+		<BindingsSet refId="ContentAudit_Binding" />
+		<BindingsSet refId="ContentUserX_binding" />	
+		<BindingsSet refId="settingsContent_binding" />	
+		<BindingsSet refId="ContentHomePid_Binding" />
+        <BindingsSet refId="diagnoseContent_binding" />
+        <BindingsSet refId="CreateBackup_binding" />
+        <BindingsSet refId="BackupBindings" />
+        <BindingsSet refId="AutomaticSettingsBackupContent_binding" />
+    </BindingsSets>
+	<EventBindingsSets>
+		<EventBindingsSet refId="Alarm_EventBinding" />
+		<EventBindingsSet refId="Recipe_EventBinding" />
+		<EventBindingsSet refId="Report_EventBinding" />
+		<EventBindingsSet refId="Login_EventBinding" />
+		<EventBindingsSet refId="Logout_EventBinding" />
+		<EventBindingsSet refId="ToolTip_EventBinding" />
+		<EventBindingsSet refId="ContentTop_EventBinding" />
+		<EventBindingsSet refId="Welcome_EventBinding" />
+		<EventBindingsSet refId="Parameters_EventBinding" />
+		<EventBindingsSet refId="Data_EventBinding" />
+		<EventBindingsSet refId="Audit_Eventbinding" />
+		<EventBindingsSet refId="Trend_EventBinding" />
+		<EventBindingsSet refId="MpUserX_Eventbinding" />
+		<EventBindingsSet refId="User_EventBinding" />
+		<EventBindingsSet refId="IO_StatusEventBinding" />
+		<EventBindingsSet refId="HomeContent_EventBinding" />
+		<EventBindingsSet refId="settingsContent_eventbinding" />
+        <EventBindingsSet refId="diagnoseContent_eventbinding" />
+        <EventBindingsSet refId="BackupEventBinding" />
+        <EventBindingsSet refId="CreateBackup_eventbinding" />
+        <EventBindingsSet refId="DeleteBackup_eventbinding" />
+        <EventBindingsSet refId="RestoreBackup_eventbinding" />
+        <EventBindingsSet refId="AutomaticSettingsBackupContent_eventbinding" />
+	</EventBindingsSets>
+	<Dialogs>
+		<Dialog refId="CreateNewRecipe_Dialog" />
+		<Dialog refId="CamError_Dialog" />
+		<Dialog refId="EditRecipe_Dialog" />
+		<Dialog refId="Login_Dialog" />
+		<Dialog refId="ChangePwd_Dialog" />
+		<Dialog refId="UserXErrorDialogBox_Dialog" />
+		<Dialog refId="UserManXErrorDialogBox_Dialog" />
+        <Dialog refId="UserManXMessageDialogBox_Dialog" />
+        <Dialog refId="dialog_IoForcing" />
+        <Dialog refId="CreateBackup_Dialog" />
+        <Dialog refId="DeleteBackup_Dialog" />
+        <Dialog refId="RestoreBackup_Dialog" />
+        <Dialog refId="AutomaticSettingsBackup_Dialog" />
+        <Dialog refId="NewBackup_Dialog" />
+	</Dialogs>
+	<Contents preCache= "all"> 
+		<Content refId="Welcome_content" />
+		<Content refId="HomeContent" />
+		<Content refId="ContentTop_Header" />
+		<Content refId="ContentRight_Navigation" />
+		<Content refId="ContentStatusBar" />
+		<Content refId="AuditPage_Content" />
+		<Content refId="ContentMpAlarmX" />
+		<Content refId="Data_Content" />
+		<Content refId="diagnoseContent" />
+		<Content refId="help_content" />
+		<Content refId="parametersContent" />
+		<Content refId="ContentMpReport" />
+		<Content refId="ContentMpRecipe" />
+        <Content refId="settingsContent" />
+        <Content refId="UserXContent" />
+        <Content refId="BackupContent" />
+		<Content refId="trend_Content" />
+		<Content refId="ContentEditRecipe" />
+		<Content refId="ContentCreateNewRecipe" />
+		<Content refId="ContentRenameRecipe" />
+		<Content refId="ContentLogin" />
+		<Content refId="Content_UserXErrorDialog" />
+		<Content refId="Content_UserManXErrorDialog" />
+		<Content refId="Content_UserManXMessageDialog" />
+		<Content refId="content_IoForcing" />
+		<Content refId="ContentChangePwd" />
+	</Contents>	
+	<SnippetsSets>
+		<SnippetsSet refId="RecipeSnippets" />
+		<SnippetsSet refId="PLCopenStateSnippets" />
+		<SnippetsSet refId="PidStateSnippets" />
+		<SnippetsSet refId="MpUserSnippets" />
+	</SnippetsSets>
+	<ExpressionsSets>
+		<ExpressionsSet refId="MyExpressionSet" />
+    </ExpressionsSets>
+	<VariablesSets>
+        <VariablesSet refId="svar_0" />
+    </VariablesSets>
+	<StartTheme themeRefId="BuRThemeTemplet" />
+	<Themes>
+		<Theme refId="BuRThemeTemplet"/>
+	</Themes>
+	<Configurations>
+		<Configuration key="activityCount" value="true" />
+		<Configuration key="zoom" value="true" />
+		<Configuration key="bootProgressBar" value="true" />
+		<Gestures>
+			<!--<SystemGesture1 touchPoints="2" />
+			<SystemGesture2 touchPoints="2" />
+			<SystemGesture3 touchPoints="2" />-->
+		</Gestures>
+		<VirtualKeyboards>
+			<!--<InputProcessing onKeyDown="false" />-->
+		</VirtualKeyboards>
+	</Configurations>
+</vdef:Visualization>

@@ -1,0 +1,23 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * Program: SPL_Behavior
+ * File: controlFlowVariables.var
+ * Author: B+R
+ ********************************************************************
+ * Local variables of program SPL_Behavior
+ ********************************************************************)
+VAR
+	CounterInSet : DINT := 0;
+	CounterInSet_LastChecked : DINT := 0;
+	OutputString : STRING[200];
+	CounterToStringBuffer : STRING[20] := '';
+END_VAR
+(*Warning "Warning : 'CountTestCaseRuns' defined but not used" can be ignored. 
+Warnings for this variable occurs when no LOG_FOR_EXEMPLIFICATION_TEST_BUSY is used inside a set. *)
+VAR CONSTANT
+	DEF_BUSY_STEPS : USINT := 2;
+END_VAR
+VAR
+	CountTestCaseRuns : USINT := 0;
+END_VAR

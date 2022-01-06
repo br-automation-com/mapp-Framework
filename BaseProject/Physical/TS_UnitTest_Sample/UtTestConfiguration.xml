@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testconfiguration>
+<tests />
+<config-def id="AS_Test_Configuration">
+<test name="SPL_MyCalcTests" timeout="60" />
+<test name="SPL_CalcTest_Variants" timeout="60" />
+<test name="SPL_CustomAsserts" timeout="60" />
+<test name="SPL_Asserts" timeout="60" />
+<test name="SPL_framework_behavior" timeout="60" /></config-def>
+<settings id="AS_Test_Setting" timeout="60" host="http://127.0.0.1" port="80" communication-protocol="http" />
+<run configuration="AS_Test_Configuration" setting="AS_Test_Setting" StartTestsAfterTransfer="true" />
+</testconfiguration>

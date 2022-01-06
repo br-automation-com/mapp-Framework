@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.10.3.60 FileVersion="4.9"?>
+<Hardware xmlns="http://br-automation.co.at/AS/Hardware">
+  <Module Name="4PPC50_101E_10B" Type="4PPC50.101E-10B" Version="1.1.2.1">
+    <Connector Name="IF1">
+      <Parameter ID="CycleTime" Value="800" />
+    </Connector>
+    <Connector Name="IF2">
+      <Parameter ID="ActivateDevice" Value="1" />
+      <Parameter ID="Mode" Value="Manual" />
+      <Parameter ID="InternetAddress" Value="10.86.50.12" />
+      <Parameter ID="SubnetMask" Value="255.255.255.0" />
+    </Connector>
+    <Connector Name="IF3">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+    </Connector>
+    <Connector Name="IF4">
+      <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
+    </Connector>
+    <Parameter ID="ConfigurationID" Value="GAT_10inC50_4PPC50_101E_10B" />
+    <Parameter ID="UserPartitionSize" Value="25" />
+    <Parameter ID="UserRamSize" Value="16000" />
+    <Parameter ID="RemMemSize" Value="48000" />
+    <Parameter ID="TimerDeviceType" Value="EPLX2X" />
+    <Parameter ID="TimerDevice" Value="4PPC50_101E_10B.IF1" />
+    <Parameter ID="TaskClassIdleTime" Value="4000" />
+    <Parameter ID="Cyclic1Duration" Value="1600" />
+    <Parameter ID="Cyclic1Tolerance" Value="1600" />
+    <Parameter ID="Cyclic1Stack" Value="16384" />
+    <Parameter ID="Cyclic2Duration" Value="20000" />
+    <Parameter ID="Cyclic2Tolerance" Value="20000" />
+    <Parameter ID="Cyclic3Duration" Value="40000" />
+    <Parameter ID="Cyclic3Tolerance" Value="40000" />
+    <Parameter ID="Cyclic4Duration" Value="80000" />
+    <Parameter ID="Cyclic4Tolerance" Value="80000" />
+    <Parameter ID="Cyclic4Stack" Value="16384" />
+    <Parameter ID="Cyclic5Duration" Value="200000" />
+    <Parameter ID="Cyclic5Tolerance" Value="200000" />
+    <Parameter ID="Cyclic6Duration" Value="500000" />
+    <Parameter ID="Cyclic6Tolerance" Value="500000" />
+    <Parameter ID="Cyclic7Duration" Value="1000000" />
+    <Parameter ID="Cyclic7Tolerance" Value="1000000" />
+    <Parameter ID="Cyclic8Duration" Value="8000" />
+    <Parameter ID="Cyclic8Tolerance" Value="30000000" />
+    <Group ID="FileDevice1" />
+    <Parameter ID="FileDeviceName1" Value="mappRecipe" />
+    <Parameter ID="FileDevicePath1" Value="F:\GAT\Recipe" />
+    <Group ID="FileDevice2" />
+    <Parameter ID="FileDeviceName2" Value="mappAudit" />
+    <Parameter ID="FileDevicePath2" Value="F:\GAT\Audit" />
+    <Group ID="FileDevice3" />
+    <Parameter ID="FileDeviceName3" Value="mappReport" />
+    <Parameter ID="FileDevicePath3" Value="F:\GAT\Report" />
+    <Group ID="FileDevice4" />
+    <Parameter ID="FileDeviceName4" Value="mappData" />
+    <Parameter ID="FileDevicePath4" Value="F:\GAT\Data" />
+    <Parameter ID="TimeZone" Value="295" />
+    <Parameter ID="EthernetDefaultGateway" Value="10.86.13.1" />
+    <Parameter ID="FTPProtocol" Value="2" />
+    <Group ID="FtpUser1" />
+    <Parameter ID="FtpUsername1" Value="BR" />
+    <Parameter ID="FtpUserPassword1" Value="GhNaeKiLvl7cP7K0k5JDdXf+fyc8NJfckbGpEUwY4Hg=" Description="FTP" />
+    <Parameter ID="FtpUserSalt1" Value="zT8zXD9V" />
+    <Parameter ID="FTPAccessRight1" Value="0" />
+    <Parameter ID="FTPdevice1" Value="ALL" />
+    <Parameter ID="ActivateOpcUa" Value="1" />
+    <Parameter ID="OpcUaActivateAuditEvents" Value="1" />
+    <Parameter ID="OpcUa_Security_AdminRole" Value="Administrators" />
+    <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
+    <Parameter ID="LXTMode" Value="Manual" />
+    <Parameter ID="LXTInternetAddress" Value="10.86.50.13" />
+    <Parameter ID="LXTSubnetmask" Value="255.255.255.0" />
+  </Module>
+  <Module Name="80VD100PD.C022-01" Type="80VD100PD.C022-01" Version="2.5.0.0">
+    <Connection Connector="PLK1" TargetModule="4PPC50_101E_10B" TargetConnector="IF1" NodeNumber="1">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="X20BC0083" TargetConnector="PLK1" NodeNumber="1">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="MT2" TargetModule="8LVA13.R0030D000-0a" TargetConnector="MT" />
+    <Parameter ID="McAcoposTypeID" Location="DriveConfiguration/Module" Value="AcoposMicroDConfig" />
+    <Parameter ID="ActivateACOPOSSimulationOnPLC" Location="DriveConfiguration/Module" Value="1" />
+    <Parameter ID="ResolverPolepairs" Location="DriveConfiguration/Encoder/EncoderX6A/InterfaceType" Value="1" />
+    <Parameter ID="ResolverPolepairs" Location="DriveConfiguration/Encoder/EncoderX6B/InterfaceType" Value="1" />
+    <Parameter ID="AxisReference" Location="DriveConfiguration/Channel[1]/RealAxis" Value="gAxisConveyor" />
+    <Parameter ID="InputIsReadOnly" Location="DriveConfiguration/Channel[1]/RealAxis/MechanicalElements/Gearbox" Value="0" />
+    <Parameter ID="Input" Location="DriveConfiguration/Channel[1]/RealAxis/MechanicalElements/Gearbox" Value="1" />
+    <Parameter ID="OutputIsReadOnly" Location="DriveConfiguration/Channel[1]/RealAxis/MechanicalElements/Gearbox" Value="0" />
+    <Parameter ID="Output" Location="DriveConfiguration/Channel[1]/RealAxis/MechanicalElements/Gearbox" Value="1" />
+    <Parameter ID="ReferenceDistanceIsReadOnly" Location="DriveConfiguration/Channel[1]/RealAxis/MechanicalElements/RotaryToLinearTransformation" Value="0" />
+    <Parameter ID="ReferenceDistance" Location="DriveConfiguration/Channel[1]/RealAxis/MechanicalElements/RotaryToLinearTransformation" Value="1" />
+    <Parameter ID="ModeIsReadOnly" Location="DriveConfiguration/Channel[1]/RealAxis/Controller" Value="0" />
+    <Parameter ID="Mode" Location="DriveConfiguration/Channel[1]/RealAxis/Controller" Value="PositionController" />
+    <Parameter ID="ProportionalGain" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Position" Value="50.0" />
+    <Parameter ID="IntegrationTime" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Position" Value="0.0" />
+    <Parameter ID="PredictionTime" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Position" Value="0.0004" />
+    <Parameter ID="TotalDelayTime" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Position" Value="0.0004" />
+    <Parameter ID="ProportionalGainIsReadOnly" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Speed" Value="0" />
+    <Parameter ID="ProportionalGain" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Speed" Value="2.0" />
+    <Parameter ID="IntegrationTimeIsReadOnly" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Speed" Value="0" />
+    <Parameter ID="IntegrationTime" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Speed" Value="0.0" />
+    <Parameter ID="FilterTimeIsReadOnly" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Speed" Value="0" />
+    <Parameter ID="FilterTime" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/Speed" Value="0.0" />
+    <Parameter ID="LoopFilter1" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/LoopFilters" Value="NotUsed" />
+    <Parameter ID="LoopFilter2" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/LoopFilters" Value="NotUsed" />
+    <Parameter ID="LoopFilter3" Location="DriveConfiguration/Channel[1]/RealAxis/Controller/Mode/LoopFilters" Value="NotUsed" />
+    <Parameter ID="Mode" Location="DriveConfiguration/Channel[1]/RealAxis/Homing" Value="Direct" />
+    <Parameter ID="Position" Location="DriveConfiguration/Channel[1]/RealAxis/Homing/Mode" Value="0.0" />
+    <Parameter ID="ReferencePulse" Location="DriveConfiguration/Channel[1]/RealAxis/Homing/Mode" Value="NotUsed" />
+    <Parameter ID="RestorePositionVariable" Location="DriveConfiguration/Channel[1]/RealAxis/Homing" Value="" />
+    <Parameter ID="Quickstop" Location="DriveConfiguration/Channel[1]/RealAxis/StopReaction" Value="DecelerationLimit" />
+    <Parameter ID="DriveError" Location="DriveConfiguration/Channel[1]/RealAxis/StopReaction" Value="DecelerationLimit" />
+    <Parameter ID="PositionError" Location="DriveConfiguration/Channel[1]/RealAxis/MovementErrorLimits" Value="1.0" />
+    <Parameter ID="VelocityErrorMonitoring" Location="DriveConfiguration/Channel[1]/RealAxis/MovementErrorLimits" Value="Automatic1" />
+    <Parameter ID="JerkFilter" Location="DriveConfiguration/Channel[1]/RealAxis" Value="NotUsed" />
+    <Parameter ID="Source" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/HomingSwitch" Value="NotUsed" />
+    <Parameter ID="Level" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/HomingSwitch" Value="High" />
+    <Parameter ID="Source" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/PositiveLimitSwitch" Value="NotUsed" />
+    <Parameter ID="Level" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/PositiveLimitSwitch" Value="High" />
+    <Parameter ID="Source" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/NegativeLimitSwitch" Value="NotUsed" />
+    <Parameter ID="Level" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/NegativeLimitSwitch" Value="High" />
+    <Parameter ID="Source" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/Trigger1" Value="X2Trigger1" />
+    <Parameter ID="Level" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/Trigger1" Value="High" />
+    <Parameter ID="Source" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/Trigger2" Value="X2Trigger2" />
+    <Parameter ID="Level" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/Trigger2" Value="High" />
+    <Parameter ID="Input" Location="DriveConfiguration/Channel[1]/RealAxis/DigitalInputs/Quickstop" Value="Trigger2" />
+    <Parameter ID="SimulationModeOnPLC" Location="DriveConfiguration/Channel[1]/RealAxis/Simulation" Value="SetValueGeneration" />
+    <Parameter ID="SimulationModeOnACOPOS" Location="DriveConfiguration/Channel[1]/RealAxis/Simulation" Value="NotUsed" />
+    <Parameter ID="AxisReference" Location="DriveConfiguration/Channel[2]/RealAxis" Value="gAxisCrossCutter" />
+    <Parameter ID="InputIsReadOnly" Location="DriveConfiguration/Channel[2]/RealAxis/MechanicalElements/Gearbox" Value="0" />
+    <Parameter ID="Input" Location="DriveConfiguration/Channel[2]/RealAxis/MechanicalElements/Gearbox" Value="1" />
+    <Parameter ID="OutputIsReadOnly" Location="DriveConfiguration/Channel[2]/RealAxis/MechanicalElements/Gearbox" Value="0" />
+    <Parameter ID="Output" Location="DriveConfiguration/Channel[2]/RealAxis/MechanicalElements/Gearbox" Value="1" />
+    <Parameter ID="ReferenceDistanceIsReadOnly" Location="DriveConfiguration/Channel[2]/RealAxis/MechanicalElements/RotaryToLinearTransformation" Value="0" />
+    <Parameter ID="ReferenceDistance" Location="DriveConfiguration/Channel[2]/RealAxis/MechanicalElements/RotaryToLinearTransformation" Value="1" />
+    <Parameter ID="ModeIsReadOnly" Location="DriveConfiguration/Channel[2]/RealAxis/Controller" Value="0" />
+    <Parameter ID="Mode" Location="DriveConfiguration/Channel[2]/RealAxis/Controller" Value="PositionController" />
+    <Parameter ID="ProportionalGain" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/Position" Value="50.0" />
+    <Parameter ID="IntegrationTime" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/Position" Value="0.0" />
+    <Parameter ID="PredictionTime" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/Position" Value="0.0004" />
+    <Parameter ID="TotalDelayTime" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/Position" Value="0.0004" />
+    <Parameter ID="ProportionalGainIsReadOnly" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/Speed" Value="0" />
+    <Parameter ID="ProportionalGain" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/Speed" Value="2.0" />
+    <Parameter ID="IntegrationTimeIsReadOnly" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/Speed" Value="0" />
+    <Parameter ID="IntegrationTime" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/Speed" Value="0.0" />
+    <Parameter ID="FilterTimeIsReadOnly" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/Speed" Value="0" />
+    <Parameter ID="FilterTime" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/Speed" Value="0.0" />
+    <Parameter ID="LoopFilter1" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/LoopFilters" Value="NotUsed" />
+    <Parameter ID="LoopFilter2" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/LoopFilters" Value="NotUsed" />
+    <Parameter ID="LoopFilter3" Location="DriveConfiguration/Channel[2]/RealAxis/Controller/Mode/LoopFilters" Value="NotUsed" />
+    <Parameter ID="Mode" Location="DriveConfiguration/Channel[2]/RealAxis/Homing" Value="Direct" />
+    <Parameter ID="Position" Location="DriveConfiguration/Channel[2]/RealAxis/Homing/Mode" Value="0.0" />
+    <Parameter ID="ReferencePulse" Location="DriveConfiguration/Channel[2]/RealAxis/Homing/Mode" Value="NotUsed" />
+    <Parameter ID="RestorePositionVariable" Location="DriveConfiguration/Channel[2]/RealAxis/Homing" Value="" />
+    <Parameter ID="Quickstop" Location="DriveConfiguration/Channel[2]/RealAxis/StopReaction" Value="DecelerationLimit" />
+    <Parameter ID="DriveError" Location="DriveConfiguration/Channel[2]/RealAxis/StopReaction" Value="DecelerationLimit" />
+    <Parameter ID="PositionError" Location="DriveConfiguration/Channel[2]/RealAxis/MovementErrorLimits" Value="1.0" />
+    <Parameter ID="VelocityErrorMonitoring" Location="DriveConfiguration/Channel[2]/RealAxis/MovementErrorLimits" Value="Automatic1" />
+    <Parameter ID="JerkFilter" Location="DriveConfiguration/Channel[2]/RealAxis" Value="NotUsed" />
+    <Parameter ID="Source" Location="DriveConfiguration/Channel[2]/RealAxis/DigitalInputs/HomingSwitch" Value="NotUsed" />
+    <Parameter ID="Level" Location="DriveConfiguration/Channel[2]/RealAxis/DigitalInputs/HomingSwitch" Value="High" />
+    <Parameter ID="Source" Location="DriveConfiguration/Channel[2]/RealAxis/DigitalInputs/PositiveLimitSwitch" Value="NotUsed" />
+    <Parameter ID="Level" Location="DriveConfiguration/Channel[2]/RealAxis/DigitalInputs/PositiveLimitSwitch" Value="High" />
+    <Parameter ID="Source" Location="DriveConfiguration/Channel[2]/RealAxis/DigitalInputs/NegativeLimitSwitch" Value="NotUsed" />
+    <Parameter ID="Level" Location="DriveConfiguration/Channel[2]/RealAxis/DigitalInputs/NegativeLimitSwitch" Value="High" />
+    <Parameter ID="Source" Location="DriveConfiguration/Channel[2]/RealAxis/DigitalInputs/Trigger1" Value="X2Trigger1" />
+    <Parameter ID="Level" Location="DriveConfiguration/Channel[2]/RealAxis/DigitalInputs/Trigger1" Value="High" />
+    <Parameter ID="Source" Location="DriveConfiguration/Channel[2]/RealAxis/DigitalInputs/Trigger2" Value="X2Trigger2" />
+    <Parameter ID="Level" Location="DriveConfiguration/Channel[2]/RealAxis/DigitalInputs/Trigger2" Value="High" />
+    <Parameter ID="Input" Location="DriveConfiguration/Channel[2]/RealAxis/DigitalInputs/Quickstop" Value="Trigger2" />
+    <Parameter ID="SimulationModeOnPLC" Location="DriveConfiguration/Channel[2]/RealAxis/Simulation" Value="SetValueGeneration" />
+    <Parameter ID="SimulationModeOnACOPOS" Location="DriveConfiguration/Channel[2]/RealAxis/Simulation" Value="NotUsed" />
+    <Parameter ID="FeatureRef[1]" Location="DriveConfiguration/Channel[2]/RealAxis/AxisFeatures" Value="CutterCamAutomat" />
+  </Module>
+  <Module Name="8LVA13.R0030D000-0" Type="8LVA13.R0030D000-0" Version="2.2.0.4">
+    <Connection Connector="MT" TargetModule="80VD100PD.C022-01" TargetConnector="MT1" />
+    <Parameter ID="MOTOR_AMB_TEMP_RATED" Location="M1/MotorParameters" Value="40" />
+  </Module>
+  <Module Name="8LVA13.R0030D000-0a" Type="8LVA13.R0030D000-0" Version="2.2.0.4">
+    <Connection Connector="MT" TargetModule="80VD100PD.C022-01" TargetConnector="MT2" />
+    <Parameter ID="MOTOR_AMB_TEMP_RATED" Location="M1/MotorParameters" Value="40" />
+  </Module>
+  <Module Name="X20AI2222" Type="X20AI2222" Version="1.2.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12b" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11a" TargetConnector="SL1" />
+    <Parameter ID="Supervision" Value="off" />
+  </Module>
+  <Module Name="X20AI2222a" Type="X20AI2222" Version="1.2.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12h" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11f" TargetConnector="SL1" />
+    <Parameter ID="Supervision" Value="off" />
+  </Module>
+  <Module Name="X20AI4222" Type="X20AI4222" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12f" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11d" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20AO4622" Type="X20AO4622" Version="1.2.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12g" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11e" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20AT4222" Type="X20AT4222" Version="1.3.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12a" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11" TargetConnector="SL1" />
+    <Parameter ID="Supervision" Value="off" />
+  </Module>
+  <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0" />
+  <Module Name="X20BC0083" Type="X20BC0083" Version="2.12.0.0">
+    <Connection Connector="PLK1" TargetModule="80VD100PD.C022-01" TargetConnector="PLK2" NodeNumber="2">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="SL" TargetModule="X20BB80" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20BM01" Type="X20BM01" Version="2.1.0.0" />
+  <Module Name="X20BM11" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11b" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11a" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11c" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11b" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11a" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11c" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM01" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11d" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BB80" TargetConnector="IF1" />
+  </Module>
+  <Module Name="X20BM11e" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11d" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11f" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11e" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BR9300" Type="X20BR9300" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM01" TargetConnector="SL1" />
+    <Connection Connector="X2X1" TargetModule="4PPC50_101E_10B" TargetConnector="IF5">
+      <Cable Type="X2XCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="Supervision" Value="off" />
+  </Module>
+  <Module Name="X20DI9371" Type="X20DI9371" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12c" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11b" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20DI9371a" Type="X20DI9371" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12d" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11c" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20PS9400" Type="X20PS9400" Version="1.7.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12e" TargetConnector="SS" />
+    <Connection Connector="PS" TargetModule="X20BB80" TargetConnector="PS1" />
+  </Module>
+  <Module Name="X20TB12" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12a" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12b" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12c" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12d" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12e" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12f" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12g" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12h" Type="X20TB12" Version="1.0.0.0" />
+</Hardware>

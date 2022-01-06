@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="MpUserX_Eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="MpUserX_Eventbinding_1">
+      <Source xsi:type="opcUa.Event" refId="::UserX:mappViewUserControl.LogIn" event="ValueChanged" />
+      <Operand datatype="ANY_STRING" name="user">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::UserX:mappViewUserControl.UserName">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_STRING" name="pwd">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::UserX:mappViewUserControl.Password">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="newValue = true">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.Login" userName="=user" password="=pwd" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::UserX:mappViewUserControl.LogIn">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MpUserX_Eventbinding_2">
+      <Source xsi:type="opcUa.Event" refId="::UserX:mappViewUserControl.LogOut" event="ValueChanged" />
+      <EventHandler condition="newValue = true">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::UserX:mappViewUserControl.LogOut">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.Logout" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MpUserX_Eventbinding_8">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Content_UserXErrorDialog" widgetRefId="BtnConfirmErroMessageBox" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::UserX:UserXMgrUIConnect.MessageBox.Confirm">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::UserX:UserXUIConnect.MessageBox.Confirm">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MpUserX_Eventbinding_9">
+      <Source xsi:type="opcUa.Event" refId="::UserX:UserXUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
+      <EventHandler condition="newValue = 0">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXErrorDialogBox_Dialog" mode="modal" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue = 1">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXErrorDialogBox_Dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_21">
+      <Source xsi:type="opcUa.Event" refId="::UserX:UserXMgrUIConnect.MessageBox.Type" event="ValueChanged" />
+      <EventHandler condition="newValue = 1">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserManXErrorDialogBox_Dialog" mode="modal" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue &gt; 1">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserManXMessageDialogBox_Dialog" mode="modal" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue = 0">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserManXErrorDialogBox_Dialog" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserManXMessageDialogBox_Dialog" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MpUserX_Eventbinding_12">
+      <Source xsi:type="opcUa.Event" refId="::UserX:UserXUIConnect.MessageBox.Type" event="ValueChanged" />
+      <EventHandler condition="newValue &lt;&gt; 1">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXErrorDialogBox_Dialog" mode="modeless" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MpUserX_Eventbinding_13">
+      <Source xsi:type="opcUa.Event" refId="::UserX:UserXUIConnect.MessageBox.Type" event="ValueChanged" />
+      <EventHandler condition="newValue = 0">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXErrorDialogBox_Dialog" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::UserX:UserXUIConnect.MessageBox.Confirm">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::UserX:UserXMgrUIConnect.MessageBox.Confirm">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MpUserX_Eventbinding_14">
+      <Source xsi:type="opcUa.Event" refId="::UserX:UserXMgrUIConnect.User.Info.RemainingAttempts" event="ValueChanged" />
+      <EventHandler condition="newValue = 0">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::VisuCtrl:WarmRestart">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.Logout" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_9">
+      <Source xsi:type="opcUa.Event" refId="::UserX:UserXUIConnect.ChangePassword.Dialog.LayerStatus" event="ValueChanged" />
+      <EventHandler condition="newValue=0">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ChangePwd_Dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue=1">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="ChangePwd_Dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_11">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="ButtonEditUser" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="settingsContent" widgetRefId="UserListManagement">
+            <Method xsi:type="widgets.brease.UserList.Action.OpenModifyUserDialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_12">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="ButtonAddUser" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="settingsContent" widgetRefId="UserListManagement">
+            <Method xsi:type="widgets.brease.UserList.Action.OpenAddUserDialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_13">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="ButtonDeleteUser" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="settingsContent" widgetRefId="UserListManagement">
+            <Method xsi:type="widgets.brease.UserList.Action.DeleteUser" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

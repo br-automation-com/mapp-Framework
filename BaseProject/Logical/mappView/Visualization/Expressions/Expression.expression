@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExpressionsSet id="MyExpressionSet" xmlns="http://www.br-automation.com/iat2015/expression/engineering/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Expressions>
+		<Expression id="ManualModeActive" xsi:type="content" contentRefId="HomeContent" type="myInversExpr" />
+		<Expression id="CamNotRunning" xsi:type="content" contentRefId="HomeContent" type="myInversExpr" />
+		<Expression id="Ax1ReadyManualHome" xsi:type="content" contentRefId="HomeContent" type="myAandnotBExpr" />
+		<Expression id="Ax2ReadyManualHome" xsi:type="content" contentRefId="HomeContent" type="myAandnotBExpr" />
+		<Expression id="Ax1ReadyManual" xsi:type="content" contentRefId="HomeContent" type="myAandBandnotCExpr" />
+		<Expression id="Ax2ReadyManual" xsi:type="content" contentRefId="HomeContent" type="myAandBandnotCExpr" />
+		<Expression id="Ax1ReadyAuto" xsi:type="content" contentRefId="HomeContent" type="myAandBandCExpr" />
+		<Expression id="Ax2ReadyAuto" xsi:type="content" contentRefId="HomeContent" type="myAandBandCExpr" />
+		<Expression id="Ax1HasError" xsi:type="content" contentRefId="HomeContent" type="myAxisIsInErrorStateExpr" />
+		<Expression id="Ax2HasError" xsi:type="content" contentRefId="HomeContent" type="myAxisIsInErrorStateExpr" />
+		<Expression id="IoIsBool" xsi:type="content" contentRefId="content_IoForcing" type="myIoIsBoolExpr" />
+		<Expression id="IoIsInt" xsi:type="content" contentRefId="content_IoForcing" type="mynotAandnotBExpr" />
+		<Expression id="IoIsTemp" xsi:type="content" contentRefId="content_IoForcing" type="myIoIsTempExpr" />
+		<Expression id="RecipeListCanPageDown" xsi:type="content" contentRefId="ContentMpRecipe" type="myRecipeListCanPageUpDownExpr" />
+		<Expression id="RecipeListCanPageUp" xsi:type="content" contentRefId="ContentMpRecipe" type="myRecipeListCanPageUpDownExpr" />
+		<Expression id="UsbAvailable" xsi:type="content" contentRefId="ContentMpRecipe" type="myAorBExpr" />
+	</Expressions>
+</ExpressionsSet>

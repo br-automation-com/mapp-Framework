@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gRegMarkDetection_Cutter" Type="regmarkdetection">
+    <Group ID="RegistrationMarkDetection">
+      <Selector ID="SensorSignal">
+        <Property ID="AxisReference" Value="gAxisCrossCutter" />
+        <Selector ID="DelayCompensation">
+          <Property ID="AdditionalDelayTime" Description="0." />
+        </Selector>
+      </Selector>
+      <Selector ID="Measurement" Value="MarkToCylinder">
+        <Group ID="Product">
+          <Selector ID="Position">
+            <Property ID="AxisReference" Value="gAxisConveyor" />
+            <Selector ID="Source" Value="SetValue" />
+          </Selector>
+          <Selector ID="Length">
+            <Property ID="Value" Value="70" />
+          </Selector>
+        </Group>
+      </Selector>
+      <Selector ID="Detection" Value="MiddleOfEdges">
+        <Property ID="SetMarkPosition" Value="0" />
+        <Selector ID="ExpectationWindow">
+          <Property ID="Width" Value="25" />
+        </Selector>
+        <Selector ID="MarkWidthMonitoring">
+          <Property ID="MinimumWidth" Value="7" />
+          <Property ID="MaximumWidth" Value="15" />
+        </Selector>
+        <Group ID="MissedMarkReaction">
+          <Selector ID="MarkPosition" Value="LastValue" />
+          <Selector ID="AutomaticSearch" Value="Used">
+            <Property ID="AdditionalExpectationWindowShift" Value="25" />
+          </Selector>
+        </Group>
+      </Selector>
+      <Group ID="OutputSignals">
+        <Property ID="ActualMarkPosition" Value="::CrossCutte:RegistrationControl.ActualMarkPosition" />
+        <Property ID="MarkPositionError" Value="::CrossCutte:RegistrationControl.MarkPositionError" />
+        <Property ID="ActualProductLength" Value="::CrossCutte:RegistrationControl.ActualProductLength" />
+        <Property ID="ActualIntervalLength" Value="::CrossCutte:RegistrationControl.ActualIntervalLength" />
+      </Group>
+    </Group>
+    <Selector ID="Alarms" Value="MpAlarmX" />
+  </Element>
+</Configuration>

@@ -1,0 +1,19 @@
+VAR
+	MC_BR_ProcessConfig_AX : MC_BR_ProcessConfig; (*Function block to read and write the axis configuration*)
+	MC_BR_ProcessConfig_ACP : MC_BR_ProcessConfig; (*Function block to read and write the ACOPOS configuration*)
+	BaseAxConfig : ARRAY[0..1] OF McCfgAxType; (*Acopos configuration*)
+	AcpAxConfig : ARRAY[0..1] OF McCfgAcpAxType; (*Acopos configuration*)
+	uSelectedAxis : USINT; (*Selected Axis index*)
+	sAxFeatures1 : ARRAY[0..2] OF STRING[255]; (*Axis features*)
+	sAxFeatures2 : ARRAY[0..2] OF STRING[255]; (*Axis features*)
+	uState : UINT; (*Read/Write state machine status*)
+	bReadConfig : BOOL; (*Read config command*)
+	bWriteConfig : BOOL; (*Write Acopos config command*)
+	bSuccessRead : BOOL; (*Read config succeeded*)
+	bErrorRead : BOOL; (*Read config failed*)
+	bErrorWrite : BOOL; (*Write config failed*)
+	bSuccessWrite : BOOL; (*Write config succeeded*)
+	bSysReboot : BOOL;
+	MpRecipeRegPar_M : ARRAY[0..3] OF MpRecipeRegPar;
+	MC_BR_ProcessParam_ACP : MC_BR_ProcessParam;
+END_VAR

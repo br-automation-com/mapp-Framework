@@ -1,0 +1,21 @@
+                                                                      
+VAR CONSTANT
+	sdmERR_NOT_EXIST			: UINT		:= 34900;	(*SDM not active*)
+	sdmERR_ARREG				: UINT		:= 34901;	(*SDM AR registry error*)
+	sdmERR_SYSTEMDUMP			: UINT		:= 34902;	(*SDM System dump error*)
+	sdmERR_INVALID_DEVICE		: UINT		:= 34903;	(*SDM System dump invalid device*)
+	sdmERR_INVALID_POINTER		: UINT		:= 34904;	(*SDM System dump invalid pointer*)
+	sdmERR_INVALID_VALUE		: UINT		:= 34905;	(*SDM Invalid application mode*)
+	sdmERR_OPTION_INVALID		: UINT		:= 34906;	(*SDM"Option" parameter invalid*)
+
+	sdm_SYSTEMDUMP_PARAM		: UINT		:= 0;		(*SDM System Dump parameters only*)
+	sdm_SYSTEMDUMP_DATA			: UINT		:= 1;		(*SDM SDM System Dump parameters and data files*)
+
+	sdm_APPMODE_NOTUSED			: UINT		:= 0;		(*SDM Applicationmode not set*)
+	sdm_APPMODE_OK				: UINT		:= 1;		(*SDM Application ok*)
+	sdm_APPMODE_WARNING			: UINT		:= 2;		(*SDM Application warning *)
+	sdm_APPMODE_ERROR			: UINT		:= 3;		(*SDM Application error*)
+	
+	sdmOPTION_NON_VOLATILE		: UDINT		:= 1;		(*permanently sets parameters*)
+	sdmOPTION_VOLATILE			: UDINT		:= 0;		(*temporarily sets parameters*)
+END_VAR

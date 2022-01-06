@@ -1,0 +1,59 @@
+(*ARUser Function Block------------------------------------------------------------------------------------------------------------*)
+VAR
+	ArUserAssignRole_0 : ArUserAssignRole;
+	ArUserCreate_0 : ArUserCreate;
+	ArUserDelete_0 : ArUserDelete;
+	ArUserDestroyList_0 : ArUserDestroyList;
+	ArUserGetFirst_0 : ArUserGetFirst;
+	ArUserGetNext_0 : ArUserGetNext;
+	ArUserGetProperty_0 : ArUserGetProperty;
+	ArUserIdent : ArUserIdentType;
+	ArUserInitList_0 : ArUserInitList;
+	ArUserReleaseRole_0 : ArUserReleaseRole;
+	ArUserSetPassword_0 : ArUserSetPassword;
+	UserManagementState : user_management_enum;
+	ArUserSetProperty_0 : ArUserSetProperty;
+END_VAR
+(*User Management Variables--------------------------------------------------------------------------------------*)
+VAR
+	gUser : User_Main_typ; (*User Declaration Variable*)
+	dataProvider : ARRAY[0..19] OF WSTRING[80] := ["{'value':'4','text':'Entry1'}",19("")];
+	wsPassword : WSTRING[80]; (*Password*)
+	wsUserName : WSTRING[80]; (*User Name*)
+	tmpUserNew : STRING[MAX_USER_ITEM_LEN];
+	tmpUser : STRING[MAX_USER_ITEM_LEN];
+	tmpUserOld : STRING[MAX_USER_ITEM_LEN];
+	PropertyName : STRING[100]; (*Name of the property*)
+	idx : INT; (*Index used for FOR Loop*)
+	idy : USINT; (*Index used for FOR Loop*)
+	UserCounter : USINT;
+	tmpUserIdx : USINT; (*Index used for FOR Loop*)
+	RoleCounter : USINT;
+	UserCounterTotal : ARRAY[0..MAX_USER_CLIENTS] OF USINT;
+	sNewUserName : WSTRING[20];
+	sNewUserConfirmPassword : WSTRING[20];
+	sNewUserPassword : WSTRING[20];
+	bCreateNewUser : BOOL;
+	sTempStr : WSTRING[100];
+	TypeVar : WSTRING[100];
+	X : BOOL;
+	status : DINT;
+END_VAR
+(*Constants----------------------------------------------------------*)
+VAR CONSTANT
+	ROLE_LISTTYPE : BYTE := 2; (*List Type Role*)
+	USERROLE_LISTTYPE : BYTE := 3; (*List Type UserRole*)
+	USER_LISTTYPE : BYTE := 1; (*List Type User*)
+	MAX_USER_ROLES : USINT := 20; (*Maximum number of user roles*)
+	MAX_USER_NAMES : USINT := 50; (*Maximum number of users*)
+	MAX_USER_CLIENTS : USINT := 2; (*Maximum number of concurrent web clients*)
+	MAX_USER_ITEM_LEN : USINT := 60; (*String length for users and roles*)
+	ERR_PASSWORD_MISMATCH : DINT := 50000; (*Passwords dont match*)
+	ERR_USER_LIST_TOO_SHORT : DINT := 50001; (*More users found than fit into user list*)
+	ERR_ROLE_LIST_TOO_SHORT : DINT := 50002; (*More roles found than fit into the role list*)
+	ERR_DELETE_CURRENT_USER : DINT := 50003; (*Logged in user can not be deleted*)
+	ERR_RENAME_CURRENT_USER : DINT := 50004; (*Logged in user can not be renamed*)
+	ERR_USER_ROLE_NAME_SIZE : DINT := 50005; (*Logged in user can not be renamed*)
+	ERR_USER_TOO_MANY_CLIENTS : DINT := 50010; (*More than 3 clients try to connect to user managment*)
+	END_OF_LIST : DINT := -2144327714; (*End of list reached*)
+END_VAR

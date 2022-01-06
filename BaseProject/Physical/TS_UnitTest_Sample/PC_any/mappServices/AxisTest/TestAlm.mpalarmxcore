@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAlarmXCore_Test" Type="mpalarmxcore">
+    <Group ID="mapp.AlarmX.Core">
+      <Group ID="BySeverity">
+        <Group ID="[0]">
+          <Property ID="Severity" Value="1..9" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Info" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Severity" Value="10..19" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Error" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Severity" Value="20..29" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Error" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+          <Selector ID="[2]" Value="EscalateReaction">
+            <Property ID="Reaction" Value="Error" />
+          </Selector>
+        </Group>
+        <Group ID="[3]">
+          <Property ID="Severity" Value="30..39" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Safety" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+          <Selector ID="[2]" Value="Remain" />
+        </Group>
+      </Group>
+      <Group ID="Default">
+        <Selector ID="[0]" Value="Reaction">
+          <Property ID="Name" Value="Duplicate" />
+        </Selector>
+        <Selector ID="[1]" Value="Escalate" />
+        <Selector ID="[2]" Value="Remain" />
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Core.Configuration">
+      <Group ID="[0]">
+        <Property ID="Name" Value="ReferenceRequired" />
+        <Property ID="Message" Value="{$IAT/Axis/Info/Name} : {$IAT/Axis/Alarms/ReferenceRequired}" />
+        <Property ID="Severity" Value="10" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::AxisContro:AxisControl.Status.ReferenceRequired" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="1" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

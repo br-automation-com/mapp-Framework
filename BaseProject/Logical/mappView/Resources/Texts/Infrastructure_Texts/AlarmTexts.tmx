@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">AlarmTexts</prop>
+  </header>
+  <body>
+    <tu tuid="PidOscTuningError">
+      <tuv xml:lang="zh">
+        <seg>PID振荡，整定失败"{=$IAT/PidStates/Error.{&amp;PidTuningError}}"</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PID Oscillation Tuning failed "{=$IAT/PidStates/Error.{&amp;PidTuningError}}"</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PidControlError">
+      <tuv xml:lang="zh">
+        <seg>PID控制错误 "{=$IAT/PidStates/Error.{&amp;PidControlError}}"</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PID Control Error "{=$IAT/PidStates/Error.{&amp;PidControlError}}"</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PidControlWarning">
+      <tuv xml:lang="zh">
+        <seg>PID控制报警 "{=$IAT/PidStates/Warning.{&amp;PidControlError}}"</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PID Control Warning "{=$IAT/PidStates/Warning.{&amp;PidControlError}}"</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SetCamFailed">
+      <tuv xml:lang="zh">
+        <seg>设置凸轮曲线失败</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Setting CAM parameters has failed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="EmergencyStop.0">
+      <tuv xml:lang="zh">
+        <seg>急停按钮已按下</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Emergency stop button has been pressed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="EmergencyStop.1">
+      <tuv xml:lang="zh">
+        <seg>急停按钮已按下</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Emergency stop button has been pressed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="EmergencyStop.2">
+      <tuv xml:lang="zh">
+        <seg>急停按钮已按下</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Emergency stop button has been pressed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.0">
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>The front left safety door is open</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.1">
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>The front middle safety door is open</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.2">
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>The front right safety door is open</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.3">
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>The back right safety door is open</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.4">
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>The right side safety door is open</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyDoor.5">
+      <tuv xml:lang="zh">
+        <seg>安全门未关闭</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>The back left safety door is open</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SafetyPLC">
+      <tuv xml:lang="zh">
+        <seg>安全PLC信号丢失</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>The safety PLC signal is missing</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

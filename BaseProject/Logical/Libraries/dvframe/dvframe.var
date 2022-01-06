@@ -1,0 +1,27 @@
+                                                                      
+VAR CONSTANT
+	frmERR_IOCTL_NOTSUPPORTED	: UINT	:= 8257;	(*command not supported by driver (hardware)*)
+	frmERR_DEVICEDESCRIPTION	: UINT	:= 8252;	(*device not found*)
+	frmERR_FUB_ENABLE_FALSE	: UINT	:= 65534;		
+	frmERR_TRANSMITOVERRUN	: UINT	:= 8078;		(*send buffer waiting queue full*)
+	frmERR_MODEDESCRIPTION	: UINT	:= 8253;		(*syntax error in mode parameter string, or mode parameter not supported by the specified device*)
+	frmERR_IOCTL_NOTVALID	: UINT	:= 8073;		(*invalid I/O control code*)
+	frmERR_INVALIDBUFFER	: UINT	:= 8072;		(*invalid buffer rejected*)
+	frmERR_IF_UNREACHABLE : UINT	:= 8067;		(*device is not available*)
+	frmERR_INIT_IN_PROGRESS	: UINT	:= 8068;		(*device is busy with xopen/mode*)
+	ARG_EVSEND_TASKIDENT	: UDINT	:= 14;			
+	ARG_EVSEND_TASKEVENT	: UDINT	:= 18;			
+	frmERR_NORESOURCES	: UINT	:= 8258;			(*required resource not available (memory, OS object, etc.)*)
+	frmERR_INPUTERROR	: UINT	:= 8079;			(*frame buffer with defective character*)
+	frmERR_NOTOPENED	: UINT	:= 8251;			(*device not open*)
+	MISC_RECEIVE_ALL	: UDINT	:= 2;				
+	frmERR_PA_DB_SB	: UINT	:= 8256;				(*/PA, /DB, /SB must always be specified together*)
+	frmERR_NOBUFFER	: UINT	:= 8071;				(*no buffer available in the send buffer manager*)
+	ARG_TXPVPOLLADR	: UDINT	:= 17;
+	frmERR_NOINPUT	: UINT	:= 60;					(*no message received*)
+	frmERR_MAXOPEN	: UINT	:= 8254;				(*too many devices opened at once*)
+	ARG_PVPOLLADR	: UDINT	:= 15;					
+	frmERR_OK	: UINT	:= 0;						
+	ARG_MISC	: UDINT	:= 16;						
+	ARG_BAUD	: UDINT	:= 0;						
+END_VAR

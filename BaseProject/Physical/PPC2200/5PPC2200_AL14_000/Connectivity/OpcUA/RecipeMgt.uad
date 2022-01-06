@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="C4.91">
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleName="Service" Access="0x015F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+        <ACE RoleName="Operators" Access="0x015F" />
+        <ACE RoleName="Everyone" Access="0x015F" />
+      </ACL>
+      <ACL Id="3">
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x017F" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView AclId="3">
+    <Module Name="&lt;Default&gt;">
+      <Task Name="RecipeMgt">
+        <Variable Name="MpRecipeUIConnect">
+          <Variable Name="Recipe">
+            <Variable Name="List">
+              <Variable Name="Names" EnableArrayElements="True" />
+              <Variable Name="SelectedIndex" />
+              <Variable Name="LastModified" EnableArrayElements="True" />
+              <Variable Name="PageUp" />
+              <Variable Name="PageDown" />
+              <Variable Name="RangeStart" />
+              <Variable Name="RangeEnd" />
+            </Variable>
+            <Variable Name="Load" />
+            <Variable Name="Save" />
+            <Variable Name="Delete" />
+            <Variable Name="Rename" />
+            <Variable Name="NewFileName" />
+          </Variable>
+          <Variable Name="New">
+            <Variable Name="FileName" />
+            <Variable Name="Create" />
+          </Variable>
+          <Variable Name="MessageBox">
+            <Variable Name="Confirm" />
+            <Variable Name="Cancel" />
+          </Variable>
+        </Variable>
+        <Variable Name="MpRecipeXml_0">
+          <Variable Name="Info">
+            <Variable Name="LastLoadedRecipe" />
+          </Variable>
+          <Variable Name="UpdateNotification" />
+          <Variable Name="ErrorReset" />
+          <Variable Name="Error" />
+        </Variable>
+        <Variable Name="hmiRecipe">
+          <Variable Name="Commands" AutomaticEnable="True" />
+          <Variable Name="Intern">
+            <Variable Name="LastLoadedRecipe" />
+            <Variable Name="TableConfig" />
+            <Variable Name="DeviceDataProvider" EnableArrayElements="True" />
+            <Variable Name="DeviceName" />
+          </Variable>
+        </Variable>
+        <Variable Name="MpRecipeXml_Pre">
+          <Variable Name="Load" />
+        </Variable>
+        <Variable Name="MpRecipeUI_0">
+          <Variable Name="ErrorReset" />
+          <Variable Name="Error" />
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

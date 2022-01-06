@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAlarmXCore_Cutter" Type="mpalarmxcore">
+    <Group ID="mapp.AlarmX.Core">
+      <Group ID="BySeverity">
+        <Group ID="[0]">
+          <Property ID="Severity" Value="1..9" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Info" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Severity" Value="10..19" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Warning" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Severity" Value="20..29" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Alarm" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+        </Group>
+        <Group ID="[3]">
+          <Property ID="Severity" Value="30..39" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Safety" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+        </Group>
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Core.Configuration">
+      <Group ID="[0]">
+        <Property ID="Name" Value="ReferenceRequired" />
+        <Property ID="Message" Value="{$IAT/CrossCutter/Info/Name} : {$IAT/CrossCutter/Alarms/ReferenceRequired}" />
+        <Property ID="Severity" Value="10" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::CrossCutte:AxisControl.Status.ReferenceRequired" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="1" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

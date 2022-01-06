@@ -1,0 +1,15 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * Program: SPL_Behavior
+ * Author: B+R
+ ********************************************************************
+ * Local variables of program SPL_Behavior 
+ * For test sets in package TestBusy_Asyncronous
+ ********************************************************************)
+VAR
+	GetMimeTypeResult : STRING[80] := '';
+	webserverStatus : CfgGetWebServerStatus := (0);
+	webserverGetMimeType : CfgGetWebMimeType := (0);
+	webserverSetMimeType : CfgSetWebMimeType := (0);
+END_VAR

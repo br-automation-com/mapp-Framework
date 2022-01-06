@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Cpu xmlns="http://br-automation.co.at/AS/Cpu">
+  <Objects>
+    <Object Type="File" Description="Software configuration">Cpu.sw</Object>
+    <Object Type="File" Description="Permanent variables">Cpu.per</Object>
+    <Object Type="File" Description="I/O mapping">IoMap.iom</Object>
+    <Object Type="File" Description="Variable mapping">PvMap.vvm</Object>
+    <Object Type="Package">Connectivity</Object>
+    <Object Type="Package">TextSystem</Object>
+    <Object Type="Package">UnitSystem</Object>
+    <Object Type="Package">AccessAndSecurity</Object>
+    <Object Type="Package">mappControl</Object>
+    <Object Type="Package">mappMotion</Object>
+    <Object Type="Package">mappServices</Object>
+    <Object Type="Package">mappSafety</Object>
+    <Object Type="Package">mappView</Object>
+    <Object Type="Package">mappVision</Object>
+    <Object Type="Package">mappCockpit</Object>
+  </Objects>
+  <Configuration ModuleId="4PPC50.101E-10B">
+    <AutomationRuntime Version="C4.91" />
+    <Build GccVersion="4.1.2" />
+    <DefaultTargetMemory Tasks="UserROM" />
+    <Safety SafetyRelease="0.0" />
+    <Transfer AddToUserPart="True" AdditionalUserDir="\Logical\CF" AllowDowngrade="True" AllowInitialTransfer="False" AllowPartitioning="False" ExecuteInitExitProgram="True" ForceInitialTransfer="False" IdentificationTypeValue="" IgnoreVersion="True" KeepNonVolatileMemory="False" PreserveVariableValues="False" ProjectConsistent="True" RebootDuringTransfer="False" SavedOfflineInstallationFolder="" SavedPipDestinationFolder="" SavedRuntimeUtilityCenterPackagePath="" TargetIdentificationType="Always" TryToBootInRunMode="True" UserFilesIgnoreDifference="True" />
+    <Vc FirmwareVersion="" />
+    <OnlineConfiguration Name="TCPIP" DeviceType="TCPIP" DeviceParameters="/IF=tcpip /LOPO=11159 /SA=1" ConnectionParameters="/COMT=2500 /RT=1000 /AM=* /SDT=5 /DAIP=10.86.50.12 /REPO=11159 /ANSL=1 /PT=11169" Description="" />
+  </Configuration>
+</Cpu>

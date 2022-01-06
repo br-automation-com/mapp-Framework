@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="C4.91">
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleName="Service" Access="0x015F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+        <ACE RoleName="Operators" Access="0x015F" />
+        <ACE RoleName="Everyone" Access="0x015F" />
+      </ACL>
+      <ACL Id="3">
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x017F" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases>
+      <EURanges Id="10">
+        <EURange>
+          <Low ValueProvider="Const">1</Low>
+          <High ValueProvider="Const" />
+        </EURange>
+      </EURanges>
+      <EURanges Id="11">
+        <EURange>
+          <Low ValueProvider="Const">0</Low>
+          <High ValueProvider="Const">360</High>
+        </EURange>
+      </EURanges>
+      <EURanges Id="12">
+        <EURange>
+          <Low ValueProvider="Const">0</Low>
+          <High ValueProvider="Const" />
+        </EURange>
+      </EURanges>
+      <EURanges Id="14">
+        <EURange>
+          <Low ValueProvider="PV">::MainCtrl:MainCtrl.FixPar.MinProductLength</Low>
+          <High ValueProvider="PV">::MainCtrl:MainCtrl.FixPar.MaxProductLength</High>
+        </EURange>
+      </EURanges>
+      <EURanges Id="15">
+        <EURange>
+          <Low ValueProvider="Const">-100</Low>
+          <High ValueProvider="PV">::PIDControl:PidControlParameters.MaxOut</High>
+        </EURange>
+      </EURanges>
+      <EURanges Id="16">
+        <EURange>
+          <Low ValueProvider="PV">::PIDControl:PidControlParameters.MinOut</Low>
+          <High ValueProvider="Const">100</High>
+        </EURange>
+      </EURanges>
+      <EURanges Id="17">
+        <EURange>
+          <Low ValueProvider="Const" />
+          <High ValueProvider="Const">32767</High>
+        </EURange>
+      </EURanges>
+    </EURangesAliases>
+    <EngineeringUnitAliases>
+      <EngineeringUnit Id="1" UnitId="5066068" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millimetre" Symbol="mm" />
+      <EngineeringUnit Id="2" UnitId="4801624" NameSpaceUri="http://www.br-automation.com/units" Name="Index" Symbol="IDX" />
+      <EngineeringUnit Id="3" UnitId="17476" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="degree [unit of angle]" Symbol="°" />
+      <EngineeringUnit Id="4" UnitId="20053" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="newton metre" Symbol="N·m" />
+      <EngineeringUnit Id="8" UnitId="4403510" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millimetre per second" Symbol="mm/s" />
+      <EngineeringUnit Id="9" UnitId="5059633" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millimetre per second squared" Symbol="mm/s²" />
+      <EngineeringUnit Id="10" UnitId="4536630" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="degree per second" Symbol="°/s" />
+      <EngineeringUnit Id="11" UnitId="5059637" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="degree [unit of angle] per second squared" Symbol="°/s²" />
+      <EngineeringUnit Id="12" UnitId="5457219" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="second [unit of time]" Symbol="s" />
+      <EngineeringUnit Id="13" UnitId="4474180" NameSpaceUri="http://www.br-automation.com/units" Name="deci degree" Symbol="°C/10" />
+      <EngineeringUnit Id="14" UnitId="4404786" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="one" Symbol="1" />
+    </EngineeringUnitAliases>
+  </Aliases>
+  <DefaultView AclId="3">
+    <Module Name="&lt;Default&gt;">
+      <GlobalVariables Name="Global Variables">
+        <Variable Name="gVisuCtrl" AutomaticEnable="True" />
+        <Variable Name="gbUSBAvail" EnableArrayElements="True" />
+      </GlobalVariables>
+      <Task Name="MainCtrl">
+        <Variable Name="bCopyPreviewParameters" />
+        <Variable Name="MainCtrl">
+          <Variable Name="Para" AutomaticEnable="True">
+            <Variable Name="ProductNumber" EnableArrayElements="True">
+              <Variable AuditEvents="True" Name="ProductNumber[0]" />
+              <Variable AuditEvents="True" Name="ProductNumber[1]" />
+              <Variable AuditEvents="True" Name="ProductNumber[2]" />
+              <Variable AuditEvents="True" Name="ProductNumber[3]" />
+              <Variable AuditEvents="True" Name="ProductNumber[4]" />
+            </Variable>
+            <Variable Name="ProductLength" EnableArrayElements="True">
+              <Variable AuditEvents="True" Name="ProductLength[0]" EURangesId="14" EngineeringUnitId="1" />
+              <Variable AuditEvents="True" Name="ProductLength[1]" EURangesId="14" EngineeringUnitId="1" />
+              <Variable AuditEvents="True" Name="ProductLength[2]" EURangesId="14" EngineeringUnitId="1" />
+              <Variable AuditEvents="True" Name="ProductLength[3]" EURangesId="14" EngineeringUnitId="1" />
+              <Variable AuditEvents="True" Name="ProductLength[4]" EURangesId="14" EngineeringUnitId="1" />
+            </Variable>
+            <Variable Name="AxPar" EnableArrayElements="True">
+              <Variable Name="AxPar[1]">
+                <Variable Name="Position" EngineeringUnitId="3" />
+                <Variable Name="Distance" EngineeringUnitId="3" />
+                <Variable Name="Velocity" EngineeringUnitId="10" />
+                <Variable Name="Acceleration" EngineeringUnitId="11" />
+                <Variable Name="Deceleration" EngineeringUnitId="11" />
+                <Variable Name="Stop">
+                  <Variable Name="Deceleration" EngineeringUnitId="11" />
+                </Variable>
+                <Variable Name="LimitLoad">
+                  <Variable Name="Load" EngineeringUnitId="4" />
+                </Variable>
+              </Variable>
+              <Variable Name="AxPar[0]">
+                <Variable Name="Position" EngineeringUnitId="1" />
+                <Variable Name="Distance" EngineeringUnitId="1" />
+                <Variable Name="Velocity" EngineeringUnitId="8" />
+                <Variable Name="Acceleration" EngineeringUnitId="9" />
+                <Variable Name="Deceleration" EngineeringUnitId="9" />
+                <Variable Name="Stop">
+                  <Variable Name="Deceleration" EngineeringUnitId="9" />
+                </Variable>
+                <Variable Name="LimitLoad">
+                  <Variable Name="Load" EngineeringUnitId="4" />
+                </Variable>
+              </Variable>
+            </Variable>
+          </Variable>
+          <Variable Name="Cmd">
+            <Variable Name="AutoModeOn" />
+            <Variable Name="RunFeeder" />
+            <Variable Name="RunCutter" />
+          </Variable>
+          <Variable Name="Status" AutomaticEnable="True">
+            <Variable Name="CurrentBatch" EngineeringUnitId="2" />
+            <Variable Name="CurrentBatchLength" EngineeringUnitId="1" />
+          </Variable>
+          <Variable Name="FixPar" AutomaticEnable="True">
+            <Variable AuditEvents="True" Name="SyncAngle" EURangesId="11" EngineeringUnitId="3" />
+            <Variable AuditEvents="True" Name="NrOfKnives" EURangesId="10" />
+            <Variable AuditEvents="True" Name="MaxProductLength" EURangesId="12" EngineeringUnitId="1" />
+            <Variable AuditEvents="True" Name="CutDiameter" EURangesId="12" EngineeringUnitId="1" />
+            <Variable AuditEvents="True" Name="MinProductLength" EURangesId="12" EngineeringUnitId="1" />
+          </Variable>
+          <Variable Name="Intern">
+            <Variable Name="ProductNumber" EnableArrayElements="True" />
+            <Variable Name="ProductLength" EnableArrayElements="True">
+              <Variable Name="ProductLength[0]" EngineeringUnitId="1" />
+              <Variable Name="ProductLength[1]" EngineeringUnitId="1" />
+              <Variable Name="ProductLength[2]" EngineeringUnitId="1" />
+              <Variable Name="ProductLength[3]" EngineeringUnitId="1" />
+              <Variable Name="ProductLength[4]" EngineeringUnitId="1" />
+            </Variable>
+          </Variable>
+        </Variable>
+        <Variable Name="PreviewParameters" AutomaticEnable="True">
+          <Variable Name="ProductNumber" EnableArrayElements="True" />
+          <Variable Name="ProductLength" EnableArrayElements="True">
+            <Variable Name="ProductLength[0]" EngineeringUnitId="1" />
+            <Variable Name="ProductLength[1]" EngineeringUnitId="1" />
+            <Variable Name="ProductLength[2]" EngineeringUnitId="1" />
+            <Variable Name="ProductLength[3]" EngineeringUnitId="1" />
+            <Variable Name="ProductLength[4]" EngineeringUnitId="1" />
+          </Variable>
+          <Variable Name="AxPar" EnableArrayElements="True">
+            <Variable Name="AxPar[0]">
+              <Variable Name="Position" EngineeringUnitId="1" />
+              <Variable Name="Distance" EngineeringUnitId="1" />
+              <Variable Name="Velocity" EngineeringUnitId="8" />
+              <Variable Name="Acceleration" EngineeringUnitId="9" />
+              <Variable Name="Deceleration" EngineeringUnitId="9" />
+              <Variable Name="Stop">
+                <Variable Name="Deceleration" EngineeringUnitId="9" />
+              </Variable>
+              <Variable Name="LimitLoad">
+                <Variable Name="Load" EngineeringUnitId="4" />
+              </Variable>
+            </Variable>
+            <Variable Name="AxPar[1]">
+              <Variable Name="Position" EngineeringUnitId="3" />
+              <Variable Name="Distance" EngineeringUnitId="3" />
+              <Variable Name="Velocity" EngineeringUnitId="10" />
+              <Variable Name="Acceleration" EngineeringUnitId="11" />
+              <Variable Name="Deceleration" EngineeringUnitId="11" />
+              <Variable Name="Stop">
+                <Variable Name="Deceleration" EngineeringUnitId="11" />
+              </Variable>
+              <Variable Name="LimitLoad">
+                <Variable Name="Load" EngineeringUnitId="4" />
+              </Variable>
+            </Variable>
+          </Variable>
+        </Variable>
+        <Variable Name="AxisControl" EnableArrayElements="True">
+          <Variable Name="AxisControl[0]">
+            <Variable Name="Parameter">
+              <Variable Name="AxPar">
+                <Variable Name="Position" EngineeringUnitId="1" />
+                <Variable Name="Distance" EngineeringUnitId="1" />
+                <Variable Name="Velocity" EURangesId="12" EngineeringUnitId="8" />
+                <Variable Name="Acceleration" EngineeringUnitId="9" />
+                <Variable Name="Deceleration" EngineeringUnitId="9" />
+                <Variable Name="Homing">
+                  <Variable Name="Position" EngineeringUnitId="1" />
+                </Variable>
+                <Variable Name="Jog">
+                  <Variable Name="Velocity" EngineeringUnitId="8" />
+                  <Variable Name="Acceleration" EngineeringUnitId="9" />
+                  <Variable Name="Deceleration" EngineeringUnitId="9" />
+                  <Variable Name="LimitPosition">
+                    <Variable Name="FirstPosition" EngineeringUnitId="1" />
+                    <Variable Name="LastPosition" EngineeringUnitId="1" />
+                  </Variable>
+                </Variable>
+                <Variable Name="Stop">
+                  <Variable Name="Deceleration" EngineeringUnitId="9" />
+                </Variable>
+                <Variable Name="LimitLoad">
+                  <Variable Name="Load" EngineeringUnitId="4" />
+                </Variable>
+              </Variable>
+            </Variable>
+            <Variable Name="Status">
+              <Variable Name="ActPosition" Historizing="True" HistoryBufferSize="2000" HistorySamplingInterval="Timer3" EngineeringUnitId="1" />
+              <Variable Name="ActVelocity" EngineeringUnitId="8" />
+              <Variable Name="ActTorque" EngineeringUnitId="4" />
+            </Variable>
+          </Variable>
+          <Variable Name="AxisControl[1]">
+            <Variable Name="Parameter">
+              <Variable Name="AxPar">
+                <Variable Name="Velocity" EURangesId="12" EngineeringUnitId="10" />
+                <Variable Name="Position" EngineeringUnitId="3" />
+                <Variable Name="Distance" EngineeringUnitId="3" />
+                <Variable Name="Acceleration" EngineeringUnitId="11" />
+                <Variable Name="Deceleration" EngineeringUnitId="11" />
+                <Variable Name="Homing">
+                  <Variable Name="Position" EngineeringUnitId="3" />
+                </Variable>
+                <Variable Name="Jog">
+                  <Variable Name="Velocity" EngineeringUnitId="10" />
+                  <Variable Name="Acceleration" EngineeringUnitId="11" />
+                  <Variable Name="Deceleration" EngineeringUnitId="11" />
+                  <Variable Name="LimitPosition">
+                    <Variable Name="FirstPosition" EngineeringUnitId="3" />
+                    <Variable Name="LastPosition" EngineeringUnitId="3" />
+                  </Variable>
+                </Variable>
+                <Variable Name="Stop">
+                  <Variable Name="Deceleration" EngineeringUnitId="11" />
+                </Variable>
+                <Variable Name="LimitLoad">
+                  <Variable Name="Load" EngineeringUnitId="4" />
+                </Variable>
+              </Variable>
+            </Variable>
+            <Variable Name="Status">
+              <Variable Name="ActPosition" Historizing="True" HistoryBufferSize="2000" HistorySamplingInterval="Timer3" EURangesId="11" EngineeringUnitId="3" />
+              <Variable Name="ActVelocity" EngineeringUnitId="10" />
+              <Variable Name="ActTorque" EngineeringUnitId="4" />
+            </Variable>
+          </Variable>
+        </Variable>
+        <Variable Name="MC_BR_CamAutomatCommand_0">
+          <Variable Name="Ready" />
+          <Variable Name="Running" />
+          <Variable Name="Error" />
+        </Variable>
+        <Variable Name="MpAxisBasic_x" EnableArrayElements="True">
+          <Variable Name="MpAxisBasic_x[0]">
+            <Variable Name="Velocity" EngineeringUnitId="8" />
+          </Variable>
+        </Variable>
+        <Variable Name="bResetEditValues" />
+      </Task>
+      <Task Name="AuditMgt">
+        <Variable Name="sDisplayFileName" />
+        <Variable Name="sStrSelectedFile" />
+        <Variable Name="uDisplayFileNameIndex" />
+        <Variable Name="MpAuditTrail_0">
+          <Variable Name="Export" />
+          <Variable Name="Error" />
+          <Variable Name="ErrorReset" />
+        </Variable>
+        <Variable Name="MpFileManagerUIConnect">
+          <Variable Name="File">
+            <Variable Name="Refresh" />
+          </Variable>
+        </Variable>
+        <Variable Name="sTableConfig" />
+      </Task>
+      <Task Name="ReportMgt">
+        <Variable Name="bDeleteReport" />
+        <Variable Name="bEnableDelete" />
+        <Variable Name="bEnableGenerate" />
+        <Variable Name="bStartGenerate" />
+        <Variable Name="sSetLanguage" />
+        <Variable Name="sStrSelectedFile" />
+        <Variable Name="uDisplayFileNameIndex" />
+        <Variable Name="sDisplayFileName" />
+        <Variable Name="MpReportCore_0">
+          <Variable Name="ErrorReset" />
+          <Variable Name="Error" />
+        </Variable>
+        <Variable Name="sTableConfig" />
+      </Task>
+      <Task Name="DataMgt">
+        <Variable Name="sDisplayFileName" />
+        <Variable Name="sStrSelectedFile" />
+        <Variable Name="uDisplayFileNameIndex" />
+        <Variable Name="MpDataRecorder_0">
+          <Variable Name="Record" />
+          <Variable Name="ErrorReset" />
+          <Variable Name="Error" />
+        </Variable>
+        <Variable Name="MpFileManagerUIConnect">
+          <Variable Name="File">
+            <Variable Name="Refresh" />
+          </Variable>
+        </Variable>
+        <Variable Name="sTableConfig" />
+        <Variable Name="MpFileManagerUI_0">
+          <Variable Name="ErrorReset" />
+          <Variable Name="Error" />
+        </Variable>
+      </Task>
+      <Task Name="UserMgt">
+        <Variable Name="bCreateNewUser" />
+        <Variable Name="dataProvider" />
+        <Variable Name="idx" />
+        <Variable Name="idy" />
+        <Variable Name="PropertyName" />
+        <Variable Name="ROLE_LISTTYPE" />
+        <Variable Name="RoleCounter" />
+        <Variable Name="sNewUserConfirmPassword" />
+        <Variable Name="sNewUserName" />
+        <Variable Name="sNewUserPassword" />
+        <Variable Name="tmpUser" />
+        <Variable Name="tmpUserIdx" />
+        <Variable Name="tmpUserNew" />
+        <Variable Name="tmpUserOld" />
+        <Variable Name="USER_LISTTYPE" />
+        <Variable Name="UserCounter" />
+        <Variable Name="UserCounterTotal" />
+        <Variable Name="UserManagementState" />
+        <Variable Name="USERROLE_LISTTYPE" />
+        <Variable Name="wsPassword" />
+        <Variable Name="wsUserName" />
+        <Variable Name="ArUserAssignRole_0">
+          <Variable Name="UserName" />
+          <Variable Name="RoleName" />
+        </Variable>
+        <Variable Name="ArUserCreate_0">
+          <Variable Name="UserName" />
+        </Variable>
+        <Variable Name="ArUserDelete_0">
+          <Variable Name="UserName" />
+        </Variable>
+        <Variable Name="ArUserDestroyList_0" />
+        <Variable Name="ArUserGetFirst_0">
+          <Variable Name="List" />
+        </Variable>
+        <Variable Name="ArUserGetNext_0">
+          <Variable Name="List" />
+        </Variable>
+        <Variable Name="ArUserGetProperty_0">
+          <Variable Name="Execute" />
+          <Variable Name="ElementType" />
+          <Variable Name="ElementName" />
+          <Variable Name="PropertyName" />
+          <Variable Name="PropertyValue" />
+        </Variable>
+        <Variable Name="ArUserIdent" />
+        <Variable Name="ArUserInitList_0">
+          <Variable Name="Execute" />
+          <Variable Name="ElementName" />
+          <Variable Name="List" />
+        </Variable>
+        <Variable Name="ArUserReleaseRole_0">
+          <Variable Name="UserName" />
+          <Variable Name="RoleName" />
+        </Variable>
+        <Variable Name="ArUserSetPassword_0">
+          <Variable Name="UserName" />
+          <Variable Name="Password" />
+        </Variable>
+        <Variable Name="ArUserSetProperty_0">
+          <Variable Name="ElementType" />
+          <Variable Name="ElementName" />
+          <Variable Name="PropertyName" />
+          <Variable Name="PropertyValue" />
+        </Variable>
+        <Variable Name="gUser">
+          <Variable Name="CMD">
+            <Variable Name="UserCreate" />
+            <Variable Name="UserDelete" />
+            <Variable Name="UserRename" />
+            <Variable Name="PasswordChange" />
+            <Variable Name="RoleAssign" />
+            <Variable Name="RoleRemove" />
+            <Variable Name="Import" />
+            <Variable Name="Export" />
+            <Variable Name="ListRefresh" />
+            <Variable Name="ErrorReset" />
+          </Variable>
+          <Variable Name="PAR">
+            <Variable Name="FilePath" />
+            <Variable Name="UserName" />
+            <Variable Name="UserNameNew" />
+            <Variable Name="UserRole" />
+            <Variable Name="Password" />
+            <Variable Name="PasswordRepeat" />
+            <Variable Name="VisuSlotID" />
+          </Variable>
+          <Variable Name="DAT">
+            <Variable Name="Users" EnableArrayElements="True" />
+            <Variable Name="Roles" />
+            <Variable Name="Status" />
+            <Variable Name="UserActive" EnableArrayElements="True" />
+          </Variable>
+          <Variable Name="VIS" EnableArrayElements="True" />
+          <Variable Name="ERR">
+            <Variable Name="No" />
+            <Variable Name="State" />
+            <Variable Name="Text" />
+          </Variable>
+        </Variable>
+      </Task>
+      <Task Name="ProcessCon">
+        <Variable Name="AcpAxConfig" EnableArrayElements="True">
+          <Variable Name="AcpAxConfig[0]">
+            <Variable Name="MechanicalElements">
+              <Variable Name="RotaryToLinearTransformation">
+                <Variable AuditEvents="True" Name="ReferenceDistance" EngineeringUnitId="1" />
+              </Variable>
+              <Variable Name="Gearbox">
+                <Variable AuditEvents="True" Name="Input" EURangesId="10" />
+                <Variable AuditEvents="True" Name="Output" EURangesId="10" />
+              </Variable>
+            </Variable>
+            <Variable Name="Homing">
+              <Variable Name="Mode">
+                <Variable Name="Direct">
+                  <Variable AuditEvents="True" Name="Position" EngineeringUnitId="1" />
+                </Variable>
+              </Variable>
+            </Variable>
+          </Variable>
+          <Variable Name="AcpAxConfig[1]">
+            <Variable Name="Homing">
+              <Variable Name="Mode">
+                <Variable Name="Direct">
+                  <Variable AuditEvents="True" Name="Position" EngineeringUnitId="3" />
+                </Variable>
+              </Variable>
+            </Variable>
+            <Variable Name="MechanicalElements">
+              <Variable Name="Gearbox">
+                <Variable AuditEvents="True" Name="Input" EURangesId="10" />
+                <Variable AuditEvents="True" Name="Output" EURangesId="10" />
+              </Variable>
+              <Variable Name="RotaryToLinearTransformation">
+                <Variable AuditEvents="True" Name="ReferenceDistance" />
+              </Variable>
+            </Variable>
+          </Variable>
+        </Variable>
+        <Variable Name="bReadConfig" />
+        <Variable Name="bWriteConfig" />
+        <Variable Name="MC_BR_ProcessConfig_ACP">
+          <Variable Name="Name" />
+        </Variable>
+        <Variable Name="uSelectedAxis" />
+      </Task>
+      <Task Name="SysServs">
+        <Variable Name="EthConfig" AutomaticEnable="True" />
+        <Variable Name="bReadEthConfig" />
+        <Variable Name="bWriteEthConfig" />
+        <Variable Name="DTStructureGetTime_0">
+          <Variable Name="enable" />
+        </Variable>
+        <Variable Name="DTStructureSetTime_0">
+          <Variable Name="enable" />
+        </Variable>
+        <Variable Name="ClientInfo" EnableArrayElements="True" />
+        <Variable Name="DateTimeCfg" AutomaticEnable="True" />
+      </Task>
+      <Task Name="PIDControl">
+        <Variable Name="MTBasicsPID_0">
+          <Variable Name="PIDParameters" AutomaticEnable="True">
+            <Variable Name="IntegrationTime" EngineeringUnitId="12" />
+            <Variable Name="DerivativeTime" EngineeringUnitId="12" />
+            <Variable Name="FilterTime" EngineeringUnitId="12" />
+          </Variable>
+          <Variable Name="Enable" />
+          <Variable Name="MinOut" />
+          <Variable Name="MaxOut" />
+          <Variable Name="SetValue" />
+          <Variable Name="StatusID" />
+        </Variable>
+        <Variable Name="PidControlParameters" AutomaticEnable="True">
+          <Variable Name="PidParameters">
+            <Variable AuditEvents="True" Name="IntegrationTime" EURangesId="12" EngineeringUnitId="12" />
+            <Variable AuditEvents="True" Name="DerivativeTime" EURangesId="12" EngineeringUnitId="12" />
+            <Variable AuditEvents="True" Name="FilterTime" EURangesId="12" EngineeringUnitId="12" />
+            <Variable AuditEvents="True" Name="Gain" EURangesId="12" />
+          </Variable>
+          <Variable Name="MinOut" EURangesId="15" />
+          <Variable Name="MaxOut" EURangesId="16" />
+        </Variable>
+        <Variable Name="rActValue" />
+        <Variable Name="rOutValue" />
+        <Variable Name="bSimulationActive" />
+        <Variable Name="MTBasicsOscillationTuning_0">
+          <Variable Name="Enable" />
+          <Variable Name="TuningDone" />
+          <Variable Name="TuningActive" />
+        </Variable>
+        <Variable Name="rTuningQuality" />
+        <Variable Name="ePidStatus" />
+      </Task>
+      <Task Name="IoBrowser">
+        <Variable Name="sTableConfig" />
+        <Variable Name="sModuleList" EnableArrayElements="True" />
+        <Variable Name="pIoChannel" AutomaticEnable="True">
+          <Variable Name="IoForcing">
+            <Variable Name="ForceValue" EURangesId="17" EngineeringUnitId="14" />
+          </Variable>
+        </Variable>
+        <Variable Name="sIoChannelList" EnableArrayElements="True" />
+        <Variable Name="sIoPvList" EnableArrayElements="True" />
+        <Variable Name="uSelectedChannel" />
+        <Variable Name="uSelectedModule" />
+        <Variable Name="sTableConfigChannels" />
+        <Variable Name="sIoValueList" EnableArrayElements="True" />
+        <Variable Name="pIoChannelTemp">
+          <Variable Name="IoForcing">
+            <Variable Name="ForceValue" EURangesId="17" EngineeringUnitId="13" />
+          </Variable>
+        </Variable>
+        <Variable Name="sStationList" EnableArrayElements="True" />
+        <Variable Name="sTableConfigStations" />
+        <Variable Name="uSelectedStation" />
+        <Variable Name="GatIoForcingHandler_0">
+          <Variable Name="Initializing" />
+        </Variable>
+      </Task>
+      <Task Name="CrossCutte">
+        <Variable Name="AxisControl" AutomaticEnable="True" />
+        <Variable Name="PreviewParameters" AutomaticEnable="True" />
+      </Task>
+      <Task Name="Conveyor">
+        <Variable Name="AxisControl" AutomaticEnable="True" />
+        <Variable Name="PreviewParameters" AutomaticEnable="True" />
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

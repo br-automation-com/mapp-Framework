@@ -1,0 +1,14 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * Library: UtMgr
+ * File: UtMgr.var
+ * Author: B+R
+ ********************************************************************
+ * Constants of library UtMgr
+ ********************************************************************)
+VAR CONSTANT
+	utERR_GENERAL : DINT := -1057750784; (*General error, see help*)
+	utMgrERR_INVALID_PARAM : DINT := -1057750783; (*Check parameters*)
+	utMgrERR_TOO_MANY_TESTS : DINT := -1057750782; (*Too many UtMgrTestSuites enabled, disable unused instances*)
+END_VAR

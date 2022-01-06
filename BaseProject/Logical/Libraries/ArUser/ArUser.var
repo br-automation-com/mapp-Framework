@@ -1,0 +1,15 @@
+
+VAR CONSTANT
+	arUSER_USER	   				: BYTE := 1;			(*The list of user.*)
+	arUSER_ROLE		   			: BYTE := 2;			(*The list of roles.*)
+	arUSER_USERROLES	   	   	: BYTE := 3;			(*The list of roles assigned to one user.*)
+	arUSER_ROLE_PROPERTIES  	: BYTE := 4;			(*The list of properties assigned to one role.*)
+	arUSER_USER_PROPERTIES  	: BYTE := 5;			(*The list of properties assigned to one user.*)
+
+	arUSER_ERR_PARAMETER	 	: DINT := -1070585894;	(*Please check parameters.*)
+	arUSER_ERR_ALREADY_EXISTS	: DINT := -1070585893;	(*This Element exists already.*)
+	arUSER_ERR_DOES_NOT_EXIST	: DINT := -1070585892;	(*The Element was not found.*)
+	arUSER_ERR_FILE				: DINT := -1070585891;	(*The specified file could not be opened or created.*)
+	arUSER_WRN_END_OF_LIST		: DINT := -2144327714;	(*There are no more elements to read.*)
+	arUSER_ERR_INTERNAL			: DINT := -1070585889;	(*An internal error has occurred. Please contact B+R support.*)
+END_VAR

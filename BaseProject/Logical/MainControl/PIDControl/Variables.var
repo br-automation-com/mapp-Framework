@@ -1,0 +1,13 @@
+VAR
+	MTBasicsPID_0 : MTBasicsPID; (*Pid control function block*)
+	MpRecipeRegPar_Pre : MpRecipeRegPar; (*Register parameters for preview function*)
+	MpRecipeRegPar_P : MpRecipeRegPar; (*Register parameters in the recipe*)
+	PidControlParameters : PidControlParameters_type; (*Pid parameters*)
+	rSimAddValue : REAL; (*Simulated add value*)
+	rOutValue : REAL; (*out value*)
+	rActValue : REAL; (*actual value*)
+	bSimulationActive : BOOL; (*simulation on/off*)
+	MTBasicsOscillationTuning_0 : MTBasicsOscillationTuning; (*Oscillation tuning function block*)
+	rTuningQuality : REAL; (*Tuning quality in percent*)
+	ePidStatus : PidState_enum; (*Pid status value used for the status snippet*)
+END_VAR

@@ -1,0 +1,20 @@
+                                                                      
+VAR CONSTANT
+    asioERR_INTERNAL  : UINT := 30150;			(*internal error*)
+    asioERR_NOSUCH_DP : UINT := 30151;			(*data point with specified name not found*)
+
+    asio_VALID_FLAG         : USINT :=  1;		(*bit0 is always set*)
+    asio_P_ACT_FLAG         : USINT :=  2;		(*bit1 = 1 data source active, bit1 = 0 data source inactive*)
+    asio_F_ACT_FLAG         : USINT :=  4;		(*bit2 = 1 force active, bit2 = 0 force inactive*)
+    asio_UNRES_LINK_FLAG    : USINT :=  8;		(*AsPVInfo: bit3=0 the PV link is established ,  AsIODPStatus: bit3=0 all PV links are established*)
+    asio_IO_INPUT_FLAG      : USINT := 16;		(*the data point is an I/O input channel*)
+    asio_IO_OUTPUT_FLAG     : USINT := 32;		(*the data point is an I/O output channel*)
+	asio_IO_SIMULATION_FLAG : USINT := 64;      (*the data point is simulated*)
+	asio_UNRES_IO_FLAG      : USINT :=128;      (*IO-Link unresolved*)
+
+ 
+    asio_TYPE_MISMATCH   : USINT := 16;         (*AsPVInfo:Type Mismatch*)
+    asio_PV_NOT_FOUND    : USINT := 32;         (*AsPVInfo:PV not found*)
+    asio_INVERTED_FLAG   : USINT := 64;			(*AsPVInfo:the PV link is inverted*)
+END_VAR
+

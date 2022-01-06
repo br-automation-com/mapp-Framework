@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="diagnoseContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:sTableConfig" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="TableIoModules" attribute="tableConfiguration" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:sModuleList" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="TableItemIoModules" attribute="stringValue" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:sIoChannelList" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="TableItemIoChannel" attribute="stringValue" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:sIoPvList" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="TableItemPvName" attribute="stringValue" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:sTableConfigChannels" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="TableIoChannels" attribute="tableConfiguration" />
+</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::IoBrowser:pIoChannel.Type" attribute="value" />
+			<Target xsi:type="expression" refId="IoIsBool" attribute="inA" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::IoBrowser:pIoChannel.Type" attribute="value" />
+			<Target xsi:type="expression" refId="IoIsTemp" attribute="inA" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="IoIsBool" attribute="result" />
+			<Target xsi:type="brease" contentRefId="content_IoForcing" widgetRefId="ToggleSwitchForceValue" attribute="visible" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="IoIsTemp" attribute="result" />
+			<Target xsi:type="brease" contentRefId="content_IoForcing" widgetRefId="NumericInputForceValueTemp" attribute="visible" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="IoIsBool" attribute="result" />
+			<Target xsi:type="expression" refId="IoIsInt" attribute="inA" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="IoIsTemp" attribute="result" />
+			<Target xsi:type="expression" refId="IoIsInt" attribute="inB" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="IoIsInt" attribute="result" />
+			<Target xsi:type="brease" contentRefId="content_IoForcing" widgetRefId="NumericInputForceValue" attribute="visible" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::IoBrowser:pIoChannel.IoForcing.ForceValue" attribute="value" />
+			<Target xsi:type="brease" contentRefId="content_IoForcing" widgetRefId="ToggleSwitchForceValue" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::IoBrowser:pIoChannel.IoForcing.SetForceActive" attribute="value" />
+			<Target xsi:type="brease" contentRefId="content_IoForcing" widgetRefId="ToggleSwitchSetForce" attribute="value" />
+		</Binding>
+		
+	<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:pIoChannel.ChannelName" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_IoForcing" widgetRefId="TextOutputIoChannel" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:pIoChannel.PvName" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_IoForcing" widgetRefId="TextOutputIoPvName" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:uSelectedChannel" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="TableIoChannels" attribute="selectedRow" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:uSelectedModule" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="TableIoModules" attribute="selectedRow" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:sIoValueList" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="TableItemIoValue" attribute="stringValue" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:pIoChannel.IoForcing.ForceValue" attribute="node" />
+<Target xsi:type="brease" contentRefId="content_IoForcing" widgetRefId="NumericInputForceValue" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:pIoChannelTemp.IoForcing.ForceValue" attribute="node" />
+<Target xsi:type="brease" contentRefId="content_IoForcing" widgetRefId="NumericInputForceValueTemp" attribute="node" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:sStationList" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="TableItemIoStations" attribute="stringValue" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:uSelectedStation" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="TableIoStations" attribute="selectedRow" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:sTableConfigStations" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="TableIoStations" attribute="tableConfiguration" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::IoBrowser:GatIoForcingHandler_0.Initializing" attribute="value" />
+<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="Label1" attribute="visible" />
+</Binding>
+</Bindings>
+</BindingsSet>

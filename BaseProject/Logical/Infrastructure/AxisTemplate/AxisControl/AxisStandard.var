@@ -1,0 +1,24 @@
+VAR
+	i : {REDUND_UNREPLICABLE} USINT;
+	restorePosition : {REDUND_UNREPLICABLE} McAcpAxRestorePosType;
+	MC_BR_CheckRestorePositionDataFB : {REDUND_UNREPLICABLE} MC_BR_CheckRestorePositionData;
+	MpRecipeRegPar_MachineFB : {REDUND_UNREPLICABLE} MpRecipeRegPar;
+	MpRecipeRegPar_UserFB : {REDUND_UNREPLICABLE} MpRecipeRegPar;
+	MpRecipeRegPar_PreFB : {REDUND_UNREPLICABLE} MpRecipeRegPar; (*Register preview parameters*)
+	MpRecipeRegPar_UserPreFB : {REDUND_UNREPLICABLE} MpRecipeRegPar; (*Register preview parameters*)
+	MpAlarmXCoreFB : {REDUND_UNREPLICABLE} MpAlarmXCore;
+	MpAxisParameters : {REDUND_UNREPLICABLE} MpAxisBasicParType := (Distance:=70,Velocity:=100,Acceleration:=5000,Deceleration:=5000,Jog:=(Velocity:=70,Acceleration:=5000,Deceleration:=5000),AutoTune:=(MaxCurrentPercent:=50,MaxDistance:=720,MaxPositionError:=5));
+	MpAxisBasicFB : {REDUND_UNREPLICABLE} MpAxisBasic;
+	MC_BR_ProcessConfig_AX : {REDUND_UNREPLICABLE} MC_BR_ProcessConfig; (*Function block to read and write the axis configuration*)
+	MC_BR_ProcessConfig_ACP : {REDUND_UNREPLICABLE} MC_BR_ProcessConfig; (*Function block to read and write the ACOPOS configuration*)
+	configurationState : {REDUND_UNREPLICABLE} configurationStateEnum;
+	state : {REDUND_UNREPLICABLE} stateEnum;
+	AutomaticState : {REDUND_UNREPLICABLE} USINT;
+	ManualState : {REDUND_UNREPLICABLE} USINT;
+	MachineSettings : {REDUND_UNREPLICABLE} AxisMachineSettingsType;
+	PreviewParameters : {REDUND_UNREPLICABLE} AxisControlParametersType;
+	AxisControl : {REDUND_UNREPLICABLE} AxisControlType;
+	IsHomedEdgePos : {REDUND_UNREPLICABLE} R_TRIG;
+	InPositionEdgePos : {REDUND_UNREPLICABLE} R_TRIG;
+	ReferenceEdgePos : {REDUND_UNREPLICABLE} R_TRIG;
+END_VAR
