@@ -41,7 +41,8 @@ TYPE
 		mcJOGSTATUS_WORKSPACE_VIOLATION, (*Workspace boundary reached*)
 		mcJOGSTATUS_SAFESPACE_VIOLATION, (*Safe space workspace boundary reached*)
 		mcJOGSTATUS_SELF_COLLISION, (*Self collision imminent*)
-		mcJOGSTATUS_TARGET_NOT_REACHABLE (*Mechanical limit reached*)
+		mcJOGSTATUS_TARGET_NOT_REACHABLE, (*Mechanical limit reached*)
+		mcJOGSTATUS_WORKRANGE_VIOLATION (*Working range boundary reached*)
 		);
 	McOverrideEnum :
 		(

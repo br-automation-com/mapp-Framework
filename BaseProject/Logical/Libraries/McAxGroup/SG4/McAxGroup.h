@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAxGroup 5.16.0 */
+/* McAxGroup 5.16.2 */
 
 #ifndef _MCAXGROUP_
 #define _MCAXGROUP_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAxGroup_VERSION
-#define _McAxGroup_VERSION 5.16.0
+#define _McAxGroup_VERSION 5.16.2
 #endif
 
 #include <bur/plctypes.h>
@@ -51,7 +51,8 @@ typedef enum McJogStatusEnum
 	mcJOGSTATUS_WORKSPACE_VIOLATION,
 	mcJOGSTATUS_SAFESPACE_VIOLATION,
 	mcJOGSTATUS_SELF_COLLISION,
-	mcJOGSTATUS_TARGET_NOT_REACHABLE
+	mcJOGSTATUS_TARGET_NOT_REACHABLE,
+	mcJOGSTATUS_WORKRANGE_VIOLATION
 } McJogStatusEnum;
 
 typedef enum McOverrideEnum

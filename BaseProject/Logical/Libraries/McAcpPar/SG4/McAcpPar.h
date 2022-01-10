@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAcpPar 5.16.0 */
+/* McAcpPar 5.16.2 */
 
 #ifndef _MCACPPAR_
 #define _MCACPPAR_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAcpPar_VERSION
-#define _McAcpPar_VERSION 5.16.0
+#define _McAcpPar_VERSION 5.16.2
 #endif
 
 #include <bur/plctypes.h>
