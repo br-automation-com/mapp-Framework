@@ -6,13 +6,13 @@
     <File Description="Local data types" Private="true">Types.typ</File>
     <File Description="Local variables" Private="true">AxisStandard.var</File>
     <File Private="true">Variables.var</File>
-    <File>Configuration.st</File>
     <File>AxisStateMachine.st</File>
-    <File>SimulationControl.st</File>
     <File>AxisControl.st</File>
+    <File>Recipe.st</File>
+    <File>SimulationControl.st</File>
     <File Private="true">LocalFunctions.fun</File>
     <File>ManualCommand.st</File>
     <File>AutomaticCommand.st</File>
-    <File>Recipe.st</File>
+    <File>Configuration.st</File>
   </Files>
 </Program>

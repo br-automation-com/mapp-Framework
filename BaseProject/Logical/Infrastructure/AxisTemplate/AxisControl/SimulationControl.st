@@ -1,9 +1,9 @@
 
 ACTION SimulationControl: 
 
-    //IF (gSimulationActive = FALSE) THEN
+    IF (gSimulationActive = FALSE) THEN
         RETURN;
-    //END_IF
+    END_IF
     
     IF ((MpAxisBasicFB.Info.ReadyToPowerOn = TRUE) AND (MpAxisBasicFB.PowerOn = FALSE)) THEN
         AxisControl.Command.Power := TRUE;
