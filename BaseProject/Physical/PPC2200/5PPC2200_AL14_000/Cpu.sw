@@ -82,6 +82,7 @@
     <BinaryObject Name="CutterGrp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Backup" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TC" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="BackupFile" Source="" Memory="UserROM" Language="Binary" />
   </Binaries>
   <Libraries>
     <LibraryObject Name="operator" Source="Libraries.operator.lby" Memory="UserROM" Language="binary" Debugging="true" />

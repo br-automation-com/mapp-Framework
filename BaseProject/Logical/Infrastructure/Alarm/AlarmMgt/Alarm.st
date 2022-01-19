@@ -26,6 +26,11 @@ PROGRAM _INIT
     MpAlarmXHistoryUI_0.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
 
     AlarmSamples;
+	
+	AlarmFilterCfg;
+	AlarmSortCfg;
+	AlarmHistFilterCfg;
+	AlarmHistSortCfg;
 
 END_PROGRAM
 

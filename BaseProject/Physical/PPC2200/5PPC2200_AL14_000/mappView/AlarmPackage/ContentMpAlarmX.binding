@@ -68,5 +68,21 @@
             <Source xsi:type="mapp" refId="gAlarmXMpLink" attribute="link" />
             <Target xsi:type="brease" contentRefId="ContentTop_Header" widgetRefId="AlarmLine1" attribute="mpLink" />
         </Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AlarmMgt:AlarmFilterCfg" attribute="value" />
+			<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="AlmLstCurrentAlarms" attribute="filterConfiguration" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AlarmMgt:AlarmSortCfg" attribute="value" />
+			<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="AlmLstCurrentAlarms" attribute="sortConfiguration" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AlarmMgt:AlarmHistFilterCfg" attribute="value" />
+			<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="AlmHist" attribute="filterConfiguration" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AlarmMgt:AlarmHistSortCfg" attribute="value" />
+			<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="AlmHist" attribute="sortConfiguration" />
+		</Binding>
     </Bindings>
 </BindingsSet>

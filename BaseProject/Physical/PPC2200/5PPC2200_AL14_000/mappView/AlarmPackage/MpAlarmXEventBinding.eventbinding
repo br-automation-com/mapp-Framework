@@ -234,5 +234,46 @@
                 </Action>
             </EventHandler>
         </EventBinding>
+		
+	<EventBinding id="ContentMpAlarmX.PBtnActiveAlarmSort.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="ContentMpAlarmX" widgetRefId="PBtnActiveAlarmSort" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="ContentMpAlarmX" widgetRefId="AlmLstCurrentAlarms">
+            <Method xsi:type="widgets.brease.AlarmList.Action.OpenConfiguration" type="Sorting" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="ContentMpAlarmX.PBtnActiveAlarmFilter.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="ContentMpAlarmX" widgetRefId="PBtnActiveAlarmFilter" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="ContentMpAlarmX" widgetRefId="AlmLstCurrentAlarms">
+            <Method xsi:type="widgets.brease.AlarmList.Action.OpenConfiguration" type="Filtering" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="ContentMpAlarmX.PBtnHistoryAlarmSort.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="ContentMpAlarmX" widgetRefId="PBtnHistoryAlarmSort" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmHistory.Action" contentRefId="ContentMpAlarmX" widgetRefId="AlmHist">
+            <Method xsi:type="widgets.brease.AlarmHistory.Action.OpenConfiguration" type="Sorting" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="ContentMpAlarmX.PBtnHistoryAlarmFilter.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="ContentMpAlarmX" widgetRefId="PBtnHistoryAlarmFilter" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmHistory.Action" contentRefId="ContentMpAlarmX" widgetRefId="AlmHist">
+            <Method xsi:type="widgets.brease.AlarmHistory.Action.OpenConfiguration" type="Filtering" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

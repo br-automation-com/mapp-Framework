@@ -42,4 +42,8 @@ VAR
 	Alarms : {REDUND_UNREPLICABLE} ARRAY[0..99] OF BOOL; (*Array of active alarm*)
 	AlarmExamples : {REDUND_UNREPLICABLE} AlarmExamples_typ; (*Sample alarms for different monitoring types*)
 	MpAlarmXControlExampleFB : {REDUND_UNREPLICABLE} MpAlarmXAlarmControl; (*MpAlarmXAlarmControl instance*)
+	AlarmFilterCfg : STRING[1000];
+	AlarmSortCfg : STRING[1000];
+	AlarmHistFilterCfg : STRING[1000];
+	AlarmHistSortCfg : STRING[1000];
 END_VAR
