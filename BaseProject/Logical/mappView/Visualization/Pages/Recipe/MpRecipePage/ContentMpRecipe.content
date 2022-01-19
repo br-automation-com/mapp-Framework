@@ -16,9 +16,9 @@
       <Widgets>
         <Widget xsi:type="widgets.brease.TabItem" id="TabItemPreview" left="0" width="120" height="40" zIndex="0" text="$IAT/Recipe/Preview" borderWidth="1px 6px 1px 1px" fontSize="20px" style="BrWhite">
           <Widgets>
-            <Widget xsi:type="widgets.brease.Label" id="Label1" top="39" left="150" width="160" zIndex="0" text="$IAT/Home/Axis1" textAlign="center" fontSize="20px" bold="true" />
-            <Widget xsi:type="widgets.brease.Label" id="Label4" top="39" left="300" width="160" zIndex="1" text="$IAT/Home/Axis2" textAlign="center" fontSize="20px" bold="true" />
-            <Widget xsi:type="widgets.brease.Label" id="LabelVel" top="99" left="19" width="120" zIndex="2" text="$IAT/Home/SetSpeed" fontSize="18px" bold="true" />
+            <Widget xsi:type="widgets.brease.Label" id="Label1" top="39" left="150" width="160" zIndex="0" text="$IAT/Recipe/Axis1" textAlign="center" fontSize="20px" bold="true" />
+            <Widget xsi:type="widgets.brease.Label" id="Label4" top="39" left="300" width="160" zIndex="1" text="$IAT/Recipe/Axis2" textAlign="center" fontSize="20px" bold="true" />
+            <Widget xsi:type="widgets.brease.Label" id="LabelVel" top="99" left="19" width="120" zIndex="2" text="$IAT/Recipe/SetSpeed" fontSize="18px" bold="true" />
             <Widget xsi:type="widgets.brease.Label" id="LabelAcc" top="172" left="19" width="120" zIndex="3" text="$IAT/Recipe/Acceleration" fontSize="18px" bold="true" />
             <Widget xsi:type="widgets.brease.Label" id="LabelDec" top="245" left="19" width="120" zIndex="4" text="$IAT/Recipe/Deceleration" fontSize="18px" bold="true" />
             <Widget xsi:type="widgets.brease.Label" id="LabelDec1" top="304" left="19" width="120" height="61" zIndex="5" multiLine="true" text="$IAT/Recipe/StopDeceleration" wordWrap="true" fontSize="18px" bold="true" />
@@ -34,8 +34,8 @@
         </Widget>
         <Widget xsi:type="widgets.brease.TabItem" id="TabItemComparison" left="0" width="140" height="40" zIndex="1" text="$IAT/Recipe/Comparison" fontSize="20px" style="BrWhite">
           <Widgets>
-            <Widget xsi:type="widgets.brease.Label" id="LblNumber1" top="5" left="100" width="160" height="44" zIndex="0" text="$IAT/Home/Axis1" textAlign="center" fontSize="20px" bold="true" />
-            <Widget xsi:type="widgets.brease.Label" id="LblIndex6" top="90" left="-1" width="120" height="50" zIndex="1" text="$IAT/Home/SetSpeed" textAlign="left" fontSize="16px" bold="true" />
+            <Widget xsi:type="widgets.brease.Label" id="LblNumber1" top="5" left="100" width="160" height="44" zIndex="0" text="$IAT/Recipe/Axis1" textAlign="center" fontSize="20px" bold="true" />
+            <Widget xsi:type="widgets.brease.Label" id="LblIndex6" top="90" left="-1" width="120" height="50" zIndex="1" text="$IAT/Recipe/SetSpeed" textAlign="left" fontSize="16px" bold="true" />
             <Widget xsi:type="widgets.brease.Label" id="LblIndex7" top="160" left="-1" width="120" height="50" zIndex="3" text="$IAT/Recipe/Acceleration" textAlign="left" fontSize="16px" bold="true" />
             <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutSetSpeedAx1" top="93" left="105" width="75" height="44" zIndex="2" showUnit="false" unit="{'metric':'C16','imperial':'IU','imperial-us':'IU'}" unitAlign="right" unitTextAlign="left" value="2222.2" textColor="rgba(240, 150, 82, 1)" textAlign="right" fontSize="14px" style="Output" />
             <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutSetSpeedAx2Pre" top="93" left="270" width="75" height="44" zIndex="4" showUnit="false" unit="{'metric':'E96','imperial':'E96','imperial-us':'E96'}" unitAlign="right" textColor="rgba(240, 150, 82, 1)" textAlign="center" fontSize="14px" style="Output" />
@@ -47,7 +47,7 @@
             <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutDecAx2Pre" top="233" left="270" width="75" height="44" zIndex="10" showUnit="false" unit="{'metric':'M45','imperial':'M45','imperial-us':'M45'}" unitAlign="right" textColor="rgba(240, 150, 82, 1)" textAlign="center" fontSize="14px" style="Output" />
             <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutStopDecAx1Pre" top="303" left="105" width="75" height="44" zIndex="11" showUnit="false" unit="{'metric':'M41','imperial':'IV','imperial-us':'IV'}" unitAlign="right" unitTextAlign="left" value="2222.6" textColor="rgba(240, 150, 82, 1)" textAlign="right" fontSize="14px" style="Output" />
             <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutStopDecAx2Pre" top="303" left="270" width="75" height="44" zIndex="12" showUnit="false" unit="{'metric':'M45','imperial':'M45','imperial-us':'M45'}" unitAlign="right" value="3333.8" textColor="rgba(240, 150, 82, 1)" textAlign="center" fontSize="14px" style="Output" />
-            <Widget xsi:type="widgets.brease.Label" id="Label2" top="5" left="265" width="160" height="44" zIndex="13" text="$IAT/Home/Axis2" textAlign="center" fontSize="20px" bold="true" />
+            <Widget xsi:type="widgets.brease.Label" id="Label2" top="5" left="265" width="160" height="44" zIndex="13" text="$IAT/Recipe/Axis2" textAlign="center" fontSize="20px" bold="true" />
             <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutSetSpeedAx1Cur" top="93" left="175" width="110" height="44" zIndex="14" unit="{'metric':'C16','imperial':'IU','imperial-us':'IU'}" unitAlign="right" unitTextAlign="left" textAlign="right" fontSize="14px" unitFontSize="12px" style="Output" />
             <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutAccAx1Cur" top="163" left="175" width="110" height="44" zIndex="15" unit="{'metric':'M41','imperial':'IV','imperial-us':'IV'}" unitAlign="right" unitTextAlign="left" value="2222.2" textAlign="right" fontSize="14px" unitFontSize="12px" style="Output" />
             <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutDecAx1Cur" top="233" left="175" width="110" height="44" zIndex="16" unit="{'metric':'M41','imperial':'IV','imperial-us':'IV'}" unitAlign="right" unitTextAlign="left" value="2222.2" textAlign="right" fontSize="14px" unitFontSize="12px" style="Output" />
@@ -74,7 +74,7 @@
         </Widget>
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.Label" id="Label3" top="10" left="680" width="150" height="35" zIndex="7" text="$IAT/Home/CurrentRecipe" fontName="Arial Unicode" fontSize="16px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="Label3" top="10" left="680" width="150" height="35" zIndex="7" text="$IAT/Recipe/CurrentRecipe" fontName="Arial Unicode" fontSize="16px" bold="true" />
     <Widget xsi:type="widgets.brease.TextOutput" id="txtOutRecipeName" top="10" left="860" width="220" height="35" zIndex="8" fontSize="18px" style="Br_gray" />
     <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownBoxRecipeDevice" top="10" left="420" width="200" height="40" zIndex="9" dataProvider="[{'value':'mappRecipe','text':'CF/PLC'},{'value':'USB1','text':'USB1'},{'value':'USB2','text':'USB2'}]" selectedValue="mappRecipe" fontSize="18px" />
     <Widget xsi:type="widgets.brease.Label" id="LabelFileDev" top="13" left="240" width="150" height="35" zIndex="10" text="$IAT/Recipe/FileDevice" fontName="Arial Unicode" fontSize="16px" bold="true" />
