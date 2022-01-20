@@ -14,6 +14,7 @@ VAR
 	MpDataRecorder_0 : MpDataRecorder; (*mapp Data Recorder Function block*)
 	MpDataRegPar_x : ARRAY[0..MAX_IDX_DATA_REG] OF MpDataRegPar; (*Function Block to Set the recorded variable*)
 	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappData',9('')]));
+	DirCreate_New : DirCreate;
 END_VAR
 (*Data Management Related Function Blocks--------------------------------------------------------------------------------------------*)
 VAR
@@ -27,4 +28,5 @@ END_VAR
 VAR CONSTANT
 	MAX_IDX_DATA_REG : USINT := 1; (*Max index of registered variables for MpData*)
 	STR_FILE_DEVICE : STRING[256] := '/FileDevice:mappData/'; (*File Device for mappData*)
+	LOCAL_FOLDER : STRING[10] := 'Data';
 END_VAR

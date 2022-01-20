@@ -15,6 +15,7 @@ VAR
 	TON_0 : TON := (0); (*Timer to wait before refresh*)
 	MpReportCore_0 : MpReportCore := (0); (*Core variable for MpReport*)
 	LanguageSelect_0 : LanguageSelect := (LanguageSelection:=['en','de'],SelectedIndex:=0);
+	DirCreate_New : DirCreate;
 END_VAR
 (*Report Management Variables------------------------------------------------------------------------------------------*)
 VAR
@@ -35,4 +36,5 @@ VAR CONSTANT
 	REPORT_DEVICE : STRING[80] := 'mappReport'; (*Constant contains filedevice for save reports *)
 	REPORT_NAME : STRING[80] := 'Report'; (*Constant contains name of Report*)
 	STR_FILE_DEVICE : STRING[80] := '/FileDevice:mappReport/'; (*File Device*)
+	LOCAL_FOLDER : STRING[10] := 'Report';
 END_VAR

@@ -13,6 +13,7 @@ VAR
 	MpRecipeXml_Pre : MpRecipeXml;
 	MpRecipeXml_0 : MpRecipeXml; (*Recipe Management Function Block*)
 	MpRecipeUI_0 : MpRecipeUI; (*Recipe to UI*)
+	DirCreate_New : DirCreate;
 END_VAR
 (*Recipe Management Variables---------------------------------------------------------------------------------*)
 VAR
@@ -33,4 +34,5 @@ VAR CONSTANT
 	PRODUCT_CATEGORY : STRING[7] := 'Product';
 	MACHINE_CATEGORY : STRING[7] := 'Machine';
 	MACHINE_FILENAME : STRING[11] := 'Machine.fix';
+	LOCAL_FOLDER : STRING[10] := 'Recipe';
 END_VAR

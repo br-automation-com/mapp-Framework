@@ -3,8 +3,9 @@ VAR
 	MpBackupCoreConfigFB : MpBackupCoreConfig;
 	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappBackup','USB1',8('')]));
 	MpFileManagerUIFB : MpFileManagerUI;
-	hmiBackup : BackupHmiInterface_type;
+	DirCreate_New : DirCreate;
 	MpBackupCoreFB : MpBackupCore;
+	hmiBackup : BackupHmiInterface_type;
 	i : USINT;
 	BackupState : BackupState_enum;
 	LastSelectedIndex : USINT;
@@ -12,4 +13,5 @@ VAR
 END_VAR
 VAR CONSTANT
 	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 1;
+	LOCAL_FOLDER : STRING[10] := 'Backup';
 END_VAR

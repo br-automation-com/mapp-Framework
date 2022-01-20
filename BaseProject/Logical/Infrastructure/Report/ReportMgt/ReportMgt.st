@@ -6,6 +6,15 @@
 	*********************************************************************************)
 
 PROGRAM _INIT
+
+	(*Create folder for this component on the user file device*)
+	DirCreate_New(enable := TRUE, pDevice := ADR('userPartition'), pName := ADR(LOCAL_FOLDER));		
+	
+	(*Check if folder already exist and if so disabled the function block call*)
+	IF DirCreate_New.status = fiERR_DIR_ALREADY_EXIST THEN
+		DirCreate_New(enable := FALSE);
+	END_IF	
+
 	(* Init mapp function blocks *)
 	MpReportCore_0.Enable		:= TRUE;
 	MpReportCore_0.MpLink		:= ADR(gReportMpLink);

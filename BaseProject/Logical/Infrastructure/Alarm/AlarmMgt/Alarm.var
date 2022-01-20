@@ -14,6 +14,7 @@ VAR
 	MpAlarmXHistoryUI_0 : MpAlarmXHistoryUI; (*MpAlarmXHistoryUI instance*)
 	MpAlarmXListUI_0 : MpAlarmXListUI; (*MpAlarmXList instance*)
 	MpAlarmXCore_0 : MpAlarmXCore; (*MpAlarmXCore instance*) (*ChangeStyleAlarmButton : USINT := 0; (*changeStyle of a AlarmFlyout in mappView*)
+	DirCreate_New : DirCreate;
 END_VAR
 (*Alarm Management Variables------------------------------------------------------------------------------------------------*)
 VAR
@@ -26,6 +27,10 @@ VAR
 	MpAlarmXHistoryUIConnect : MpAlarmXHistoryUIConnectType; (*AlarmX History connection to UI*)
 	AlarmQuery : {REDUND_UNREPLICABLE} AlarmQueryType; (*Query Results*)
 	MpAlarmXQueryActiveAlarmsFB : {REDUND_UNREPLICABLE} MpAlarmXQuery; (*MpAlarmXQuery instance*)
+	AlarmFilterCfg : STRING[1000];
+	AlarmSortCfg : STRING[1000];
+	AlarmHistFilterCfg : STRING[1000];
+	AlarmHistSortCfg : STRING[1000];
 END_VAR
 (*Safety Inputs*)
 VAR
@@ -35,6 +40,7 @@ END_VAR
 VAR CONSTANT
 	MAX_IDX_ESTOP : UINT := 2;
 	MAX_IDX_SAFETY_DOOR : UINT := 5;
+	LOCAL_FOLDER : STRING[10] := 'AlarmX';
 END_VAR
 (*Examples*)
 VAR
@@ -42,8 +48,4 @@ VAR
 	Alarms : {REDUND_UNREPLICABLE} ARRAY[0..99] OF BOOL; (*Array of active alarm*)
 	AlarmExamples : {REDUND_UNREPLICABLE} AlarmExamples_typ; (*Sample alarms for different monitoring types*)
 	MpAlarmXControlExampleFB : {REDUND_UNREPLICABLE} MpAlarmXAlarmControl; (*MpAlarmXAlarmControl instance*)
-	AlarmFilterCfg : STRING[1000];
-	AlarmSortCfg : STRING[1000];
-	AlarmHistFilterCfg : STRING[1000];
-	AlarmHistSortCfg : STRING[1000];
 END_VAR
