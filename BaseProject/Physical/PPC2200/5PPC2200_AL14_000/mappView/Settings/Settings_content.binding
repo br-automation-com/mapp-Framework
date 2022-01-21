@@ -16,7 +16,7 @@
 		
 
 		<!-- Multiple bindings from mappView to PLC />-->
-		<Binding mode="oneWayToSource">
+		<!--<Binding mode="oneWayToSource">
 			<Source xsi:type="listElement">
 				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
 				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
@@ -50,10 +50,10 @@
 				</be:List>
 			</Source>
 			<Target xsi:type="brease" contentRefId="Settings_content" widgetRefId="lstRoles" attribute="selectedIndex" />
-		</Binding>
+		</Binding>-->
 	
 		<!-- Multiple bindings from vis PLC to mappView />-->	
-		<Binding mode="oneWay">
+		<!--<Binding mode="oneWay">
 			<Source xsi:type="listElement">
 				<Selector xsi:type="session" refId="::SYSTEM:clientInfo.slotId" attribute="value" />
 				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
@@ -119,7 +119,7 @@
 				</be:List>
 			</Source>
 			<Target xsi:type="brease" contentRefId="Settings_content" widgetRefId="btnRenameUser" attribute="enable" />
-		</Binding>
+		</Binding>-->
 		<Binding mode="oneWay">
 			<Source xsi:type="brease" contentRefId="Settings_content" widgetRefId="lstUsers" attribute="selectedValue" />
 			<Target xsi:type="brease" contentRefId="Settings_content" widgetRefId="txtInUserNameManagment" attribute="value" />
