@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="Parameters_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+
+		<!--<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::ProcessCon:AcpAxConfig[0].MechanicalElements.Gearbox.Input" attribute="node" />
+			<Target xsi:type="brease" contentRefId="Parameters_content" widgetRefId="NumericInputGearInAx1" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::ProcessCon:AcpAxConfig[1].MechanicalElements.Gearbox.Input" attribute="node" />
+			<Target xsi:type="brease" contentRefId="Parameters_content" widgetRefId="NumericInputGearInAx2" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::ProcessCon:AcpAxConfig[0].MechanicalElements.Gearbox.Output" attribute="node" />
+			<Target xsi:type="brease" contentRefId="Parameters_content" widgetRefId="NumericInputGearOutAx1" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::ProcessCon:AcpAxConfig[1].MechanicalElements.Gearbox.Output" attribute="node" />
+			<Target xsi:type="brease" contentRefId="Parameters_content" widgetRefId="NumericInputGearOutAx2" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::ProcessCon:AcpAxConfig[0].Homing.Mode.Direct.Position" attribute="node" />
+			<Target xsi:type="brease" widgetRefId="NumericInputHomePosAx1" contentRefId="Parameters_content" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::ProcessCon:AcpAxConfig[1].Homing.Mode.Direct.Position" attribute="node" />
+			<Target xsi:type="brease" widgetRefId="NumericInputHomePosAx2" contentRefId="Parameters_content" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::ProcessCon:AcpAxConfig[0].MechanicalElements.RotaryToLinearTransformation.ReferenceDistance" attribute="node" />
+			<Target xsi:type="brease" widgetRefId="NumericInputRefDistAx1" contentRefId="Parameters_content" attribute="node" />
+		</Binding>-->
+
+		<!-- Uncomment if there is an axis with boundaries <Binding mode="twoWay">
+		<Source xsi:type="listElement">
+		<Selector xsi:type="brease" widgetRefId="TabControlParameters" contentRefId="Parameters_content" attribute="selectedIndex" />
+		<be:List xsi:type="be:opcUa" attribute="node">
+		<bt:Element index="0" refId="::ProcessCon:BaseAxConfig.MovementLimits.Internal.Position.LowerLimit" />
+		<bt:Element index="1" refId="::ProcessCon:pBaseAxConfig.MovementLimits.Internal.Position.LowerLimit" />
+		</be:List>
+		</Source>
+		<Target xsi:type="brease" widgetRefId="NumericInputLowerPosLim" contentRefId="Parameters_content" attribute="node" />
+		</Binding>
+		<Binding mode="oneWay">
+		<Source xsi:type="listElement">
+		<Selector xsi:type="brease" widgetRefId="TabControlParameters" contentRefId="Parameters_content" attribute="selectedIndex" />
+		<be:List xsi:type="be:opcUa" attribute="value">
+		<bt:Element index="0" refId="::ProcessCon:sUnitsLin" />
+		<bt:Element index="1" refId="::ProcessCon:sUnitsRot" />
+		</be:List>
+		</Source>
+		<Target xsi:type="brease" widgetRefId="NumericInputLowerPosLim" contentRefId="Parameters_content" attribute="unit" />
+		</Binding>
+		<Binding mode="twoWay">
+		<Source xsi:type="listElement">
+		<Selector xsi:type="brease" widgetRefId="TabControlParameters" contentRefId="Parameters_content" attribute="selectedIndex" />
+		<be:List xsi:type="be:opcUa" attribute="node">
+		<bt:Element index="0" refId="::ProcessCon:BaseAxConfig.MovementLimits.Internal.Position.UpperLimit" />
+		<bt:Element index="1" refId="::ProcessCon:pBaseAxConfig.MovementLimits.Internal.Position.UpperLimit" />
+		</be:List>
+		</Source>
+		<Target xsi:type="brease" widgetRefId="NumericInputUpperPosLim" contentRefId="Parameters_content" attribute="node" />
+		</Binding>
+		<Binding mode="oneWay">
+		<Source xsi:type="listElement">
+		<Selector xsi:type="brease" widgetRefId="TabControlParameters" contentRefId="Parameters_content" attribute="selectedIndex" />
+		<be:List xsi:type="be:opcUa" attribute="value">
+		<bt:Element index="0" refId="::ProcessCon:sUnitsLin" />
+		<bt:Element index="1" refId="::ProcessCon:sUnitsRot" />
+		</be:List>
+		</Source>
+		<Target xsi:type="brease" widgetRefId="NumericInputUpperPosLim" contentRefId="Parameters_content" attribute="unit" />
+		</Binding>-->
+
+		<!--<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:ResetCam" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CamError_content" widgetRefId="ProgressBar1" attribute="value" />
+		</Binding>
+		
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.FixPar.SyncAngle" attribute="node" />
+			<Target xsi:type="brease" contentRefId="Parameters_content" widgetRefId="NumericInputSyncAngle" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.FixPar.CutDiameter" attribute="node" />
+			<Target xsi:type="brease" contentRefId="Parameters_content" widgetRefId="NumericInputDiameter" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.FixPar.NrOfKnives" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Parameters_content" widgetRefId="NumericInputNrOfKnives" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.Error" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList1" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Command.ErrorAcknowledge" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="PBtnAckCamAutCmd" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Command.ErrorAcknowledge" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="PBtnAckMpAxisAx2" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Command.ErrorAcknowledge" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="PBtnAckMpAxisAx1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.Error" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList3" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MC_BR_CamAutomatCommand_0.Error" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList2" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.FixPar.MaxProductLength" attribute="node" />
+			<Target xsi:type="brease" contentRefId="Parameters_content" widgetRefId="NumericInputMaxProdLen" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.FixPar.MinProductLength" attribute="node" />
+			<Target xsi:type="brease" contentRefId="Parameters_content" widgetRefId="NumericInputMinProdLen" attribute="node" />
+		</Binding>-->
+	</Bindings>
+</BindingsSet>

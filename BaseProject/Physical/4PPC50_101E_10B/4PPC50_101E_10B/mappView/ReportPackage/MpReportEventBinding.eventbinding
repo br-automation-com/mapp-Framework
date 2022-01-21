@@ -5,7 +5,7 @@
 	<Bindings>
 		<!--Generate Report-->
 		<EventBinding>
-			<Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentMpReport" widgetRefId="BtnGenerate" event="Click" />
+			<Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="BtnGenerate" event="Click" />
 			<EventHandler>
 				<Action>
 					<Target xsi:type="opcUa.NodeAction" refId="::ReportMgt:bStartGenerate">
@@ -16,7 +16,7 @@
 		</EventBinding>
 		<!--Delete Report-->
 		<EventBinding>
-			<Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentMpReport" widgetRefId="BtnDelete" event="Click" />
+			<Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="BtnDelete" event="Click" />
 			<EventHandler>
 				<Action>
 					<Target xsi:type="opcUa.NodeAction" refId="::ReportMgt:bDeleteReport">

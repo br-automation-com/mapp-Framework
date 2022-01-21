@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="Diagnostic_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="Diagnostic_content.ButtonForcing.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="ButtonForcing" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="IoForcing_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+	  <EventBinding id="EventBinding_38">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckUserXLogin" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::UserX:MpUserXLogin_0.ErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_39">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckUserXLoginUI" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::UserX:MpUserXLoginUI_0.ErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_40">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckUserXManagerUI" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::UserX:MpUserXManagerUI_0.ErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_41">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpAuditTrail" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::AuditMgt:MpAuditTrail_0.ErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_43">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAlarmXHistory" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:MpAlarmXHistory_0.ErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_44">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpAlarmXHistoryUI" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:MpAlarmXHistoryUI_0.ErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_45">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpAlarmXListUI" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:MpAlarmXListUI_0.ErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_46">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpReportCore" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::ReportMgt:MpReportCore_0.ErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_48">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpDataRecorder" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::DataMgt:MpDataRecorder_0.ErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_50">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpRecipeUI" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUI_0.ErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_51">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnMpRecipeXml" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeXml_0.ErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

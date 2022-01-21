@@ -3,72 +3,72 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.ActPosition" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutCutterPos" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="NumOutCutterPos" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.ActVelocity" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutFeederActSpeed" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="NumOutFeederActSpeed" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.ActPosition" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutFeedPos" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="NumOutFeedPos" attribute="value" />
 		</Binding>
 
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.ActVelocity" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutCutterActSpeed" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="NumOutCutterActSpeed" attribute="value" />
 		</Binding>
 		
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.LastLoadedRecipe" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="txtOutRecipeName" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 		
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Status.CurrentBatch" attribute="node" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutBatchNo" attribute="node" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="NumOutBatchNo" attribute="node" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Status.CurrentBatchTarget" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutBatchCut" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="NumOutBatchCut" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Status.ProductsCutBatch" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutAlreadyCut" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="NumOutAlreadyCut" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Status.ProductsCutTotal" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutAlreadyCutTotal" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="NumOutAlreadyCutTotal" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Status.CurrentBatchLength" attribute="node" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumOutLength" attribute="node" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="NumOutLength" attribute="node" />
 		</Binding>
 		
 
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Parameter.AxPar.Velocity" attribute="node" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="NumericInputFeederSetVel" attribute="node" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="NumericInputFeederSetVel" attribute="node" />
 		</Binding>
 
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.AutoModeOn" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TSwMachineOn" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="TSwMachineOn" attribute="value" />
 		</Binding>
 		
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MpAxisBasic_x[0].MoveActive" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="PushButtonUpdate" attribute="enable" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="PushButtonUpdate" attribute="enable" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MpAxisBasic_x[0].Update" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="PushButtonUpdate" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="PushButtonUpdate" attribute="value" />
 		</Binding>
 		
 		
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MC_BR_CamAutomatCommand_0.Running" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="ImageGearIn" attribute="visible" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="ImageGearIn" attribute="visible" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MC_BR_CamAutomatCommand_0.Running" attribute="value" />
@@ -76,7 +76,7 @@
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="expression" refId="CamNotRunning" attribute="result" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="ImageGearOut" attribute="visible" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="ImageGearOut" attribute="visible" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.PowerOn" attribute="value" />
@@ -93,11 +93,11 @@
 
 		<Binding mode="oneWay">
 			<Source xsi:type="expression" refId="Ax1ReadyAuto" attribute="result" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnStartStop" attribute="enable" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="TBtnStartStop" attribute="enable" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="expression" refId="Ax2ReadyAuto" attribute="result" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnSyncOnOff" attribute="enable" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="TBtnSyncOnOff" attribute="enable" />
 		</Binding>
 
 		<Binding mode="oneWay">
@@ -115,11 +115,11 @@
 
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.RunFeeder" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnStartStop" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="TBtnStartStop" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:MainCtrl.Cmd.RunCutter" attribute="value" />
-			<Target xsi:type="brease" contentRefId="HomeContent" widgetRefId="TBtnSyncOnOff" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="TBtnSyncOnOff" attribute="value" />
 		</Binding>
 	</Bindings>
 </BindingsSet>

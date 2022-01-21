@@ -3,7 +3,7 @@
   <Bindings>
 
     <EventBinding id="LogOut_EventBinding_6">
-      <Source xsi:type="widgets.brease.Image.Event" contentRefId="ContentTop_Header" widgetRefId="ImageLogOut" event="Click" />
+      <Source xsi:type="widgets.brease.Image.Event" contentRefId="TopHeader_content" widgetRefId="ImageLogOut" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
@@ -16,7 +16,7 @@
           <Step order="1">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.Navigate" pageId="Welcome_Page" />
+                <Method xsi:type="clientSystem.Action.Navigate" pageId="Welcome_page" />
               </Target>
             </Action>
           </Step>

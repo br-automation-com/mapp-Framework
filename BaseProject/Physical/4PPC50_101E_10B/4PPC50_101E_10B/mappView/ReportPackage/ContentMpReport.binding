@@ -3,23 +3,23 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::ReportMgt:sStrSelectedFile" attribute="value" />
-			<Target xsi:type="brease" contentRefId="ContentMpReport" widgetRefId="PViewReport" attribute="src" />
+			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="PViewReport" attribute="src" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::ReportMgt:uDisplayFileNameIndex" attribute="value" />
-			<Target xsi:type="brease" contentRefId="ContentMpReport" widgetRefId="TblReport" attribute="selectedRow" />
+			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="TblReport" attribute="selectedRow" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::ReportMgt:sDisplayFileName" attribute="value" />
-			<Target xsi:type="brease" contentRefId="ContentMpReport" widgetRefId="TblItm" attribute="stringValue" />
+			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="TblItm" attribute="stringValue" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::ReportMgt:bReportErrorActive[0]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="ImageList16" attribute="selectedIndex" />
+			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList16" attribute="selectedIndex" />
 			</Binding>
 	<Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::ReportMgt:sTableConfig" attribute="value" />
-<Target xsi:type="brease" contentRefId="ContentMpReport" widgetRefId="TblReport" attribute="tableConfiguration" />
+<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="TblReport" attribute="tableConfiguration" />
 </Binding>
 </Bindings>
 </BindingsSet>

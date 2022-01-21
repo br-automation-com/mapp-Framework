@@ -54,7 +54,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="MpUserX_Eventbinding_8">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Content_UserXErrorDialog" widgetRefId="BtnConfirmErroMessageBox" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserXErrorDialog_content" widgetRefId="BtnConfirmErroMessageBox" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
@@ -79,14 +79,14 @@
       <EventHandler condition="newValue = 0">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXErrorDialogBox_Dialog" mode="modal" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXErrorDialogBox_dialog" mode="modal" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="newValue = 1">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXErrorDialogBox_Dialog" />
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXErrorDialogBox_dialog" />
           </Target>
         </Action>
       </EventHandler>
@@ -96,14 +96,14 @@
       <EventHandler condition="newValue = 1">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserManXErrorDialogBox_Dialog" mode="modal" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserManXErrorDialogBox_dialog" mode="modal" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="newValue &gt; 1">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserManXMessageDialogBox_Dialog" mode="modal" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserManXMessageDialogBox_dialog" mode="modal" />
           </Target>
         </Action>
       </EventHandler>
@@ -112,14 +112,14 @@
           <Step order="0">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserManXErrorDialogBox_Dialog" />
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserManXErrorDialogBox_dialog" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserManXMessageDialogBox_Dialog" />
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserManXMessageDialogBox_dialog" />
               </Target>
             </Action>
           </Step>
@@ -131,7 +131,7 @@
       <EventHandler condition="newValue &lt;&gt; 1">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXErrorDialogBox_Dialog" mode="modeless" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXErrorDialogBox_dialog" mode="modeless" />
           </Target>
         </Action>
       </EventHandler>
@@ -143,7 +143,7 @@
           <Step order="0">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXErrorDialogBox_Dialog" />
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXErrorDialogBox_dialog" />
               </Target>
             </Action>
           </Step>
@@ -190,43 +190,43 @@
       <EventHandler condition="newValue=0">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ChangePwd_Dialog" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ChangePwd_dialog" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="newValue=1">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="ChangePwd_Dialog" />
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="ChangePwd_dialog" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_11">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="ButtonEditUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Settings_content" widgetRefId="ButtonEditUser" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="settingsContent" widgetRefId="UserListManagement">
+          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="Settings_content" widgetRefId="UserListManagement">
             <Method xsi:type="widgets.brease.UserList.Action.OpenModifyUserDialog" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_12">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="ButtonAddUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Settings_content" widgetRefId="ButtonAddUser" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="settingsContent" widgetRefId="UserListManagement">
+          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="Settings_content" widgetRefId="UserListManagement">
             <Method xsi:type="widgets.brease.UserList.Action.OpenAddUserDialog" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_13">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="ButtonDeleteUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Settings_content" widgetRefId="ButtonDeleteUser" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="settingsContent" widgetRefId="UserListManagement">
+          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="Settings_content" widgetRefId="UserListManagement">
             <Method xsi:type="widgets.brease.UserList.Action.DeleteUser" />
           </Target>
         </Action>

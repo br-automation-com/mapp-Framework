@@ -3,11 +3,11 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[0].Status.ActPosition" attribute="node" />
-			<Target xsi:type="brease" contentRefId="trend_Content" widgetRefId="OnlineChartHDA1" attribute="graph[graph1].node" />
+			<Target xsi:type="brease" contentRefId="Trend_content" widgetRefId="OnlineChartHDA1" attribute="graph[graph1].node" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::MainCtrl:AxisControl[1].Status.ActPosition" attribute="node" />
-			<Target xsi:type="brease" contentRefId="trend_Content" widgetRefId="OnlineChartHDA1" attribute="graph[graph2].node" />
+			<Target xsi:type="brease" contentRefId="Trend_content" widgetRefId="OnlineChartHDA1" attribute="graph[graph2].node" />
 		</Binding>
 	</Bindings>
 </BindingsSet>

@@ -2,17 +2,17 @@
 <EventBindingSet id="Parameters_EventBinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
     <EventBinding id="Parameters_EventBinding_4">
-      <Source xsi:type="widgets.brease.Image.Event" contentRefId="ContentCamError" widgetRefId="ImgHideDialog" event="Click" />
+      <Source xsi:type="widgets.brease.Image.Event" contentRefId="CamError_content" widgetRefId="ImgHideDialog" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="CamError_Dialog" />
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="CamError_dialog" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Parameters_EventBinding_5">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="ContentCamError" widgetRefId="BtnResetCamAutomat" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="CamError_content" widgetRefId="BtnResetCamAutomat" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::AsGlobalPV:gVisuCtrl.cmd.bCamErrorReset">
@@ -22,7 +22,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Parameters_EventBinding_7">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="diagnoseContent" widgetRefId="BtnWarmRestart" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnWarmRestart" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -41,7 +41,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Parameters_EventBinding_8">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="diagnoseContent" widgetRefId="BtnColdRestart" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnColdRestart" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -60,7 +60,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_SaveFixData">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="parametersContent" widgetRefId="ButtonSave" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Parameters_content" widgetRefId="ButtonSave" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -97,7 +97,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_FactoryReset">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="parametersContent" widgetRefId="ButtonReset" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Parameters_content" widgetRefId="ButtonReset" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -116,7 +116,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_UndoChanges">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="parametersContent" widgetRefId="ButtonUndo" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Parameters_content" widgetRefId="ButtonUndo" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">

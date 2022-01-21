@@ -15,67 +15,67 @@
 
 <Binding mode="twoWay">
 			<Source xsi:type="mapp" refId="gAlarmXMpLink" attribute="link" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="AlmLstCurrentAlarms" attribute="mpLink" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="AlmLstCurrentAlarms" attribute="mpLink" />
 </Binding>
 <Binding mode="twoWay">
 			<Source xsi:type="mapp" refId="gAlarmXHistoryMpLink" attribute="link" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="AlmHist" attribute="mpLink" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="AlmHist" attribute="mpLink" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXHistory_0.Error" attribute="value" />
-<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="ImageList19" attribute="selectedIndex" />
+<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList19" attribute="selectedIndex" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXHistoryUI_0.Error" attribute="value" />
-<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="ImageList20" attribute="selectedIndex" />
+<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList20" attribute="selectedIndex" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUI_0.Error" attribute="value" />
-<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="ImageList21" attribute="selectedIndex" />
+<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList21" attribute="selectedIndex" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.Description[1]" attribute="value" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="TextOutputBackTrace2" attribute="value" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="TextOutputBackTrace2" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.Description[0]" attribute="value" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="TextOutputBackTrace1" attribute="value" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="TextOutputBackTrace1" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.Description[2]" attribute="value" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="TextOutputBackTrace3" attribute="value" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="TextOutputBackTrace3" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.Description[3]" attribute="value" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="TextOutputBackTrace4" attribute="value" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="TextOutputBackTrace4" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.Description[4]" attribute="value" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="TextOutputBackTrace5" attribute="value" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="TextOutputBackTrace5" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.EventID[4]" attribute="value" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="NumericOutputBackTrace5" attribute="value" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="NumericOutputBackTrace5" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.EventID[3]" attribute="value" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="NumericOutputBackTrace4" attribute="value" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="NumericOutputBackTrace4" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.EventID[2]" attribute="value" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="NumericOutputBackTrace3" attribute="value" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="NumericOutputBackTrace3" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.EventID[1]" attribute="value" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="NumericOutputBackTrace2" attribute="value" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="NumericOutputBackTrace2" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.EventID[0]" attribute="value" />
-<Target xsi:type="brease" contentRefId="ContentMpAlarmX" widgetRefId="NumericOutputBackTrace1" attribute="value" />
+<Target xsi:type="brease" contentRefId="Alarm_content" widgetRefId="NumericOutputBackTrace1" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="mapp" refId="gAlarmXMpLink" attribute="link" />
-<Target xsi:type="brease" contentRefId="ContentTop_Header" widgetRefId="AlarmLine1" attribute="mpLink" />
+<Target xsi:type="brease" contentRefId="TopHeader_content" widgetRefId="AlarmLine1" attribute="mpLink" />
 </Binding>
 </Bindings>
 </BindingsSet>

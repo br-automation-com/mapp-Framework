@@ -10,7 +10,7 @@
       </Operand>
       <EventHandler condition="slotId=0">
         <Action>
-          <Target xsi:type="widgets.brease.ListBox.Action" contentRefId="settingsContent" widgetRefId="lstUsers">
+          <Target xsi:type="widgets.brease.ListBox.Action" contentRefId="Settings_content" widgetRefId="lstUsers">
             <Method xsi:type="widgets.brease.ListBox.Action.SetSelectedValue" value="=newValue" />
           </Target>
         </Action>
@@ -25,7 +25,7 @@
       </Operand>
       <EventHandler condition="slotId=0">
         <Action>
-          <Target xsi:type="widgets.brease.ListBox.Action" contentRefId="settingsContent" widgetRefId="lstUsers">
+          <Target xsi:type="widgets.brease.ListBox.Action" contentRefId="Settings_content" widgetRefId="lstUsers">
             <Method xsi:type="widgets.brease.ListBox.Action.SetSelectedValue" value="=newValue" />
           </Target>
         </Action>
@@ -40,31 +40,31 @@
       </Operand>
       <EventHandler condition="slotId=0">
         <Action>
-          <Target xsi:type="widgets.brease.ListBox.Action" contentRefId="settingsContent" widgetRefId="lstUsers">
+          <Target xsi:type="widgets.brease.ListBox.Action" contentRefId="Settings_content" widgetRefId="lstUsers">
             <Method xsi:type="widgets.brease.ListBox.Action.SetSelectedValue" value="=newValue" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="contentUser.btnCreateUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="btnCreateUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Settings_content" widgetRefId="btnCreateUser" event="Click" />
       <Operand datatype="ANY_INT" name="slotId">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.slotId">
           <Method xsi:type="session.VariableAction.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="txtInUserNameManagment">
-        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="settingsContent" widgetRefId="txtInUserNameManagment">
+        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="Settings_content" widgetRefId="txtInUserNameManagment">
           <Method xsi:type="widgets.brease.TextInput.Action.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="txtInUserPassword1Managment">
-        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="settingsContent" widgetRefId="txtInUserPassword1Managment">
+        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="Settings_content" widgetRefId="txtInUserPassword1Managment">
           <Method xsi:type="widgets.brease.TextInput.Action.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="txtInUserPassword2Managment">
-        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="settingsContent" widgetRefId="txtInUserPassword2Managment">
+        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="Settings_content" widgetRefId="txtInUserPassword2Managment">
           <Method xsi:type="widgets.brease.TextInput.Action.GetValue" />
         </ReadTarget>
       </Operand>
@@ -107,14 +107,14 @@
           </Step>
           <Step order="5">
             <Action>
-              <Target xsi:type="widgets.brease.Password.Action" contentRefId="settingsContent" widgetRefId="txtInUserPassword1Managment">
+              <Target xsi:type="widgets.brease.Password.Action" contentRefId="Settings_content" widgetRefId="txtInUserPassword1Managment">
                 <Method xsi:type="widgets.brease.Password.Action.SetValue" value="" />
               </Target>
             </Action>
           </Step>
           <Step order="6">
             <Action>
-              <Target xsi:type="widgets.brease.Password.Action" contentRefId="settingsContent" widgetRefId="txtInUserPassword2Managment">
+              <Target xsi:type="widgets.brease.Password.Action" contentRefId="Settings_content" widgetRefId="txtInUserPassword2Managment">
                 <Method xsi:type="widgets.brease.Password.Action.SetValue" value="" />
               </Target>
             </Action>
@@ -123,24 +123,24 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="contentUser.btnChangePassword.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="btnChangePassword" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Settings_content" widgetRefId="btnChangePassword" event="Click" />
       <Operand datatype="ANY_INT" name="slotId">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.slotId">
           <Method xsi:type="session.VariableAction.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="txtInUserNameManagment">
-        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="settingsContent" widgetRefId="txtInUserNameManagment">
+        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="Settings_content" widgetRefId="txtInUserNameManagment">
           <Method xsi:type="widgets.brease.TextInput.Action.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="txtInUserPassword1Managment">
-        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="settingsContent" widgetRefId="txtInUserPassword1Managment">
+        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="Settings_content" widgetRefId="txtInUserPassword1Managment">
           <Method xsi:type="widgets.brease.TextInput.Action.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="txtInUserPassword2Managment">
-        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="settingsContent" widgetRefId="txtInUserPassword2Managment">
+        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="Settings_content" widgetRefId="txtInUserPassword2Managment">
           <Method xsi:type="widgets.brease.TextInput.Action.GetValue" />
         </ReadTarget>
       </Operand>
@@ -183,14 +183,14 @@
           </Step>
           <Step order="5">
             <Action>
-              <Target xsi:type="widgets.brease.Password.Action" contentRefId="settingsContent" widgetRefId="txtInUserPassword1Managment">
+              <Target xsi:type="widgets.brease.Password.Action" contentRefId="Settings_content" widgetRefId="txtInUserPassword1Managment">
                 <Method xsi:type="widgets.brease.Password.Action.SetValue" value="" />
               </Target>
             </Action>
           </Step>
           <Step order="6">
             <Action>
-              <Target xsi:type="widgets.brease.Password.Action" contentRefId="settingsContent" widgetRefId="txtInUserPassword2Managment">
+              <Target xsi:type="widgets.brease.Password.Action" contentRefId="Settings_content" widgetRefId="txtInUserPassword2Managment">
                 <Method xsi:type="widgets.brease.Password.Action.SetValue" value="" />
               </Target>
             </Action>
@@ -199,19 +199,19 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="contentUser.btnRenameUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="btnRenameUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Settings_content" widgetRefId="btnRenameUser" event="Click" />
       <Operand datatype="ANY_INT" name="slotId">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.slotId">
           <Method xsi:type="session.VariableAction.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="txtInUserNameManagment">
-        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="settingsContent" widgetRefId="txtInUserNameManagment">
+        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="Settings_content" widgetRefId="txtInUserNameManagment">
           <Method xsi:type="widgets.brease.TextInput.Action.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="txtInUserNameNewManagment">
-        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="settingsContent" widgetRefId="txtInUserNameNewManagment">
+        <ReadTarget xsi:type="widgets.brease.TextInput.ReadAction" contentRefId="Settings_content" widgetRefId="txtInUserNameNewManagment">
           <Method xsi:type="widgets.brease.TextInput.Action.GetValue" />
         </ReadTarget>
       </Operand>
@@ -249,14 +249,14 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="contentUser.btnDeleteUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="btnDeleteUser" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Settings_content" widgetRefId="btnDeleteUser" event="Click" />
       <Operand datatype="ANY_INT" name="slotId">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.slotId">
           <Method xsi:type="session.VariableAction.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="lstUsers">
-        <ReadTarget xsi:type="widgets.brease.ListBox.ReadAction" contentRefId="settingsContent" widgetRefId="lstUsers">
+        <ReadTarget xsi:type="widgets.brease.ListBox.ReadAction" contentRefId="Settings_content" widgetRefId="lstUsers">
           <Method xsi:type="widgets.brease.ListBox.Action.GetSelectedValue" />
         </ReadTarget>
       </Operand>
@@ -296,14 +296,14 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="contentUser.btnAssignRole.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="btnAssignRole" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Settings_content" widgetRefId="btnAssignRole" event="Click" />
       <Operand datatype="ANY_INT" name="slotId">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.slotId">
           <Method xsi:type="session.VariableAction.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="lstUsers">
-        <ReadTarget xsi:type="widgets.brease.ListBox.ReadAction" contentRefId="settingsContent" widgetRefId="lstUsers">
+        <ReadTarget xsi:type="widgets.brease.ListBox.ReadAction" contentRefId="Settings_content" widgetRefId="lstUsers">
           <Method xsi:type="widgets.brease.ListBox.Action.GetSelectedValue" />
         </ReadTarget>
       </Operand>
@@ -334,14 +334,14 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="contentUser.btnReleaseRole.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="btnReleaseRole" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Settings_content" widgetRefId="btnReleaseRole" event="Click" />
       <Operand datatype="ANY_INT" name="slotId">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.slotId">
           <Method xsi:type="session.VariableAction.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="lstUsers">
-        <ReadTarget xsi:type="widgets.brease.ListBox.ReadAction" contentRefId="settingsContent" widgetRefId="lstUsers">
+        <ReadTarget xsi:type="widgets.brease.ListBox.ReadAction" contentRefId="Settings_content" widgetRefId="lstUsers">
           <Method xsi:type="widgets.brease.ListBox.Action.GetSelectedValue" />
         </ReadTarget>
       </Operand>
@@ -372,7 +372,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="contentUser.btnRefreshList.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="settingsContent" widgetRefId="btnRefreshList" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Settings_content" widgetRefId="btnRefreshList" event="Click" />
       <Operand datatype="ANY_INT" name="slotId">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.slotId">
           <Method xsi:type="session.VariableAction.GetValue" />

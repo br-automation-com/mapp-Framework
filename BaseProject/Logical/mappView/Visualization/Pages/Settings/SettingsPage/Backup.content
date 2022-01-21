@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="BackupContent" height="620" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
+<Content id="Backup_content" height="620" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
     <Widget xsi:type="widgets.brease.Table" id="Table1" top="30" left="195" width="770" height="460" zIndex="0">
       <Widgets>
@@ -19,9 +19,9 @@
     <Widget xsi:type="widgets.brease.TextOutput" id="txtOutVersion" top="530" left="175" width="140" zIndex="5" fontSize="18px" style="Br_gray" />
     <Widget xsi:type="widgets.brease.TextOutput" id="txtOutVersion2" top="560" left="25" width="140" zIndex="6" value="$IAT/Backup/Configuration" fontSize="18px" bold="true" />
     <Widget xsi:type="widgets.brease.TextOutput" id="txtOutConfiguration" top="560" left="175" width="140" zIndex="7" fontSize="18px" style="Br_gray" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonCreateBackup" top="120" left="975" width="121" height="50" zIndex="8" text="$IAT/Backup/Create" imageHeight="25" imageWidth="25" backColor="rgba(255, 255, 255, 1)" mouseDownBackColor="rgba(255, 136, 0, 1)" fontSize="20px" style="Br_White" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonDeleteBackup" top="200" left="975" width="121" height="50" zIndex="9" text="$IAT/Backup/Delete" imageHeight="25" imageWidth="25" backColor="rgba(255, 255, 255, 1)" mouseDownBackColor="rgba(255, 136, 0, 1)" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Br_White" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonRestoreBackup" top="280" left="975" width="121" height="50" zIndex="10" text="$IAT/Backup/Restore" imageHeight="25" imageWidth="25" backColor="rgba(255, 255, 255, 1)" mouseDownBackColor="rgba(255, 136, 0, 1)" fontSize="20px" permissionOperate="['Administrators']" style="Br_White" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonCreateBackup_content" top="120" left="975" width="121" height="50" zIndex="8" text="$IAT/Backup/Create" imageHeight="25" imageWidth="25" backColor="rgba(255, 255, 255, 1)" mouseDownBackColor="rgba(255, 136, 0, 1)" fontSize="20px" style="Br_White" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonDeleteBackup_content" top="200" left="975" width="121" height="50" zIndex="9" text="$IAT/Backup/Delete" imageHeight="25" imageWidth="25" backColor="rgba(255, 255, 255, 1)" mouseDownBackColor="rgba(255, 136, 0, 1)" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Br_White" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonRestoreBackup_content" top="280" left="975" width="121" height="50" zIndex="10" text="$IAT/Backup/Restore" imageHeight="25" imageWidth="25" backColor="rgba(255, 255, 255, 1)" mouseDownBackColor="rgba(255, 136, 0, 1)" fontSize="20px" permissionOperate="['Administrators']" style="Br_White" />
     <Widget xsi:type="widgets.brease.Button" id="ButtonBackupSettings" top="360" left="975" width="121" height="50" zIndex="11" text="$IAT/Backup/AutomaticSettings" imageHeight="25" imageWidth="25" backColor="rgba(255, 255, 255, 1)" mouseDownBackColor="rgba(255, 136, 0, 1)" fontSize="20px" permissionOperate="['Administrators']" style="Br_White" />
   </Widgets>
 </Content>

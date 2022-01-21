@@ -2,20 +2,20 @@
 <EventBindingSet id="Alarm_EventBinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
     <EventBinding id="Alarm_Eventbinding_1">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="ContentMpAlarmX" widgetRefId="PBtnAcknowledge" event="Click" />
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="Alarm_content" widgetRefId="PBtnAcknowledge" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="ContentMpAlarmX" widgetRefId="AlmLstCurrentAlarms">
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="Alarm_content" widgetRefId="AlmLstCurrentAlarms">
             <Method xsi:type="widgets.brease.AlarmList.Action.Acknowledge" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Alarm_Eventbinding_2">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="ContentMpAlarmX" widgetRefId="PBtnAcknowledgeAll" event="Click" />
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="Alarm_content" widgetRefId="PBtnAcknowledgeAll" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="ContentMpAlarmX" widgetRefId="AlmLstCurrentAlarms">
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="Alarm_content" widgetRefId="AlmLstCurrentAlarms">
             <Method xsi:type="widgets.brease.AlarmList.Action.AcknowledgeAll" />
           </Target>
         </Action>
@@ -32,14 +32,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.ImageList.Action" contentRefId="ContentTop_Header" widgetRefId="ImgLstAlm">
+              <Target xsi:type="widgets.brease.ImageList.Action" contentRefId="TopHeader_content" widgetRefId="ImgLstAlm">
                 <Method xsi:type="widgets.brease.ImageList.Action.SetSelectedIndex" index="1" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.NavigationButton.Action" contentRefId="ContentTop_Header" widgetRefId="NavBtn">
+              <Target xsi:type="widgets.brease.NavigationButton.Action" contentRefId="TopHeader_content" widgetRefId="NavBtn">
                 <Method xsi:type="widgets.brease.NavigationButton.Action.SetVisible" value="true" />
               </Target>
             </Action>
@@ -50,14 +50,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.ImageList.Action" contentRefId="ContentTop_Header" widgetRefId="ImgLstAlm">
+              <Target xsi:type="widgets.brease.ImageList.Action" contentRefId="TopHeader_content" widgetRefId="ImgLstAlm">
                 <Method xsi:type="widgets.brease.ImageList.Action.SetSelectedIndex" index="0" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.NavigationButton.Action" contentRefId="ContentTop_Header" widgetRefId="NavBtn">
+              <Target xsi:type="widgets.brease.NavigationButton.Action" contentRefId="TopHeader_content" widgetRefId="NavBtn">
                 <Method xsi:type="widgets.brease.NavigationButton.Action.SetVisible" value="false" />
               </Target>
             </Action>
@@ -76,14 +76,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.ImageList.Action" contentRefId="ContentTop_Header" widgetRefId="ImgLstAlm">
+              <Target xsi:type="widgets.brease.ImageList.Action" contentRefId="TopHeader_content" widgetRefId="ImgLstAlm">
                 <Method xsi:type="widgets.brease.ImageList.Action.SetSelectedIndex" index="1" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.NavigationButton.Action" contentRefId="ContentTop_Header" widgetRefId="NavBtn">
+              <Target xsi:type="widgets.brease.NavigationButton.Action" contentRefId="TopHeader_content" widgetRefId="NavBtn">
                 <Method xsi:type="widgets.brease.NavigationButton.Action.SetVisible" value="true" />
               </Target>
             </Action>
@@ -94,14 +94,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.ImageList.Action" contentRefId="ContentTop_Header" widgetRefId="ImgLstAlm">
+              <Target xsi:type="widgets.brease.ImageList.Action" contentRefId="TopHeader_content" widgetRefId="ImgLstAlm">
                 <Method xsi:type="widgets.brease.ImageList.Action.SetSelectedIndex" index="0" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.NavigationButton.Action" contentRefId="ContentTop_Header" widgetRefId="NavBtn">
+              <Target xsi:type="widgets.brease.NavigationButton.Action" contentRefId="TopHeader_content" widgetRefId="NavBtn">
                 <Method xsi:type="widgets.brease.NavigationButton.Action.SetVisible" value="false" />
               </Target>
             </Action>
@@ -110,7 +110,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_AlarmSelection">
-      <Source xsi:type="widgets.brease.AlarmList.Event" contentRefId="ContentMpAlarmX" widgetRefId="AlmLstCurrentAlarms" event="ItemClick" />
+      <Source xsi:type="widgets.brease.AlarmList.Event" contentRefId="Alarm_content" widgetRefId="AlmLstCurrentAlarms" event="ItemClick" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:uInstanceID">
@@ -125,14 +125,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="ContentMpAlarmX" widgetRefId="NumericOutputBackTrace1">
+              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="Alarm_content" widgetRefId="NumericOutputBackTrace1">
                 <Method xsi:type="widgets.brease.NumericOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="ContentMpAlarmX" widgetRefId="TextOutputBackTrace1">
+              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="Alarm_content" widgetRefId="TextOutputBackTrace1">
                 <Method xsi:type="widgets.brease.TextOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
@@ -146,14 +146,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="ContentMpAlarmX" widgetRefId="NumericOutputBackTrace2">
+              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="Alarm_content" widgetRefId="NumericOutputBackTrace2">
                 <Method xsi:type="widgets.brease.NumericOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="ContentMpAlarmX" widgetRefId="TextOutputBackTrace2">
+              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="Alarm_content" widgetRefId="TextOutputBackTrace2">
                 <Method xsi:type="widgets.brease.TextOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
@@ -167,14 +167,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="ContentMpAlarmX" widgetRefId="NumericOutputBackTrace3">
+              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="Alarm_content" widgetRefId="NumericOutputBackTrace3">
                 <Method xsi:type="widgets.brease.NumericOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="ContentMpAlarmX" widgetRefId="TextOutputBackTrace3">
+              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="Alarm_content" widgetRefId="TextOutputBackTrace3">
                 <Method xsi:type="widgets.brease.TextOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
@@ -188,14 +188,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="ContentMpAlarmX" widgetRefId="NumericOutputBackTrace4">
+              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="Alarm_content" widgetRefId="NumericOutputBackTrace4">
                 <Method xsi:type="widgets.brease.NumericOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="ContentMpAlarmX" widgetRefId="TextOutputBackTrace4">
+              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="Alarm_content" widgetRefId="TextOutputBackTrace4">
                 <Method xsi:type="widgets.brease.TextOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
@@ -209,14 +209,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="ContentMpAlarmX" widgetRefId="NumericOutputBackTrace5">
+              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="Alarm_content" widgetRefId="NumericOutputBackTrace5">
                 <Method xsi:type="widgets.brease.NumericOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="ContentMpAlarmX" widgetRefId="TextOutputBackTrace5">
+              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="Alarm_content" widgetRefId="TextOutputBackTrace5">
                 <Method xsi:type="widgets.brease.TextOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>

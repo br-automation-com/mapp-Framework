@@ -3,33 +3,33 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::DataMgt:sDisplayFileName" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Data_Content" widgetRefId="TableItem1" attribute="stringValue" />
+			<Target xsi:type="brease" contentRefId="Data_content" widgetRefId="TableItem1" attribute="stringValue" />
 		</Binding>
 
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::DataMgt:sStrSelectedFile" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Data_Content" widgetRefId="PDFViewer1" attribute="src" />
+			<Target xsi:type="brease" contentRefId="Data_content" widgetRefId="PDFViewer1" attribute="src" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgt:MpAuditTrail_0.Export" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditPage_Content" widgetRefId="BtnAuditExport" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Audit_content" widgetRefId="BtnAuditExport" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="mapp" refId="gAuditTrailMpLink" attribute="link" />
-			<Target xsi:type="brease" contentRefId="AuditPage_Content" widgetRefId="AuditList1" attribute="mpLink" />
+			<Target xsi:type="brease" contentRefId="Audit_content" widgetRefId="AuditList1" attribute="mpLink" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::DataMgt:MpDataRecorder_0.Record" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Data_Content" widgetRefId="ToggleSwitch1" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Data_content" widgetRefId="ToggleSwitch1" attribute="value" />
 		</Binding>
 
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::DataMgt:sTableConfig" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Data_Content" widgetRefId="TableDataFileList" attribute="tableConfiguration" />
+			<Target xsi:type="brease" contentRefId="Data_content" widgetRefId="TableDataFileList" attribute="tableConfiguration" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::DataMgt:uDisplayFileNameIndex" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Data_Content" widgetRefId="TableDataFileList" attribute="selectedRow" />
+			<Target xsi:type="brease" contentRefId="Data_content" widgetRefId="TableDataFileList" attribute="selectedRow" />
 		</Binding>
 </Bindings>
 </BindingsSet>

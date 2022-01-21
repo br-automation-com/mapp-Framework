@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<EventBindingSet id="HomeContent_EventBinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<EventBindingSet id="Home_content_EventBinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
     <EventBinding id="EventBinding_TorqueLimitedAx1">
       <Source xsi:type="opcUa.Event" refId="::MainCtrl:AxisControl[0].Status.TorqueLimited" event="ValueChanged" />
       <EventHandler condition="newValue = true">
         <Action>
-          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="HomeContent" widgetRefId="NumOutAx1ActTorque">
+          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="Home_content" widgetRefId="NumOutAx1ActTorque">
             <Method xsi:type="widgets.brease.NumericOutput.Action.SetStyle" value="Br_OutputWhiteRedText" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="newValue = false">
         <Action>
-          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="HomeContent" widgetRefId="NumOutAx1ActTorque">
+          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="Home_content" widgetRefId="NumOutAx1ActTorque">
             <Method xsi:type="widgets.brease.NumericOutput.Action.SetStyle" value="Br_OutputWhite" />
           </Target>
         </Action>
@@ -22,21 +22,21 @@
       <Source xsi:type="opcUa.Event" refId="::MainCtrl:AxisControl[1].Status.TorqueLimited" event="ValueChanged" />
       <EventHandler condition="newValue = true">
         <Action>
-          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="HomeContent" widgetRefId="NumOutAx2ActTorque">
+          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="Home_content" widgetRefId="NumOutAx2ActTorque">
             <Method xsi:type="widgets.brease.NumericOutput.Action.SetStyle" value="Br_OutputWhiteRedText" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="newValue = false">
         <Action>
-          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="HomeContent" widgetRefId="NumOutAx2ActTorque">
+          <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="Home_content" widgetRefId="NumOutAx2ActTorque">
             <Method xsi:type="widgets.brease.NumericOutput.Action.SetStyle" value="Br_OutputWhite" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_PidSaveAndApply">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="HomeContent" widgetRefId="ButtonSaveAndApply" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Home_content" widgetRefId="ButtonSaveAndApply" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
@@ -76,7 +76,7 @@
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="HomeContent" widgetRefId="ToggleButtonPidTuning">
+              <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="Home_content" widgetRefId="ToggleButtonPidTuning">
                 <Method xsi:type="widgets.brease.ToggleButton.Action.SetValue" value="0" />
               </Target>
             </Action>

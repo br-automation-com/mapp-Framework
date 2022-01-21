@@ -3,24 +3,24 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgt:sDisplayFileName" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditPage_Content" widgetRefId="TableItem1" attribute="stringValue" />
+			<Target xsi:type="brease" contentRefId="Audit_content" widgetRefId="TableItem1" attribute="stringValue" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgt:uDisplayFileNameIndex" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditPage_Content" widgetRefId="Table1" attribute="selectedRow" />
+			<Target xsi:type="brease" contentRefId="Audit_content" widgetRefId="Table1" attribute="selectedRow" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgt:sStrSelectedFile" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditPage_Content" widgetRefId="PDFViewer1" attribute="src" />
+			<Target xsi:type="brease" contentRefId="Audit_content" widgetRefId="PDFViewer1" attribute="src" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgt:MpAuditTrail_0.Error" attribute="value" />
-			<Target xsi:type="brease" contentRefId="diagnoseContent" widgetRefId="ImageList11" attribute="selectedIndex" />
+			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList11" attribute="selectedIndex" />
 		</Binding>
 	
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AuditMgt:sTableConfig" attribute="value" />
-<Target xsi:type="brease" contentRefId="AuditPage_Content" widgetRefId="Table1" attribute="tableConfiguration" />
+<Target xsi:type="brease" contentRefId="Audit_content" widgetRefId="Table1" attribute="tableConfiguration" />
 </Binding>
 </Bindings>
 </BindingsSet>
