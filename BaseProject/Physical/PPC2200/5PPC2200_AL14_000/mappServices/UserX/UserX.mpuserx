@@ -3,7 +3,12 @@
 <Configuration>
   <Element ID="UserMgmtX" Type="mpuserx">
     <Group ID="Mgr">
-      <Property ID="PasswordLength" Value="1" />
+      <Property ID="PasswordChangeInterval" Value="7776000" />
+      <Property ID="PasswordExpirationNotification" Value="864000" />
+      <Property ID="UserExpirationTime" Value="31536000" />
+      <Property ID="PasswordAlpha" Value="TRUE" />
+      <Property ID="PasswordLength" Value="6" />
+      <Property ID="UserNameLength" Value="3" />
       <Property ID="LoginAttempts" Value="5" />
     </Group>
     <Group ID="ServerSettings">
