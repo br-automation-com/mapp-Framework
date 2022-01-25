@@ -65,5 +65,39 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="UserX_content.ButtonImportUser.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserX_content" widgetRefId="ButtonImportUser" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::UserXMgt:UserXMgrUIConnect.Import.ShowDialog">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXImport_dialog" headerText="$IAT/UserMgmt/ExportDialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="UserXErrorDialog">
+      <Source xsi:type="opcUa.Event" refId="::UserXMgt:UserXMgrUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
+      <EventHandler condition="newValue = 0">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXError_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue = 1">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXError_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

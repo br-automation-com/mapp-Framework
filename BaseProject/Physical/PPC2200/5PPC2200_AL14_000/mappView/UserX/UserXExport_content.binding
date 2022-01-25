@@ -9,9 +9,9 @@
 			<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.Export.Dialog.Cancel" attribute="value" />
 			<Target xsi:type="brease" contentRefId="UserXExport_content" widgetRefId="PushButtonCancel" attribute="value" />
 		</Binding>
-	<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.Export.Dialog.FileName" attribute="value" />
-<Target xsi:type="brease" contentRefId="UserXExport_content" widgetRefId="txtInExportFileName" attribute="value" />
-</Binding>
-</Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.Export.Dialog.FileName" attribute="value" />
+			<Target xsi:type="brease" contentRefId="UserXExport_content" widgetRefId="txtInExportFileName" attribute="value" />
+		</Binding>
+	</Bindings>
 </BindingsSet>

@@ -6,22 +6,22 @@
 			<Source xsi:type="opcUa" refId="::UserX:UserXUIConnect.Login.Password" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Login_content" widgetRefId="Password1" attribute="value" />
 		</Binding>-->
-		<!--<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::UserX:MpUserXLogin_0.Error" attribute="value" />
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::UserXMgt:MpUserXLogin_0.Error" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList8" attribute="selectedIndex" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::UserX:MpUserXLoginUI_0.Error" attribute="value" />
+			<Source xsi:type="opcUa" refId="::UserXMgt:MpUserXLoginUI_0.Error" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList10" attribute="selectedIndex" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::UserX:MpUserXManagerUI_0.Error" attribute="value" />
+			<Source xsi:type="opcUa" refId="::UserXMgt:MpUserXManagerUI_0.Error" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList9" attribute="selectedIndex" />
 		</Binding>
 
 
 		<Binding mode="oneWay">
-			<Source xsi:type="opcUa" refId="::UserX:UserXUIConnect.MessageBox.ErrorNumber" attribute="value" />
+			<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.MessageBox.ErrorNumber" attribute="value" />
 			<Target xsi:type="snippet" refId="IndexTextSnippetUserXMessage" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
@@ -29,7 +29,7 @@
 			<Target xsi:type="brease" contentRefId="UserXErrorDialog_content" widgetRefId="TextOutputUserError" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
-			<Source xsi:type="opcUa" refId="::UserX:UserXMgrUIConnect.MessageBox.Type" attribute="value" />
+			<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.MessageBox.Type" attribute="value" />
 			<Target xsi:type="snippet" refId="IndexTextSnippetUserXManagerMessage" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
@@ -37,13 +37,13 @@
 			<Target xsi:type="brease" contentRefId="UserManXMessageDialog_content" widgetRefId="TextOutputUserMessage" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
-			<Source xsi:type="opcUa" refId="::UserX:UserXMgrUIConnect.MessageBox.ErrorNumber" attribute="value" />
+			<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.MessageBox.ErrorNumber" attribute="value" />
 			<Target xsi:type="snippet" refId="IndexTextSnippetUserXManagerError" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="IndexTextSnippetUserXManagerError" attribute="value" />
 			<Target xsi:type="brease" contentRefId="UserManXErrorDialog_content" widgetRefId="TextOutputUserError" attribute="value" />
-		</Binding>-->
+		</Binding>
 
 
 		<!--<Binding mode="oneWay">
@@ -52,7 +52,7 @@
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="IndexTextSnippetUserCreatePwdReq" attribute="value" />
-			<Target xsi:type="brease" contentRefId="ContentCreateUser" widgetRefId="TextOutputPwdErr" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateUser_content" widgetRefId="TextOutputPwdErr" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="::UserX:UserXMgrUIConnect.User.Edit.Dialog.CriteriaNotMet" attribute="value" />
@@ -60,32 +60,32 @@
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="IndexTextSnippetUserEditPwdReq" attribute="value" />
-			<Target xsi:type="brease" contentRefId="ContentResetPwd" widgetRefId="TextOutputPwdErr" attribute="value" />
+			<Target xsi:type="brease" contentRefId="ResetPwd_content" widgetRefId="TextOutputPwdErr" attribute="value" />
 		</Binding>-->
-		<!--
+		
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::UserX:UserXUIConnect.CurrentUser" attribute="value" />
+            <Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.CurrentUser" attribute="value" />
             <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="TextOutputUserName" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::UserX:UserXUIConnect.ChangePassword.Dialog.Cancel" attribute="value" />
+            <Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.ChangePassword.Dialog.Cancel" attribute="value" />
             <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="PushButtonCancel" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::UserX:UserXUIConnect.ChangePassword.Dialog.Confirm" attribute="value" />
+            <Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.ChangePassword.Dialog.Confirm" attribute="value" />
             <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="PushButtonConfirm" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::UserX:UserXUIConnect.ChangePassword.Dialog.ConfirmPassword" attribute="value" />
+            <Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.ChangePassword.Dialog.ConfirmPassword" attribute="value" />
             <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="PasswordConfirm" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::UserX:UserXUIConnect.ChangePassword.Dialog.NewPassword" attribute="value" />
+            <Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.ChangePassword.Dialog.NewPassword" attribute="value" />
             <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="PasswordNew" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::UserX:UserXUIConnect.ChangePassword.Dialog.OldPassword" attribute="value" />
+            <Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.ChangePassword.Dialog.OldPassword" attribute="value" />
             <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="PasswordCurrent" attribute="value" />
-        </Binding>-->
+        </Binding>
 </Bindings>
 </BindingsSet>

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="UserXErrorDialog_content" height="500" width="700" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Button" id="BtnConfirmErroMessageBox" top="400" left="275" width="150" height="50" zIndex="0" image="Media/SymbolLib/Symbols/Accept.svg" text="$IAT/User/Confirm" imageHeight="15" imageWidth="15" fontSize="20px" style="Br_White" />
-    <Widget xsi:type="widgets.brease.TextOutput" id="TextOutputUserError" top="200" left="150" width="400" height="160" zIndex="1" multiLine="true" wordWrap="true" textAlign="center" style="Output" />
-    <Widget xsi:type="widgets.brease.Image" id="ImageWarning" top="40" left="290" width="120" height="120" zIndex="2" image="Media/SymbolLib/Symbols/warningred_l.svg" />
+    <Widget xsi:type="widgets.brease.TextOutput" id="TextOutputUserError" top="200" left="150" width="400" height="160" zIndex="0" multiLine="true" wordWrap="true" textAlign="center" style="Output" />
+    <Widget xsi:type="widgets.brease.Image" id="ImageWarning" top="40" left="290" width="120" height="120" zIndex="1" image="Media/SymbolLib/Symbols/warningred_l.svg" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="BtnConfirmErroMessageBox" top="400" left="275" width="150" height="50" zIndex="2" image="Media/SymbolLib/Symbols/Accept.svg" text="$IAT/User/Confirm" imageHeight="15" imageWidth="15" fontSize="20px" style="Br_White" />
   </Widgets>
 </Content>
