@@ -19,6 +19,13 @@ PROGRAM _INIT
     UserXMgrUIConnect.User.List.MaxSelection := USER_LIST_MAX_SELECTION;
     UserXMgrUIConnect.User.List.RangeStart := USER_LIST_RANGE_START;
     UserXMgrUIConnect.User.List.RangeEnd := USER_LIST_RANGE_END;
+	
+	MpUserXLoginUI_0.MpLink := ADR(gUserXLoginMpLink);    
+    MpUserXLoginUI_0.Enable := TRUE;
+	MpUserXLoginUI_0.UIConnect := ADR(UserXLoginUIConnect);
+
+	MpUserXLogin_0.MpLink := ADR(gUserXLoginMpLink);    
+    MpUserXLogin_0.Enable := TRUE;
 
 END_PROGRAM
 
@@ -28,13 +35,29 @@ PROGRAM _CYCLIC
 	IF NOT MpUserXManagerUI_0.Error THEN
 		MpUserXManagerUI_0.ErrorReset := FALSE;
     END_IF
-    
+	
+	IF NOT MpUserXLoginUI_0.Error THEN
+		MpUserXLoginUI_0.ErrorReset := FALSE;
+    END_IF
+	
+	IF NOT MpUserXLogin_0.Error THEN
+		MpUserXLogin_0.ErrorReset := FALSE;
+    END_IF
+	    
 	MpUserXManagerUI_0();
+	MpUserXLoginUI_0();
+	MpUserXLogin_0();
 END_PROGRAM
 
 PROGRAM _EXIT
 	(* Call disbaled mapp function blocks *)
     MpUserXManagerUI_0.Enable := FALSE;
 	MpUserXManagerUI_0();
+	
+	MpUserXLoginUI_0.Enable := FALSE;
+	MpUserXLoginUI_0();
+	
+	MpUserXLogin_0.Enable := FALSE;
+	MpUserXLogin_0();
 END_PROGRAM
 

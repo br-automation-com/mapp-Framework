@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="UserX_content" height="620" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.UserList" id="UserListManagement" top="60" left="50" width="700" height="480" zIndex="0" itemsPerPage="15" permissionOperate="['Administrators']">
+    <Widget xsi:type="widgets.brease.UserList" id="UserListManagement" top="60" left="50" width="700" height="415" zIndex="0" itemsPerPage="15" permissionOperate="['Administrators']">
       <Widgets>
         <Widget xsi:type="widgets.brease.UserListItem" id="UserListItemName" width="180" zIndex="0" text="$IAT/UserMgmt/UserName" />
         <Widget xsi:type="widgets.brease.UserListItem" id="UserListItemRoles" zIndex="1" columnType="Roles" text="$IAT/UserMgmt/Role" />
@@ -11,5 +11,7 @@
     <Widget xsi:type="widgets.brease.Button" id="ButtonEditUser" top="100" left="860" width="160" height="60" zIndex="1" text="$IAT/UserMgmt/EditUser" fontSize="16px" style="Br_White" />
     <Widget xsi:type="widgets.brease.Button" id="ButtonAddUser" top="200" left="860" width="160" height="60" zIndex="2" image="Media/SymbolLib/User/AddUser.svg" text="$IAT/UserMgmt/AddUser" fontSize="16px" style="Br_White" />
     <Widget xsi:type="widgets.brease.Button" id="ButtonDeleteUser" top="300" left="860" width="160" height="60" zIndex="3" image="Media/SymbolLib/User/DeleteUser.svg" text="$IAT/UserMgmt/DeleteUser" fontSize="16px" style="Br_White" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonExportUser" top="405" left="860" width="160" height="60" zIndex="4" image="Media/SymbolLib/User/UserExport.svg" text="$IAT/UserMgmt/ExportUsers" imageHeight="40" imageWidth="40" fontSize="16px" style="Br_White" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonDeleteUser2" top="505" left="860" width="160" height="60" zIndex="5" image="Media/SymbolLib/User/UserImport.svg" text="$IAT/UserMgmt/ImportUsers" imageHeight="40" imageWidth="40" fontSize="16px" style="Br_White" />
   </Widgets>
 </Content>

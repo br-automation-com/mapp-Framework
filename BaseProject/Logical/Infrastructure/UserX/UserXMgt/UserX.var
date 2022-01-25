@@ -10,13 +10,18 @@
  ********************************************************************)
 (*UserX Function Blocks-----------------------------------------------------------------------------------------------------------*)
 VAR
-    MpUserXManagerUI_0 : MpUserXManagerUI; (*Management of User X in UI*)
-    UserXMgrUIConnect : MpUserXMgrUIConnectType; (*Setup of UserX to UI*)
+	MpUserXManagerUI_0 : MpUserXManagerUI := (UISetup:=(FileDevice:='mappUserX')); (*Management of User X in UI*)
+	UserXMgrUIConnect : MpUserXMgrUIConnectType; (*Setup of UserX to UI*)
+	MpUserXLoginUI_0 : MpUserXLoginUI;
+	UserXLoginUIConnect : MpUserXLoginUIConnectType;
 END_VAR
 (*UserX Related Variables--------------------------------------------------------------------------------------------------------*)
 (*Constants---------------------------------------------------------------------------------------------------------------------------------*)
 VAR CONSTANT
-    USER_LIST_MAX_SELECTION : USINT := 20; (*Maxiumum Selections on the User List*)
-    USER_LIST_RANGE_START : USINT := 0;
-    USER_LIST_RANGE_END : USINT := 20;
+	USER_LIST_MAX_SELECTION : USINT := 20; (*Maxiumum Selections on the User List*)
+	USER_LIST_RANGE_START : USINT := 0;
+	USER_LIST_RANGE_END : USINT := 20;
+END_VAR
+VAR
+	MpUserXLogin_0 : MpUserXLogin;
 END_VAR
