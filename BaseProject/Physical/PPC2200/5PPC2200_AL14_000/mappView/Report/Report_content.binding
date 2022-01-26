@@ -13,10 +13,7 @@
 			<Source xsi:type="opcUa" refId="::ReportMgt:sDisplayFileName" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="TblItm" attribute="stringValue" />
 		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::ReportMgt:bReportErrorActive[0]" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList16" attribute="selectedIndex" />
-			</Binding>
+		
 	<Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::ReportMgt:sTableConfig" attribute="value" />
 <Target xsi:type="brease" contentRefId="Report_content" widgetRefId="TblReport" attribute="tableConfiguration" />

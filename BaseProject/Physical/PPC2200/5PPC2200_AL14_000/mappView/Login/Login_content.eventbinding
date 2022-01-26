@@ -3,23 +3,24 @@
   <Bindings>
     <EventBinding id="Login_EventBinding">
       <Source xsi:type="widgets.brease.Login.Event" contentRefId="Login_content" widgetRefId="Login1" event="LoginSuccess" />
+      <Operand datatype="ANY_STRING" name="currentPage">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.currentPageId">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
       <EventHandler>
-        <Sequence>
-          <Step order="0">
-            <Action>
-              <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.Navigate" pageId="Axis_page" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="Login_dialog" />
-              </Target>
-            </Action>
-          </Step>
-        </Sequence>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="Login_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="currentPage &lt;&gt; &quot;Axis_page&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.Navigate" pageId="Axis_page" />
+          </Target>
+        </Action>
       </EventHandler>
     </EventBinding>
   </Bindings>

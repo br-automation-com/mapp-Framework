@@ -107,5 +107,9 @@
 <Source xsi:type="opcUa" refId="::IoBrowser:sTableConfigChannels" attribute="value" />
 <Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="TableIoChannels" attribute="tableConfiguration" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::ReportMgt:MpReportCore_0.Error" attribute="value" />
+<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList16" attribute="selectedIndex" />
+</Binding>
 </Bindings>
 </BindingsSet>

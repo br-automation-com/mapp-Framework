@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="UserXEdit_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.User.Edit.Dialog.DisplayUnit" attribute="value" />
+<Target xsi:type="brease" contentRefId="UserXEdit_content" widgetRefId="dropDownMeasurement" attribute="selectedValue" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.User.Edit.Dialog.Language" attribute="value" />
+<Target xsi:type="brease" contentRefId="UserXEdit_content" widgetRefId="dropDownLanguage" attribute="selectedValue" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.User.Edit.Dialog.ConfirmPassword" attribute="value" />
+<Target xsi:type="brease" contentRefId="UserXEdit_content" widgetRefId="PasswordConfirm" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.User.Edit.Dialog.NewPassword" attribute="value" />
+<Target xsi:type="brease" contentRefId="UserXEdit_content" widgetRefId="PasswordNew" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.User.Edit.Dialog.FullName" attribute="value" />
+<Target xsi:type="brease" contentRefId="UserXEdit_content" widgetRefId="TextInputFullName" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.User.Edit.Dialog.UserName" attribute="value" />
+<Target xsi:type="brease" contentRefId="UserXEdit_content" widgetRefId="TextOutputUserName" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>
