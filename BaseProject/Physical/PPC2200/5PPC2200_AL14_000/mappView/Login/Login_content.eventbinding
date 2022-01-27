@@ -3,11 +3,6 @@
   <Bindings>
     <EventBinding id="Login_EventBinding">
       <Source xsi:type="widgets.brease.Login.Event" contentRefId="Login_content" widgetRefId="Login1" event="LoginSuccess" />
-      <Operand datatype="ANY_STRING" name="currentPage">
-        <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.currentPageId">
-          <Method xsi:type="session.VariableAction.GetValue" />
-        </ReadTarget>
-      </Operand>
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -15,7 +10,10 @@
           </Target>
         </Action>
       </EventHandler>
-      <EventHandler condition="currentPage &lt;&gt; &quot;Axis_page&quot;">
+    </EventBinding>
+    <EventBinding id="EventBinding_6">
+      <Source xsi:type="clientSystem.Event" event="DialogClosed" />
+      <EventHandler condition="dialogId = &quot;Login_dialog&quot;">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.Navigate" pageId="Axis_page" />

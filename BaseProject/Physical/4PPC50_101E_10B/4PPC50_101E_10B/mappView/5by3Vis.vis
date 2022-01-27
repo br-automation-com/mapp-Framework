@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <vdef:Visualization id="MyVisu" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
-	<StartPage pageRefId="Axis_page" />
+	<StartPage pageRefId="Welcome_page" />
 	<Pages>
 		<Page refId="Axis_page"/> 
 		<Page refId="Welcome_page" />
@@ -37,8 +37,6 @@
 		<BindingsSet refId="UserX_content_binding" />
 		<BindingsSet refId="UserXExport_content_binding" />	
 		<BindingsSet refId="UserXImport_content_binding" />	
-		<BindingsSet refId="UserXEdit_content_binding" />
-		<!--<BindingsSet refId="UserXAdd_content_binding" />-->
 		<BindingsSet refId="UserXErrorDialog_content_binding" />
 		<BindingsSet refId="Settings_content_binding" />	
         <BindingsSet refId="Diagnostic_content_binding" />
@@ -62,8 +60,6 @@
 		<EventBindingsSet refId="UserX_content_eventbinding" />
 		<EventBindingsSet refId="UserXExport_content_eventbinding" />
 		<EventBindingsSet refId="UserXImport_content_eventbinding" />
-		<EventBindingsSet refId="UserXEdit_content_eventbinding" />
-		<!--<EventBindingsSet refId="UserXAdd_content_eventbinding" />-->
 		<!--<EventBindingsSet refId="Axis_content_eventbinding" />-->
 		<EventBindingsSet refId="AxisAuto_content_eventbinding" />
 		<EventBindingsSet refId="AxisManual_content_eventbinding" />
@@ -86,8 +82,6 @@
         <Dialog refId="UserManXMessage_dialog" />
 		<Dialog refId="UserXExport_dialog" />
 		<Dialog refId="UserXImport_dialog" />
-		<Dialog refId="UserXAdd_dialog" />
-		<Dialog refId="UserXEdit_dialog" />
         <Dialog refId="IoForcing_dialog" />
         <Dialog refId="CreateBackup_dialog" />
         <Dialog refId="DeleteBackup_dialog" />
