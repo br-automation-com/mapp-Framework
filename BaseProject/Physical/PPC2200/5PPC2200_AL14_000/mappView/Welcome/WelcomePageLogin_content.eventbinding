@@ -21,5 +21,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="EventBinding_7">
+      <Source xsi:type="clientSystem.Event" event="DialogClosed" />
+      <EventHandler condition="dialogId = &quot;Login_dialog&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.Navigate" pageId="Axis_page" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

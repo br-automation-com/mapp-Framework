@@ -33,8 +33,8 @@ PROGRAM _INIT
 	MpUserXLoginUI_0.UIConnect := ADR(UserXLoginUIConnect);
 
 	MpUserXLogin_0.MpLink := ADR(gUserXLoginMpLink);    
-    MpUserXLogin_0.Enable := TRUE;
-
+    MpUserXLogin_0.Enable := TRUE;	
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -51,13 +51,11 @@ PROGRAM _CYCLIC
 	IF NOT MpUserXLogin_0.Error THEN
 		MpUserXLogin_0.ErrorReset := FALSE;
     END_IF
-	
-	// assign the selected file name from the table which will be used to import a new user group file
-	UserXMgrUIConnect.Import.Dialog.FileName := UserXMgrUIConnect.Import.Dialog.List.FileNames[UserXMgrUIConnect.Import.Dialog.List.SelectedIndex];
 	    
 	MpUserXManagerUI_0();
 	MpUserXLoginUI_0();
 	MpUserXLogin_0();
+	
 END_PROGRAM
 
 PROGRAM _EXIT
