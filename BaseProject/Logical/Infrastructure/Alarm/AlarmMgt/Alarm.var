@@ -26,7 +26,7 @@ VAR
 	AlarmInfo : BOOL := 0;*)
 	MpAlarmXHistoryUIConnect : MpAlarmXHistoryUIConnectType; (*AlarmX History connection to UI*)
 	AlarmQuery : {REDUND_UNREPLICABLE} AlarmQueryType; (*Query Results*)
-	MpAlarmXQueryActiveAlarmsFB : {REDUND_UNREPLICABLE} MpAlarmXQuery; (*MpAlarmXQuery instance*)
+	QueryActiveAlarms : {REDUND_UNREPLICABLE} MpAlarmXQuery; (*MpAlarmXQuery instance*)
 	AlarmFilterCfg : STRING[1000];
 	AlarmSortCfg : STRING[1000];
 	AlarmHistFilterCfg : STRING[1000];

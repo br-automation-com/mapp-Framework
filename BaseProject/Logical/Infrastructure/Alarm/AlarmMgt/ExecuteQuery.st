@@ -1,28 +1,28 @@
 
 ACTION ExecuteQuery:
 
-    MpAlarmXQueryActiveAlarmsFB.MpLink := ADR(gAlarmXMpLink);
-    MpAlarmXQueryActiveAlarmsFB.Enable := TRUE;
-    MpAlarmXQueryActiveAlarmsFB.Name := ADR('ActiveAlarms');
-    MpAlarmXQueryActiveAlarmsFB.Language := ADR('en');
-    MpAlarmXQueryActiveAlarmsFB();
+    QueryActiveAlarms.MpLink := ADR(gAlarmXMpLink);
+    QueryActiveAlarms.Enable := TRUE;
+    QueryActiveAlarms.Name := ADR('ActiveAlarms');
+    QueryActiveAlarms.Language := ADR('en');
+    QueryActiveAlarms();
     
     CASE (AlarmQuery.State) OF
         ACTIVE_ALARM_WAIT:
             IF (AlarmQuery.LastActiveAlarmUpdateCount <> AlarmQuery.ActiveAlarmUpdateCount) THEN
                 memset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
                 AlarmQuery.LastActiveAlarmUpdateCount := AlarmQuery.ActiveAlarmUpdateCount;
-                MpAlarmXQueryActiveAlarmsFB.Execute := TRUE;
+                QueryActiveAlarms.Execute := TRUE;
                 AlarmQuery.State := ACTIVE_ALARM_QUERY;
             END_IF
             
         ACTIVE_ALARM_QUERY:
-            IF ((MpAlarmXQueryActiveAlarmsFB.CommandDone = TRUE) AND (MpAlarmXQueryActiveAlarmsFB.Info.HasMoreRows = FALSE)) THEN
-                MpAlarmXQueryActiveAlarmsFB.Execute := FALSE;
-                MpAlarmXQueryActiveAlarmsFB.Next := FALSE;
+            IF ((QueryActiveAlarms.CommandDone = TRUE) AND (QueryActiveAlarms.Info.HasMoreRows = FALSE)) THEN
+                QueryActiveAlarms.Execute := FALSE;
+                QueryActiveAlarms.Next := FALSE;
                 AlarmQuery.State := ACTIVE_ALARM_WAIT;
-            ELSIF ((MpAlarmXQueryActiveAlarmsFB.CommandDone = TRUE) AND (MpAlarmXQueryActiveAlarmsFB.Info.HasMoreRows = TRUE)) THEN
-                MpAlarmXQueryActiveAlarmsFB.Next := FALSE;
+            ELSIF ((QueryActiveAlarms.CommandDone = TRUE) AND (QueryActiveAlarms.Info.HasMoreRows = TRUE)) THEN
+                QueryActiveAlarms.Next := FALSE;
                 AlarmQuery.State := ACTIVE_ALARM_NEXT;
             END_IF
             
@@ -30,7 +30,7 @@ ACTION ExecuteQuery:
             IF (AlarmQuery.Next = TRUE) THEN
                 brsmemset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
                 AlarmQuery.Next := FALSE;
-                MpAlarmXQueryActiveAlarmsFB.Next := TRUE;
+                QueryActiveAlarms.Next := TRUE;
                 AlarmQuery.State := ACTIVE_ALARM_QUERY;
             END_IF
         

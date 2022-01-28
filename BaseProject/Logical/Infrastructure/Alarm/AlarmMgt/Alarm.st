@@ -50,6 +50,7 @@ PROGRAM _CYCLIC
         MpAlarmXListUIConnect.AcknowledgeAll := TRUE;
 	END_IF
 
+	(* Call all actions *)
     GetBacktraceInformation;
     ExecuteQuery;
     AlarmHandling;
@@ -60,12 +61,15 @@ PROGRAM _CYCLIC
         (* Error is active *)
     ELSIF MpAlarmXCheckReaction(gAlarmXMpLink, 'Warning') THEN
         (* Warning is active *)
-        
-    ELSIF MpAlarmXCheckReaction(gAlarmXMpLink, 'Info') THEN
+	ELSIF MpAlarmXCheckReaction(gAlarmXMpLink, 'Info') THEN
         (* Info is active *)
+	END_IF
     
-    END_IF
-    
+	IF (ExportAlarms = TRUE) THEN
+		ExportAlarms := FALSE;
+		MpAlarmXHistory_0.Export := TRUE;
+	END_IF
+	
     (* Function block calls *)
     MpAlarmXCore_0.MpLink := ADR(gAlarmXMpLink);
     MpAlarmXCore_0();
@@ -73,19 +77,14 @@ PROGRAM _CYCLIC
     MpAlarmXListUI_0.UIConnect := ADR(MpAlarmXListUIConnect);
     MpAlarmXListUI_0();
     MpAlarmXHistory_0.MpLink := ADR(gAlarmXHistoryMpLink);
-    IF (ExportAlarms = TRUE) THEN
-        ExportAlarms := FALSE;
-        MpAlarmXHistory_0.Export := TRUE;
-    END_IF
-
-    MpAlarmXHistory_0();
-    IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
-        MpAlarmXHistory_0.Export := FALSE;
-    END_IF
-    
-    MpAlarmXHistoryUI_0.MpLink := ADR(gAlarmXHistoryMpLink);
+	MpAlarmXHistory_0();
+	MpAlarmXHistoryUI_0.MpLink := ADR(gAlarmXHistoryMpLink);
     MpAlarmXHistoryUI_0.UIConnect := ADR(MpAlarmXHistoryUIConnect);
-    MpAlarmXHistoryUI_0();
+	MpAlarmXHistoryUI_0();
+	
+	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
+		MpAlarmXHistory_0.Export := FALSE;
+	END_IF
 
     (* Error reset *)
     IF NOT MpAlarmXCore_0.Error THEN
@@ -108,13 +107,12 @@ PROGRAM _EXIT
     MpAlarmXCore_0.Enable := FALSE;
     MpAlarmXListUI_0.Enable := FALSE;
     MpAlarmXHistory_0.Enable := FALSE;
-    MpAlarmXHistoryUI_0.Enable := FALSE;
+	MpAlarmXHistoryUI_0.Enable := FALSE;
+	QueryActiveAlarms.Enable := FALSE;
     MpAlarmXCore_0();
     MpAlarmXListUI_0();
     MpAlarmXHistory_0();
     MpAlarmXHistoryUI_0();
-    
-    MpAlarmXQueryActiveAlarmsFB.Enable := FALSE;
-    MpAlarmXQueryActiveAlarmsFB();
+    QueryActiveAlarms();
     
 END_PROGRAM

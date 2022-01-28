@@ -13,6 +13,6 @@
     <File Private="true">LocalFunctions.fun</File>
     <File>ManualCommand.st</File>
     <File>AutomaticCommand.st</File>
-    <File>Configuration.st</File>
+    <File>ChangeConfiguration.st</File>
   </Files>
 </Program>

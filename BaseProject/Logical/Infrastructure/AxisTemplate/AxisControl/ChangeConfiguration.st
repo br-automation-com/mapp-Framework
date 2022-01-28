@@ -20,7 +20,7 @@ ACTION ConfigurationInit:
     
 END_ACTION
 
-ACTION Configuration:
+ACTION ChangeConfiguration:
 
     CASE configurationState OF
         CONFIG_STATE_INIT:

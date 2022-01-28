@@ -9,7 +9,7 @@
     <File>SimulationControl.st</File>
     <File>AxisControl.st</File>
     <File Reference="true">\Logical\Infrastructure\AxisTemplate\AxisControl\AxisStateMachine.st</File>
-    <File Reference="true">\Logical\Infrastructure\AxisTemplate\AxisControl\Configuration.st</File>
+    <File Reference="true">\Logical\Infrastructure\AxisTemplate\AxisControl\ChangeConfiguration.st</File>
     <File Private="true">LocalFunctions.fun</File>
     <File>ManualCommand.st</File>
     <File>AutomaticCommand.st</File>

@@ -29,7 +29,7 @@ ACTION AxisStateMachine:
     
         STATE_INIT:
             AxisControl.Status.Status := 'Initializing';
-            Configuration;
+            ChangeConfiguration;
             IF ((configurationState = CONFIG_STATE_READY) AND (MpAxisBasicFB.Active = TRUE)) THEN
                 AxisControl.Status.IsReady := TRUE;
                 state := STATE_POWER_ON;
@@ -47,7 +47,7 @@ ACTION AxisStateMachine:
                 AxisControl.Status.Busy := FALSE;
                 state := STATE_HOME;
             ELSE
-                Configuration;
+                ChangeConfiguration;
             END_IF
             
         STATE_HOME:

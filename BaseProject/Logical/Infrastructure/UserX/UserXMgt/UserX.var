@@ -14,6 +14,7 @@ VAR
 	UserXMgrUIConnect : MpUserXMgrUIConnectType; (*Setup of UserX to UI*)
 	MpUserXLoginUI_0 : MpUserXLoginUI;
 	UserXLoginUIConnect : MpUserXLoginUIConnectType;
+	DirCreate_New : DirCreate;
 END_VAR
 (*UserX Related Variables--------------------------------------------------------------------------------------------------------*)
 (*Constants---------------------------------------------------------------------------------------------------------------------------------*)
@@ -24,4 +25,7 @@ VAR CONSTANT
 END_VAR
 VAR
 	MpUserXLogin_0 : MpUserXLogin;
+END_VAR
+VAR CONSTANT
+	LOCAL_FOLDER : STRING[10] := 'UserX';
 END_VAR

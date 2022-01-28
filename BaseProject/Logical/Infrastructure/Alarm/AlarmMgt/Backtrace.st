@@ -21,13 +21,11 @@ ACTION GetBacktraceInformation:
                 (* Alarm not found, List can page up *)
                 MpAlarmXListUIConnect.AlarmList.PageUp := TRUE;
             END_IF
-            
-            EXIT;
+			EXIT;
         ELSIF (Index = MaxIndex) THEN
             (* Alarm not found, List can page down *)
             MpAlarmXListUIConnect.AlarmList.PageDown := TRUE;
         END_IF
-        
-    END_FOR
+	END_FOR
 
 END_ACTION

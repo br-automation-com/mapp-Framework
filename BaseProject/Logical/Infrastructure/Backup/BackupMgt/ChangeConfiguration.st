@@ -1,5 +1,5 @@
 
-ACTION Configuration: 
+ACTION ChangeConfiguration: 
 
     MpBackupCoreConfigFB.MpLink := ADR(gBackupCore);
     MpBackupCoreConfigFB.Configuration := ADR(MpBackupConfiguration);
