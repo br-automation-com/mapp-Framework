@@ -1,0 +1,90 @@
+[
+    {
+        "disable" : "true",
+        "command" : "ASProjectCompile.py",
+        "name" : "Build Project",
+        "args" : [
+                    "--project ${projectDir}\\..\\BaseProject",
+                    "--configuration PPC2200",
+                    "--maxwarnings 3"
+                ]
+    },
+    {
+        "disable" : "false",
+        "command" : "Export.py",
+        "name" : "Export Alarm",
+        "args" : [
+            "--project ${projectDir}\\..\\BaseProject",
+            "--config ExportConfigurations\\Alarm.json",
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+        ]
+    },
+    {
+        "disable" : "false",
+        "command" : "Export.py",
+        "name" : "Export Backup",
+        "args" : [
+            "--project ${projectDir}\\..\\BaseProject",
+            "--config ExportConfigurations\\Backup.json",
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+        ]
+    },
+    {
+        "disable" : "true",
+        "command" : "Export.py",
+        "name" : "Export File",
+        "args" : [
+            "--project ${projectDir}\\..\\BaseProject",
+            "--config ExportConfigurations\\File.json",
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+        ]
+    },
+    {
+        "disable" : "false",
+        "command" : "Export.py",
+        "name" : "Export Recipe",
+        "args" : [
+            "--project ${projectDir}\\..\\BaseProject",
+            "--config ExportConfigurations\\Recipe.json",
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+        ]
+    },
+    {
+        "disable" : "false",
+        "command" : "Export.py",
+        "name" : "Export UserX",
+        "args" : [
+            "--project ${projectDir}\\..\\BaseProject",
+            "--config ExportConfigurations\\UserX.json",
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+        ]
+    },
+    {
+        "disable" : "false",
+        "command" : "BuildImportTool.py",
+        "name" : "Build Import Tool",
+        "args" : [
+            "--project ${projectDir}\\..\\..\\ImportTool\\FrameworkImporter",
+            "--output  ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Importer\\\\"
+        ]
+    },
+    {
+        "disable" : "true",
+        "command" : "BuildHelp.py",
+        "name" : "Build Help",
+        "args" : [
+            "--project ${projectDir}\\..",
+            "--name mappFramework"
+        ]
+    },
+    {
+        "disable" : "false",
+        "command" : "CreateInstaller.py",
+        "name" : "Create Installer",
+        "args" : [
+            "--project ${projectDir}",
+            "--name mappFramework",
+            "--version ${versionNumber}"
+        ]
+    }
+]
