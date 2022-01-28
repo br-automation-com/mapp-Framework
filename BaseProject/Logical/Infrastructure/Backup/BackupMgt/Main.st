@@ -147,10 +147,9 @@ PROGRAM _CYCLIC
     hmiBackup.Status.RestoreAllowed := (hmiBackup.Status.Info.ConfigurationID <> '') AND NOT(MpBackupCoreFB.Info.Automatic.Backup.InProgress); 
     
     FileManager;
-    
-    Configuration;
-    
-    FormatDeviceDataProvider;
+	ChangeConfiguration;
+	FormatDeviceDataProvider;
+	
 END_PROGRAM
 
 PROGRAM _EXIT

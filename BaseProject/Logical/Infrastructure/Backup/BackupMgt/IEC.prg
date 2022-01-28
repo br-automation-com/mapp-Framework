@@ -6,6 +6,6 @@
     <File Description="Local data types" Private="true">Types.typ</File>
     <File Description="Local variables" Private="true">Variables.var</File>
     <File>HMIActions.st</File>
-    <File>Configuration.st</File>
+    <File>ChangeConfiguration.st</File>
   </Files>
 </Program>
