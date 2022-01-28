@@ -4,22 +4,73 @@ ACTION FormatDeviceDataProvider:
 	(* Select CF device if USB device is not available *)
     FOR Index := 0 TO MAX_IDX_USB_DEV_LIST DO
         IF gbUSBAvail[Index] THEN
-            brsstrcpy(ADR(hmiFile.Intern.DeviceDataProvider[Index + 1]), ADR('{"value":"USB'));
-            brsitoa(Index + 1, ADR(hmiFile.Intern.DeviceDataProvider[Index + 1]) + brsstrlen(ADR(hmiFile.Intern.DeviceDataProvider[Index + 1])));
-            brsstrcat(ADR(hmiFile.Intern.DeviceDataProvider[Index + 1]), ADR('","text":"USB'));
-            brsitoa(Index + 1, ADR(hmiFile.Intern.DeviceDataProvider[Index + 1]) + brsstrlen(ADR(hmiFile.Intern.DeviceDataProvider[Index + 1])));
-            brsstrcat(ADR(hmiFile.Intern.DeviceDataProvider[Index + 1]), ADR('"}'));
-            brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1]), ADR('USB'));
-            brsitoa(Index + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1])));
+		
+            brsstrcpy(ADR(hmiFile.Status.DeviceDataProvider[Index + 7]), ADR('{"value":"USB'));
+            brsitoa(Index + 1, ADR(hmiFile.Status.DeviceDataProvider[Index + 7]) + brsstrlen(ADR(hmiFile.Status.DeviceDataProvider[Index + 7])));
+            
+			brsstrcat(ADR(hmiFile.Status.DeviceDataProvider[Index + 7]), ADR('","text":"USB'));
+            brsitoa(Index + 1, ADR(hmiFile.Status.DeviceDataProvider[Index + 7]) + brsstrlen(ADR(hmiFile.Status.DeviceDataProvider[Index + 7])));
+            brsstrcat(ADR(hmiFile.Status.DeviceDataProvider[Index + 7]), ADR('"}'));
+           
+		    brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 7]), ADR('USB'));
+            brsitoa(Index + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 7]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 7])));
         ELSE
-            brsmemset(ADR(hmiFile.Intern.DeviceDataProvider[Index + 1]), 0, SIZEOF(hmiFile.Intern.DeviceDataProvider[Index + 1]));
-            brsmemset(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1]), 0, SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1]));
+            brsmemset(ADR(hmiFile.Status.DeviceDataProvider[Index + 7]), 0, SIZEOF(hmiFile.Status.DeviceDataProvider[Index + 7]));
+            brsmemset(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 7]), 0, SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 7]));
         END_IF
     END_FOR
     
     (* Configure visible file list *)
-//    brsstrcpy(ADR(hmiFile.Intern.TableConfig), ADR('{ "specRows": [{"from":'));
-//    brsitoa(Recipe.List.MaxSelection + 1, ADR(hmiFile.Intern.TableConfig) + brsstrlen(ADR(hmiFile.Intern.TableConfig)));
-//    brsstrcat(ADR(hmiFile.Intern.TableConfig),  ADR(',"to":19, "visible":false}]}'));
+    brsstrcpy(ADR(hmiFile.Status.TableConfig), ADR('{ "specRows": [{"from":'));
+    brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(hmiFile.Status.TableConfig) + brsstrlen(ADR(hmiFile.Status.TableConfig)));
+    brsstrcat(ADR(hmiFile.Status.TableConfig),  ADR(',"to":49, "visible":false}]}'));
+    
+END_ACTION
+
+ACTION FileManager:
+    MpFileManagerUI_0.MpLink := ADR(gFileMgrUIMpLink);
+    MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
+    MpFileManagerUI_0();
+    FOR i:=0 TO ((SIZEOF(hmiFile.Status.FileNames)/SIZEOF(hmiFile.Status.FileNames[0]))-1) DO
+        hmiFile.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
+        hmiFile.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
+        hmiFile.Status.Size[i] := MpFileManagerUIConnect.File.List.Items[i].Size;
+		
+		IF i = hmiFile.Parameters.SelectedIndex THEN
+			MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
+		ELSE	
+			MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
+		END_IF
+		
+    END_FOR
+    
+    IF ((MpFileManagerUIConnect.DeviceList.SelectedIndex <> LastSelectedDeviceIndex) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE)) THEN
+        LastSelectedDeviceIndex := MpFileManagerUIConnect.DeviceList.SelectedIndex;
+        LastSelectedIndex := LastSelectedIndex + 1;
+    END_IF
+	
+	hmiFile.Status.DeviceName := MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex];
+	
+	hmiFile.Status.IsFolder := MpFileManagerUIConnect.File.List.Items[hmiFile.Parameters.SelectedIndex].IsFolder;
+	
+	IF EDGEPOS(hmiFile.Commands.EnterFolder) THEN
+		hmiFile.Commands.EnterFolder := FALSE;
+		MpFileManagerUIConnect.File.EnterFolder := TRUE;
+		FolderDepthCount := FolderDepthCount + 1;
+	END_IF
+	
+	IF EDGEPOS(hmiFile.Commands.FolderUp) AND (hmiFile.Status.BackButton > 0) THEN
+		hmiFile.Commands.FolderUp := FALSE;
+		MpFileManagerUIConnect.File.FolderUp := TRUE;
+		FolderDepthCount := FolderDepthCount - 1;
+	END_IF	
+	
+	IF FolderDepthCount > 0 THEN 	
+		hmiFile.Status.BackButton := TRUE;
+	ELSE
+		hmiFile.Status.BackButton := FALSE;
+	END_IF		
+	
+	
     
 END_ACTION

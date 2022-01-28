@@ -38,8 +38,9 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 
- //   FormatDeviceDataProvider;	
- //   FileCopyOperation;
+   FormatDeviceDataProvider;	
+   FileCopyOperation;
+   FileManager;
     
     (* Error reset *)
     IF NOT MpFileManagerUI_0.Error THEN
