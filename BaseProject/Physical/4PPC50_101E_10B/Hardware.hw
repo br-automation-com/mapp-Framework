@@ -181,12 +181,12 @@
     <Connection Connector="MT" TargetModule="80VD100PD.C022-01" TargetConnector="MT2" />
     <Parameter ID="MOTOR_AMB_TEMP_RATED" Location="M1/MotorParameters" Value="40" />
   </Module>
-  <Module Name="X20AI2222" Type="X20AI2222" Version="1.2.0.0">
+  <Module Name="X20AI2222" Type="X20AI2222" Version="1.1.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12b" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11a" TargetConnector="SL1" />
     <Parameter ID="Supervision" Value="off" />
   </Module>
-  <Module Name="X20AI2222a" Type="X20AI2222" Version="1.2.0.0">
+  <Module Name="X20AI2222a" Type="X20AI2222" Version="1.1.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12h" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11f" TargetConnector="SL1" />
     <Parameter ID="Supervision" Value="off" />
@@ -204,8 +204,8 @@
     <Connection Connector="SL" TargetModule="X20BM11" TargetConnector="SL1" />
     <Parameter ID="Supervision" Value="off" />
   </Module>
-  <Module Name="X20BB80" Type="X20BB80" Version="1.1.0.0" />
-  <Module Name="X20BC0083" Type="X20BC0083" Version="2.12.0.0">
+  <Module Name="X20BB80" Type="X20BB80" Version="1.0.2.0" />
+  <Module Name="X20BC0083" Type="X20BC0083" Version="2.11.1.0">
     <Connection Connector="PLK1" TargetModule="80VD100PD.C022-01" TargetConnector="PLK2" NodeNumber="2">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
@@ -249,7 +249,7 @@
     <Connection Connector="SS1" TargetModule="X20TB12d" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM11c" TargetConnector="SL1" />
   </Module>
-  <Module Name="X20PS9400" Type="X20PS9400" Version="1.7.0.0">
+  <Module Name="X20PS9400" Type="X20PS9400" Version="1.5.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12e" TargetConnector="SS" />
     <Connection Connector="PS" TargetModule="X20BB80" TargetConnector="PS1" />
   </Module>

@@ -8,6 +8,5 @@
     <File>HMIActions.st</File>
     <File>FileOperations.st</File>
     <File>MachineSettings.st</File>
-    <File>PreviewOperations.st</File>
   </Files>
 </Program>

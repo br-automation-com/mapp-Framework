@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="7" ArVersion="C4.91">
+<OpcUaSource FileVersion="7" ArVersion="B4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
@@ -59,19 +59,19 @@
         </Variable>
         <Variable Name="hmiRecipe">
           <Variable Name="Commands" AutomaticEnable="True" />
-          <Variable Name="Intern">
+          <Variable Name="Status">
             <Variable Name="LastLoadedRecipe" />
             <Variable Name="TableConfig" />
-            <Variable Name="DeviceDataProvider" EnableArrayElements="True" />
+            <Variable Name="DeviceDataProvider" />
             <Variable Name="DeviceName" />
           </Variable>
-        </Variable>
-        <Variable Name="MpRecipeXml_Pre">
-          <Variable Name="Load" />
         </Variable>
         <Variable Name="MpRecipeUI_0">
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
+        </Variable>
+        <Variable Name="MpRecipeXml_Preview">
+          <Variable Name="Load" />
         </Variable>
       </Task>
     </Module>

@@ -1,13 +1,13 @@
 
 TYPE
 	RecipeCommands_type : 	STRUCT 
-		StoreFixData : BOOL;
-		FactoryResetFixData : BOOL;
+		StoreMachineSettings : BOOL;
+		FactoryResetMachineSettings : BOOL;
 		SaveCurrentRecipe : BOOL;
 		ImportFromUSB : BOOL;
 		ExportToUSB : BOOL;
 	END_STRUCT;
-	RecipeIntern_type : 	STRUCT 
+	RecipeStatus_type : 	STRUCT 
 		Category : STRING[30];
 		LastLoadedRecipe : STRING[255];
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100];
@@ -20,7 +20,7 @@ TYPE
 	END_STRUCT;
 	RecipeHmiInterface_type : 	STRUCT 
 		Commands : RecipeCommands_type;
-		Intern : RecipeIntern_type;
+		Status : RecipeStatus_type;
 	END_STRUCT;
 	RecipeCopyStep_enum : 
 		(

@@ -15,21 +15,20 @@ PROGRAM _INIT
 	END_IF	
 	
 	(* Init MpRecipe function blocks *)
+	brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY));
+	brsstrcpy(ADR(hmiRecipe.Status.DeviceDataProvider[0]), ADR('{"value":"mappRecipe","text":"CF/PLC"}'));
+	brsstrcpy(ADR(hmiRecipe.Status.DeviceName), ADR('mappRecipe'));
 	MpRecipeXml_0.MpLink := ADR(gRecipeXmlMpLink);
 	MpRecipeXml_0.Enable := TRUE;
-	MpRecipeXml_0.Category := ADR(hmiRecipe.Intern.Category);
-	MpRecipeXml_0.DeviceName := ADR(hmiRecipe.Intern.DeviceName);
-    MpRecipeXml_0.FileName := ADR(hmiRecipe.Intern.FileName);
-    MpRecipeXml_0.Header := ADR(Header);
-
-	MpRecipeXml_Pre.MpLink := ADR(gRecipeXmlPreviewMpLink);
-	MpRecipeXml_Pre.Enable := TRUE;
-	MpRecipeXml_Pre.Category := ADR('Preview');
-	MpRecipeXml_Pre.DeviceName := ADR('mappRecipe');
-
-	brsstrcpy(ADR(hmiRecipe.Intern.Category), ADR(PRODUCT_CATEGORY));
-	brsstrcpy(ADR(hmiRecipe.Intern.DeviceDataProvider[0]), ADR('{"value":"mappRecipe","text":"CF/PLC"}'));
-	brsstrcpy(ADR(hmiRecipe.Intern.DeviceName), ADR('mappRecipe'));
+	MpRecipeXml_0.Category := ADR(hmiRecipe.Status.Category);
+	MpRecipeXml_0.DeviceName := ADR(hmiRecipe.Status.DeviceName);
+    MpRecipeXml_0.FileName := ADR(hmiRecipe.Status.FileName);
+	MpRecipeXml_0.Header := ADR(Header);
+	
+	MpRecipeXml_Preview.MpLink := ADR(gRecipeXmlPreviewMpLink);
+	MpRecipeXml_Preview.Enable := TRUE;
+	MpRecipeXml_Preview.Category := ADR('Preview');
+	MpRecipeXml_Preview.DeviceName := ADR('mappRecipe');
 
 	MpRecipeUI_0.MpLink := ADR(gRecipeXmlMpLink);
 	MpRecipeUI_0.Enable := TRUE;
@@ -47,8 +46,8 @@ PROGRAM _INIT
 	END_WHILE;
 	
 	(* Load fix data *)
-	brsstrcpy(ADR(hmiRecipe.Intern.Category), ADR(MACHINE_CATEGORY));
-	brsstrcpy(ADR(hmiRecipe.Intern.FileName), ADR(MACHINE_FILENAME));
+	brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(MACHINE_CATEGORY));
+	brsstrcpy(ADR(hmiRecipe.Status.FileName), ADR(MACHINE_FILENAME));
 	MpRecipeXml_0.Load := TRUE;
 	WHILE ((NOT MpRecipeXml_0.CommandDone) AND (NOT MpRecipeXml_0.Error)) DO
 		MpRecipeXml_0();
@@ -59,14 +58,14 @@ PROGRAM _INIT
 	MpRecipeXml_0();
 
 	(* Load Default file *)
-	brsstrcpy(ADR(hmiRecipe.Intern.Category), ADR(PRODUCT_CATEGORY));
-	brsstrcpy(ADR(hmiRecipe.Intern.FileName), ADR('Default.xml'));
+	brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY));
+	brsstrcpy(ADR(hmiRecipe.Status.FileName), ADR('Default.par'));
     MpRecipeXml_0.Load := TRUE;
     WHILE ((NOT MpRecipeXml_0.CommandDone) AND (NOT MpRecipeXml_0.Error)) DO
 		MpRecipeXml_0();
     END_WHILE
     
-	brsstrcpy(ADR(hmiRecipe.Intern.LastLoadedRecipe), ADR(MpRecipeXml_0.Info.LastLoadedRecipe));
+	brsstrcpy(ADR(hmiRecipe.Status.LastLoadedRecipe), ADR(MpRecipeXml_0.Info.LastLoadedRecipe));
 	MpRecipeXml_0.ErrorReset := MpRecipeXml_0.Error;
 	MpRecipeXml_0.Load := FALSE;
 	MpRecipeXml_0();
@@ -95,36 +94,36 @@ PROGRAM _CYCLIC
     IF EDGEPOS(MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) AND
         ((NOT MpRecipeUIConnect.Recipe.Load) AND (NOT MpRecipeUIConnect.Recipe.Save)) THEN
         (* Check if 'Product' category has been loaded *)
-        IF ((brsstrcmp(ADR(hmiRecipe.Intern.Category), ADR(PRODUCT_CATEGORY)) = 0) AND
-            (hmiRecipe.Intern.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
+        IF ((brsstrcmp(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY)) = 0) AND
+            (hmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
             (* Copy loaded recipe name *)
-            brsstrcpy(ADR(hmiRecipe.Intern.LastLoadedRecipe), ADR(MpRecipeXml_0.Info.LastLoadedRecipe));
+            brsstrcpy(ADR(hmiRecipe.Status.LastLoadedRecipe), ADR(MpRecipeXml_0.Info.LastLoadedRecipe));
             (* Set update notification *)
             MpRecipeXml_0.UpdateNotification := TRUE;
         END_IF
 	
         (* Trigger a reload of the preview parameters *)
-        hmiRecipe.Intern.LastSelectedIndex := hmiRecipe.Intern.LastSelectedIndex + 1;
-        brsstrcpy(ADR(hmiRecipe.Intern.Category), ADR(PRODUCT_CATEGORY));
+        hmiRecipe.Status.LastSelectedIndex := hmiRecipe.Status.LastSelectedIndex + 1;
+        brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY));
     END_IF
-    hmiRecipe.Intern.LastStatus := MpRecipeUIConnect.Status;
+    hmiRecipe.Status.LastStatus := MpRecipeUIConnect.Status;
 
     (* Save current recipe *)
     IF (hmiRecipe.Commands.SaveCurrentRecipe = TRUE) AND NOT (MpRecipeXml_0.Load OR MpRecipeXml_0.Save OR MpRecipeXml_0.UpdateNotification) THEN
-        brsstrcpy(ADR(hmiRecipe.Intern.FileName), ADR(hmiRecipe.Intern.LastLoadedRecipe));
+        brsstrcpy(ADR(hmiRecipe.Status.FileName), ADR(hmiRecipe.Status.LastLoadedRecipe));
         DTGetTime_0(enable := TRUE);
         Header.DateTime := DTGetTime_0.DT1;
-        Header.Name := hmiRecipe.Intern.FileName;
+        Header.Name := hmiRecipe.Status.FileName;
         Header.Description := '';
         MpRecipeXml_0.Save := TRUE;
-        //brsstrcpy(ADR(hmiRecipe.Intern.Category), ADR(PRODUCT_CATEGORY));
+        //brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY));
         hmiRecipe.Commands.SaveCurrentRecipe := FALSE;
     END_IF
 	
 	(* Reset commands on MpRecipe FUB *)
 	IF MpRecipeXml_0.CommandDone THEN
 		(* Set update notification for machine category *)
-		IF ((brsstrcmp(ADR(hmiRecipe.Intern.Category), ADR(MACHINE_CATEGORY)) = 0) AND (MpRecipeXml_0.Save = TRUE)) THEN
+		IF ((brsstrcmp(ADR(hmiRecipe.Status.Category), ADR(MACHINE_CATEGORY)) = 0) AND (MpRecipeXml_0.Save = TRUE)) THEN
 			MpRecipeXml_0.UpdateNotification := TRUE;
 			MpRecipeXml_0.Load := FALSE;
 			MpRecipeXml_0.Save := FALSE;
@@ -132,8 +131,8 @@ PROGRAM _CYCLIC
 			MpRecipeXml_0.UpdateNotification := FALSE;
 			MpRecipeXml_0.Load := FALSE;
 			MpRecipeXml_0.Save := FALSE;
-			brsstrcpy(ADR(hmiRecipe.Intern.Category), ADR(PRODUCT_CATEGORY));
-			brsstrcpy(ADR(hmiRecipe.Intern.FileName), ADR('Default.xml'));
+			brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY));
+			brsstrcpy(ADR(hmiRecipe.Status.FileName), ADR('Default.par'));
         END_IF
     END_IF
 	
@@ -150,7 +149,7 @@ PROGRAM _CYCLIC
 	
     MpRecipeXml_0();
     MpRecipeUI_0();
-    MpRecipeXml_Pre();
+    MpRecipeXml_Preview();
     MpFileManagerUI_0();
 END_PROGRAM
 
@@ -158,11 +157,11 @@ PROGRAM _EXIT
 	(* Reset function blocks to unlink mapp links *)
     MpRecipeXml_0.Enable := FALSE;
     MpRecipeUI_0.Enable := FALSE;
-    MpRecipeXml_Pre.Enable := FALSE;
+    MpRecipeXml_Preview.Enable := FALSE;
     MpFileManagerUI_0.Enable := FALSE;
     MpRecipeXml_0();
     MpRecipeUI_0();
-    MpRecipeXml_Pre();
+    MpRecipeXml_Preview();
     MpFileManagerUI_0();
 END_PROGRAM
 

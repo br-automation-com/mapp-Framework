@@ -59,7 +59,7 @@
 			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="ToggleSwitchSimOnOff" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.LastLoadedRecipe" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.LastLoadedRecipe" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Home_content" widgetRefId="txtOutRecipeNamePidTab" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
