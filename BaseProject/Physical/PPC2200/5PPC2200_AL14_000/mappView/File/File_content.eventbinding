@@ -13,6 +13,21 @@
     </EventBinding>
     <EventBinding id="File_content.FileFolderTable.Click">
       <Source xsi:type="widgets.brease.Table.Event" contentRefId="File_content" widgetRefId="FileFolderTable" event="Click" />
+      <Operand datatype="BOOL" name="MultiSelect">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgt:MpFileManagerUIConnect.File.MultiSelect">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="MultiSelect = true">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgt:hmiFile.Commands.MultiSelect">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="File_content.FileFolderTable.Click.2">
+      <Source xsi:type="widgets.brease.Table.Event" contentRefId="File_content" widgetRefId="FileFolderTable" event="Click" />
       <Operand datatype="BOOL" name="IsFolder">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgt:hmiFile.Status.IsFolder">
           <Method xsi:type="opcUa.NodeAction.GetValue" />

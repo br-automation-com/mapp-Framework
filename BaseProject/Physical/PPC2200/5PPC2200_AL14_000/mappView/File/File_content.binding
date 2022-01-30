@@ -22,10 +22,7 @@
             <Target xsi:type="brease" contentRefId="File_content" widgetRefId="ObjectNames" attribute="stringValue" />
         </Binding>
 
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Parameters.SelectedIndex" attribute="value" />
-            <Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="selectedRow" />
-        </Binding>
+        
 
   <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.PathInfo.CurrentDir" attribute="value" />
@@ -103,6 +100,18 @@
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.TableConfig" attribute="value" />
 <Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="tableConfiguration" />
+</Binding>
+
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.Type" attribute="value" />
+<Target xsi:type="brease" contentRefId="File_content" widgetRefId="TableItemImageListType" attribute="selectedIndex" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Parameters.SelectedIndex" attribute="value" />
+<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="selectedRow" />
 </Binding>
 </Bindings>
 </BindingsSet>

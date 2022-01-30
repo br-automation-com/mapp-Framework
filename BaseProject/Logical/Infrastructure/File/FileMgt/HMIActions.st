@@ -36,10 +36,28 @@ ACTION FileManager:
         hmiFile.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
         hmiFile.Status.Size[i] := MpFileManagerUIConnect.File.List.Items[i].Size;
 		
-		IF i = hmiFile.Parameters.SelectedIndex THEN
-			MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
+		IF MpFileManagerUIConnect.File.List.Items[i].IsFolder THEN
+			hmiFile.Status.Type[i] := FOLDER;
+		ELSIF NOT MpFileManagerUIConnect.File.List.Items[i].IsFolder AND MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN	
+			hmiFile.Status.Type[i] := FILE_SELECTED;
 		ELSE	
-			MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
+			hmiFile.Status.Type[i] := FILE;
+		END_IF	
+		
+		IF (MpFileManagerUIConnect.File.MultiSelect = FALSE) THEN
+			IF (i = hmiFile.Parameters.SelectedIndex) THEN
+				MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
+			ELSE	
+				MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
+			END_IF
+		ELSIF (MpFileManagerUIConnect.File.MultiSelect = TRUE) AND hmiFile.Commands.MultiSelect THEN			
+			IF (i = hmiFile.Parameters.SelectedIndex) AND NOT MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
+				MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
+				hmiFile.Commands.MultiSelect := FALSE;
+			ELSIF (i = hmiFile.Parameters.SelectedIndex) AND MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
+				MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
+				hmiFile.Commands.MultiSelect := FALSE;
+			END_IF
 		END_IF
 		
     END_FOR
@@ -53,10 +71,12 @@ ACTION FileManager:
 	
 	hmiFile.Status.IsFolder := MpFileManagerUIConnect.File.List.Items[hmiFile.Parameters.SelectedIndex].IsFolder;
 	
-	IF EDGEPOS(hmiFile.Commands.EnterFolder) THEN
+	IF (hmiFile.Commands.EnterFolder) AND MpFileManagerUIConnect.File.List.Items[hmiFile.Parameters.SelectedIndex].IsFolder THEN
 		hmiFile.Commands.EnterFolder := FALSE;
 		MpFileManagerUIConnect.File.EnterFolder := TRUE;
 		FolderDepthCount := FolderDepthCount + 1;
+	ELSE
+		hmiFile.Commands.EnterFolder := FALSE;
 	END_IF
 	
 	IF EDGEPOS(hmiFile.Commands.FolderUp) AND (hmiFile.Status.BackButton > 0) THEN
