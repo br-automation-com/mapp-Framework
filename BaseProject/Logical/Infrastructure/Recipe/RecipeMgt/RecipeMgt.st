@@ -30,22 +30,28 @@ PROGRAM _INIT
 	MpRecipeXml_Preview.Category := ADR('Preview');
 	MpRecipeXml_Preview.DeviceName := ADR('mappRecipe');
 
+//	MpRecipeUI_0.UISetup.Confirmation.RecipeDelete := TRUE;
+//	MpRecipeUI_0.UISetup.RecipeListSize := 10;
+//	MpRecipeUI_0.UISetup.RecipeListScrollWindow := 0;
+//	MpRecipeUI_0.UISetup.AutoLoadHeader := TRUE;
+	
+	MpRecipeUISetup.Confirmation.RecipeDelete := TRUE;
+	MpRecipeUISetup.RecipeListSize := 10;
+	MpRecipeUISetup.RecipeListScrollWindow := 0;
+	MpRecipeUISetup.AutoLoadHeader := TRUE;
+	//(Recipe:=(Filter:='*xml'),New:=(FileName:='newRecipe.xml'))
+	MpRecipeUIConnect.New.FileName := 'newRecipe.xml';
 	MpRecipeUI_0.MpLink := ADR(gRecipeXmlMpLink);
 	MpRecipeUI_0.Enable := TRUE;
 	MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
-
-	(* Configure UI Connect *)
-	MpRecipeUI_0.UISetup.Confirmation.RecipeDelete := TRUE;
-	MpRecipeUI_0.UISetup.RecipeListSize := 10;
-	MpRecipeUI_0.UISetup.RecipeListScrollWindow := 0;
-	MpRecipeUI_0.UISetup.AutoLoadHeader := TRUE;
+	MpRecipeUI_0.UISetup := MpRecipeUISetup;
 
 	(* Activate component *)
 	WHILE NOT (MpRecipeXml_0.Active OR MpRecipeXml_0.Error) DO
 		MpRecipeXml_0();
 	END_WHILE;
 	
-	(* Load fix data *)
+	(* Load Machine Settings *)
 	brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(MACHINE_CATEGORY));
 	brsstrcpy(ADR(hmiRecipe.Status.FileName), ADR(MACHINE_FILENAME));
 	MpRecipeXml_0.Load := TRUE;
@@ -57,7 +63,7 @@ PROGRAM _INIT
 	MpRecipeXml_0.Load := FALSE;
 	MpRecipeXml_0();
 
-	(* Load Default file *)
+	(* Load Default parameter file *)
 	brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY));
 	brsstrcpy(ADR(hmiRecipe.Status.FileName), ADR('Default.par'));
     MpRecipeXml_0.Load := TRUE;
@@ -80,7 +86,7 @@ PROGRAM _INIT
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[0]), ADR('mappRecipe'));
 	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[1]), ADR(''));
-    brsstrcpy(ADR(MpFileManagerUIConnect.File.Filter), ADR('*.xml'));
+   brsstrcpy(ADR(MpFileManagerUIConnect.File.Filter), ADR('*'));
     
 END_PROGRAM
 
@@ -91,18 +97,13 @@ PROGRAM _CYCLIC
     MachineSettings;
 	
     (* Reset category after saving is done, category should be reset so that autosave files contain ALL the parameters *)
-    IF EDGEPOS(MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) AND
-        ((NOT MpRecipeUIConnect.Recipe.Load) AND (NOT MpRecipeUIConnect.Recipe.Save)) THEN
+    IF EDGEPOS(MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) AND ((NOT MpRecipeUIConnect.Recipe.Load) AND (NOT MpRecipeUIConnect.Recipe.Save)) THEN
         (* Check if 'Product' category has been loaded *)
-        IF ((brsstrcmp(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY)) = 0) AND
-            (hmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
-            (* Copy loaded recipe name *)
-            brsstrcpy(ADR(hmiRecipe.Status.LastLoadedRecipe), ADR(MpRecipeXml_0.Info.LastLoadedRecipe));
-            (* Set update notification *)
-            MpRecipeXml_0.UpdateNotification := TRUE;
+        IF ((brsstrcmp(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY)) = 0) AND (hmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
+			brsstrcpy(ADR(hmiRecipe.Status.LastLoadedRecipe), ADR(MpRecipeXml_0.Info.LastLoadedRecipe));
+			MpRecipeXml_0.UpdateNotification := TRUE;
         END_IF
-	
-        (* Trigger a reload of the preview parameters *)
+		(* Trigger a reload of the preview parameters *)
         hmiRecipe.Status.LastSelectedIndex := hmiRecipe.Status.LastSelectedIndex + 1;
         brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY));
     END_IF

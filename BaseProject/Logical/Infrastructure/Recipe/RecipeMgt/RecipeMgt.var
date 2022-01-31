@@ -18,7 +18,8 @@ END_VAR
 (*Recipe Management Variables---------------------------------------------------------------------------------*)
 VAR
 	Index : USINT; (*Index to loop through file devices*)
-	MpRecipeUIConnect : MpRecipeUIConnectType := (Recipe:=(Filter:='*xml'),New:=(FileName:='newRecipe.xml')); (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
+	MpRecipeUISetup : MpRecipeUISetupType; (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
+	MpRecipeUIConnect : MpRecipeUIConnectType; (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
 	hmiRecipe : RecipeHmiInterface_type;
 	Header : MpRecipeXmlHeaderType;
 	DTGetTime_0 : DTGetTime;
