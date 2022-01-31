@@ -27,7 +27,7 @@ LangString mappFrameworkEndLongText ${LANG_ENGLISH} "mappFramework end"
 ; Variable declarationen for sections
 !insertmacro VariableForSection "mappFramework"
 	!insertmacro VariableForSection "mappFrameworkBase"
-	!insertmacro VariableForSection "Menu"
+	;!insertmacro VariableForSection "Menu"
 
 !insertmacro VariableForSection "mappFrameworkEnd"
 
@@ -63,7 +63,7 @@ SectionEnd
 Section "$(MenuShortText)" Menu
 	# Start Menu
 	createDirectory "$SMPROGRAMS\${COMPANYNAME}\${ProductNameShort}"
-	createShortCut "$SMPROGRAMS\${COMPANYNAME}\${ProductNameShort}\mapp Framework Importer.lnk" "$INSTDIR\${ProductNameShort}\FrameworkImporter.exe.exe" "" "$INSTDIR\${ProductNameShort}\mappFrameworkLogo.ico"
+	createShortCut "$SMPROGRAMS\${COMPANYNAME}\${ProductNameShort}\mapp Framework Importer.lnk" "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V${Version}\Importer\FrameworkImporter.exe" "" "$INSTDIR\${ProductNameShort}\mappFrameworkLogo.ico"
 
 SectionEnd
 
@@ -75,7 +75,7 @@ SectionEnd
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 	!insertmacro SetDescriptionTextforMUI "mappFramework"
 	!insertmacro SetDescriptionTextforMUI "mappFrameworkBase"
-	!insertmacro SetDescriptionTextforMUI "Menu"
+	;!insertmacro SetDescriptionTextforMUI "Menu"
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
@@ -120,13 +120,13 @@ Function OnInit
 	StrCpy $mappFrameworkSectionRO 35
 
 		StrCpy $mappFrameworkBaseSectionRO 1
-		StrCpy $MenuSectionRO 1
+		;StrCpy $MenuSectionRO 1
 	StrCpy $mappFrameworkEndSectionRO 4
 
 	; initializing Section Flags
 	!insertmacro ReadAndSetSectionFlag "mappFramework" "mappFramework"
 	!insertmacro ReadAndSetSectionFlag "mappFrameworkBase" "mappFramework"
-	!insertmacro ReadAndSetSectionFlag "Menu" "mappFramework"
+	;!insertmacro ReadAndSetSectionFlag "Menu" "mappFramework"
 
 	!insertmacro ReadAndSetSectionFlag "mappFrameworkEnd" "mappFramework"
 
@@ -139,7 +139,7 @@ Function DoOptionFileHandling
 	${If} "$nsiPVI_OptionsFileName" != ""
 		${If} ${FileExists} "$nsiPVI_OptionsFileName"
 			!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "mappFramework" "mappFrameworkBase"
-			!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "mappFramework" "Menu"
+			;!insertmacro ReadSectionFlagFromFile "$nsiPVI_OptionsFileName" "mappFramework" "Menu"
 		${Else}
 			!insertmacro FormatString1 "$(ErrorFileNotFound)" "$nsiPVI_OptionsFileName" $nsiPVI_ErrorText
 			!insertmacro GenerateError "${ErrorCode_FileNotFound}" $nsiPVI_ErrorText
@@ -157,5 +157,5 @@ FunctionEnd
 
 Function .onComponentsLeave
 	!insertmacro GetAndWriteSectionFlag "mappFramework" "mappFramework"
-	!insertmacro GetAndWriteSectionFlag "Menu" "mappFramework"
+	;!insertmacro GetAndWriteSectionFlag "Menu" "mappFramework"
 FunctionEnd
