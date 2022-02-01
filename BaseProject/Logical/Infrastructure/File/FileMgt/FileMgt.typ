@@ -5,21 +5,44 @@ TYPE
 		Parameters : FileHmiParameters_type;
 		Status : FileHmiStatus_type;
 	END_STRUCT;
-	FileCopyStep_enum : 
+	FileDeleteStep_enum : 
 		(
-		FILE_COPY_WAIT := 0,
-		FILE_COPY_TO_USB,
-		FILE_COPY_FROM_USB,
-		FILE_COPY_BUSY
+		FILE_DELETE_WAIT := 0,
+		FILE_SCAN_FOLDER_WAIT,
+		FILE_CHECK_FOR_FILTER,
+		FILE_SORT_BY_DATE,
+		FILE_SELECT_OLDEST_FILES_0,
+		FILE_CALC_FOLDER_SIZE,
+		FILE_SELECT_OLDEST_FILES_1,
+		FILE_DELETE_FILES,
+		FILE_CONFIRM_DELETE,
+		FILE_RESET_SORT_BY
+		);
+	FileFifoType_enum : 
+		(
+		FILE_FIFO_NUM_OF_FILES := 0,
+		FILE_FIFO_SIZE_OF_FOLDER,
+		FILE_FIFO_OLDER_THAN
 		);
 	FileHmiCommands_type : 	STRUCT 
 		Delete : BOOL;
 		FolderUp : BOOL;
 		EnterFolder : BOOL;
 		MultiSelect : BOOL;
+		CheckFolder : BOOL;
+	END_STRUCT;
+	FileHmiParaFifo_type : 	STRUCT 
+		Enable : BOOL;
+		DeviceName : STRING[50];
+		FifoType : FileFifoType_enum;
+		MaxFileAge : UINT := 365; (*Files older than 1 year will be deleted*)
+		MaxFolderSize : REAL := 1000; (*kB - Max size of files inside the active folder*)
+		MaxNumberOfFiles : UINT := 20; (*Max number of files inside active folder*)
 	END_STRUCT;
 	FileHmiParameters_type : 	STRUCT 
 		SelectedIndex : USINT;
+		OldSortOrder : MpFileManagerUISortOrderEnum;
+		Fifo : FileHmiParaFifo_type;
 	END_STRUCT;
 	FileType_enum : 
 		(
@@ -38,5 +61,8 @@ TYPE
 		TableConfig : STRING[120];
 		IsFolder : BOOL;
 		BackButton : USINT;
+		DeleteStep : FileDeleteStep_enum;
+		AutoDeleteSelected : USINT;
+		FolderSize : REAL;
 	END_STRUCT;
 END_TYPE

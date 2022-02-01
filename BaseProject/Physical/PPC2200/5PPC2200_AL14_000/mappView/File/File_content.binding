@@ -113,5 +113,9 @@
 <Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Parameters.SelectedIndex" attribute="value" />
 <Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="selectedRow" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Parameters.Fifo.Enable" attribute="value" />
+<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonFIFOEnable" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>

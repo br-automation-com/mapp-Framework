@@ -6,7 +6,7 @@
         <Widget xsi:type="widgets.brease.TableItemImageList" id="TableItemImageListType" zIndex="0" columnWidth="65" imageList="['Folder.svg', 'File.svg', 'FileSelected.svg']" imagePrefix="Media/SymbolLib/File/" />
         <Widget xsi:type="widgets.brease.TableItem" id="ObjectNames" zIndex="1" columnWidth="405" text="$IAT/File/Files" />
         <Widget xsi:type="widgets.brease.TableItemDateTime" id="TableItemDateTime1" zIndex="2" columnWidth="180" format="dd-MM-yy hh:mm" text="$IAT/File/Timestamp" />
-        <Widget xsi:type="widgets.brease.TableItem" id="FileSize" zIndex="3" columnWidth="120" showUnit="true" text="$IAT/File/Size" unit="{'metric':'4L','imperial':'4L','imperial-us':'4L'}" />
+        <Widget xsi:type="widgets.brease.TableItem" id="FileSize" zIndex="3" columnWidth="120" showUnit="true" text="$IAT/File/Size" unit="{'metric':'2P','imperial':'2P','imperial-us':'2P'}" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.Table" id="FileDeviceTable" top="155" left="25" width="160" height="335" zIndex="1">
@@ -33,5 +33,6 @@
     <Widget xsi:type="widgets.brease.Label" id="LblRename" top="510" left="25" width="285" height="35" zIndex="18" text="$IAT/File/NewName" borderWidth="2px" borderStyle="none" fontName="Arial Unicode" fontSize="16px" bold="true" />
     <Widget xsi:type="widgets.brease.TextInput" id="txtInNewName" top="510" left="355" width="325" height="35" zIndex="19" value="New Name Folder / File" />
     <Widget xsi:type="widgets.brease.TextOutput" id="txtOutCurrentDevice" top="13" left="375" width="140" height="35" zIndex="20" value="Current Device" borderWidth="0px 2px 0px 0px" borderStyle="solid" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ButtonFIFOEnable" top="440" left="985" width="121" height="50" zIndex="21" text="$IAT/File/FIFOEnable" imageHeight="25" imageWidth="25" backColor="rgba(255, 255, 255, 1)" mouseDownBackColor="rgba(255, 136, 0, 1)" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Br_White" />
   </Widgets>
 </Content>
