@@ -14,10 +14,6 @@ PROGRAM _INIT
 //	IF DirCreate_New.status = fiERR_DIR_ALREADY_EXIST THEN
 //		DirCreate_New(enable := FALSE);
 //	END_IF	
-//	
-//	brsstrcpy(ADR(hmiFile.Intern.Category), ADR(PRODUCT_CATEGORY));
-//	brsstrcpy(ADR(hmiFile.Intern.DeviceDataProvider[0]), ADR('{"value":"mappFile","text":"CF/PLC"}'));
-//	brsstrcpy(ADR(hmiFile.Intern.DeviceName), ADR('mappFile'));
 	
 	(* Init Filemanager for exporting/importing files *)
 	MpFileManagerUI_0.Enable := TRUE;
@@ -32,16 +28,21 @@ PROGRAM _INIT
 	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[5]), ADR('mappAlarmX'));
 	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[6]), ADR('mappUserX'));
 	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[7]), ADR(''));
-//    brsstrcpy(ADR(MpFileManagerUIConnect.File.Filter), ADR('*.xml'));
-    
+	
+	(* Init FIFO feature *)
+	brsstrcpy(ADR(hmiFile.Parameters.Fifo.DeviceName), ADR('mappData'));
+    hmiFile.Parameters.Fifo.MaxFolderSize := 10.0 (*Mb*); 
+	hmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC
 
    FormatDeviceDataProvider;	
-   FileCopyOperation;
    FileManager;
-    
+   IF hmiFile.Parameters.Fifo.Enable THEN
+      FIFOOperation;
+   END_IF 
     (* Error reset *)
     IF NOT MpFileManagerUI_0.Error THEN
         MpFileManagerUI_0.ErrorReset := FALSE;

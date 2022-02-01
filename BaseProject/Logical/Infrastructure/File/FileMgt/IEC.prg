@@ -6,6 +6,6 @@
     <File Description="Local data types" Private="true">FileMgt.typ</File>
     <File Description="Local variables" Private="true">FileMgt.var</File>
     <File>HMIActions.st</File>
-    <File>FileOperations.st</File>
+    <File>FIFOOperations.st</File>
   </Files>
 </Program>

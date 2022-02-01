@@ -44,22 +44,23 @@ ACTION FileManager:
 			hmiFile.Status.Type[i] := FILE;
 		END_IF	
 		
-		IF (MpFileManagerUIConnect.File.MultiSelect = FALSE) THEN
-			IF (i = hmiFile.Parameters.SelectedIndex) THEN
-				MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
-			ELSE	
-				MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
-			END_IF
-		ELSIF (MpFileManagerUIConnect.File.MultiSelect = TRUE) AND hmiFile.Commands.MultiSelect THEN			
-			IF (i = hmiFile.Parameters.SelectedIndex) AND NOT MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
-				MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
-				hmiFile.Commands.MultiSelect := FALSE;
-			ELSIF (i = hmiFile.Parameters.SelectedIndex) AND MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
-				MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
-				hmiFile.Commands.MultiSelect := FALSE;
+		IF hmiFile.Status.DeleteStep = FILE_DELETE_WAIT THEN
+			IF (MpFileManagerUIConnect.File.MultiSelect = FALSE) THEN
+				IF (i = hmiFile.Parameters.SelectedIndex) THEN
+					MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
+				ELSE	
+					MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
+				END_IF
+			ELSIF (MpFileManagerUIConnect.File.MultiSelect = TRUE) AND hmiFile.Commands.MultiSelect THEN			
+				IF (i = hmiFile.Parameters.SelectedIndex) AND NOT MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
+					MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
+					hmiFile.Commands.MultiSelect := FALSE;
+				ELSIF (i = hmiFile.Parameters.SelectedIndex) AND MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
+					MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
+					hmiFile.Commands.MultiSelect := FALSE;
+				END_IF
 			END_IF
 		END_IF
-		
     END_FOR
     
     IF ((MpFileManagerUIConnect.DeviceList.SelectedIndex <> LastSelectedDeviceIndex) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE)) THEN
