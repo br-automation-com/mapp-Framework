@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ddef:Dialog xmlns:ddef="http://www.br-automation.com/iat2015/dialogDefinition/v2" id="CreateNewRecipe_dialog" layoutRefId="CreateNewRecipeLayout" displayName="$IAT/Recipe/CreateRecipeDiagHead" showCloseButton="false">
+<ddef:Dialog xmlns:ddef="http://www.br-automation.com/iat2015/dialogDefinition/v2" id="CreateNewRecipe_dialog" layoutRefId="RecipeDialogLayout" displayName="$IAT/Recipe/CreateRecipeDiagHead" showCloseButton="false">
   <Assignments>
-    <Assignment type="Content" baseContentRefId="CreateNewRecipe_content" areaRefId="AreaCreateNewRecipe" />
+    <Assignment type="Content" baseContentRefId="CreateNewRecipeParameters_content" areaRefId="AreaRecipe" />
+    <Assignment type="Content" baseContentRefId="CreateNewRecipe_content" areaRefId="AreaButtons" />
   </Assignments>
 </ddef:Dialog>

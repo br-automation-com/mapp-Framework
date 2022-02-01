@@ -22,8 +22,12 @@
 	</Navigations>  
 	<BindingsSets>
         <BindingsSet refId="Recipe_content_binding" />
-        <BindingsSet refId="EditRecipe_content_binding" />
-        <BindingsSet refId="CreateNewRecipe_content_binding" />
+		<BindingsSet refId="EditRecipeParameters_content_binding" /> 
+		<BindingsSet refId="EditRecipeMachConfig_content_binding" />
+		<BindingsSet refId="CreateNewRecipeParameters_content_binding" />
+		<BindingsSet refId="CreateNewRecipeMachConfig_content_binding" />
+		<BindingsSet refId="PreviewParameters_content_binding" />
+		<BindingsSet refId="PreviewSettings_content_binding" />
         <BindingsSet refId="Report_content_binding" />
 		<BindingsSet refId="AlarmX_content_binding" />
 		<BindingsSet refId="Trend_content_binding" />
@@ -94,7 +98,11 @@
         <Dialog refId="AutomaticSettingsBackup_dialog" />
 		<Dialog refId="MsgBoxFile_dialog" />
 	</Dialogs>
-	<Contents preCache= "all"> 
+	<Contents > 
+		<Content refId="PreviewParameters_content" />
+		<Content refId="PreviewSettings_content" />
+		<Content refId="EditRecipeMachConfig_content" />
+		<Content refId="CreateNewRecipeMachConfig_content" />
 		<Content refId="Welcome_content" />
 		<Content refId="Axis_content" />
 		<Content refId="AxisAuto_content" />
@@ -114,8 +122,6 @@
         <Content refId="UserX_content" />
         <Content refId="Backup_content" />
 		<Content refId="Trend_content" />
-		<Content refId="EditRecipe_content" />
-		<Content refId="CreateNewRecipe_content" />
 		<Content refId="RenameRecipe_content" />
 		<Content refId="Login_content" />
 		<Content refId="UserXErrorDialog_content" />
@@ -135,7 +141,8 @@
 		<ExpressionsSet refId="MyExpressionSet" />
     </ExpressionsSets>
 	<VariablesSets>
-        <VariablesSet refId="SessionVar" />
+		<VariablesSet refId="UserX_svar" />
+		<VariablesSet refId="Recipe_svar" />
     </VariablesSets>
 	<StartTheme themeRefId="BuRThemeTemplate" />
 	<Themes>

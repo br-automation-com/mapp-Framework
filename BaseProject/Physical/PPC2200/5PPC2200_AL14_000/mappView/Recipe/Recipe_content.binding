@@ -3,16 +3,19 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.New.FileName" attribute="value" />
-			<Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="txtInNewRecipe" attribute="value" />		
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeParameters_content" widgetRefId="txtInNewRecipe" attribute="value" />		
 		</Binding>
-
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.New.FileName" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeMachConfig_content" widgetRefId="txtInNewRecipe" attribute="value" />		
+		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.LastModified" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="TableItemTimeStamp" attribute="stringValue" />
 		</Binding>
 		
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.TableConfig" attribute="value" />
+            <Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.TableConfig" attribute="value" />
             <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Tbl" attribute="tableConfiguration" />
         </Binding>
 
@@ -60,89 +63,14 @@
 			<Source xsi:type="snippet" refId="RecipeName" attribute="value" />
 			<Target xsi:type="text" refId="IAT/Recipe/LoadRecipe" attribute="value" />
 		</Binding>
-		<Binding mode="oneWay">
-			<Source xsi:type="text" refId="IAT/Recipe/DeleteRecipe" attribute="value" />
-			<Target xsi:type="session" refId="SessionVarDeleteRecipeText" attribute="value" />
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.LastLoadedProductRecipe" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
-		<Binding mode="oneWay">
-			<Source xsi:type="text" refId="IAT/Recipe/LoadRecipe" attribute="value" />
-			<Target xsi:type="session" refId="SessionVarLoadRecipeText" attribute="value" />
-		</Binding>
-
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.LastLoadedRecipe" attribute="value" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="txtOutRecipeName" attribute="value" />
-        </Binding>
-
-        <!--<Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.PidParameters.Gain" attribute="value" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumInPIDGain" attribute="value" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.PidParameters.DerivativeTime" attribute="node" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumInPIDDerivativeTime" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.PidParameters.FilterTime" attribute="node" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumInPIDFilterTime" attribute="node" />
-        </Binding>
 		
-		
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.PidParameters.IntegrationTime" attribute="node" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumInPIDIntegrationTime" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.SetValue" attribute="value" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumInPIDSetValue" attribute="value" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.PidParameters.Gain" attribute="value" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumInPIDGain" attribute="value" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.PidParameters.DerivativeTime" attribute="node" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumInPIDDerivativeTime" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.PidParameters.FilterTime" attribute="node" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumInPIDFilterTime" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.MaxOut" attribute="value" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumInPIDMaxOut" attribute="value" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.MinOut" attribute="value" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumInPIDMinOut" attribute="value" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.PidParameters.IntegrationTime" attribute="node" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumInPIDIntegrationTime" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.SetValue" attribute="value" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumInPIDSetValue" attribute="value" />
-        </Binding>-->
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-        <Binding mode="twoWay">
-            <Source xsi:type="listElement">
-                <Selector xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.SelectedIndex" attribute="value" />
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.SelectedIndex" attribute="value" />
 				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
 					<bt:Element index="0" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[0]" />
 					<bt:Element index="1" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[1]" />
@@ -166,22 +94,42 @@
 					<bt:Element index="19" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[19]" />
 				</be:List>
 			</Source>
-			<Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="txtOutRecipeName" attribute="value" />
-		</Binding>
-		<!--<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.MaxOut" attribute="node" />
-			<Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMaxOut" attribute="node" />
+			<Target xsi:type="brease" contentRefId="EditRecipeParameters_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::PIDControl:PidControlParameters.MinOut" attribute="node" />
-			<Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMinOut" attribute="node" />
-		</Binding>-->
+			<Source xsi:type="listElement">
+				<Selector xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.SelectedIndex" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[0]" />
+					<bt:Element index="1" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[1]" />
+					<bt:Element index="2" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[2]" />
+					<bt:Element index="3" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[3]" />
+					<bt:Element index="4" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[4]" />
+					<bt:Element index="5" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[5]" />
+					<bt:Element index="6" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[6]" />
+					<bt:Element index="7" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[7]" />
+					<bt:Element index="8" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[8]" />
+					<bt:Element index="9" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[9]" />
+					<bt:Element index="10" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[10]" />
+					<bt:Element index="11" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[11]" />
+					<bt:Element index="12" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[12]" />
+					<bt:Element index="13" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[13]" />
+					<bt:Element index="14" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[14]" />
+					<bt:Element index="15" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[15]" />
+					<bt:Element index="16" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[16]" />
+					<bt:Element index="17" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[17]" />
+					<bt:Element index="18" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[18]" />
+					<bt:Element index="19" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[19]" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="EditRecipeMachConfig_content" widgetRefId="txtOutRecipeName" attribute="value" />
+		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.DeviceDataProvider" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.DeviceDataProvider" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeDevice" attribute="dataProvider" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.DeviceName" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.DeviceName" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeDevice" attribute="selectedValue" />
 		</Binding>
 		
@@ -226,177 +174,14 @@
 			<Source xsi:type="expression" refId="UsbAvailable" attribute="result" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="PushButtonExportToUSB" attribute="visible" />
         </Binding>
-        
-        
-        
-        <Binding mode="oneWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:PreviewParameters.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputSetSpeedAx1" attribute="node" />
-        </Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.CategoryDropdown" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" attribute="selectedValue" />
+		</Binding>
+		
+		
+		
+		
 
-
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutSetSpeedAx1Cur" attribute="node" />
-        </Binding>
-
-
-        <Binding mode="oneWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:PreviewParameters.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputSetSpeedAx2" attribute="node" />
-        </Binding>
-
-        <Binding mode="oneWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:PreviewParameters.Deceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputDecAx1" attribute="node" />
-        </Binding>
-        <Binding mode="oneWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:PreviewParameters.Acceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputAccAx1" attribute="node" />
-        </Binding>
-        <Binding mode="oneWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:PreviewParameters.Acceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputAccAx2" attribute="node" />
-        </Binding>
-        <Binding mode="oneWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:PreviewParameters.Deceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputDecAx2" attribute="node" />
-        </Binding>
-        <Binding mode="oneWay">
-            <Source xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputAccAx1" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutAccAx1Pre" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Acceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutAccAx1Cur" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Deceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutDecAx1Cur" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutSetSpeedAx2PreCur" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.Acceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutAccAx2Cur" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.Deceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutDecAx2Cur" attribute="node" />
-        </Binding>
-        <Binding mode="oneWay">
-            <Source xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputSetSpeedAx1" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutSetSpeedAx1" attribute="node" />
-        </Binding>
-        <Binding mode="oneWay">
-            <Source xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputDecAx1" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutDecAx1Pre" attribute="node" />
-        </Binding>
-        <Binding mode="oneWay">
-            <Source xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputStopDecAx1" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutStopDecAx1Pre" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputSetSpeedAx2" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutSetSpeedAx2Pre" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputAccAx2" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutAccAx2Pre" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputDecAx2" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutDecAx2Pre" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputStopDecAx2" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutStopDecAx2Pre" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.StopDeceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutStopDecAx2Cur" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.StopDeceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutStopDecAx1Cur" attribute="node" />
-        </Binding>
-        <Binding mode="oneWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:PreviewParameters.StopDeceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputStopDecAx2" attribute="node" />
-        </Binding>
-        <Binding mode="oneWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:PreviewParameters.StopDeceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumericOutputStopDecAx1" attribute="node" />
-        </Binding>
-        
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.StopDeceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx2" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.Deceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx2" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.Acceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx2" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx2" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.StopDeceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx1" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Deceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx1" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Acceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx1" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx1" attribute="node" />
-        </Binding>
-        
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.StopDeceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumericInputStopDecAx2" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.Deceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumericInputDecAx2" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.Acceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumericInputAccAx2" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Parameters.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumericInputSetSpeedAx2" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.StopDeceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumericInputStopDecAx1" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Deceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumericInputDecAx1" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Acceleration" attribute="node" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumericInputAccAx1" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="NumericInputSetSpeedAx1" attribute="node" />
-        </Binding>
-
-        
 	</Bindings>
 </BindingsSet>

@@ -2,7 +2,7 @@
 ACTION FileCopyOperation: 
     
 	(* Export/Import recipes to/from USB *)
-    CASE hmiRecipe.Intern.CopyStep OF
+    CASE hmiRecipe.Status.CopyStep OF
         REC_COPY_WAIT: (* Wait for export/import command *)
             IF (hmiRecipe.Commands.ExportToUSB = TRUE) THEN
                 (* Check if USB device is available *)
@@ -24,7 +24,7 @@ ACTION FileCopyOperation:
                             hmiRecipe.Commands.ExportToUSB := FALSE;
                         ELSE
                             MpFileManagerUIConnect.File.Copy := TRUE;
-                            hmiRecipe.Intern.CopyStep := REC_COPY_TO_USB;
+							hmiRecipe.Status.CopyStep := REC_COPY_TO_USB;
                             hmiRecipe.Commands.ExportToUSB := FALSE;
                         END_IF
                         
@@ -55,7 +55,7 @@ ACTION FileCopyOperation:
                             hmiRecipe.Commands.ImportFromUSB := FALSE;
                         ELSE
                             MpFileManagerUIConnect.File.Copy := TRUE;
-                            hmiRecipe.Intern.CopyStep := REC_COPY_FROM_USB;
+                            hmiRecipe.Status.CopyStep := REC_COPY_FROM_USB;
                             hmiRecipe.Commands.ImportFromUSB := FALSE;
                         END_IF
                         
@@ -80,7 +80,7 @@ ACTION FileCopyOperation:
             END_IF
             
             IF MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_PASTE THEN
-                hmiRecipe.Intern.CopyStep := REC_COPY_BUSY;
+                hmiRecipe.Status.CopyStep := REC_COPY_BUSY;
             END_IF;
 
         REC_COPY_FROM_USB: (* Navigate to CF device and paste files *)
@@ -92,7 +92,7 @@ ACTION FileCopyOperation:
             END_IF
             
             IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_PASTE) THEN
-                hmiRecipe.Intern.CopyStep := REC_COPY_BUSY;
+                hmiRecipe.Status.CopyStep := REC_COPY_BUSY;
             END_IF
 	
         REC_COPY_BUSY: (* Wait for copying done *)
@@ -101,7 +101,7 @@ ACTION FileCopyOperation:
                 MpFileManagerUIConnect.MessageBox.Confirm := TRUE;
             ELSIF MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE THEN
                 MpRecipeUIConnect.Recipe.Refresh := (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE);
-                hmiRecipe.Intern.CopyStep := REC_COPY_WAIT;
+                hmiRecipe.Status.CopyStep := REC_COPY_WAIT;
             END_IF
         
     END_CASE

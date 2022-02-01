@@ -10,7 +10,7 @@
  ********************************************************************)
 (*Function Block Declaration----------------------------------------------------------------------------------------*)
 VAR
-	MpRecipeXml_Pre : MpRecipeXml;
+	MpRecipeXml_Preview : MpRecipeXml;
 	MpRecipeXml_0 : MpRecipeXml; (*Recipe Management Function Block*)
 	MpRecipeUI_0 : MpRecipeUI; (*Recipe to UI*)
 	DirCreate_New : DirCreate;
@@ -18,7 +18,8 @@ END_VAR
 (*Recipe Management Variables---------------------------------------------------------------------------------*)
 VAR
 	Index : USINT; (*Index to loop through file devices*)
-	MpRecipeUIConnect : MpRecipeUIConnectType := (Recipe:=(Filter:='*xml'),New:=(FileName:='newRecipe.xml')); (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
+	MpRecipeUISetup : MpRecipeUISetupType; (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
+	MpRecipeUIConnect : MpRecipeUIConnectType; (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
 	hmiRecipe : RecipeHmiInterface_type;
 	Header : MpRecipeXmlHeaderType;
 	DTGetTime_0 : DTGetTime;
@@ -31,8 +32,20 @@ END_VAR
 (*Defines*)
 VAR CONSTANT
 	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 1;
+	PREVIEW_CATEGORY : STRING[7] := 'Preview';
 	PRODUCT_CATEGORY : STRING[7] := 'Product';
 	MACHINE_CATEGORY : STRING[7] := 'Machine';
-	MACHINE_FILENAME : STRING[11] := 'Machine.fix';
+	MACHINE_FILENAME : STRING[12] := 'Machine.mcfg';
 	LOCAL_FOLDER : STRING[10] := 'Recipe';
+END_VAR
+VAR
+	MpRecipeRegPar_PreviewPar : MpRecipeRegPar;
+	MpRecipeRegPar_PreviewCfg : MpRecipeRegPar;
+	ParametersEdit : Parameters_type;
+	Parameters : Parameters_type;
+	ParametersPreview : Parameters_type;
+	MachSettings : MachineSettings_type;
+	MachSettingsEdit : MachineSettings_type;
+	MachSettingsPreview : MachineSettings_type;
+	previousRecipe : STRING[80];
 END_VAR

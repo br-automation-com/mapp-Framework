@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="7" ArVersion="C4.91">
+<OpcUaSource FileVersion="7" ArVersion="B4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
@@ -39,6 +39,8 @@
             <Variable Name="Delete" />
             <Variable Name="Rename" />
             <Variable Name="NewFileName" />
+            <Variable Name="Filter" />
+            <Variable Name="Refresh" />
           </Variable>
           <Variable Name="New">
             <Variable Name="FileName" />
@@ -59,20 +61,30 @@
         </Variable>
         <Variable Name="hmiRecipe">
           <Variable Name="Commands" AutomaticEnable="True" />
-          <Variable Name="Intern">
-            <Variable Name="LastLoadedRecipe" />
+          <Variable Name="Status">
             <Variable Name="TableConfig" />
-            <Variable Name="DeviceDataProvider" EnableArrayElements="True" />
+            <Variable Name="DeviceDataProvider" />
             <Variable Name="DeviceName" />
+            <Variable Name="CategoryDropdown" />
+            <Variable Name="LastLoadedProductRecipe" />
+            <Variable Name="LastLoadedConfigRecipe" />
+            <Variable Name="EditDialogOpened" />
+            <Variable Name="CreateDialogOpened" />
           </Variable>
-        </Variable>
-        <Variable Name="MpRecipeXml_Pre">
-          <Variable Name="Load" />
         </Variable>
         <Variable Name="MpRecipeUI_0">
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
         </Variable>
+        <Variable Name="MpRecipeXml_Preview">
+          <Variable Name="Load" />
+        </Variable>
+        <Variable Name="Parameters" AutomaticEnable="True" />
+        <Variable Name="MachSettings" AutomaticEnable="True" />
+        <Variable Name="MachSettingsPreview" AutomaticEnable="True" />
+        <Variable Name="ParametersPreview" AutomaticEnable="True" />
+        <Variable Name="ParametersEdit" AutomaticEnable="True" />
+        <Variable Name="MachSettingsEdit" AutomaticEnable="True" />
       </Task>
     </Module>
   </DefaultView>

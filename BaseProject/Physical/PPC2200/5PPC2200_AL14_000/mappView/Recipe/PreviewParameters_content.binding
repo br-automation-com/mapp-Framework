@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="PreviewParameters_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:Parameters.AddParametersHere1" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="NumericOutputPar1Active" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:Parameters.AddParametersHere2" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="TextOutputPar2Active" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:Parameters.AddParametersHere3" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="NumericOutputPar3Active" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:Parameters.AddParametersHere4" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="NumericOutputPar4Active" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:Parameters.AddParametersHere5" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="NumericOutputPar5Active" attribute="value" />
+		</Binding>
+
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:ParametersPreview.AddParametersHere1" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="NumericOutputPar1Sel" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:ParametersPreview.AddParametersHere2" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="TextOutputPar2Sel" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:ParametersPreview.AddParametersHere3" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="NumericOutputPar3Sel" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:ParametersPreview.AddParametersHere4" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="NumericOutputPar4Sel" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:ParametersPreview.AddParametersHere5" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="NumericOutputPar5Sel" attribute="value" />
+		</Binding>
+		
+		
+		
+		
+		
+</Bindings>
+</BindingsSet>

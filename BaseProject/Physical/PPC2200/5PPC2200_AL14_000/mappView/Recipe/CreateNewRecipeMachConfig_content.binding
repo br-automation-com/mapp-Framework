@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="CreateNewRecipeMachConfig_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:MachSettingsEdit.AddMachineSettingsHere1" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeMachConfig_content" widgetRefId="NumericInputMachConfig1New" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:MachSettingsEdit.AddMachineSettingsHere2" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeMachConfig_content" widgetRefId="TextInputMachConfig2New" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:MachSettingsEdit.AddMachineSettingsHere3" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeMachConfig_content" widgetRefId="NumericInputMachConfig3New" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:MachSettingsEdit.AddMachineSettingsHere4" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeMachConfig_content" widgetRefId="NumericInputMachConfig4New" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:MachSettingsEdit.AddMachineSettingsHere5" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeMachConfig_content" widgetRefId="NumericInputMachConfig5New" attribute="value" />
+		</Binding>
+</Bindings>
+</BindingsSet>
