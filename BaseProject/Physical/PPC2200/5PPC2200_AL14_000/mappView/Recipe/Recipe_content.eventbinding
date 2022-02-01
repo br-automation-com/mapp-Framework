@@ -212,7 +212,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_EditDialogOpenEvent">
+    <EventBinding id="EventBinding_EditDialogOpened">
       <Source xsi:type="clientSystem.Event" event="DialogOpened" />
       <Operand datatype="ANY_INT" name="CategoryDropdown">
         <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
@@ -230,6 +230,28 @@
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="EditRecipeMachConfig_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_CreateDialogOpened">
+      <Source xsi:type="clientSystem.Event" event="DialogOpened" />
+      <Operand datatype="ANY_INT" name="CategoryDropdown">
+        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
+          <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="dialogId = &quot;CreateNewRecipe_dialog&quot; AND CategoryDropdown = 0">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="CreateNewRecipeParameters_content" dialogId="CreateNewRecipe_dialog" areaId="AreaRecipe" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="dialogId = &quot;CreateNewRecipe_dialog&quot; AND CategoryDropdown = 1">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="CreateNewRecipeMachConfig_content" dialogId="CreateNewRecipe_dialog" areaId="AreaRecipe" />
           </Target>
         </Action>
       </EventHandler>
