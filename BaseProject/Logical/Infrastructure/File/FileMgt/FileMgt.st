@@ -20,18 +20,17 @@ PROGRAM _INIT
 	MpFileManagerUI_0.MpLink := ADR(gFileMgrUIMpLink);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
-	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[0]), ADR('mappRecipe'));
-	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[1]), ADR('mappAudit'));
-	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[2]), ADR('mappReport'));
-	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[3]), ADR('mappData'));
-	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[4]), ADR('mappBackup'));
-	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[5]), ADR('mappAlarmX'));
-	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[6]), ADR('mappUserX'));
-	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[7]), ADR(''));
+	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipe';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := 'mappAudit';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[2] := 'mappReport';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[3] := 'mappData';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := 'mappBackup';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := 'mappAlarmX';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappUserX';
 	
 	(* Init FIFO feature *)
-	brsstrcpy(ADR(hmiFile.Parameters.Fifo.DeviceName), ADR('mappData'));
-    hmiFile.Parameters.Fifo.MaxFolderSize := 10.0 (*Mb*); 
+	hmiFile.Parameters.Fifo.DeviceName := 'mappData';
+    hmiFile.Parameters.Fifo.MaxFolderSize := 20000 (*kB*); 
 	hmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
 	
 END_PROGRAM
