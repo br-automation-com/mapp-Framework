@@ -63,6 +63,15 @@
 			<Source xsi:type="snippet" refId="RecipeName" attribute="value" />
 			<Target xsi:type="text" refId="IAT/Recipe/LoadRecipe" attribute="value" />
 		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="text" refId="IAT/Recipe/DeleteRecipe" attribute="value" />
+			<Target xsi:type="session" refId="SessionVarDeleteRecipeText" attribute="value" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="text" refId="IAT/Recipe/LoadRecipe" attribute="value" />
+			<Target xsi:type="session" refId="SessionVarLoadRecipeText" attribute="value" />
+		</Binding>
+		
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.LastLoadedProductRecipe" attribute="value" />
 			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="txtOutRecipeName" attribute="value" />
