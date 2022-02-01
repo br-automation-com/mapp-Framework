@@ -39,6 +39,8 @@
             <Variable Name="Delete" />
             <Variable Name="Rename" />
             <Variable Name="NewFileName" />
+            <Variable Name="Filter" />
+            <Variable Name="Refresh" />
           </Variable>
           <Variable Name="New">
             <Variable Name="FileName" />
@@ -60,10 +62,12 @@
         <Variable Name="hmiRecipe">
           <Variable Name="Commands" AutomaticEnable="True" />
           <Variable Name="Status">
-            <Variable Name="LastLoadedRecipe" />
             <Variable Name="TableConfig" />
             <Variable Name="DeviceDataProvider" />
             <Variable Name="DeviceName" />
+            <Variable Name="CategoryDropdown" />
+            <Variable Name="LastLoadedProductRecipe" />
+            <Variable Name="LastLoadedConfigRecipe" />
           </Variable>
         </Variable>
         <Variable Name="MpRecipeUI_0">
@@ -73,6 +77,10 @@
         <Variable Name="MpRecipeXml_Preview">
           <Variable Name="Load" />
         </Variable>
+        <Variable Name="Parameters" AutomaticEnable="True" />
+        <Variable Name="MachSettings" AutomaticEnable="True" />
+        <Variable Name="MachSettingsPreview" AutomaticEnable="True" />
+        <Variable Name="ParametersPreview" AutomaticEnable="True" />
       </Task>
     </Module>
   </DefaultView>

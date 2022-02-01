@@ -1,169 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DATA>
-	<Element Name="PIDControl:PidControlParameters" Type="PvParameter">
-		<Group ID="PIDControl:PidControlParameters">
-			<Group ID="PidParameters">
-				<Property ID="Gain" DataType="REAL" Value="13" />
-				<Property ID="IntegrationTime" DataType="REAL" Value="4.8201103210449219" />
-				<Property ID="DerivativeTime" DataType="REAL" Value="1.1568264961242676" />
-				<Property ID="FilterTime" DataType="REAL" Value="0.11568264663219452" />
-			</Group>
-			<Property ID="SetValue" DataType="REAL" Value="100" />
-			<Property ID="MinOut" DataType="REAL" Value="-100" />
-			<Property ID="MaxOut" DataType="REAL" Value="100" />
-			<Property ID="Invert" DataType="BOOL" Value="false" />
+	<Element Name="MpRecipe.Header" Type="HeaderData">
+		<Property ID="Name" DataType="STRING" Value="" />
+		<Property ID="Description" DataType="STRING" Value="" />
+		<Property ID="Version" DataType="STRING" Value="" />
+		<Property ID="Created" DataType="UDINT" Value="0" />
+		<Property ID="CreatedReadable" DataType="STRING" Value="2022-01-31 11:00:00" />
+	</Element>
+	<Element Name="RecipeMgt:Parameters" Type="PvParameter">
+		<Group ID="RecipeMgt:Parameters">
+			<Property ID="AddParametersHere1" DataType="BOOL" Value="true" />
+			<Property ID="AddParametersHere2" DataType="STRING" Value="This is an example structure." />
+			<Property ID="AddParametersHere3" DataType="REAL" Value="55.5" />
+			<Property ID="AddParametersHere4" DataType="REAL" Value="66.599998474121094" />
+			<Property ID="AddParametersHere5" DataType="REAL" Value="77.699996948242188" />
 		</Group>
 	</Element>
-	<Element Name="MainCtrl:MainCtrl.Para" Type="PvParameter">
-		<Group ID="MainCtrl:MainCtrl.Para">
-			<Group ID="ProductNumber">
-				<Property ID="[0]" DataType="INT" Value="4" />
-				<Property ID="[1]" DataType="INT" Value="1" />
-				<Property ID="[2]" DataType="INT" Value="2" />
-				<Property ID="[3]" DataType="INT" Value="3" />
-				<Property ID="[4]" DataType="INT" Value="2" />
-			</Group>
-			<Group ID="ProductLength">
-				<Property ID="[0]" DataType="REAL" Value="100" />
-				<Property ID="[1]" DataType="REAL" Value="150" />
-				<Property ID="[2]" DataType="REAL" Value="200" />
-				<Property ID="[3]" DataType="REAL" Value="250" />
-				<Property ID="[4]" DataType="REAL" Value="130" />
-			</Group>
-			<Group ID="AxPar">
-				<Group ID="[0]">
-					<Property ID="Position" DataType="LREAL" Value="0" />
-					<Property ID="Distance" DataType="LREAL" Value="0" />
-					<Property ID="Velocity" DataType="REAL" Value="5" />
-					<Property ID="Acceleration" DataType="REAL" Value="50" />
-					<Property ID="Deceleration" DataType="REAL" Value="50" />
-					<Property ID="Direction" DataType="DINT" Value="0" />
-					<Group ID="Homing">
-						<Property ID="Mode" DataType="DINT" Value="0" />
-						<Property ID="Position" DataType="LREAL" Value="0" />
-					</Group>
-					<Group ID="Jog">
-						<Property ID="Velocity" DataType="REAL" Value="2" />
-						<Property ID="Acceleration" DataType="REAL" Value="25" />
-						<Property ID="Deceleration" DataType="REAL" Value="50" />
-						<Group ID="LimitPosition">
-							<Property ID="FirstPosition" DataType="LREAL" Value="0" />
-							<Property ID="LastPosition" DataType="LREAL" Value="0" />
-						</Group>
-					</Group>
-					<Group ID="Stop">
-						<Property ID="Deceleration" DataType="REAL" Value="50" />
-					</Group>
-					<Group ID="LimitLoad">
-						<Property ID="Load" DataType="REAL" Value="0" />
-						<Property ID="Direction" DataType="DINT" Value="2" />
-					</Group>
-				</Group>
-				<Group ID="[1]">
-					<Property ID="Position" DataType="LREAL" Value="0" />
-					<Property ID="Distance" DataType="LREAL" Value="0" />
-					<Property ID="Velocity" DataType="REAL" Value="5" />
-					<Property ID="Acceleration" DataType="REAL" Value="50" />
-					<Property ID="Deceleration" DataType="REAL" Value="50" />
-					<Property ID="Direction" DataType="DINT" Value="0" />
-					<Group ID="Homing">
-						<Property ID="Mode" DataType="DINT" Value="0" />
-						<Property ID="Position" DataType="LREAL" Value="0" />
-					</Group>
-					<Group ID="Jog">
-						<Property ID="Velocity" DataType="REAL" Value="2" />
-						<Property ID="Acceleration" DataType="REAL" Value="25" />
-						<Property ID="Deceleration" DataType="REAL" Value="50" />
-						<Group ID="LimitPosition">
-							<Property ID="FirstPosition" DataType="LREAL" Value="0" />
-							<Property ID="LastPosition" DataType="LREAL" Value="0" />
-						</Group>
-					</Group>
-					<Group ID="Stop">
-						<Property ID="Deceleration" DataType="REAL" Value="50" />
-					</Group>
-					<Group ID="LimitLoad">
-						<Property ID="Load" DataType="REAL" Value="0" />
-						<Property ID="Direction" DataType="DINT" Value="2" />
-					</Group>
-				</Group>
-			</Group>
-		</Group>
-	</Element>
-	<Element Name="MainCtrl:PreviewParameters" Type="PvParameter">
-		<Group ID="MainCtrl:PreviewParameters">
-			<Group ID="ProductNumber">
-				<Property ID="[0]" DataType="INT" Value="4" />
-				<Property ID="[1]" DataType="INT" Value="1" />
-				<Property ID="[2]" DataType="INT" Value="2" />
-				<Property ID="[3]" DataType="INT" Value="3" />
-				<Property ID="[4]" DataType="INT" Value="2" />
-			</Group>
-			<Group ID="ProductLength">
-				<Property ID="[0]" DataType="REAL" Value="100" />
-				<Property ID="[1]" DataType="REAL" Value="150" />
-				<Property ID="[2]" DataType="REAL" Value="200" />
-				<Property ID="[3]" DataType="REAL" Value="250" />
-				<Property ID="[4]" DataType="REAL" Value="130" />
-			</Group>
-			<Group ID="AxPar">
-				<Group ID="[0]">
-					<Property ID="Position" DataType="LREAL" Value="0" />
-					<Property ID="Distance" DataType="LREAL" Value="0" />
-					<Property ID="Velocity" DataType="REAL" Value="5" />
-					<Property ID="Acceleration" DataType="REAL" Value="50" />
-					<Property ID="Deceleration" DataType="REAL" Value="50" />
-					<Property ID="Direction" DataType="DINT" Value="0" />
-					<Group ID="Homing">
-						<Property ID="Mode" DataType="DINT" Value="0" />
-						<Property ID="Position" DataType="LREAL" Value="0" />
-					</Group>
-					<Group ID="Jog">
-						<Property ID="Velocity" DataType="REAL" Value="2" />
-						<Property ID="Acceleration" DataType="REAL" Value="25" />
-						<Property ID="Deceleration" DataType="REAL" Value="50" />
-						<Group ID="LimitPosition">
-							<Property ID="FirstPosition" DataType="LREAL" Value="0" />
-							<Property ID="LastPosition" DataType="LREAL" Value="0" />
-						</Group>
-					</Group>
-					<Group ID="Stop">
-						<Property ID="Deceleration" DataType="REAL" Value="50" />
-					</Group>
-					<Group ID="LimitLoad">
-						<Property ID="Load" DataType="REAL" Value="0" />
-						<Property ID="Direction" DataType="DINT" Value="2" />
-					</Group>
-				</Group>
-				<Group ID="[1]">
-					<Property ID="Position" DataType="LREAL" Value="0" />
-					<Property ID="Distance" DataType="LREAL" Value="0" />
-					<Property ID="Velocity" DataType="REAL" Value="5" />
-					<Property ID="Acceleration" DataType="REAL" Value="50" />
-					<Property ID="Deceleration" DataType="REAL" Value="50" />
-					<Property ID="Direction" DataType="DINT" Value="0" />
-					<Group ID="Homing">
-						<Property ID="Mode" DataType="DINT" Value="0" />
-						<Property ID="Position" DataType="LREAL" Value="0" />
-					</Group>
-					<Group ID="Jog">
-						<Property ID="Velocity" DataType="REAL" Value="2" />
-						<Property ID="Acceleration" DataType="REAL" Value="25" />
-						<Property ID="Deceleration" DataType="REAL" Value="50" />
-						<Group ID="LimitPosition">
-							<Property ID="FirstPosition" DataType="LREAL" Value="0" />
-							<Property ID="LastPosition" DataType="LREAL" Value="0" />
-						</Group>
-					</Group>
-					<Group ID="Stop">
-						<Property ID="Deceleration" DataType="REAL" Value="50" />
-					</Group>
-					<Group ID="LimitLoad">
-						<Property ID="Load" DataType="REAL" Value="0" />
-						<Property ID="Direction" DataType="DINT" Value="2" />
-					</Group>
-				</Group>
-			</Group>
+	<Element Name="RecipeMgt:ParametersPreview" Type="PvParameter">
+		<Group ID="RecipeMgt:ParametersPreview">
+			<Property ID="AddParametersHere1" DataType="BOOL" Value="true" />
+			<Property ID="AddParametersHere2" DataType="STRING" Value="This is an example structure." />
+			<Property ID="AddParametersHere3" DataType="REAL" Value="55.5" />
+			<Property ID="AddParametersHere4" DataType="REAL" Value="66.599998474121094" />
+			<Property ID="AddParametersHere5" DataType="REAL" Value="77.699996948242188" />
 		</Group>
 	</Element>
 </DATA>

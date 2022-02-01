@@ -29,13 +29,11 @@ ACTION LoadPreview:
 	(* Load preview when a recipe is selected *)
 	IF ((MpRecipeUIConnect.Recipe.List.SelectedIndex <> hmiRecipe.Status.LastSelectedIndex) AND (MpRecipeXml_Preview.Active = TRUE)) THEN
 		(* Check selected recipe name is not empty *)
-        
 		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
-			MpRecipeXml_Preview.Load := TRUE;
 			MpRecipeXml_Preview.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
+			MpRecipeXml_Preview.Load := TRUE;
 			hmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
 		END_IF
-        
 	END_IF
 
 	(* Reset load command on MpRecipe_Pre FUB *)
@@ -43,4 +41,16 @@ ACTION LoadPreview:
 		MpRecipeXml_Preview.Load := FALSE;
 	END_IF;
 
+END_ACTION
+
+ACTION UpdatePreviewValues:
+	
+	IF hmiRecipe.Commands.UpdatePreviewParameters THEN
+		IF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Product')) = 0) THEN
+			ParametersPreview := Parameters;
+		ELSIF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
+			MachSettingsPreview := MachSettings;
+		END_IF		
+		hmiRecipe.Commands.UpdatePreviewParameters := FALSE;
+	END_IF
 END_ACTION

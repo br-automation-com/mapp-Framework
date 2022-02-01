@@ -29,18 +29,13 @@ PROGRAM _INIT
 	MpRecipeXml_Preview.Enable := TRUE;
 	MpRecipeXml_Preview.Category := ADR('Preview');
 	MpRecipeXml_Preview.DeviceName := ADR('mappRecipe');
-
-//	MpRecipeUI_0.UISetup.Confirmation.RecipeDelete := TRUE;
-//	MpRecipeUI_0.UISetup.RecipeListSize := 10;
-//	MpRecipeUI_0.UISetup.RecipeListScrollWindow := 0;
-//	MpRecipeUI_0.UISetup.AutoLoadHeader := TRUE;
 	
 	MpRecipeUISetup.Confirmation.RecipeDelete := TRUE;
 	MpRecipeUISetup.RecipeListSize := 10;
 	MpRecipeUISetup.RecipeListScrollWindow := 0;
 	MpRecipeUISetup.AutoLoadHeader := TRUE;
-	//(Recipe:=(Filter:='*xml'),New:=(FileName:='newRecipe.xml'))
 	MpRecipeUIConnect.New.FileName := 'newRecipe.xml';
+	MpRecipeUIConnect.Recipe.Filter := '*par';
 	MpRecipeUI_0.MpLink := ADR(gRecipeXmlMpLink);
 	MpRecipeUI_0.Enable := TRUE;
 	MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
@@ -50,6 +45,67 @@ PROGRAM _INIT
 	WHILE NOT (MpRecipeXml_0.Active OR MpRecipeXml_0.Error) DO
 		MpRecipeXml_0();
 	END_WHILE;
+	
+	MpRecipeRegPar_mcfg.MpLink := ADR(gRecipeXmlMpLink);
+	MpRecipeRegPar_mcfg.Enable := TRUE;
+	MpRecipeRegPar_mcfg.PVName := ADR('RecipeMgt:MachSettings');
+	MpRecipeRegPar_mcfg.Category := ADR(MACHINE_CATEGORY);
+	MpRecipeRegPar_mcfg();
+	
+	MpRecipeRegPar_par.MpLink := ADR(gRecipeXmlMpLink);
+	MpRecipeRegPar_par.Enable := TRUE;
+	MpRecipeRegPar_par.PVName := ADR('RecipeMgt:Parameters');
+	MpRecipeRegPar_par.Category := ADR(PRODUCT_CATEGORY); 
+	MpRecipeRegPar_par();
+	
+	MpRecipeRegPar_mcfgPreview1.MpLink := ADR(gRecipeXmlPreviewMpLink);
+	MpRecipeRegPar_mcfgPreview1.Enable := TRUE;
+	MpRecipeRegPar_mcfgPreview1.PVName := ADR('RecipeMgt:MachSettingsPreview');
+	MpRecipeRegPar_mcfgPreview1.Category := ADR(PREVIEW_CATEGORY); 
+	MpRecipeRegPar_mcfgPreview1();
+	
+	MpRecipeRegPar_parPreview1.MpLink := ADR(gRecipeXmlPreviewMpLink);
+	MpRecipeRegPar_parPreview1.Enable := TRUE;
+	MpRecipeRegPar_parPreview1.PVName := ADR('RecipeMgt:ParametersPreview');
+	MpRecipeRegPar_parPreview1.Category := ADR(PREVIEW_CATEGORY); 
+	MpRecipeRegPar_parPreview1();
+	
+	MpRecipeRegPar_mcfgPreview2.MpLink := ADR(gRecipeXmlMpLink);
+	MpRecipeRegPar_mcfgPreview2.Enable := TRUE;
+	MpRecipeRegPar_mcfgPreview2.PVName := ADR('RecipeMgt:MachSettingsPreview');
+	MpRecipeRegPar_mcfgPreview2.Category := ADR(MACHINE_CATEGORY); 
+	MpRecipeRegPar_mcfgPreview2();
+	
+	MpRecipeRegPar_parPreview2.MpLink := ADR(gRecipeXmlMpLink);
+	MpRecipeRegPar_parPreview2.Enable := TRUE;
+	MpRecipeRegPar_parPreview2.PVName := ADR('RecipeMgt:ParametersPreview');
+	MpRecipeRegPar_parPreview2.Category := ADR(PRODUCT_CATEGORY); 
+	MpRecipeRegPar_parPreview2();
+
+	(* Activate RegPar FUBs *)
+	WHILE NOT MpRecipeRegPar_mcfg.Active AND NOT MpRecipeRegPar_mcfg.Error DO
+		MpRecipeRegPar_mcfg();
+	END_WHILE
+	WHILE NOT MpRecipeRegPar_par.Active AND NOT MpRecipeRegPar_par.Error DO
+		MpRecipeRegPar_par();
+	END_WHILE
+	WHILE NOT MpRecipeRegPar_mcfgPreview1.Active AND NOT MpRecipeRegPar_mcfgPreview1.Error DO
+		MpRecipeRegPar_mcfgPreview1();
+	END_WHILE
+	WHILE NOT MpRecipeRegPar_parPreview1.Active AND NOT MpRecipeRegPar_parPreview1.Error DO
+		MpRecipeRegPar_parPreview1();
+	END_WHILE
+	WHILE NOT MpRecipeRegPar_mcfgPreview2.Active AND NOT MpRecipeRegPar_mcfgPreview2.Error DO
+		MpRecipeRegPar_mcfgPreview2();
+	END_WHILE
+	WHILE NOT MpRecipeRegPar_parPreview2.Active AND NOT MpRecipeRegPar_parPreview2.Error DO
+		MpRecipeRegPar_parPreview2();
+	END_WHILE
+	
+	Parameters;
+	MachSettings;
+	ParametersPreview;
+	MachSettingsPreview;
 	
 	(* Load Machine Settings *)
 	brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(MACHINE_CATEGORY));
@@ -66,18 +122,20 @@ PROGRAM _INIT
 	(* Load Default parameter file *)
 	brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY));
 	brsstrcpy(ADR(hmiRecipe.Status.FileName), ADR('Default.par'));
+	previousRecipe := 'Default.par';
     MpRecipeXml_0.Load := TRUE;
     WHILE ((NOT MpRecipeXml_0.CommandDone) AND (NOT MpRecipeXml_0.Error)) DO
 		MpRecipeXml_0();
     END_WHILE
     
-	brsstrcpy(ADR(hmiRecipe.Status.LastLoadedRecipe), ADR(MpRecipeXml_0.Info.LastLoadedRecipe));
+	brsstrcpy(ADR(hmiRecipe.Status.LastLoadedProductRecipe), ADR(MpRecipeXml_0.Info.LastLoadedRecipe));
+	brsstrcpy(ADR(hmiRecipe.Status.LastLoadedConfigRecipe), ADR(MACHINE_FILENAME));
 	MpRecipeXml_0.ErrorReset := MpRecipeXml_0.Error;
 	MpRecipeXml_0.Load := FALSE;
 	MpRecipeXml_0();
 
 	(* Trigger update notification so that the initial parameters are copied to the process *)
-	MpRecipeXml_0.UpdateNotification := TRUE;
+	MpRecipeXml_0.UpdateNotification := TRUE; //might not be necessary.
 	
 	(* Init Filemanager for exporting/importing files *)
 	MpFileManagerUI_0.Enable := TRUE;
@@ -86,21 +144,26 @@ PROGRAM _INIT
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[0]), ADR('mappRecipe'));
 	brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[1]), ADR(''));
-   brsstrcpy(ADR(MpFileManagerUIConnect.File.Filter), ADR('*'));
+  //  brsstrcpy(ADR(MpFileManagerUIConnect.File.Filter), ADR('*'));
     
 END_PROGRAM
 
 PROGRAM _CYCLIC
 
-    FormatDeviceDataProvider;	
-    LoadPreview;
-    MachineSettings;
+	FormatDeviceDataProvider;	
+	UpdatePreviewValues;
+	LoadPreview;
+	MachineSettings;
+	
 	
     (* Reset category after saving is done, category should be reset so that autosave files contain ALL the parameters *)
     IF EDGEPOS(MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) AND ((NOT MpRecipeUIConnect.Recipe.Load) AND (NOT MpRecipeUIConnect.Recipe.Save)) THEN
         (* Check if 'Product' category has been loaded *)
         IF ((brsstrcmp(ADR(hmiRecipe.Status.Category), ADR(PRODUCT_CATEGORY)) = 0) AND (hmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
-			brsstrcpy(ADR(hmiRecipe.Status.LastLoadedRecipe), ADR(MpRecipeXml_0.Info.LastLoadedRecipe));
+			brsstrcpy(ADR(hmiRecipe.Status.LastLoadedProductRecipe), ADR(MpRecipeXml_0.Info.LastLoadedRecipe));
+			MpRecipeXml_0.UpdateNotification := TRUE;
+		ELSIF ((brsstrcmp(ADR(hmiRecipe.Status.Category), ADR(MACHINE_CATEGORY)) = 0) AND (hmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
+			brsstrcpy(ADR(hmiRecipe.Status.LastLoadedConfigRecipe), ADR(MpRecipeXml_0.Info.LastLoadedRecipe));
 			MpRecipeXml_0.UpdateNotification := TRUE;
         END_IF
 		(* Trigger a reload of the preview parameters *)
@@ -111,7 +174,7 @@ PROGRAM _CYCLIC
 
     (* Save current recipe *)
     IF (hmiRecipe.Commands.SaveCurrentRecipe = TRUE) AND NOT (MpRecipeXml_0.Load OR MpRecipeXml_0.Save OR MpRecipeXml_0.UpdateNotification) THEN
-        brsstrcpy(ADR(hmiRecipe.Status.FileName), ADR(hmiRecipe.Status.LastLoadedRecipe));
+        brsstrcpy(ADR(hmiRecipe.Status.FileName), ADR(hmiRecipe.Status.LastLoadedProductRecipe));
         DTGetTime_0(enable := TRUE);
         Header.DateTime := DTGetTime_0.DT1;
         Header.Name := hmiRecipe.Status.FileName;
@@ -137,6 +200,28 @@ PROGRAM _CYCLIC
         END_IF
     END_IF
 	
+	IF NOT MpRecipeXml_0.CommandBusy AND brsstrcmp(ADR(previousRecipe),ADR(hmiRecipe.Status.FileName)) <> 0 THEN
+		hmiRecipe.Status.FileName := previousRecipe;
+	END_IF
+	
+//	IF beginEdit THEN
+//		ParametersEdit := ParametersPreview;
+//		beginEdit := FALSE;
+//	END_IF
+	
+	
+	IF hmiRecipe.Commands.SaveSelectedRecipe THEN
+		
+		previousRecipe := hmiRecipe.Status.FileName;
+		hmiRecipe.Status.FileName := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
+		hmiRecipe.Commands.SaveCurrentRecipe := TRUE;
+		hmiRecipe.Commands.SaveSelectedRecipe := FALSE;
+	END_IF
+	
+		
+	
+	
+	
     FileCopyOperation;
     
     (* Error reset *)
@@ -151,18 +236,25 @@ PROGRAM _CYCLIC
     MpRecipeXml_0();
     MpRecipeUI_0();
     MpRecipeXml_Preview();
-    MpFileManagerUI_0();
+	MpFileManagerUI_0();
+	MpRecipeRegPar_mcfg();
+	MpRecipeRegPar_par();
+	MpRecipeRegPar_mcfgPreview1();
+	MpRecipeRegPar_parPreview1();
+	MpRecipeRegPar_mcfgPreview2();
+	MpRecipeRegPar_parPreview2();
+
 END_PROGRAM
 
 PROGRAM _EXIT
 	(* Reset function blocks to unlink mapp links *)
-    MpRecipeXml_0.Enable := FALSE;
-    MpRecipeUI_0.Enable := FALSE;
-    MpRecipeXml_Preview.Enable := FALSE;
-    MpFileManagerUI_0.Enable := FALSE;
-    MpRecipeXml_0();
-    MpRecipeUI_0();
-    MpRecipeXml_Preview();
-    MpFileManagerUI_0();
+	MpRecipeXml_0.Enable := FALSE;
+	MpRecipeUI_0.Enable := FALSE;
+	MpRecipeXml_Preview.Enable := FALSE;
+	MpFileManagerUI_0.Enable := FALSE;
+	MpRecipeXml_0();
+	MpRecipeUI_0();
+	MpRecipeXml_Preview();
+	MpFileManagerUI_0();
 END_PROGRAM
 
