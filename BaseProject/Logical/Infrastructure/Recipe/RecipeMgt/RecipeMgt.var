@@ -39,17 +39,13 @@ VAR CONSTANT
 	LOCAL_FOLDER : STRING[10] := 'Recipe';
 END_VAR
 VAR
-	MpRecipeRegPar_mcfg : MpRecipeRegPar;
-	MpRecipeRegPar_mcfgPreview1 : MpRecipeRegPar;
-	MpRecipeRegPar_mcfgPreview2 : MpRecipeRegPar;
-	MpRecipeRegPar_par : MpRecipeRegPar;
-	MpRecipeRegPar_parPreview1 : MpRecipeRegPar;
-	MpRecipeRegPar_parPreview2 : MpRecipeRegPar;
-	ParametersReal : Parameters_type;
+	MpRecipeRegPar_PreviewPar : MpRecipeRegPar;
+	MpRecipeRegPar_PreviewCfg : MpRecipeRegPar;
+	ParametersEdit : Parameters_type;
 	Parameters : Parameters_type;
 	ParametersPreview : Parameters_type;
 	MachSettings : MachineSettings_type;
+	MachSettingsEdit : MachineSettings_type;
 	MachSettingsPreview : MachineSettings_type;
 	previousRecipe : STRING[80];
-	beginEdit : BOOL;
 END_VAR

@@ -3,9 +3,12 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.New.FileName" attribute="value" />
-			<Target xsi:type="brease" contentRefId="CreateNewRecipe_content" widgetRefId="txtInNewRecipe" attribute="value" />		
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeParameters_content" widgetRefId="txtInNewRecipe" attribute="value" />		
 		</Binding>
-
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.New.FileName" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeMachConfig_content" widgetRefId="txtInNewRecipe" attribute="value" />		
+		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.LastModified" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="TableItemTimeStamp" attribute="stringValue" />
@@ -91,7 +94,35 @@
 					<bt:Element index="19" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[19]" />
 				</be:List>
 			</Source>
-			<Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="txtOutRecipeName" attribute="value" />
+			<Target xsi:type="brease" contentRefId="EditRecipeParameters_content" widgetRefId="txtOutRecipeName" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.SelectedIndex" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[0]" />
+					<bt:Element index="1" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[1]" />
+					<bt:Element index="2" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[2]" />
+					<bt:Element index="3" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[3]" />
+					<bt:Element index="4" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[4]" />
+					<bt:Element index="5" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[5]" />
+					<bt:Element index="6" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[6]" />
+					<bt:Element index="7" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[7]" />
+					<bt:Element index="8" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[8]" />
+					<bt:Element index="9" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[9]" />
+					<bt:Element index="10" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[10]" />
+					<bt:Element index="11" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[11]" />
+					<bt:Element index="12" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[12]" />
+					<bt:Element index="13" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[13]" />
+					<bt:Element index="14" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[14]" />
+					<bt:Element index="15" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[15]" />
+					<bt:Element index="16" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[16]" />
+					<bt:Element index="17" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[17]" />
+					<bt:Element index="18" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[18]" />
+					<bt:Element index="19" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[19]" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="EditRecipeMachConfig_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.DeviceDataProvider" attribute="value" />

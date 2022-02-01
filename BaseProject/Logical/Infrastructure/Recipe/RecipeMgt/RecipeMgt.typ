@@ -8,6 +8,8 @@ TYPE
 		ExportToUSB : BOOL;
 		UpdatePreviewParameters : BOOL;
 		SaveSelectedRecipe : BOOL;
+		LoadRecipe : BOOL;
+		CreateRecipe : BOOL;
 	END_STRUCT;
 	RecipeStatus_type : 	STRUCT 
 		Category : STRING[30];
@@ -20,7 +22,9 @@ TYPE
 		LastStatus : MpRecipeUIStatusEnum;
 		TableConfig : STRING[120];
 		CopyStep : RecipeCopyStep_enum;
-		CategoryDropdown : STRING[80];
+		CategoryDropdown : STRING[50];
+		EditDialogOpened : BOOL;
+		CreateDialogOpened : BOOL;
 	END_STRUCT;
 	RecipeHmiInterface_type : 	STRUCT 
 		Commands : RecipeCommands_type;

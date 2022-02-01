@@ -1,19 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="EditRecipe_content" height="650" width="800" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Content id="EditRecipe_content" height="100" width="420" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Button" id="SaveButton" top="560" left="300" height="40" zIndex="0" text="$IAT/Recipe/Save" borderStyle="none" cornerRadius="10px" backColor="rgba(255, 133, 0, 1)" textColor="rgba(255, 255, 255, 1)" fontSize="22px" style="Operate" />
-    <Widget xsi:type="widgets.brease.Button" id="CancelButton" top="560" left="600" height="40" zIndex="1" text="$IAT/Recipe/Cancel" mouseDownImageColor="rgba(137, 137, 137, 1)" borderStyle="none" borderWidth="0px" cornerRadius="10px" backGroundGradient="linear-gradient(to bottom,#F4F3F8 20%,#D9DDE4 60%)" mouseDownBackGroundGradient="linear-gradient(to bottom,#D9DDE4 20%,#F4F3F8 60%)" textColor="rgba(137, 137, 137, 1)" mouseDownBorderWidth="0px" fontSize="22px" style="Operate" />
-    <Widget xsi:type="widgets.brease.TextOutput" id="txtOutRecipeName" top="20" left="280" width="220" height="35" zIndex="2" textColor="rgba(124, 125, 127, 1)" fontSize="20px" bold="true" style="Br_gray" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonSaveAndApply" top="560" left="420" width="170" height="40" zIndex="3" text="$IAT/Recipe/SaveAndApply" borderStyle="none" borderWidth="0px" cornerRadius="10px" backGroundGradient="linear-gradient(to bottom,#F4F3F8 20%,#D9DDE4 60%)" mouseDownBackGroundGradient="linear-gradient(to bottom,#D9DDE4 20%,#F4F3F8 60%)" textColor="rgba(137, 137, 137, 1)" mouseDownBorderWidth="0px" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="22px" style="Operate" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPar1" top="180" left="260" width="120" zIndex="5" text="$IAT/Recipe/Parameter1" fontSize="18px" bold="true" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPar2" top="240" left="260" width="120" zIndex="6" text="$IAT/Recipe/Parameter2" fontSize="18px" bold="true" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPar3" top="300" left="260" width="120" zIndex="7" text="$IAT/Recipe/Parameter3" fontSize="18px" bold="true" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPar4" top="380" left="260" width="120" zIndex="8" multiLine="true" text="$IAT/Recipe/Parameter4" wordWrap="true" fontSize="18px" bold="true" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPar5" top="440" left="260" width="120" zIndex="9" multiLine="true" text="$IAT/Recipe/Parameter5" wordWrap="true" fontSize="18px" bold="true" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInputPar1Edit" top="180" left="440" zIndex="10" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInputPar3Input" top="320" left="440" zIndex="11" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInputPar4Input" top="380" left="440" zIndex="12" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInputPar5Input" top="440" left="440" zIndex="13" />
-    <Widget xsi:type="widgets.brease.TextInput" id="TextInputPar2Input" top="240" left="440" zIndex="14" />
+    <Widget xsi:type="widgets.brease.Button" id="SaveButtonOld" top="30" left="100" height="40" zIndex="0" text="$IAT/Recipe/Save" borderStyle="none" cornerRadius="10px" backColor="rgba(255, 133, 0, 1)" textColor="rgba(255, 255, 255, 1)" fontSize="22px" style="Operate" />
+    <Widget xsi:type="widgets.brease.Button" id="CancelButtonOld" top="30" left="220" height="40" zIndex="1" text="$IAT/Recipe/Cancel" mouseDownImageColor="rgba(137, 137, 137, 1)" borderStyle="none" borderWidth="0px" cornerRadius="10px" backGroundGradient="linear-gradient(to bottom,#F4F3F8 20%,#D9DDE4 60%)" mouseDownBackGroundGradient="linear-gradient(to bottom,#D9DDE4 20%,#F4F3F8 60%)" textColor="rgba(137, 137, 137, 1)" mouseDownBorderWidth="0px" fontSize="22px" style="Operate" />
+    <Widget xsi:type="widgets.brease.Button" id="SaveButton" top="40" left="20" zIndex="2" text="Button1" />
+    <Widget xsi:type="widgets.brease.Button" id="CancelButton" top="40" left="340" zIndex="3" text="Button1" />
   </Widgets>
 </Content>

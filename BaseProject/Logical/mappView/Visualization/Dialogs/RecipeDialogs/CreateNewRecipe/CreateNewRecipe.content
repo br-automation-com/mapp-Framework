@@ -1,47 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="CreateNewRecipe_content" height="650" width="800" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Content id="CreateNewRecipe_content" height="100" width="420" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Button" id="CreateButton" top="580" left="390" height="40" zIndex="0" text="$IAT/Recipe/Create" borderStyle="none" cornerRadius="10px" backColor="rgba(255, 133, 0, 1)" textColor="rgba(255, 255, 255, 1)" fontSize="22px" style="Operate" />
-    <Widget xsi:type="widgets.brease.Button" id="CancelButton" top="580" left="680" height="40" zIndex="2" text="$IAT/Recipe/Cancel" borderStyle="none" borderWidth="0px" cornerRadius="10px" backGroundGradient="linear-gradient(to bottom,#F4F3F8 20%,#D9DDE4 60%)" mouseDownBackGroundGradient="linear-gradient(to bottom,#D9DDE4 20%,#F4F3F8 60%)" textColor="rgba(137, 137, 137, 1)" mouseDownBorderWidth="0px" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="22px" style="Operate" />
-    <Widget xsi:type="widgets.brease.Label" id="LblNewRecipeName" top="504" left="420" width="180" zIndex="1" text="$IAT/Recipe/NewRecipeName" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
-    <Widget xsi:type="widgets.brease.TextInput" id="txtInNewRecipe" top="500" left="620" width="160" height="40" zIndex="3" borderWidth="0px 0px 0px 6px" backColor="rgba(175, 175, 175, 1)" borderColor="rgba(255, 136, 0, 1)" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonCreateAndApply" top="580" left="500" width="170" height="40" zIndex="4" text="$IAT/Recipe/CreateAndApply" borderStyle="none" borderWidth="0px" cornerRadius="10px" backGroundGradient="linear-gradient(to bottom,#F4F3F8 20%,#D9DDE4 60%)" mouseDownBackGroundGradient="linear-gradient(to bottom,#D9DDE4 20%,#F4F3F8 60%)" textColor="rgba(137, 137, 137, 1)" mouseDownBorderWidth="0px" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="22px" style="Operate" />
-    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="60" left="660" width="440" height="420" zIndex="5" text="$IAT/Recipe/Preview" style="Br_GroupBoxGrey">
-      <Widgets>
-        <Widget xsi:type="widgets.brease.Label" id="LabelVPar1" top="84" left="0" width="120" zIndex="0" text="$IAT/Recipe/Parameter1" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelPar2" top="144" left="0" width="120" zIndex="1" text="$IAT/Recipe/Parameter2" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelPar3" top="204" left="0" width="120" zIndex="2" text="$IAT/Recipe/Parameter3" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelPar4" top="264" left="0" width="120" zIndex="3" multiLine="true" text="$IAT/Recipe/Parameter4" wordWrap="true" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelPar5" top="324" left="0" width="120" zIndex="4" multiLine="true" text="$IAT/Recipe/Parameter5" wordWrap="true" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelSelectedRecipe" top="24" left="40" width="161" zIndex="5" text="$IAT/Recipe/SelectedRecipe" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar1Sel" top="84" left="120" zIndex="6" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar3Sel" top="204" left="120" zIndex="7" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar4Sel" top="264" left="120" zIndex="8" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar5Sel" top="324" left="120" zIndex="9" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelSelectedRecipe1" top="24" left="280" width="141" height="36" zIndex="10" text="$IAT/Recipe/ActiveRecipe" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar1Active" top="84" left="300" zIndex="11" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar3Active" top="204" left="300" zIndex="12" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar4Active" top="264" left="300" zIndex="13" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar5Active" top="324" left="300" zIndex="14" />
-        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutputPar2Sel" top="120" left="140" width="120" height="80" zIndex="15" breakWord="true" multiLine="true" wordWrap="true" />
-        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutputPar2Active" top="124" left="300" width="120" height="76" zIndex="16" breakWord="true" multiLine="true" wordWrap="true" />
-        <Widget xsi:type="widgets.brease.TextOutput" id="txtOutRecipeName" top="50" left="270" width="120" height="35" zIndex="17" fontSize="18px" />
-      </Widgets>
-    </Widget>
-    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox2" top="40" left="180" width="440" height="420" zIndex="6" text="$IAT/Recipe/New" style="Br_GroupBoxGrey">
-      <Widgets>
-        <Widget xsi:type="widgets.brease.Label" id="LabelPar1New" top="84" left="40" width="120" zIndex="0" text="$IAT/Recipe/Parameter1" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelPar2New" top="144" left="40" width="120" zIndex="1" text="$IAT/Recipe/Parameter2" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelPar3New" top="204" left="40" width="120" zIndex="2" text="$IAT/Recipe/Parameter3" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelPar4New" top="264" left="40" width="120" zIndex="3" multiLine="true" text="$IAT/Recipe/Parameter4" wordWrap="true" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelPar5New" top="324" left="40" width="120" zIndex="4" multiLine="true" text="$IAT/Recipe/Parameter5" wordWrap="true" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar1New" top="84" left="160" zIndex="5" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar3New" top="204" left="160" zIndex="6" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar4New" top="264" left="160" zIndex="7" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputPar5New" top="324" left="160" zIndex="8" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelSelectedRecipe3" top="24" left="300" width="121" height="36" zIndex="9" text="$IAT/Recipe/Value" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutputPar1New" top="120" left="180" width="120" height="80" zIndex="10" breakWord="true" multiLine="true" wordWrap="true" />
-      </Widgets>
-    </Widget>
+    <Widget xsi:type="widgets.brease.Button" id="CreateButtonOld" top="30" left="105" height="40" zIndex="0" text="$IAT/Recipe/Create" borderStyle="none" cornerRadius="10px" backColor="rgba(255, 133, 0, 1)" textColor="rgba(255, 255, 255, 1)" fontSize="22px" style="Operate" />
+    <Widget xsi:type="widgets.brease.Button" id="CancelButtonOld" top="30" left="215" height="40" zIndex="1" text="$IAT/Recipe/Cancel" borderStyle="none" borderWidth="0px" cornerRadius="10px" backGroundGradient="linear-gradient(to bottom,#F4F3F8 20%,#D9DDE4 60%)" mouseDownBackGroundGradient="linear-gradient(to bottom,#D9DDE4 20%,#F4F3F8 60%)" textColor="rgba(137, 137, 137, 1)" mouseDownBorderWidth="0px" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="22px" style="Operate" />
+    <Widget xsi:type="widgets.brease.Button" id="CreateButton" top="40" left="0" zIndex="2" text="Button1" />
+    <Widget xsi:type="widgets.brease.Button" id="CancelButton" top="40" left="320" zIndex="3" text="Button1" />
   </Widgets>
 </Content>

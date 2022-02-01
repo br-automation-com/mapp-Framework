@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="CreateNewRecipeParameters_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>		
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:ParametersEdit.AddParametersHere1" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeParameters_content" widgetRefId="NumericInputPar1New" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:ParametersEdit.AddParametersHere2" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeParameters_content" widgetRefId="TextInputPar2New" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:ParametersEdit.AddParametersHere3" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeParameters_content" widgetRefId="NumericInputPar3New" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:ParametersEdit.AddParametersHere4" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeParameters_content" widgetRefId="NumericInputPar4New" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgt:ParametersEdit.AddParametersHere5" attribute="value" />
+			<Target xsi:type="brease" contentRefId="CreateNewRecipeParameters_content" widgetRefId="NumericInputPar5New" attribute="value" />
+		</Binding>
+</Bindings>
+</BindingsSet>
