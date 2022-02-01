@@ -4,7 +4,7 @@
     <Widget xsi:type="widgets.brease.Table" id="Table1" top="30" left="195" width="770" height="460" zIndex="0">
       <Widgets>
         <Widget xsi:type="widgets.brease.TableItem" id="TableItem1" zIndex="0" columnWidth="530" text="$IAT/Backup/Backups" />
-        <Widget xsi:type="widgets.brease.TableItemDateTime" id="TableItemDateTime1" zIndex="1" columnWidth="140" format="dd-MM-yy hh:mm" text="$IAT/Backup/Timestamp" />
+        <Widget xsi:type="widgets.brease.TableItemDateTime" id="TableItemDateTime1" zIndex="1" columnWidth="140" format="$IAT/File/DateTimeFormat" text="$IAT/Backup/Timestamp" />
         <Widget xsi:type="widgets.brease.TableItem" id="TableItem2" zIndex="2" showUnit="true" text="$IAT/Backup/Size" unit="{'metric':'4L','imperial':'4L','imperial-us':'4L'}" />
       </Widgets>
     </Widget>
