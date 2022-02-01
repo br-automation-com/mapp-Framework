@@ -9,6 +9,7 @@ import tempfile
 import shutil
 from pathlib import Path
 import glob
+from DirUtils import removeDir
 
 projectPath = ''
 
@@ -76,7 +77,7 @@ def main() -> None:
         copy(exportDir, f)
     createZip(args.output + '\\' + Path(args.config).stem, exportDir)
 
-    shutil.rmtree(exportDir)
+    removeDir(exportDir)
     os.mkdir(exportDir)
     for l in files[0]['libraries']:
         copy(exportDir, 'Logical\\Libraries\\' + l)

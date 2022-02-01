@@ -42,6 +42,16 @@
     {
         "disable" : "false",
         "command" : "Export.py",
+        "name" : "Export Axis",
+        "args" : [
+            "--project ${projectDir}\\..\\BaseProject",
+            "--config ExportConfigurations\\Axis.json",
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+        ]
+    },
+    {
+        "disable" : "false",
+        "command" : "Export.py",
         "name" : "Export Recipe",
         "args" : [
             "--project ${projectDir}\\..\\BaseProject",
@@ -66,6 +76,15 @@
         "args" : [
             "--project ${projectDir}\\..\\..\\ImportTool\\FrameworkImporter",
             "--output  ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Importer\\\\"
+        ]
+    },
+    {
+        "disable" : "true",
+        "command" : "ExportTechnologySolution.py",
+        "name" : "Export Technology Solution",
+        "args" : [
+            "--project ${projectDir}\\InstallerSetup\\FrameworkImporter_TS",
+            "--version ${versionNumber}"
         ]
     },
     {
