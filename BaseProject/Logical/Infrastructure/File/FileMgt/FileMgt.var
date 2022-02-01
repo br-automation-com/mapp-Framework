@@ -1,0 +1,26 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * Program: FileManagement
+ * File: FileManagement.var
+ * Author: Bernecker + Rainer
+ * Created: December , 2020
+ ********************************************************************
+ * Local variables of program FileManagement
+ ********************************************************************)
+(*File Management Variables-----------------------------------------------------------------------------------------*)
+VAR
+	MpFileManagerUIConnect : MpFileManagerUIConnectType;
+	MpFileManagerUI_0 : MpFileManagerUI;
+	Index : USINT; (*Index to loop through file devices*)
+	hmiFile : FileHmiInterface_type;
+	DTGetTime_0 : DTGetTime;
+	i : USINT;
+	LastSelectedIndex : USINT;
+	LastSelectedDeviceIndex : UINT;
+	FolderDepthCount : USINT;
+END_VAR
+(*Defines*)
+VAR CONSTANT
+	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 7;
+END_VAR

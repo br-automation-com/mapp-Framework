@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <vdef:Visualization id="MyVisu" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
-	<StartPage pageRefId="Welcome_page" />
+	<StartPage pageRefId="File_page" />
 	<Pages>
 		<Page refId="Axis_page"/> 
 		<Page refId="Welcome_page" />
@@ -14,6 +14,7 @@
 		<Page refId="AlarmX_page"/>
 		<Page refId="Data_page"/>
 		<Page refId="Audit_page"/>
+		<Page refId="File_page"/>
 		<Page refId="WidgetSample_page"/>
 	</Pages>
 	<Navigations>
@@ -45,6 +46,8 @@
         <BindingsSet refId="CreateBackup_content_binding" />
         <BindingsSet refId="Backup_content_binding" />
         <BindingsSet refId="AutomaticSettingsBackup_content_binding" />
+        <BindingsSet refId="File_content_binding" />
+		<BindingsSet refId="MsgBoxFile_content_binding" />
     </BindingsSets>
 	<EventBindingsSets>
 		<EventBindingsSet refId="AlarmX_content_eventbinding" />
@@ -72,6 +75,8 @@
         <EventBindingsSet refId="DeleteBackup_content_eventbinding" />
         <EventBindingsSet refId="RestoreBackup_content_eventbinding" />
         <EventBindingsSet refId="AutomaticSettingsBackup_content_eventbinding" />
+		<EventBindingsSet refId="File_content_eventbinding" />
+		<EventBindingsSet refId="MsgBoxFile_content_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs>
 		<Dialog refId="CreateNewRecipe_dialog" />
@@ -89,7 +94,7 @@
         <Dialog refId="DeleteBackup_dialog" />
         <Dialog refId="RestoreBackup_dialog" />
         <Dialog refId="AutomaticSettingsBackup_dialog" />
-        <Dialog refId="NewBackup_dialog" />
+		<Dialog refId="MsgBoxFile_dialog" />
 	</Dialogs>
 	<Contents > 
 		<Content refId="PreviewParameters_content" />
@@ -122,6 +127,7 @@
 		<Content refId="UserManXMessageDialog_content" />
 		<Content refId="IoForcing_content" />
 		<Content refId="ChangePwd_content" />
+		<Content refId="File_content" />
 	</Contents>	
 	<SnippetsSets>
 		<SnippetsSet refId="Recipe_snippets" />

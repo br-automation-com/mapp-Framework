@@ -1,0 +1,1772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DATA>
+	<Element Name="MainCtrl:MainCtrl.FixPar" Type="PvParameter">
+		<Group ID="MainCtrl:MainCtrl.FixPar">
+			<Property ID="MinProductLength" DataType="REAL" Value="50" />
+			<Property ID="MaxProductLength" DataType="REAL" Value="1000" />
+			<Property ID="SyncAngle" DataType="REAL" Value="15" />
+			<Property ID="NrOfKnives" DataType="USINT" Value="1" />
+			<Property ID="CutDiameter" DataType="REAL" Value="90" />
+		</Group>
+	</Element>
+	<Element Name="ProcessCon:AcpAxConfig" Type="PvParameter">
+		<Group ID="ProcessCon:AcpAxConfig">
+			<Group ID="[0]">
+				<Group ID="AxisReference">
+					<Property ID="Name" DataType="STRING" Value="gAxisMaster" />
+					<Property ID="ConfigType" DataType="DINT" Value="10000" />
+				</Group>
+				<Group ID="MechanicalElements">
+					<Group ID="Gearbox">
+						<Property ID="Input" DataType="DINT" Value="1" />
+						<Property ID="Output" DataType="DINT" Value="1" />
+					</Group>
+					<Group ID="RotaryToLinearTransformation">
+						<Property ID="ReferenceDistance" DataType="LREAL" Value="10" />
+					</Group>
+				</Group>
+				<Group ID="EncoderLink">
+					<Property ID="Type" DataType="DINT" Value="0" />
+					<Group ID="OneEncoder">
+						<Group ID="MotorAndPositionEncoder">
+							<Property ID="Type" DataType="DINT" Value="0" />
+						</Group>
+					</Group>
+					<Group ID="TwoEncoders">
+						<Group ID="MotorEncoder">
+							<Property ID="Type" DataType="DINT" Value="0" />
+						</Group>
+						<Group ID="PositionEncoder">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Common">
+								<Group ID="Scaling">
+									<Group ID="Gearbox">
+										<Property ID="Input" DataType="DINT" Value="0" />
+										<Property ID="Output" DataType="DINT" Value="0" />
+									</Group>
+									<Group ID="RotaryToLinearTransformation">
+										<Property ID="ReferenceDistance" DataType="LREAL" Value="0" />
+									</Group>
+									<Property ID="CountDirection" DataType="DINT" Value="0" />
+								</Group>
+							</Group>
+						</Group>
+						<Property ID="PositionDifferenceLimit" DataType="REAL" Value="0" />
+					</Group>
+				</Group>
+				<Group ID="Controller">
+					<Group ID="Mode">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="PositionController">
+							<Group ID="Position">
+								<Property ID="ProportionalGain" DataType="REAL" Value="50" />
+								<Property ID="IntegrationTime" DataType="REAL" Value="0" />
+								<Property ID="PredictionTime" DataType="REAL" Value="0.00039999998989515007" />
+								<Property ID="TotalDelayTime" DataType="REAL" Value="0.00039999998989515007" />
+							</Group>
+							<Group ID="Speed">
+								<Property ID="ProportionalGain" DataType="REAL" Value="2" />
+								<Property ID="IntegrationTime" DataType="REAL" Value="0" />
+								<Property ID="FilterTime" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="LoopFilters">
+								<Group ID="LoopFilter">
+									<Group ID="[0]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+									<Group ID="[1]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+									<Group ID="[2]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="PositionControllerTorqueFf">
+							<Group ID="Position">
+								<Property ID="ProportionalGain" DataType="REAL" Value="0" />
+								<Property ID="IntegrationTime" DataType="REAL" Value="0" />
+								<Property ID="TotalDelayTime" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Speed">
+								<Property ID="ProportionalGain" DataType="REAL" Value="0" />
+								<Property ID="IntegrationTime" DataType="REAL" Value="0" />
+								<Property ID="FilterTime" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="FeedForward">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Standard">
+									<Property ID="TorqueLoad" DataType="REAL" Value="0" />
+									<Property ID="TorquePositive" DataType="REAL" Value="0" />
+									<Property ID="TorqueNegative" DataType="REAL" Value="0" />
+									<Property ID="SpeedTorqueFactor" DataType="REAL" Value="0" />
+									<Property ID="Inertia" DataType="REAL" Value="0" />
+									<Property ID="AccelerationFilterTime" DataType="REAL" Value="0" />
+								</Group>
+							</Group>
+							<Group ID="LoopFilters">
+								<Group ID="LoopFilter">
+									<Group ID="[0]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+									<Group ID="[1]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+									<Group ID="[2]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="VoltageFrequencyControl">
+							<Group ID="VoltageFrequency">
+								<Property ID="Type" DataType="DINT" Value="129" />
+								<Group ID="AutomaticConfiguration">
+									<Property ID="Type" DataType="DINT" Value="1" />
+									<Group ID="NotUsed">
+										<Property ID="BoostVoltage" DataType="REAL" Value="0" />
+										<Property ID="RatedVoltage" DataType="REAL" Value="0" />
+										<Property ID="RatedFrequency" DataType="REAL" Value="0" />
+									</Group>
+								</Group>
+								<Property ID="SlipCompensation" DataType="REAL" Value="0" />
+								<Property ID="TotalDelayTime" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+					</Group>
+				</Group>
+				<Group ID="Homing">
+					<Group ID="Mode">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="Direct">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+									<Property ID="Acceleration" DataType="REAL" Value="0" />
+									<Property ID="HomingDirection" DataType="DINT" Value="0" />
+									<Property ID="KeepDirection" DataType="DINT" Value="0" />
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="AbsoluteSwitch">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="StartVelocity" DataType="REAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="SwitchEdge" DataType="DINT" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Property ID="KeepDirection" DataType="DINT" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="SwitchGate">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="StartVelocity" DataType="REAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="SwitchEdge" DataType="DINT" Value="0" />
+							<Property ID="StartDirection" DataType="DINT" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Property ID="KeepDirection" DataType="DINT" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="LimitSwitch">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="StartVelocity" DataType="REAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="SwitchEdge" DataType="DINT" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Property ID="KeepDirection" DataType="DINT" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="Absolute">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+						</Group>
+						<Group ID="AbsoluteCorrection">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+						</Group>
+						<Group ID="DistanceCodedMarks">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Property ID="KeepDirection" DataType="DINT" Value="0" />
+						</Group>
+						<Group ID="DistanceCodedMarksCorrection">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Property ID="KeepDirection" DataType="DINT" Value="0" />
+						</Group>
+						<Group ID="BlockTorque">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="StartVelocity" DataType="REAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="StartDirection" DataType="DINT" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+							<Property ID="TorqueLimit" DataType="REAL" Value="0" />
+							<Property ID="PositionErrorStopLimit" DataType="LREAL" Value="0" />
+						</Group>
+						<Group ID="BlockLagError">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="StartVelocity" DataType="REAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="StartDirection" DataType="DINT" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+							<Property ID="TorqueLimit" DataType="REAL" Value="0" />
+							<Property ID="PositionErrorStopLimit" DataType="LREAL" Value="0" />
+							<Property ID="BlockDetectionPositionError" DataType="LREAL" Value="0" />
+						</Group>
+					</Group>
+					<Property ID="RestorePositionVariable" DataType="STRING" Value="" />
+				</Group>
+				<Group ID="StopReaction">
+					<Group ID="Quickstop">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="DecelerationLimitWithJerkFilter">
+							<Property ID="JerkTime" DataType="REAL" Value="0" />
+						</Group>
+					</Group>
+					<Group ID="DriveError">
+						<Property ID="Type" DataType="DINT" Value="0" />
+					</Group>
+				</Group>
+				<Group ID="MovementErrorLimits">
+					<Property ID="PositionError" DataType="LREAL" Value="1" />
+					<Group ID="VelocityErrorMonitoring">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="UserDefined">
+							<Property ID="VelocityError" DataType="REAL" Value="0" />
+						</Group>
+					</Group>
+				</Group>
+				<Group ID="JerkFilter">
+					<Property ID="Type" DataType="DINT" Value="0" />
+					<Group ID="Used">
+						<Property ID="JerkTime" DataType="REAL" Value="0" />
+					</Group>
+				</Group>
+				<Group ID="DigitalInputs">
+					<Group ID="HomingSwitch">
+						<Group ID="Source">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Variable">
+								<Property ID="PVMapping" DataType="STRING" Value="" />
+							</Group>
+						</Group>
+						<Property ID="Level" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="PositiveLimitSwitch">
+						<Group ID="Source">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Variable">
+								<Property ID="PVMapping" DataType="STRING" Value="" />
+							</Group>
+						</Group>
+						<Property ID="Level" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="NegativeLimitSwitch">
+						<Group ID="Source">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Variable">
+								<Property ID="PVMapping" DataType="STRING" Value="" />
+							</Group>
+						</Group>
+						<Property ID="Level" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="Trigger1">
+						<Group ID="Source">
+							<Property ID="Type" DataType="DINT" Value="16" />
+							<Group ID="Variable">
+								<Property ID="PVMapping" DataType="STRING" Value="" />
+							</Group>
+						</Group>
+						<Property ID="Level" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="Trigger2">
+						<Group ID="Source">
+							<Property ID="Type" DataType="DINT" Value="17" />
+							<Group ID="Variable">
+								<Property ID="PVMapping" DataType="STRING" Value="" />
+							</Group>
+						</Group>
+						<Property ID="Level" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="Quickstop">
+						<Property ID="Input" DataType="DINT" Value="0" />
+					</Group>
+				</Group>
+				<Group ID="Simulation">
+					<Group ID="ModeOnPLC">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="Complete">
+							<Group ID="LoadModel">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="OneMassMotorBased">
+									<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+								</Group>
+								<Group ID="OneMass">
+									<Property ID="Inertia" DataType="REAL" Value="0" />
+									<Property ID="StaticFriction" DataType="REAL" Value="0" />
+									<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+									<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+								</Group>
+								<Group ID="TwoMasses">
+									<Group ID="Mass1">
+										<Property ID="Inertia" DataType="REAL" Value="0" />
+										<Property ID="StaticFriction" DataType="REAL" Value="0" />
+										<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+									</Group>
+									<Group ID="Mass2">
+										<Property ID="Inertia" DataType="REAL" Value="0" />
+										<Property ID="StaticFriction" DataType="REAL" Value="0" />
+										<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+										<Property ID="Stiffness" DataType="REAL" Value="0" />
+										<Property ID="Damping" DataType="REAL" Value="0" />
+										<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+									</Group>
+								</Group>
+							</Group>
+						</Group>
+					</Group>
+					<Group ID="ModeOnACOPOS">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="Complete">
+							<Group ID="LoadModel">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="OneMassMotorBased">
+									<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+								</Group>
+								<Group ID="OneMass">
+									<Property ID="Inertia" DataType="REAL" Value="0" />
+									<Property ID="StaticFriction" DataType="REAL" Value="0" />
+									<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+									<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+								</Group>
+								<Group ID="TwoMasses">
+									<Group ID="Mass1">
+										<Property ID="Inertia" DataType="REAL" Value="0" />
+										<Property ID="StaticFriction" DataType="REAL" Value="0" />
+										<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+									</Group>
+									<Group ID="Mass2">
+										<Property ID="Inertia" DataType="REAL" Value="0" />
+										<Property ID="StaticFriction" DataType="REAL" Value="0" />
+										<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+										<Property ID="Stiffness" DataType="REAL" Value="0" />
+										<Property ID="Damping" DataType="REAL" Value="0" />
+										<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+									</Group>
+								</Group>
+							</Group>
+						</Group>
+					</Group>
+				</Group>
+				<Group ID="AxisFeatures">
+					<Group ID="FeatureReference">
+						<Property ID="NumberOfElements" DataType="UDINT" Value="0" />
+						<Property ID="DataAddress" DataType="UDINT" Value="199021873" />
+						<Property ID="NumberOfArrayElements" DataType="UDINT" Value="3" />
+					</Group>
+				</Group>
+			</Group>
+			<Group ID="[1]">
+				<Group ID="AxisReference">
+					<Property ID="Name" DataType="STRING" Value="gAxisSlave" />
+					<Property ID="ConfigType" DataType="DINT" Value="10000" />
+				</Group>
+				<Group ID="MechanicalElements">
+					<Group ID="Gearbox">
+						<Property ID="Input" DataType="DINT" Value="1" />
+						<Property ID="Output" DataType="DINT" Value="1" />
+					</Group>
+					<Group ID="RotaryToLinearTransformation">
+						<Property ID="ReferenceDistance" DataType="LREAL" Value="1" />
+					</Group>
+				</Group>
+				<Group ID="EncoderLink">
+					<Property ID="Type" DataType="DINT" Value="0" />
+					<Group ID="OneEncoder">
+						<Group ID="MotorAndPositionEncoder">
+							<Property ID="Type" DataType="DINT" Value="1" />
+						</Group>
+					</Group>
+					<Group ID="TwoEncoders">
+						<Group ID="MotorEncoder">
+							<Property ID="Type" DataType="DINT" Value="0" />
+						</Group>
+						<Group ID="PositionEncoder">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Common">
+								<Group ID="Scaling">
+									<Group ID="Gearbox">
+										<Property ID="Input" DataType="DINT" Value="0" />
+										<Property ID="Output" DataType="DINT" Value="0" />
+									</Group>
+									<Group ID="RotaryToLinearTransformation">
+										<Property ID="ReferenceDistance" DataType="LREAL" Value="0" />
+									</Group>
+									<Property ID="CountDirection" DataType="DINT" Value="0" />
+								</Group>
+							</Group>
+						</Group>
+						<Property ID="PositionDifferenceLimit" DataType="REAL" Value="0" />
+					</Group>
+				</Group>
+				<Group ID="Controller">
+					<Group ID="Mode">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="PositionController">
+							<Group ID="Position">
+								<Property ID="ProportionalGain" DataType="REAL" Value="50" />
+								<Property ID="IntegrationTime" DataType="REAL" Value="0" />
+								<Property ID="PredictionTime" DataType="REAL" Value="0.00039999998989515007" />
+								<Property ID="TotalDelayTime" DataType="REAL" Value="0.00039999998989515007" />
+							</Group>
+							<Group ID="Speed">
+								<Property ID="ProportionalGain" DataType="REAL" Value="2" />
+								<Property ID="IntegrationTime" DataType="REAL" Value="0" />
+								<Property ID="FilterTime" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="LoopFilters">
+								<Group ID="LoopFilter">
+									<Group ID="[0]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+									<Group ID="[1]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+									<Group ID="[2]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="PositionControllerTorqueFf">
+							<Group ID="Position">
+								<Property ID="ProportionalGain" DataType="REAL" Value="0" />
+								<Property ID="IntegrationTime" DataType="REAL" Value="0" />
+								<Property ID="TotalDelayTime" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Speed">
+								<Property ID="ProportionalGain" DataType="REAL" Value="0" />
+								<Property ID="IntegrationTime" DataType="REAL" Value="0" />
+								<Property ID="FilterTime" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="FeedForward">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Standard">
+									<Property ID="TorqueLoad" DataType="REAL" Value="0" />
+									<Property ID="TorquePositive" DataType="REAL" Value="0" />
+									<Property ID="TorqueNegative" DataType="REAL" Value="0" />
+									<Property ID="SpeedTorqueFactor" DataType="REAL" Value="0" />
+									<Property ID="Inertia" DataType="REAL" Value="0" />
+									<Property ID="AccelerationFilterTime" DataType="REAL" Value="0" />
+								</Group>
+							</Group>
+							<Group ID="LoopFilters">
+								<Group ID="LoopFilter">
+									<Group ID="[0]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+									<Group ID="[1]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+									<Group ID="[2]">
+										<Property ID="Type" DataType="DINT" Value="0" />
+										<Group ID="Lowpass2ndOrder">
+											<Property ID="CutOffFrequency" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Notch">
+											<Property ID="CenterFrequency" DataType="REAL" Value="0" />
+											<Property ID="Bandwidth" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Biquad">
+											<Property ID="FrequencyNumerator" DataType="REAL" Value="0" />
+											<Property ID="DampingNumerator" DataType="REAL" Value="0" />
+											<Property ID="FrequencyDenominator" DataType="REAL" Value="0" />
+											<Property ID="DampingDenominator" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="DiscreteTimeTransferFunction">
+											<Property ID="a0DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="a1DenominatorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b0NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b1NumeratorPolynomial" DataType="REAL" Value="0" />
+											<Property ID="b2NumeratorPolynomial" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Limiter">
+											<Group ID="PositiveLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+											<Group ID="NegativeLimit">
+												<Property ID="Type" DataType="DINT" Value="0" />
+												<Group ID="ACOPOSParID">
+													<Property ID="ParID" DataType="UINT" Value="0" />
+												</Group>
+												<Group ID="FixedValue">
+													<Property ID="Value" DataType="REAL" Value="0" />
+												</Group>
+											</Group>
+										</Group>
+										<Group ID="LinearLimitation">
+											<Property ID="InputParID" DataType="UINT" Value="0" />
+											<Property ID="InputLimit" DataType="REAL" Value="0" />
+											<Property ID="Gradient" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="RiseTimeLimitation">
+											<Property ID="RiseTime" DataType="REAL" Value="0" />
+											<Property ID="NormalizedLimit" DataType="REAL" Value="0" />
+										</Group>
+										<Group ID="Compensation">
+											<Property ID="MultiplicationFactorParID" DataType="UINT" Value="0" />
+											<Property ID="AdditiveValueParID" DataType="UINT" Value="0" />
+										</Group>
+									</Group>
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="VoltageFrequencyControl">
+							<Group ID="VoltageFrequency">
+								<Property ID="Type" DataType="DINT" Value="129" />
+								<Group ID="AutomaticConfiguration">
+									<Property ID="Type" DataType="DINT" Value="1" />
+									<Group ID="NotUsed">
+										<Property ID="BoostVoltage" DataType="REAL" Value="0" />
+										<Property ID="RatedVoltage" DataType="REAL" Value="0" />
+										<Property ID="RatedFrequency" DataType="REAL" Value="0" />
+									</Group>
+								</Group>
+								<Property ID="SlipCompensation" DataType="REAL" Value="0" />
+								<Property ID="TotalDelayTime" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+					</Group>
+				</Group>
+				<Group ID="Homing">
+					<Group ID="Mode">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="Direct">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+									<Property ID="Acceleration" DataType="REAL" Value="0" />
+									<Property ID="HomingDirection" DataType="DINT" Value="0" />
+									<Property ID="KeepDirection" DataType="DINT" Value="0" />
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="AbsoluteSwitch">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="StartVelocity" DataType="REAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="SwitchEdge" DataType="DINT" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Property ID="KeepDirection" DataType="DINT" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="SwitchGate">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="StartVelocity" DataType="REAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="SwitchEdge" DataType="DINT" Value="0" />
+							<Property ID="StartDirection" DataType="DINT" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Property ID="KeepDirection" DataType="DINT" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="LimitSwitch">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="StartVelocity" DataType="REAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="SwitchEdge" DataType="DINT" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Property ID="KeepDirection" DataType="DINT" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+						</Group>
+						<Group ID="Absolute">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+						</Group>
+						<Group ID="AbsoluteCorrection">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+						</Group>
+						<Group ID="DistanceCodedMarks">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Property ID="KeepDirection" DataType="DINT" Value="0" />
+						</Group>
+						<Group ID="DistanceCodedMarksCorrection">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Property ID="KeepDirection" DataType="DINT" Value="0" />
+						</Group>
+						<Group ID="BlockTorque">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="StartVelocity" DataType="REAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="StartDirection" DataType="DINT" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+							<Property ID="TorqueLimit" DataType="REAL" Value="0" />
+							<Property ID="PositionErrorStopLimit" DataType="LREAL" Value="0" />
+						</Group>
+						<Group ID="BlockLagError">
+							<Property ID="Position" DataType="LREAL" Value="0" />
+							<Property ID="StartVelocity" DataType="REAL" Value="0" />
+							<Property ID="HomingVelocity" DataType="REAL" Value="0" />
+							<Property ID="Acceleration" DataType="REAL" Value="0" />
+							<Property ID="StartDirection" DataType="DINT" Value="0" />
+							<Property ID="HomingDirection" DataType="DINT" Value="0" />
+							<Group ID="ReferencePulse">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="Used">
+									<Property ID="ReferencePulseBlockingDistance" DataType="LREAL" Value="0" />
+								</Group>
+							</Group>
+							<Property ID="TorqueLimit" DataType="REAL" Value="0" />
+							<Property ID="PositionErrorStopLimit" DataType="LREAL" Value="0" />
+							<Property ID="BlockDetectionPositionError" DataType="LREAL" Value="0" />
+						</Group>
+					</Group>
+					<Property ID="RestorePositionVariable" DataType="STRING" Value="" />
+				</Group>
+				<Group ID="StopReaction">
+					<Group ID="Quickstop">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="DecelerationLimitWithJerkFilter">
+							<Property ID="JerkTime" DataType="REAL" Value="0" />
+						</Group>
+					</Group>
+					<Group ID="DriveError">
+						<Property ID="Type" DataType="DINT" Value="0" />
+					</Group>
+				</Group>
+				<Group ID="MovementErrorLimits">
+					<Property ID="PositionError" DataType="LREAL" Value="1" />
+					<Group ID="VelocityErrorMonitoring">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="UserDefined">
+							<Property ID="VelocityError" DataType="REAL" Value="0" />
+						</Group>
+					</Group>
+				</Group>
+				<Group ID="JerkFilter">
+					<Property ID="Type" DataType="DINT" Value="0" />
+					<Group ID="Used">
+						<Property ID="JerkTime" DataType="REAL" Value="0" />
+					</Group>
+				</Group>
+				<Group ID="DigitalInputs">
+					<Group ID="HomingSwitch">
+						<Group ID="Source">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Variable">
+								<Property ID="PVMapping" DataType="STRING" Value="" />
+							</Group>
+						</Group>
+						<Property ID="Level" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="PositiveLimitSwitch">
+						<Group ID="Source">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Variable">
+								<Property ID="PVMapping" DataType="STRING" Value="" />
+							</Group>
+						</Group>
+						<Property ID="Level" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="NegativeLimitSwitch">
+						<Group ID="Source">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Variable">
+								<Property ID="PVMapping" DataType="STRING" Value="" />
+							</Group>
+						</Group>
+						<Property ID="Level" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="Trigger1">
+						<Group ID="Source">
+							<Property ID="Type" DataType="DINT" Value="16" />
+							<Group ID="Variable">
+								<Property ID="PVMapping" DataType="STRING" Value="" />
+							</Group>
+						</Group>
+						<Property ID="Level" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="Trigger2">
+						<Group ID="Source">
+							<Property ID="Type" DataType="DINT" Value="17" />
+							<Group ID="Variable">
+								<Property ID="PVMapping" DataType="STRING" Value="" />
+							</Group>
+						</Group>
+						<Property ID="Level" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="Quickstop">
+						<Property ID="Input" DataType="DINT" Value="0" />
+					</Group>
+				</Group>
+				<Group ID="Simulation">
+					<Group ID="ModeOnPLC">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="Complete">
+							<Group ID="LoadModel">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="OneMassMotorBased">
+									<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+								</Group>
+								<Group ID="OneMass">
+									<Property ID="Inertia" DataType="REAL" Value="0" />
+									<Property ID="StaticFriction" DataType="REAL" Value="0" />
+									<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+									<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+								</Group>
+								<Group ID="TwoMasses">
+									<Group ID="Mass1">
+										<Property ID="Inertia" DataType="REAL" Value="0" />
+										<Property ID="StaticFriction" DataType="REAL" Value="0" />
+										<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+									</Group>
+									<Group ID="Mass2">
+										<Property ID="Inertia" DataType="REAL" Value="0" />
+										<Property ID="StaticFriction" DataType="REAL" Value="0" />
+										<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+										<Property ID="Stiffness" DataType="REAL" Value="0" />
+										<Property ID="Damping" DataType="REAL" Value="0" />
+										<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+									</Group>
+								</Group>
+							</Group>
+						</Group>
+					</Group>
+					<Group ID="ModeOnACOPOS">
+						<Property ID="Type" DataType="DINT" Value="0" />
+						<Group ID="Complete">
+							<Group ID="LoadModel">
+								<Property ID="Type" DataType="DINT" Value="0" />
+								<Group ID="OneMassMotorBased">
+									<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+								</Group>
+								<Group ID="OneMass">
+									<Property ID="Inertia" DataType="REAL" Value="0" />
+									<Property ID="StaticFriction" DataType="REAL" Value="0" />
+									<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+									<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+								</Group>
+								<Group ID="TwoMasses">
+									<Group ID="Mass1">
+										<Property ID="Inertia" DataType="REAL" Value="0" />
+										<Property ID="StaticFriction" DataType="REAL" Value="0" />
+										<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+									</Group>
+									<Group ID="Mass2">
+										<Property ID="Inertia" DataType="REAL" Value="0" />
+										<Property ID="StaticFriction" DataType="REAL" Value="0" />
+										<Property ID="ViscousFriction" DataType="REAL" Value="0" />
+										<Property ID="Stiffness" DataType="REAL" Value="0" />
+										<Property ID="Damping" DataType="REAL" Value="0" />
+										<Property ID="AdditiveLoadParID" DataType="UINT" Value="0" />
+									</Group>
+								</Group>
+							</Group>
+						</Group>
+					</Group>
+				</Group>
+				<Group ID="AxisFeatures">
+					<Group ID="FeatureReference">
+						<Property ID="NumberOfElements" DataType="UDINT" Value="1" />
+						<Property ID="DataAddress" DataType="UDINT" Value="199022641" />
+						<Property ID="NumberOfArrayElements" DataType="UDINT" Value="3" />
+					</Group>
+				</Group>
+			</Group>
+		</Group>
+	</Element>
+	<Element Name="ProcessCon:BaseAxConfig" Type="PvParameter">
+		<Group ID="ProcessCon:BaseAxConfig">
+			<Group ID="[0]">
+				<Group ID="BaseType">
+					<Property ID="Type" DataType="DINT" Value="1" />
+					<Group ID="LinearBounded">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="0" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0" />
+						<Property ID="CountDirection" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="Linear">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="5066068" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0.01" />
+						<Property ID="CountDirection" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="LinearPeriodic">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="0" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0" />
+						<Property ID="CountDirection" DataType="DINT" Value="0" />
+						<Group ID="PeriodSettings">
+							<Property ID="Period" DataType="LREAL" Value="0" />
+						</Group>
+					</Group>
+					<Group ID="RotaryBounded">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="0" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0" />
+						<Property ID="CountDirection" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="Rotary">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="0" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0" />
+						<Property ID="CountDirection" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="RotaryPeriodic">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="0" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0" />
+						<Property ID="CountDirection" DataType="DINT" Value="0" />
+						<Group ID="PeriodSettings">
+							<Property ID="Period" DataType="LREAL" Value="0" />
+						</Group>
+					</Group>
+				</Group>
+				<Group ID="MovementLimits">
+					<Property ID="Type" DataType="DINT" Value="0" />
+					<Group ID="Internal">
+						<Group ID="Position">
+							<Property ID="LowerLimit" DataType="LREAL" Value="-1e+21" />
+							<Property ID="UpperLimit" DataType="LREAL" Value="1e+21" />
+						</Group>
+						<Group ID="Velocity">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Velocity" DataType="REAL" Value="10000" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Acceleration">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Acceleration" DataType="REAL" Value="50000" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Deceleration">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Deceleration" DataType="REAL" Value="50000" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+					</Group>
+					<Group ID="InternalPathAxis">
+						<Group ID="Position">
+							<Property ID="LowerLimit" DataType="LREAL" Value="0" />
+							<Property ID="UpperLimit" DataType="LREAL" Value="0" />
+						</Group>
+						<Group ID="Velocity">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Velocity" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Acceleration">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Acceleration" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Deceleration">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Deceleration" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Jerk">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Jerk" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="AccelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="AccelerationNegative" DataType="REAL" Value="0" />
+								<Property ID="DecelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="DecelerationNegative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Torque">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Torque" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="AccelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="AccelerationNegative" DataType="REAL" Value="0" />
+								<Property ID="DecelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="DecelerationNegative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Force">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Force" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="AccelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="AccelerationNegative" DataType="REAL" Value="0" />
+								<Property ID="DecelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="DecelerationNegative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+					</Group>
+					<Group ID="External">
+						<Group ID="LimitReference">
+							<Property ID="Name" DataType="STRING" Value="" />
+							<Property ID="ConfigType" DataType="DINT" Value="0" />
+						</Group>
+					</Group>
+				</Group>
+			</Group>
+			<Group ID="[1]">
+				<Group ID="BaseType">
+					<Property ID="Type" DataType="DINT" Value="12" />
+					<Group ID="LinearBounded">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="0" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0" />
+						<Property ID="CountDirection" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="Linear">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="0" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0" />
+						<Property ID="CountDirection" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="LinearPeriodic">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="0" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0" />
+						<Property ID="CountDirection" DataType="DINT" Value="0" />
+						<Group ID="PeriodSettings">
+							<Property ID="Period" DataType="LREAL" Value="0" />
+						</Group>
+					</Group>
+					<Group ID="RotaryBounded">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="0" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0" />
+						<Property ID="CountDirection" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="Rotary">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="0" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0" />
+						<Property ID="CountDirection" DataType="DINT" Value="0" />
+					</Group>
+					<Group ID="RotaryPeriodic">
+						<Property ID="MeasurementUnit" DataType="DINT" Value="17476" />
+						<Property ID="MeasurementResolution" DataType="LREAL" Value="0.01" />
+						<Property ID="CountDirection" DataType="DINT" Value="1" />
+						<Group ID="PeriodSettings">
+							<Property ID="Period" DataType="LREAL" Value="360" />
+						</Group>
+					</Group>
+				</Group>
+				<Group ID="MovementLimits">
+					<Property ID="Type" DataType="DINT" Value="0" />
+					<Group ID="Internal">
+						<Group ID="Position">
+							<Property ID="LowerLimit" DataType="LREAL" Value="-1000" />
+							<Property ID="UpperLimit" DataType="LREAL" Value="1000" />
+						</Group>
+						<Group ID="Velocity">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Velocity" DataType="REAL" Value="500000" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Acceleration">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Acceleration" DataType="REAL" Value="5000000" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Deceleration">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Deceleration" DataType="REAL" Value="5000000" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+					</Group>
+					<Group ID="InternalPathAxis">
+						<Group ID="Position">
+							<Property ID="LowerLimit" DataType="LREAL" Value="0" />
+							<Property ID="UpperLimit" DataType="LREAL" Value="0" />
+						</Group>
+						<Group ID="Velocity">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Velocity" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Acceleration">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Acceleration" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Deceleration">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Deceleration" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="Positive" DataType="REAL" Value="0" />
+								<Property ID="Negative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Jerk">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Jerk" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="AccelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="AccelerationNegative" DataType="REAL" Value="0" />
+								<Property ID="DecelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="DecelerationNegative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Torque">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Torque" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="AccelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="AccelerationNegative" DataType="REAL" Value="0" />
+								<Property ID="DecelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="DecelerationNegative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+						<Group ID="Force">
+							<Property ID="Type" DataType="DINT" Value="0" />
+							<Group ID="Basic">
+								<Property ID="Force" DataType="REAL" Value="0" />
+							</Group>
+							<Group ID="Advanced">
+								<Property ID="AccelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="AccelerationNegative" DataType="REAL" Value="0" />
+								<Property ID="DecelerationPositive" DataType="REAL" Value="0" />
+								<Property ID="DecelerationNegative" DataType="REAL" Value="0" />
+							</Group>
+						</Group>
+					</Group>
+					<Group ID="External">
+						<Group ID="LimitReference">
+							<Property ID="Name" DataType="STRING" Value="" />
+							<Property ID="ConfigType" DataType="DINT" Value="0" />
+						</Group>
+					</Group>
+				</Group>
+			</Group>
+		</Group>
+	</Element>
+	<Element Name="ProcessCon:sAxFeatures1" Type="PvParameter">
+		<Group ID="ProcessCon:sAxFeatures1">
+			<Property ID="[0]" DataType="STRING" Value="" />
+			<Property ID="[1]" DataType="STRING" Value="" />
+			<Property ID="[2]" DataType="STRING" Value="" />
+		</Group>
+	</Element>
+	<Element Name="ProcessCon:sAxFeatures2" Type="PvParameter">
+		<Group ID="ProcessCon:sAxFeatures2">
+			<Property ID="[0]" DataType="STRING" Value="CutterCamAutomat" />
+			<Property ID="[1]" DataType="STRING" Value="" />
+			<Property ID="[2]" DataType="STRING" Value="" />
+		</Group>
+	</Element>
+</DATA>
