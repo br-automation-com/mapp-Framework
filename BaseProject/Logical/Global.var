@@ -4,9 +4,6 @@ VAR
 	gVisuCtrl : VisuCtl_typ; (*MyAxisParameters : MyAxisParametersType;*)
 END_VAR
 (*USB storage devices*)
-VAR
-	gbUSBAvail : ARRAY[0..MAX_IDX_USB_DEV_LIST] OF BOOL; (*Status array of USB storage devices*)
-END_VAR
 (*Defines*)
 VAR CONSTANT
 	MAX_IDX_USB_DEV_LIST : USINT := 1; (*Max index for usb storage devices (1 means up to two devices with index 0 and 1)*)
