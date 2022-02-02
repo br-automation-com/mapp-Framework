@@ -50,10 +50,6 @@
             <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.EventID[0]" attribute="value" />
             <Target xsi:type="brease" contentRefId="AlarmX_content" widgetRefId="NumericOutputBackTrace1" attribute="value" />
         </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="mapp" refId="gAlarmXMpLink" attribute="link" />
-            <Target xsi:type="brease" contentRefId="TopHeader_content" widgetRefId="AlarmLine1" attribute="mpLink" />
-        </Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AlarmMgt:AlarmFilterCfg" attribute="value" />
 			<Target xsi:type="brease" contentRefId="AlarmX_content" widgetRefId="AlmLstCurrentAlarms" attribute="filterConfiguration" />
