@@ -10,7 +10,7 @@ ACTION ExecuteQuery:
     CASE (AlarmQuery.State) OF
         ACTIVE_ALARM_WAIT:
             IF (AlarmQuery.LastActiveAlarmUpdateCount <> AlarmQuery.ActiveAlarmUpdateCount) THEN
-                memset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
+                brsmemset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
                 AlarmQuery.LastActiveAlarmUpdateCount := AlarmQuery.ActiveAlarmUpdateCount;
                 QueryActiveAlarms.Execute := TRUE;
                 AlarmQuery.State := ACTIVE_ALARM_QUERY;

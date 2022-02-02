@@ -1,9 +1,9 @@
 
 ACTION SimulationControl: 
 
-    IF (gSimulationActive = FALSE) THEN
-        RETURN;
-    END_IF
+	IF NOT (DiagCpuIsARsim() OR DiagCpuIsSimulated()) THEN
+		RETURN;
+	END_IF
     
     IF ((MpAxisBasicFB.Info.ReadyToPowerOn = TRUE) AND (MpAxisBasicFB.PowerOn = FALSE)) THEN
         AxisControl.Command.Power := TRUE;

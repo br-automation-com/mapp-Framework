@@ -1,25 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="UserX_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Bindings>
-	
-		<!--<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::UserX:UserXUIConnect.Login.Password" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Login_content" widgetRefId="Password1" attribute="value" />
-		</Binding>-->
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::UserXMgt:MpUserXLogin_0.Error" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList8" attribute="selectedIndex" />
-		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::UserXMgt:MpUserXLoginUI_0.Error" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList10" attribute="selectedIndex" />
-		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::UserXMgt:MpUserXManagerUI_0.Error" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList9" attribute="selectedIndex" />
-		</Binding>
-
-
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.MessageBox.ErrorNumber" attribute="value" />
 			<Target xsi:type="snippet" refId="IndexTextSnippetUserXMessage" attribute="value" />

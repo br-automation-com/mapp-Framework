@@ -10,19 +10,6 @@
             <Source xsi:type="mapp" refId="gAlarmXMpLink" attribute="link" />
             <Target xsi:type="brease" contentRefId="AlarmX_content" widgetRefId="AlmLstCurrentAlarms" attribute="mpLink" />
         </Binding>
-
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXHistory_0.Error" attribute="value" />
-            <Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList19" attribute="selectedIndex" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXHistoryUI_0.Error" attribute="value" />
-            <Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList20" attribute="selectedIndex" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUI_0.Error" attribute="value" />
-            <Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList21" attribute="selectedIndex" />
-        </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::AlarmMgt:MpAlarmXListUIConnect.Details.Backtrace.Description[1]" attribute="value" />
             <Target xsi:type="brease" contentRefId="AlarmX_content" widgetRefId="TextOutputBackTrace2" attribute="value" />
