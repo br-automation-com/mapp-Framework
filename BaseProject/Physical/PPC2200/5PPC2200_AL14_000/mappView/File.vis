@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<vdef:Visualization id="MyVisuFile" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+	<StartPage pageRefId="" />
+	<Pages>
+	</Pages>
+	<Navigations>
+		<!--<Navigation refId="" />-->
+	</Navigations>  
+	<BindingsSets>
+        <BindingsSet refId="File_content_binding" />
+        <BindingsSet refId="MsgBoxFile_content_binding" />
+    </BindingsSets>
+    <EventBindingsSets>
+        <EventBindingsSet refId="File_content_eventbinding" />
+        <EventBindingsSet refId="MsgBoxFile_content_eventbinding" />
+    </EventBindingsSets>
+    <Dialogs>
+        <Dialog refId="MsgBoxFile_dialog" />
+    </Dialogs>
+    <Contents > 
+        <Content refId="File_content" />
+    </Contents>	
+    <SnippetsSets>
+    </SnippetsSets>
+    <ExpressionsSets>
+    </ExpressionsSets>
+    <VariablesSets>
+    </VariablesSets>
+    <StartTheme themeRefId="BuRThemeTemplate" />
+    <Themes>
+        <Theme refId="BuRThemeTemplate"/>
+    </Themes>
+    <Configurations>
+    </Configurations>
+</vdef:Visualization>

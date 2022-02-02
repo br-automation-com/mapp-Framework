@@ -107,7 +107,7 @@
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="NumOutSetSpeedAx2Pre" attribute="node" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.TableConfig" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.TableConfig" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Tbl" attribute="tableConfiguration" />
 		</Binding>
 
@@ -245,7 +245,7 @@
 		</Binding>
 
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.LastLoadedRecipe" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.LastLoadedProductRecipe" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 
@@ -400,11 +400,11 @@
 			<Target xsi:type="brease" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMinOut" attribute="node" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.DeviceDataProvider" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.DeviceDataProvider" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeDevice" attribute="dataProvider" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.DeviceName" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.DeviceName" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeDevice" attribute="selectedValue" />
 		</Binding>
 		

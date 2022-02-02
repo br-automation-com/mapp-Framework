@@ -14,8 +14,8 @@
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="CreateBackup_content" widgetRefId="BusyGroupBox">
-                <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
+              <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="CreateBackup_content" widgetRefId="ContentGroup">
+                <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="false" />
               </Target>
             </Action>
           </Step>
@@ -36,8 +36,8 @@
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <EventHandler condition="contentId = &quot;CreateBackup_content&quot;">
         <Action>
-          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="CreateBackup_content" widgetRefId="BusyGroupBox">
-            <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="false" />
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="CreateBackup_content" widgetRefId="ContentGroup">
+            <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
           </Target>
         </Action>
       </EventHandler>
@@ -48,8 +48,8 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="CreateBackup_content" widgetRefId="BusyGroupBox">
-                <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="false" />
+              <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="CreateBackup_content" widgetRefId="ContentGroup">
+                <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
               </Target>
             </Action>
           </Step>

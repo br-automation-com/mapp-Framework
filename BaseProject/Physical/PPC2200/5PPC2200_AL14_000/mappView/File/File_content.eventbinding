@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="File_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="File_content.txtInSearchKeyword.ValueChanged">
+      <Source xsi:type="widgets.brease.TextInput.Event" contentRefId="File_content" widgetRefId="txtInSearchKeyword" event="ValueChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgt:MpFileManagerUIConnect.File.Refresh">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="File_content.FileFolderTable.Click">
+      <Source xsi:type="widgets.brease.Table.Event" contentRefId="File_content" widgetRefId="FileFolderTable" event="Click" />
+      <Operand datatype="BOOL" name="MultiSelect">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgt:MpFileManagerUIConnect.File.MultiSelect">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="MultiSelect = true">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgt:hmiFile.Commands.MultiSelect">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="File_content.FileFolderTable.Click.2">
+      <Source xsi:type="widgets.brease.Table.Event" contentRefId="File_content" widgetRefId="FileFolderTable" event="Click" />
+      <Operand datatype="BOOL" name="IsFolder">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgt:hmiFile.Status.IsFolder">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="IsFolder = true">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgt:hmiFile.Commands.EnterFolder">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="File_content.drpBoxSortOrder.SelectedIndexChanged">
+      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="File_content" widgetRefId="drpBoxSortOrder" event="SelectedIndexChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgt:MpFileManagerUIConnect.File.Refresh">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MpFileManagerUIConnect.MessageBox.LayerStatus.ValueChange">
+      <Source xsi:type="opcUa.Event" refId="::FileMgt:MpFileManagerUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
+      <EventHandler condition="newValue = 0">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="MsgBoxFile_dialog" headerText="$IAT/File/FileManagerInfo" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

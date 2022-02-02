@@ -3,7 +3,7 @@
   <Bindings>
   
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.LastLoadedRecipe" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.LastLoadedProductRecipe" attribute="value" />
 			<Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
       

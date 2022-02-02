@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="MsgBoxFile_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.GroupBox" id="ContentGroup" top="0" left="0" width="450" height="300" zIndex="1" style="GroupBoxWhite">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.PushButton" id="ConfirmButton" top="215" left="50" height="50" zIndex="0" text="$IAT/File/Confirm" borderStyle="none" cornerRadius="10px" backColor="rgba(255, 133, 0, 1)" textColor="rgba(255, 255, 255, 1)" fontSize="22px" style="Operate" />
+        <Widget xsi:type="widgets.brease.PushButton" id="CancelButton" top="215" left="300" height="50" zIndex="1" text="$IAT/File/Cancel" borderStyle="none" borderWidth="0px" cornerRadius="10px" backGroundGradient="linear-gradient(to bottom,#F4F3F8 20%,#D9DDE4 60%)" mouseDownBackGroundGradient="linear-gradient(to bottom,#D9DDE4 20%,#F4F3F8 60%)" textColor="rgba(137, 137, 137, 1)" mouseDownBorderWidth="0px" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="22px" style="Operate" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="txtOutFileMessage" top="20" left="25" width="395" height="175" zIndex="2" textAlign="center" />
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.Image" id="BusyImage" top="80" left="165" width="120" height="130" zIndex="0" image="Media/InProgress.gif" useSVGStyling="false" backColor="rgba(255, 255, 255, 1)" opacity="1" margin="0px" />
+  </Widgets>
+</Content>

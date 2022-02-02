@@ -3,8 +3,8 @@
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
     <Task Name="MainCtrl" Source="MainControl.MainCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
-    <Task Name="Conveyor" Source="MachineControl.Conveyor.Conveyor.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="CrossCutte" Source="MachineControl.CrossCutter.CrossCutter.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Conveyor" Source="MachineControl.Conveyor.Conveyor.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
+    <Task Name="CrossCutte" Source="MachineControl.CrossCutter.CrossCutter.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2">
     <Task Name="PIDControl" Source="MainControl.PIDControl.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
@@ -22,6 +22,7 @@
     <Task Name="ReportMgt" Source="Infrastructure.Report.ReportMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="RecipeMgt" Source="Infrastructure.Recipe.RecipeMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="BackupMgt" Source="Infrastructure.Backup.BackupMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="FileMgt" Source="Infrastructure.File.FileMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
@@ -29,13 +30,11 @@
     <Task Name="IoBrowser" Source="Infrastructure.SysServices.IoBrowser.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="SysServs" Source="Infrastructure.SysServices.SysServs.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
-  <DataObjects>
-    <DataObject Name="McAcpSys" Source="" Memory="UserROM" Language="Binary" />
-  </DataObjects>
   <NcDataObjects>
     <NcDataObject Name="McDriveLog" Source="" Memory="UserROM" Language="Binary" />
   </NcDataObjects>
   <Binaries>
+    <BinaryObject Name="McAcpSys" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McProfGen" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TCData" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="udbdef" Source="" Memory="UserROM" Language="Binary" />
@@ -65,7 +64,6 @@
     <BinaryObject Name="Role" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AlmHistory" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="User" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="UsX" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Settings" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Rcp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ashwd" Source="" Memory="SystemROM" Language="Binary" />
@@ -83,6 +81,9 @@
     <BinaryObject Name="Backup" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TC" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="BackupFile" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Config" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="UserX" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="UsX" Source="" Memory="UserROM" Language="Binary" />
   </Binaries>
   <Libraries>
     <LibraryObject Name="operator" Source="Libraries.operator.lby" Memory="UserROM" Language="binary" Debugging="true" />
@@ -145,5 +146,6 @@
     <LibraryObject Name="arproject" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="arcert" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asarprof" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="AsIODiag" Source="Libraries.AsIODiag.lby" Memory="UserROM" Language="binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <vdef:Visualization id="MyVisu" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
-	<StartPage pageRefId="Welcome_page" />
+	<StartPage pageRefId="File_page" />
 	<Pages>
 		<Page refId="Axis_page"/> 
 		<Page refId="Welcome_page" />
@@ -14,6 +14,7 @@
 		<Page refId="AlarmX_page"/>
 		<Page refId="Data_page"/>
 		<Page refId="Audit_page"/>
+		<Page refId="File_page"/>
 		<Page refId="WidgetSample_page"/>
 	</Pages>
 	<Navigations>
@@ -21,8 +22,12 @@
 	</Navigations>  
 	<BindingsSets>
         <BindingsSet refId="Recipe_content_binding" />
-        <BindingsSet refId="EditRecipe_content_binding" />
-        <BindingsSet refId="CreateNewRecipe_content_binding" />
+		<BindingsSet refId="EditRecipeParameters_content_binding" /> 
+		<BindingsSet refId="EditRecipeMachConfig_content_binding" />
+		<BindingsSet refId="CreateNewRecipeParameters_content_binding" />
+		<BindingsSet refId="CreateNewRecipeMachConfig_content_binding" />
+		<BindingsSet refId="PreviewParameters_content_binding" />
+		<BindingsSet refId="PreviewMachConfig_content_binding" />
         <BindingsSet refId="Report_content_binding" />
 		<BindingsSet refId="AlarmX_content_binding" />
 		<BindingsSet refId="Trend_content_binding" />
@@ -43,13 +48,15 @@
         <BindingsSet refId="CreateBackup_content_binding" />
         <BindingsSet refId="Backup_content_binding" />
         <BindingsSet refId="AutomaticSettingsBackup_content_binding" />
+        <BindingsSet refId="File_content_binding" />
+		<BindingsSet refId="MsgBoxFile_content_binding" />
     </BindingsSets>
 	<EventBindingsSets>
 		<EventBindingsSet refId="AlarmX_content_eventbinding" />
 		<EventBindingsSet refId="Recipe_content_eventbinding" />
 		<EventBindingsSet refId="Report_content_eventbinding" />
-		<EventBindingsSet refId="Login_content_eventbinding" />
-		<EventBindingsSet refId="Logout_content_eventbinding" />
+		<!--<EventBindingsSet refId="Login_content_eventbinding" />
+		<EventBindingsSet refId="Logout_content_eventbinding" />-->
 		<EventBindingsSet refId="ToolTip_content_eventbinding" />
 		<EventBindingsSet refId="TopHeader_content_eventbinding" />
 		<EventBindingsSet refId="Welcome_content_eventbinding" />
@@ -70,6 +77,8 @@
         <EventBindingsSet refId="DeleteBackup_content_eventbinding" />
         <EventBindingsSet refId="RestoreBackup_content_eventbinding" />
         <EventBindingsSet refId="AutomaticSettingsBackup_content_eventbinding" />
+		<EventBindingsSet refId="File_content_eventbinding" />
+		<EventBindingsSet refId="MsgBoxFile_content_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs>
 		<Dialog refId="CreateNewRecipe_dialog" />
@@ -87,9 +96,13 @@
         <Dialog refId="DeleteBackup_dialog" />
         <Dialog refId="RestoreBackup_dialog" />
         <Dialog refId="AutomaticSettingsBackup_dialog" />
-        <Dialog refId="NewBackup_dialog" />
+		<Dialog refId="MsgBoxFile_dialog" />
 	</Dialogs>
-	<Contents preCache= "all"> 
+	<Contents > 
+		<Content refId="PreviewParameters_content" />
+		<Content refId="PreviewSettings_content" />
+		<Content refId="EditRecipeMachConfig_content" />
+		<Content refId="CreateNewRecipeMachConfig_content" />
 		<Content refId="Welcome_content" />
 		<Content refId="Axis_content" />
 		<Content refId="AxisAuto_content" />
@@ -109,8 +122,6 @@
         <Content refId="UserX_content" />
         <Content refId="Backup_content" />
 		<Content refId="Trend_content" />
-		<Content refId="EditRecipe_content" />
-		<Content refId="CreateNewRecipe_content" />
 		<Content refId="RenameRecipe_content" />
 		<Content refId="Login_content" />
 		<Content refId="UserXErrorDialog_content" />
@@ -118,6 +129,7 @@
 		<Content refId="UserManXMessageDialog_content" />
 		<Content refId="IoForcing_content" />
 		<Content refId="ChangePwd_content" />
+		<Content refId="File_content" />
 	</Contents>	
 	<SnippetsSets>
 		<SnippetsSet refId="Recipe_snippets" />
@@ -129,7 +141,8 @@
 		<ExpressionsSet refId="MyExpressionSet" />
     </ExpressionsSets>
 	<VariablesSets>
-        <VariablesSet refId="SessionVar" />
+		<VariablesSet refId="UserX_svar" />
+		<VariablesSet refId="Recipe_svar" />
     </VariablesSets>
 	<StartTheme themeRefId="BuRThemeTemplate" />
 	<Themes>
