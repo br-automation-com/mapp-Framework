@@ -3,7 +3,7 @@
 <Program SubType="ANSIC" xmlns="http://br-automation.co.at/AS/Program">
   <Files>
     <File Private="true">TestType.typ</File>
-    <File Description="Local data types" Private="true" Reference="true">\Logical\MachineControl\CrossCutter\CrossCutter\Types.typ</File>
+    <File Description="Local data types" Private="true" Reference="true">\Logical\MachineControl\Conveyor\Conveyor\Types.typ</File>
     <File Description="Name the suite and add PVs for the program" Private="true">variables.var</File>
     <File>testSuite.c</File>
     <File>Set_SetupTeardown.c</File>

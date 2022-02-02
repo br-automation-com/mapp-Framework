@@ -50,9 +50,6 @@ Section "$(mappFrameworkBaseShortText)" mappFrameworkBase
 	SetOutPath "$INSTDIR\${ProductNameShort}"
 	File /r "mappFrameworkLogo.ico"
 
-	SetOutPath "$INSTDIR\${ProductNameShort}"
-	File /r "mapp Framework Importer\*.*"
-
 	!insertmacro InstallHelp "$VersionBaseFolder" "Help"
 
 	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
