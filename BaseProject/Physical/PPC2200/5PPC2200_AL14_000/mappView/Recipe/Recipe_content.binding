@@ -27,14 +27,6 @@
             <Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.SelectedIndex" attribute="value" />
             <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Tbl" attribute="selectedRow" />
         </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUI_0.Error" attribute="value" />
-            <Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList24" attribute="selectedIndex" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeXml_0.Error" attribute="value" />
-            <Target xsi:type="brease" contentRefId="Diagnostic_content" widgetRefId="ImageList25" attribute="selectedIndex" />
-        </Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="listElement">
 				<Selector xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.SelectedIndex" attribute="value" />
