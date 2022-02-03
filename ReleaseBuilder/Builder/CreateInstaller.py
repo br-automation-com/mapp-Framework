@@ -2,7 +2,8 @@ import argparse
 import re
 import subprocess, shlex
 import shutil
-from DirUtils import CreateDirectory, CleanDirectory
+import os
+from DirUtils import CreateDirectory, CleanDirectory, removeDir
 
 def UpdateVersionNumberInstaller(dir, headerFile, version) -> bool:
     p = re.compile('!define Version ".+"')
@@ -35,9 +36,14 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--project', help='Project Directory', dest='project', required=True)
     parser.add_argument('-n', '--name', help='Project Name', dest='name', required=True)
     parser.add_argument('-v', '--version', help='Project Version', dest='version', required=False, default="V0.0.9.000")
-
     args = parser.parse_args()
     version = args.version.replace('V', '')
+
+    directory = rf'{args.project}\InstallerSetup\TechnologySolution\\'
+    for f in os.listdir(directory):
+        if f != args.version:
+            removeDir(os.path.join(directory, f))
+
     shutil.copy(rf'{args.project}\InstallerSetup\FrameworkImporter_TS.zip', rf'{args.project}\InstallerSetup\TechnologySolution\{args.version}\FrameworkImporter_TS.zip')
 
     UpdateVersionNumberInstaller(rf'{args.project}\InstallerSetup', f'Setup{args.name}_TS.nsh', f'{version}')
