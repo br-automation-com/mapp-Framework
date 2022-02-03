@@ -142,7 +142,7 @@
       </Group>
       <Group ID="[9]">
         <Property ID="Name" Value="LevelMonitoringExample" />
-        <Property ID="Message" Value="{$Alarms/LimitMonitoringExample} {=$Alarms/{$LimitText}}" />
+        <Property ID="Message" Value="{$Alarms/LevelMonitoringAlarmExample} {=$Alarms/{&amp;LimitText}}" />
         <Selector ID="Behavior" Value="LevelMonitoring">
           <Group ID="Monitoring">
             <Property ID="MonitoredPV" Value="::AlarmMgt:AlarmExamples.LevelMonitoring" />
@@ -167,7 +167,7 @@
       </Group>
       <Group ID="[10]">
         <Property ID="Name" Value="DeviationMonitoringExample" />
-        <Property ID="Message" Value="{$Alarms/LimitText}" />
+        <Property ID="Message" Value="{$Alarms/DeviationMonitoringAlarmExample} {&amp;LimitText}" />
         <Selector ID="Behavior" Value="DeviationMonitoring">
           <Group ID="Monitoring">
             <Property ID="MonitoredPV" Value="::AlarmMgt:AlarmExamples.DeviationMonitoring" />
@@ -198,7 +198,7 @@
       </Group>
       <Group ID="[12]">
         <Property ID="Name" Value="SnippetExample" />
-        <Property ID="Message" Value="{$Alarms/SnippetAlarmExample}" />
+        <Property ID="Message" Value="Show a snippet: {&amp;snippet1}" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
             <Property ID="MonitoredPV" Value="::AlarmMgt:AlarmExamples.SnippetValue" />
@@ -210,7 +210,7 @@
       </Group>
       <Group ID="[13]">
         <Property ID="Name" Value="MpAlarmXControlExample" />
-        <Property ID="Message" Value="{$Alarms/Alarm.0}" />
+        <Property ID="Message" Value="{$Alarms/MpAlarmXControlExample}" />
         <Property ID="Severity" Value="20" />
         <Selector ID="Behavior">
           <Property ID="Async" Value="TRUE" />

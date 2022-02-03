@@ -3,7 +3,6 @@ TYPE
 	MachineDigitalInputs_type : 	STRUCT  (*Safety related digital inputs of the machine*)
 		EmergencyStop : ARRAY[0..MAX_IDX_ESTOP]OF BOOL; (*Emergency stop signal*)
 		SafetyDoor : ARRAY[0..MAX_IDX_SAFETY_DOOR]OF BOOL; (*Safety door signal*)
-		SafetyPLC : BOOL; (*SafetyPLC signal*)
 		AcknowledgeAlarms : BOOL;
 	END_STRUCT;
 	AlarmExamples_typ : 	STRUCT 
@@ -37,5 +36,18 @@ TYPE
 		LastActiveAlarmUpdateCount : UDINT;
 		ActiveAlarmUpdateCount : UDINT;
 		Alarms : ARRAY[0..19]OF AlarmType;
+	END_STRUCT;
+	AlarmHmiInterface_type : 	STRUCT 
+		Commands : AlarmCommands_type;
+		Status : AlarmStatus_type;
+	END_STRUCT;
+	AlarmStatus_type : 	STRUCT 
+		AlarmHistSortCfg : STRING[1000];
+		AlarmHistFilterCfg : STRING[1000];
+		AlarmSortCfg : STRING[1000];
+		AlarmFilterCfg : STRING[1000];
+	END_STRUCT;
+	AlarmCommands_type : 	STRUCT 
+		ExportAlarms : BOOL;
 	END_STRUCT;
 END_TYPE

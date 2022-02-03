@@ -140,7 +140,7 @@
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmX_content" widgetRefId="PBtnExport" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:ExportAlarms">
+          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:hmiAlarmX.Commands.ExportAlarms">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>

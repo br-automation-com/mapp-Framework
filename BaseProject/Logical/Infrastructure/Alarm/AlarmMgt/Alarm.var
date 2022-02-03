@@ -10,6 +10,7 @@
  ********************************************************************)
 (*Function Blocks--------------------------------------------------------------------------------------------------------------------*)
 VAR
+	hmiAlarmX : AlarmHmiInterface_type;
 	MpAlarmXHistory_0 : MpAlarmXHistory; (*MpAlarmXHistory instance*)
 	MpAlarmXHistoryUI_0 : MpAlarmXHistoryUI; (*MpAlarmXHistoryUI instance*)
 	MpAlarmXListUI_0 : MpAlarmXListUI; (*MpAlarmXList instance*)
@@ -21,16 +22,11 @@ VAR
 	Index : USINT; (*Index to loop through alarm list*)
 	MaxIndex : USINT; (*Maximum index for the alarm list*)
 	uInstanceID : UINT; (*Instance ID*)
-	ExportAlarms : BOOL; (*Exports alarms*)
 	MpAlarmXListUIConnect : MpAlarmXListUIConnectType := (0); (*AlarmVideo : WSTRING[255] := "";
 	AlarmInfo : BOOL := 0;*)
 	MpAlarmXHistoryUIConnect : MpAlarmXHistoryUIConnectType; (*AlarmX History connection to UI*)
 	AlarmQuery : {REDUND_UNREPLICABLE} AlarmQueryType; (*Query Results*)
 	QueryActiveAlarms : {REDUND_UNREPLICABLE} MpAlarmXQuery; (*MpAlarmXQuery instance*)
-	AlarmFilterCfg : STRING[1000];
-	AlarmSortCfg : STRING[1000];
-	AlarmHistFilterCfg : STRING[1000];
-	AlarmHistSortCfg : STRING[1000];
 END_VAR
 (*Safety Inputs*)
 VAR
