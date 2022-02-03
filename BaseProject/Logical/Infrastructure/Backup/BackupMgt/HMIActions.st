@@ -1,7 +1,7 @@
 
 ACTION FormatDeviceDataProvider: 
     
-	(* Select CF device if USB device is not available *)
+	// Select CF device if USB device is not available 
     FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
         IF gbUSBAvail[i] THEN
             brsstrcpy(ADR(hmiBackup.Status.DeviceDataProvider[i + 1]), ADR('{"value":"USB'));
