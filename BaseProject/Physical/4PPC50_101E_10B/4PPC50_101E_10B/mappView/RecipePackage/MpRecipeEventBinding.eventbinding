@@ -82,18 +82,18 @@
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="CreateNewRecipe_dialog" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_4">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="CreateNewRecipe_content" widgetRefId="CancelButton" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="CancelButton" event="Click" />
       <EventHandler>
         <Parallel>
           <Action>
             <Target xsi:type="clientSystem.Action">
-              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="CreateNewRecipe_dialog" />
+              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
             </Target>
           </Action>
           <Action>
@@ -105,7 +105,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_5">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="CreateNewRecipe_content" widgetRefId="CreateButton" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="CreateButton" event="Click" />
       <EventHandler>
         <Parallel>
           <Action>
@@ -125,7 +125,7 @@
           </Action>
           <Action>
             <Target xsi:type="clientSystem.Action">
-              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="CreateNewRecipe_dialog" />
+              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
             </Target>
           </Action>
         </Parallel>
@@ -142,180 +142,180 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_7">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="EditRecipe_content" widgetRefId="CancelButton" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="CancelButton" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="11">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="12">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="13">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum3">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum3">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="14">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum4">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum4">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="15">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum5">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum5">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="16">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="17">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="18">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength3">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength3">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="19">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength4">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength4">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="20">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength5">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength5">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="21">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="22">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="23">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="24">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="25">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="26">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="27">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="28">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="29">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDGain">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDGain">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="30">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDDerivativeTime">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDDerivativeTime">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="31">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDIntegrationTime">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDIntegrationTime">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="32">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDFilterTime">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDFilterTime">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="33">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMinOut">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDMinOut">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="34">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMaxOut">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDMaxOut">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="35">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDSetValue">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDSetValue">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
@@ -345,180 +345,180 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_8">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="EditRecipe_content" widgetRefId="SaveButton" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="SaveButton" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="2">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum3">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum3">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="3">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum4">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum4">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="4">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum5">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum5">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="5">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="6">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="7">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength3">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength3">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="8">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength4">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength4">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="9">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength5">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength5">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="10">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="11">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="12">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="13">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="14">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="15">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="16">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="17">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="18">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDGain">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDGain">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="19">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDDerivativeTime">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDDerivativeTime">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="20">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDIntegrationTime">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDIntegrationTime">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="21">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDFilterTime">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDFilterTime">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="22">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMinOut">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDMinOut">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="23">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMaxOut">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDMaxOut">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="24">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDSetValue">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDSetValue">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
@@ -548,7 +548,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_9">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInLength1" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength1" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductLength[0]" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -561,21 +561,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_10">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInLength2" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength2" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductLength[1]" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -588,21 +588,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_12">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInLength3" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength3" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductLength[2]" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -615,21 +615,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength3">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength3">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength3">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength3">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_14">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInNum1" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum1" event="ValueChanged" />
       <Operand datatype="ANY_INT" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductNumber[0]" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -642,21 +642,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_15">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInNum2" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum2" event="ValueChanged" />
       <Operand datatype="ANY_INT" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductNumber[1]" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -669,21 +669,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_16">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInNum3" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum3" event="ValueChanged" />
       <Operand datatype="ANY_INT" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductNumber[2]" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -696,21 +696,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum3">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum3">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum3">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum3">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_17">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInNum4" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum4" event="ValueChanged" />
       <Operand datatype="ANY_INT" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductNumber[3]" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -723,21 +723,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum4">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum4">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum4">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum4">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_18">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInNum5" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum5" event="ValueChanged" />
       <Operand datatype="ANY_INT" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductNumber[4]" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -750,21 +750,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum5">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum5">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum5">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum5">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_Ax1Vel_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx1" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx1" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[0].Velocity" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -777,21 +777,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_Ax1Acc_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx1" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx1" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[0].Acceleration" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -804,21 +804,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_Ax1Dec_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx1" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx1" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[0].Deceleration" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -831,21 +831,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_Ax1StopDec_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx1" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx1" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[0].Stop.Deceleration" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -858,21 +858,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx1">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx1">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_Ax2Vel_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx2" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx2" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[1].Velocity" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -885,21 +885,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_Ax2Acc_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx2" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx2" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[1].Acceleration" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -912,21 +912,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_Ax2Dec_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx2" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx2" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[1].Deceleration" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -939,21 +939,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_EventBinding_Ax2StopDec_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx2" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx2" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.AxPar[1].Stop.Deceleration" serverAlias="">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -966,84 +966,84 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx2">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx2">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_PidDerivativeTime_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInPIDDerivativeTime" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDDerivativeTime" event="ValueChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDDerivativeTime">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDDerivativeTime">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_PidGain_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInPIDGain" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDGain" event="ValueChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDGain">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDGain">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_PidIntegrationTime_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInPIDIntegrationTime" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDIntegrationTime" event="ValueChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDIntegrationTime">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDIntegrationTime">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_PidFilterTime_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInPIDFilterTime" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDFilterTime" event="ValueChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDFilterTime">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDFilterTime">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_PidMinOut_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMinOut" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDMinOut" event="ValueChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMinOut">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDMinOut">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_PidMaxOut_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMaxOut" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDMaxOut" event="ValueChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMaxOut">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDMaxOut">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_PidSetValue_Changed">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInPIDSetValue" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDSetValue" event="ValueChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDSetValue">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDSetValue">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
@@ -1071,7 +1071,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_2">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInLength4" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength4" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductLength[3]">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -1084,21 +1084,21 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength4">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength4">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength4">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength4">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_3">
-      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="EditRecipe_content" widgetRefId="NumInLength5" event="ValueChanged" />
+      <Source xsi:type="widgets.brease.NumericInput.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength5" event="ValueChanged" />
       <Operand datatype="ANY_REAL" name="OrigValue">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::MainCtrl:PreviewParameters.ProductLength[4]">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -1111,194 +1111,194 @@
       </Operand>
       <EventHandler condition="OrigValue &lt;&gt; ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength5">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength5">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="ParModified" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="OrigValue = ModifiedValue">
         <Action>
-          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength5">
+          <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength5">
             <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_4">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="EditRecipe_content" widgetRefId="ButtonSaveAndApply" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="ButtonSaveAndApply" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="2">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum3">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum3">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="3">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum4">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum4">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="4">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInNum5">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInNum5">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="5">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="6">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="7">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength3">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength3">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="8">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength4">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength4">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="9">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInLength5">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInLength5">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="10">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="11">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputAccAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputAccAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="12">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="13">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputDecAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputDecAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="14">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="15">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputSetSpeedAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputSetSpeedAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="16">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx1">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx1">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="17">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumericInputStopDecAx2">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumericInputStopDecAx2">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="18">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDDerivativeTime">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDDerivativeTime">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="19">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDFilterTime">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDFilterTime">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="20">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDGain">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDGain">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="21">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDIntegrationTime">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDIntegrationTime">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="22">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMaxOut">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDMaxOut">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="23">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDMinOut">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDMinOut">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
           </Step>
           <Step order="24">
             <Action>
-              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="EditRecipe_content" widgetRefId="NumInPIDSetValue">
+              <Target xsi:type="widgets.brease.NumericInput.Action" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="NumInPIDSetValue">
                 <Method xsi:type="widgets.brease.NumericInput.Action.SetStyle" value="default" />
               </Target>
             </Action>
@@ -1335,7 +1335,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_5">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="CreateNewRecipe_content" widgetRefId="ButtonCreateAndApply" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="ButtonCreateAndApply" event="Click" />
       <EventHandler>
         <Parallel>
           <Action>
@@ -1360,7 +1360,7 @@
           </Action>
           <Action>
             <Target xsi:type="clientSystem.Action">
-              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="CreateNewRecipe_dialog" />
+              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
             </Target>
           </Action>
         </Parallel>

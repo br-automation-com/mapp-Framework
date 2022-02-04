@@ -22,10 +22,10 @@
 	</Navigations>  
 	<BindingsSets>
         <BindingsSet refId="Recipe_content_binding" />
-		<BindingsSet refId="EditRecipeParameters_content_binding" /> 
-		<BindingsSet refId="EditRecipeMachConfig_content_binding" />
-		<BindingsSet refId="CreateNewRecipeParameters_content_binding" />
-		<BindingsSet refId="CreateNewRecipeMachConfig_content_binding" />
+		<BindingsSet refId="RecipeDialog_EditPars_content_binding" /> 
+		<BindingsSet refId="RecipeDialog_EditMachConfig_content_binding" />
+		<BindingsSet refId="RecipeDialog_NewPars_content_binding" />
+		<BindingsSet refId="RecipeDialog_NewMachConfig_content_binding" />
 		<BindingsSet refId="PreviewParameters_content_binding" />
 		<BindingsSet refId="PreviewMachConfig_content_binding" />
         <BindingsSet refId="Report_content_binding" />
@@ -53,7 +53,7 @@
     </BindingsSets>
 	<EventBindingsSets>
 		<EventBindingsSet refId="AlarmX_content_eventbinding" />
-		<EventBindingsSet refId="Recipe_content_eventbinding" />
+		<EventBindingsSet refId="Recipe_eventbinding" />
 		<EventBindingsSet refId="Report_content_eventbinding" />
 		<!--<EventBindingsSet refId="Login_content_eventbinding" />
 		<EventBindingsSet refId="Logout_content_eventbinding" />-->
@@ -81,7 +81,7 @@
 		<EventBindingsSet refId="MsgBoxFile_content_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs>
-		<Dialog refId="CreateNewRecipe_dialog" />
+		<Dialog refId="NewRecipe_dialog" />
 		<Dialog refId="CamError_dialog" />
 		<Dialog refId="EditRecipe_dialog" />
 		<Dialog refId="Login_dialog" />
@@ -100,9 +100,9 @@
 	</Dialogs>
 	<Contents > 
 		<Content refId="PreviewParameters_content" />
-		<Content refId="PreviewSettings_content" />
-		<Content refId="EditRecipeMachConfig_content" />
-		<Content refId="CreateNewRecipeMachConfig_content" />
+		<Content refId="RecipePreviewMachConfig_content" />
+		<Content refId="RecipeDialog_EditMachConfig_content" />
+		<Content refId="RecipeDialog_NewMachConfig_content" />
 		<Content refId="Welcome_content" />
 		<Content refId="Axis_content" />
 		<Content refId="AxisAuto_content" />

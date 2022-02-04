@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Styles id="BuRThemeFlat2commonStyles" xmlns="http://www.br-automation.com/iat2015/styles/engineering/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<!--date time input-->
+	
+	<Style id="Input" xsi:type="widgets.brease.DateTimeInput" 
+		fontSize="20px" 
+		textColor="#d6d6d6" 
+		borderWidth="0px 0px 0px 6px" 
+		borderColor="#FF9900" 
+		activeBorderColor="#d6d6d6" 
+		backColor="#808080" 
+		activeBackColor="#d6d6d6" 
+		activeTextColor="#808080" 
+		bold="false"  
+		textAlign="center" />
+
+	<Style id="InputLarge" xsi:type="widgets.brease.DateTimeInput" 
+		fontSize="36px"
+		textColor="#d6d6d6" 
+		borderWidth="0px 0px 0px 6px" 
+		borderColor="#FF9900" 
+		activeBorderColor="#d6d6d6"
+		backColor="#808080" 
+		activeBackColor="#d6d6d6" 
+		activeTextColor="#808080" 
+		bold="false"  
+		textAlign="center" />
+		
+	<Style id="InputCommand" xsi:type="widgets.brease.DateTimeInput" 
+		fontSize="20px" 
+		textColor="#808080" 
+		borderWidth="0px 0px 0px 6px" 
+		borderColor="#808080" 
+		activeBorderColor="#646464" 
+		backColor="#ccc" 
+		activeBackColor="#646464" 
+		activeTextColor="#FFF" 
+		bold="false" />
+		
+	<!--date time output-->
+	
+	<Style id="Output" xsi:type="widgets.brease.DateTimeOutput" 
+		textColor="#b4b4b4"  
+		borderWidth="0px" 
+		fontSize="20px" 
+		backColor="transparent" 
+		bold="false" />
+
+	<Style id="OutputLarge" xsi:type="widgets.brease.DateTimeOutput" 
+		borderWidth="0px" 
+		textColor="#b4b4b4" 
+		fontSize="32px" 
+		backColor="transparent" 
+		bold="false" />
+		
+	<Style id="Overview" xsi:type="widgets.brease.DateTimeOutput" 
+		textColor="#b4b4b4" 
+		borderWidth="0px" 
+		fontSize="52px" 
+		bold="false" 
+		backColor="transparent" />		
+
+	<!--measeurement system selector-->
+	
+	<Style id="transparent" xsi:type="widgets.brease.MeasurementSystemSelector" 
+		backColor="transparent" 
+		borderWidth="0px" 
+		mouseDownBackColor="transparent" 
+		mouseDownBorderWidth="0px" 
+		fontSize="16px" 
+		bold="true" 
+		textColor="#FFFFFF" />
+	
+	<!--listbox-->
+
+	<Style id="ListBox1" xsi:type="widgets.brease.ListBox" 
+		fontSize="14px" 
+		bold="false" 
+		textColor="#646464" 
+		activeTextColor="#d6d6d6" 
+		borderWidth="0px" 
+		backColor="#d6d6d6" 
+		activeBackColor="#666" 
+		borderColor="#ff9900" 
+		textAlign="center" />
+
+	<!--radial gauge-->
+	
+	<Style id="Gauge1" xsi:type="widgets.brease.RadialGauge" 
+		borderWidth="1px" 
+		borderColor="#aa2800" 
+		pointerBackColor="#aa2800" 
+		pointerPathColor="#222" 
+		backColor="#666" 
+		backColorScaleArea1="#d6d6d6" 
+		backColorScaleArea2="#d6d6d6" 
+		backColorScaleArea3="#d6d6d6" 
+		backColorScaleArea4="#d6d6d6" 
+		backColorScaleArea5="#aa2800" />
+
+	<Style id="Gauge2" xsi:type="widgets.brease.RadialGauge" 
+		borderWidth="1px" 
+		borderColor="#d6d6d6" 
+		pointerBackColor="#d6d6d6" 
+		backColor="#888" 
+		backColorScaleArea1="#d6d6d6" />	
+
+	<Style id="Gauge1_from80_red" xsi:type="widgets.brease.RadialGauge" 
+		borderWidth="1px" 
+		borderColor="#d6d6d6" 
+		pointerBackColor="#d6d6d6" 
+		backColor="#888" 
+		backColorScaleArea5="#d6d6d6" />
+
+	<Style id="Gauge2_from80_red" xsi:type="widgets.brease.RadialGauge" 
+		borderWidth="1px" 
+		borderColor="#ff9900" 
+		pointerBackColor="#ff9900" 
+		backColor="#c0c0c0" 
+		backColorScaleArea1="#ff9900" 
+		backColorScaleArea2="#666" 
+		backColorScaleArea3="#666" 
+		backColorScaleArea4="#666" 
+		backColorScaleArea5="#666" />	
+
+	<Style id="Gauge1_to20_red" xsi:type="widgets.brease.RadialGauge" 
+		borderWidth="1px" 
+		borderColor="#ff9900" 
+		pointerBackColor="#ff9900" 
+		backColor="#c0c0c0" 
+		backColorScaleArea1="#666" 
+		backColorScaleArea2="#666" 
+		backColorScaleArea3="#666"
+		backColorScaleArea4="#666" 
+		backColorScaleArea5="#ff9900" />
+
+	<Style id="Gauge2_to20_red" xsi:type="widgets.brease.RadialGauge" 
+		borderWidth="1px" 
+		borderColor="#d6d6d6" 
+		pointerBackColor="#666"
+		backColor="#808080" 
+		backColorScaleArea1="#d6d6d6" 
+		backColorScaleArea2="#d6d6d6" 
+		backColorScaleArea3="#d6d6d6" 
+		backColorScaleArea4="#d6d6d6" 
+		backColorScaleArea5="#666" />	
+
+	<Style id="Gauge1_to80_green" xsi:type="widgets.brease.RadialGauge" 
+		borderWidth="1px" 
+		borderColor="#ff9900" 
+		pointerBackColor="#ff9900"
+		backColor="#808080" 
+		backColorScaleArea1="#d6d6d6" 
+		backColorScaleArea2="#d6d6d6" 
+		backColorScaleArea3="#d6d6d6" 
+		backColorScaleArea4="#d6d6d6" 
+		backColorScaleArea5="#ff9900" />
+
+	<Style id="Gauge2_to80_green" xsi:type="widgets.brease.RadialGauge" 
+		borderWidth="1px" 
+		borderColor="#ff9900" 
+		pointerBackColor="#d6d6d6" 
+		backColor="#444" 
+		backColorScaleArea1="#999" 
+		backColorScaleArea2="#999" 
+		backColorScaleArea3="#999" 
+		backColorScaleArea4="#ff9900" 
+		backColorScaleArea5="#ff9900"/>	
+
+</Styles>

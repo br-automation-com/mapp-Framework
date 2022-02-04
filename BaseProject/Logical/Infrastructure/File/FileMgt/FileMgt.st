@@ -23,7 +23,7 @@ PROGRAM _INIT
 	
 	// Init FIFO feature 
 	hmiFile.Parameters.Fifo.DeviceName := 'mappData';
-    hmiFile.Parameters.Fifo.MaxFolderSize := 20000; //kB
+	hmiFile.Parameters.Fifo.MaxFolderSize := 20000; //kB
 	hmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
 	
 END_PROGRAM
