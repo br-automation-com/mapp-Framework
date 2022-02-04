@@ -40,16 +40,16 @@
 		<BindingsSet refId="Data_content_binding" />
 		<BindingsSet refId="Audit_content_binding" />
 		<BindingsSet refId="UserX_content_binding" />
-		<BindingsSet refId="UserXExport_content_binding" />	
-		<BindingsSet refId="UserXImport_content_binding" />	
+		<BindingsSet refId="UserXDialog_Export_content_binding" />	
+		<BindingsSet refId="UserXDialog_Import_content_binding" />	
 		<BindingsSet refId="UserXDialog_Error_content_binding" />
 		<BindingsSet refId="Settings_content_binding" />	
         <BindingsSet refId="Diagnostic_content_binding" />
-        <BindingsSet refId="CreateBackup_content_binding" />
+        <BindingsSet refId="BackupDialog_Create_content_binding" />
         <BindingsSet refId="Backup_content_binding" />
-        <BindingsSet refId="AutomaticSettingsBackup_content_binding" />
+        <BindingsSet refId="BackupDialog_AutoSettings_content_binding" />
         <BindingsSet refId="File_content_binding" />
-		<BindingsSet refId="MsgBoxFile_content_binding" />
+		<BindingsSet refId="FileDialog_Message_dialog_content_binding" />
     </BindingsSets>
 	<EventBindingsSets>
 		<EventBindingsSet refId="AlarmX_content_eventbinding" />
@@ -65,38 +65,38 @@
 		<EventBindingsSet refId="Audit_content_eventbinding" />
 		<EventBindingsSet refId="Trend_content_eventbinding" />
 		<EventBindingsSet refId="UserX_content_eventbinding" />
-		<EventBindingsSet refId="UserXExport_content_eventbinding" />
-		<EventBindingsSet refId="UserXImport_content_eventbinding" />
+		<EventBindingsSet refId="UserXDialog_Export_content_eventbinding" />
+		<EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
 		<!--<EventBindingsSet refId="Axis_content_eventbinding" />-->
 		<EventBindingsSet refId="AxisAuto_content_eventbinding" />
 		<EventBindingsSet refId="AxisManual_content_eventbinding" />
 		<EventBindingsSet refId="Settings_content_eventbinding" />
         <EventBindingsSet refId="Diagnostic_content_eventbinding" />
         <EventBindingsSet refId="Backup_content_eventbinding" />
-        <EventBindingsSet refId="CreateBackup_content_eventbinding" />
-        <EventBindingsSet refId="DeleteBackup_content_eventbinding" />
-        <EventBindingsSet refId="RestoreBackup_content_eventbinding" />
-        <EventBindingsSet refId="AutomaticSettingsBackup_content_eventbinding" />
+        <EventBindingsSet refId="BackupDialog_Create_content_eventbinding" />
+        <EventBindingsSet refId="BackupDialog_Delete_content_eventbinding" />
+        <EventBindingsSet refId="BackupDialog_Restore_content_eventbinding" />
+        <EventBindingsSet refId="BackupDialog_AutoSettings_content_eventbinding" />
 		<EventBindingsSet refId="File_content_eventbinding" />
-		<EventBindingsSet refId="MsgBoxFile_content_eventbinding" />
+		<EventBindingsSet refId="FileDialog_Message_dialog_content_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs>
 		<Dialog refId="NewRecipe_dialog" />
 		<Dialog refId="CamError_dialog" />
 		<Dialog refId="EditRecipe_dialog" />
 		<Dialog refId="UserXLogin_dialog" />
-		<Dialog refId="ChangePwd_dialog" />
+		<Dialog refId="UserXChangePwd_dialog" />
 		<Dialog refId="UserXError_dialog" />
 		<Dialog refId="UserManXError_dialog" />
         <Dialog refId="UserManXMessage_dialog" />
 		<Dialog refId="UserXExport_dialog" />
 		<Dialog refId="UserXImport_dialog" />
         <Dialog refId="IoForcing_dialog" />
-        <Dialog refId="CreateBackup_dialog" />
-        <Dialog refId="DeleteBackup_dialog" />
-        <Dialog refId="RestoreBackup_dialog" />
-        <Dialog refId="AutomaticSettingsBackup_dialog" />
-		<Dialog refId="MsgBoxFile_dialog" />
+        <Dialog refId="BackupCreate_dialog" />
+        <Dialog refId="BackupDelete_dialog" />
+        <Dialog refId="BackupRestore_dialog" />
+        <Dialog refId="BackupAutoSettings_dialog" />
+		<Dialog refId="FileMessage_dialog" />
 	</Dialogs>
 	<Contents > 
 		<Content refId="RecipePreviewPars_content" />
@@ -128,7 +128,7 @@
 		<Content refId="UserXDialog_Error_content" />
 		<Content refId="UserManXMessageDialog_content" />
 		<Content refId="IoForcing_content" />
-		<Content refId="ChangePwd_content" />
+		<Content refId="UserXDialog_ChangePwd_content" />
 		<Content refId="File_content" />
 	</Contents>	
 	<SnippetsSets>

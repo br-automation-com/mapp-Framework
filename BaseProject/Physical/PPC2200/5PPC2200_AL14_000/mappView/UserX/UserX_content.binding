@@ -46,27 +46,27 @@
 		
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::UserXMgt:UserXLoginUIConnect.CurrentUser" attribute="value" />
-            <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="TextOutputUserName" attribute="value" />
+            <Target xsi:type="brease" contentRefId="UserXDialog_ChangePwd_content" widgetRefId="TextOutputUserName" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::UserXMgt:UserXLoginUIConnect.ChangePassword.Dialog.Cancel" attribute="value" />
-            <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="PushButtonCancel" attribute="value" />
+            <Target xsi:type="brease" contentRefId="UserXDialog_ChangePwd_content" widgetRefId="PushButtonCancel" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::UserXMgt:UserXLoginUIConnect.ChangePassword.Dialog.Confirm" attribute="value" />
-            <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="PushButtonConfirm" attribute="value" />
+            <Target xsi:type="brease" contentRefId="UserXDialog_ChangePwd_content" widgetRefId="PushButtonConfirm" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::UserXMgt:UserXLoginUIConnect.ChangePassword.Dialog.ConfirmPassword" attribute="value" />
-            <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="PasswordConfirm" attribute="value" />
+            <Target xsi:type="brease" contentRefId="UserXDialog_ChangePwd_content" widgetRefId="PasswordConfirm" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::UserXMgt:UserXLoginUIConnect.ChangePassword.Dialog.NewPassword" attribute="value" />
-            <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="PasswordNew" attribute="value" />
+            <Target xsi:type="brease" contentRefId="UserXDialog_ChangePwd_content" widgetRefId="PasswordNew" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::UserXMgt:UserXLoginUIConnect.ChangePassword.Dialog.OldPassword" attribute="value" />
-            <Target xsi:type="brease" contentRefId="ChangePwd_content" widgetRefId="PasswordCurrent" attribute="value" />
+            <Target xsi:type="brease" contentRefId="UserXDialog_ChangePwd_content" widgetRefId="PasswordCurrent" attribute="value" />
         </Binding>
 </Bindings>
 </BindingsSet>

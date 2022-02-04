@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="UserXDialog_Export_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.Export.Dialog.Confirm" attribute="value" />
+			<Target xsi:type="brease" contentRefId="UserXDialog_Export_content" widgetRefId="PushButtonConfirm" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.Export.Dialog.Cancel" attribute="value" />
+			<Target xsi:type="brease" contentRefId="UserXDialog_Export_content" widgetRefId="PushButtonCancel" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.Export.Dialog.FileName" attribute="value" />
+			<Target xsi:type="brease" contentRefId="UserXDialog_Export_content" widgetRefId="txtInExportFileName" attribute="value" />
+		</Binding>
+	</Bindings>
+</BindingsSet>
