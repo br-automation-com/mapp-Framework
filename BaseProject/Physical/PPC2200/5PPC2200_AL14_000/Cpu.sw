@@ -15,7 +15,7 @@
     <Task Name="UserXMgt" Source="Infrastructure.UserX.UserXMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="UserMgt" Source="Infrastructure.User.UserMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
     <Task Name="ProcessCon" Source="Infrastructure.SysServices.ProcessConfig.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
-    <Task Name="AlarmMgt" Source="Infrastructure.Alarm.AlarmMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AlarmMgt" Source="Infrastructure.AlarmX.AlarmMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AuditMgt" Source="Infrastructure.Audit.AuditMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DataMgt" Source="Infrastructure.Data.DataMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="UsbDevLink" Source="Infrastructure.UsbDevLink.UsbDevLink.prg" Memory="UserROM" Language="IEC" Debugging="true" />
