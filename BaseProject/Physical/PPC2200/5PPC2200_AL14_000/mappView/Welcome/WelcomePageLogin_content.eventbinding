@@ -6,7 +6,7 @@
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="Login_dialog" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXLogin_dialog" />
           </Target>
         </Action>
       </EventHandler>
@@ -16,14 +16,14 @@
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="Login_dialog" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXLogin_dialog" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_7">
       <Source xsi:type="clientSystem.Event" event="DialogClosed" />
-      <EventHandler condition="dialogId = &quot;Login_dialog&quot;">
+      <EventHandler condition="dialogId = &quot;UserXLogin_dialog&quot;">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.Navigate" pageId="Axis_page" />

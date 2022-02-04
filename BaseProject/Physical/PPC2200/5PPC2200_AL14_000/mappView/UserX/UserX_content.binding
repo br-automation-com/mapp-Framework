@@ -7,7 +7,7 @@
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="IndexTextSnippetUserXMessage" attribute="value" />
-			<Target xsi:type="brease" contentRefId="UserXErrorDialog_content" widgetRefId="TextOutputUserError" attribute="value" />
+			<Target xsi:type="brease" contentRefId="UserXDialog_Error_content" widgetRefId="TextOutputUserError" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.MessageBox.Type" attribute="value" />
