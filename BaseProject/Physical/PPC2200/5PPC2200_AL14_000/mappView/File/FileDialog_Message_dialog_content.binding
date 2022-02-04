@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="FileDialog_Message_dialog_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.MessageBox.Confirm" attribute="value" />
+<Target xsi:type="brease" contentRefId="FileDialog_Message_dialog_content" widgetRefId="ConfirmButton" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.MessageBox.Cancel" attribute="value" />
+<Target xsi:type="brease" contentRefId="FileDialog_Message_dialog_content" widgetRefId="CancelButton" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

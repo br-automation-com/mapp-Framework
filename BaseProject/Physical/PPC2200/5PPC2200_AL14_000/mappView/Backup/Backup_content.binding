@@ -28,11 +28,11 @@
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.CreateAllowed" attribute="value" />
-            <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="ButtonCreateBackup_content" attribute="enable" />
+            <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Create_content" attribute="enable" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.RestoreAllowed" attribute="value" />
-            <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="ButtonRestoreBackup_content" attribute="enable" />
+            <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Restore_content" attribute="enable" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.Info.ConfigurationID" attribute="value" />
