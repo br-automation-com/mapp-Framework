@@ -55,6 +55,9 @@ Section "$(mappFrameworkBaseShortText)" mappFrameworkBase
 	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
 	File /r "TechnologySolution\*.*"
 
+	SetOutPath "$VersionBaseFolder\AS\Images\Files\"
+	File /oname=FrameworkImporter.exe.ico mappFrameworkLogo.ico
+
 SectionEnd
 
 Section "$(MenuShortText)" Menu
