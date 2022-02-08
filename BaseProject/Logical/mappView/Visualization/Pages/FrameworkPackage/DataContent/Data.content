@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="Data_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Table" id="TableDataFileList" top="40" left="640" width="440" height="500" zIndex="0" fontSize="20px" headerFontSize="22px" style="BrWhite">
+    <Widget xsi:type="widgets.brease.Table" id="TableDataFileList" top="40" left="640" width="440" height="500" zIndex="0" fontSize="20px" headerFontSize="22px">
       <Widgets>
         <Widget xsi:type="widgets.brease.TableItem" id="TableItem1" zIndex="0" columnWidth="440" rowHeight="30" text="$IAT/DataList_ID" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.PDFViewer" id="PDFViewer1" top="20" left="20" width="580" height="620" zIndex="1" />
-    <Widget xsi:type="widgets.brease.Button" id="BtnRefresh" top="560" left="1040" width="40" height="40" zIndex="2" image="Media/SymbolLib/Symbols/Restart.svg" imageHeight="15" imageWidth="15" style="Br_White" />
-    <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch1" top="560" left="820" width="160" height="40" zIndex="3" image="Media/SymbolLib/Media/Play.svg" mouseDownImage="Media/SymbolLib/Media/Stop.svg" mouseDownText="$IAT/EndRecord_ID" text="$IAT/Record_ID" imageHeight="15" imageWidth="15" textAlign="center" fontSize="20px" style="Br_White" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnRefresh" top="560" left="1040" width="40" height="40" zIndex="2" image="Media/SymbolLib/Symbols/Restart.svg" imageHeight="15" imageWidth="15" style="Command" />
+    <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch1" top="560" left="820" width="160" height="40" zIndex="3" image="Media/SymbolLib/Media/Play.svg" mouseDownImage="Media/SymbolLib/Media/Stop.svg" mouseDownText="$IAT/EndRecord_ID" text="$IAT/Record_ID" imageHeight="15" imageWidth="15" textAlign="center" fontSize="20px" style="Command" />
     <Widget xsi:type="widgets.brease.Line" id="Line7" zIndex="4" x1="0" x2="1120" y1="659" y2="659" lineWidth="2px" />
     <Widget xsi:type="widgets.brease.Rectangle" id="Rectangle3" top="0" left="4" width="1117" height="10" zIndex="5" borderStyle="none" opacity="0.3" backGroundGradient="linear-gradient(to bottom, #E4E4E4 0%,#ffffff 100%)" />
   </Widgets>

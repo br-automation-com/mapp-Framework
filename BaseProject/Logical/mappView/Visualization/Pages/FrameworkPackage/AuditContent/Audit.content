@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="Audit_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
-    <Widget xsi:type="widgets.brease.TabControl" id="TabControl1" top="0" left="0" width="1120" height="660" zIndex="0" borderWidth="0px 0px 6px 0px" style="BrWhite">
+    <Widget xsi:type="widgets.brease.TabControl" id="TabControl1" top="0" left="0" width="1120" height="660" zIndex="0">
       <Widgets>
-        <Widget xsi:type="widgets.brease.TabItem" id="TabItem1" left="0" width="165" height="40" zIndex="0" text="$IAT/Audit/AuditList" style="BrWhite">
+        <Widget xsi:type="widgets.brease.TabItem" id="TabItem1" left="0" width="165" height="40" zIndex="0" text="$IAT/Audit/AuditList">
           <Widgets>
             <Widget xsi:type="widgets.brease.AuditList" id="AuditList1" top="60" left="0" width="1100" height="540" zIndex="0" itemsPerPage="9" searchBox="false" headerBackColor="rgba(162, 163, 165, 1)" fontSize="16px" cellBorderColor="rgba(221, 221, 221, 0)">
               <Widgets>
@@ -12,24 +12,23 @@
                 <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItem3" width="740" zIndex="2" text="$IAT/Audit/Information" />
               </Widgets>
             </Widget>
-            <Widget xsi:type="widgets.brease.ToggleButton" id="BtnAuditExport" top="0" left="980" width="110" height="40" zIndex="1" image="Media/SymbolLib/Icons/Export.svg" text="$IAT/Audit/Export" imageHeight="50" imageWidth="45" textAlign="left" padding="0px" style="Br_Gray" />
+            <Widget xsi:type="widgets.brease.ToggleButton" id="BtnAuditExport" top="0" left="980" width="110" height="40" zIndex="1" image="Media/SymbolLib/Icons/Export.svg" text="$IAT/Audit/Export" imageHeight="50" imageWidth="45" textAlign="left" padding="0px" style="Command" />
           </Widgets>
         </Widget>
-        <Widget xsi:type="widgets.brease.TabItem" id="TabItem2" left="0" width="165" height="40" zIndex="1" text="$IAT/Audit/AuditReports" style="BrWhite">
+        <Widget xsi:type="widgets.brease.TabItem" id="TabItem2" left="0" width="165" height="40" zIndex="1" text="$IAT/Audit/AuditReports">
           <Widgets>
             <Widget xsi:type="widgets.brease.PDFViewer" id="PDFViewer1" top="0" left="0" width="540" height="620" zIndex="0" />
-            <Widget xsi:type="widgets.brease.Table" id="Table1" top="39" left="759" width="340" height="440" zIndex="1" style="BrWhite">
+            <Widget xsi:type="widgets.brease.Table" id="Table1" top="39" left="759" width="340" height="440" zIndex="1">
               <Widgets>
                 <Widget xsi:type="widgets.brease.TableItem" id="TableItem1" zIndex="0" columnWidth="340" rowHeight="30" text="$IAT/Audit/AuditList" />
               </Widgets>
             </Widget>
-            <Widget xsi:type="widgets.brease.Button" id="BtnRefresh" top="20" left="1080" width="20" height="20" zIndex="2" image="Media/SymbolLib/Symbols/Restart.svg" imageHeight="15" imageWidth="15" style="Br_White" />
+            <Widget xsi:type="widgets.brease.Button" id="BtnRefresh" top="20" left="1080" width="20" height="20" zIndex="2" image="Media/SymbolLib/Symbols/Restart.svg" imageHeight="15" imageWidth="15" style="Command" />
             <Widget xsi:type="widgets.brease.Line" id="Line2" zIndex="3" x1="1120" x2="330" y1="0" y2="0" lineWidth="3px" />
           </Widgets>
         </Widget>
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.Line" id="Line1" zIndex="1" x1="0" x2="1120" y1="659" y2="659" lineWidth="2px" />
-    <Widget xsi:type="widgets.brease.Rectangle" id="Rectangle3" top="0" left="4" width="1117" height="10" zIndex="2" borderStyle="none" opacity="0.3" backGroundGradient="linear-gradient(to bottom, #E4E4E4 0%,#ffffff 100%)" />
   </Widgets>
 </Content>

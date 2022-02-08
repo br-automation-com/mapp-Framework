@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="AlarmX_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.TabControl" id="TabCt" top="0" left="0" width="1120" height="660" zIndex="3" borderStyle="solid" cornerRadius="8px 8px 0px 0px">
+    <Widget xsi:type="widgets.brease.TabControl" id="TabCt" top="0" left="0" width="1120" height="660" zIndex="3">
       <Widgets>
-        <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItem" left="0" width="165" height="40" zIndex="1" text="$IAT/Alarm/CurrentAlarm" backColor="rgba(100, 100, 100, 1)" activeBackColor="rgba(255, 255, 255, 1)" activeTextColor="rgba(0, 0, 0, 1)" style="BrWhite">
+        <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItem" left="0" width="165" height="40" zIndex="1" text="$IAT/Alarm/CurrentAlarm">
           <Widgets>
             <Widget xsi:type="widgets.brease.AlarmList" id="AlmLstCurrentAlarms" top="60" left="0" width="1120" height="360" zIndex="0" format="yyyy-MM-dd hh:mm" imagePrefix="Media/SymbolLib/Alarm/" itemsPerPage="6" searchBox="false" borderStyle="solid" borderWidth="2px" borderColor="rgba(100, 100, 100, 1)" headerBackColor="rgba(255, 255, 255, 1)" headerTextColor="rgba(0, 0, 0, 1)" backColorOddRow="rgba(240, 240, 240, 1)" textColor="rgba(0, 0, 0, 1)" fontSize="16px" textAlign="left">
               <Widgets>
@@ -14,7 +14,7 @@
               </Widgets>
             </Widget>
             <Widget xsi:type="widgets.brease.PushButton" id="PBtnAcknowledge" top="19" left="679" width="170" zIndex="1" image="Media/SymbolLib/Alarm/Acknowledge.svg" text="$IAT/Alarm/Acknowledge" style="transparent" />
-            <Widget xsi:type="widgets.brease.PushButton" id="PBtnAcknowledgeAll" top="19" left="900" width="200" zIndex="2" image="Media/SymbolLib/Alarm/Acknowledge.svg" text="$IAT/Alarm/AcknowledgeAll" textAlign="left" />
+            <Widget xsi:type="widgets.brease.PushButton" id="PBtnAcknowledgeAll" top="19" left="900" width="200" zIndex="2" image="Media/SymbolLib/Alarm/Acknowledge.svg" text="$IAT/Alarm/AcknowledgeAll" textAlign="left" style="transparent" />
             <Widget xsi:type="widgets.brease.Line" id="Line1" zIndex="3" x1="0" x2="0" y1="0" y2="60" lineWidth="5px" />
             <Widget xsi:type="widgets.brease.GroupBox" id="BacktraceGroupBox" top="425" left="0" width="1120" height="190" zIndex="4" text="$IAT/Alarm/Backtrace" backColor="rgba(255, 255, 255, 1)" textAlign="left">
               <Widgets>
@@ -34,7 +34,7 @@
             <Widget xsi:type="widgets.brease.PushButton" id="PBtnActiveAlarmFilter" top="20" left="120" width="90" zIndex="6" image="Media/SymbolLib/Edit/Filter.svg" text="$IAT/Alarm/Filter" imageHeight="20" imageWidth="20" style="transparent" />
           </Widgets>
         </Widget>
-        <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItm" left="0" width="165" height="40" zIndex="2" text="$IAT/Alarm/AlarmHistory" backColor="rgba(100, 100, 100, 1)" activeBackColor="rgba(255, 255, 255, 1)" activeTextColor="rgba(0, 0, 0, 1)" style="BrWhite">
+        <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItm" left="0" width="165" height="40" zIndex="2" text="$IAT/Alarm/AlarmHistory">
           <Widgets>
             <Widget xsi:type="widgets.brease.AlarmHistory" id="AlmHist" top="40" left="0" width="1120" height="580" zIndex="0" format="yyyy-MM-dd hh:mm" imagePrefix="Media/SymbolLib/Alarm/" itemsPerPage="9" searchBox="false" fontSize="16px">
               <Widgets>
@@ -52,6 +52,5 @@
         </Widget>
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.Rectangle" id="Rectangle3" top="0" left="4" width="1117" height="10" zIndex="4" borderStyle="none" opacity="0.3" backGroundGradient="linear-gradient(to bottom, #E4E4E4 0%,#ffffff 100%)" />
   </Widgets>
 </Content>

@@ -91,7 +91,7 @@
           <Step order="2">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="CreateNewRecipe_dialog" />
+                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" />
               </Target>
             </Action>
           </Step>
@@ -99,12 +99,12 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_4">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="CreateNewRecipe_content" widgetRefId="CancelButton" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="CancelButton" event="Click" />
       <EventHandler>
         <Parallel>
           <Action>
             <Target xsi:type="clientSystem.Action">
-              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="CreateNewRecipe_dialog" />
+              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
             </Target>
           </Action>
           <Action>
@@ -116,7 +116,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_5">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="CreateNewRecipe_content" widgetRefId="CreateButton" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="CreateButton" event="Click" />
       <EventHandler>
         <Parallel>
           <Action>
@@ -136,7 +136,7 @@
           </Action>
           <Action>
             <Target xsi:type="clientSystem.Action">
-              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="CreateNewRecipe_dialog" />
+              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
             </Target>
           </Action>
         </Parallel>
@@ -164,7 +164,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_7">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="EditRecipe_content" widgetRefId="CancelButton" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="CancelButton" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="1">
@@ -185,7 +185,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_8">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="EditRecipe_content" widgetRefId="SaveButton" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="SaveButton" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="2">
@@ -222,14 +222,14 @@
       <EventHandler condition="dialogId = &quot;EditRecipe_dialog&quot; AND CategoryDropdown = 0">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="EditRecipeParameters_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
+            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_EditPars_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="dialogId = &quot;EditRecipe_dialog&quot; AND CategoryDropdown = 1">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="EditRecipeMachConfig_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
+            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_EditMachConfig_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
           </Target>
         </Action>
       </EventHandler>
@@ -241,17 +241,17 @@
           <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="dialogId = &quot;CreateNewRecipe_dialog&quot; AND CategoryDropdown = 0">
+      <EventHandler condition="dialogId = &quot;NewRecipe_dialog&quot; AND CategoryDropdown = 0">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="CreateNewRecipeParameters_content" dialogId="CreateNewRecipe_dialog" areaId="AreaRecipe" />
+            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_NewPars_content" dialogId="NewRecipe_dialog" areaId="AreaRecipe" />
           </Target>
         </Action>
       </EventHandler>
-      <EventHandler condition="dialogId = &quot;CreateNewRecipe_dialog&quot; AND CategoryDropdown = 1">
+      <EventHandler condition="dialogId = &quot;NewRecipe_dialog&quot; AND CategoryDropdown = 1">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="CreateNewRecipeMachConfig_content" dialogId="CreateNewRecipe_dialog" areaId="AreaRecipe" />
+            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_NewMachConfig_content" dialogId="NewRecipe_dialog" areaId="AreaRecipe" />
           </Target>
         </Action>
       </EventHandler>
@@ -312,7 +312,7 @@
           <Step order="1">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="PreviewParameters_content" />
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
               </Target>
             </Action>
           </Step>
@@ -330,7 +330,7 @@
           <Step order="1">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="PreviewSettings_content" />
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewMachConfig_content" />
               </Target>
             </Action>
           </Step>

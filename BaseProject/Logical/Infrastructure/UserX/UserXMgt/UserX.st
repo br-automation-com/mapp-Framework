@@ -1,20 +1,21 @@
-(*********************************************************************************
-* Copyright: B&R
-* Author:    B&R
-* Created:   30. Dec 2020/08:00 
-* Description: Tasks FOR user control. The User Management handling is done in this task.
-*********************************************************************************)
+//*********************************************************************** 
+// Copyright: B&R Industrial Automation GmbH 
+// Author: B&R Industrial Automation GmbH 
+// Created: Jan 1, 2022 
+// Description: Tasks for user control. The User Management handling is 
+// done in this task.
+//***********************************************************************
 
 PROGRAM _INIT
-	(*Create folder for this component on the user file device*)
+	// Create folder for this component on the user file device
 	DirCreate_New(enable := TRUE, pDevice := ADR('userPartition'), pName := ADR(LOCAL_FOLDER));		
 	
-	(*Check if folder already exist and if so disabled the function block call*)
+	// Check if folder already exist and if so disabled the function block call
 	IF DirCreate_New.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreate_New(enable := FALSE);
 	END_IF	
 	
-	(* Init MpUserX *)   
+	// Init MpUserX 
 	UserXMgrUIConnect.User.Create.Lock := FALSE;
 	UserXMgrUIConnect.User.Lock := FALSE;
 	UserXMgrUIConnect.User.Edit.Lock := FALSE;
@@ -38,8 +39,8 @@ PROGRAM _INIT
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	(* Handle user on mappView client *)
-
+	
+	//Error reset
 	IF NOT MpUserXManagerUI_0.Error THEN
 		MpUserXManagerUI_0.ErrorReset := FALSE;
     END_IF
@@ -59,7 +60,8 @@ PROGRAM _CYCLIC
 END_PROGRAM
 
 PROGRAM _EXIT
-	(* Call disbaled mapp function blocks *)
+	
+	// Call disbaled mapp function blocks 
     MpUserXManagerUI_0.Enable := FALSE;
 	MpUserXManagerUI_0();
 	
@@ -68,5 +70,6 @@ PROGRAM _EXIT
 	
 	MpUserXLogin_0.Enable := FALSE;
 	MpUserXLogin_0();
+	
 END_PROGRAM
 

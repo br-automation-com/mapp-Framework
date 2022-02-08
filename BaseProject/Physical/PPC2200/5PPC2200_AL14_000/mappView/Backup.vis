@@ -7,22 +7,22 @@
         <!--<Navigation refId="" />-->
     </Navigations>  
     <BindingsSets>
-        <BindingsSet refId="CreateBackup_content_binding" />
+        <BindingsSet refId="BackupDialog_Create_content_binding" />
         <BindingsSet refId="Backup_content_binding" />
-        <BindingsSet refId="AutomaticSettingsBackup_content_binding" />
+        <BindingsSet refId="BackupDialog_AutoSettings_content_binding" />
     </BindingsSets>
     <EventBindingsSets>
         <EventBindingsSet refId="Backup_content_eventbinding" />
-        <EventBindingsSet refId="CreateBackup_content_eventbinding" />
-        <EventBindingsSet refId="DeleteBackup_content_eventbinding" />
-        <EventBindingsSet refId="RestoreBackup_content_eventbinding" />
-        <EventBindingsSet refId="AutomaticSettingsBackup_content_eventbinding" />
+        <EventBindingsSet refId="BackupDialog_Create_content_eventbinding" />
+        <EventBindingsSet refId="BackupDialog_Delete_content_eventbinding" />
+        <EventBindingsSet refId="BackupDialog_Restore_content_eventbinding" />
+        <EventBindingsSet refId="BackupDialog_AutoSettings_content_eventbinding" />
     </EventBindingsSets>
     <Dialogs>
-        <Dialog refId="CreateBackup_dialog" />
-        <Dialog refId="DeleteBackup_dialog" />
-        <Dialog refId="RestoreBackup_dialog" />
-        <Dialog refId="AutomaticSettingsBackup_dialog" />
+        <Dialog refId="BackupCreate_dialog" />
+        <Dialog refId="BackupDelete_dialog" />
+        <Dialog refId="BackupRestore_dialog" />
+        <Dialog refId="BackupAutoSettings_dialog" />
     </Dialogs>
     <Contents > 
         <Content refId="Backup_content" />
@@ -33,9 +33,9 @@
     </ExpressionsSets>
     <VariablesSets>
     </VariablesSets>
-    <StartTheme themeRefId="BuRThemeTemplate" />
+    <StartTheme themeRefId="BuRThemeFlat1" />
     <Themes>
-		<Theme refId="BuRThemeTemplate"/>
+		<Theme refId="BuRThemeFlat1"/>
 	</Themes>
 	<Configurations>
     </Configurations>

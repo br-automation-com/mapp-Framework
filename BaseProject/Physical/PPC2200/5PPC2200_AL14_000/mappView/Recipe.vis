@@ -8,25 +8,25 @@
     </Navigations>  
 	<BindingsSets>
         <BindingsSet refId="Recipe_content_binding" />
-		<BindingsSet refId="EditRecipeParameters_content_binding" /> 
-		<BindingsSet refId="EditRecipeMachConfig_content_binding" />
-		<BindingsSet refId="CreateNewRecipeParameters_content_binding" />
-		<BindingsSet refId="CreateNewRecipeMachConfig_content_binding" />
-		<BindingsSet refId="PreviewParameters_content_binding" />
-		<BindingsSet refId="PreviewMachConfig_content_binding" />
+		<BindingsSet refId="RecipeDialog_EditPars_content_binding" /> 
+		<BindingsSet refId="RecipeDialog_EditMachConfig_content_binding" />
+		<BindingsSet refId="RecipeDialog_NewPars_content_binding" />
+		<BindingsSet refId="RecipeDialog_NewMachConfig_content_binding" />
+		<BindingsSet refId="RecipePreviewPars_content_binding" />
+		<BindingsSet refId="RecipePreviewMachConfig_content_binding" />
     </BindingsSets>
     <EventBindingsSets>
         <EventBindingsSet refId="Recipe_content_eventbinding" />
     </EventBindingsSets>
     <Dialogs>
-        <Dialog refId="CreateNewRecipe_dialog" />
+		<Dialog refId="NewRecipe_dialog" />
         <Dialog refId="EditRecipe_dialog" />
     </Dialogs>
     <Contents > 
-        <Content refId="PreviewParameters_content" />
-        <Content refId="PreviewSettings_content" />
-        <Content refId="EditRecipeMachConfig_content" />
-        <Content refId="CreateNewRecipeMachConfig_content" />
+        <Content refId="RecipePreviewPars_content" />
+		<Content refId="RecipePreviewMachConfig_content" />
+        <Content refId="RecipeDialog_EditMachConfig_content" />
+        <Content refId="RecipeDialog_NewMachConfig_content" />
         <Content refId="Recipe_content" />
     </Contents>	
     <SnippetsSets>
@@ -38,9 +38,9 @@
     <VariablesSets>
         <VariablesSet refId="Recipe_svar" />
     </VariablesSets>
-    <StartTheme themeRefId="BuRThemeTemplate" />
+    <StartTheme themeRefId="BuRThemeFlat1" />
     <Themes>
-        <Theme refId="BuRThemeTemplate"/>
+        <Theme refId="BuRThemeFlat1"/>
     </Themes>
     <Configurations>
     </Configurations>

@@ -3,11 +3,11 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.New.FileName" attribute="value" />
-			<Target xsi:type="brease" contentRefId="CreateNewRecipeParameters_content" widgetRefId="txtInNewRecipe" attribute="value" />		
+			<Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="txtInNewRecipe" attribute="value" />		
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.New.FileName" attribute="value" />
-			<Target xsi:type="brease" contentRefId="CreateNewRecipeMachConfig_content" widgetRefId="txtInNewRecipe" attribute="value" />		
+			<Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="txtInNewRecipe" attribute="value" />		
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.LastModified" attribute="value" />
@@ -66,7 +66,7 @@
 		
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.LastLoadedProductRecipe" attribute="value" />
-			<Target xsi:type="brease" contentRefId="PreviewParameters_content" widgetRefId="txtOutRecipeName" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 		
 		<Binding mode="twoWay">
@@ -95,7 +95,7 @@
 					<bt:Element index="19" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[19]" />
 				</be:List>
 			</Source>
-			<Target xsi:type="brease" contentRefId="EditRecipeParameters_content" widgetRefId="txtOutRecipeName" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="listElement">
@@ -123,7 +123,7 @@
 					<bt:Element index="19" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.Names[19]" />
 				</be:List>
 			</Source>
-			<Target xsi:type="brease" contentRefId="EditRecipeMachConfig_content" widgetRefId="txtOutRecipeName" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.DeviceDataProvider" attribute="value" />
