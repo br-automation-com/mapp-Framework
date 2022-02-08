@@ -1,7 +1,7 @@
 
 ACTION FormatDeviceDataProvider: 
     
-	(* Select CF device if USB device is not available *)
+	// Select CF device if USB device is not available 
 	FOR Index := 0 TO MAX_IDX_USB_DEV_LIST DO
 		IF gbUSBAvail[Index] THEN
 //			brsstrcpy(ADR(hmiRecipe.Status.DeviceDataProvider[Index + 1]), ADR('{"value":"USB'));
@@ -18,7 +18,7 @@ ACTION FormatDeviceDataProvider:
 		END_IF
 	END_FOR
     
-	(* Configure visible recipe list *)
+	// Configure visible recipe list 
 //	brsstrcpy(ADR(hmiRecipe.Status.TableConfig), ADR('{ "specRows": [{"from":'));
 	hmiRecipe.Status.TableConfig := '{ "specRows": [{"from":';
 	brsitoa(MpRecipeUIConnect.Recipe.List.MaxSelection + 1, ADR(hmiRecipe.Status.TableConfig) + brsstrlen(ADR(hmiRecipe.Status.TableConfig)));
@@ -28,7 +28,7 @@ END_ACTION
 
 ACTION LoadPreview:
 
-	(* Load preview when a recipe is selected *)
+	// Load preview when a recipe is selected 
 //	IF ((MpRecipeUIConnect.Recipe.List.SelectedIndex <> hmiRecipe.Status.LastSelectedIndex) AND (MpRecipeXml_Preview.Active = TRUE)) THEN
 	IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> hmiRecipe.Status.LastSelectedIndex) THEN
 		(* Check selected recipe name is not empty *)
@@ -42,7 +42,7 @@ ACTION LoadPreview:
 		END_IF
 	END_IF
 
-	(* Reset load command on MpRecipe_Pre FUB *)
+	// Reset load command on MpRecipe_Pre FUB 
 //	IF ((MpRecipeXml_Preview.CommandDone = TRUE) OR (MpRecipeXml_Preview.Error = TRUE)) THEN
 //		MpRecipeXml_Preview.Load := FALSE;
 //	END_IF;
@@ -70,12 +70,15 @@ ACTION RecipeHMIcommands:
 	IF hmiRecipe.Status.EditDialogOpened OR hmiRecipe.Status.CreateDialogOpened THEN
 		IF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Product')) = 0) THEN
 			ParametersEdit := ParametersPreview;
+			MpRecipeUIConnect.New.FileName := 'newParameters.par';
 		ELSIF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
 			MachSettingsEdit := MachSettingsPreview;
+			MpRecipeUIConnect.New.FileName := 'newMachConfig.mcfg';
 		END_IF
 		hmiRecipe.Status.EditDialogOpened := FALSE;
 		hmiRecipe.Status.CreateDialogOpened := FALSE;
 	END_IF
+	
 	IF hmiRecipe.Commands.SaveSelectedRecipe THEN
 		IF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Product')) = 0) THEN
 			ParametersPreview := ParametersEdit;
@@ -85,7 +88,7 @@ ACTION RecipeHMIcommands:
 		ELSIF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
 			MachSettingsPreview := MachSettingsEdit;
 			IF (brsstrcmp(ADR(hmiRecipe.Status.LastLoadedConfigRecipe),ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]))=0) THEN
-				Parameters := ParametersEdit;
+				MachSettings := MachSettingsEdit;
 			END_IF
 		END_IF
 		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
@@ -95,22 +98,21 @@ ACTION RecipeHMIcommands:
 		hmiRecipe.Commands.SaveSelectedRecipe := FALSE;
 	END_IF
 	
+	IF hmiRecipe.Commands.CreateRecipe THEN
+		IF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Product')) = 0) THEN
+			ParametersPreview := ParametersEdit;
+		ELSIF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
+			MachSettingsPreview := MachSettingsEdit;
+		END_IF
+		MpRecipeUIConnect.New.Create := TRUE;
+		hmiRecipe.Commands.CreateRecipe := FALSE;
+	END_IF
+	
 	//	IF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Product')) = 0) THEN
 	//		
 	//	ELSIF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
 	//		
 	//	END_IF
-
-	IF hmiRecipe.Commands.CreateRecipe THEN
-		ParametersPreview := ParametersEdit;
-		MpRecipeUIConnect.New.Create := TRUE;
-		hmiRecipe.Commands.CreateRecipe := FALSE;
-	END_IF
 	
-	IF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Product')) = 0) THEN
-		MpRecipeUIConnect.New.FileName := 'newParametersRecipe.par';
-	ELSIF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
-		MpRecipeUIConnect.New.FileName := 'newMachConfigRecipe.mcfg';
-	END_IF
 
 END_ACTION
