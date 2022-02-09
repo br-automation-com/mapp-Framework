@@ -4,8 +4,8 @@
   <Files>
     <File Description="Init, cyclic, exit code">Main.st</File>
     <File Description="Local data types" Private="true">Types.typ</File>
+    <File Description="Local variables" Private="true" Reference="true">\Logical\Infrastructure\AxisTemplate\AxisControl\AxisControl.var</File>
     <File Description="Local variables" Private="true">Variables.var</File>
-    <File Description="Local variables" Private="true" Reference="true">\Logical\Infrastructure\AxisTemplate\AxisControl\AxisStandard.var</File>
     <File>SimulationControl.st</File>
     <File>AxisControl.st</File>
     <File Reference="true">\Logical\Infrastructure\AxisTemplate\AxisControl\AxisStateMachine.st</File>

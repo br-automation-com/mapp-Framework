@@ -2,9 +2,9 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Program SubType="IEC" xmlns="http://br-automation.co.at/AS/Program">
   <Files>
-    <File Description="Init, cyclic, exit code">Main.st</File>
-    <File Description="Local data types" Private="true">Types.typ</File>
-    <File Description="Local variables" Private="true">AxisStandard.var</File>
+    <File Description="Init, cyclic, exit code">AxisControl.st</File>
+    <File Description="Local data types" Private="true">AxisControl.typ</File>
+    <File Description="Local variables" Private="true">AxisControl.var</File>
     <File Private="true">Variables.var</File>
     <File>AxisStateMachine.st</File>
     <File>Control.st</File>
