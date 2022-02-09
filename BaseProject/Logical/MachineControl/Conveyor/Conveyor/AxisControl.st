@@ -1,114 +1,55 @@
+(***********************************************************************************************************************
+* Copyright: B&R Industrial Automation GmbH
+* Description: This program implements an axis control
+***********************************************************************************************************************)
 
-ACTION AxisInit:
+PROGRAM _INIT
     
-END_ACTION
-    
+    ST_name(0, ADR(AxisControl.Status.TaskName), 0);
+    RecipeInit;
 
-ACTION AxisCyclic: 
-
-    IF (MpRecipeRegPar_UserFB.UpdateNotification) THEN
-        
-    END_IF
+    ConfigurationInit;
     
-        
-    MpAlarmXControlSpeedNotSetFB.MpLink := ADR(gAlarmXCore_Conveyor);
-    MpAlarmXControlSpeedNotSetFB.Enable := TRUE;
-    MpAlarmXControlSpeedNotSetFB.Name := ADR('ConveyorSpeedNotSet');
-    MpAlarmXControlSpeedNotSetFB();
-    MpAlarmXControlSpeedNotSetFB.Reset := FALSE;
+    MpAlarmXCoreFB.Enable := TRUE;
     
-END_ACTION
+    MpAxisBasicFB.Enable := TRUE;
 
-  
-ACTION AxisManual:
+    AxisInit;
+END_PROGRAM
+
+PROGRAM _CYCLIC
+
+    MpAxisBasicFB.MpLink := ADR(gAxisConveyor);
+    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gAxisConveyor);
     
-    MpAxisParameters.Jog.Velocity := AxisControl.Parameters.JogVelocity;
-    MpAxisParameters.Position := AxisControl.Parameters.Position;
-    MpAxisParameters.Distance := AxisControl.Parameters.Distance;
-    MpAxisParameters.Acceleration := AxisControl.Parameters.Acceleration;
-    MpAxisParameters.Deceleration := AxisControl.Parameters.Deceleration;
+    SimulationControl;
+    AxisStateMachine;
+    AxisCyclic;
+    RecipeCyclic;
     
-    CASE ManualState OF
-        MANUAL_STATE_IDLE:
-            IF ((AxisControl.Command.JogNegative = TRUE) OR (AxisControl.Command.JogPositive = TRUE)) THEN
-                ManualState := MANUAL_STATE_JOG;
-            ELSIF ((AxisControl.Command.MoveAbsolute = TRUE) OR (AxisControl.Command.MoveAdditive = TRUE)) THEN
-                MpAxisBasicFB.MoveAbsolute := AxisControl.Command.MoveAbsolute;
-                MpAxisBasicFB.MoveAdditive := AxisControl.Command.MoveAdditive;
-                AxisControl.Command.MoveAbsolute := FALSE;
-                AxisControl.Command.MoveAdditive := FALSE;
-                ManualState := MANUAL_STATE_MOVE;
-            END_IF
-            
-        MANUAL_STATE_JOG:
-            MpAxisBasicFB.JogNegative := AxisControl.Command.JogNegative;
-            MpAxisBasicFB.JogPositive := AxisControl.Command.JogPositive;
-            IF (AxisControl.Command.Stop = TRUE) THEN
-                AxisControl.Command.Stop := FALSE;
-                MpAxisBasicFB.Stop := TRUE;
-                ManualState := MANUAL_STATE_STOPPING;
-            ELSIF ((AxisControl.Command.JogNegative = FALSE) AND (AxisControl.Command.JogPositive = FALSE)) THEN
-                MpAxisBasicFB.Stop := FALSE;
-                MpAxisBasicFB.JogPositive := FALSE;
-                MpAxisBasicFB.JogNegative := FALSE;
-                ManualState := MANUAL_STATE_STOPPING;
-            END_IF
-            
-        MANUAL_STATE_MOVE:
-            IF (AxisControl.Command.Stop = TRUE) THEN
-                MpAxisBasicFB.MoveAbsolute := FALSE;
-                MpAxisBasicFB.MoveAdditive := FALSE;
-                AxisControl.Command.Stop := FALSE;
-                MpAxisBasicFB.Stop := TRUE;
-                ManualState := MANUAL_STATE_STOPPING;
-            ELSIF (InPositionEdgePos.Q = TRUE) THEN
-                MpAxisBasicFB.MoveAbsolute := FALSE;
-                MpAxisBasicFB.MoveAdditive := FALSE;
-                ManualState := MANUAL_STATE_IDLE;
-                state := STATE_READY;
-            ELSIF ((AxisControl.Command.JogNegative = TRUE) OR (AxisControl.Command.JogPositive = TRUE)) THEN
-                MpAxisBasicFB.MoveAbsolute := FALSE;
-                MpAxisBasicFB.MoveAdditive := FALSE;
-                ManualState := MANUAL_STATE_JOG;
-            END_IF
-            
-        MANUAL_STATE_STOPPING:
-            MpAxisBasicFB.JogNegative := FALSE;
-            MpAxisBasicFB.JogPositive := FALSE;
-            MpAxisBasicFB.MoveAbsolute := FALSE;
-            MpAxisBasicFB.MoveAdditive := FALSE;
+    MpAlarmXCoreFB.MpLink := ADR(gAlarmXCore_Conveyor);
+    MpAlarmXCoreFB();
 
-            IF (MpAxisBasicFB.MoveActive = FALSE) THEN
-                ManualState := MANUAL_STATE_IDLE;
-                state := STATE_READY;
-            END_IF
-    END_CASE
+END_PROGRAM
+
+PROGRAM _EXIT
+
+    MpRecipeRegPar_MachineFB.Enable := FALSE;
+    MpRecipeRegPar_MachineFB();
     
-END_ACTION
-
-ACTION AxisAutomatic:
-
-    MpAlarmXControlSpeedNotSetFB.Set := (MpAxisParameters.Velocity = 0);
+    MpRecipeRegPar_UserFB.Enable := FALSE;
+    MpRecipeRegPar_UserFB();
     
-    MpAxisBasicFB.MoveVelocity := TRUE;
-    MpAxisParameters.Velocity := AxisControl.Parameters.Velocity;
-    MpAxisParameters.Acceleration := AxisControl.Parameters.Acceleration;
-    MpAxisParameters.Deceleration := AxisControl.Parameters.Deceleration;
-
-    IF (AxisControl.Command.Stop = TRUE) THEN
-        state := STATE_READY;
-        MpAxisBasicFB.MoveVelocity := FALSE;
-    END_IF
+    MpRecipeRegPar_PreFB.Enable := FALSE;
+    MpRecipeRegPar_PreFB();
     
-END_ACTION
-
-ACTION AxisReset:
-
-//    edge alarms don't require a reset
-//    IF (MpAlarmXControlSpeedNotSetFB.Set = TRUE) THEN
-//        MpAlarmXControlSpeedNotSetFB.Set := FALSE;
-//        MpAlarmXControlSpeedNotSetFB.ID := MpAlarmXControlSpeedNotSetFB.InstanceID;
-//        MpAlarmXControlSpeedNotSetFB.Reset := TRUE;
-//    END_IF
+    MpRecipeRegPar_UserPreFB.Enable := FALSE;
+    MpRecipeRegPar_UserPreFB();
     
-END_ACTION
+    MpAxisBasicFB.Enable := FALSE;
+    MpAxisBasicFB();
+    
+    MpAlarmXCoreFB.Enable := FALSE;
+    MpAlarmXCoreFB();
+
+END_PROGRAM
