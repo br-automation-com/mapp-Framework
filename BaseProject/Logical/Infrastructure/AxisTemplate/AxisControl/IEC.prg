@@ -7,7 +7,7 @@
     <File Description="Local variables" Private="true">AxisControl.var</File>
     <File Private="true">Variables.var</File>
     <File>AxisStateMachine.st</File>
-    <File>Control.st</File>
+    <File>AxisControlModes.st</File>
     <File>Recipe.st</File>
     <File>SimulationControl.st</File>
     <File Private="true">LocalFunctions.fun</File>
