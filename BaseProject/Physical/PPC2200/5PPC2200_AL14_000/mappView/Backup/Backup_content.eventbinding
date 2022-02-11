@@ -1,45 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="Backup_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-        <EventBinding id="Settings_content.ButtonBackupDialog_Create_content.Click">
-            <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Create_content" event="Click" />
-            <EventHandler>
-                <Action>
-                    <Target xsi:type="clientSystem.Action">
-                        <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupCreate_dialog" />
-                    </Target>
-                </Action>
-            </EventHandler>
-        </EventBinding>
-        <EventBinding id="Settings_content.ButtonBackupDialog_Delete_content.Click">
-            <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Delete_content" event="Click" />
-            <EventHandler>
-                <Action>
-                    <Target xsi:type="clientSystem.Action">
-                        <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupDelete_dialog" />
-                    </Target>
-                </Action>
-            </EventHandler>
-        </EventBinding>
-        <EventBinding id="Settings_content.ButtonBackupDialog_Restore_content.Click">
-            <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Restore_content" event="Click" />
-            <EventHandler>
-                <Action>
-                    <Target xsi:type="clientSystem.Action">
-                        <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupRestore_dialog" />
-                    </Target>
-                </Action>
-            </EventHandler>
-        </EventBinding>
-        <EventBinding id="Settings_content.ButtonBackupSettings.Click">
-            <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupSettings" event="Click" />
-            <EventHandler>
-                <Action>
-                    <Target xsi:type="clientSystem.Action">
-                        <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupAutoSettings_dialog" />
-                    </Target>
-                </Action>
-            </EventHandler>
-        </EventBinding>
+    <EventBinding id="Backup_content.ButtonBackupDialog_Create_content.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Create_content" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupCreate_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Backup_content.ButtonBackupDialog_Delete_content.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Delete_content" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupDelete_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Backup_content.ButtonBackupDialog_Restore_content.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Restore_content" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupRestore_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Backup_content.ButtonBackupSettings.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupSettings" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupAutoSettings_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
