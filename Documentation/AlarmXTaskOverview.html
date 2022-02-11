@@ -1,0 +1,121 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Task Overview</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.4.0.357">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+
+	
+	
+</head>
+
+<body>
+
+
+
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<h1 class="rvps4"><span class="rvts0"><span class="rvts13">mapp AlarmX Framework - </span></span><span class="rvts0"><span class="rvts13">Task Overview</span></span></h1>
+<p class="rvps2"><span class="rvts6">The AlarmMgt task contains all of the provided Framework code for mapp AlarmX. The chart below provides a description for the main task and each action file. </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<div class="rvps7"><table border="3" cellpadding="4" cellspacing="-1" style="border-color: #ffcc99; border-style: solid; border-collapse: collapse; border-top: none; border-right: none; border-bottom: none; border-left: none;">
+<tr valign="top">
+<td width="116" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #f79646;"><p class="rvps2"><span class="rvts24">Filename</span></p>
+</td>
+<td width="98" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #f79646;"><p class="rvps2"><span class="rvts24">Type</span></p>
+</td>
+<td width="381" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #f79646;"><p class="rvps2"><span class="rvts24">Description</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="116" height="51" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">AlarmMgt.st </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+<td width="98" height="51" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Main task code</span></p>
+</td>
+<td width="381" height="51" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">General mapp function block handling.</span></p>
+<p class="rvps2"><span class="rvts6">Handles alarm acknowledgment.</span></p>
+<p class="rvps2"><span class="rvts6">Handles alarm history export. </span></p>
+<p class="rvps2"><span class="rvts6">Checks if any reactions are active. </span></p>
+<p class="rvps2"><span class="rvts6">Calls all actions.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="116" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">AlarmHandling.st </span></p>
+</td>
+<td width="98" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Action</span></p>
+</td>
+<td width="381" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Defines the conditions which trigger each alarm.</span></p>
+<p class="rvps2"><span class="rvts6">The AlarmMgt task contains a Boolean array called “Alarms”. Each index of the array corresponds to the Monitored PV for each of the 100 predefined alarms in the AlarmX configuration.</span></p>
+<p class="rvps2"><span class="rvts6">This is also the designated place to define the conditions under which to inhibit alarms if inhibiting is needed in the application. </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="116" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">HMIActions.st </span></p>
+</td>
+<td width="98" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Action</span></p>
+</td>
+<td width="381" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Shows the alarm backtrace information on the HMI. Typically the backtrace action (GetBacktraceInformation) does not need to be modified. </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="116" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">ExecuteQuery.st </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+<td width="98" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Action</span></p>
+</td>
+<td width="381" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Executes a query.</span></p>
+<p class="rvps2"><span class="rvts6">Includes the supporting state machine to query large amounts of data.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="116" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">AlarmSamples.st </span></p>
+</td>
+<td width="98" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Action</span></p>
+</td>
+<td width="381" valign="top" style="border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Calls the variables for the examples built into the Framework.</span></p>
+<p class="rvps2"><span class="rvts6">Contains comments to explain each example.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+<p></p>
+
+	</div>
+	
+	
+	
+
+	
+</body>
+	
+</html>
+

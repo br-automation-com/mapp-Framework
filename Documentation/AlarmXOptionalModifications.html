@@ -1,0 +1,73 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Optional Modifications</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.4.0.357">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+
+	
+	
+</head>
+
+<body>
+
+
+
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<h1 class="rvps4"><span class="rvts0"><span class="rvts13">mapp AlarmX Framework - </span></span><span class="rvts0"><span class="rvts13">Optional Modifications</span></span></h1>
+<p class="rvps2"><span class="rvts6">The Framework can be adjusted as needed for the application in any way necessary. This section summarizes some optional modifications that are commonly done to the Framework. </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+<li class="rvps2"><span class="rvts6">Adjust the provided query (ActiveAlarms) source conditions (“SELECT” and “WHERE”) in the AlarmX configuration.</span></li>
+<li class="rvps2"><span class="rvts6">In the CPU configuration, modify the “mappAlarmX” file device to the desired storage medium. By default, this corresponds to the User partition (F:\AlarmX). </span></li>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+<li class="rvps2"><span class="rvts6">If you do, update or delete lines 11-17 of the AlarmMgt.st INIT program, which creates the directory F:\AlarmX if it does not already exist. </span></li>
+</ul>
+<li class="rvps2"><span class="rvts6">Add more alarms / delete unused alarms (see </span><a class="rvts25" href="AlarmXoAddorDeleteAlarms.html">here</a><span class="rvts6">&nbsp;for more details)</span></li>
+<li class="rvps2"><span class="rvts6">Adjust the Alarm Mapping (see </span><a class="rvts25" href="AlarmXoAlarmMapping.html">here</a><span class="rvts6">&nbsp;for more details)</span></li>
+<li class="rvps2"><span class="rvts6">Inhibit certain alarms under specific conditions (see </span><a class="rvts25" href="AlarmXoInhibitAlarms.html">here</a><span class="rvts6">&nbsp;for more details)</span></li>
+<li class="rvps2"><span class="rvts6">Add additional queries (see </span><a class="rvts25" href="AlarmXoAddQueries.html">here</a><span class="rvts6">&nbsp;for more details)</span></li>
+</ul>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps6"><span class="rvts16">Topics in this section:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+<li class="rvps2"><a class="rvts17" href="AlarmXoAddorDeleteAlarms.html">Add or Delete Alarms</a></li>
+<li class="rvps2"><a class="rvts17" href="AlarmXoAlarmMapping.html">Alarm Mapping</a></li>
+<li class="rvps2"><a class="rvts17" href="AlarmXoInhibitAlarms.html">Inhibit Alarms</a></li>
+<li class="rvps2"><a class="rvts17" href="AlarmXoAddQueries.html">Add Queries</a></li>
+</ul>
+<p></p>
+
+	</div>
+	
+	
+	
+
+	
+</body>
+	
+</html>
+

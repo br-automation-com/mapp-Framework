@@ -1,0 +1,76 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Add or Delete Alarms</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.4.0.357">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+
+	
+	
+</head>
+
+<body>
+
+
+
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<h1 class="rvps4"><span class="rvts0"><span class="rvts13">mapp AlarmX Framework - </span></span><span class="rvts0"><span class="rvts13">Add or Delete Alarms</span></span></h1>
+<p class="rvps2"><span class="rvts29">Adding Alarms</span></p>
+<p class="rvps2"><span class="rvts6">The Framework comes with 100 discrete value monitoring alarms. If you need more discrete value monitoring alarms or any other type of alarm, add them accordingly. To do so: </span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps2"><span class="rvts6">Increase the size of the Alarms[] array in the AlarmMgt task according to how many alarms you need to add. </span></li>
+<li value="2" class="rvps2"><span class="rvts6">Add the new alarms to the AlarmList in the AlarmX.mpalarmxcore configuration file. </span></li>
+<li value="3" class="rvps2"><span class="rvts6">Define the condition to trigger each new alarm in the AlarmHandling.st action file. </span></li>
+</ol>
+<p class="rvps2"><span class="rvts6">Note that it is permissible to mix and match different types of alarms (e.g. monitoring alarms with edge/persistent alarms that are triggered via MpAlarmXAlarmControl() or MpAlarmXSet()).</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts29">Deleting Alarms</span></p>
+<p class="rvps2"><span class="rvts6">The Framework comes with 100 discrete value monitoring alarms. If you don’t need all 100 of these alarms, delete them as needed. To do so:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps2"><span class="rvts6">Optionally decrease the size of the Alarms[] array in the AlarmMgt task according to how many alarms you want to remove. </span></li>
+<li value="2" class="rvps2"><span class="rvts6">Delete the unwanted alarms from the Alarm List in the AlarmX.mpalarmxcore configuration file. </span></li>
+<li value="3" class="rvps2"><span class="rvts6">Delete the alarm assignments for the unwanted alarms in the AlarmHandling.st action file. Note that these may be commented out from the original Framework import. </span></li>
+</ol>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts29">Deleting the Example Alarms</span></p>
+<p class="rvps2"><span class="rvts6">The Framework also comes with a number of example alarms. If you don't need some (or all) of these examples, then do the following:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps2"><span class="rvts6">Remove members from the AlarmExamples_typ or completely delete the AlarmExamples variable in the AlarmMgt task. </span></li>
+<li value="2" class="rvps2"><span class="rvts6">Delete the example alarm(s) from the Alarm List in the AlarmX.mpalarmxcore configuration file.</span></li>
+<li value="3" class="rvps2"><span class="rvts6">Edit or completely delete the AlarmSamples.st file, depending on the alarms you no longer need. If you delete this file, then also delete line 55 of AlarmMgt.st where the "AlarmSamples" action is called. </span></li>
+</ol>
+<p></p>
+
+	</div>
+	
+	
+	
+
+	
+</body>
+	
+</html>
+

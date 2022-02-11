@@ -1,0 +1,87 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Required Modifications</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.4.0.357">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+
+	
+	
+</head>
+
+<body>
+
+
+
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<h1 class="rvps4"><span class="rvts0"><span class="rvts13">mapp Recipe Framework - </span></span><span class="rvts0"><span class="rvts13">Required Modifications</span></span></h1>
+<p class="rvps2"><span class="rvts6">The Framework by default provides a solid foundation, but in order to integrate it fully into your application there are a few modifications that must be made. </span></p>
+<p class="rvps2"><span class="rvts6">The following list of modifications are </span><span class="rvts18">required</span><span class="rvts6">&nbsp;to get the Framework in a functional state within the application.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<div class="rvps2"><table width="90%" border="4" cellpadding="10" cellspacing="2" style="border-color: #6699ff; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-width : 0px; padding: 10px; background-color: #eeeeee;"><p class="rvps2"><span class="rvts6">IMPORTANT: The steps on this page must be executed in order to get the Framework into a functional state! </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps2"><span class="rvts6">The two default recipes (one for commissioning data and one for product data) must exist in the “mappRecipe” file device at startup. Starting versions of these recipes is provided in the framework within the CF package (</span><span class="rvts22">CF </span><span class="rvts32">→</span><span class="rvts22">&nbsp;GAT </span><span class="rvts32">→</span><span class="rvts22">&nbsp;Recipe</span><span class="rvts6">). </span></li>
+</ol>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: decimal;">
+<li value="2" class="rvps2"><span class="rvts6">Change / modify the structure variable that is registered to each recipe within RecipeMgt.st. [add more details]</span></li>
+</ol>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: decimal;">
+<li value="3" class="rvps2"><span class="rvts6">Register additional variables if needed. [</span><span class="rvts22">add more details</span><span class="rvts6">]</span></li>
+</ol>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: decimal;">
+<li value="4" class="rvps2"><span class="rvts6">On </span><span class="rvts22">ContentMpRecipe</span><span class="rvts6">.content, change the text on the labels and the bindings on the Numer-icOutputs according to the parameters you want to display</span></li>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps2"><span class="rvts6">This is necessary on the Preview tab as well as the Comparison tab</span></li>
+<li value="2" class="rvps2"><span class="rvts6">Repeat on ContentEditRecpe.content and ContentCreateNewRecipe.content</span></li>
+</ol></ol>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: decimal;">
+<li value="5" class="rvps2"><span class="rvts6">If you imported the mapp View front end with the Framework, assign the </span><span class="rvts24">mapp View content</span><span class="rvts6">&nbsp;(content ID = Recipe_content) to an area in a page within your visualization.</span></li>
+</ol>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p></p>
+
+	</div>
+	
+	
+	
+
+	
+</body>
+	
+</html>
+

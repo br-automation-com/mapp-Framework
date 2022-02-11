@@ -1,0 +1,83 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Alarm Mapping</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.4.0.357">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+
+	
+	
+</head>
+
+<body>
+
+
+
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<h1 class="rvps4"><span class="rvts0"><span class="rvts13">mapp AlarmX Framework - </span></span><span class="rvts0"><span class="rvts13">Alarm Mapping</span></span></h1>
+<p class="rvps2"><span class="rvts6">The Framework establishes three alarm reactions by default within the alarm mapping: </span></p>
+<p class="rvps2"><span class="rvts6">1.</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6">Info (severity 1 – 9)</span></p>
+<p class="rvps2"><span class="rvts6">2.</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6">Warning (severity 10 – 19)</span></p>
+<p class="rvps2"><span class="rvts6">3.</span><span class="rvts6"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="rvts6">Error (severity 20 – 29)</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">The MpAlarmXCheckReaction() function is called for each reaction within the AlarmMgt task. </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">The following optional changes should be considered to align the Framework with the application requirements: </span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+<li class="rvps2"><span class="rvts6">Adjust the severity ranges </span></li>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+<li class="rvps2"><span class="rvts6">This is done in the AlarmX.mpalarmxcore configuration file</span></li>
+</ul>
+<li class="rvps2"><span class="rvts6">Rename the reactions</span></li>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+<li class="rvps2"><span class="rvts6">This is done in the AlarmX.mpalarmxcore configuration file</span></li>
+<li class="rvps2"><span class="rvts6">If you do this, remember to change the name in the MpAlarmXCheckReaction() function calls in AlarmMgt.st to the new name (starting at line 57).</span></li>
+</ul>
+<li class="rvps2"><span class="rvts6">Add / remove reactions</span></li>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+<li class="rvps2"><span class="rvts6">This is done in the AlarmX.mpalarmxcore configuration file</span></li>
+<li class="rvps2"><span class="rvts6">If you do this, remember to add / remove function calls of MpAlarmXCheckReaction() in AlarmMgt.st accordingly (starting at line 57). </span></li>
+</ul>
+<li class="rvps2"><span class="rvts6">Check for the reactions elsewhere in code</span></li>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;">
+<li class="rvps2"><span class="rvts6">Typically the MpAlarmXCheckReaction() function is called from other tasks within the application. For example, the axis control task might check for the “Error” reaction to determine whether to send a stop command to the axes. Therefore, copy / paste the IF statements containing MpAlarmXCheckReaction() from AlarmMgt.st as needed around the application. </span><br/><span class="rvts6"><br/></span></li>
+</ul></ul>
+<p class="rvps3"><img alt="" style="padding : 1px;" src="lib/AlarmX_mapping.png"></p>
+<p class="rvps3"><span class="rvts6"><br/></span></p>
+<p class="rvps3"><img alt="" style="padding : 1px;" src="lib/AlarmX_CheckReaction2.png"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p></p>
+
+	</div>
+	
+	
+	
+
+	
+</body>
+	
+</html>
+

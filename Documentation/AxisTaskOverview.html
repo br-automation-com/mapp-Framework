@@ -1,0 +1,163 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Task Overview</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.4.0.357">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+
+	
+	
+</head>
+
+<body>
+
+
+
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<h1 class="rvps4"><span class="rvts0"><span class="rvts13">mapp Axis Framework - </span></span><span class="rvts0"><span class="rvts13">Task Overview</span></span></h1>
+<p class="rvps2"><span class="rvts6">The AxisControl task contains all of the provided Framework code for mapp Axis. The chart below provides a description for the main task and each action file. </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<div class="rvps7"><table border="1" cellpadding="4" cellspacing="-1" style="border-width: 0px; border-collapse: collapse;">
+<tr valign="top">
+<td width="140" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #f79646;"><p class="rvps2"><span class="rvts24">Filename</span></p>
+</td>
+<td width="65" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #f79646;"><p class="rvps2"><span class="rvts24">Type</span></p>
+</td>
+<td width="141" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #f79646;"><p class="rvps2"><span class="rvts24">Reference vs Unique </span></p>
+</td>
+<td width="323" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #f79646;"><p class="rvps2"><span class="rvts24">Description</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="140" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">AxisControl.st</span></p>
+</td>
+<td width="65" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Main task code</span></p>
+</td>
+<td width="141" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Unique / dedicated file per axis</span></p>
+</td>
+<td width="323" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">General mapp function block handling.</span></p>
+<p class="rvps2"><span class="rvts6">Calls all actions.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="140" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">AxisStateMachine.st</span></p>
+</td>
+<td width="65" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Action</span></p>
+</td>
+<td width="141" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Referenced file within the AxisTemplate package</span></p>
+</td>
+<td width="323" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Generic state machine used for all axes. Includes states like power-on, homing, manual/automatic operation, stopping, etc. </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="140" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">AxisControlModes.st</span></p>
+</td>
+<td width="65" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Action</span></p>
+</td>
+<td width="141" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Unique / dedicated file per axis</span></p>
+</td>
+<td width="323" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Programming that is specific to the axis. </span></p>
+<p class="rvps2"><span class="rvts6">Contains manual and automatic mode state machines.</span></p>
+<p class="rvps2"><span class="rvts6">Manual mode is set up for basic jogging. </span></p>
+<p class="rvps2"><span class="rvts6">Automatic mode is by default empty (to be filled in per the application).</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="140" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Recipe.st</span></p>
+</td>
+<td width="65" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Action</span></p>
+</td>
+<td width="141" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Referenced file within the AxisTemplate package</span></p>
+</td>
+<td width="323" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Registers axis variables to the recipe system. Optionally add additional variables as needed.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="140" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">SimulationControl.st</span></p>
+</td>
+<td width="65" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Action</span></p>
+</td>
+<td width="141" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Unique / dedicated file per axis</span></p>
+</td>
+<td width="323" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Supporting code for simulation. Modify as needed for simulation requirements. </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="140" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">ManualCommand.st</span></p>
+</td>
+<td width="65" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Function</span></p>
+</td>
+<td width="141" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Unique / dedicated file per axis</span></p>
+</td>
+<td width="323" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Returns True/False depending on whether a manual mode command has been issued. </span></p>
+<p class="rvps2"><span class="rvts6">Used in AxisStateMachine.st to handle the transition between manual and automatic mode. Change the ManualCommand assignment as needed. This function allows the AxisStateMachine to remain generic. </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="140" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">AutomaticCommand.st</span></p>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+</td>
+<td width="65" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Function</span></p>
+</td>
+<td width="141" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Unique / dedicated file per axis</span></p>
+</td>
+<td width="323" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px; background-color: #fde9d9;"><p class="rvps2"><span class="rvts6">Returns True/False depending on whether a automatic mode command has been issued. </span></p>
+<p class="rvps2"><span class="rvts6">Used in AxisStateMachine.st to handle the transition between manual and automatic mode. Change the AutomaticCommand assignment as needed. This function allows the AxisStateMachine to remain generic.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+</tr>
+<tr valign="top">
+<td width="140" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">ChangeConfiguration.st</span></p>
+</td>
+<td width="65" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Action</span></p>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+</td>
+<td width="141" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Referenced file within the AxisTemplate package</span></p>
+</td>
+<td width="323" valign="top" style="border-width : 1px; border-color: #fabf8f; border-style: solid; padding: 0px 7px;"><p class="rvps2"><span class="rvts6">Sets up the ability to change configuration settings at runtime. Modifications to this action are typically not necessary.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+<p></p>
+
+	</div>
+	
+	
+	
+
+	
+</body>
+	
+</html>
+
