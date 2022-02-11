@@ -37,6 +37,16 @@ Section # Remove old
 
 	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
 	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.5"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.32"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.33"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.55"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.59"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.66"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.70"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.76"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.77"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.99"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.103"
 SectionEnd
 
 ; Dummy section for the start of the root group
