@@ -1,68 +1,65 @@
-[
+{
+    "libraries" :
+    [
+        "McAxis",
+        "McAcpAx",
+        "McPureVAx",
+        "McAcpPar",
+        "McBase",
+        "runtime",
+        "AsIODiag",
+        "AsZip",
+        "FileIO"
+    ],
+    "mapp" :
+    [
+        "MpAxis",
+        "MpAlarmX",
+        "MpServer",
+        "MpCom",
+        "MpBase",
+        "CoTrace"
+    ],
+    "files" :
+    [
+        "Logical\\Infrastructure\\Project.language",
+        "Logical\\Infrastructure\\mappFrameworkGlobal.var",
+        "Logical\\Infrastructure\\AxisTemplate\\ModuleInfo.tmx",
+        "Logical\\Infrastructure\\AxisTemplate\\ModuleAlarms.tmx",
+        "Logical\\Infrastructure\\AxisTemplate\\AxisControl",
+        "Logical\\MachineControl\\Conveyor\\ConveyorInfo.tmx",
+        "Logical\\MachineControl\\Conveyor\\ConveyorAlarms.tmx",
+        "Logical\\MachineControl\\Conveyor\\Conveyor",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappMotion\\Conveyor",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\MachineGrp.mpcomgroup",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\Conveyor"
+    ],
+    "mappViewfiles" :
+    [
+        "Logical\\mappView\\Layouts\\DefaultPage.layout",
+        "Logical\\mappView\\Resources\\Texts\\HMI_PagesTexts\\AxisPageTexts.tmx",
+        "Logical\\mappView\\Resources\\Snippets\\PLCopen.snippet",
+        "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat1",
+        "Logical\\mappView\\Resources\\Media",
+        "Logical\\mappView\\Widgets\\WidgetLib",
+        "Logical\\mappView\\Visualization\\Pages\\FrameworkPackage\\AxisContent",
+        "Logical\\mappView\\Visualization\\Pages\\StartPage",
+        "Logical\\mappView\\Visualization\\Expressions\\Axis.expression",
+        "Logical\\mappView\\Visualization\\Expressions\\AxisType.expressiontype",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\Axis.uad",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Axis",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Axis.vis"
+    ],
+    "physical":
     {
-        "libraries" :
+        "deployTasks" :
         [
-            "McAxis",
-            "McAcpAx",
-            "McPureVAx",
-            "McAcpPar",
-            "McBase",
-            "runtime",
-            "AsIODiag",
-            "AsZip",
-            "FileIO"
-        ]
-    },
-    {
-        "mapp" :
+            "MachineControl.Conveyor.Conveyor.prg"
+        ],
+        "fileDevices" :
         [
-            "MpAxis",
-            "MpAlarmX",
-            "MpServer",
-            "MpCom",
-            "MpBase",
-            "CoTrace"
-        ]
-    },
-    {
-        "files" :
-        [
-            "Logical\\Infrastructure\\Project.language",
-            "Logical\\Infrastructure\\mappFrameworkGlobal.var",
-            "Logical\\Infrastructure\\AxisTemplate\\ModuleInfo.tmx",
-            "Logical\\Infrastructure\\AxisTemplate\\ModuleAlarms.tmx",
-            "Logical\\Infrastructure\\AxisTemplate\\AxisControl",
-            "Logical\\MachineControl\\Conveyor\\ConveyorInfo.tmx",
-            "Logical\\MachineControl\\Conveyor\\ConveyorAlarms.tmx",
-            "Logical\\MachineControl\\Conveyor\\Conveyor",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappMotion\\Conveyor",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\MachineGrp.mpcomgroup",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\Conveyor"
-        ]
-    },
-    {
-        "mappViewfiles" :
-        [
-            "Logical\\mappView\\Layouts\\SmallDialog.layout",
-            "Logical\\mappView\\Layouts\\LargeDialog.layout",
-            "Logical\\mappView\\Resources\\Texts\\HMI_PagesTexts\\AxisPageTexts.tmx",
-            "Logical\\mappView\\Resources\\Texts\\Infrastructure_Texts\\mappAlarms\\MpMotionAlarms.tmx",
-            "Logical\\mappView\\Resources\\Texts\\Infrastructure_Texts\\MotionTexts.tmx",
-            "Logical\\mappView\\Resources\\Snippets\\PLCopen.snippet",
-            "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat1",
-            "Logical\\mappView\\Resources\\Media",
-			"Logical\\mappView\\Layouts\\DefaultPage.layout",
-            "Logical\\mappView\\Widgets\\WidgetLib",
-            "Logical\\mappView\\Layouts\\DefaultPage.layout",
-            "Logical\\mappView\\Visualization\\Pages\\StartPage",
-            "Logical\\mappView\\Visualization\\Pages\\FrameworkPackage\\AxisContent",
-			"Logical\\mappView\\Visualization\\Pages\\StartPage",
-            "Logical\\mappView\\Visualization\\Expressions\\Axis.expression",
-            "Logical\\mappView\\Visualization\\Expressions\\AxisType.expressiontype",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\Axis.uad",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Axis",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Axis.vis",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappCockpit"
-        ]
+            "userPartition"
+        ],
+        "enableOpcUa" : true
     }
-]
+}
