@@ -1,4 +1,3 @@
-
 ACTION FormatDeviceDataProvider: 
     
 	// Select CF device if USB device is not available 
@@ -29,31 +28,31 @@ END_ACTION
 ACTION LoadPreview:
 
 	// Load preview when a recipe is selected 
-//	IF ((MpRecipeUIConnect.Recipe.List.SelectedIndex <> hmiRecipe.Status.LastSelectedIndex) AND (MpRecipeXml_Preview.Active = TRUE)) THEN
+//	IF ((MpRecipeUIConnect.Recipe.List.SelectedIndex <> hmiRecipe.Status.LastSelectedIndex) AND (MpRecipe_Preview.Active = TRUE)) THEN
 	IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> hmiRecipe.Status.LastSelectedIndex) THEN
 		(* Check selected recipe name is not empty *)
 		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
-//			MpRecipeXml_Preview.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
-//			MpRecipeXml_Preview.Load := TRUE;
-			MpRecipeXml_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
-			MpRecipeXml_0.Category := ADR(hmiRecipe.Status.CategoryDropdown);
-			MpRecipeXml_0.Load := TRUE;
+//			MpRecipe_Preview.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
+//			MpRecipe_Preview.Load := TRUE;
+			MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
+			MpRecipe_0.Category := ADR(hmiRecipe.Status.CategoryDropdown);
+			MpRecipe_0.Load := TRUE;
 			hmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
 		END_IF
 	END_IF
 
 	// Reset load command on MpRecipe_Pre FUB 
-//	IF ((MpRecipeXml_Preview.CommandDone = TRUE) OR (MpRecipeXml_Preview.Error = TRUE)) THEN
-//		MpRecipeXml_Preview.Load := FALSE;
+//	IF ((MpRecipe_Preview.CommandDone = TRUE) OR (MpRecipe_Preview.Error = TRUE)) THEN
+//		MpRecipe_Preview.Load := FALSE;
 //	END_IF;
-	IF ((MpRecipeXml_0.CommandDone = TRUE) OR (MpRecipeXml_0.Error = TRUE)) THEN
-		MpRecipeXml_0.Load := FALSE;
+	IF ((MpRecipe_0.CommandDone = TRUE) OR (MpRecipe_0.Error = TRUE)) THEN
+		MpRecipe_0.Load := FALSE;
 	END_IF;
 
 END_ACTION
 
 ACTION RecipeHMIcommands:
-	IF NOT MpRecipeXml_0.CommandBusy AND brsstrcmp(ADR(previousRecipe),ADR(hmiRecipe.Status.FileName)) <> 0 THEN
+	IF NOT MpRecipe_0.CommandBusy AND brsstrcmp(ADR(previousRecipe),ADR(hmiRecipe.Status.FileName)) <> 0 THEN
 		hmiRecipe.Status.FileName := previousRecipe;
 	END_IF
 	
@@ -92,8 +91,8 @@ ACTION RecipeHMIcommands:
 			END_IF
 		END_IF
 		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
-			MpRecipeXml_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
-			MpRecipeXml_0.Save := TRUE;
+			MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
+			MpRecipe_0.Save := TRUE;
 		END_IF
 		hmiRecipe.Commands.SaveSelectedRecipe := FALSE;
 	END_IF

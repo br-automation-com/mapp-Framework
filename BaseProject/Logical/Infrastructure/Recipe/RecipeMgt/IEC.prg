@@ -8,5 +8,6 @@
     <File>HMIActions.st</File>
     <File>FileOperations.st</File>
     <File>MachineSettings.st</File>
+    <File>RecipeAlarms.tmx</File>
   </Files>
 </Program>

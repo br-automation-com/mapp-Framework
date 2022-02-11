@@ -1,4 +1,3 @@
-
 ACTION MachineSettings:
     
 	// Handle recipe commands 
@@ -11,14 +10,14 @@ ACTION MachineSettings:
         Header.DateTime := DTGetTime_0.DT1;
         Header.Name := MACHINE_FILENAME;
         Header.Description := 'Machine Settings';
-        MpRecipeXml_0.Save := TRUE;
+        MpRecipe_0.Save := TRUE;
     ELSIF ((hmiRecipe.Commands.FactoryResetMachineSettings = TRUE) AND (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE)) THEN
         // Factory reset the machine settings 
         brsstrcpy(ADR(hmiRecipe.Status.Category), ADR(MACHINE_CATEGORY));
         brsstrcpy(ADR(hmiRecipe.Status.FileName), ADR(MACHINE_FILENAME));
-        MpRecipeXml_0.Load := TRUE;
+        MpRecipe_0.Load := TRUE;
 		
-        IF MpRecipeXml_0.CommandDone THEN
+        IF MpRecipe_0.CommandDone THEN
             // Copy factory settings into Machine.fix file 
             hmiRecipe.Commands.FactoryResetMachineSettings := FALSE;
             hmiRecipe.Commands.StoreMachineSettings := TRUE;

@@ -51,14 +51,6 @@
             <Variable Name="Cancel" />
           </Variable>
         </Variable>
-        <Variable Name="MpRecipeXml_0">
-          <Variable Name="Info">
-            <Variable Name="LastLoadedRecipe" />
-          </Variable>
-          <Variable Name="UpdateNotification" />
-          <Variable Name="ErrorReset" />
-          <Variable Name="Error" />
-        </Variable>
         <Variable Name="hmiRecipe">
           <Variable Name="Commands" AutomaticEnable="True" />
           <Variable Name="Status">
@@ -76,15 +68,20 @@
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
         </Variable>
-        <Variable Name="MpRecipeXml_Preview">
-          <Variable Name="Load" />
-        </Variable>
         <Variable Name="Parameters" AutomaticEnable="True" />
         <Variable Name="MachSettings" AutomaticEnable="True" />
         <Variable Name="MachSettingsPreview" AutomaticEnable="True" />
         <Variable Name="ParametersPreview" AutomaticEnable="True" />
         <Variable Name="ParametersEdit" AutomaticEnable="True" />
         <Variable Name="MachSettingsEdit" AutomaticEnable="True" />
+        <Variable Name="MpRecipe_0">
+          <Variable Name="ErrorReset" />
+          <Variable Name="UpdateNotification" />
+          <Variable Name="Error" />
+          <Variable Name="Info">
+            <Variable Name="LastLoadedRecipe" />
+          </Variable>
+        </Variable>
       </Task>
     </Module>
   </DefaultView>
