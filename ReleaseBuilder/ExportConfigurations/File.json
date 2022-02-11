@@ -2,8 +2,9 @@
     "libraries" :
     [
         "runtime",
-        "FileIO"
-        
+        "FileIO",
+        "AsBrStr",
+        "standard"
     ],
     "mapp" :
     [
@@ -43,6 +44,7 @@
         [
             "userPartition"
         ],
-        "enableOpcUa" : false
+        "enableOpcUa" : false,
+        "UserPartitionSize" : true
     }
 }

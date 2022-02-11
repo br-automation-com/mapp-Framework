@@ -92,6 +92,27 @@ def enableOpcUa(dir):
             f.write(line)
         f.truncate()
 
+def setUserPartitionSize(dir):
+    global projectPath
+    global physicalDir
+    file = rf'{physicalDir}\Hardware.hw'
+
+    userPartition = ''
+    with open(os.path.join(projectPath, file), "r") as f:
+        new_f = f.readlines()
+        for line in new_f:
+            if (line.find('<Parameter ID="UserPartitionSize"') != -1):
+                userPartition = line
+
+    with open(os.path.join(dir, file), "r+") as f:
+        new_f = f.readlines()
+        f.seek(0)
+        for line in new_f:
+            if (line.find('</Module>') != -1):
+                f.write(userPartition)
+            f.write(line)
+        f.truncate()
+
 def createZip(exportName, exportDir):
     global projectPath
     for root, dirs, files in os.walk(exportDir):
@@ -142,6 +163,8 @@ def main() -> None:
         copyFileDevices(exportDir, export['physical']["fileDevices"])
         if (('enableOpcUa' in export['physical']) and (export['physical']['enableOpcUa'] == True)):
             enableOpcUa(exportDir)
+        if (('UserPartitionSize' in export['physical']) and (export['physical']['UserPartitionSize'] == True)):
+            setUserPartitionSize(exportDir)
 
     createZip(args.output + '\\' + Path(args.config).stem, exportDir)
 
@@ -163,6 +186,8 @@ def main() -> None:
         copyTasksDeployment(exportDir, export['physical']["deployTasks"])
         copyFileDevices(exportDir, export['physical']["fileDevices"])
         enableOpcUa(exportDir)
+        if (('UserPartitionSize' in export['physical']) and (export['physical']['UserPartitionSize'] == True)):
+            setUserPartitionSize(exportDir)
 
     createZip(args.output + '\\' + Path(args.config).stem + 'MappView', exportDir)
 
