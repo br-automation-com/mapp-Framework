@@ -31,5 +31,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="hmiAlarmX.Commands.ExportAlarms.Success">
+      <Source xsi:type="opcUa.Event" refId="::AlarmMgt:hmiAlarmX.Commands.ExportAlarms" event="ValueChanged" />
+      <EventHandler condition="newValue = false AND oldValue = true">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Alarm/AlarmExport" header="$IAT/Alarm/AlarmHistory" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
