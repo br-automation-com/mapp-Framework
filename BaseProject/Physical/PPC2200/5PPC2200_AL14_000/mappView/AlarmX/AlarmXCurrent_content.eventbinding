@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<EventBindingSet id="AlarmX_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<EventBindingSet id="AlarmXCurrent_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
     <EventBinding id="Alarm_Eventbinding_1">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmX_content" widgetRefId="PBtnAcknowledge" event="Click" />
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXCurrent_content" widgetRefId="PBtnAcknowledge" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="AlarmX_content" widgetRefId="AlmLstCurrentAlarms">
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="AlarmXCurrent_content" widgetRefId="AlmLstCurrentAlarms">
             <Method xsi:type="widgets.brease.AlarmList.Action.Acknowledge" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Alarm_Eventbinding_2">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmX_content" widgetRefId="PBtnAcknowledgeAll" event="Click" />
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXCurrent_content" widgetRefId="PBtnAcknowledgeAll" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="AlarmX_content" widgetRefId="AlmLstCurrentAlarms">
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="AlarmXCurrent_content" widgetRefId="AlmLstCurrentAlarms">
             <Method xsi:type="widgets.brease.AlarmList.Action.AcknowledgeAll" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_AlarmSelection">
-      <Source xsi:type="widgets.brease.AlarmList.Event" contentRefId="AlarmX_content" widgetRefId="AlmLstCurrentAlarms" event="ItemClick" />
+      <Source xsi:type="widgets.brease.AlarmList.Event" contentRefId="AlarmXCurrent_content" widgetRefId="AlmLstCurrentAlarms" event="ItemClick" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:uInstanceID">
@@ -37,14 +37,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="AlarmX_content" widgetRefId="NumericOutputBackTrace1">
+              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="AlarmXCurrent_content" widgetRefId="NumericOutputBackTrace1">
                 <Method xsi:type="widgets.brease.NumericOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="AlarmX_content" widgetRefId="TextOutputBackTrace1">
+              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="AlarmXCurrent_content" widgetRefId="TextOutputBackTrace1">
                 <Method xsi:type="widgets.brease.TextOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
@@ -58,14 +58,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="AlarmX_content" widgetRefId="NumericOutputBackTrace2">
+              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="AlarmXCurrent_content" widgetRefId="NumericOutputBackTrace2">
                 <Method xsi:type="widgets.brease.NumericOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="AlarmX_content" widgetRefId="TextOutputBackTrace2">
+              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="AlarmXCurrent_content" widgetRefId="TextOutputBackTrace2">
                 <Method xsi:type="widgets.brease.TextOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
@@ -79,14 +79,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="AlarmX_content" widgetRefId="NumericOutputBackTrace3">
+              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="AlarmXCurrent_content" widgetRefId="NumericOutputBackTrace3">
                 <Method xsi:type="widgets.brease.NumericOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="AlarmX_content" widgetRefId="TextOutputBackTrace3">
+              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="AlarmXCurrent_content" widgetRefId="TextOutputBackTrace3">
                 <Method xsi:type="widgets.brease.TextOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
@@ -100,14 +100,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="AlarmX_content" widgetRefId="NumericOutputBackTrace4">
+              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="AlarmXCurrent_content" widgetRefId="NumericOutputBackTrace4">
                 <Method xsi:type="widgets.brease.NumericOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="AlarmX_content" widgetRefId="TextOutputBackTrace4">
+              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="AlarmXCurrent_content" widgetRefId="TextOutputBackTrace4">
                 <Method xsi:type="widgets.brease.TextOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
@@ -121,14 +121,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="AlarmX_content" widgetRefId="NumericOutputBackTrace5">
+              <Target xsi:type="widgets.brease.NumericOutput.Action" contentRefId="AlarmXCurrent_content" widgetRefId="NumericOutputBackTrace5">
                 <Method xsi:type="widgets.brease.NumericOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="AlarmX_content" widgetRefId="TextOutputBackTrace5">
+              <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="AlarmXCurrent_content" widgetRefId="TextOutputBackTrace5">
                 <Method xsi:type="widgets.brease.TextOutput.Action.SetVisible" value="=(newValue&lt;&gt;0)" />
               </Target>
             </Action>
@@ -136,55 +136,26 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="AlarmX_content.PBtnExport.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmX_content" widgetRefId="PBtnExport" event="Click" />
+    <EventBinding id="AlarmXCurrent_content.PBtnActiveAlarmSort.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXCurrent_content" widgetRefId="PBtnActiveAlarmSort" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:hmiAlarmX.Commands.ExportAlarms">
-            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
-    <EventBinding id="AlarmX_content.PBtnActiveAlarmSort.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmX_content" widgetRefId="PBtnActiveAlarmSort" event="Click" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="AlarmX_content" widgetRefId="AlmLstCurrentAlarms">
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="AlarmXCurrent_content" widgetRefId="AlmLstCurrentAlarms">
             <Method xsi:type="widgets.brease.AlarmList.Action.OpenConfiguration" type="Sorting" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="AlarmX_content.PBtnActiveAlarmFilter.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmX_content" widgetRefId="PBtnActiveAlarmFilter" event="Click" />
+    <EventBinding id="AlarmXCurrent_content.PBtnActiveAlarmFilter.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXCurrent_content" widgetRefId="PBtnActiveAlarmFilter" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="AlarmX_content" widgetRefId="AlmLstCurrentAlarms">
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="AlarmXCurrent_content" widgetRefId="AlmLstCurrentAlarms">
             <Method xsi:type="widgets.brease.AlarmList.Action.OpenConfiguration" type="Filtering" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="AlarmX_content.PBtnHistoryAlarmSort.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmX_content" widgetRefId="PBtnHistoryAlarmSort" event="Click" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="widgets.brease.AlarmHistory.Action" contentRefId="AlarmX_content" widgetRefId="AlmHist">
-            <Method xsi:type="widgets.brease.AlarmHistory.Action.OpenConfiguration" type="Sorting" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
-    <EventBinding id="AlarmX_content.PBtnHistoryAlarmFilter.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmX_content" widgetRefId="PBtnHistoryAlarmFilter" event="Click" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="widgets.brease.AlarmHistory.Action" contentRefId="AlarmX_content" widgetRefId="AlmHist">
-            <Method xsi:type="widgets.brease.AlarmHistory.Action.OpenConfiguration" type="Filtering" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
+
   </Bindings>
 </EventBindingSet>

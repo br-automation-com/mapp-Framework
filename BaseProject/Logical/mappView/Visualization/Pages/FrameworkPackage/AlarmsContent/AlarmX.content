@@ -5,49 +5,12 @@
       <Widgets>
         <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItem" left="0" width="165" height="40" zIndex="1" text="$IAT/Alarm/CurrentAlarm">
           <Widgets>
-            <Widget xsi:type="widgets.brease.AlarmList" id="AlmLstCurrentAlarms" top="60" left="0" width="1120" height="360" zIndex="0" format="yyyy-MM-dd hh:mm" imagePrefix="Media/SymbolLib/Alarm/" itemsPerPage="6" searchBox="false" borderStyle="solid" borderWidth="2px" borderColor="rgba(100, 100, 100, 1)" headerBackColor="rgba(255, 255, 255, 1)" headerTextColor="rgba(0, 0, 0, 1)" backColorOddRow="rgba(240, 240, 240, 1)" textColor="rgba(0, 0, 0, 1)" fontSize="16px" textAlign="left">
-              <Widgets>
-                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlmLstItmTimeStamp" width="160" zIndex="0" columnType="timestamp" text="$IAT/Alarm/TimeStamp" />
-                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlmLstItmAlarmMessage" width="700" zIndex="1" text="$IAT/Alarm/AlarmMessage" />
-                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlmLstItmState" width="75" zIndex="2" columnType="state" text="$IAT/Alarm/State" />
-                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem1" width="250" zIndex="3" columnType="additionalInfo1" text="$IAT/Alarm/AdditionalInformation" />
-              </Widgets>
-            </Widget>
-            <Widget xsi:type="widgets.brease.PushButton" id="PBtnAcknowledge" top="19" left="679" width="170" zIndex="1" image="Media/SymbolLib/Alarm/Acknowledge.svg" text="$IAT/Alarm/Acknowledge" style="transparent" />
-            <Widget xsi:type="widgets.brease.PushButton" id="PBtnAcknowledgeAll" top="19" left="900" width="200" zIndex="2" image="Media/SymbolLib/Alarm/Acknowledge.svg" text="$IAT/Alarm/AcknowledgeAll" textAlign="left" style="transparent" />
-            <Widget xsi:type="widgets.brease.Line" id="Line1" zIndex="3" x1="0" x2="0" y1="0" y2="60" lineWidth="5px" />
-            <Widget xsi:type="widgets.brease.GroupBox" id="BacktraceGroupBox" top="425" left="0" width="1120" height="190" zIndex="4" text="$IAT/Alarm/Backtrace" backColor="rgba(255, 255, 255, 1)" textAlign="left">
-              <Widgets>
-                <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputBackTrace1" top="4" left="10" width="140" zIndex="5" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':10},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':10},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':10}}" visible="false" />
-                <Widget xsi:type="widgets.brease.TextOutput" id="TextOutputBackTrace1" top="4" left="170" width="920" zIndex="0" textColor="rgba(255, 0, 0, 1)" visible="false" />
-                <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputBackTrace2" top="34" left="10" width="140" zIndex="6" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':10},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':10},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':10}}" visible="false" />
-                <Widget xsi:type="widgets.brease.TextOutput" id="TextOutputBackTrace2" top="34" left="170" width="920" zIndex="1" textColor="rgba(255, 0, 0, 1)" visible="false" />
-                <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputBackTrace3" top="64" left="10" width="140" zIndex="7" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':10},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':10},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':10}}" visible="false" />
-                <Widget xsi:type="widgets.brease.TextOutput" id="TextOutputBackTrace3" top="64" left="170" width="920" zIndex="2" textColor="rgba(255, 0, 0, 1)" visible="false" />
-                <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputBackTrace4" top="94" left="10" width="140" zIndex="8" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':10},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':10},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':10}}" visible="false" />
-                <Widget xsi:type="widgets.brease.TextOutput" id="TextOutputBackTrace4" top="94" left="170" width="920" zIndex="3" textColor="rgba(255, 0, 0, 1)" visible="false" />
-                <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutputBackTrace5" top="124" left="10" width="140" zIndex="9" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':10},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':10},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':10}}" visible="false" />
-                <Widget xsi:type="widgets.brease.TextOutput" id="TextOutputBackTrace5" top="124" left="170" width="920" zIndex="4" textColor="rgba(255, 0, 0, 1)" visible="false" />
-              </Widgets>
-            </Widget>
-            <Widget xsi:type="widgets.brease.PushButton" id="PBtnActiveAlarmSort" top="20" left="20" width="80" zIndex="5" image="Media/SymbolLib/Edit/Sort.svg" text="$IAT/Alarm/Sort" imageHeight="20" imageWidth="20" style="transparent" />
-            <Widget xsi:type="widgets.brease.PushButton" id="PBtnActiveAlarmFilter" top="20" left="120" width="90" zIndex="6" image="Media/SymbolLib/Edit/Filter.svg" text="$IAT/Alarm/Filter" imageHeight="20" imageWidth="20" style="transparent" />
+            <Widget xsi:type="widgets.brease.ContentControl" id="ccAlarmCurrent" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AlarmXCurrent_content" />
           </Widgets>
         </Widget>
         <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItm" left="0" width="165" height="40" zIndex="2" text="$IAT/Alarm/AlarmHistory">
           <Widgets>
-            <Widget xsi:type="widgets.brease.AlarmHistory" id="AlmHist" top="40" left="0" width="1120" height="580" zIndex="0" format="yyyy-MM-dd hh:mm" imagePrefix="Media/SymbolLib/Alarm/" itemsPerPage="9" searchBox="false" fontSize="16px">
-              <Widgets>
-                <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmTimeStamp" width="145" zIndex="0" columnType="timestamp" text="$IAT/Alarm/TimeStamp" />
-                <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmAlarmMessage" width="795" zIndex="1" text="$IAT/Alarm/AlarmMessage" />
-                <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmOldState" width="80" zIndex="2" columnType="old state" text="$IAT/Alarm/OldState" />
-                <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmNewState" width="100" zIndex="3" columnType="new state" text="$IAT/Alarm/NewState" />
-              </Widgets>
-            </Widget>
-            <Widget xsi:type="widgets.brease.Line" id="Lne12" zIndex="1" x1="1120" x2="330" y1="0" y2="0" lineWidth="3px" />
-            <Widget xsi:type="widgets.brease.PushButton" id="PBtnExport" top="5" left="940" width="170" zIndex="2" image="Media/SymbolLib/Icons/Export.svg" text="$IAT/Alarm/Export" imageHeight="50" imageWidth="50" style="transparent" />
-            <Widget xsi:type="widgets.brease.PushButton" id="PBtnHistoryAlarmSort" top="5" left="20" width="80" zIndex="3" image="Media/SymbolLib/Edit/Sort.svg" text="$IAT/Alarm/Sort" imageHeight="20" imageWidth="20" style="transparent" />
-            <Widget xsi:type="widgets.brease.PushButton" id="PBtnHistoryAlarmFilter" top="5" left="120" width="90" zIndex="4" image="Media/SymbolLib/Edit/Filter.svg" text="$IAT/Alarm/Filter" imageHeight="20" imageWidth="20" style="transparent" />
+            <Widget xsi:type="widgets.brease.ContentControl" id="ccAlarmHistory" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AlarmXHistory_content" />
           </Widgets>
         </Widget>
       </Widgets>

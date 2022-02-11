@@ -7,15 +7,18 @@
 		<!--<Navigation refId="" />-->
 	</Navigations>  
 	<BindingsSets>
-        <BindingsSet refId="AlarmX_content_binding" />
+        <BindingsSet refId="AlarmXCurrent_content_binding" />
+		<BindingsSet refId="AlarmXHistory_content_binding" />
     </BindingsSets>
     <EventBindingsSets>
-        <EventBindingsSet refId="AlarmX_content_eventbinding" />
+        <EventBindingsSet refId="AlarmXCurrent_content_eventbinding" />
+		<EventBindingsSet refId="AlarmXHistory_content_eventbinding" />
     </EventBindingsSets>
     <Dialogs>
     </Dialogs>
     <Contents > 
-        <Content refId="AlarmX_content" />
+        <Content refId="AlarmXCurrent_content" />
+		<Content refId="AlarmXHistory_content" />
     </Contents>	
     <SnippetsSets>
     </SnippetsSets>
