@@ -66,6 +66,7 @@ ACTION RecipeHMIcommands:
 		END_IF
 		hmiRecipe.Commands.LoadRecipe := FALSE;
 	END_IF
+	
 	IF hmiRecipe.Status.EditDialogOpened OR hmiRecipe.Status.CreateDialogOpened THEN
 		IF (brsstrcmp(ADR(hmiRecipe.Status.CategoryDropdown),ADR('Product')) = 0) THEN
 			ParametersEdit := ParametersPreview;
