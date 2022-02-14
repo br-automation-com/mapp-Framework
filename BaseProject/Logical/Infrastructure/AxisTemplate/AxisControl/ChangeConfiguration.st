@@ -25,7 +25,7 @@ ACTION ChangeConfiguration:
     CASE configurationState OF
         CONFIG_STATE_INIT:
 
-            (* build up the string for the name *)
+            // Build up the string for the name 
             MC_BR_ProcessConfig_ACP.Name := MpAxisBasicFB.Info.HardwareInfo.Axis.ConfigElementLocation;
             MC_BR_ProcessConfig_AX.Name := MpAxisBasicFB.Info.HardwareInfo.Axis.AxisName;
             

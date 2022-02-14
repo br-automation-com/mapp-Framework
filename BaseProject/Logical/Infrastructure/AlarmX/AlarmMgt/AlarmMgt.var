@@ -45,3 +45,10 @@ VAR
 	AlarmExamples : {REDUND_UNREPLICABLE} AlarmExamples_typ; (*Sample alarms for different monitoring types*)
 	MpAlarmXControlExampleFB : {REDUND_UNREPLICABLE} MpAlarmXAlarmControl; (*MpAlarmXAlarmControl instance*)
 END_VAR
+VAR CONSTANT
+	MAX_QUERY_RESULTS : USINT := 19;
+END_VAR
+VAR
+	AlarmQueryHMI : AlarmQueryHMI_type;
+	i : USINT;
+END_VAR

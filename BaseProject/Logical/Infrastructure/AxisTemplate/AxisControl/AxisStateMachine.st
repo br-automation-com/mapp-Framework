@@ -14,7 +14,7 @@ ACTION AxisStateMachine:
             
         ELSE
             IF ((MpAxisBasicFB.Error = TRUE) OR MpAlarmXCheckReaction(gAlarmXMpLink, 'Error')) THEN
-                (* Check alarm reaction *)
+                // Check alarm reaction 
                 ResetAllAxisCommands;
                 state := STATE_ABORTING;
             ELSIF ((AxisControl.Command.Power = FALSE) AND (state > STATE_POWER_ON)) THEN
@@ -100,7 +100,7 @@ ACTION AxisStateMachine:
                 state := STATE_READY;
             END_IF
             
-            // in this state the module is error free and ready for a command (manual or automatic)
+        // In this state the module is error free and ready for a command (manual or automatic)
         STATE_READY:
             AxisControl.Status.Status := 'Ready';
             AxisControl.Status.Busy := FALSE;
@@ -126,11 +126,11 @@ ACTION AxisStateMachine:
             
             AxisAutomatic;
             
-            // in this state the module will attempt to bring the axis to a controlled stop.
+        // In this state the module will attempt to bring the axis to a controlled stop.
         STATE_STOPPING:
             AxisControl.Status.Status := 'Stopping';
             
-            // stop the axis if it is powered on
+            // Stop the axis if it is powered on
             MpAxisBasicFB.Stop := MpAxisBasicFB.PowerOn;
             MpAxisParameters.Deceleration := AxisControl.Parameters.StopDeceleration;
             IF ((MpAxisBasicFB.PowerOn = FALSE) OR (MpAxisBasicFB.Stopped = TRUE)) THEN
@@ -138,18 +138,18 @@ ACTION AxisStateMachine:
                 state := STATE_STOPPED;
             END_IF
 
-            // in this state the module is powered on and at standstill.
+        // In this state the module is powered on and at standstill.
         STATE_STOPPED:
             state := STATE_RESETTING;
 
-            // in this state the module will bring the axis to a rapid stop
+        // In this state the module will bring the axis to a rapid stop
         STATE_ABORTING:
             MpAxisParameters.Stop.Deceleration := 0;
             MpAxisBasicFB.Stop := MpAxisBasicFB.PowerOn;
             IF ((MpAxisBasicFB.PowerOn = FALSE) OR (MpAxisBasicFB.Stopped = TRUE)) THEN
                 MpAxisBasicFB.Stop := FALSE;
                 IF (MpAlarmXCheckReaction(gAlarmXMpLink, 'SafetyError') = TRUE) THEN                
-                    // safety errors also power off the axis
+                    // Safety errors also power off the axis
                     MpAxisBasicFB.Power := FALSE;
                     IF (MpAxisBasicFB.PowerOn = FALSE) THEN
                         state := STATE_ABORTED;
@@ -165,7 +165,7 @@ ACTION AxisStateMachine:
         STATE_CLEARING:
             state := STATE_RESETTING;
         
-            // in this state the module attempts to clear any outstanding errors.  No hazardous motion should occur in this state.
+        // In this state the module attempts to clear any outstanding errors.  No hazardous motion should occur in this state.
         STATE_RESETTING:
             ResetAllAxisCommands;
             IF (AxisControl.Command.Reset = TRUE) THEN

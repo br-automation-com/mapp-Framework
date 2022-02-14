@@ -35,7 +35,7 @@ TYPE
 		State : ActiveAlarmState_enum;
 		LastActiveAlarmUpdateCount : UDINT;
 		ActiveAlarmUpdateCount : UDINT;
-		Alarms : ARRAY[0..19]OF AlarmType;
+		Alarms : ARRAY[0..MAX_QUERY_RESULTS]OF AlarmType;
 	END_STRUCT;
 	AlarmHmiInterface_type : 	STRUCT 
 		Commands : AlarmCommands_type;
@@ -49,5 +49,17 @@ TYPE
 	END_STRUCT;
 	AlarmCommands_type : 	STRUCT 
 		ExportAlarms : BOOL;
+		RunQuery : BOOL;
+	END_STRUCT;
+	AlarmQueryHMI_type : 	STRUCT 
+		Active : ARRAY[0..MAX_QUERY_RESULTS]OF BOOL;
+		Acknowledged : ARRAY[0..MAX_QUERY_RESULTS]OF BOOL;
+		Scope : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[80];
+		Name : ARRAY[0..MAX_QUERY_RESULTS]OF STRING[80];
+		Message : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[255];
+		AdditionalInfo : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[255];
+		TimeStamp : ARRAY[0..MAX_QUERY_RESULTS]OF DATE_AND_TIME;
+		Code : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT;
+		Severity : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT;
 	END_STRUCT;
 END_TYPE

@@ -1,7 +1,7 @@
 
 ACTION RecipeInit: 
 
-    (* Register machine settings to MpRecipe *)
+    // Register machine settings to MpRecipe 
     MpRecipeRegPar_MachineFB.MpLink := ADR(gRecipeXmlMpLink);
     MpRecipeRegPar_MachineFB.Enable := TRUE;
     MpRecipeRegPar_MachineFB.Category := ADR('Machine');
@@ -28,7 +28,7 @@ ACTION RecipeInit:
     MpRecipeRegPar_UserPreFB.Category := ADR('Product');
     MpRecipeRegPar_UserPreFB.PVName := ADR(AxisControl.Status.ProductPreviewSettingsName);
     
-    (* Activate RegPar FUBs *)
+    // Activate RegPar FUBs 
     WHILE NOT MpRecipeRegPar_MachineFB.Active AND NOT MpRecipeRegPar_MachineFB.Error DO
         MpRecipeRegPar_MachineFB();
     END_WHILE
@@ -49,7 +49,7 @@ END_ACTION
 
 ACTION RecipeCyclic:
 	
-    (********************* Copy preview parameters before creating or saving a recipe *********************)
+    // Copy preview parameters before creating or saving a recipe 
     IF AxisControl.Command.UpdatePreviewParameters THEN
         PreviewParameters := AxisControl.Parameters;
         AxisControl.Command.UpdatePreviewParameters := FALSE;
