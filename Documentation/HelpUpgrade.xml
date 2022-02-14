@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- IMPORTANT 
+  file and folder names MUST be written in lower case !! 
+-->
+<!-- "Id" must be a unique GUID to have an identifier under which the help upgrade is saved for later use -->
+<HelpUpgrade Id="TS_mappFramework" >
+  <!-- "SourceDir" Name of the folder in which the help files are located -->
+  <!-- "File" Name of the xml file describing the help structure to import -->
+  <!-- "ParentModuleId" must be "982bdaef-8fd0-40bd-a348-c999b1816a79" this is the id of the Technology Solution help section in the global help index --> 
+  <!-- "Custom" must be "true" --> 
+  <!-- "TargetDir" defines under which folder the help content will be copied ie. "[LDir]\technologysolutions" will copy all files into the Technology Packages folder --> 
+  <ExternalSection SourceDir="[Help-Lng]\mappFrameworkHelp" File="ts_framework_0.0.1.xml" ParentModuleId="982bdaef-8fd0-40bd-a348-c999b1816a79" Custom="true" TargetDir="[LDir]\technologysolutions\mappFrameworkHelp"/>
+  <!--<ExternalSection SourceDir="[Help-Lng]\xyzlibraryhelp" File="xyzlibraryhelp.xml" ParentModuleId="2e2c531c-fd21-49be-9599-ffc1bc890178" Custom="true" TargetDir="[LDir]\libraries"/> -->
+</HelpUpgrade>

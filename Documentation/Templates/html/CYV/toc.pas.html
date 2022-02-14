@@ -1,0 +1,447 @@
+<%
+var
+	aTopicList: THndTopicsInfoArray;
+	aKeywordList: THndKeywordsInfoArray;
+	nBlocLevel: integer = 0;
+	nCurTopic, nTopicKind, nCurTopicLevel, nDif, nClose, nCurTopicChildrenCnt, nCurTopicIcon: integer;
+	nCurKeyword, nCurKeywordLevel, nCurKeywordChildrenCnt, nCurKeywordTopic: integer;
+	sTopicUrl, sCurrentKeyword, sTopicClass, sTopicIconData, sKeywordClass, sKeywordLink, sKeywordOnClick, sKeywordOnCData: string;
+	aAssociatedTopics: array of string;
+
+begin
+	// Need BOM for UTF8 files
+	HndGeneratorInfo.BOMOutput := True;
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<title><% print(HTMLEncode(HndProjects.GetProjectTitle())); %> - Table of Contents</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="<% print(HTMLEncode(HndGeneratorInfo.HelpNDocVersion)); %>">
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/silver-theme/jquery-ui-1.8.12.custom.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/dynatree/<% print(HndGeneratorInfo.GetCustomSettingValue('IconStyle')); %>/ui.dynatree.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/toc.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#tabs .ui-widget-header
+		{
+			background-color: #<% print(TColorToHex(HndGeneratorInfo.GetCustomSettingValue('BaseColor'))); %>;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.dynatree.min.js"></script>
+	<script type="text/javascript" src="js/hndjsse.js"></script>
+	<script type="text/javascript">
+	
+		window.bSearchDataLoaded = false;
+		var sHelpIdToActivate = '';
+	
+		$(document).ready(function()
+		{
+			var sAnchorName = '';
+			try { sAnchorName = top.location.href.substring(top.location.href.lastIndexOf("#") + 1, top.location.href.length); }
+			catch(err) { sAnchorName = ''; }
+			var nSelectedTab = 0;
+			if (sAnchorName == '_index') nSelectedTab = 1
+			else if (sAnchorName == '_search') nSelectedTab = 2;			
+			$("#tabs").tabs({
+				selected: nSelectedTab,
+				select: function(event, ui) { HideKwPopup(); }
+			});
+			
+			// Toc
+			if ($("#tab-toc").length) {
+				$("#tab-toc").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/<% print(HndGeneratorInfo.GetCustomSettingValue('IconStyle')); %>/',
+					onActivate: function(node){
+						if ($("#tab-keywords").length && $("#tab-keywords").dynatree && $("#tab-keywords").dynatree("getTree") && $("#tab-keywords").dynatree("getTree").activateKey)
+							$("#tab-keywords").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+				// Expand all nodes if required
+				<% if HndGeneratorInfo.GetCustomSettingValue('TocExpanded') then begin %>
+					$("#tab-toc").dynatree("getRoot").visit(function(node){
+						node.expand(true);
+					});
+				<% end; %>	
+				// Select the active help id
+				if (sHelpIdToActivate != '') $("#tab-toc").dynatree("getTree").activateKey(sHelpIdToActivate);
+			}
+			
+			// Keywords
+			
+			if ($("#tab-keywords").length) {
+				$("#tab-keywords").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/<% print(HndGeneratorInfo.GetCustomSettingValue('IconStyle')); %>/',
+					onClick: function(node, event){
+						HideKwPopup();
+						if (node.data && node.data.click)
+						{
+							var aRefList = null;
+							eval('aRefList=' + node.data.click);
+							if (ShowKwPopup(node.li, aRefList))
+							{
+								if ($("#tab-toc") && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").activateKey)
+									$("#tab-toc").dynatree("getTree").activateKey(null);
+								if(node.data.href && node.data.href != '#'){
+									window.open(node.data.href, node.data.target);
+								}
+							}
+						}
+					}
+				});
+				// Expand all nodes if required
+				<% if HndGeneratorInfo.GetCustomSettingValue('TocKeywordsExpanded') then begin %>
+					$("#tab-keywords").dynatree("getRoot").visit(function(node){
+						node.expand(true);
+					});
+				<% end; %>
+			}
+			
+			// Load search data
+			(function() {
+				var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+				se.src = 'js/hndsd.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+			})();
+		});
+		
+		$('body').click(function() {
+			HideKwPopup();
+		});
+		
+		function SelectTocItem(sHelpId)
+		{
+			if ($("#tab-toc").length && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").getNodeByKey) {
+				var aNode = $("#tab-toc").dynatree("getTree").getNodeByKey(sHelpId);
+				if (aNode) {
+					aNode.activateSilently();  
+				}
+			}
+			else {
+				sHelpIdToActivate = sHelpId;
+			}
+		}
+		
+		function HideKwPopup()
+		{
+			if($("#popupMenu")) $("#popupMenu").remove();
+		}
+		
+		function ShowKwPopup(oSender, aLinks)
+		{
+			HideKwPopup();
+			if (!aLinks || !aLinks.length || aLinks.length == 0) return false
+			else if (aLinks.length == 1) return true
+			else
+			{
+				var oParentDiv = document.createElement("DIV");
+				oParentDiv.id = "popupMenu";
+				var oLink = null;
+				// Close button
+				oLink = document.createElement("SPAN");
+				oLink.className = "close-button";
+				oLink.innerHTML = "X";
+				oLink.href = "#";
+				oLink.onclick = HideKwPopup;
+				oParentDiv.appendChild(oLink);
+				// Items
+				for (var nCnt=0; nCnt<aLinks.length; nCnt++)
+				{
+					oLink = document.createElement("A");
+					oLink.innerHTML = aLinks[nCnt][0];
+					oLink.href = aLinks[nCnt][1];
+					oLink.target = "FrameMain";
+					oLink.onclick = HideKwPopup;
+					oParentDiv.appendChild(oLink);
+				}
+				document.body.appendChild(oParentDiv);
+				var pos = $(oSender).offset(); 
+				var height = $(oSender).height();
+				$(oParentDiv).css({
+					"left": (pos.left+20) + "px",
+					"top": (pos.top + height + 5) + "px"
+				});
+				$(oParentDiv).show();
+				return false;
+			}
+		}
+		
+		function PerformSearch()
+		{
+			if (!window.bSearchDataLoaded) {
+				$("#search_results").html("Search engine data hasn't been fully loaded yet or an error occurred while loading it. This usually happens when documentation is browsed locally.");
+				return;
+			}
+			sValue = $("#search_value").val();
+			$("#search_results").html('Searching...');
+			var oSearchEngine = new HndJsSe;
+			oSearchEngine.ParseInput(sValue);			
+			oSearchEngine.PerformSearch();
+			if (!oSearchEngine.aResults || !oSearchEngine.aResults.length)
+			{
+				$("#search_results").html('No results found.');
+			}
+			else
+			{
+				$("#search_results").html('<div id="search_results_content"></div>');
+				var oUl = $("#search_results_content").append("<ul id='lr'></ul>").find("ul");
+				for (var nCnt = 0; nCnt < oSearchEngine.aResults.length; nCnt++)
+				{
+					if (oSearchEngine.aResults[nCnt][0] < aTl.length)
+					{
+						oUl.append("<li><a href='" + aTl[oSearchEngine.aResults[nCnt][0]][0] + "?search=" + escape(sValue) + "' target='FrameMain'>" + unescape(aTl[oSearchEngine.aResults[nCnt][0]][1]) + "</a></li>");
+					}
+				}
+				// Tree
+				$("#search_results_content").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/<% print(HndGeneratorInfo.GetCustomSettingValue('IconStyle')); %>/',
+					onActivate: function(node){
+						if ($("#search_results_content") && $("#search_results_content").dynatree && $("#search_results_content").dynatree("getTree") && $("#search_results_content").dynatree("getTree").activateKey)
+							$("#search_results_content").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+	<div id="tabs">
+		<ul>
+			<% if HndGeneratorInfo.GetCustomSettingValue('TocShow') then begin %>
+				<li><a href="#tab-toc"><% print(HTMLEncode(HndGeneratorInfo.GetCustomSettingValue('TocTitle'))); %></a></li>
+			<%
+				end;
+				if HndGeneratorInfo.GetCustomSettingValue('TocKeywordsShow') then begin
+			%>
+				<li><a href="#tab-keywords"><% print(HTMLEncode(HndGeneratorInfo.GetCustomSettingValue('TocKeywordsTitle'))); %></a></li>
+			<%
+				end;
+				if HndGeneratorInfo.GetCustomSettingValue('TocSearchShow') then begin
+			%>
+				<li><a href="#tab-search"><% print(HTMLEncode(HndGeneratorInfo.GetCustomSettingValue('TocSearchTitle'))); %></a></li>
+			<%
+				end;
+			%>
+		</ul>
+		<%
+			// --- Table of contents TAB --- //
+			if HndGeneratorInfo.GetCustomSettingValue('TocShow') then begin
+		%>
+		<div id="tab-toc">
+			<ul id="toc" class="">
+
+				<%
+					nBlocLevel := 0;
+					aTopicList := HndTopicsEx.GetTopicListGenerated(True, False);
+					for nCurTopic := 0 to length(aTopicList) - 1 do
+					begin
+						HndGeneratorInfo.CurrentTopic := aTopicList[nCurTopic].id;
+						nTopicKind := aTopicList[nCurTopic].Kind;
+						nCurTopicLevel := HndTopics.GetTopicLevel(HndGeneratorInfo.CurrentTopic);
+						nCurTopicChildrenCnt := HndTopicsEx.GetTopicDirectChildrenCountGenerated(HndGeneratorInfo.CurrentTopic, True);
+						nCurTopicIcon := HndTopics.GetTopicIconIndex(HndGeneratorInfo.CurrentTopic);
+						
+						// Topic URL
+						if nTopicKind = 2 then sTopicUrl := HndTopics.GetTopicUrlLink(HndGeneratorInfo.CurrentTopic)  // Link to URL
+						else if nTopicKind = 1 then sTopicUrl := '#" onclick="return false;'  // Empty
+						else sTopicUrl := format('%s.html', [aTopicList[nCurTopic].HelpId]);  // Normal topic
+						
+						// Close the previous topics
+						if ((nCurTopic > 0) and (nCurTopicLevel < HndTopics.GetTopicLevel(aTopicList[nCurTopic - 1].id))) then
+						begin
+							nDif := HndTopics.GetTopicLevel(aTopicList[nCurTopic - 1].id) - nCurTopicLevel;
+							for nClose := 0 to nDif - 1 do
+							begin
+								print('</ul></li>');
+								nBlocLevel := nBlocLevel - 1;
+							end;
+						end;
+						
+						// Topic class
+						if nCurTopicChildrenCnt > 0 then sTopicClass := 'folder'
+						else sTopicClass := '';
+						
+						// Topic icon
+						if nCurTopicIcon > -1 then sTopicIconData := 'icon: ''' + IntToStr(nCurTopicIcon) + '.png'''
+						else sTopicIconData := '';
+				%>
+
+						<li class="<% print(sTopicClass); %>" id="<% print(aTopicList[nCurTopic].HelpId); %>" data="<% print(sTopicIconData); %>">
+							<a
+							href="<% print(sTopicUrl); %>"
+							target="FrameMain">
+								<% print(HTMLEncode(aTopicList[nCurTopic].caption)); %>
+							</a>
+
+				<%
+						if (nCurTopicChildrenCnt > 0) then
+						begin
+							print('<ul>');
+							nBlocLevel := nBlocLevel + 1;
+						end
+						else begin
+							print('</li>');
+						end;
+						
+						// Close the last topic
+						if (HndTopicsEx.GetTopicNextGenerated(HndGeneratorInfo.CurrentTopic, True) = '') then
+						begin
+							while nBlocLevel > 0 do
+							begin
+								print('</ul></li>');
+								nBlocLevel := nBlocLevel - 1;
+							end;
+						end;
+					
+					end;
+				%>
+				
+				</ul>
+		</div>
+		
+		<%
+			end;
+			// --- Keywords TAB --- //
+			if HndGeneratorInfo.GetCustomSettingValue('TocKeywordsShow') then begin
+		%>
+		
+		<div id="tab-keywords">
+			<ul id="keywords">
+
+				<%
+					nBlocLevel := 0;
+					aKeywordList := HndKeywords.GetKeywordList(False);
+					for nCurKeyword := 0 to length(aKeywordList) - 1 do
+					begin
+						sCurrentKeyword := aKeywordList[nCurKeyword].id;
+						nCurKeywordLevel := HndKeywords.GetKeywordLevel(sCurrentKeyword);
+						nCurKeywordChildrenCnt := HndKeywords.GetKeywordDirectChildrenCount(sCurrentKeyword);
+						
+						aAssociatedTopics := HndTopicsKeywords.GetTopicsAssociatedWithKeyword(sCurrentKeyword);
+						if Length(aAssociatedTopics) > 0 then
+						begin
+							sKeywordLink := format('%s.html', [HndTopics.GetTopicHelpId(aAssociatedTopics[0])]);
+							sKeywordOnCData := '[';
+							sKeywordOnClick := '[';
+							for nCurKeywordTopic := 0 to Length(aAssociatedTopics) - 1 do
+							begin
+								if nCurKeywordTopic > 0 then
+								begin
+									sKeywordOnCData := sKeywordOnCData + ',';
+									sKeywordOnClick := sKeywordOnClick + ',';
+								end;
+								sKeywordOnCData := sKeywordOnCData + format('[\''%s\'',\''%s.html\'']', [StringReplace(HTMLEncode(HndTopics.GetTopicCaption(aAssociatedTopics[nCurKeywordTopic])), '''', '\\\''', [rfReplaceAll]), HndTopics.GetTopicHelpId(aAssociatedTopics[nCurKeywordTopic])]);
+								sKeywordOnClick := sKeywordOnClick + format('[''%s'',''%s.html'']', [StringReplace(HTMLEncode(HndTopics.GetTopicCaption(aAssociatedTopics[nCurKeywordTopic])), '''', '\''', [rfReplaceAll]), HndTopics.GetTopicHelpId(aAssociatedTopics[nCurKeywordTopic])]);
+							end;
+							sKeywordOnCData := sKeywordOnCData + ']';
+							sKeywordOnClick := sKeywordOnClick + ']';
+						end
+						else begin
+							sKeywordLink := '#';
+							sKeywordOnCData := '[]';
+							sKeywordOnClick := '[]';
+						end;
+						
+						// Close the previous keywords
+						if ((nCurKeyword > 0) and (nCurKeywordLevel < HndKeywords.GetKeywordLevel(aKeywordList[nCurKeyword - 1].id))) then
+						begin
+							nDif := HndKeywords.GetKeywordLevel(aKeywordList[nCurKeyword - 1].id) - nCurKeywordLevel;
+							for nClose := 0 to nDif - 1 do
+							begin
+							  print('</ul></li>');
+							  nBlocLevel := nBlocLevel - 1;
+							end;
+						end;
+						
+						// Keyword class
+						if nCurKeywordChildrenCnt > 0 then sKeywordClass := 'folder'
+						else sKeywordClass := 'file';
+				%>
+
+						<li class="<% print(sKeywordClass); %>" data="click:'<% print(sKeywordOnCData); %>'">
+							<a
+								href="<% print(sKeywordLink); %>"
+								target="FrameMain"
+								onClick="<% print(sKeywordOnClick); %>"
+								>
+								<% print(aKeywordList[nCurKeyword].caption);%>
+							</a>
+
+				<%
+						if (nCurKeywordChildrenCnt > 0) then
+						begin
+							print('<ul>');
+							nBlocLevel := nBlocLevel + 1;
+						end
+						else begin
+							print('</li>');
+						end;
+						
+						// Close the last keyword
+						if (HndKeywords.GetKeywordNext(sCurrentKeyword) = '') then
+						begin
+							while nBlocLevel > 0 do
+							begin
+								print('</ul></li>');
+								nBlocLevel := nBlocLevel - 1;
+							end;
+						end;
+					
+					end;
+				%>
+				
+			</ul>
+		</div>
+		
+		<%
+			end;
+			// --- Search TAB --- //
+			if HndGeneratorInfo.GetCustomSettingValue('TocSearchShow') then begin
+		%>
+		
+		<div id="tab-search">
+			<form onsubmit="PerformSearch(); return false;">
+				<label for="search_value"><% print(HTMLEncode(HndGeneratorInfo.GetCustomSettingValue('TocSearchTitle'))); %>:</label>
+				<input id="search_value" name="search_value"></input>
+				<input type="submit" value="<% print(HTMLEncode(HndGeneratorInfo.GetCustomSettingValue('TocSearchTitle'))); %>"/>
+			</form>
+			<div id="search_results"></div>
+		</div>
+		
+		<%
+			end;
+		%>
+		
+	</div>
+    
+</body>
+
+</html>
+
+<%
+end.
+%>

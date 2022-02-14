@@ -1,0 +1,84 @@
+var
+	nTopicKind, nCnt: integer;
+	sProjectTitle, sDefaultTopicId, sDefaultTopicUrl, sKeywordsFile: string;
+	aTopicList: THndTopicsInfoArray;
+  
+begin
+	// Special encoding needs to be done for CHM documentation
+	HndGeneratorInfo.ForceOutputEncoding := True;
+	
+	sProjectTitle := HndProjects.GetProjectTitle();
+	aTopicList := HndTopicsEx.GetTopicListGenerated(False, False);
+	
+	sDefaultTopicUrl := '';
+	// Try to get the default topic
+	sDefaultTopicId := HndProjects.GetProjectDefaultTopic();
+	// None defined: the first one is the default topic
+	if (sDefaultTopicId = '') then
+		sDefaultTopicId := HndTopicsEx.GetTopicNextGenerated(HndTopics.GetProjectTopic(), False);
+	// Create its url
+	if (sDefaultTopicId <> '') then
+		sDefaultTopicUrl := format('%s.htm', [HndTopics.GetTopicHelpId(sDefaultTopicId)]);
+		
+	sKeywordsFile := '';
+	if HndKeywords.GetKeywordDirectChildrenCount(HndKeywords.GetProjectKeyword()) > 0 then
+	  sKeywordsFile := 'keywords.hhk';
+	
+	println('[OPTIONS]');
+	println('Compatibility=1.1');
+	printfln('Compiled file=%s', [HndGeneratorInfo.OutputFile]);
+	println('Contents file=toc.hhc');
+	println('Default Window=Main');
+	printfln('Default topic=%s', [sDefaultTopicUrl]);
+	println('Display compile progress=No');
+	printfln('Index file=%s', [sKeywordsFile]);
+	println('Auto Index=No');
+	println('Full-text search=Yes');
+	printfln('Language=0x%.4x', [HndProjects.GetProjectLanguage()]);
+	printfln('Title=%s', [sProjectTitle]);
+	println('Error log file=project.log');
+
+	println('[WINDOWS]');
+	printfln(
+	  'Main="%s","toc.hhc","%s","%s","%s","%s","%s","%s","%s",%s,%d,%s,[%d,%d,%d,%d],0xB0000,,,%d,0,0,0',
+	  [
+		sProjectTitle,
+		sKeywordsFile,
+		sDefaultTopicUrl,
+		HndBuildsMeta.GetItemMetaStringValue(HndGeneratorInfo.CurrentBuildId, 'WinHomeUrl', sDefaultTopicUrl),
+		HndBuildsMeta.GetItemMetaStringValue(HndGeneratorInfo.CurrentBuildId, 'WinJump1Url', ''),
+		HndBuildsMeta.GetItemMetaStringValue(HndGeneratorInfo.CurrentBuildId, 'WinJump1Caption', ''),
+		HndBuildsMeta.GetItemMetaStringValue(HndGeneratorInfo.CurrentBuildId, 'WinJump2Url', ''),
+		HndBuildsMeta.GetItemMetaStringValue(HndGeneratorInfo.CurrentBuildId, 'WinJump2Caption', ''),
+		HndBuildsMetaEx.GetChmNavigationPaneStyleHex(HndGeneratorInfo.CurrentBuildId),
+		HndBuildsMeta.GetItemMetaIntValue(HndGeneratorInfo.CurrentBuildId, 'WinTabNavWidth', 200),
+		HndBuildsMetaEx.GetChmButtonVisibilityHex(HndGeneratorInfo.CurrentBuildId),
+		HndBuildsMeta.GetItemMetaIntValue(HndGeneratorInfo.CurrentBuildId, 'WinPosLeft', -1),
+		HndBuildsMeta.GetItemMetaIntValue(HndGeneratorInfo.CurrentBuildId, 'WinPosTop', -1),
+		HndBuildsMeta.GetItemMetaIntValue(HndGeneratorInfo.CurrentBuildId, 'WinPosRight', -1),
+		HndBuildsMeta.GetItemMetaIntValue(HndGeneratorInfo.CurrentBuildId, 'WinPosBottom', -1),
+		Integer(not HndBuildsMeta.GetItemMetaBoolValue(HndGeneratorInfo.CurrentBuildId, 'WinTabNavVisible', True))
+	  ]
+	);
+	
+
+	println('[FILES]');
+	// Topics
+	for nCnt := 0 to length(aTopicList) - 1 do
+	begin
+		if aTopicList[nCnt].Kind <> 1 then  // Empty topic
+			printfln('%s.htm', [lowercase(aTopicList[nCnt].HelpId)]);
+	end;
+	// Assets
+	for nCnt := 0 to HndGeneratorInfo.AssetsList.count - 1 do
+	begin
+		println(HndGeneratorInfo.AssetsList[nCnt]);
+	end;
+
+	println('[ALIAS]');
+	println('#include .\alias.h');
+
+	println('[MAP]');
+	println('#include .\contextnb.h');
+
+end.

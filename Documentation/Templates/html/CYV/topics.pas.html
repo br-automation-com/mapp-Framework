@@ -1,0 +1,238 @@
+<%
+var
+	aTopicList: THndTopicsInfoArray;
+	nCurTopic, nCurParent, nCurKeyword, nTopicKind, nHeaderKind, nFooterKind: integer;
+	sTopicHeader, sTopicFooter, sTopicContent, sRelativeTopic: string;
+	aBreadCrumb: array of String;
+	aTopicKeywords: array of string;
+	
+	// Returns the description of the topic
+	function GetTopicDescription: string;
+	begin
+		// Get value
+		Result := HndTopics.GetTopicDescription(HndGeneratorInfo.CurrentTopic);
+		// Empty ? Use project's description instead
+		if (Result = '') then Result := HndProjects.GetProjectSummary;
+	end;
+
+begin
+	// Need BOM for UTF8 files
+	HndGeneratorInfo.BOMOutput := True;
+
+	// Output global CSS content
+	HndGeneratorInfo.CurrentFile := 'css\hnd.css';
+	print(HndProjects.GetProjectCssContent());
+	
+	// Clear search data
+	HndJsSearchEngine.ClearSearchData();
+	
+	// Each individual topics...
+	aTopicList := HndTopicsEx.GetTopicListGenerated(False, False);
+	for nCurTopic := 0 to length(aTopicList) - 1 do
+	begin
+		// Notify about the topic being generated
+		HndGeneratorInfo.CurrentTopic := aTopicList[nCurTopic].id;
+		// Topic kind
+		nTopicKind := HndTopics.GetTopicKind(HndGeneratorInfo.CurrentTopic);
+		if (nTopicKind = 1) then continue;  // Empty topic: do not generate anything
+		// Setup the file name
+		HndGeneratorInfo.CurrentFile := aTopicList[nCurTopic].HelpId + '.html';
+		// Topic header
+		nHeaderKind := HndTopics.GetTopicHeaderKind(HndGeneratorInfo.CurrentTopic);
+		sTopicHeader := HndTopics.GetTopicHeaderTextCalculated(HndGeneratorInfo.CurrentTopic);
+		// Topic footer
+		nFooterKind := HndTopics.GetTopicFooterKind(HndGeneratorInfo.CurrentTopic);
+		sTopicFooter := HndTopics.GetTopicFooterTextCalculated(HndGeneratorInfo.CurrentTopic);
+		// Topic content
+		sTopicContent := HndTopics.GetTopicContentAsHtml(HndGeneratorInfo.CurrentTopic);
+		
+		// Add Search data
+		HndJsSearchEngine.AddSearchData(
+			sTopicHeader,
+			HndGeneratorInfo.CurrentTopic
+		);
+		HndJsSearchEngine.AddSearchData(
+			HtmlToText(sTopicContent),
+			HndGeneratorInfo.CurrentTopic
+		);
+		HndJsSearchEngine.AddSearchData(
+			sTopicFooter,
+			HndGeneratorInfo.CurrentTopic
+		);
+		
+		// Create the breadcrumb
+		SetLength(aBreadCrumb, 0);
+		if HndGeneratorInfo.GetCustomSettingValue('ShowBreadCrumbs') then
+		begin
+			sRelativeTopic := HndTopics.GetTopicParent(HndGeneratorInfo.CurrentTopic);
+			while (sRelativeTopic <> '') and (sRelativeTopic <> HndTopics.GetProjectTopic()) do
+			begin
+				SetLength(aBreadCrumb, Length(aBreadCrumb) + 1);
+				aBreadCrumb[Length(aBreadCrumb) - 1] := sRelativeTopic;
+				sRelativeTopic := HndTopics.GetTopicParent(sRelativeTopic);
+			end;
+		end;
+		
+		// Associated Keywords
+		aTopicKeywords := HndTopicsKeywords.GetKeywordsAssociatedWithTopic(HndGeneratorInfo.CurrentTopic);
+
+%>
+
+<html>
+	
+<head>
+	<title><% print(HTMLEncode(HndTopics.GetTopicCaption(HndGeneratorInfo.CurrentTopic))); %></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="<% print(HTMLEncode(HndGeneratorInfo.HelpNDocVersion)); %>">
+	<meta name="description" content="<% print(HTMLEncode(GetTopicDescription())); %>" /> 
+	<meta name="keywords" content="<%
+			for nCurKeyword := 0 to High(aTopicKeywords) do
+			begin
+				if nCurKeyword > 0 then print(', ');
+				print(HTMLEncode(HndKeywords.GetKeywordCaption(aTopicKeywords[nCurKeyword])));
+			end;
+		%>">
+	
+	<%
+		// Redirect for URL and Files topic
+		if (nTopicKind = 2) then
+		begin
+		  printf('<meta http-equiv="refresh" content="0;URL=%s">', [HndTopics.GetTopicUrlLink(HndGeneratorInfo.CurrentTopic)]);
+		end
+		else begin
+	%>
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #<% print(TColorToHex(HndGeneratorInfo.GetCustomSettingValue('BaseColor'))); %>;
+		}
+	</style>
+
+	
+	<%
+		end;
+	%>
+</head>
+
+<body>
+
+<%
+	// Redirect for URL and Files topic
+	if (nTopicKind = 2) then
+	begin
+	  printf('<a href="%s">Redirecting... click here if nothing happens</a>', [HndTopics.GetTopicUrlLink(HndGeneratorInfo.CurrentTopic)]);
+	end
+	else begin
+%>
+
+	<% if nHeaderKind <> 2 then begin %>
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text"><% print(HTMLEncode(sTopicHeader)); %></h1>
+				
+				<%
+					if Length(aBreadCrumb) > 0 then
+					begin
+				%>
+				<div id="topic_breadcrumb">
+					<%
+						for nCurParent := Length(aBreadCrumb) - 1 downto 0 do
+						begin
+							// Empty topic
+							if (HndTopics.GetTopicKind(aBreadCrumb[nCurParent]) = 1) then
+							begin
+								printf('%s &rsaquo;&rsaquo; ', [HTMLEncode(HndTopics.GetTopicCaption(aBreadCrumb[nCurParent]))]);
+							end
+							// Normal topic
+							else begin
+								printf('<a href="%s.html">%s</a> &rsaquo;&rsaquo; ', [HndTopics.GetTopicHelpId(aBreadCrumb[nCurParent]), HTMLEncode(HndTopics.GetTopicCaption(aBreadCrumb[nCurParent]))]);
+							end;
+						end;
+					%>
+				</div>
+				<%
+					end;
+				%>
+			</div>
+			<%
+				if HndGeneratorInfo.GetCustomSettingValue('ShowNavigation') then
+				begin
+			%>
+			<div id="topic_header_nav">
+				<%
+					sRelativeTopic := HndTopics.GetTopicParent(HndGeneratorInfo.CurrentTopic);
+					if (sRelativeTopic <> '') and (sRelativeTopic <> HndTopics.GetProjectTopic()) then
+					begin
+				%>
+				
+				<a href="<% printf('%s.html', [HndTopics.GetTopicHelpId(sRelativeTopic)]); %>"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				<%
+					end;
+					sRelativeTopic := HndTopicsEx.GetTopicPreviousGenerated(HndGeneratorInfo.CurrentTopic, True);
+					if (sRelativeTopic <> '') and (sRelativeTopic <> HndTopics.GetProjectTopic()) then
+					begin
+				%>
+				
+				<a href="<% printf('%s.html', [HndTopics.GetTopicHelpId(sRelativeTopic)]); %>"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<%
+					end;
+					sRelativeTopic := HndTopicsEx.GetTopicNextGenerated(HndGeneratorInfo.CurrentTopic, True);
+					if (sRelativeTopic <> '') and (sRelativeTopic <> HndTopics.GetProjectTopic()) then
+					begin
+				%>
+				
+				<a href="<% printf('%s.html', [HndTopics.GetTopicHelpId(sRelativeTopic)]); %>"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				<%
+					end;
+				%>
+			</div>
+			<%
+				end;
+			%>
+			<div class="clear"></div>
+		</div>
+	<% end; %>
+	
+	<div id="topic_content">
+		<% print(HndTopics.GetTopicContentAsHtml(HndGeneratorInfo.CurrentTopic)); %>
+	</div>
+	
+	<% if nFooterKind <> 2 then begin %>
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				<% print(HTMLEncode(sTopicFooter)); %>
+			</div>
+		</div>
+	<% end; %>
+	
+<%
+	end;
+%>
+	
+</body>
+	
+</html>
+
+<%
+	end;
+	
+	// Output JS Search engine data
+	HndGeneratorInfo.CurrentFile := 'js\hndsd.js';
+	print(HndJsSearchEngine.GetJsData());
+
+	// Clear the search engine
+	HndJsSearchEngine.ClearSearchData();
+	
+end.
+%>

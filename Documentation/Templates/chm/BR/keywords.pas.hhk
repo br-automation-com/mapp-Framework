@@ -1,0 +1,98 @@
+<%
+var
+	aKeywordList: THndKeywordsInfoArray;
+	nBlocLevel: integer = 0;
+	nCurKeyword, nCurKeywordLevel, nDif, nClose, nAssociatedTopic: integer;
+	sCurrentKeyword: string;
+	aAssociatedTopics: array of string;
+
+begin
+	// Special encoding needs to be done for CHM documentation
+	HndGeneratorInfo.ForceOutputEncoding := True;
+%>
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+	<meta name="generator" content="<% print(HTMLEncode(HndGeneratorInfo.HelpNDocVersion)); %>">
+</head>
+
+<body>
+
+	<ul>
+
+	<%
+		aKeywordList := HndKeywords.GetKeywordList(False);
+		for nCurKeyword := 0 to length(aKeywordList) - 1 do
+		begin
+			sCurrentKeyword := aKeywordList[nCurKeyword].id;
+			nCurKeywordLevel := HndKeywords.GetKeywordLevel(sCurrentKeyword);
+			
+			// Associated topics
+			aAssociatedTopics := HndTopicsKeywords.GetTopicsAssociatedWithKeyword(sCurrentKeyword);
+			
+			// Close the previous keywords
+			if ((nCurKeyword > 0) and (nCurKeywordLevel < HndKeywords.GetKeywordLevel(aKeywordList[nCurKeyword - 1].id))) then
+			begin
+				nDif := HndKeywords.GetKeywordLevel(aKeywordList[nCurKeyword - 1].id) - nCurKeywordLevel;
+				for nClose := 0 to nDif - 1 do
+				begin
+				  print('</ul></li>');
+				  nBlocLevel := nBlocLevel - 1;
+				end;
+			end;
+	%>
+
+			<li> <object type="text/sitemap">
+				<param name="Name" value="<% print(HTMLEncode(HndKeywords.GetKeywordCaption(sCurrentKeyword))); %>">
+				<%
+					if (Length(aAssociatedTopics) > 0) then
+					begin
+						for nAssociatedTopic := 0 to Length(aAssociatedTopics) - 1 do
+						begin
+				%>
+							<param name="Local" value="<% printf('%s.htm', [HndTopics.GetTopicHelpId(aAssociatedTopics[nAssociatedTopic])]); %>">
+				<%
+						end;
+					end
+					else begin
+				%>
+						<param name="Local" value="_empty.htm">
+				<%
+					end;
+				%>
+			</object>
+
+	<%
+			if (HndKeywords.GetKeywordDirectChildrenCount(sCurrentKeyword) > 0) then
+			begin
+				print('<ul>');
+				nBlocLevel := nBlocLevel + 1;
+			end
+			else begin
+				print('</li>');
+			end;
+			
+			// Close the last keyword
+			if (HndKeywords.GetKeywordNext(sCurrentKeyword) = '') then
+			begin
+				while nBlocLevel > 0 do
+				begin
+					print('</ul></li>');
+					nBlocLevel := nBlocLevel - 1;
+				end;
+			end;
+		
+		end;
+	%>
+	
+	</ul>
+    
+</body>
+
+</html>
+
+<%
+end.
+%>
