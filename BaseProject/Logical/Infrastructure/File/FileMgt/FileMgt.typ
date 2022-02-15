@@ -9,6 +9,7 @@ TYPE
 		(
 		FILE_DELETE_WAIT := 0,
 		FILE_SCAN_FOLDER_WAIT,
+		FILE_SELECT_DEVICE,
 		FILE_CHECK_FOR_FILTER,
 		FILE_SORT_BY_DATE,
 		FILE_SELECT_OLDEST_FILES_0,
@@ -35,6 +36,7 @@ TYPE
 		Enable : BOOL;
 		DeviceName : STRING[50];
 		FifoType : FileFifoType_enum;
+		ScanInterval : DINT := 60;
 		MaxFileAge : UINT := 365; (*Files older than 1 year will be deleted*)
 		MaxFolderSize : REAL := 1000; (*kB - Max size of files inside the active folder*)
 		MaxNumberOfFiles : UINT := 20; (*Max number of files inside active folder*)

@@ -25,6 +25,15 @@ PROGRAM _INIT
 	hmiFile.Parameters.Fifo.DeviceName := 'mappData';
 	hmiFile.Parameters.Fifo.MaxFolderSize := 20000; //kB
 	hmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
+	hmiFile.Parameters.Fifo.ScanInterval := 60; //minutes
+	
+	brsstrcpy(ADR(hmiFile.Status.DeviceDataProvider[0]), ADR('{"value":"mappRecipe","text":"mappRecipe"}'));
+	brsstrcpy(ADR(hmiFile.Status.DeviceDataProvider[1]), ADR('{"value":"mappAudit","text":"mappAudit"}'));
+	brsstrcpy(ADR(hmiFile.Status.DeviceDataProvider[2]), ADR('{"value":"mappReport","text":"mappReport"}'));
+	brsstrcpy(ADR(hmiFile.Status.DeviceDataProvider[3]), ADR('{"value":"mappData","text":"mappData"}'));
+	brsstrcpy(ADR(hmiFile.Status.DeviceDataProvider[4]), ADR('{"value":"mappBackup","text":"mappBackup"}'));
+	brsstrcpy(ADR(hmiFile.Status.DeviceDataProvider[5]), ADR('{"value":"mappAlarmX","text":"mappAlarmX"}'));
+	brsstrcpy(ADR(hmiFile.Status.DeviceDataProvider[6]), ADR('{"value":"mappUserX","text":"mappUserX"}'));
 	
 END_PROGRAM
 

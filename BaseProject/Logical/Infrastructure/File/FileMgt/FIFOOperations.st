@@ -4,8 +4,8 @@ ACTION FIFOOperation:
 	R_TRIG_CheckStatus(CLK := (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_CHANGE_DIR) OR 
 		(MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_CHANGE_DEVICE) OR 
 		(MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_CREATE));
-	
-	IF R_TRIG_CheckStatus.Q THEN	
+		
+	IF R_TRIG_CheckStatus.Q OR TON_ScanFolder.Q THEN	
 		hmiFile.Commands.CheckFolder := TRUE;
 	END_IF	
 
@@ -14,7 +14,9 @@ ACTION FIFOOperation:
 	
 		FILE_DELETE_WAIT: 
 			// Wait for check the correct device selection	
-			IF (hmiFile.Status.DeviceName = hmiFile.Parameters.Fifo.DeviceName) THEN
+			TON_ScanFolder.IN := TRUE;
+			IF TON_ScanFolder.Q THEN
+				TON_ScanFolder.IN := FALSE;
 				hmiFile.Status.DeleteStep := FILE_SCAN_FOLDER_WAIT;
 			END_IF
 			
@@ -22,14 +24,26 @@ ACTION FIFOOperation:
 			// Wait for check for old files command	
 			IF (hmiFile.Commands.CheckFolder = TRUE) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
 				hmiFile.Commands.CheckFolder := FALSE;
-				hmiFile.Status.DeleteStep := FILE_SORT_BY_DATE;
-			ELSIF (hmiFile.Status.DeviceName <> hmiFile.Parameters.Fifo.DeviceName) THEN
-				hmiFile.Status.DeleteStep := FILE_DELETE_WAIT;	
+				hmiFile.Status.DeleteStep := FILE_SELECT_DEVICE;
+				hmiFile.Parameters.OldSortOrder :=  MpFileManagerUIConnect.File.SortOrder;
 			END_IF	
 			
+		FILE_SELECT_DEVICE: 
+			// Sort by date so the oldest files are at the end 				
+            IF (hmiFile.Status.DeviceName <> hmiFile.Parameters.Fifo.DeviceName) THEN
+				FOR i:=0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0]))-1) DO
+        			IF hmiFile.Parameters.Fifo.DeviceName = MpFileManagerUIConnect.DeviceList.DeviceNames[i] THEN
+						MpFileManagerUIConnect.DeviceList.SelectedIndex := i;
+					END_IF
+    			END_FOR
+            END_IF
+            
+            IF (hmiFile.Status.DeviceName = hmiFile.Parameters.Fifo.DeviceName) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
+                hmiFile.Status.DeleteStep := FILE_SORT_BY_DATE;
+            END_IF	
+			
 		FILE_SORT_BY_DATE: 
-			// Sort by date so the oldest files are at the end 
-			hmiFile.Parameters.OldSortOrder :=  MpFileManagerUIConnect.File.SortOrder;	
+			// Sort by date so the oldest files are at the end 				
             IF (MpFileManagerUIConnect.File.SortOrder <> mpFILE_SORT_BY_MOD_TIME_DESC) THEN
                 MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_MOD_TIME_DESC;
             ELSIF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
@@ -46,8 +60,8 @@ ACTION FIFOOperation:
                 hmiFile.Status.DeleteStep := FILE_SELECT_OLDEST_FILES_0;              
             ELSIF (hmiFile.Parameters.Fifo.FifoType = FILE_FIFO_SIZE_OF_FOLDER) THEN     
 				hmiFile.Status.DeleteStep := FILE_CALC_FOLDER_SIZE;
-			ELSIF (hmiFile.Parameters.Fifo.FifoType = FILE_FIFO_OLDER_THAN) THEN
-                hmiFile.Status.DeleteStep := FILE_SORT_BY_DATE;         
+//			ELSIF (hmiFile.Parameters.Fifo.FifoType = FILE_FIFO_OLDER_THAN) THEN
+//                hmiFile.Status.DeleteStep := FILE_SORT_BY_DATE;         
 			END_IF			
 	
 		FILE_SELECT_OLDEST_FILES_0: 
@@ -108,9 +122,9 @@ ACTION FIFOOperation:
 			
 		FILE_CONFIRM_DELETE: 
 			// Confirm the file delete 
-            IF (MpFileManagerUIConnect.MessageBox.Type = mpFILE_MSG_CONFIRM_DELETE)  THEN
+            IF (MpFileManagerUIConnect.MessageBox.Type = mpFILE_MSG_CONFIRM_DELETE) THEN
                 MpFileManagerUIConnect.MessageBox.Confirm := TRUE;
-            ELSIF MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE THEN
+            ELSIF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) AND (MpFileManagerUIConnect.MessageBox.LayerStatus = 1) THEN
 				IF (hmiFile.Parameters.Fifo.FifoType = FILE_FIFO_SIZE_OF_FOLDER) THEN
                 	hmiFile.Status.DeleteStep := FILE_CALC_FOLDER_SIZE;
 				ELSE
@@ -129,7 +143,12 @@ ACTION FIFOOperation:
             
             IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH) THEN
                 hmiFile.Status.DeleteStep := FILE_DELETE_WAIT;
+				IF (MpFileManagerUIConnect.MessageBox.Type = mpFILE_MSG_BUSY) THEN
+					MpFileManagerUIConnect.MessageBox.Confirm := TRUE;
+				END_IF						
             END_IF		
 	END_CASE
+	
+	TON_ScanFolder(PT := DINT_TO_TIME(hmiFile.Parameters.Fifo.ScanInterval * 60000));
 	
 END_ACTION

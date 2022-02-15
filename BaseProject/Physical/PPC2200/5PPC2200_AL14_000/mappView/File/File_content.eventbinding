@@ -53,10 +53,25 @@
     </EventBinding>
     <EventBinding id="MpFileManagerUIConnect.MessageBox.LayerStatus.ValueChange">
       <Source xsi:type="opcUa.Event" refId="::FileMgt:MpFileManagerUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
-      <EventHandler condition="newValue = 0">
+      <Operand datatype="ANY_INT" name="MsgType">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgt:MpFileManagerUIConnect.MessageBox.Type">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="newValue = 0 AND MsgType = 1">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="FileMessage_dialog" headerText="$IAT/File/FileManagerInfo" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="File_content.ButtonFIFOConfigure.Click">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="File_content" widgetRefId="ButtonFIFOConfigure" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="FileFIFO_dialog" headerText="$IAT/File/FIFO.Configure" />
           </Target>
         </Action>
       </EventHandler>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="FileDialog_FIFO_dialog_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ButtonFIFOEnable" top="10" left="15" width="130" height="50" zIndex="0" breakWord="true" multiLine="true" text="$IAT/File/FIFO.Enable" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.Label" id="lblMaxNumFiles" top="111" left="15" width="220" zIndex="1" text="$IAT/File/FIFO.MaxNumFiles" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
+    <Widget xsi:type="widgets.brease.Label" id="lblDevice" top="70" left="15" width="160" zIndex="2" text="$IAT/File/FIFO.Device" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
+    <Widget xsi:type="widgets.brease.Label" id="lblInterval" top="194" left="15" width="220" zIndex="3" text="$IAT/File/FIFO.Interval" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
+    <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownBoxDevice" top="70" left="305" width="130" zIndex="4" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumInMinute" top="194" left="305" width="130" zIndex="5" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" maxValue="59" showUnit="false" useDigitGrouping="false" textAlign="right" fontSize="16px" style="InputLarge" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonOK" top="235" left="15" width="150" height="50" zIndex="6" text="$IAT/File/OK" textColor="rgba(255, 255, 255, 1)" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="CancelButton" top="235" left="285" width="150" height="50" zIndex="7" text="$IAT/File/Cancel" borderWidth="0px" backGroundGradient="linear-gradient(to bottom,#F4F3F8 20%,#D9DDE4 60%)" mouseDownBackGroundGradient="linear-gradient(to bottom,#D9DDE4 20%,#F4F3F8 60%)" textColor="rgba(137, 137, 137, 1)" mouseDownBorderWidth="0px" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="numInMaxNumFiles" top="111" left="305" width="130" zIndex="8" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" textAlign="right" />
+    <Widget xsi:type="widgets.brease.Label" id="lblMaxFolderSize" top="153" left="15" width="220" zIndex="9" text="$IAT/File/FIFO.FolderSize" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="numInMaxNumFiles1" top="153" left="305" width="130" zIndex="10" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" textAlign="right" />
+  </Widgets>
+</Content>
