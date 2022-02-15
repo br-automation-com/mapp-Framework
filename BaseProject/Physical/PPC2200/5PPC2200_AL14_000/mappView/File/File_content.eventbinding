@@ -76,5 +76,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="FileFIFO_Dialog.Closed">
+      <Source xsi:type="clientSystem.Event" event="DialogClosed" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="File_content" widgetRefId="ButtonFIFOConfigure">
+            <Method xsi:type="widgets.brease.ToggleButton.Action.SetValueBool" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

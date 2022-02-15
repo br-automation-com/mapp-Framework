@@ -66,5 +66,6 @@ TYPE
 		DeleteStep : FileDeleteStep_enum;
 		AutoDeleteSelected : USINT;
 		FolderSize : REAL;
+		CurrentPage : STRING[80];
 	END_STRUCT;
 END_TYPE

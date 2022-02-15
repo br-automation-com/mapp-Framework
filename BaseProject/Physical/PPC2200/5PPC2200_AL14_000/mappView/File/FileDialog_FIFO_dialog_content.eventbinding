@@ -11,15 +11,5 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="FileDialog_FIFO_dialog_content.CancelButton.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="CancelButton" event="Click" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="FileFIFO_dialog" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
   </Bindings>
 </EventBindingSet>
