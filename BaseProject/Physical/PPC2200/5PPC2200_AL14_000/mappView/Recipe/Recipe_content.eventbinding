@@ -141,28 +141,6 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_CreateDialogOpened">
-      <Source xsi:type="clientSystem.Event" event="DialogOpened" />
-      <Operand datatype="ANY_INT" name="CategoryDropdown">
-        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
-          <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
-        </ReadTarget>
-      </Operand>
-      <EventHandler condition="dialogId = &quot;NewRecipe_dialog&quot; AND CategoryDropdown = 0">
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_NewPars_content" dialogId="NewRecipe_dialog" areaId="AreaRecipe" />
-          </Target>
-        </Action>
-      </EventHandler>
-      <EventHandler condition="dialogId = &quot;NewRecipe_dialog&quot; AND CategoryDropdown = 1">
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_NewMachConfig_content" dialogId="NewRecipe_dialog" areaId="AreaRecipe" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
     <EventBinding id="EventBinding_RecipePageDown">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="ButtonRecipePageDown" event="Click" />
       <EventHandler>
@@ -250,41 +228,41 @@
           </Target>
         </Action>
       </EventHandler>
-		</EventBinding>
-		<EventBinding id="EventBinding_PreviewRefresh">
-			<Source xsi:type="clientSystem.Event" event="ContentLoaded" />
-			<EventHandler condition="contentId = &quot;Recipe_content&quot;">
-				<Sequence>
-					<Step order="0">
-						<Action>
-							<Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Filter">
-								<Method xsi:type="opcUa.NodeAction.SetValueString" value="*par" />
-							</Target>
-						</Action>
-					</Step>
-					<Step order="1">
-						<Action>
-							<Target xsi:type="widgets.brease.DropDownBox.Action" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
-								<Method xsi:type="widgets.brease.DropDownBox.Action.SetSelectedIndex" index="0" />
-							</Target>
-						</Action>
-					</Step>
-					<Step order="2">
-						<Action>
-							<Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
-								<Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
-							</Target>
-						</Action>
-					</Step>
-					<Step order="3">
-						<Action>
-							<Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Refresh">
-								<Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-							</Target>
-						</Action>
-					</Step>
-				</Sequence>
-			</EventHandler>
-		</EventBinding>
-	</Bindings>
+    </EventBinding>
+    <EventBinding id="EventBinding_PreviewRefresh">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <EventHandler condition="contentId = &quot;Recipe_content&quot;">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Filter">
+                <Method xsi:type="opcUa.NodeAction.SetValueString" value="*par" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.DropDownBox.Action" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
+                <Method xsi:type="widgets.brease.DropDownBox.Action.SetSelectedIndex" index="0" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="3">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Refresh">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
 </EventBindingSet>
