@@ -37,12 +37,11 @@ PROGRAM _INIT
 	MpRecipeUI_0.UISetup := MpRecipeUISetup;
 
 	// Activate component 
-	WHILE NOT (MpRecipe_0.Active OR MpRecipe_0.Error) DO
+	WHILE NOT(MpRecipe_0.Active OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE;
 	
-	
-	MpRecipeRegPar_PreviewPar.MpLink := ADR(gRecipeXmlMpLink);
+    MpRecipeRegPar_PreviewPar.MpLink := ADR(gRecipeXmlMpLink);
 	MpRecipeRegPar_PreviewPar.Enable := TRUE;
 	MpRecipeRegPar_PreviewPar.PVName := ADR('RecipeMgt:ParametersPreview');
 	MpRecipeRegPar_PreviewPar.Category := ADR(PRODUCT_CATEGORY); 
@@ -55,10 +54,10 @@ PROGRAM _INIT
 	MpRecipeRegPar_PreviewCfg();
 
 	// Activate RegPar FUBs 
-	WHILE NOT MpRecipeRegPar_PreviewPar.Active AND NOT MpRecipeRegPar_PreviewPar.Error DO
+	WHILE NOT(MpRecipeRegPar_PreviewPar.Active OR MpRecipeRegPar_PreviewPar.Error) DO
 		MpRecipeRegPar_PreviewPar();
 	END_WHILE
-	WHILE NOT MpRecipeRegPar_PreviewCfg.Active AND NOT MpRecipeRegPar_PreviewCfg.Error DO
+	WHILE NOT(MpRecipeRegPar_PreviewCfg.Active OR MpRecipeRegPar_PreviewCfg.Error) DO
 		MpRecipeRegPar_PreviewCfg();
 	END_WHILE
 
@@ -71,7 +70,7 @@ PROGRAM _INIT
 	hmiRecipe.Parameters.Category := MACHINE_CATEGORY;
 	hmiRecipe.Parameters.FileName := MACHINE_FILENAME;
 	MpRecipe_0.Load := TRUE;
-	WHILE ((NOT MpRecipe_0.CommandDone) AND (NOT MpRecipe_0.Error)) DO
+	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
     END_WHILE
 	MachSettings := MachSettingsPreview;
@@ -85,7 +84,7 @@ PROGRAM _INIT
 	hmiRecipe.Parameters.FileName := 'Default.par';
 	previousRecipe := 'Default.par';
     MpRecipe_0.Load := TRUE;
-    WHILE ((NOT MpRecipe_0.CommandDone) AND (NOT MpRecipe_0.Error)) DO
+    WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE
 	Parameters := ParametersPreview;
