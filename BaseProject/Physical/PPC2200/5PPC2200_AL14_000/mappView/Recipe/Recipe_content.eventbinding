@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="Recipe_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="Recipe_Eventbinding_1">
+    <EventBinding id="Recipe_Eventbinding_Delete">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnDelete" event="Click" />
       <Operand datatype="ANY_STRING" name="myDeleteRecipeText">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDeleteRecipeText">
@@ -39,7 +39,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_2">
+    <EventBinding id="Recipe_Eventbinding_Load">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnLoad" event="Click" />
       <Operand datatype="ANY_STRING" name="myLoadRecipeText">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarLoadRecipeText">
@@ -77,13 +77,13 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_3">
+    <EventBinding id="Recipe_Eventbinding_Create">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnCreate" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Status.CreateDialogOpened">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.CreateDialogOpened">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -98,7 +98,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_4">
+    <EventBinding id="Recipe_Eventbinding_CancelNew">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="CancelButton" event="Click" />
       <EventHandler>
         <Parallel>
@@ -115,16 +115,11 @@
         </Parallel>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_5">
+    <EventBinding id="Recipe_Eventbinding_ConfirmCreate">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="CreateButton" event="Click" />
       <EventHandler>
         <Parallel>
-          <Action>
-            <Target xsi:type="opcUa.NodeAction" refId="::MainCtrl:bCopyPreviewParameters">
-              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-            </Target>
-          </Action>
-          <Action>
+			<Action>
             <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Confirm">
               <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
             </Target>
@@ -142,13 +137,13 @@
         </Parallel>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_6">
+    <EventBinding id="Recipe_Eventbinding_Edit">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnEdit" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Status.EditDialogOpened">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.EditDialogOpened">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -163,46 +158,35 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_7">
+    <EventBinding id="Recipe_Eventbinding_CancelEdit">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="CancelButton" event="Click" />
       <EventHandler>
-        <Sequence>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::MainCtrl:bResetEditValues">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="2">
-            <Action>
+		<Action>
               <Target xsi:type="clientSystem.Action">
                 <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
               </Target>
             </Action>
-          </Step>
-        </Sequence>
-      </EventHandler>
+		</EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_8">
+    <EventBinding id="Recipe_Eventbinding_EditConfirm">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="SaveButton" event="Click" />
       <EventHandler>
         <Sequence>
-          <Step order="2">
+          <Step order="1">
             <Action>
               <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.SaveSelectedRecipe">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
           </Step>
-          <Step order="3">
+          <Step order="2">
             <Action>
               <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.UpdatePreviewParameters">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
           </Step>
-          <Step order="4">
+          <Step order="3">
             <Action>
               <Target xsi:type="clientSystem.Action">
                 <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
@@ -369,15 +353,15 @@
 							</Target>
 						</Action>
 					</Step>
+					<Step order="3">
+						<Action>
+							<Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Refresh">
+								<Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+							</Target>
+						</Action>
+					</Step>
 				</Sequence>
 			</EventHandler>
-			<EventHandler>
-				<Action>
-					<Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Refresh">
-						<Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-					</Target>
-				</Action>
-			</EventHandler>
 		</EventBinding>
-  </Bindings>
+	</Bindings>
 </EventBindingSet>

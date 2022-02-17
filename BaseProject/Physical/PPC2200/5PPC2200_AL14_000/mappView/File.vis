@@ -8,14 +8,17 @@
 	</Navigations>  
 	<BindingsSets>
         <BindingsSet refId="File_content_binding" />
-        <BindingsSet refId="FileDialog_Message_dialog_content_binding" />
+		<BindingsSet refId="FileDialog_Message_dialog_content_binding" />
+		<BindingsSet refId="FileDialog_FIFO_dialog_content_binding" /> 
     </BindingsSets>
     <EventBindingsSets>
         <EventBindingsSet refId="File_content_eventbinding" />
-        <EventBindingsSet refId="FileDialog_Message_dialog_content_eventbinding" />
+		<EventBindingsSet refId="FileDialog_Message_dialog_content_eventbinding" />
+		<EventBindingsSet refId="FileDialog_FIFO_dialog_content_eventbinding" />
     </EventBindingsSets>
     <Dialogs>
-        <Dialog refId="FileMessage_dialog" />
+		<Dialog refId="FileMessage_dialog" />
+		<Dialog refId="FileFIFO_dialog" />
     </Dialogs>
     <Contents > 
         <Content refId="File_content" />

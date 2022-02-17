@@ -15,7 +15,7 @@
 		</Binding>
 		
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.TableConfig" attribute="value" />
+            <Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Parameters.TableConfig" attribute="value" />
             <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Tbl" attribute="tableConfiguration" />
         </Binding>
 
@@ -65,7 +65,7 @@
 		</Binding>
 		
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.LastLoadedProductRecipe" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Parameters.LastLoadedProductRecipe" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 		
@@ -126,11 +126,11 @@
 			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.DeviceDataProvider" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Parameters.DeviceDataProvider" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeDevice" attribute="dataProvider" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.DeviceName" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Parameters.DeviceName" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeDevice" attribute="selectedValue" />
 		</Binding>
 		
@@ -176,7 +176,7 @@
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="PushButtonExportToUSB" attribute="visible" />
         </Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Status.CategoryDropdown" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Parameters.CategoryDropdown" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" attribute="selectedValue" />
 		</Binding>
 		

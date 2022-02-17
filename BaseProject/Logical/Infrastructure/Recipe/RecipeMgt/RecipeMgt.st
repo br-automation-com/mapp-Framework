@@ -107,6 +107,7 @@ PROGRAM _INIT
 	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipe';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := '';
     
+	hmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 END_PROGRAM
 
 PROGRAM _CYCLIC
