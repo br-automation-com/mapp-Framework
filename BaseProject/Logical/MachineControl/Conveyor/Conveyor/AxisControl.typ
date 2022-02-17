@@ -1,10 +1,12 @@
 
 TYPE
-	AxisMachineSettingsType : {REDUND_UNREPLICABLE} 	STRUCT 
-		ReferencePosition : {REDUND_UNREPLICABLE} LREAL := 0; (*[mm] Axis position after reference*)
-		AxisFeatures : {REDUND_UNREPLICABLE} ARRAY[0..2]OF STRING[255] := ['CamAut_cutting','ValueSource',''];
+	AxisSettingsType : 	STRUCT 
+		AxisFeatures : {REDUND_UNREPLICABLE} ARRAY[0..2]OF STRING[255];
 		DriveConfiguration : {REDUND_UNREPLICABLE} McCfgPureVAxType;
 		BaseConfiguration : {REDUND_UNREPLICABLE} McCfgAxType;
+	END_STRUCT;
+	AxisMachineSettingsType : {REDUND_UNREPLICABLE} 	STRUCT 
+		ReferencePosition : {REDUND_UNREPLICABLE} LREAL := 0; (*[mm] Axis position after reference*)
 	END_STRUCT;
 	AxisControlCommandType : {REDUND_UNREPLICABLE} 	STRUCT 
 		UpdatePreviewParameters : {REDUND_UNREPLICABLE} BOOL;
@@ -79,6 +81,11 @@ TYPE
 		CONFIG_STATE_READ,
 		CONFIG_STATE_WRITE,
 		CONFIG_STATE_READY
+		);
+	automaticStateEnum : 
+		(
+		AUTOMATIC_STATE_IDLE,
+		AUTOMATIC_STATE_RUNNING
 		);
 	manualStateEnum : 
 		(

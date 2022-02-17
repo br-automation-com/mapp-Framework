@@ -1,10 +1,12 @@
 
 TYPE
-	AxisMachineSettingsType : {REDUND_UNREPLICABLE} 	STRUCT 
-		ReferencePosition : {REDUND_UNREPLICABLE} LREAL := 0.0; (*[mm] Position when the axis is referenced*)
-		AxisFeatures : {REDUND_UNREPLICABLE} ARRAY[0..4]OF STRING[255] := ['CamAut_cutting','ValueSource','',2('')];
+	AxisSettingsType : 	STRUCT 
+		AxisFeatures : {REDUND_UNREPLICABLE} ARRAY[0..2]OF STRING[255];
 		DriveConfiguration : {REDUND_UNREPLICABLE} McCfgPureVAxType;
 		BaseConfiguration : {REDUND_UNREPLICABLE} McCfgAxType;
+	END_STRUCT;
+	AxisMachineSettingsType : {REDUND_UNREPLICABLE} 	STRUCT 
+		ReferencePosition : {REDUND_UNREPLICABLE} LREAL := 0; (*[mm] Axis position after reference*)
 	END_STRUCT;
 	AxisControlCommandType : {REDUND_UNREPLICABLE} 	STRUCT 
 		UpdatePreviewParameters : {REDUND_UNREPLICABLE} BOOL;
@@ -35,7 +37,6 @@ TYPE
 		TaskName : {REDUND_UNREPLICABLE} STRING[80];
 		MachineSettingsName : {REDUND_UNREPLICABLE} STRING[255];
 		ProductSettingsName : {REDUND_UNREPLICABLE} STRING[255];
-		ProductPreviewSettingsName : {REDUND_UNREPLICABLE} STRING[255];
 		Status : {REDUND_UNREPLICABLE} STRING[80]; (*Machine Status*)
 		IsReady : {REDUND_UNREPLICABLE} BOOL;
 		ErrorActive : {REDUND_UNREPLICABLE} BOOL;
@@ -84,5 +85,10 @@ TYPE
 		MANUAL_STATE_JOG,
 		MANUAL_STATE_MOVE,
 		MANUAL_STATE_STOPPING
+		);
+	automaticStateEnum : 
+		(
+		AUTOMATIC_STATE_IDLE,
+		AUTOMATIC_STATE_RUNNING
 		);
 END_TYPE

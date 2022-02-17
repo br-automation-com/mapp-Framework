@@ -6,7 +6,7 @@ END_ACTION
 
 ACTION AxisCyclic: 
 
-    IF (MpRecipeRegPar_UserFB.UpdateNotification) THEN
+    IF (MpRecipeRegPar_Par.UpdateNotification) THEN
         
     END_IF
 
@@ -80,16 +80,28 @@ END_ACTION
 
 ACTION AxisAutomatic:
 
-    MpAxisBasicFB.MoveVelocity := TRUE;
-    MpAxisParameters.Velocity := AxisControl.Parameters.Velocity;
-    MpAxisParameters.Acceleration := AxisControl.Parameters.Acceleration;
-    MpAxisParameters.Deceleration := AxisControl.Parameters.Deceleration;
-    
-    IF (AxisControl.Command.Stop = TRUE) THEN
-        state := STATE_READY;
-        MpAxisBasicFB.MoveVelocity := FALSE;
-    END_IF
-    
+    CASE AutomaticState OF
+        AUTOMATIC_STATE_IDLE:
+            IF (AxisControl.Command.Start = TRUE) THEN
+                MpAlarmXControlSpeedNotSetFB.Set := (MpAxisParameters.Velocity = 0);
+                AxisControl.Command.Start := FALSE;
+                AutomaticState := AUTOMATIC_STATE_RUNNING;
+            END_IF
+            
+        AUTOMATIC_STATE_RUNNING:
+            MpAxisBasicFB.MoveVelocity := TRUE;
+            MpAxisParameters.Velocity := AxisControl.Parameters.Velocity;
+            MpAxisParameters.Acceleration := AxisControl.Parameters.Acceleration;
+            MpAxisParameters.Deceleration := AxisControl.Parameters.Deceleration;
+
+            IF (AxisControl.Command.Stop = TRUE) THEN
+                AxisControl.Command.Stop := FALSE;
+                MpAxisBasicFB.MoveVelocity := FALSE;
+                state := STATE_READY;
+                AutomaticState := AUTOMATIC_STATE_IDLE;
+            END_IF
+    END_CASE
+
 END_ACTION
 
 

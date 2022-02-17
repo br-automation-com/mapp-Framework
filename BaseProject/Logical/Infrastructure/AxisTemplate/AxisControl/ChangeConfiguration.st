@@ -1,19 +1,19 @@
 
 ACTION ConfigurationInit: 
 
-    MachineSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.DataAddress := ADR(MachineSettings.AxisFeatures);
-    MachineSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfArrayElements := SIZEOF(MachineSettings.AxisFeatures)/SIZEOF(MachineSettings.AxisFeatures[0]);	
-    MachineSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfElements := 0;
+    AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.DataAddress := ADR(AxisSettings.AxisFeatures);
+    AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfArrayElements := SIZEOF(AxisSettings.AxisFeatures)/SIZEOF(AxisSettings.AxisFeatures[0]);	
+    AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfElements := 0;
     i := 0;
-    WHILE ((i <= SIZEOF(MachineSettings.AxisFeatures)/SIZEOF(MachineSettings.AxisFeatures[0])) AND (MachineSettings.AxisFeatures[i] <> '')) DO
+    WHILE ((i <= SIZEOF(AxisSettings.AxisFeatures)/SIZEOF(AxisSettings.AxisFeatures[0])) AND (AxisSettings.AxisFeatures[i] <> '')) DO
         i := i + 1;
     END_WHILE
-    MachineSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfElements := i;
+    AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfElements := i;
     
-    MC_BR_ProcessConfig_AX.DataAddress := ADR(MachineSettings.BaseConfiguration);    
+    MC_BR_ProcessConfig_AX.DataAddress := ADR(AxisSettings.BaseConfiguration);    
     MC_BR_ProcessConfig_AX.DataType := mcCFG_AX;
 
-    MC_BR_ProcessConfig_ACP.DataAddress := ADR(MachineSettings.DriveConfiguration);
+    MC_BR_ProcessConfig_ACP.DataAddress := ADR(AxisSettings.DriveConfiguration);
     MC_BR_ProcessConfig_ACP.DataType := mcCFG_PURE_V_AX;
     
     configurationState := CONFIG_STATE_INIT;
@@ -43,7 +43,7 @@ ACTION ChangeConfiguration:
                 MC_BR_ProcessConfig_ACP.Execute := FALSE;
                 MC_BR_ProcessConfig_AX.Execute := FALSE;
                 configurationState := CONFIG_STATE_READY;
-            END_IF            
+            END_IF
     
         CONFIG_STATE_WRITE:
             MC_BR_ProcessConfig_ACP.Mode := mcPCM_SAVE;

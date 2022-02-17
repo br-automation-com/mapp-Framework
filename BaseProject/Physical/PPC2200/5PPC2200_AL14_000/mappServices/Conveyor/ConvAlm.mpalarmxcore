@@ -40,7 +40,7 @@
     <Group ID="mapp.AlarmX.Core.Configuration">
       <Group ID="[0]">
         <Property ID="Name" Value="ReferenceRequired" />
-        <Property ID="Message" Value="{$Conveyor/Info/Name} : {$Conveyor/Alarms/ReferenceRequired}" />
+        <Property ID="Message" Value="{$IAT/Conveyor/Info/Name} : {$Conveyor/Alarms/ReferenceRequired}" />
         <Property ID="Severity" Value="10" />
         <Selector ID="Behavior" Value="DiscreteValueMonitoring">
           <Group ID="Monitoring">
@@ -53,7 +53,7 @@
       </Group>
       <Group ID="[1]">
         <Property ID="Name" Value="ConveyorSpeedNotSet" />
-        <Property ID="Message" Value="{$Conveyor/Alarms/ConveyorSpeedNotSet}" />
+        <Property ID="Message" Value="{$IAT/Conveyor/Alarms/ConveyorSpeedNotSet}" />
         <Property ID="Code" Value="250" />
         <Property ID="Severity" Value="20" />
         <Selector ID="Behavior">

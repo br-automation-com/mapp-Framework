@@ -1,18 +1,17 @@
-(***********************************************************************************************************************
-* Copyright: B&R Industrial Automation GmbH
-* Description: This program implements an axis control
-***********************************************************************************************************************)
+//******************************************************************************************************************** 
+// Copyright: B&R Industrial Automation GmbH
+// Description: This PROGRAM implements an axis control
+//********************************************************************************************************************
 
 PROGRAM _INIT
     
     ST_name(0, ADR(AxisControl.Status.TaskName), 0);
     
-
     MpAlarmXCoreFB.Enable := TRUE;
     ConfigurationInit;
 
     MpAxisBasicFB.Enable := TRUE;
-    MpAxisBasicFB.MpLink := ADR(gAxisTest);
+    MpAxisBasicFB.MpLink := ADR(gAxisTemplate);
     
     AxisInit;
 
@@ -20,32 +19,26 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
     
-    MpAxisBasicFB.MpLink := ADR(gAxisTest);
-    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gAxisTest);
+    MpAxisBasicFB.MpLink := ADR(gAxisTemplate);
+    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gAxisTemplate);
     
     SimulationControl;
     AxisStateMachine;
     AxisCyclic;
     RecipeCyclic;
     
-    MpAlarmXCoreFB.MpLink := ADR(gAlarmXCore_Test);
+    MpAlarmXCoreFB.MpLink := ADR(gAlarmXCore_AxisTemplate);
     MpAlarmXCoreFB();
     
 END_PROGRAM
 
 PROGRAM _EXIT
 
-    MpRecipeRegPar_MachineFB.Enable := FALSE;
-    MpRecipeRegPar_MachineFB();
+    MpRecipeRegPar_Par.Enable := FALSE;
+    MpRecipeRegPar_Par();
     
-    MpRecipeRegPar_UserFB.Enable := FALSE;
-    MpRecipeRegPar_UserFB();
-    
-    MpRecipeRegPar_PreFB.Enable := FALSE;
-    MpRecipeRegPar_PreFB();
-    
-    MpRecipeRegPar_UserPreFB.Enable := FALSE;
-    MpRecipeRegPar_UserPreFB();
+    MpRecipeRegPar_Cfg.Enable := FALSE;
+    MpRecipeRegPar_Cfg();
     
     MpAxisBasicFB.Enable := FALSE;
     MpAxisBasicFB();

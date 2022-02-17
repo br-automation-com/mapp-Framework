@@ -1,48 +1,29 @@
 
-ACTION RecipeInit: 
+ACTION RecipeInit:
 
-    // Register machine settings to MpRecipe 
-    MpRecipeRegPar_MachineFB.MpLink := ADR(gRecipeXmlMpLink);
-    MpRecipeRegPar_MachineFB.Enable := TRUE;
-    MpRecipeRegPar_MachineFB.Category := ADR('Machine');
+    // register the variables with the recipe system
+    AxisControl.Status.ProductSettingsName := AxisControl.Status.TaskName;
+    brsstrcat(ADR(AxisControl.Status.MachineSettingsName), ADR(':ParametersPreview'));
+    MpRecipeRegPar_Par.MpLink := ADR(gRecipeXmlMpLink);
+    MpRecipeRegPar_Par.Enable := TRUE;
+    MpRecipeRegPar_Par.PVName := ADR(AxisControl.Status.ProductSettingsName);
+    MpRecipeRegPar_Par.Category := ADR(PRODUCT_CATEGORY); 
+    MpRecipeRegPar_Par();
+	
     AxisControl.Status.MachineSettingsName := AxisControl.Status.TaskName;
-    brsstrcat(ADR(AxisControl.Status.MachineSettingsName), ADR(':MachineSettings'));
-    MpRecipeRegPar_MachineFB.PVName := ADR(AxisControl.Status.MachineSettingsName);
-    
-    MpRecipeRegPar_UserFB.MpLink := ADR(gRecipeXmlMpLink);
-    MpRecipeRegPar_UserFB.Enable := TRUE;
-    MpRecipeRegPar_UserFB.Category := ADR('Product');
-    AxisControl.Status.ProductSettingsName:= AxisControl.Status.TaskName;
-    brsstrcat(ADR(AxisControl.Status.ProductSettingsName), ADR(':AxisControl.Parameters'));
-    MpRecipeRegPar_UserFB.PVName := ADR(AxisControl.Status.ProductSettingsName);
-    
-    MpRecipeRegPar_PreFB.MpLink := ADR(gRecipeXmlPreviewMpLink);
-    MpRecipeRegPar_PreFB.Enable := TRUE;
-    MpRecipeRegPar_PreFB.Category := ADR('Preview');
-    AxisControl.Status.ProductPreviewSettingsName := AxisControl.Status.TaskName;
-    brsstrcat(ADR(AxisControl.Status.ProductPreviewSettingsName), ADR(':PreviewParameters'));
-    MpRecipeRegPar_PreFB.PVName := ADR(AxisControl.Status.ProductPreviewSettingsName);
+    brsstrcat(ADR(AxisControl.Status.MachineSettingsName), ADR(':MachineSettingsPreview'));
+    MpRecipeRegPar_Cfg.MpLink := ADR(gRecipeXmlMpLink);
+    MpRecipeRegPar_Cfg.Enable := TRUE;
+    MpRecipeRegPar_Cfg.PVName := ADR(AxisControl.Status.MachineSettingsName);
+    MpRecipeRegPar_Cfg.Category := ADR(MACHINE_CATEGORY); 
+    MpRecipeRegPar_Cfg();
 
-    MpRecipeRegPar_UserPreFB.MpLink := ADR(gRecipeXmlMpLink);
-    MpRecipeRegPar_UserPreFB.Enable := TRUE;
-    MpRecipeRegPar_UserPreFB.Category := ADR('Product');
-    MpRecipeRegPar_UserPreFB.PVName := ADR(AxisControl.Status.ProductPreviewSettingsName);
-    
     // Activate RegPar FUBs 
-    WHILE NOT MpRecipeRegPar_MachineFB.Active AND NOT MpRecipeRegPar_MachineFB.Error DO
-        MpRecipeRegPar_MachineFB();
+    WHILE NOT(MpRecipeRegPar_Par.Active OR MpRecipeRegPar_Par.Error) DO
+        MpRecipeRegPar_Par();
     END_WHILE
-    
-    WHILE NOT MpRecipeRegPar_UserFB.Active AND NOT MpRecipeRegPar_UserFB.Error DO
-        MpRecipeRegPar_UserFB();
-    END_WHILE
-    
-    WHILE NOT MpRecipeRegPar_PreFB.Active AND NOT MpRecipeRegPar_PreFB.Error DO
-        MpRecipeRegPar_PreFB();
-    END_WHILE
-    
-    WHILE NOT MpRecipeRegPar_UserPreFB.Active AND NOT MpRecipeRegPar_UserPreFB.Error DO
-        MpRecipeRegPar_UserPreFB();
+    WHILE NOT(MpRecipeRegPar_Cfg.Active OR MpRecipeRegPar_Cfg.Error) DO
+        MpRecipeRegPar_Cfg();
     END_WHILE
     
 END_ACTION
@@ -51,25 +32,19 @@ ACTION RecipeCyclic:
 	
     // Copy preview parameters before creating or saving a recipe 
     IF AxisControl.Command.UpdatePreviewParameters THEN
-        PreviewParameters := AxisControl.Parameters;
+        ParametersPreview := AxisControl.Parameters;
         AxisControl.Command.UpdatePreviewParameters := FALSE;
     END_IF
     
     IF AxisControl.Command.ResetEditParameters THEN
-        AxisControl.Parameters := PreviewParameters;
+        AxisControl.Parameters := ParametersPreview;
         AxisControl.Command.ResetEditParameters := FALSE;
     END_IF
 
-    MpRecipeRegPar_MachineFB.MpLink := ADR(gRecipeXmlMpLink);
-    MpRecipeRegPar_MachineFB();
+    MpRecipeRegPar_Par.MpLink := ADR(gRecipeXmlMpLink);
+    MpRecipeRegPar_Par();
 
-    MpRecipeRegPar_UserFB.MpLink := ADR(gRecipeXmlMpLink);
-    MpRecipeRegPar_UserFB();
-
-    MpRecipeRegPar_PreFB.MpLink := ADR(gRecipeXmlPreviewMpLink);
-    MpRecipeRegPar_PreFB();
-
-    MpRecipeRegPar_UserPreFB.MpLink := ADR(gRecipeXmlMpLink);
-    MpRecipeRegPar_UserPreFB();
+    MpRecipeRegPar_Cfg.MpLink := ADR(gRecipeXmlMpLink);
+    MpRecipeRegPar_Cfg();
     
 END_ACTION

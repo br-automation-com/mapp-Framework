@@ -18,6 +18,7 @@ ACTION AxisStateMachine:
                 ResetAllAxisCommands;
                 state := STATE_ABORTING;
             ELSIF ((AxisControl.Command.Power = FALSE) AND (state > STATE_POWER_ON)) THEN
+                ResetAllAxisCommands;
                 AxisControl.Status.Busy := TRUE;
                 MpAxisBasicFB.Power := FALSE;
                 state := STATE_POWER_ON;
@@ -179,7 +180,7 @@ ACTION AxisStateMachine:
             
             IF ((MpAxisBasicFB.Error = FALSE) AND (MpAlarmXCheckReaction(gAlarmXMpLink, 'Error') = FALSE)) THEN
                 AxisControl.Status.Busy := FALSE;
-                IF (MpAxisBasicFB.Info.ReadyToPowerOn = FALSE) THEN
+                IF (MpAxisBasicFB.PowerOn = FALSE) THEN
                     state := STATE_POWER_ON;
                 ELSIF (MpAxisBasicFB.IsHomed = TRUE) THEN
                     state := STATE_READY;

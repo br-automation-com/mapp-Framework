@@ -34,18 +34,12 @@ END_PROGRAM
 
 PROGRAM _EXIT
 
-    MpRecipeRegPar_MachineFB.Enable := FALSE;
-    MpRecipeRegPar_MachineFB();
+    MpRecipeRegPar_Par.Enable := FALSE;
+    MpRecipeRegPar_Par();
     
-    MpRecipeRegPar_UserFB.Enable := FALSE;
-    MpRecipeRegPar_UserFB();
-    
-    MpRecipeRegPar_PreFB.Enable := FALSE;
-    MpRecipeRegPar_PreFB();
-    
-    MpRecipeRegPar_UserPreFB.Enable := FALSE;
-    MpRecipeRegPar_UserPreFB();
-    
+    MpRecipeRegPar_Cfg.Enable := FALSE;
+    MpRecipeRegPar_Cfg();
+       
     MpAxisBasicFB.Enable := FALSE;
     MpAxisBasicFB();
     
