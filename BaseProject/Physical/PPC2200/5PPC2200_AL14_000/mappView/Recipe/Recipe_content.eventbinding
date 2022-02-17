@@ -98,45 +98,6 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_CancelNew">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="CancelButton" event="Click" />
-      <EventHandler>
-        <Parallel>
-          <Action>
-            <Target xsi:type="clientSystem.Action">
-              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
-            </Target>
-          </Action>
-          <Action>
-            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Cancel">
-              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-            </Target>
-          </Action>
-        </Parallel>
-      </EventHandler>
-    </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_ConfirmCreate">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="CreateButton" event="Click" />
-      <EventHandler>
-        <Parallel>
-			<Action>
-            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Confirm">
-              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-            </Target>
-          </Action>
-          <Action>
-            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.CreateRecipe">
-              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-            </Target>
-          </Action>
-          <Action>
-            <Target xsi:type="clientSystem.Action">
-              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
-            </Target>
-          </Action>
-        </Parallel>
-      </EventHandler>
-    </EventBinding>
     <EventBinding id="Recipe_Eventbinding_Edit">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnEdit" event="Click" />
       <EventHandler>
@@ -152,44 +113,6 @@
             <Action>
               <Target xsi:type="clientSystem.Action">
                 <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="EditRecipe_dialog" />
-              </Target>
-            </Action>
-          </Step>
-        </Sequence>
-      </EventHandler>
-    </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_CancelEdit">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="CancelButton" event="Click" />
-      <EventHandler>
-		<Action>
-              <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
-              </Target>
-            </Action>
-		</EventHandler>
-    </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_EditConfirm">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="SaveButton" event="Click" />
-      <EventHandler>
-        <Sequence>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.SaveSelectedRecipe">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="2">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.UpdatePreviewParameters">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="3">
-            <Action>
-              <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
               </Target>
             </Action>
           </Step>
