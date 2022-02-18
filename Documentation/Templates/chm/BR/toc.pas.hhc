@@ -1,0 +1,111 @@
+<%
+var
+	aTopicList: THndTopicsInfoArray;
+	nBlocLevel: integer = 0;
+	nTopicKind, nIconIndex: integer;
+	sTopicUrl: string;
+	nCurTopic, nCurTopicLevel, nDif, nClose: integer;
+
+begin
+	// Special encoding needs to be done for CHM documentation
+	HndGeneratorInfo.ForceOutputEncoding := True;
+%>
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+	<meta name="generator" content="<% print(HTMLEncode(HndGeneratorInfo.HelpNDocVersion)); %>">
+</head>
+
+<body>
+
+	<object type="text/site properties">
+		<param name="Font" value="<% printf('%s,%d,%d', [HndBuildsMeta.GetItemMetaStringValue(HndGeneratorInfo.CurrentBuildId, 'WinTabFontName', 'Arial'), HndBuildsMeta.GetItemMetaIntValue(HndGeneratorInfo.CurrentBuildId, 'WinTabFontSize', 8),HndProjects.GetProjectCharSet()]); %>">
+		<param name="Window Styles" value="0x800025">
+	</object>
+    
+	<ul>
+
+	<%
+		// List of generated topic, excluding hidden in TOC
+		aTopicList := HndTopicsEx.GetTopicListGenerated(True, False);
+		for nCurTopic := 0 to length(aTopicList) - 1 do
+		begin
+			HndGeneratorInfo.CurrentTopic := aTopicList[nCurTopic].id;
+
+			// Is it hidden in TOC ?
+			if (aTopicList[nCurTopic].Visibility <> 0) then
+				Continue;
+
+			// Topic data
+			nTopicKind := aTopicList[nCurTopic].Kind;
+			nCurTopicLevel := HndTopics.GetTopicLevel(HndGeneratorInfo.CurrentTopic);
+			nIconIndex := HndTopics.GetTopicIconIndex(HndGeneratorInfo.CurrentTopic) + 1;
+			
+			// Topic URL
+			if nTopicKind = 2 then sTopicUrl := HndTopics.GetTopicUrlLink(HndGeneratorInfo.CurrentTopic)
+			else sTopicUrl := format('%s.htm', [HndTopics.GetTopicHelpId(HndGeneratorInfo.CurrentTopic)]);
+			
+			// Close the previous topics
+			if ((nCurTopic > 0) and (nCurTopicLevel < HndTopics.GetTopicLevel(aTopicList[nCurTopic - 1].id))) then
+			begin
+				nDif := HndTopics.GetTopicLevel(aTopicList[nCurTopic - 1].id) - nCurTopicLevel;
+				for nClose := 0 to nDif - 1 do
+				begin
+				  print('</ul></li>');
+				  nBlocLevel := nBlocLevel - 1;
+				end;
+			end;
+	%>
+
+			<li> <object type="text/sitemap">
+				<param name="Name" value="<% print(HTMLEncode(HndTopics.GetTopicCaption(HndGeneratorInfo.CurrentTopic))); %>">
+				<%
+					if nTopicKind <> 1 then  // Empty topic
+					begin
+				%>
+					<param name="Local" value="<% print(sTopicUrl); %>">
+				<%
+					end;
+					if nIconIndex > 0 then
+					begin
+				%>
+					<param name="ImageNumber" value="<% printf('%d', [nIconIndex]); %>">
+				<%
+					end;
+				%>
+			</object>
+
+	<%
+			if (HndTopicsEx.GetTopicDirectChildrenCountGenerated(HndGeneratorInfo.CurrentTopic, True) > 0) then
+			begin
+				print('<ul>');
+				nBlocLevel := nBlocLevel + 1;
+			end
+			else begin
+				print('</li>');
+			end;
+			
+			// Close the last topic
+			if (HndTopicsEx.GetTopicNextGenerated(HndGeneratorInfo.CurrentTopic, True) = '') then
+			begin
+				while nBlocLevel > 0 do
+				begin
+					print('</ul></li>');
+					nBlocLevel := nBlocLevel - 1;
+				end;
+			end;
+		
+		end;
+	%>
+	
+	</ul>
+    
+</body>
+
+</html>
+
+<%
+end.
+%>

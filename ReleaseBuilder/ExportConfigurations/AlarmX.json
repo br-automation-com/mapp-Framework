@@ -1,35 +1,49 @@
-[
+{
+    "libraries" :
+    [
+        "AsBrStr",
+        "astime",
+        "FileIO",
+        "runtime"
+    ],
+    "mapp" :
+    [
+        "MpAlarmX",
+        "MpServer",
+        "MpBase"
+    ],
+    "files" :
+    [
+        "Logical\\Infrastructure\\Project.language",
+        "Logical\\Infrastructure\\mappFrameworkGlobal.var",
+        "Logical\\Infrastructure\\AlarmX",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\AlarmX"
+    ],
+    "mappViewfiles" :
+    [
+        "Logical\\mappView\\Resources\\Texts\\HMI_PagesTexts\\AlarmPageTexts.tmx",
+        "Logical\\mappView\\Resources\\Texts\\Infrastructure_Texts\\AlarmTexts.tmx",
+        "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat1",
+        "Logical\\mappView\\Resources\\Media",
+        "Logical\\mappView\\Layouts\\DefaultPage.layout",
+        "Logical\\mappView\\Visualization\\Pages\\FrameworkPackage\\AlarmsContent",
+        "Logical\\mappView\\Visualization\\Pages\\StartPage",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\AlarmMgt.uad",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\AlarmX",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\AlarmX.vis"
+    ],
+    "physical":
     {
-        "libraries" :
+        "deployTasks" :
         [
-            "AsBrStr",
-            "astime"
-        ]
-    },
-    {
-        "mapp" :
+            "Infrastructure.AlarmX.AlarmMgt.prg"
+        ],
+        "fileDevices" :
         [
-            "MpAlarmX",
-            "MpBase"
-        ]
-    },
-    {
-        "files" :
-        [
-            "Logical\\Infrastructure\\Alarm",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\Alarms",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\AlarmMgt.uad"
-        ]
-    },
-    {
-        "mappViewfiles" :
-        [
-            "Logical\\mappView\\Resources\\Texts\\HMI_PagesTexts\\AlarmPageTexts.tmx",
-            "Logical\\mappView\\Resources\\Texts\\Infrastructure_Texts\\AlarmTexts.tmx",
-            "Logical\\mappView\\Resources\\Themes\\BuRThemeTemplate",
-            "Logical\\mappView\\Visualization\\Pages\\Alarms\\AlarmXPage\\AlarmX.content",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Alarms",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\AlarmX.vis"
-       ]
+            "userPartition",
+            "mappAlarmX"
+        ],
+        "enableOpcUa" : false,
+        "UserPartitionSize" : true
     }
-]
+}

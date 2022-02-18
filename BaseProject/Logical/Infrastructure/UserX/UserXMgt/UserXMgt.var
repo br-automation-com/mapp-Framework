@@ -1,0 +1,29 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * Program: FolderHandling
+ * File: FolderHandling.var
+ * Author: Bernecker + Rainer
+ * Created: December , 2020
+ ********************************************************************
+ * Local variables of program User Management
+ ********************************************************************)
+(*UserX Function Blocks-----------------------------------------------------------------------------------------------------------*)
+VAR
+	MpUserXManagerUI_0 : MpUserXManagerUI := (UISetup:=(FileDevice:='mappUserX')); (*Management of User X in UI*)
+	UserXMgrUIConnect : MpUserXMgrUIConnectType; (*Setup of UserX to UI*)
+	MpUserXLoginUI_0 : MpUserXLoginUI;
+	UserXLoginUIConnect : MpUserXLoginUIConnectType;
+	DirCreate_New : DirCreate;
+	MpUserXLogin_0 : MpUserXLogin;
+END_VAR
+(*UserX Related Variables--------------------------------------------------------------------------------------------------------*)
+(*Constants---------------------------------------------------------------------------------------------------------------------------------*)
+VAR CONSTANT
+	USER_LIST_MAX_SELECTION : USINT := 20; (*Maxiumum Selections on the User List*)
+	USER_LIST_RANGE_START : USINT := 0;
+	USER_LIST_RANGE_END : USINT := 20;
+END_VAR
+VAR CONSTANT
+	LOCAL_FOLDER : STRING[10] := 'UserX';
+END_VAR

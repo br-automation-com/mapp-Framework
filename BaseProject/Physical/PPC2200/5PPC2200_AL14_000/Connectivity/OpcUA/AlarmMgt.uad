@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="7" ArVersion="C4.91">
+<OpcUaSource FileVersion="7" ArVersion="B4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
@@ -52,11 +52,22 @@
             </Variable>
           </Variable>
         </Variable>
-        <Variable Name="ExportAlarms" />
-        <Variable Name="AlarmFilterCfg" />
-        <Variable Name="AlarmHistFilterCfg" />
-        <Variable Name="AlarmHistSortCfg" />
-        <Variable Name="AlarmSortCfg" />
+        <Variable Name="hmiAlarmX" AutomaticEnable="True" />
+        <Variable Name="QueryActiveAlarms" />
+        <Variable Name="AlarmQuery">
+          <Variable Name="Alarms" EnableArrayElements="True" />
+        </Variable>
+        <Variable Name="AlarmQueryHMI" AutomaticEnable="True">
+          <Variable Name="Active" EnableArrayElements="True" />
+          <Variable Name="Acknowledged" EnableArrayElements="True" />
+          <Variable Name="Scope" EnableArrayElements="True" />
+          <Variable Name="Name" EnableArrayElements="True" />
+          <Variable Name="Message" EnableArrayElements="True" />
+          <Variable Name="AdditionalInfo" EnableArrayElements="True" />
+          <Variable Name="Code" EnableArrayElements="True" />
+          <Variable Name="Severity" EnableArrayElements="True" />
+          <Variable Name="TimeStamp" EnableArrayElements="True" />
+        </Variable>
       </Task>
     </Module>
   </DefaultView>

@@ -3,7 +3,7 @@
 
 !define ProductNameLong "mapp Framework Import"
 !define ProductNameShort "mapp Framework"
-!define Version "0.0.9.32"
+!define Version "0.0.9.76"
 !define VersionAsString "${Version}"
 !define ProductVersion "4.4.4.0001"
 !define ASBaseVersion "4.4.4.0001"

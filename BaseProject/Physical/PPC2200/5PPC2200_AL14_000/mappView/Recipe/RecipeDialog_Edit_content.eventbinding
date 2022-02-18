@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="RecipeDialog_Edit_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="Recipe_Eventbinding_CancelEdit">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="CancelButton" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_Eventbinding_EditConfirm">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="SaveButton" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.SaveSelectedRecipe">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.UpdatePreviewParameters">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="3">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_3">
+      <Source xsi:type="clientSystem.Event" event="DialogOpened" />
+      <Operand datatype="ANY_INT" name="CategoryDropdown">
+        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
+          <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="dialogId = &quot;EditRecipe_dialog&quot; AND CategoryDropdown = 0">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_EditPars_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="dialogId = &quot;EditRecipe_dialog&quot; AND CategoryDropdown = 1">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_EditMachConfig_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

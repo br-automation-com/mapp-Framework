@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<vdef:Visualization id="MyVisuAlarmX" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+	<StartPage pageRefId="Start_page" />
+	<Pages>
+	</Pages>
+	<Navigations>
+		<!--<Navigation refId="" />-->
+	</Navigations>  
+	<BindingsSets>
+        <BindingsSet refId="AlarmXCurrent_content_binding" />
+		<BindingsSet refId="AlarmXHistory_content_binding" />
+		<BindingsSet refId="AlarmXQuery_content_binding" />
+    </BindingsSets>
+    <EventBindingsSets>
+        <EventBindingsSet refId="AlarmXCurrent_content_eventbinding" />
+		<EventBindingsSet refId="AlarmXHistory_content_eventbinding" />
+    </EventBindingsSets>
+    <Dialogs>
+    </Dialogs>
+    <Contents > 
+        <Content refId="AlarmXCurrent_content" />
+		<Content refId="AlarmXHistory_content" />
+		<Content refId="AlarmXQuery_content" />
+    </Contents>	
+    <SnippetsSets>
+    </SnippetsSets>
+    <ExpressionsSets>
+    </ExpressionsSets>
+    <VariablesSets>
+    </VariablesSets>
+    <StartTheme themeRefId="BuRThemeFlat1" />
+    <Themes>
+        <Theme refId="BuRThemeFlat1"/>
+    </Themes>
+    <Configurations>
+    </Configurations>
+</vdef:Visualization>

@@ -5,7 +5,7 @@ import subprocess, shlex
 import argparse
 from DirUtils import removeDir
 
-msbuild = r'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\msbuild.exe'
+msbuild = r'C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\msbuild.exe'
 solution = rf'FrameworkImporter.sln'
 buildOutput = rf'FrameworkImporter\bin\Release'
 

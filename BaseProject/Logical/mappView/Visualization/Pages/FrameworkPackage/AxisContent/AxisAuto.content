@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="AxisAuto_content" height="600" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.ToggleButton" id="TBtnStartStop" top="330" left="0" width="200" height="90" zIndex="0" image="Media/SymbolLib/Symbols/Start.svg" mouseDownImage="Media/SymbolLib/Symbols/Stop.svg" mouseDownText="$IAT/Axis/Stop" text="$IAT/Axis/Start" imageHeight="50" imageWidth="50" textAlign="center" fontSize="20px" fontName="Arial" bold="true" style="Command" tooltip="$IAT/ToolTips/StartStop" />
+    <Widget xsi:type="widgets.brease.Label" id="LblSetSpeed" top="145" left="240" width="150" height="35" zIndex="1" text="$IAT/Axis/SetSpeed" fontName="Arial Unicode" fontSize="16px" bold="true" />
+    <Widget xsi:type="widgets.brease.ToggleSwitch" id="TSwMachineOn" top="235" left="0" width="200" height="90" zIndex="2" mouseDownText="$IAT/Axis/AutoModeOn" text="$IAT/Axis/AutoModeOff" mouseDownBackColor="rgba(0, 255, 0, 1)" style="Command" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutFeedPos" top="220" left="440" width="160" height="35" zIndex="3" unit="{'metric':'MMT','imperial':'INH','imperial-us':'INH'}" unitAlign="right" borderWidth="2px" textAlign="right" fontName="Arial Unicode" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="LblFeederPosition" top="220" left="240" width="150" height="35" zIndex="4" text="$IAT/Axis/ActPosition" borderWidth="2px" borderStyle="none" fontName="Arial Unicode" fontSize="16px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="LblFeederActSpeed" top="295" left="240" width="150" height="35" zIndex="5" text="$IAT/Axis/ActSpeed" borderWidth="2px" borderStyle="none" fontName="Arial Unicode" fontSize="16px" bold="true" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutFeederActSpeed" top="295" left="440" width="160" height="35" zIndex="6" unit="{'metric':'C16','imperial':'IU','imperial-us':'IU'}" unitAlign="right" borderWidth="2px" fontName="Arial Unicode" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInputFeederSetVel" top="145" left="465" width="135" height="35" zIndex="7" maxValue="100000" unit="{'metric':'C16','imperial':'C16','imperial-us':'C16'}" unitAlign="right" borderWidth="0px 0px 0px 8px" backColor="rgba(114, 114, 114, 1)" fontName="Arial Unicode" fontSize="16px" permissionOperate="['Administrators']" permissionView="['Administrators']" style="InputLarge" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="TBtnSyncOnOff" top="420" left="0" width="200" height="90" zIndex="8" mouseDownText="$IAT/Axis/SyncOn" text="$IAT/Axis/SyncOff" mouseDownTextColor="rgba(124, 125, 127, 1)" textAlign="right" fontSize="20px" fontName="Arial" bold="true" style="Command" tooltip="$IAT/ToolTips/SyncOnOff" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushButtonUpdate" top="510" left="0" width="200" height="90" zIndex="9" text="$IAT/Axis/UpdateVelocity" fontSize="20px" bold="true" style="Command" />
+    <Widget xsi:type="widgets.brease.Line" id="Lne2" zIndex="10" x1="625" x2="625" y1="80" y2="600" />
+    <Widget xsi:type="widgets.brease.Image" id="Image1" top="450" left="0" width="25" height="25" zIndex="11" image="Media/SymbolLib/Symbols/Settings.svg" />
+    <Widget xsi:type="widgets.brease.Image" id="ImageGearIn" top="454" left="24" width="25" height="25" zIndex="12" image="Media/SymbolLib/Symbols/Settings.svg" rotation="22.5deg" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="ImageGearOut" top="454" left="34" width="25" height="25" zIndex="13" image="Media/SymbolLib/Symbols/Settings.svg" rotation="22.5deg" />
+  </Widgets>
+</Content>

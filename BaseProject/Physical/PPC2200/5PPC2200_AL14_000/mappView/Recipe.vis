@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<vdef:Visualization id="MyVisuRecipe" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+	<StartPage pageRefId="Start_page" />
+	<Pages>
+    </Pages>
+	<Navigations>
+		<!--<Navigation refId="" />-->
+    </Navigations>  
+	<BindingsSets>
+        <BindingsSet refId="Recipe_content_binding" />
+		<BindingsSet refId="RecipeDialog_EditPars_content_binding" /> 
+		<BindingsSet refId="RecipeDialog_EditMachConfig_content_binding" />
+		<BindingsSet refId="RecipeDialog_NewPars_content_binding" />
+		<BindingsSet refId="RecipeDialog_NewMachConfig_content_binding" />
+		<BindingsSet refId="RecipePreviewPars_content_binding" />
+		<BindingsSet refId="RecipePreviewMachConfig_content_binding" />
+    </BindingsSets>
+    <EventBindingsSets>
+        <EventBindingsSet refId="Recipe_content_eventbinding" />
+		<EventBindingsSet refId="RecipeDialog_New_content_eventbinding" />
+		<EventBindingsSet refId="RecipeDialog_Edit_content_eventbinding" />
+    </EventBindingsSets>
+    <Dialogs>
+		<Dialog refId="NewRecipe_dialog" />
+        <Dialog refId="EditRecipe_dialog" />
+    </Dialogs>
+    <Contents > 
+        <Content refId="RecipePreviewPars_content" />
+		<Content refId="RecipePreviewMachConfig_content" />
+		<Content refId="RecipeDialog_EditMachConfig_content" /> 
+		<Content refId="RecipeDialog_EditPars_content" />
+		<Content refId="RecipeDialog_NewMachConfig_content" />
+		<Content refId="RecipeDialog_NewPars_content" />
+		<Content refId="Recipe_content" /> 
+	</Contents>	
+    <SnippetsSets>
+        <SnippetsSet refId="Recipe_snippets" />
+    </SnippetsSets>
+    <ExpressionsSets>
+        <ExpressionsSet refId="RecipeExpressionSet" />
+    </ExpressionsSets>
+    <VariablesSets>
+        <VariablesSet refId="Recipe_svar" />
+    </VariablesSets>
+    <StartTheme themeRefId="BuRThemeFlat1" />
+    <Themes>
+        <Theme refId="BuRThemeFlat1"/>
+    </Themes>
+    <Configurations>
+    </Configurations>
+</vdef:Visualization>

@@ -1,39 +1,51 @@
-[
+{
+    "libraries" :
+    [
+        "AsBrStr",
+        "runtime",
+        "FileIO",
+        "AsArCfg"
+    ],
+    "mapp" :
+    [
+        "MpBackup",
+        "MpFile",
+        "MpServer",
+        "MpBase"
+    ],
+    "files" :
+    [
+        "Logical\\Infrastructure\\Project.language",
+        "Logical\\Infrastructure\\mappFrameworkGlobal.var",
+        "Logical\\Infrastructure\\Backup",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\Backup"
+    ],
+    "mappViewfiles" :
+    [
+        "Logical\\mappView\\Layouts\\SmallDialog.layout",
+        "Logical\\mappView\\Resources\\Texts\\HMI_PagesTexts\\BackupTexts.tmx",
+        "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat1",
+        "Logical\\mappView\\Resources\\Media",
+        "Logical\\mappView\\Layouts\\DefaultPage.layout",
+        "Logical\\mappView\\Visualization\\Pages\\FrameworkPackage\\BackupContent",
+        "Logical\\mappView\\Visualization\\Pages\\StartPage",
+        "Logical\\mappView\\Visualization\\Dialogs\\BackupDialogs",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\BackupMgt.uad",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Backup",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Backup.vis"
+    ],
+    "physical":
     {
-        "libraries" :
+        "deployTasks" :
         [
-            "AsBrStr",
-            "AsArCfg"
-        ]
-    },
-    {
-        "mapp" :
+            "Infrastructure.Backup.BackupMgt.prg"
+        ],
+        "fileDevices" :
         [
-            "MpBackup",
-            "MpFile",
-            "MpBase"
-        ]
-    },
-    {
-        "files" :
-        [
-            "Logical\\Infrastructure\\Backup",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\Backup",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\BackupMgt.uad"
-        ]
-    },
-    {
-        "mappViewfiles" :
-        [
-            "Logical\\mappView\\Layouts\\DialogBackupLayout.layout",
-            "Logical\\mappView\\Layouts\\DialogBackupSettingsLayout.layout",
-            "Logical\\mappView\\Resources\\Texts\\HMI_PagesTexts\\BackupTexts.tmx",
-            "Logical\\mappView\\Resources\\Themes\\BuRThemeTemplate",
-            "Logical\\mappView\\Resources\\Media\\InProgress.gif",
-            "Logical\\mappView\\Visualization\\Pages\\Settings\\SettingsPage\\Backup.content",
-            "Logical\\mappView\\Visualization\\Dialogs\\BackupDialogs",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Backup",
-            "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Backup.vis"
-        ]
+            "userPartition",
+            "mappBackup"
+        ],
+        "enableOpcUa" : false,
+        "UserPartitionSize" : true
     }
-]
+}

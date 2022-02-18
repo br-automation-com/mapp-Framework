@@ -36,7 +36,15 @@ Section # Remove old
 	RMDir /r "$INSTDIR\${ProductNameShort}"
 
 	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
-	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.5"
+	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.*"
+	loop:
+		StrCmp $1 "" done
+		RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\$1"
+		FindNext $0 $1
+		Goto loop
+	done:
+	FindClose $0
+
 SectionEnd
 
 ; Dummy section for the start of the root group
@@ -50,13 +58,13 @@ Section "$(mappFrameworkBaseShortText)" mappFrameworkBase
 	SetOutPath "$INSTDIR\${ProductNameShort}"
 	File /r "mappFrameworkLogo.ico"
 
-	SetOutPath "$INSTDIR\${ProductNameShort}"
-	File /r "mapp Framework Importer\*.*"
-
 	!insertmacro InstallHelp "$VersionBaseFolder" "Help"
 
 	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
 	File /r "TechnologySolution\*.*"
+
+	SetOutPath "$VersionBaseFolder\AS\Images\Files\"
+	File /oname=FrameworkImporter.exe.ico mappFrameworkLogo.ico
 
 SectionEnd
 

@@ -16,7 +16,8 @@
         "args" : [
             "--project ${projectDir}\\..\\BaseProject",
             "--config ExportConfigurations\\AlarmX.json",
-            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\",
+            "--physical Physical\\PPC2200\\"
         ]
     },
     {
@@ -26,17 +27,19 @@
         "args" : [
             "--project ${projectDir}\\..\\BaseProject",
             "--config ExportConfigurations\\Backup.json",
-            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\",
+            "--physical Physical\\PPC2200\\"
         ]
     },
     {
-        "disable" : "true",
+        "disable" : "false",
         "command" : "Export.py",
         "name" : "Export File",
         "args" : [
             "--project ${projectDir}\\..\\BaseProject",
             "--config ExportConfigurations\\File.json",
-            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\",
+            "--physical Physical\\PPC2200\\"
         ]
     },
     {
@@ -46,7 +49,8 @@
         "args" : [
             "--project ${projectDir}\\..\\BaseProject",
             "--config ExportConfigurations\\Axis.json",
-            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\",
+            "--physical Physical\\PPC2200\\"
         ]
     },
     {
@@ -56,7 +60,8 @@
         "args" : [
             "--project ${projectDir}\\..\\BaseProject",
             "--config ExportConfigurations\\Recipe.json",
-            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\",
+            "--physical Physical\\PPC2200\\"
         ]
     },
     {
@@ -66,7 +71,8 @@
         "args" : [
             "--project ${projectDir}\\..\\BaseProject",
             "--config ExportConfigurations\\UserX.json",
-            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\"
+            "--output ${projectDir}\\InstallerSetup\\TechnologySolution\\${versionNumber}\\Framework\\\\",
+            "--physical Physical\\PPC2200\\"
         ]
     },
     {
@@ -79,7 +85,7 @@
         ]
     },
     {
-        "disable" : "true",
+        "disable" : "false",
         "command" : "ExportTechnologySolution.py",
         "name" : "Export Technology Solution",
         "args" : [
@@ -88,7 +94,7 @@
         ]
     },
     {
-        "disable" : "true",
+        "disable" : "false",
         "command" : "BuildHelp.py",
         "name" : "Build Help",
         "args" : [

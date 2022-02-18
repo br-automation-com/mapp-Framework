@@ -3,8 +3,9 @@
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
     <Task Name="MainCtrl" Source="MainControl.MainCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
+    <Task Name="AxisContro" Source="Infrastructure.AxisTemplate.AxisControl.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
     <Task Name="Conveyor" Source="MachineControl.Conveyor.Conveyor.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="CrossCutte" Source="MachineControl.CrossCutter.CrossCutter.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="CrossCutte" Source="MachineControl.CrossCutter.CrossCutter.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2">
     <Task Name="PIDControl" Source="MainControl.PIDControl.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
@@ -15,13 +16,14 @@
     <Task Name="UserXMgt" Source="Infrastructure.UserX.UserXMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="UserMgt" Source="Infrastructure.User.UserMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
     <Task Name="ProcessCon" Source="Infrastructure.SysServices.ProcessConfig.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
-    <Task Name="AlarmMgt" Source="Infrastructure.Alarm.AlarmMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AlarmMgt" Source="Infrastructure.AlarmX.AlarmMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AuditMgt" Source="Infrastructure.Audit.AuditMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DataMgt" Source="Infrastructure.Data.DataMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="UsbDevLink" Source="Infrastructure.UsbDevLink.UsbDevLink.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="ReportMgt" Source="Infrastructure.Report.ReportMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="RecipeMgt" Source="Infrastructure.Recipe.RecipeMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="BackupMgt" Source="Infrastructure.Backup.BackupMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="FileMgt" Source="Infrastructure.File.FileMgt.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
@@ -60,18 +62,13 @@
     <BinaryObject Name="UserXlogin" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="MachineGrp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="FileMgr" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Cutter" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ConvVirt" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Role" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="AlmHistory" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="User" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="UsX" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Settings" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Rcp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ashwd" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="ashwac" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="CutVirt" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Alarm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="iomap" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ConvAlm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arconfig" Source="" Memory="SystemROM" Language="Binary" />
@@ -83,6 +80,17 @@
     <BinaryObject Name="Backup" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TC" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="BackupFile" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Config" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="UserX" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AlarmX" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="RecipeXML" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AlarmXHist" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="RecipeCSV" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Cutter" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AlmHistory" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Rcp" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Alarm" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="UsX" Source="" Memory="UserROM" Language="Binary" />
   </Binaries>
   <Libraries>
     <LibraryObject Name="operator" Source="Libraries.operator.lby" Memory="UserROM" Language="binary" Debugging="true" />
@@ -136,6 +144,7 @@
     <LibraryObject Name="MpServer" Source="Libraries.MpServer.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="MpRegMark" Source="Libraries.MpRegMark.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="dvframe" Source="Libraries.dvframe.lby" Memory="UserROM" Language="binary" Debugging="true" />
+    <LibraryObject Name="AsIODiag" Source="Libraries.AsIODiag.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="aseth" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="arssl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asepl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />

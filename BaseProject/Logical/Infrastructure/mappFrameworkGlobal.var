@@ -1,0 +1,8 @@
+VAR CONSTANT
+	PRODUCT_CATEGORY : STRING[7] := 'Product';
+	MACHINE_CATEGORY : STRING[7] := 'Machine';
+	MAX_IDX_USB_DEV_LIST : USINT := 1; (*Max index for usb storage devices (1 means up to two devices with index 0 and 1)*)
+END_VAR
+VAR
+	gbUSBAvail : ARRAY[0..MAX_IDX_USB_DEV_LIST] OF BOOL; (*Status array of USB storage devices*)
+END_VAR

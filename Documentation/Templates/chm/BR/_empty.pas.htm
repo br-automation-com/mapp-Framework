@@ -1,0 +1,50 @@
+﻿<%
+var
+	sCharset: string;
+
+	function GetCompatibilityModeMeta(): string;
+	var
+		sVersion: string;
+	begin
+		Result := '';
+		sVersion := HndGeneratorInfo.GetCustomSettingValue('IECompatibilityMode');
+		if Copy(sVersion, 1, 3) = 'IE=' then
+			Result := Format('<meta http-equiv="X-UA-Compatible" content="%s">', [sVersion]);
+	end;
+
+begin
+	// UTF-8 or project charset ?
+	if HndGeneratorInfo.GetCustomSettingValue('UseCharsetForTopics') then
+	begin
+		// Use project charset
+		HndGeneratorInfo.BOMOutput := False;
+		HndGeneratorInfo.ForceOutputEncoding := True;
+		sCharset := HndProjects.GetProjectCharsetAsHtml();
+	end
+	else begin
+		// Need BOM for UTF8 files
+		HndGeneratorInfo.BOMOutput := True;
+		sCharset := 'UTF-8';
+	end;
+
+%><!DOCTYPE html>
+
+<html>
+	
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=<% print(sCharset); %>">
+	<% print(GetCompatibilityModeMeta()); %>
+    <meta name="generator" content="<% print(HTMLEncode(HndGeneratorInfo.HelpNDocVersion)); %>" />
+</head>
+
+<body>
+</body>
+
+</html>
+
+<%
+
+end.
+
+%>

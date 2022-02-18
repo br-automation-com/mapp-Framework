@@ -58,8 +58,12 @@
           </Result>
         </Action>
       </EventHandler>
-    </EventBinding>
-    <EventBinding id="EventBinding_SaveFixData">
+		</EventBinding>
+		
+		
+		
+		
+    <EventBinding id="EventBinding_SaveMachineSettings">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Parameters_content" widgetRefId="ButtonSave" event="Click" />
       <EventHandler>
         <Action>
@@ -71,7 +75,7 @@
               <Sequence>
                 <Step order="0">
                   <Action>
-                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.StoreFixData">
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.StoreMachineSettings">
                       <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                     </Target>
                   </Action>
@@ -106,7 +110,7 @@
           <Result>
             <ResultHandler condition="result=4">
               <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.FactoryResetFixData">
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.FactoryResetMachineSettings">
                   <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                 </Target>
               </Action>
@@ -114,7 +118,10 @@
           </Result>
         </Action>
       </EventHandler>
-    </EventBinding>
+		</EventBinding>
+		
+		
+		
     <EventBinding id="EventBinding_UndoChanges">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Parameters_content" widgetRefId="ButtonUndo" event="Click" />
       <EventHandler>

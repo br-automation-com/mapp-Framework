@@ -1,17 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="AxisAuto_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Bindings>
+    <Bindings>
   
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:hmiRecipe.Intern.LastLoadedRecipe" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="txtOutRecipeName" attribute="value" />
-		</Binding>
-      
-		
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Velocity" attribute="node" />
             <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumericInputFeederSetVel" attribute="node" />
         </Binding>
+
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Status.Position" attribute="node" />
             <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumOutFeedPos" attribute="node" />
@@ -21,22 +16,8 @@
             <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumOutFeederActSpeed" attribute="node" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Status.Position" attribute="node" />
-            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumOutCutterPos" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Status.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumOutCutterActSpeed" attribute="node" />
-        </Binding>
-        <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Command.Start" attribute="value" />
             <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="TBtnStartStop" attribute="value" />
         </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::CrossCutte:AxisControl.Command.Start" attribute="value" />
-            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="TBtnSyncOnOff" attribute="value" />
-        </Binding>
-  
-  
-</Bindings>
+    </Bindings>
 </BindingsSet>

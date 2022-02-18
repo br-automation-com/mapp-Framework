@@ -17,6 +17,9 @@ extern "C"
 #endif
 /* Constants */
 #ifdef _REPLACE_CONST
+ #define asio_DIAGNOSTICS_DATAPOINT_FLAG 1024U
+ #define asio_IO_INPUT_OR_OUTPUT_FLAG 512U
+ #define asio_UNRES_FLAG 256U
  #define asio_INVERTED_FLAG 64U
  #define asio_PV_NOT_FOUND 32U
  #define asio_TYPE_MISMATCH 16U
@@ -34,6 +37,9 @@ extern "C"
  #ifndef _GLOBAL_CONST
    #define _GLOBAL_CONST _WEAK const
  #endif
+ _GLOBAL_CONST unsigned long asio_DIAGNOSTICS_DATAPOINT_FLAG;
+ _GLOBAL_CONST unsigned long asio_IO_INPUT_OR_OUTPUT_FLAG;
+ _GLOBAL_CONST unsigned long asio_UNRES_FLAG;
  _GLOBAL_CONST unsigned char asio_INVERTED_FLAG;
  _GLOBAL_CONST unsigned char asio_PV_NOT_FOUND;
  _GLOBAL_CONST unsigned char asio_TYPE_MISMATCH;

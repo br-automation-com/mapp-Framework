@@ -1,27 +1,26 @@
-
 ACTION MachineSettings:
     
-	(* Handle recipe commands *)
-    IF ((hmiRecipe.Commands.StoreFixData = TRUE) AND (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE)) THEN
-        (* Store fix data *)
-        hmiRecipe.Commands.StoreFixData := FALSE;
-        brsstrcpy(ADR(hmiRecipe.Intern.Category), ADR(MACHINE_CATEGORY));
-        brsstrcpy(ADR(hmiRecipe.Intern.FileName), ADR(MACHINE_FILENAME));
+	// Handle recipe commands 
+    IF ((hmiRecipe.Commands.StoreMachineSettings = TRUE) AND (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE)) THEN
+        // Store factory settings 
+        hmiRecipe.Commands.StoreMachineSettings := FALSE;
+        brsstrcpy(ADR(hmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY));
+        brsstrcpy(ADR(hmiRecipe.Parameters.FileName), ADR(MACHINE_FILENAME));
         DTGetTime_0(enable := TRUE);
         Header.DateTime := DTGetTime_0.DT1;
         Header.Name := MACHINE_FILENAME;
         Header.Description := 'Machine Settings';
-        MpRecipeXml_0.Save := TRUE;
-    ELSIF ((hmiRecipe.Commands.FactoryResetFixData = TRUE) AND (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE)) THEN
-        (* Factory reset fixdata *)
-        brsstrcpy(ADR(hmiRecipe.Intern.Category), ADR(MACHINE_CATEGORY));
-        brsstrcpy(ADR(hmiRecipe.Intern.FileName), ADR(MACHINE_FILENAME));
-        MpRecipeXml_0.Load := TRUE;
+        MpRecipe_0.Save := TRUE;
+    ELSIF ((hmiRecipe.Commands.FactoryResetMachineSettings = TRUE) AND (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE)) THEN
+        // Factory reset the machine settings 
+        brsstrcpy(ADR(hmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY));
+        brsstrcpy(ADR(hmiRecipe.Parameters.FileName), ADR(MACHINE_FILENAME));
+        MpRecipe_0.Load := TRUE;
 		
-        IF MpRecipeXml_0.CommandDone THEN
-            (* Copy factory data into Machine.fix file *)
-            hmiRecipe.Commands.FactoryResetFixData := FALSE;
-            hmiRecipe.Commands.StoreFixData := TRUE;
+        IF MpRecipe_0.CommandDone THEN
+            // Copy factory settings into Machine.fix file 
+            hmiRecipe.Commands.FactoryResetMachineSettings := FALSE;
+            hmiRecipe.Commands.StoreMachineSettings := TRUE;
         END_IF
     END_IF
     

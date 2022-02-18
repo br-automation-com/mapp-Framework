@@ -1,0 +1,85 @@
+﻿[config]
+name=BR
+category=CHM Documentation
+extension=chm
+linkformattopic=%helpid%.htm
+linkformatanchor=%helpid%.htm#%anchorname%
+inherits=Default CHM Template
+
+[var_BaseColor]
+name=Base color
+name.de=Grundfarbe
+name.fr=Couleur de base
+description=Customize the documentation's base color.
+description.de=Festlegen der Grundfarbe der Dokumentation.
+description.fr=Personnaliser la couleur de base de la documentation.
+default=#EFEFEF
+kind=color
+values=
+
+[var_ShowBreadCrumbs]
+name=Show BreadCrumbs
+name.de=Brotkrümelnavigation
+name.fr=Afficher le cheminement
+description=Show the breadcrumbs at the top of each topic bellow the topic title.
+description.de=Brotkrümelnavigation über jedem Kapitel/Thema unterhalb des Titels anzeigen.
+description.fr=Afficher le cheminement au haut de chaque chapitre en dessous du titre du chapitre.
+default=1
+kind=bool
+values=
+
+[var_ShowNavigation]
+name=Show navigation arrows
+name.de=Navigationspfeile anzeigen
+name.fr=Afficher les flèches de navigation
+description=Show the navigation arrows at the top of each topic right of the topic title.
+description.de=Navigationspfeile über jedem Kapitel/Thema auf der rechten Seite des Titels anzeigen.
+description.fr=Afficher les flèches de navigation en haut de chaque chapitre à droite du titre du chapitre.
+default=1
+kind=bool
+values=
+
+[var_UseCharsetForTopics]
+name=Use project charset for topics
+name.de=Benutzen Sie den Projektzeichensatz für Kapitel/Themen
+name.fr=Utiliser le charset du projet
+description=Use the project encoding to generate topics instead of UTF-8. Useful when some characters appear broken in the CHM search result list.
+description.de=Benutzen Sie den Projektzeichensatz an Stelle von UTF-8. Dies ist nützlich, wenn einige Zeichen in der CHM-Suchergebnisliste defekt erscheinen.
+description.fr=Utiliser l'encodage du projet pour générer les chapitres au lieu de l'UTF-8. Utile lorsque certains caractère apparaissent cassés dans les résultats de recherche CHM.
+default=0
+kind=bool
+values=
+
+[var_IECompatibilityMode]
+name=Internet Explorer compatibility
+name.de=Internet-Explorer-Kompatibilität
+name.fr=Compatibilité Internet Explorer
+description=Choose which version of Internet Explorer is used to display topics. This might be limited based on OS version.
+description.de=Wählen Sie die Internet-Explorer-Version, die zum Anzeigen von Themen verwendet wird. Dies kann auf Grund der Betriebssystemversion begrenzt sein.
+description.fr=Indiquer la version d'Internet Explorer utilisée pour afficher les chapitres. Peut être limité en fonction de la version de l'OS.
+default=IE=edge
+kind=enum
+values=System default|IE=edge|IE=11|IE=9|IE=8|IE=7|IE=6|IE=5
+
+[var_CustomCss]
+name=Custom CSS
+name.de=Benutzerdefinierte CSS
+name.fr=CSS Personnalisé
+description=Specify custom CSS to customize the generated HTML content.
+description.de=Geben Sie benutzerdefinierte CSS zum Anpassen der generierten HTML-Inhalte an.
+description.fr=Indiquer le code CSS à utiliser pour personnaliser le contenu HTML généré.
+default=
+kind=memo
+values=
+
+[var_CustomJs]
+name=Custom JavaScript
+name.de=Benutzerdefinierte JavaScript
+name.fr=JavaScript Personnalisé
+description=Specify custom JavaScript to customize the generated HTML content.
+description.de=Geben Sie benutzerdefinierte JavaScript zum Anpassen der generierten HTML-Inhalte an.
+description.fr=Indiquer le code JavaScript à utiliser pour personnaliser le contenu HTML généré.
+default=
+kind=memo
+values=
+

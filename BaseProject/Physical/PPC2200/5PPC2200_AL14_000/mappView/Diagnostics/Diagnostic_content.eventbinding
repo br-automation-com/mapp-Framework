@@ -115,7 +115,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnMpRecipeXml" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeXml_0.ErrorReset">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipe_0.ErrorReset">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>

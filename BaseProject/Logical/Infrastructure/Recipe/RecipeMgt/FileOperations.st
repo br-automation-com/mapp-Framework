@@ -1,14 +1,13 @@
-
 ACTION FileCopyOperation: 
     
-	(* Export/Import recipes to/from USB *)
-    CASE hmiRecipe.Intern.CopyStep OF
-        REC_COPY_WAIT: (* Wait for export/import command *)
+	// Export/Import recipes to/from USB 
+    CASE hmiRecipe.Parameters.CopyStep OF
+		REC_COPY_WAIT:
+			//Wait for export/import command
             IF (hmiRecipe.Commands.ExportToUSB = TRUE) THEN
-                (* Check if USB device is available *)
+                // Check if USB device is available 
                 IF (brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[1])) > 0) THEN
-                    
-                    (* USB is available proceed with export: select all files on the CF and trigger copy command *)
+					// USB is available proceed with export: select all files on the CF and trigger copy command 
                     IF (MpFileManagerUIConnect.DeviceList.SelectedIndex <> 0) THEN
                         MpFileManagerUIConnect.DeviceList.SelectedIndex := 0;
                         MpFileManagerUIConnect.File.MultiSelect := FALSE;
@@ -20,25 +19,25 @@ ACTION FileCopyOperation:
                                 MpFileManagerUIConnect.File.List.Items[Index].IsSelected := TRUE;
                             END_FOR;
                         ELSIF (brsstrlen(ADR(MpFileManagerUIConnect.File.List.Items[Index].Name)) = 0) THEN
-                            (* No files to copy, cancel operation *)
+                            // No files to copy, cancel operation 
                             hmiRecipe.Commands.ExportToUSB := FALSE;
                         ELSE
                             MpFileManagerUIConnect.File.Copy := TRUE;
-                            hmiRecipe.Intern.CopyStep := REC_COPY_TO_USB;
+							hmiRecipe.Parameters.CopyStep := REC_COPY_TO_USB;
                             hmiRecipe.Commands.ExportToUSB := FALSE;
                         END_IF
                         
                     END_IF
                     
                 ELSE
-                    (* No USB disk available, cancel operation *)
+                    // No USB disk available, cancel operation 
                     hmiRecipe.Commands.ExportToUSB := FALSE;
                 END_IF
                 
             ELSIF hmiRecipe.Commands.ImportFromUSB THEN
-                (* Check if USB device is available *)
+                // Check if USB device is available 
                 IF (brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[1])) > 0) THEN
-                    (* USB is available proceed with import: select all files on the USB and trigger copy command *)
+                    // USB is available proceed with import: select all files on the USB and trigger copy command 
                     
                     IF (MpFileManagerUIConnect.DeviceList.SelectedIndex <> 1) THEN
                         MpFileManagerUIConnect.DeviceList.SelectedIndex := 1;
@@ -51,23 +50,24 @@ ACTION FileCopyOperation:
                                 MpFileManagerUIConnect.File.List.Items[Index].IsSelected := TRUE;
                             END_FOR
                         ELSIF (brsstrlen(ADR(MpFileManagerUIConnect.File.List.Items[Index].Name)) = 0) THEN
-                            (* No files to copy, cancel operation *)
+                            // No files to copy, cancel operation 
                             hmiRecipe.Commands.ImportFromUSB := FALSE;
                         ELSE
                             MpFileManagerUIConnect.File.Copy := TRUE;
-                            hmiRecipe.Intern.CopyStep := REC_COPY_FROM_USB;
+                            hmiRecipe.Parameters.CopyStep := REC_COPY_FROM_USB;
                             hmiRecipe.Commands.ImportFromUSB := FALSE;
                         END_IF
                         
                     END_IF
                 ELSE
-                    (* No USB disk available, cancel operation *)
+                    // No USB disk available, cancel operation 
                     hmiRecipe.Commands.ImportFromUSB := FALSE;
                 END_IF
                 
             END_IF
 			
-        REC_COPY_TO_USB: (* Navigate to USB device and paste files *)
+		REC_COPY_TO_USB: 
+			//Navigate to USB device and paste files 
             IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
                 
                 IF (MpFileManagerUIConnect.DeviceList.SelectedIndex <> 1) THEN
@@ -80,10 +80,11 @@ ACTION FileCopyOperation:
             END_IF
             
             IF MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_PASTE THEN
-                hmiRecipe.Intern.CopyStep := REC_COPY_BUSY;
+                hmiRecipe.Parameters.CopyStep := REC_COPY_BUSY;
             END_IF;
 
-        REC_COPY_FROM_USB: (* Navigate to CF device and paste files *)
+		REC_COPY_FROM_USB: 
+			//Navigate to CF device and paste files 
             IF (MpFileManagerUIConnect.DeviceList.SelectedIndex <> 0) THEN
                 MpFileManagerUIConnect.DeviceList.SelectedIndex := 0;
                 MpFileManagerUIConnect.File.MultiSelect := FALSE;
@@ -92,16 +93,17 @@ ACTION FileCopyOperation:
             END_IF
             
             IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_PASTE) THEN
-                hmiRecipe.Intern.CopyStep := REC_COPY_BUSY;
+                hmiRecipe.Parameters.CopyStep := REC_COPY_BUSY;
             END_IF
 	
-        REC_COPY_BUSY: (* Wait for copying done *)
+		REC_COPY_BUSY: 
+			//Wait for copying done 
             IF (MpFileManagerUIConnect.MessageBox.Type = mpFILE_MSG_CONFIRM_OVERWRITE) OR (MpFileManagerUIConnect.MessageBox.Type = mpFILE_MSG_BUSY) THEN
-                (* TODO: Replace by confirm dialog *)
+                // TODO: Replace by confirm dialog 
                 MpFileManagerUIConnect.MessageBox.Confirm := TRUE;
             ELSIF MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE THEN
                 MpRecipeUIConnect.Recipe.Refresh := (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE);
-                hmiRecipe.Intern.CopyStep := REC_COPY_WAIT;
+                hmiRecipe.Parameters.CopyStep := REC_COPY_WAIT;
             END_IF
         
     END_CASE
