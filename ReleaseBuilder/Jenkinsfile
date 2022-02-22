@@ -90,12 +90,28 @@ pipeline {
                 bat 'python %BUILD_FOLDER%\\CreateInstaller.py --project "%WORKSPACE%\\ReleaseBuilder" --name mappFramework --version  %Version%'
             }
         }
-        stage('Deploy')
+        stage('Deploy Release')
         {
+            when
+            {
+                branch 'release/*'
+            }
             steps {
                 bat 'xcopy "ReleaseBuilder\\InstallerSetup\\Install\\*.exe" "C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\" /y'
+                bat 'xcopy "ReleaseBuilder\\InstallerSetup\\Install\\*.exe" "C:\\Users\\buchananw\\ABB\\mapp Framework Prototype Testers - General\\Releases\\" /y'
             }
         }
+        stage('Deploy Feature')
+        {
+            when
+            {
+                branch 'feature/*'
+            }
+            steps {
+                bat 'xcopy "ReleaseBuilder\\InstallerSetup\\Install\\*.exe" "C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\Features\\${env.BRANCH_NAME}\\" /y'
+            }
+        }
+
     }
     post {
          success {
