@@ -61,7 +61,7 @@ pipeline {
                     Exception caughtException = null
                     catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED') { 
                         try { 
-                            bat 'python %BUILD_FOLDER%\\BuildHelp.py --project "%WORKSPACE%\\Framework\\\\" --name mappFramework'
+                            bat 'python %BUILD_FOLDER%\\BuildHelp.py --project "%WORKSPACE%\\" --name mappFramework'
                         } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e) {
                             error "Caught ${e.toString()}" 
                         } catch (Throwable e) {
@@ -79,7 +79,7 @@ pipeline {
                 VERSION = Version()
             }
             steps {
-                bat 'python %BUILD_FOLDER%\\ExportTechnologySolution.py --project "%WORKSPACE%\\Framework\\ReleaseBuilder\\InstallerSetup\\FrameworkImporter_TS" --version %Version%'
+                bat 'python %BUILD_FOLDER%\\ExportTechnologySolution.py --project "%WORKSPACE%\\ReleaseBuilder\\InstallerSetup\\FrameworkImporter_TS" --version %Version%'
             }
         }
         stage('Create Installer') {
@@ -87,7 +87,7 @@ pipeline {
                 VERSION = Version()
             }
             steps {
-                bat 'python %BUILD_FOLDER%\\CreateInstaller.py --project "%WORKSPACE%\\Framework\\ReleaseBuilder" --name mappFramework --version  %Version%'
+                bat 'python %BUILD_FOLDER%\\CreateInstaller.py --project "%WORKSPACE%\\ReleaseBuilder" --name mappFramework --version  %Version%'
             }
         }
         stage('Deploy')
