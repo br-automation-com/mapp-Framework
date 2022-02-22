@@ -112,11 +112,9 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 
+	// Call actions
 	FormatDeviceDataProvider;	
 	LoadPreview;
-	MachineSettings;
-	
-	
 	
     // Reset category after saving is done, category should be reset so that autosave files contain ALL the parameters 
     IF EDGEPOS(MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) AND ((NOT MpRecipeUIConnect.Recipe.Load) AND (NOT MpRecipeUIConnect.Recipe.Save)) THEN
@@ -161,6 +159,7 @@ PROGRAM _CYCLIC
         END_IF
     END_IF	
 	
+	// Call Actions
 	RecipeHMIcommands;
 	FileCopyOperation;
     

@@ -56,6 +56,12 @@ ACTION RecipeHMIcommands:
 			ELSIF hmiRecipe.Commands.CreateRecipe THEN
 				hmiRecipe.Status.HMIcommand := REC_HMI_CREATE;
 				hmiRecipe.Commands.CreateRecipe := FALSE;
+			ELSIF hmiRecipe.Commands.StoreMachineSettings THEN
+				hmiRecipe.Status.HMIcommand := REC_HMI_STORE_MACH_SETTINGS;
+				hmiRecipe.Commands.StoreMachineSettings := FALSE;
+			ELSIF hmiRecipe.Commands.FactoryResetMachineSettings THEN
+				hmiRecipe.Status.HMIcommand := REC_HMI_FACTORY_RESET;
+				hmiRecipe.Commands.FactoryResetMachineSettings := FALSE;
 			END_IF
 		
 		REC_HMI_LOAD:
@@ -94,6 +100,28 @@ ACTION RecipeHMIcommands:
 			END_IF
 			MpRecipeUIConnect.New.Create := TRUE;
 			hmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
+		
+		REC_HMI_STORE_MACH_SETTINGS:
+			brsstrcpy(ADR(hmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY));
+			brsstrcpy(ADR(hmiRecipe.Parameters.FileName), ADR(MACHINE_FILENAME));
+			DTGetTime_0(enable := TRUE);
+			Header.DateTime := DTGetTime_0.DT1;
+			Header.Name := MACHINE_FILENAME;
+			Header.Description := 'Machine Settings';
+			MpRecipe_0.Save := TRUE;
+			hmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
+		
+		REC_HMI_FACTORY_RESET:
+			// Factory reset the machine settings 
+			brsstrcpy(ADR(hmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY));
+			brsstrcpy(ADR(hmiRecipe.Parameters.FileName), ADR(MACHINE_FILENAME));
+			MpRecipe_0.Load := TRUE;
+		
+			IF MpRecipe_0.CommandDone THEN
+				// Copy factory settings into Machine.mcfg file 
+				hmiRecipe.Commands.FactoryResetMachineSettings := FALSE;
+				hmiRecipe.Commands.StoreMachineSettings := TRUE;
+			END_IF
 	END_CASE;
 	
 	IF NOT MpRecipe_0.CommandBusy AND brsstrcmp(ADR(previousRecipe),ADR(hmiRecipe.Parameters.FileName)) <> 0 THEN
