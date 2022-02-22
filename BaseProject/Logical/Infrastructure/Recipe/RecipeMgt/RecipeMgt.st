@@ -62,7 +62,6 @@ PROGRAM _INIT
 	END_WHILE
 
 	Parameters;
-	MachSettings;
 	ParametersPreview;
 	MachSettingsPreview;
 	
