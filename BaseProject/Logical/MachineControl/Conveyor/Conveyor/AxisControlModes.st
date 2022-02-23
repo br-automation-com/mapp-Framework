@@ -5,12 +5,7 @@ END_ACTION
     
 
 ACTION AxisCyclic: 
-
-    IF (MpRecipeRegPar_Par.UpdateNotification) THEN
-        
-    END_IF
-    
-        
+       
     MpAlarmXControlSpeedNotSetFB.MpLink := ADR(gAlarmXCore_Conveyor);
     MpAlarmXControlSpeedNotSetFB.Enable := TRUE;
     MpAlarmXControlSpeedNotSetFB.Name := ADR('ConveyorSpeedNotSet');

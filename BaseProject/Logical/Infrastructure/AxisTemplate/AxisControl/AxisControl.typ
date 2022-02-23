@@ -10,7 +10,8 @@ TYPE
 	END_STRUCT;
 	AxisControlCommandType : {REDUND_UNREPLICABLE} 	STRUCT 
 		UpdatePreviewParameters : {REDUND_UNREPLICABLE} BOOL;
-		ResetEditParameters : {REDUND_UNREPLICABLE} BOOL;
+		LoadRecipeParameters : {REDUND_UNREPLICABLE} BOOL;
+		SaveRecipeParameters : {REDUND_UNREPLICABLE} BOOL;
 		Power : {REDUND_UNREPLICABLE} BOOL;
 		Reference : {REDUND_UNREPLICABLE} BOOL;
 		MoveAbsolute : {REDUND_UNREPLICABLE} BOOL;

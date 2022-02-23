@@ -9,7 +9,9 @@ ACTION RecipeInit:
     MpRecipeRegPar_Par.PVName := ADR(AxisControl.Status.ProductSettingsName);
     MpRecipeRegPar_Par.Category := ADR(PRODUCT_CATEGORY); 
     MpRecipeRegPar_Par();
-	
+    ParametersPreview;
+    ParametersEdit;
+    
     AxisControl.Status.MachineSettingsName := AxisControl.Status.TaskName;
     brsstrcat(ADR(AxisControl.Status.MachineSettingsName), ADR(':MachineSettingsPreview'));
     MpRecipeRegPar_Cfg.MpLink := ADR(gRecipeXmlMpLink);
@@ -17,6 +19,8 @@ ACTION RecipeInit:
     MpRecipeRegPar_Cfg.PVName := ADR(AxisControl.Status.MachineSettingsName);
     MpRecipeRegPar_Cfg.Category := ADR(MACHINE_CATEGORY); 
     MpRecipeRegPar_Cfg();
+    MachineSettingsPreview;
+    MachineSettingsEdit;
 
     // Activate RegPar FUBs 
     WHILE NOT(MpRecipeRegPar_Par.Active OR MpRecipeRegPar_Par.Error) DO
@@ -36,11 +40,16 @@ ACTION RecipeCyclic:
         AxisControl.Command.UpdatePreviewParameters := FALSE;
     END_IF
     
-    IF AxisControl.Command.ResetEditParameters THEN
+    IF AxisControl.Command.LoadRecipeParameters THEN
         AxisControl.Parameters := ParametersPreview;
-        AxisControl.Command.ResetEditParameters := FALSE;
+        AxisControl.Command.LoadRecipeParameters := FALSE;
     END_IF
-
+    
+    IF AxisControl.Command.SaveRecipeParameters THEN
+        ParametersPreview := ParametersEdit;
+        AxisControl.Command.SaveRecipeParameters := FALSE;
+    END_IF
+    
     MpRecipeRegPar_Par.MpLink := ADR(gRecipeXmlMpLink);
     MpRecipeRegPar_Par();
 
