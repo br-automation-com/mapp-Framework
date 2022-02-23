@@ -5,14 +5,18 @@ def Version() {
         return "V0.0.9.0";
     }
     def tag = "V0.0.9"
-    def count = powershell(returnStdout: true, script: 'git -C Framework rev-list HEAD --count').trim();
+    def count = powershell(returnStdout: true, script: "git rev-list HEAD --count").trim();
     try {
-        tag = powershell(returnStdout: true, script: 'git -C Framework describe --abbrev=0').trim();
-        count = powershell(returnStdout: true, script: 'git -C Framework rev-list $tag..HEAD --count').trim();
+        tag = powershell(returnStdout: true, script: "git describe --abbrev=0").trim();
+        count = powershell(returnStdout: true, script: "git rev-list $tag..HEAD --count").trim();
     }
     catch (err){
     }
     return "$tag.$count";
+}
+
+def Tag() {
+    return powershell(returnStdout: true, script: "git describe --abbrev=0 --always").trim();
 }
 
 pipeline {
@@ -25,7 +29,6 @@ pipeline {
         PHYSICAL = 'Physical\\PPC2200\\'
         IMPORT_TOOL = 'ImportTool\\FrameworkImporter'
         EMAIL_TO = 'wesley.buchanan@br-automation.com'
-
     }
     stages {
         stage('Export Framework') {
@@ -92,23 +95,29 @@ pipeline {
         }
         stage('Deploy Release')
         {
+            environment {
+                TAG = Tag()
+            }
             when
             {
                 branch 'release/*'
             }
             steps {
-                bat 'xcopy "ReleaseBuilder\\InstallerSetup\\Install\\*.exe" "C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\" /y'
-                bat 'xcopy "ReleaseBuilder\\InstallerSetup\\Install\\*.exe" "C:\\Users\\buchananw\\ABB\\mapp Framework Prototype Testers - General\\Releases\\" /y'
+                bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\${env.TAG}\\\" /y"
+                bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\mapp Framework Prototype Testers - General\\Releases\\${env.TAG}\\\" /y"
             }
         }
         stage('Deploy Feature')
         {
             when
             {
-                branch 'feature/*'
+                anyOf {
+                    branch 'feature/*'
+                    branch 'develop'
+                }
             }
             steps {
-                bat 'xcopy "ReleaseBuilder\\InstallerSetup\\Install\\*.exe" "C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\Features\\${env.BRANCH_NAME}\\" /y'
+                bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\${env.BRANCH_NAME}\\\" /y"
             }
         }
 
