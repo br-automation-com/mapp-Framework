@@ -34,11 +34,11 @@ pipeline {
             }
             steps {
                 bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\AlarmX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
-                bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Axis.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework --physical \"$PHYSICAL"
-                bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Backup.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework --physical \"$PHYSICAL"
-                bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\File.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework --physical \"$PHYSICAL"
-                bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Recipe.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework --physical \"$PHYSICAL"
-                bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\UserX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework --physical \"$PHYSICAL"
+                bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Axis.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework --physical $PHYSICAL"
+                bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Backup.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework --physical $PHYSICAL"
+                bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\File.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework --physical $PHYSICAL"
+                bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Recipe.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework --physical $PHYSICAL"
+                bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\UserX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework --physical $PHYSICAL"
             }
         }
         stage('Build Import Tool') {
@@ -79,7 +79,7 @@ pipeline {
                 VERSION = Version()
             }
             steps {
-                bat "python \"$BUILD_FOLDER\\ExportTechnologySolution.py\" --project \"$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\FrameworkImporter_TS\" --version \"$Version"
+                bat "python \"$BUILD_FOLDER\\ExportTechnologySolution.py\" --project \"$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\FrameworkImporter_TS\" --version $Version"
             }
         }
         stage('Create Installer') {
@@ -87,7 +87,7 @@ pipeline {
                 VERSION = Version()
             }
             steps {
-                bat "python \"$BUILD_FOLDER\\CreateInstaller.py\" --project \"$WORKSPACE\\ReleaseBuilder\" --name mappFramework --version \"$Version"
+                bat "python \"$BUILD_FOLDER\\CreateInstaller.py\" --project \"$WORKSPACE\\ReleaseBuilder\" --name mappFramework --version $Version"
             }
         }
         stage('Deploy Release')
