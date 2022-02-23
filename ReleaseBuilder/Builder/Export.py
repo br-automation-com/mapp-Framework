@@ -36,7 +36,7 @@ def cleanPackageFile(dir, file):
                 f.write(line)
         f.truncate()
 
-def copyTasksDeployment(dir, tasks):
+def copySwDeployment(dir, tasks, libraries, mapps):
     global projectPath
     global physicalDir
     cpuDir = os.listdir(os.path.join(dir, physicalDir))[0]
@@ -49,7 +49,10 @@ def copyTasksDeployment(dir, tasks):
             task = ''
             if (line.find('<Task Name="') != -1):
                  task = line[line.find('Source="') + 8 : line.find('"', line.find('Source="') + 8)]
-            if (task == '') or (task in tasks):
+            lib = ''
+            if (line.find('<LibraryObject Name="') != -1):
+                 lib = line[line.find('Name="') + 6 : line.find('"', line.find('Name="') + 6)]
+            if ((task == '') and (lib == '')) or (task in tasks) or (lib in libraries) or (lib in mapps):
                 f.write(line)
         f.truncate()
 
@@ -159,7 +162,7 @@ def main() -> None:
         for f in export['files']:
             copy(exportDir, f)
     if ('physical' in export):
-        copyTasksDeployment(exportDir, export['physical']["deployTasks"])
+        copySwDeployment(exportDir, export['physical']["deployTasks"], export["libraries"], export["mapp"])
         copyFileDevices(exportDir, export['physical']["fileDevices"])
         if (('enableOpcUa' in export['physical']) and (export['physical']['enableOpcUa'] == True)):
             enableOpcUa(exportDir)
@@ -183,7 +186,7 @@ def main() -> None:
         for f in export['mappViewfiles']:
             copy(exportDir, f)
     if ('physical' in export):
-        copyTasksDeployment(exportDir, export['physical']["deployTasks"])
+        copySwDeployment(exportDir, export['physical']["deployTasks"], export["libraries"], export["mapp"])
         copyFileDevices(exportDir, export['physical']["fileDevices"])
         enableOpcUa(exportDir)
         if (('UserPartitionSize' in export['physical']) and (export['physical']['UserPartitionSize'] == True)):
