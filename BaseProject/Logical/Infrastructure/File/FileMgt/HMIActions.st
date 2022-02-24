@@ -35,7 +35,7 @@ ACTION FileManager:
     FOR i:=0 TO ((SIZEOF(hmiFile.Status.FileNames)/SIZEOF(hmiFile.Status.FileNames[0]))-1) DO
         hmiFile.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
         hmiFile.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
-        hmiFile.Status.Size[i] := REAL_TO_UDINT(MpFileManagerUIConnect.File.List.Items[i].Size * 0.001);
+        hmiFile.Status.Size[i] := REAL_TO_UDINT(UDINT_TO_REAL(MpFileManagerUIConnect.File.List.Items[i].Size) * 0.001);
 		
 		// Set image array based on item type 
 		IF MpFileManagerUIConnect.File.List.Items[i].IsFolder THEN
