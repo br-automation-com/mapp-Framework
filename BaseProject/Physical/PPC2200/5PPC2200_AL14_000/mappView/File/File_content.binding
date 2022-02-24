@@ -89,10 +89,7 @@
 			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Commands.FolderUp" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="pshBtnBack" attribute="value" />
 		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.TableConfig" attribute="value" />
-			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="tableConfiguration" />
-		</Binding>
+		
 
 
 
@@ -106,10 +103,22 @@
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="selectedRow" />
 		</Binding>
 		
-		<Binding mode="oneWay" >
+		<Binding mode="oneWay">
 			<Source xsi:type="session" refId="::SYSTEM:clientInfo.currentPageId" attribute="value" />
 			<Target xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.CurrentPage" attribute="value" />
 		</Binding>
 
-	</Bindings>
+	
+
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.TableConfig[0]" attribute="value" />
+<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileDeviceTable" attribute="tableConfiguration" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.TableConfig[1]" attribute="value" />
+<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="tableConfiguration" />
+</Binding>
+</Bindings>
 </BindingsSet>

@@ -3,10 +3,10 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.AlarmHistory" id="AlmHist" top="40" left="0" width="1120" height="580" zIndex="0" format="yyyy-MM-dd hh:mm" imagePrefix="Media/SymbolLib/Alarm/" itemsPerPage="9" searchBox="false" fontSize="16px">
       <Widgets>
-        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmTimeStamp" width="145" zIndex="0" columnType="timestamp" text="$IAT/Alarm/TimeStamp" />
-        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmAlarmMessage" width="795" zIndex="1" text="$IAT/Alarm/AlarmMessage" />
-        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmOldState" width="80" zIndex="2" columnType="old state" text="$IAT/Alarm/OldState" />
-        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmNewState" width="100" zIndex="3" columnType="new state" text="$IAT/Alarm/NewState" />
+        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmTimeStamp" width="160" zIndex="0" columnType="timestamp" text="$IAT/Alarm/TimeStamp" />
+        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmAlarmMessage" width="810" zIndex="1" text="$IAT/Alarm/AlarmMessage" />
+        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmOldState" width="75" zIndex="2" columnType="old state" text="$IAT/Alarm/OldState" />
+        <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlmHistItmNewState" width="75" zIndex="3" columnType="new state" text="$IAT/Alarm/NewState" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.PushButton" id="PBtnExport" top="5" left="940" width="170" zIndex="1" image="Media/SymbolLib/Icons/Export.svg" text="$IAT/Alarm/Export" imageHeight="50" imageWidth="50" style="transparent" />

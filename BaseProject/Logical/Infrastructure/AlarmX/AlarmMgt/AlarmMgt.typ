@@ -46,6 +46,7 @@ TYPE
 		AlarmHistFilterCfg : STRING[1000];
 		AlarmSortCfg : STRING[1000];
 		AlarmFilterCfg : STRING[1000];
+		TableConfig : ARRAY[0..1]OF STRING[120];
 	END_STRUCT;
 	AlarmCommands_type : 	STRUCT 
 		ExportAlarms : BOOL;

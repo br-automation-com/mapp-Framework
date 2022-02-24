@@ -19,11 +19,22 @@ ACTION FormatDeviceDataProvider:
             brsmemset(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 7]), 0, SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 7]));
         END_IF
     END_FOR
+	
+	// Configure visible device list 
+    brsstrcpy(ADR(hmiFile.Status.TableConfig[0]), ADR('{ "specRows": [{"from":'));
+	FOR i := 0 TO 9 DO 
+		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
+			deviceCount := i+1;
+		END_IF
+	END_FOR	
+	brsitoa((deviceCount), ADR(hmiFile.Status.TableConfig[0]) + brsstrlen(ADR(hmiFile.Status.TableConfig[0])));	
+    brsstrcat(ADR(hmiFile.Status.TableConfig[0]),  ADR(',"to":9, "visible":false}]}'));
+	
     
     // Configure visible file list 
-    brsstrcpy(ADR(hmiFile.Status.TableConfig), ADR('{ "specRows": [{"from":'));
-    brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(hmiFile.Status.TableConfig) + brsstrlen(ADR(hmiFile.Status.TableConfig)));
-    brsstrcat(ADR(hmiFile.Status.TableConfig),  ADR(',"to":49, "visible":false}]}'));
+    brsstrcpy(ADR(hmiFile.Status.TableConfig[1]), ADR('{ "specRows": [{"from":'));
+    brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(hmiFile.Status.TableConfig[1]) + brsstrlen(ADR(hmiFile.Status.TableConfig[1])));
+    brsstrcat(ADR(hmiFile.Status.TableConfig[1]),  ADR(',"to":49, "visible":false}]}'));
     
 END_ACTION
 

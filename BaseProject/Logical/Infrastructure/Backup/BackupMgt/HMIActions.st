@@ -16,6 +16,21 @@ ACTION FormatDeviceDataProvider:
             brsmemset(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]), 0, SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]));
         END_IF
     END_FOR
+	
+	// Configure visible device list 
+    brsstrcpy(ADR(hmiBackup.Status.TableConfig[0]), ADR('{ "specRows": [{"from":'));
+	FOR i := 0 TO 9 DO 
+		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
+			deviceCount := i+1;
+		END_IF
+	END_FOR	
+	brsitoa((deviceCount), ADR(hmiBackup.Status.TableConfig[0]) + brsstrlen(ADR(hmiBackup.Status.TableConfig[0])));	
+    brsstrcat(ADR(hmiBackup.Status.TableConfig[0]),  ADR(',"to":9, "visible":false}]}'));
+	
+	// Configure visible file list 
+    brsstrcpy(ADR(hmiBackup.Status.TableConfig[1]), ADR('{ "specRows": [{"from":'));
+    brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(hmiBackup.Status.TableConfig[1]) + brsstrlen(ADR(hmiBackup.Status.TableConfig[1])));
+    brsstrcat(ADR(hmiBackup.Status.TableConfig[1]),  ADR(',"to":49, "visible":false}]}'));
     
 END_ACTION
 

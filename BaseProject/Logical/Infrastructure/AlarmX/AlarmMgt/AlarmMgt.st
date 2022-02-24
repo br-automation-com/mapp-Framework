@@ -52,6 +52,7 @@ PROGRAM _CYCLIC
 	GetBacktraceInformation;
     ExecuteQuery;
 	AlarmSamples;
+	QueryTableConfig;
     
     // Check if any reactions are active 
     IF MpAlarmXCheckReaction(gAlarmXMpLink, 'Error') THEN

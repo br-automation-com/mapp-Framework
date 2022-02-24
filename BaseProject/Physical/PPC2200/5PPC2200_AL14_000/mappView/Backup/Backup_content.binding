@@ -46,5 +46,14 @@
             <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.Info.Name" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="txtOutName" attribute="value" />
         </Binding>
-  </Bindings>
+  
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.TableConfig[1]" attribute="value" />
+<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="Table1" attribute="tableConfiguration" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.TableConfig[0]" attribute="value" />
+<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="FileDeviceTable" attribute="tableConfiguration" />
+</Binding>
+</Bindings>
 </BindingsSet>

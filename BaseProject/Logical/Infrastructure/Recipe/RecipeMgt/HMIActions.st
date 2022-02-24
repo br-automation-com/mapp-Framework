@@ -15,7 +15,7 @@ ACTION FormatDeviceDataProvider:
 			brsmemset(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1]), 0, SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1]));	
 		END_IF
 	END_FOR
-    
+	
 	// Configure visible recipe list 
 	hmiRecipe.Parameters.TableConfig := '{ "specRows": [{"from":';
 	brsitoa(MpRecipeUIConnect.Recipe.List.MaxSelection + 1, ADR(hmiRecipe.Parameters.TableConfig) + brsstrlen(ADR(hmiRecipe.Parameters.TableConfig)));

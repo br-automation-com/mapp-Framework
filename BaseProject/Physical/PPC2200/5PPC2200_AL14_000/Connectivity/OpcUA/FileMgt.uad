@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="7" ArVersion="B4.91">
+<OpcUaSource FileVersion="7" ArVersion="D4.91">
   <Aliases>
     <ACLAliases />
     <EURangeViolationAliases />
@@ -10,7 +10,11 @@
   <DefaultView>
     <Module Name="&lt;Default&gt;">
       <Task Name="FileMgt">
-        <Variable Name="hmiFile" AutomaticEnable="True" />
+        <Variable Name="hmiFile" AutomaticEnable="True">
+          <Variable Name="Status">
+            <Variable Name="TableConfig" EnableArrayElements="True" />
+          </Variable>
+        </Variable>
         <Variable Name="MpFileManagerUIConnect" AutomaticEnable="True">
           <Variable Name="DeviceList">
             <Variable Name="DeviceNames" EnableArrayElements="True" />
