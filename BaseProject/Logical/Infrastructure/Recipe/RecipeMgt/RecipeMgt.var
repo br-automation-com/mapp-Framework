@@ -10,7 +10,6 @@
  ********************************************************************)
 (*Function Block Declaration----------------------------------------------------------------------------------------*)
 VAR
-	MpRecipe_Preview : MpRecipeXml;
 	MpRecipe_0 : MpRecipeXml; (*Recipe Management Function Block*)
 	MpRecipeUI_0 : MpRecipeUI; (*Recipe to UI*)
 	DirCreate_New : DirCreate;
@@ -32,7 +31,6 @@ END_VAR
 (*Defines*)
 VAR CONSTANT
 	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 1;
-	PREVIEW_CATEGORY : STRING[7] := 'Preview';
 	MACHINE_FILENAME : STRING[12] := 'Machine.mcfg';
 	LOCAL_FOLDER : STRING[10] := 'Recipe';
 END_VAR
