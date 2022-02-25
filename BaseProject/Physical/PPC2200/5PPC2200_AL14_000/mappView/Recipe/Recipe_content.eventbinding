@@ -53,30 +53,22 @@
           </Target>
           <Result>
             <ResultHandler condition="result = 1">
-              <Parallel>
-                <Action>
-                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Confirm">
-                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                  </Target>
-                </Action>
-                <Action>
-                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.LoadRecipe">
-                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                  </Target>
-                </Action>
-                <Action>
-                  <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.LoadRecipe">
-                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                  </Target>
-                </Action>
-              </Parallel>
-            </ResultHandler>
-            <ResultHandler condition="result = 2">
-              <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Cancel">
-                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                </Target>
-              </Action>
+              <Sequence>
+                <Step order="0">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.LoadRecipe">
+                      <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+                <Step order="1">
+                  <Action>
+                    <Target xsi:type="session.VariableAction" refId="SessionVarLoadRecipeConfirm">
+                      <Method xsi:type="session.VariableAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+              </Sequence>
             </ResultHandler>
           </Result>
         </Action>
