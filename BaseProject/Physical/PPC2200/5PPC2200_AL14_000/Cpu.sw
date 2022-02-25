@@ -58,11 +58,9 @@
     <BinaryObject Name="Audit" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="asfw" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="Data" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="ConvGrp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UserXlogin" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="MachineGrp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="FileMgr" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="ConvVirt" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Role" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="User" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Settings" Source="" Memory="UserROM" Language="Binary" />
@@ -70,12 +68,10 @@
     <BinaryObject Name="ashwac" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="CutVirt" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="iomap" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="ConvAlm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arconfig" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="CutAxis" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="CutCamAut" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="myUnits" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="ConvAxis" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="CutterGrp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Backup" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TC" Source="" Memory="UserROM" Language="Binary" />
@@ -86,6 +82,14 @@
     <BinaryObject Name="RecipeXML" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AlarmXHist" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="RecipeCSV" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="VAppAxis1" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Axis1Alm" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Axis1Grp" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AppAxis1" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="ConvVirt" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="ConvAxis" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="ConvGrp" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="ConvAlm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Cutter" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AlmHistory" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Rcp" Source="" Memory="UserROM" Language="Binary" />
