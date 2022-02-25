@@ -64,6 +64,11 @@
                     <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                   </Target>
                 </Action>
+                <Action>
+                  <Target xsi:type="opcUa.NodeAction" refId="::Conveyor:AxisRecipe.LoadRecipe">
+                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                  </Target>
+                </Action>
               </Parallel>
             </ResultHandler>
             <ResultHandler condition="result = 2">
@@ -90,6 +95,13 @@
           </Step>
           <Step order="2">
             <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::Conveyor:AxisRecipe.CreateDialogOpened">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="3">
+            <Action>
               <Target xsi:type="clientSystem.Action">
                 <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" />
               </Target>
@@ -110,6 +122,13 @@
             </Action>
           </Step>
           <Step order="2">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::Conveyor:AxisRecipe.EditDialogOpened">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="3">
             <Action>
               <Target xsi:type="clientSystem.Action">
                 <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="EditRecipe_dialog" />

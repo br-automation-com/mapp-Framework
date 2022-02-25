@@ -13,7 +13,27 @@
     </EventBinding>
     <EventBinding id="Recipe_Eventbinding_EditConfirm">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="SaveButton" event="Click" />
-      <EventHandler>
+      <Operand datatype="ANY_STRING" name="LastProductRecipe">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgt:hmiRecipe.Parameters.LastLoadedProductRecipe">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_STRING" name="LastMachineRecipe">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgt:hmiRecipe.Parameters.LastLoadedConfigRecipe">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_STRING" name="ActiveRecipe">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgt:hmiRecipe.Parameters.ActiveRecipe">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_STRING" name="RecipeCategory">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::AsGlobalPV:RecipeCategoryDropdown">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="">
         <Sequence>
           <Step order="1">
             <Action>
@@ -24,19 +44,37 @@
           </Step>
           <Step order="2">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.UpdatePreviewParameters">
+              <Target xsi:type="opcUa.NodeAction" refId="::Conveyor:AxisRecipe.SaveRecipe">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
           </Step>
-          <Step order="3">
+        </Sequence>
+      </EventHandler>
+      <EventHandler condition="(LastProductRecipe = ActiveRecipe AND RecipeCategory = &quot;Product&quot;) OR (LastMachineRecipe = ActiveRecipe AND RecipeCategory = &quot;Machine&quot;) ">
+        <Sequence>
+          <Step order="1">
             <Action>
-              <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.LoadRecipe">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::Conveyor:AxisRecipe.LoadRecipe">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
           </Step>
         </Sequence>
+      </EventHandler>
+      <EventHandler condition="">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
+          </Target>
+        </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_3">

@@ -30,7 +30,7 @@ ACTION LoadPreview:
 		// Check selected recipe name is not empty 
 		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
 			MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
-			MpRecipe_0.Category := ADR(hmiRecipe.Parameters.CategoryDropdown);
+			MpRecipe_0.Category := ADR(RecipeCategoryDropdown);
 			MpRecipe_0.Load := TRUE;
 			hmiRecipe.Parameters.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
 		END_IF
@@ -45,83 +45,62 @@ END_ACTION
 
 ACTION RecipeHMIcommands:
 	
+	hmiRecipe.Parameters.ActiveRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
+	
 	CASE hmiRecipe.Status.HMIcommand OF
 		REC_HMI_WAIT:
-			IF hmiRecipe.Commands.LoadRecipe THEN 
-				hmiRecipe.Status.HMIcommand := REC_HMI_LOAD;
-				hmiRecipe.Commands.LoadRecipe := FALSE;
+			IF hmiRecipe.Commands.CreateRecipe THEN
+				hmiRecipe.Status.HMIcommand := REC_HMI_CREATE;
+				hmiRecipe.Commands.CreateRecipe := FALSE;
 			ELSIF hmiRecipe.Commands.SaveSelectedRecipe THEN
 				hmiRecipe.Status.HMIcommand := REC_HMI_SAVE;
 				hmiRecipe.Commands.SaveSelectedRecipe := FALSE;
-			ELSIF hmiRecipe.Commands.CreateRecipe THEN
-				hmiRecipe.Status.HMIcommand := REC_HMI_CREATE;
-				hmiRecipe.Commands.CreateRecipe := FALSE;
-			ELSIF hmiRecipe.Commands.StoreMachineSettings THEN
-				hmiRecipe.Status.HMIcommand := REC_HMI_STORE_MACH_SETTINGS;
-				hmiRecipe.Commands.StoreMachineSettings := FALSE;
-			ELSIF hmiRecipe.Commands.FactoryResetMachineSettings THEN
-				hmiRecipe.Status.HMIcommand := REC_HMI_FACTORY_RESET;
-				hmiRecipe.Commands.FactoryResetMachineSettings := FALSE;
+			ELSIF hmiRecipe.Commands.LoadRecipe THEN 
+				hmiRecipe.Status.HMIcommand := REC_HMI_LOAD;
+				hmiRecipe.Commands.LoadRecipe := FALSE;
 			END_IF
+			
+		REC_HMI_CREATE:
+			IF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Product')) = 0) THEN
+				ParametersPreview := ParametersEdit;
+			ELSIF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Machine')) = 0) THEN
+				MachSettingsPreview := MachSettingsEdit;
+			END_IF
+			MpRecipeUIConnect.New.Create := TRUE;
+			hmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 		
 		REC_HMI_LOAD:
-			IF (brsstrcmp(ADR(hmiRecipe.Parameters.CategoryDropdown),ADR('Product')) = 0) THEN
+			IF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Product')) = 0) THEN
 				Parameters := ParametersPreview;
 				hmiRecipe.Parameters.LastLoadedProductRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
-			ELSIF (brsstrcmp(ADR(hmiRecipe.Parameters.CategoryDropdown),ADR('Machine')) = 0) THEN
+			ELSIF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Machine')) = 0) THEN
 				MachSettings := MachSettingsPreview;
 				hmiRecipe.Parameters.LastLoadedConfigRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
 			END_IF
 			hmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 		
 		REC_HMI_SAVE:
-			IF (brsstrcmp(ADR(hmiRecipe.Parameters.CategoryDropdown),ADR('Product')) = 0) THEN
+			IF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Product')) = 0) THEN
 				ParametersPreview := ParametersEdit;
+				
+				//make this comparison in mapp view, so I can trigger the load stright from there
+				hmiRecipe.Parameters.ActiveRecipe;
 				IF (brsstrcmp(ADR(hmiRecipe.Parameters.LastLoadedProductRecipe),ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]))=0) THEN
-					Parameters := ParametersEdit;
+					hmiRecipe.Commands.LoadRecipe := TRUE;
 				END_IF
-			ELSIF (brsstrcmp(ADR(hmiRecipe.Parameters.CategoryDropdown),ADR('Machine')) = 0) THEN
+			ELSIF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Machine')) = 0) THEN
 				MachSettingsPreview := MachSettingsEdit;
 				IF (brsstrcmp(ADR(hmiRecipe.Parameters.LastLoadedConfigRecipe),ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]))=0) THEN
-					MachSettings := MachSettingsEdit;
+					hmiRecipe.Commands.LoadRecipe := TRUE;
 				END_IF
-			END_IF
+			END_IF		
+			
 			IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
 				MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
 				MpRecipe_0.Save := TRUE;
 			END_IF
 			hmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 		
-		REC_HMI_CREATE:
-			IF (brsstrcmp(ADR(hmiRecipe.Parameters.CategoryDropdown),ADR('Product')) = 0) THEN
-				ParametersPreview := ParametersEdit;
-			ELSIF (brsstrcmp(ADR(hmiRecipe.Parameters.CategoryDropdown),ADR('Machine')) = 0) THEN
-				MachSettingsPreview := MachSettingsEdit;
-			END_IF
-			MpRecipeUIConnect.New.Create := TRUE;
-			hmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
-		
-		REC_HMI_STORE_MACH_SETTINGS:
-			brsstrcpy(ADR(hmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY));
-			brsstrcpy(ADR(hmiRecipe.Parameters.FileName), ADR(MACHINE_FILENAME));
-			DTGetTime_0(enable := TRUE);
-			Header.DateTime := DTGetTime_0.DT1;
-			Header.Name := MACHINE_FILENAME;
-			Header.Description := 'Machine Settings';
-			MpRecipe_0.Save := TRUE;
-			hmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
-		
-		REC_HMI_FACTORY_RESET:
-			// Factory reset the machine settings 
-			brsstrcpy(ADR(hmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY));
-			brsstrcpy(ADR(hmiRecipe.Parameters.FileName), ADR(MACHINE_FILENAME));
-			MpRecipe_0.Load := TRUE;
-		
-			IF MpRecipe_0.CommandDone THEN
-				// Copy factory settings into Machine.mcfg file 
-				hmiRecipe.Commands.FactoryResetMachineSettings := FALSE;
-				hmiRecipe.Commands.StoreMachineSettings := TRUE;
-			END_IF
 	END_CASE;
 	
 	IF NOT MpRecipe_0.CommandBusy AND brsstrcmp(ADR(previousRecipe),ADR(hmiRecipe.Parameters.FileName)) <> 0 THEN
@@ -129,10 +108,10 @@ ACTION RecipeHMIcommands:
 	END_IF
 	
 	IF hmiRecipe.Parameters.EditDialogOpened OR hmiRecipe.Parameters.CreateDialogOpened THEN
-		IF (brsstrcmp(ADR(hmiRecipe.Parameters.CategoryDropdown),ADR('Product')) = 0) THEN
+		IF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Product')) = 0) THEN
 			ParametersEdit := ParametersPreview;
 			MpRecipeUIConnect.New.FileName := 'newParameters.par';
-		ELSIF (brsstrcmp(ADR(hmiRecipe.Parameters.CategoryDropdown),ADR('Machine')) = 0) THEN
+		ELSIF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Machine')) = 0) THEN
 			MachSettingsEdit := MachSettingsPreview;
 			MpRecipeUIConnect.New.FileName := 'newMachConfig.mcfg';
 		END_IF
