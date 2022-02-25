@@ -93,13 +93,6 @@
               </Target>
             </Action>
           </Step>
-          <Step order="2">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.CreateDialogOpened">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-              </Target>
-            </Action>
-          </Step>
           <Step order="3">
             <Action>
               <Target xsi:type="clientSystem.Action">
@@ -117,13 +110,6 @@
           <Step order="1">
             <Action>
               <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.EditDialogOpened">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="2">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.EditDialogOpened">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -205,22 +191,11 @@
     <EventBinding id="EventBinding_CategoryDropdown">
       <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" event="SelectedIndexChanged" />
       <EventHandler>
-        <Sequence>
-          <Step order="0">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.CategoryDropdown">
-                <Method xsi:type="opcUa.NodeAction.SetValueString" value="=selectedValue" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.CategoryDropdown">
-                <Method xsi:type="opcUa.NodeAction.SetValueString" value="=selectedValue" />
-              </Target>
-            </Action>
-          </Step>
-        </Sequence>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.CategoryDropdown">
+            <Method xsi:type="opcUa.NodeAction.SetValueString" value="=selectedValue" />
+          </Target>
+        </Action>
       </EventHandler>
       <EventHandler condition="selectedIndex = 0">
         <Sequence>
@@ -309,22 +284,11 @@
         </ReadTarget>
       </Operand>
       <EventHandler condition="contentId = &quot;Recipe_content&quot;">
-        <Sequence>
-          <Step order="0">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.CategoryDropdown">
-                <Method xsi:type="opcUa.NodeAction.SetValueString" value="=CategoryDropdownValue" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.CategoryDropdown">
-                <Method xsi:type="opcUa.NodeAction.SetValueString" value="=CategoryDropdownValue" />
-              </Target>
-            </Action>
-          </Step>
-        </Sequence>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.CategoryDropdown">
+            <Method xsi:type="opcUa.NodeAction.SetValueString" value="=CategoryDropdownValue" />
+          </Target>
+        </Action>
       </EventHandler>
     </EventBinding>
   </Bindings>
