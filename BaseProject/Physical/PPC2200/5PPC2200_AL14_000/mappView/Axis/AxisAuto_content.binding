@@ -3,20 +3,20 @@
     <Bindings>
   
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Parameters.Velocity" attribute="node" />
+            <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Parameters.Velocity" attribute="node" />
             <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumericInputFeederSetVel" attribute="node" />
         </Binding>
 
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Status.Position" attribute="node" />
+            <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Status.Position" attribute="node" />
             <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumOutFeedPos" attribute="node" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Status.Velocity" attribute="node" />
+            <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Status.Velocity" attribute="node" />
             <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumOutFeederActSpeed" attribute="node" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::Conveyor:AxisControl.Command.Start" attribute="value" />
+            <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Command.Start" attribute="value" />
             <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="TBtnStartStop" attribute="value" />
         </Binding>
     </Bindings>
