@@ -3,7 +3,7 @@ ACTION RecipeInit:
 
     // register the variables with the recipe system
     AxisControl.Status.ProductSettingsName := AxisControl.Status.TaskName;
-    brsstrcat(ADR(AxisControl.Status.MachineSettingsName), ADR(':ParametersPreview'));
+    brsstrcat(ADR(AxisControl.Status.ProductSettingsName), ADR(':ParametersPreview'));
     MpRecipeRegPar_Par.MpLink := ADR(gRecipeXmlMpLink);
     MpRecipeRegPar_Par.Enable := TRUE;
     MpRecipeRegPar_Par.PVName := ADR(AxisControl.Status.ProductSettingsName);
@@ -33,27 +33,60 @@ ACTION RecipeInit:
 END_ACTION
 
 ACTION RecipeCyclic:
-	
-    // Copy preview parameters before creating or saving a recipe 
-    IF AxisControl.Command.UpdatePreviewParameters THEN
-        ParametersPreview := AxisControl.Parameters;
-        AxisControl.Command.UpdatePreviewParameters := FALSE;
-    END_IF
-    
-    IF AxisControl.Command.LoadRecipeParameters THEN
-        AxisControl.Parameters := ParametersPreview;
-        AxisControl.Command.LoadRecipeParameters := FALSE;
-    END_IF
-    
-    IF AxisControl.Command.SaveRecipeParameters THEN
-        ParametersPreview := ParametersEdit;
-        AxisControl.Command.SaveRecipeParameters := FALSE;
-    END_IF
-    
-    MpRecipeRegPar_Par.MpLink := ADR(gRecipeXmlMpLink);
-    MpRecipeRegPar_Par();
 
-    MpRecipeRegPar_Cfg.MpLink := ADR(gRecipeXmlMpLink);
-    MpRecipeRegPar_Cfg();
+	IF (AxisRecipe.EditDialogOpened OR AxisRecipe.CreateDialogOpened) THEN
+		IF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Product')) = 0) THEN
+			ParametersEdit := ParametersPreview;
+		ELSIF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Machine')) = 0) THEN
+			MachineSettingsEdit := MachineSettingsPreview;
+		END_IF
+		AxisRecipe.EditDialogOpened := FALSE;
+		AxisRecipe.CreateDialogOpened := FALSE;	
+	END_IF
+	
+	CASE AxisRecipe.State OF
+		REC_AXIS_WAIT:
+			IF AxisRecipe.CreateRecipe THEN
+				AxisRecipe.State := REC_AXIS_CREATE;
+				AxisRecipe.CreateRecipe := FALSE;
+			ELSIF AxisRecipe.SaveRecipe THEN
+				AxisRecipe.State := REC_AXIS_SAVE;
+				AxisRecipe.SaveRecipe := FALSE;
+			ELSIF AxisRecipe.LoadRecipe THEN 
+				AxisRecipe.State := REC_AXIS_LOAD;
+				AxisRecipe.LoadRecipe := FALSE;
+			END_IF
+		
+		REC_AXIS_CREATE:
+			IF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Product')) = 0) THEN
+				ParametersPreview := ParametersEdit;
+			ELSIF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Machine')) = 0) THEN
+				MachineSettingsPreview := MachineSettingsEdit;
+			END_IF
+			AxisRecipe.State := REC_AXIS_WAIT;
+			
+		REC_AXIS_LOAD:
+			IF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Product')) = 0) THEN
+				AxisControl.Parameters := ParametersPreview;
+			ELSIF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Machine')) = 0) THEN
+				MachineSettings := MachineSettingsPreview;
+			END_IF
+			AxisRecipe.State := REC_AXIS_WAIT;
+		
+		REC_AXIS_SAVE:
+			IF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Product')) = 0) THEN
+				ParametersPreview := ParametersEdit;
+			ELSIF (brsstrcmp(ADR(RecipeCategoryDropdown),ADR('Machine')) = 0) THEN
+				MachineSettingsPreview := MachineSettingsEdit;
+			END_IF		
+			AxisRecipe.State := REC_AXIS_WAIT;
+	
+	END_CASE;
+
+	MpRecipeRegPar_Par.MpLink := ADR(gRecipeXmlMpLink);
+	MpRecipeRegPar_Par();
+
+	MpRecipeRegPar_Cfg.MpLink := ADR(gRecipeXmlMpLink);
+	MpRecipeRegPar_Cfg();
     
 END_ACTION

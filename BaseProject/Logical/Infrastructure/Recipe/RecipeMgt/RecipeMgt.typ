@@ -6,7 +6,6 @@ TYPE
 		SaveCurrentRecipe : BOOL;
 		ImportFromUSB : BOOL;
 		ExportToUSB : BOOL;
-		UpdatePreviewParameters : BOOL;
 		SaveSelectedRecipe : BOOL;
 		LoadRecipe : BOOL;
 		CreateRecipe : BOOL;
@@ -15,6 +14,7 @@ TYPE
 		Category : STRING[30];
 		LastLoadedConfigRecipe : STRING[255];
 		LastLoadedProductRecipe : STRING[255];
+		ActiveRecipe : STRING[255];
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100];
 		DeviceName : STRING[50];
 		FileName : STRING[255];
@@ -60,8 +60,6 @@ TYPE
 		REC_HMI_WAIT,
 		REC_HMI_LOAD,
 		REC_HMI_SAVE,
-		REC_HMI_CREATE,
-		REC_HMI_STORE_MACH_SETTINGS,
-		REC_HMI_FACTORY_RESET
+		REC_HMI_CREATE
 		);
 END_TYPE

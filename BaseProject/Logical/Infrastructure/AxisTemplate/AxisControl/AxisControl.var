@@ -5,8 +5,8 @@ VAR
 	state : {REDUND_UNREPLICABLE} stateEnum;
 	AutomaticState : {REDUND_UNREPLICABLE} automaticStateEnum;
 	ManualState : {REDUND_UNREPLICABLE} manualStateEnum;
-    AxisControl : {REDUND_UNREPLICABLE} AxisControlType;
-    AxisSettings : {REDUND_UNREPLICABLE} AxisSettingsType;
+	AxisControl : {REDUND_UNREPLICABLE} AxisControlType;
+	AxisSettings : {REDUND_UNREPLICABLE} AxisSettingsType;
 END_VAR
 (*Function Blocks*)
 VAR
@@ -24,9 +24,10 @@ VAR
 END_VAR
 (*Recipe*)
 VAR
-    ParametersEdit : {REDUND_UNREPLICABLE} AxisControlParametersType;
-    ParametersPreview : {REDUND_UNREPLICABLE} AxisControlParametersType;
+	ParametersEdit : {REDUND_UNREPLICABLE} AxisControlParametersType;
+	ParametersPreview : {REDUND_UNREPLICABLE} AxisControlParametersType;
 	MachineSettings : {REDUND_UNREPLICABLE} AxisMachineSettingsType;
 	MachineSettingsEdit : {REDUND_UNREPLICABLE} AxisMachineSettingsType;
 	MachineSettingsPreview : {REDUND_UNREPLICABLE} AxisMachineSettingsType;
+	AxisRecipe : {REDUND_UNREPLICABLE} AxisRecipeType;
 END_VAR
