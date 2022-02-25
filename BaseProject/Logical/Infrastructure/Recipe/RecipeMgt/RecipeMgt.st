@@ -131,6 +131,7 @@ PROGRAM _CYCLIC
         brsstrcpy(ADR(hmiRecipe.Parameters.Category), ADR(PRODUCT_CATEGORY));
     END_IF
     hmiRecipe.Parameters.LastStatus := MpRecipeUIConnect.Status;
+	hmiRecipe.Parameters.ActiveRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
 
     // Save current recipe 
     IF (hmiRecipe.Commands.SaveCurrentRecipe = TRUE) AND NOT (MpRecipe_0.Load OR MpRecipe_0.Save OR MpRecipe_0.UpdateNotification) THEN
