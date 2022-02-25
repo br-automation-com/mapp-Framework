@@ -4,7 +4,7 @@
   <TaskClass Name="Cyclic#1">
     <Task Name="MainCtrl" Source="MainControl.MainCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
     <Task Name="AxisContro" Source="Infrastructure.AxisTemplate.AxisControl.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
-    <Task Name="Conveyor" Source="MachineControl.Conveyor.Conveyor.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AppAxis_1" Source="MachineControl.AppAxis_1.AppAxis_1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="CrossCutte" Source="MachineControl.CrossCutter.CrossCutter.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2">
@@ -58,11 +58,9 @@
     <BinaryObject Name="Audit" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="asfw" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="Data" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="ConvGrp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UserXlogin" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="MachineGrp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="FileMgr" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="ConvVirt" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Role" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="User" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Settings" Source="" Memory="UserROM" Language="Binary" />
@@ -70,12 +68,10 @@
     <BinaryObject Name="ashwac" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="CutVirt" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="iomap" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="ConvAlm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arconfig" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="CutAxis" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="CutCamAut" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="myUnits" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="ConvAxis" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="CutterGrp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Backup" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TC" Source="" Memory="UserROM" Language="Binary" />
@@ -86,6 +82,14 @@
     <BinaryObject Name="RecipeXML" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AlarmXHist" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="RecipeCSV" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="VAppAxis1" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Axis1Alm" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Axis1Grp" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AppAxis1" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="ConvVirt" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="ConvAxis" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="ConvGrp" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="ConvAlm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Cutter" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AlmHistory" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Rcp" Source="" Memory="UserROM" Language="Binary" />
@@ -129,15 +133,12 @@
     <LibraryObject Name="MpRecipe" Source="Libraries.MpRecipe.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="MpUserX" Source="Libraries.MpUserX.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="MpReport" Source="Libraries.MpReport.lby" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="MpTool" Source="Libraries.MpTool.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="MpAlarmX" Source="Libraries.MpAlarmX.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="MpCom" Source="Libraries.MpCom.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="MpBackup" Source="Libraries.MpBackup.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="McAxis" Source="Libraries.McAxis.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="McBase" Source="Libraries.McBase.lby" Memory="UserROM" Language="binary" Debugging="true" />
-    <LibraryObject Name="McAxGroup" Source="Libraries.McAxGroup.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="McAcpAx" Source="Libraries.McAcpAx.lby" Memory="UserROM" Language="binary" Debugging="true" />
-    <LibraryObject Name="McPathGen" Source="Libraries.McPathGen.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="McPureVAx" Source="Libraries.McPureVAx.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="McAcpPar" Source="Libraries.McAcpPar.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="MpServer" Source="Libraries.MpServer.lby" Memory="UserROM" Language="Binary" Debugging="true" />
@@ -153,6 +154,5 @@
     <LibraryObject Name="arproject" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="arcert" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asarprof" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="McProgInt" Source="Libraries.McProgInt.lby" Memory="UserROM" Language="binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>

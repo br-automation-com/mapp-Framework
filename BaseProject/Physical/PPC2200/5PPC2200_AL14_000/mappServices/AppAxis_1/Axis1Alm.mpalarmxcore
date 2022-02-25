@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAlarmXCore_AppAxis_1" Type="mpalarmxcore">
+    <Group ID="mapp.AlarmX.Core">
+      <Group ID="BySeverity">
+        <Group ID="[0]">
+          <Property ID="Severity" Value="1..9" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Info" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+          <Selector ID="[2]" Value="Remain" />
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Severity" Value="10..19" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Warning" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+          <Selector ID="[2]" Value="Remain" />
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Severity" Value="20..29" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Error" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+          <Selector ID="[2]" Value="Remain" />
+        </Group>
+      </Group>
+      <Group ID="Default">
+        <Selector ID="[0]" Value="Reaction">
+          <Property ID="Name" Value="Duplicate" />
+        </Selector>
+        <Selector ID="[1]" Value="Escalate" />
+        <Selector ID="[2]" Value="Remain" />
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Core.Configuration">
+      <Group ID="[0]">
+        <Property ID="Name" Value="ReferenceRequired" />
+        <Property ID="Message" Value="{$IAT/AppAxis_1/Info/Name} : {$AppAxis_1/Alarms/ReferenceRequired}" />
+        <Property ID="Severity" Value="10" />
+        <Selector ID="Behavior" Value="DiscreteValueMonitoring">
+          <Group ID="Monitoring">
+            <Property ID="MonitoredPV" Value="::AppAxis_1:AxisControl.Status.ReferenceRequired" />
+            <Group ID="TriggerValues">
+              <Property ID="[0]" Value="1" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="[1]">
+        <Property ID="Name" Value="AppAxis_1SpeedNotSet" />
+        <Property ID="Message" Value="{$IAT/AppAxis_1/Alarms/AppAxis_1SpeedNotSet}" />
+        <Property ID="Code" Value="250" />
+        <Property ID="Severity" Value="20" />
+        <Selector ID="Behavior">
+          <Property ID="Async" Value="TRUE" />
+        </Selector>
+      </Group>
+    </Group>
+    <Group ID="mapp.AlarmX.Core.Snippets">
+      <Group ID="[0]">
+        <Property ID="Key" Value="AppAxis_1Speed" />
+        <Selector ID="Value">
+          <Property ID="PV" Value="::AppAxis_1:AxisControl.Parameters.Velocity" />
+        </Selector>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>
