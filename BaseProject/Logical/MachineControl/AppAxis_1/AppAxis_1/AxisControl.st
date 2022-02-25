@@ -19,15 +19,15 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 
-    MpAxisBasicFB.MpLink := ADR(gAxisConveyor);
-    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gAxisConveyor);
+    MpAxisBasicFB.MpLink := ADR(gAxisAppAxis_1);
+    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gAxisAppAxis_1);
     
     SimulationControl;
     AxisStateMachine;
     AxisCyclic;
     RecipeCyclic;
     
-    MpAlarmXCoreFB.MpLink := ADR(gAlarmXCore_Conveyor);
+    MpAlarmXCoreFB.MpLink := ADR(gAlarmXCore_AppAxis_1);
     MpAlarmXCoreFB();
 
 END_PROGRAM

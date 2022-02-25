@@ -1,4 +1,3 @@
-
 ACTION AxisInit:
     
 END_ACTION
@@ -6,9 +5,9 @@ END_ACTION
 
 ACTION AxisCyclic: 
        
-    MpAlarmXControlSpeedNotSetFB.MpLink := ADR(gAlarmXCore_Conveyor);
+    MpAlarmXControlSpeedNotSetFB.MpLink := ADR(gAlarmXCore_AppAxis_1);
     MpAlarmXControlSpeedNotSetFB.Enable := TRUE;
-    MpAlarmXControlSpeedNotSetFB.Name := ADR('ConveyorSpeedNotSet');
+    MpAlarmXControlSpeedNotSetFB.Name := ADR('AppAxis_1SpeedNotSet');
     MpAlarmXControlSpeedNotSetFB();
     MpAlarmXControlSpeedNotSetFB.Reset := FALSE;
     

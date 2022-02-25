@@ -65,7 +65,7 @@
                   </Target>
                 </Action>
                 <Action>
-                  <Target xsi:type="opcUa.NodeAction" refId="::Conveyor:AxisRecipe.LoadRecipe">
+                  <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.LoadRecipe">
                     <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                   </Target>
                 </Action>
@@ -95,7 +95,7 @@
           </Step>
           <Step order="2">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::Conveyor:AxisRecipe.CreateDialogOpened">
+              <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.CreateDialogOpened">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -123,7 +123,7 @@
           </Step>
           <Step order="2">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::Conveyor:AxisRecipe.EditDialogOpened">
+              <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.EditDialogOpened">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
