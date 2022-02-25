@@ -204,6 +204,24 @@
     </EventBinding>
     <EventBinding id="EventBinding_CategoryDropdown">
       <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" event="SelectedIndexChanged" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.CategoryDropdown">
+                <Method xsi:type="opcUa.NodeAction.SetValueString" value="=selectedValue" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.CategoryDropdown">
+                <Method xsi:type="opcUa.NodeAction.SetValueString" value="=selectedValue" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
       <EventHandler condition="selectedIndex = 0">
         <Sequence>
           <Step order="0">
@@ -277,6 +295,32 @@
             <Action>
               <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Refresh">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_4">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <Operand datatype="ANY_STRING" name="CategoryDropdownValue">
+        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
+          <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="contentId = &quot;Recipe_content&quot;">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.CategoryDropdown">
+                <Method xsi:type="opcUa.NodeAction.SetValueString" value="=CategoryDropdownValue" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.CategoryDropdown">
+                <Method xsi:type="opcUa.NodeAction.SetValueString" value="=CategoryDropdownValue" />
               </Target>
             </Action>
           </Step>

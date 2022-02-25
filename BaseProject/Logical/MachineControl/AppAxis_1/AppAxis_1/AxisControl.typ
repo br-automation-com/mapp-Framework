@@ -102,6 +102,7 @@ TYPE
 		LoadRecipe : BOOL;
 		CreateRecipe : BOOL;
 		State : AxisRecipeStep_enum;
+		CategoryDropdown : STRING[50];
 	END_STRUCT;
 	AxisRecipeStep_enum : 
 		(
