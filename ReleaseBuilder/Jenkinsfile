@@ -1,6 +1,6 @@
 def mailRecipients = "Brittany.Langston@br-automation.com;Marcel.Voigt@br-automation.com;Wesley.Buchanan@br-automation.com"
 
-def Version() {
+def Version(String branch = 'develop') {
     def tag = "V0.0.9"
     def count = powershell(returnStdout: true, script: "git rev-list HEAD --count").trim();
     try {
@@ -9,6 +9,14 @@ def Version() {
     }
     catch (err){
     }
+
+    if (branch.matches("release/(.*)")) {
+        echo "Release Branch";
+        return "$tag.$count";
+    }
+    echo "Not Release Branch";
+    tag = tag.substring(0, tag.lastIndexOf('.'))
+    tag = tag + '.9';
     return "$tag.$count";
 }
 
@@ -30,7 +38,7 @@ pipeline {
     stages {
         stage('Export Framework') {
             environment {
-                VERSION = Version()
+                VERSION = Version("$BRANCH_NAME")
             }
             steps {
                 bat "python \"$BUILD_FOLDER\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\AlarmX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
@@ -43,15 +51,16 @@ pipeline {
         }
         stage('Build Import Tool') {
             environment {
-                VERSION = Version()
+                VERSION = Version("$BRANCH_NAME")
             }
             steps {
+                powershell(returnStdout: true, script: ". '$IMPORT_TOOL\\GitVersion.ps1' \"$IMPORT_TOOL\\FrameworkImporter\" \"$BRANCH_NAME\"")
                 bat "python \"$BUILD_FOLDER\\BuildImportTool.py\" --project \"$IMPORT_TOOL\" --output \"$OUTPUT_DIR\\$VERSION\\Importer"
             }
         }
         stage('Build Help') {
             environment {
-                VERSION = Version()
+                VERSION = Version("$BRANCH_NAME")
             }
             options {
                 timeout(time: 30, unit: "SECONDS")
@@ -76,7 +85,7 @@ pipeline {
         }
         stage('Create Technology Solution') {
             environment {
-                VERSION = Version()
+                VERSION = Version("$BRANCH_NAME")
             }
             steps {
                 bat "python \"$BUILD_FOLDER\\ExportTechnologySolution.py\" --project \"$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\FrameworkImporter_TS\" --version $Version"
@@ -84,7 +93,7 @@ pipeline {
         }
         stage('Create Installer') {
             environment {
-                VERSION = Version()
+                VERSION = Version("$BRANCH_NAME")
             }
             steps {
                 bat "python \"$BUILD_FOLDER\\CreateInstaller.py\" --project \"$WORKSPACE\\ReleaseBuilder\" --name mappFramework --version $Version"

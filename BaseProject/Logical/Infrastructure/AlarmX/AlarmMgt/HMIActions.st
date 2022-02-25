@@ -29,3 +29,19 @@ ACTION GetBacktraceInformation:
 	END_FOR
 
 END_ACTION
+
+
+ACTION QueryTableConfig: 
+    
+	// Configure visible list 
+    brsstrcpy(ADR(hmiAlarmX.Status.TableConfig[0]), ADR('{ "specRows": [{"from":'));
+	FOR i := 0 TO 9 DO 
+		IF AlarmQueryHMI.Message[i] <> "" THEN
+			entryCount := i+1;
+		END_IF
+	END_FOR	
+	brsitoa((entryCount), ADR(hmiAlarmX.Status.TableConfig[0]) + brsstrlen(ADR(hmiAlarmX.Status.TableConfig[0])));	
+    brsstrcat(ADR(hmiAlarmX.Status.TableConfig[0]),  ADR(',"to":19, "visible":false}]}'));
+	
+    
+END_ACTION

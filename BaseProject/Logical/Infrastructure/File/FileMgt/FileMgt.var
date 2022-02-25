@@ -9,16 +9,13 @@
  * Local variables of program FileManagement
  ********************************************************************)
 (*File Management Variables-----------------------------------------------------------------------------------------*)
-VAR CONSTANT
-	MAX_IDX_USB_DEV_LIST : USINT := 1; (*Max index for usb storage devices (1 means up to two devices with index 0 and 1)*)
-END_VAR
 VAR
 	MpFileManagerUIConnect : MpFileManagerUIConnectType;
 	MpFileManagerUI_0 : MpFileManagerUI;
 	Index : USINT; (*Index to loop through file devices*)
 	hmiFile : FileHmiInterface_type;
-	DTGetTime_0 : DTGetTime;
 	i : USINT;
+	deviceCount : USINT;
 	FolderDepthCount : USINT;
 	R_TRIG_CheckStatus : R_TRIG;
 	TON_ScanFolder : TON;

@@ -33,6 +33,11 @@
             </Target>
           </Action>
           <Action>
+            <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.CreateRecipe">
+              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            </Target>
+          </Action>
+          <Action>
             <Target xsi:type="clientSystem.Action">
               <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
             </Target>

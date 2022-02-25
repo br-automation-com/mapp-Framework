@@ -94,7 +94,7 @@ ACTION FIFOOperation:
 				hmiFile.Status.FolderSize := 0;         
 				FOR i:=0 TO ((SIZEOF(hmiFile.Status.FileNames)/SIZEOF(hmiFile.Status.FileNames[0]))-1) DO    
 					IF MpFileManagerUIConnect.File.List.Items[i].ItemType <> mpFILE_ITEM_TYPE_FOLDER THEN
-						hmiFile.Status.FolderSize := hmiFile.Status.FolderSize + MpFileManagerUIConnect.File.List.Items[i].Size;	
+						hmiFile.Status.FolderSize := hmiFile.Status.FolderSize + UDINT_TO_REAL(MpFileManagerUIConnect.File.List.Items[i].Size);	
 					END_IF	
 				END_FOR	 
 				IF (hmiFile.Status.FolderSize > hmiFile.Parameters.Fifo.MaxFolderSize) THEN

@@ -12,7 +12,10 @@ buildOutput = rf'FrameworkImporter\bin\Release'
 def BuildImportTool(dir, outputDir) -> bool:
     global msbuild, solution, buildOutput
     
-    args = '-p:Configuration=Release;optimize=true;DebugSymbols=false;DebugType=None'
+    if (os.path.exists(msbuild) == False)
+        msbuild = r'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\msbuild.exe'
+
+    args = '-p:Configuration=Release;optimize=true;DebugSymbols=false;DebugType=None;PreBuildEvent='
     result = subprocess.run(shlex.split(f'"{msbuild}" "{dir}\\{solution}" "{args}"'))
 
     removeDir(rf'{outputDir}')

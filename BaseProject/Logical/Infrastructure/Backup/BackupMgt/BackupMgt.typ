@@ -46,6 +46,7 @@ TYPE
 		Size : ARRAY[0..49]OF UDINT;
 		Info : MpBackupProjectInfoRequestType;
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100];
+		TableConfig : ARRAY[0..1]OF STRING[120];
 	END_STRUCT;
 	BackupHmiInterface_type : 	STRUCT 
 		Commands : BackupHmiCommands_type;

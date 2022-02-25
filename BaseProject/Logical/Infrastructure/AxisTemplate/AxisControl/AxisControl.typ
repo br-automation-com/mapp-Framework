@@ -10,7 +10,8 @@ TYPE
 	END_STRUCT;
 	AxisControlCommandType : {REDUND_UNREPLICABLE} 	STRUCT 
 		UpdatePreviewParameters : {REDUND_UNREPLICABLE} BOOL;
-		ResetEditParameters : {REDUND_UNREPLICABLE} BOOL;
+		LoadRecipeParameters : {REDUND_UNREPLICABLE} BOOL;
+		SaveRecipeParameters : {REDUND_UNREPLICABLE} BOOL;
 		Power : {REDUND_UNREPLICABLE} BOOL;
 		Reference : {REDUND_UNREPLICABLE} BOOL;
 		MoveAbsolute : {REDUND_UNREPLICABLE} BOOL;
@@ -90,5 +91,22 @@ TYPE
 		(
 		AUTOMATIC_STATE_IDLE,
 		AUTOMATIC_STATE_RUNNING
+		);
+	AxisRecipeType : 	STRUCT 
+		EditDialogOpened : BOOL;
+		CreateDialogOpened : BOOL;
+		SaveRecipe : BOOL;
+		LoadRecipe : BOOL;
+		CreateRecipe : BOOL;
+		State : AxisRecipeStep_enum;
+	END_STRUCT;
+	AxisRecipeStep_enum : 
+		(
+		REC_AXIS_WAIT,
+		REC_AXIS_LOAD,
+		REC_AXIS_SAVE,
+		REC_AXIS_CREATE,
+		REC_AXIS_STORE_MACH_SETTINGS,
+		REC_AXIS_FACTORY_RESET
 		);
 END_TYPE

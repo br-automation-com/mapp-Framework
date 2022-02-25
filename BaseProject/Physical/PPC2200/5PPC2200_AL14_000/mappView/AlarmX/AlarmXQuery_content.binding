@@ -18,5 +18,10 @@
 <Source xsi:type="opcUa" refId="::AlarmMgt:AlarmQueryHMI.AdditionalInfo" attribute="value" />
 <Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableItem2" attribute="stringValue" />
 </Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AlarmMgt:hmiAlarmX.Status.TableConfig[0]" attribute="value" />
+<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="Table1" attribute="tableConfiguration" />
+</Binding>
 </Bindings>
 </BindingsSet>

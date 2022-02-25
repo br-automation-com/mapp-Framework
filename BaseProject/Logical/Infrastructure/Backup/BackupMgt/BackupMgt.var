@@ -1,6 +1,3 @@
-VAR CONSTANT
-	MAX_IDX_USB_DEV_LIST : USINT := 1; (*Max index for usb storage devices (1 means up to two devices with index 0 and 1)*)
-END_VAR
 VAR
 	MpBackupConfiguration : MpBackupCoreConfigType;
 	MpBackupCoreConfigFB : MpBackupCoreConfig;
@@ -10,6 +7,7 @@ VAR
 	MpBackupCoreFB : MpBackupCore;
 	hmiBackup : BackupHmiInterface_type;
 	i : USINT;
+	deviceCount : USINT;
 	BackupState : BackupState_enum;
 	LastSelectedIndex : USINT;
 	LastSelectedDeviceIndex : UINT;

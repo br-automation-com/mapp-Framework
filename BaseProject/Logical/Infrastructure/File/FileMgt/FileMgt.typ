@@ -60,7 +60,7 @@ TYPE
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100];
 		DeviceName : STRING[50];
 		FileName : STRING[255];
-		TableConfig : STRING[120];
+		TableConfig : ARRAY[0..1]OF STRING[120];
 		IsFolder : BOOL;
 		BackButton : USINT;
 		DeleteStep : FileDeleteStep_enum;
