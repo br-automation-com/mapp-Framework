@@ -1,28 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="AxisRecipe_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="AxisRecipe_Eventbinding_Load">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnLoad" event="Click" />
-      <Operand datatype="ANY_STRING" name="myLoadRecipeText">
-        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarLoadRecipeText">
-          <Method xsi:type="session.VariableAction.GetValue" />
-        </ReadTarget>
-      </Operand>
-      <EventHandler>
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="=myLoadRecipeText" header="$IAT/Recipe/Load" icon="Question" />
-          </Target>
-          <Result>
-            <ResultHandler condition="result = 1">
-              <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.LoadRecipe">
-                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                </Target>
-              </Action>
-            </ResultHandler>
-          </Result>
-        </Action>
+    <EventBinding id="SessionVarLoadRecipeConfirm.ValueChanged">
+      <Source xsi:type="session.Event" refId="SessionVarLoadRecipeConfirm" event="ValueChanged" />
+      <EventHandler condition="newValue = true">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.LoadRecipe">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="SessionVarLoadRecipeConfirm">
+                <Method xsi:type="session.VariableAction.SetValueBool" value="false" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
       </EventHandler>
     </EventBinding>
     <EventBinding id="AxisRecipe_Eventbinding_Create">
@@ -45,7 +42,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_CategoryDropdown">
+    <EventBinding id="EventBinding_CategoryDropdownAxis">
       <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" event="SelectedIndexChanged" />
       <EventHandler>
         <Action>
@@ -55,7 +52,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_4">
+    <EventBinding id="EventBinding_InitialValueForRecipeDropdown">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="ANY_STRING" name="CategoryDropdownValue">
         <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">

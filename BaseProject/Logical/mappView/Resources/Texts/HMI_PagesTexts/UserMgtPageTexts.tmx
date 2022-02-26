@@ -5,37 +5,39 @@
     <prop type="x-BR-TS:Namespace">IAT/UserMgmt</prop>
   </header>
   <body>
-    <tu tuid="Refresh">
+    <tu tuid="Active">
       <tuv xml:lang="zh">
-        <seg>刷新</seg>
+        <seg>当前用户</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Refresh</seg>
+        <seg>Active User</seg>
       </tuv>
       <tuv xml:lang="zh-CN">
-        <seg>刷新</seg>
+        <seg>当前用户</seg>
       </tuv>
     </tu>
-    <tu tuid="DeleteUser">
+    <tu tuid="AddUser">
       <tuv xml:lang="zh">
-        <seg>用户删除</seg>
+        <seg>添加用户</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Delete User</seg>
-      </tuv>
-      <tuv xml:lang="zh-CN">
-        <seg>用户删除</seg>
+        <seg>Add User</seg>
       </tuv>
     </tu>
-    <tu tuid="RenameUser">
+    <tu tuid="AssignRole">
       <tuv xml:lang="zh">
-        <seg>用户重 命名</seg>
+        <seg>角色添加</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Rename</seg>
+        <seg>Assign Role</seg>
       </tuv>
-      <tuv xml:lang="zh-CN">
-        <seg>用户重 命名</seg>
+    </tu>
+    <tu tuid="Cancel">
+      <tuv xml:lang="zh">
+        <seg>取消</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Cancel</seg>
       </tuv>
     </tu>
     <tu tuid="ChangePassword">
@@ -49,70 +51,108 @@
         <seg>修改密码</seg>
       </tuv>
     </tu>
-    <tu tuid="UserName">
+    <tu tuid="Confirm">
       <tuv xml:lang="zh">
-        <seg>用户</seg>
+        <seg>确认</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>User Name</seg>
-      </tuv>
-      <tuv xml:lang="zh-CN">
-        <seg>用户</seg>
+        <seg>Confirm</seg>
       </tuv>
     </tu>
-    <tu tuid="Password">
+    <tu tuid="ConfirmPassword">
       <tuv xml:lang="zh">
-        <seg>密码</seg>
+        <seg>确认密码</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Password</seg>
-      </tuv>
-      <tuv xml:lang="zh-CN">
-        <seg>密码</seg>
+        <seg>Confirm Password</seg>
       </tuv>
     </tu>
-    <tu tuid="Repeat">
+    <tu tuid="CurrentPassword">
       <tuv xml:lang="zh">
-        <seg>重复 一 遍</seg>
+        <seg>当前密码</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Repeat</seg>
-      </tuv>
-      <tuv xml:lang="zh-CN">
-        <seg>重复 一 遍</seg>
+        <seg>Current Password</seg>
       </tuv>
     </tu>
-    <tu tuid="NewUserName">
+    <tu tuid="CurrentUser">
       <tuv xml:lang="zh">
-        <seg>新用户名称</seg>
+        <seg>当前用户</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>New User Name</seg>
-      </tuv>
-      <tuv xml:lang="zh-CN">
-        <seg>新用户名称</seg>
+        <seg>CurrentUser</seg>
       </tuv>
     </tu>
-    <tu tuid="UserManagement">
+    <tu tuid="DeleteUser">
       <tuv xml:lang="zh">
-        <seg>用户管理</seg>
+        <seg>用户删除</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>User Management</seg>
+        <seg>Delete User</seg>
       </tuv>
       <tuv xml:lang="zh-CN">
-        <seg>用户管理</seg>
+        <seg>用户删除</seg>
       </tuv>
     </tu>
-    <tu tuid="User">
+    <tu tuid="EditUser">
       <tuv xml:lang="zh">
-        <seg>用户</seg>
+        <seg>编辑用户</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>User</seg>
+        <seg>Edit User</seg>
       </tuv>
-      <tuv xml:lang="zh-CN">
-        <seg>用户</seg>
+    </tu>
+    <tu tuid="ExportDialog">
+      <tuv xml:lang="en">
+        <seg>Export User Group</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ExportFileName">
+      <tuv xml:lang="en">
+        <seg>Export File Name</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ExportUsers">
+      <tuv xml:lang="en">
+        <seg>Export Users</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ImportDialog">
+      <tuv xml:lang="en">
+        <seg>Import User Group</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ImportFileList">
+      <tuv xml:lang="en">
+        <seg>File List</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ImportFileName">
+      <tuv xml:lang="en">
+        <seg>Selected File:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ImportRole">
+      <tuv xml:lang="en">
+        <seg>Import Roles</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ImportUsers">
+      <tuv xml:lang="en">
+        <seg>Import Users</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LanguageUnitSettings">
+      <tuv xml:lang="en">
+        <seg>User settings</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LastLogin">
+      <tuv xml:lang="zh">
+        <seg>上次登录</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Last Login</seg>
       </tuv>
     </tu>
     <tu tuid="Login">
@@ -137,31 +177,45 @@
         <seg>退出</seg>
       </tuv>
     </tu>
-    <tu tuid="Active">
+    <tu tuid="NewPassword">
       <tuv xml:lang="zh">
-        <seg>当前用户</seg>
+        <seg>新密码</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Active User</seg>
+        <seg>New Password</seg>
+      </tuv>
+    </tu>
+    <tu tuid="NewUserName">
+      <tuv xml:lang="zh">
+        <seg>新用户名称</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>New User Name</seg>
       </tuv>
       <tuv xml:lang="zh-CN">
-        <seg>当前用户</seg>
+        <seg>新用户名称</seg>
       </tuv>
     </tu>
-    <tu tuid="AddUser">
+    <tu tuid="Password">
       <tuv xml:lang="zh">
-        <seg>添加用户</seg>
+        <seg>密码</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Add User</seg>
+        <seg>Password</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>密码</seg>
       </tuv>
     </tu>
-    <tu tuid="Role">
+    <tu tuid="Refresh">
       <tuv xml:lang="zh">
-        <seg>角色</seg>
+        <seg>刷新</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Role</seg>
+        <seg>Refresh</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>刷新</seg>
       </tuv>
     </tu>
     <tu tuid="RemoveRole">
@@ -172,12 +226,34 @@
         <seg>Remove Role</seg>
       </tuv>
     </tu>
-    <tu tuid="AssignRole">
+    <tu tuid="RenameUser">
       <tuv xml:lang="zh">
-        <seg>角色添加</seg>
+        <seg>用户重 命名</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Assign Role</seg>
+        <seg>Rename</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>用户重 命名</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Repeat">
+      <tuv xml:lang="zh">
+        <seg>重复 一 遍</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Repeat</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>重复 一 遍</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Role">
+      <tuv xml:lang="zh">
+        <seg>角色</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Role</seg>
       </tuv>
     </tu>
     <tu tuid="RoleOptions">
@@ -188,121 +264,15 @@
         <seg>Role Options</seg>
       </tuv>
     </tu>
-    <tu tuid="CurrentPassword">
+    <tu tuid="User">
       <tuv xml:lang="zh">
-        <seg>当前密码</seg>
+        <seg>用户</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Current Password</seg>
+        <seg>User</seg>
       </tuv>
-    </tu>
-    <tu tuid="NewPassword">
-      <tuv xml:lang="zh">
-        <seg>新密码</seg>
-      </tuv>
-      <tuv xml:lang="en">
-        <seg>New Password</seg>
-      </tuv>
-    </tu>
-    <tu tuid="ConfirmPassword">
-      <tuv xml:lang="zh">
-        <seg>确认密码</seg>
-      </tuv>
-      <tuv xml:lang="en">
-        <seg>Confirm Password</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Confirm">
-      <tuv xml:lang="zh">
-        <seg>确认</seg>
-      </tuv>
-      <tuv xml:lang="en">
-        <seg>Confirm</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Cancel">
-      <tuv xml:lang="zh">
-        <seg>取消</seg>
-      </tuv>
-      <tuv xml:lang="en">
-        <seg>Cancel</seg>
-      </tuv>
-    </tu>
-    <tu tuid="LastLogin">
-      <tuv xml:lang="zh">
-        <seg>上次登录</seg>
-      </tuv>
-      <tuv xml:lang="en">
-        <seg>Last Login</seg>
-      </tuv>
-    </tu>
-    <tu tuid="EditUser">
-      <tuv xml:lang="zh">
-        <seg>编辑用户</seg>
-      </tuv>
-      <tuv xml:lang="en">
-        <seg>Edit User</seg>
-      </tuv>
-    </tu>
-    <tu tuid="UserInformation">
-      <tuv xml:lang="zh">
-        <seg>用户信息</seg>
-      </tuv>
-      <tuv xml:lang="en">
-        <seg>UserInformation</seg>
-      </tuv>
-    </tu>
-    <tu tuid="CurrentUser">
-      <tuv xml:lang="zh">
-        <seg>当前用户</seg>
-      </tuv>
-      <tuv xml:lang="en">
-        <seg>CurrentUser</seg>
-      </tuv>
-    </tu>
-    <tu tuid="ExportUsers">
-      <tuv xml:lang="en">
-        <seg>Export Users</seg>
-      </tuv>
-    </tu>
-    <tu tuid="ImportUsers">
-      <tuv xml:lang="en">
-        <seg>Import Users</seg>
-      </tuv>
-    </tu>
-    <tu tuid="ImportFileName">
-      <tuv xml:lang="en">
-        <seg>Import File Name</seg>
-      </tuv>
-    </tu>
-    <tu tuid="ExportFileName">
-      <tuv xml:lang="en">
-        <seg>Export File Name</seg>
-      </tuv>
-    </tu>
-    <tu tuid="ImportDialog">
-      <tuv xml:lang="en">
-        <seg>Import new / expanded user group</seg>
-      </tuv>
-    </tu>
-    <tu tuid="ExportDialog">
-      <tuv xml:lang="en">
-        <seg>Export current user group</seg>
-      </tuv>
-    </tu>
-    <tu tuid="ImportUser">
-      <tuv xml:lang="en">
-        <seg>Import User Accounts</seg>
-      </tuv>
-    </tu>
-    <tu tuid="ImportRole">
-      <tuv xml:lang="en">
-        <seg>Import Roles</seg>
-      </tuv>
-    </tu>
-    <tu tuid="ImportFileList">
-      <tuv xml:lang="en">
-        <seg>File List</seg>
+      <tuv xml:lang="zh-CN">
+        <seg>用户</seg>
       </tuv>
     </tu>
     <tu tuid="User.Administrator">
@@ -338,6 +308,36 @@
         <seg>Full Name:</seg>
       </tuv>
     </tu>
+    <tu tuid="User.Imperial">
+      <tuv xml:lang="en">
+        <seg>Imperial</seg>
+      </tuv>
+    </tu>
+    <tu tuid="User.ImperialUS">
+      <tuv xml:lang="en">
+        <seg>Imperial-US</seg>
+      </tuv>
+    </tu>
+    <tu tuid="User.Language">
+      <tuv xml:lang="en">
+        <seg>Language</seg>
+      </tuv>
+    </tu>
+    <tu tuid="User.Language.De">
+      <tuv xml:lang="en">
+        <seg>German</seg>
+      </tuv>
+    </tu>
+    <tu tuid="User.Language.En">
+      <tuv xml:lang="en">
+        <seg>English</seg>
+      </tuv>
+    </tu>
+    <tu tuid="User.Language.Zh">
+      <tuv xml:lang="en">
+        <seg>Chinese</seg>
+      </tuv>
+    </tu>
     <tu tuid="User.Login">
       <tuv xml:lang="en">
         <seg>Login</seg>
@@ -358,6 +358,16 @@
       </tuv>
       <tuv xml:lang="sv">
         <seg>Maintenance</seg>
+      </tuv>
+    </tu>
+    <tu tuid="User.Measurement">
+      <tuv xml:lang="en">
+        <seg>Measurement Unit</seg>
+      </tuv>
+    </tu>
+    <tu tuid="User.Metric">
+      <tuv xml:lang="en">
+        <seg>Metric</seg>
       </tuv>
     </tu>
     <tu tuid="User.Name">
@@ -437,49 +447,34 @@
         <seg>Supervisor</seg>
       </tuv>
     </tu>
-    <tu tuid="User.Measurement">
+    <tu tuid="UserInformation">
+      <tuv xml:lang="zh">
+        <seg>用户信息</seg>
+      </tuv>
       <tuv xml:lang="en">
-        <seg>Measurement Unit</seg>
+        <seg>UserInformation</seg>
       </tuv>
     </tu>
-    <tu tuid="User.Language">
+    <tu tuid="UserManagement">
+      <tuv xml:lang="zh">
+        <seg>用户管理</seg>
+      </tuv>
       <tuv xml:lang="en">
-        <seg>Language</seg>
+        <seg>User Management</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>用户管理</seg>
       </tuv>
     </tu>
-    <tu tuid="User.Imperial">
-      <tuv xml:lang="en">
-        <seg>Imperial</seg>
+    <tu tuid="UserName">
+      <tuv xml:lang="zh">
+        <seg>用户</seg>
       </tuv>
-    </tu>
-    <tu tuid="User.ImperialUS">
       <tuv xml:lang="en">
-        <seg>Imperial-US</seg>
+        <seg>User Name</seg>
       </tuv>
-    </tu>
-    <tu tuid="User.Metric">
-      <tuv xml:lang="en">
-        <seg>Metric</seg>
-      </tuv>
-    </tu>
-    <tu tuid="User.Language.En">
-      <tuv xml:lang="en">
-        <seg>English</seg>
-      </tuv>
-    </tu>
-    <tu tuid="User.Language.Zh">
-      <tuv xml:lang="en">
-        <seg>Chinese</seg>
-      </tuv>
-    </tu>
-    <tu tuid="User.Language.De">
-      <tuv xml:lang="en">
-        <seg>German</seg>
-      </tuv>
-    </tu>
-    <tu tuid="LanguageUnitSettings">
-      <tuv xml:lang="en">
-        <seg>User settings</seg>
+      <tuv xml:lang="zh-CN">
+        <seg>用户</seg>
       </tuv>
     </tu>
   </body>
