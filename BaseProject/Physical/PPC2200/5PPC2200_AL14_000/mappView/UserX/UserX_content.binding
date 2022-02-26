@@ -68,5 +68,9 @@
             <Source xsi:type="opcUa" refId="::UserXMgt:UserXLoginUIConnect.ChangePassword.Dialog.OldPassword" attribute="value" />
             <Target xsi:type="brease" contentRefId="UserXDialog_ChangePwd_content" widgetRefId="PasswordCurrent" attribute="value" />
         </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::UserXMgt:enableTest" attribute="value" />
+<Target xsi:type="brease" contentRefId="UserX_content" widgetRefId="UserListManagement" attribute="enable" />
+</Binding>
 </Bindings>
 </BindingsSet>

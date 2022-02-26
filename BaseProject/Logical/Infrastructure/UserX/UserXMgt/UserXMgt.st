@@ -14,7 +14,7 @@ PROGRAM _INIT
 	IF DirCreate_New.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreate_New(enable := FALSE);
 	END_IF	
-	
+
 	// Init MpUserX 
 	UserXMgrUIConnect.User.Create.Lock := FALSE;
 	UserXMgrUIConnect.User.Lock := FALSE;

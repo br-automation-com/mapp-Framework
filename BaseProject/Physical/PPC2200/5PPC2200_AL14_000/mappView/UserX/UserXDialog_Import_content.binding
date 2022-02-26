@@ -23,12 +23,22 @@
 <Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="chkBxUser1" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.Import.Dialog.FileName" attribute="value" />
-<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="txtInImportFileName" attribute="value" />
-</Binding>
-<Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.Import.Dialog.List.SelectedIndex" attribute="value" />
 <Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="Table1" attribute="selectedRow" />
 </Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="listElement" >
+				<Selector xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.Import.Dialog.List.SelectedIndex" attribute="value"  />
+				<be:List xsi:type="be:opcUa" attribute="value" >
+					<bt:Element index="0" refId="::UserXMgt:UserXMgrUIConnect.Import.Dialog.List.FileNames[0]" />
+					<bt:Element index="1" refId="::UserXMgt:UserXMgrUIConnect.Import.Dialog.List.FileNames[1]" />
+					<bt:Element index="2" refId="::UserXMgt:UserXMgrUIConnect.Import.Dialog.List.FileNames[2]" />
+					<bt:Element index="3" refId="::UserXMgt:UserXMgrUIConnect.Import.Dialog.List.FileNames[3]" />
+					<bt:Element index="4" refId="::UserXMgt:UserXMgrUIConnect.Import.Dialog.List.FileNames[4]" />
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="TxtOutImportFileName" attribute="value" />
+		</Binding>
+
 </Bindings>
 </BindingsSet>
