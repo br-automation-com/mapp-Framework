@@ -19,8 +19,8 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 
-    MpAxisBasicFB.MpLink := ADR(gAxisAppAxis_1);
-    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gAxisAppAxis_1);
+    MpAxisBasicFB.MpLink := ADR(gAppAxis_1);
+    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gAppAxis_1);
     
     SimulationControl;
     AxisStateMachine;
