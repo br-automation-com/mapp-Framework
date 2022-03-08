@@ -14,9 +14,9 @@ LangString mappFrameworkBaseShortText ${LANG_ENGLISH} "Solution main package"
 LangString mappFrameworkBaseLongText ${LANG_GERMAN} "mapp Framework - Importer Tool / Technology Solution / Hilfe"
 LangString mappFrameworkBaseLongText ${LANG_ENGLISH} "mapp Framework - Importer Tool / Technology Solution / Help"
 
-LangString MenuShortText ${LANG_GERMAN} "Start MenÃ¼ Eintrag"
+LangString MenuShortText ${LANG_GERMAN} "Start Menü Eintrag"
 LangString MenuShortText ${LANG_ENGLISH} "Start Menu entry"
-LangString MenuLongText ${LANG_GERMAN} "Eintrag in das StartmenÃ¼"
+LangString MenuLongText ${LANG_GERMAN} "Eintrag in das Startmenü"
 LangString MenuLongText ${LANG_ENGLISH} "Entry into the start menu"
 
 LangString mappFrameworkEndShortText ${LANG_GERMAN} "mappFramework Ende"
