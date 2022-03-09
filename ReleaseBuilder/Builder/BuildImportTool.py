@@ -13,6 +13,8 @@ def BuildImportTool(dir, outputDir) -> bool:
     global msbuild, solution, buildOutput
     
     if (os.path.exists(msbuild) == False):
+        msbuild = r'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\msbuild.exe'
+    if (os.path.exists(msbuild) == False):
         msbuild = r'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\msbuild.exe'
 
     args = '-p:Configuration=Release;optimize=true;DebugSymbols=false;DebugType=None;PreBuildEvent='

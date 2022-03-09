@@ -3,6 +3,7 @@ import shutil
 import subprocess, shlex
 import winreg
 from pathlib import Path
+import os
 from DirUtils import CreateDirectory, removeDir, CleanDirectory
 
 homeDir = ''
@@ -42,6 +43,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--project', help='Project Directory', dest='project', required=True)
     parser.add_argument('-n', '--name', help='name', dest='name', required=True)
+    parser.add_argument('-o', '--output', help='relative path to the output directory', dest='output', required=False, default='\\ReleaseBuilder\\InstallerSetup\\Help')
     args = parser.parse_args()
 
     homeDir = Path.home()
@@ -49,6 +51,6 @@ if __name__ == '__main__':
     if homeDir.name.endswith('systemprofile'):
         homeDir = r'C:\Users\buchananw'
     print(homeDir)
-
-    UpdateTemplate(rf'{args.project}\Documentation\Templates')
-    BuildHelp(args.project, r'\ReleaseBuilder\InstallerSetup\Help', args.name)
+    if os.path.isdir(rf'{args.project}\Documentation\Templates'):
+        UpdateTemplate(rf'{args.project}\Documentation\Templates')
+    BuildHelp(args.project, args.output, args.name)
