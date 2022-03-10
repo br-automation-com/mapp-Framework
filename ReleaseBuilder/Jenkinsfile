@@ -82,13 +82,17 @@ pipeline {
             environment {
                 VERSION = Version();
                 BRANCH = Branch();
+                MSBUILD = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin\\msbuild.exe";
+                NUGET = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\nuget.exe";
             }
             steps {
                 powershell(returnStdout: true, script: ". '$IMPORT_TOOL\\GitVersion.ps1' \"$IMPORT_TOOL\\FrameworkImporter\" \"$BRANCH\"");
-                powershell(returnStdout: true, script: "python \"$BUILD_FOLDER\\BuildImportTool.py\" --project \"$IMPORT_TOOL\" --output \"$OUTPUT_DIR\\$VERSION\\Importer\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$IMPORT_TOOL\\ASInstallation\\bin\\Release\\ASInstallation.dll\" -Destination \"$OUTPUT_DIR\\$VERSION\\Importer\\ASInstallation.dll\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$IMPORT_TOOL\\ASProject\\bin\\Release\\ASProject.dll\" -Destination \"$OUTPUT_DIR\\$VERSION\\Importer\\ASProject.dll\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$OUTPUT_DIR\\$VERSION\\Importer\\FrameworkImporter.exe\" -Destination \"$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\FrameworkImporter_TS\\Logical\\mappFrameworkImporter\\FrameworkImporter.exe\"");
+                powershell(returnStdout: true, script: ". '$NUGET' \"restore\" \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter.sln\"");
+                powershell(returnStdout: true, script: ". '$MSBUILD' \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter.sln\" \"-p:Configuration=Release;optimize=true;DebugSymbols=false;DebugType=None;PreBuildEvent=\"");
+                powershell(returnStdout: true, script: "New-Item -Path \"$OUTPUT_DIR\\$VERSION\" -Name \"Importer\" -ItemType \"directory\"");
+                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter\\bin\\Release\\*.exe\" -Destination \"$OUTPUT_DIR\\$VERSION\\Importer\\\"");
+                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter\\bin\\Release\\*.dll\" -Destination \"$OUTPUT_DIR\\$VERSION\\Importer\\\"");
+                powershell(returnStdout: true, script: "Copy-Item \"$OUTPUT_DIR\\$VERSION\\Importer\\*.exe\" -Destination \"$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\FrameworkImporter_TS\\Logical\\mappFrameworkImporter\\FrameworkImporter.exe\"");
             }
         }
         stage('Build Help') {
