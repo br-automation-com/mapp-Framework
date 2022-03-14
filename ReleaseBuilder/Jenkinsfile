@@ -50,6 +50,16 @@ def Branch(){
     return "$branch";
 }
 
+def MS_Build(){
+    if (fileExists("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild") == true){
+        return "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild";
+    }
+    if (fileExists("C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild") == true){
+        return "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild";
+    }
+    return "";
+}
+
 pipeline {
     agent any 
 
@@ -82,8 +92,9 @@ pipeline {
             environment {
                 VERSION = Version();
                 BRANCH = Branch();
-                MSBUILD = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin\\msbuild.exe";
-                NUGET = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\nuget.exe";
+                MSBUILD_PATH = MS_Build();
+                MSBUILD = "$MSBUILD_PATH\\Current\\Bin\\msbuild.exe";
+                NUGET = "$MSBUILD_PATH\\nuget.exe";
             }
             steps {
                 powershell(returnStdout: true, script: ". '$IMPORT_TOOL\\GitVersion.ps1' \"$IMPORT_TOOL\\FrameworkImporter\" \"$BRANCH\"");
