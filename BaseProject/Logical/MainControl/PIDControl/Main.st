@@ -1,4 +1,4 @@
-(*********************************************************************************
+﻿(*********************************************************************************
  * Copyright: B&R Industrial Automation GmbH 
  * Created:   22 July, 2021/15:54 
  * This task contains the logic for a PID controller
@@ -6,7 +6,7 @@
 
 PROGRAM _INIT
 	(* Register parameters to the recipe *)
-	MpRecipeRegPar_P.MpLink						:= ADR(gRecipeXmlMpLink);
+	MpRecipeRegPar_P.MpLink						:= ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_P.Enable						:= TRUE;
 	MpRecipeRegPar_P.PVName						:= ADR('PIDControl:PidControlParameters');
 	MpRecipeRegPar_P.Category					:= ADR('Product');

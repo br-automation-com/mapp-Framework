@@ -1,7 +1,6 @@
-
 ACTION ExecuteQuery:
 
-    QueryActiveAlarms.MpLink := ADR(gAlarmXMpLink);
+    QueryActiveAlarms.MpLink := ADR(gMpLinkAlarmXCore);
     QueryActiveAlarms.Enable := TRUE;
     QueryActiveAlarms.Name := ADR('ActiveAlarms');
     QueryActiveAlarms.Language := ADR('en');

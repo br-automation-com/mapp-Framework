@@ -1,4 +1,4 @@
-(*********************************************************************************
+﻿(*********************************************************************************
  * Copyright: B&R Industrial Automation GmbH 
  * Author:    B&R Industrial Automation GmbH 
  * Created:   24 June, 2021/15:05 
@@ -112,7 +112,7 @@ ACTION UpdateCamAutomat:
 				uCamUpdateState													:= 0;
 			ELSIF MC_BR_CamAutomatSetPar_AcpAx_0.Error THEN
 				(* Error handling *)
-				MpAlarmXSet(gAlarmXMpLink, 'SetCamFailed');
+				MpAlarmXSet(gMpLinkAlarmXCore, 'SetCamFailed');
 				bUpdateCamAutomat												:= FALSE;
 				MC_BR_CamAutomatSetPar_AcpAx_0.Execute							:= FALSE;
 				uCamUpdateState													:= 0;

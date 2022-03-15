@@ -27,7 +27,7 @@ PROGRAM _CYCLIC
     AxisCyclic;
     RecipeCyclic;
     
-    MpAlarmXCoreFB.MpLink := ADR(gAlarmXCore_AppAxis_1);
+    MpAlarmXCoreFB.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
     MpAlarmXCoreFB();
 
 END_PROGRAM

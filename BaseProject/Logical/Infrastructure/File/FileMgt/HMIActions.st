@@ -1,4 +1,3 @@
-
 ACTION FormatDeviceDataProvider: 
     
 	// Select CF device if USB device is not available 
@@ -40,7 +39,7 @@ END_ACTION
 
 ACTION FileManager:
 	
-    MpFileManagerUI_0.MpLink := ADR(gFileMgrUIMpLink);
+    MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
     MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
     MpFileManagerUI_0();
     FOR i:=0 TO ((SIZEOF(hmiFile.Status.FileNames)/SIZEOF(hmiFile.Status.FileNames[0]))-1) DO
