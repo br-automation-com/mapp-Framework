@@ -15,15 +15,15 @@ PROGRAM _INIT
 		DirCreate_New(enable := FALSE);
 	END_IF	
 
-    MpBackupCoreFB.MpLink := ADR(gBackupCore);
+    MpBackupCoreFB.MpLink := ADR(gMpLinkBackupCore);
     MpBackupCoreFB.Enable := TRUE;
     
-    MpFileManagerUIFB.MpLink := ADR(gBackupFileManagerUIMpLink);
+    MpFileManagerUIFB.MpLink := ADR(gMpLinkFileManagerUIBackup);
     MpFileManagerUIFB.UIConnect := ADR(MpFileManagerUIConnect);
     MpFileManagerUIFB.Enable := TRUE;
     
     MpBackupCoreConfigFB.Enable := TRUE;
-    MpBackupCoreConfigFB.MpLink := ADR(gBackupCore);
+    MpBackupCoreConfigFB.MpLink := ADR(gMpLinkBackupCore);
     MpBackupCoreConfigFB.Configuration := ADR(hmiBackup.Parameters.AutomaticBackup);
     MpBackupCoreConfigFB.Load := TRUE;
     
@@ -133,7 +133,7 @@ PROGRAM _CYCLIC
         MpBackupCoreFB.RequestInfo := FALSE;
         brsmemset(ADR(hmiBackup.Status.Info), 0, SIZEOF(hmiBackup.Status.Info));
     END_IF
-    MpBackupCoreFB.MpLink := ADR(gBackupCore);
+    MpBackupCoreFB.MpLink := ADR(gMpLinkBackupCore);
     MpBackupCoreFB.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
     MpBackupCoreFB();
     IF (MpBackupCoreFB.CommandDone = TRUE) AND (MpBackupCoreFB.RequestInfo = TRUE) THEN

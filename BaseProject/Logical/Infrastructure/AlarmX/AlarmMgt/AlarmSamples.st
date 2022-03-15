@@ -1,4 +1,3 @@
-
 ACTION AlarmSamples:
 
     // Call all variables that are needed for the alarm examples and explain all examples in comments
@@ -15,7 +14,7 @@ ACTION AlarmSamples:
 	//If AlarmExamples.SnippetValue gets between 50 and 100, an alarm will trigger and the current value will be shown in the alarm text
     AlarmExamples.SnippetValue; 
     
-    MpAlarmXControlExampleFB.MpLink := ADR(gAlarmXMpLink);
+    MpAlarmXControlExampleFB.MpLink := ADR(gMpLinkAlarmXCore);
     MpAlarmXControlExampleFB.Enable := TRUE;
     MpAlarmXControlExampleFB.Name := ADR('MpAlarmXControlExample');
     MpAlarmXControlExampleFB.Set := AlarmExamples.ControlExample;

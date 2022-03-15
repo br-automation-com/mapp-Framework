@@ -1,4 +1,3 @@
-
 ACTION FormatDeviceDataProvider: 
     
 	// Select CF device if USB device is not available 
@@ -101,7 +100,7 @@ ACTION LoadBackupConfiguration:
 END_ACTION
 
 ACTION FileManager:
-    MpFileManagerUIFB.MpLink := ADR(gBackupFileManagerUIMpLink);
+    MpFileManagerUIFB.MpLink := ADR(gMpLinkFileManagerUIBackup);
     MpFileManagerUIFB.UIConnect := ADR(MpFileManagerUIConnect);
     MpFileManagerUIFB();
     FOR i:=0 TO ((SIZEOF(hmiBackup.Status.FileNames)/SIZEOF(hmiBackup.Status.FileNames[0]))-1) DO

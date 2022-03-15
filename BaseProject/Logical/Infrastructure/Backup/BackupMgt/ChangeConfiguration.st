@@ -1,7 +1,6 @@
-
 ACTION ChangeConfiguration: 
 
-    MpBackupCoreConfigFB.MpLink := ADR(gBackupCore);
+    MpBackupCoreConfigFB.MpLink := ADR(gMpLinkBackupCore);
     MpBackupCoreConfigFB.Configuration := ADR(MpBackupConfiguration);
     IF (MpBackupCoreConfigFB.Error = TRUE) THEN
         // Loading currently always throws an error about failed to write Auditing.Type

@@ -18,7 +18,7 @@ PROGRAM _INIT
 	hmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
 	hmiRecipe.Parameters.DeviceDataProvider[0] := '{"value":"mappRecipe","text":"CF/PLC"}';
 	hmiRecipe.Parameters.DeviceName := 'mappRecipe';
-	MpRecipe_0.MpLink := ADR(gRecipeXmlMpLink);
+	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipe_0.Enable := TRUE;
 	MpRecipe_0.Category := ADR(hmiRecipe.Parameters.Category);
 	MpRecipe_0.DeviceName := ADR(hmiRecipe.Parameters.DeviceName);
@@ -31,7 +31,7 @@ PROGRAM _INIT
 	MpRecipeUISetup.AutoLoadHeader := TRUE;
 	MpRecipeUIConnect.New.FileName := 'newRecipe.par';
 	MpRecipeUIConnect.Recipe.Filter := '*par';
-	MpRecipeUI_0.MpLink := ADR(gRecipeXmlMpLink);
+	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeUI_0.Enable := TRUE;
 	MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
 	MpRecipeUI_0.UISetup := MpRecipeUISetup;
@@ -41,13 +41,13 @@ PROGRAM _INIT
 		MpRecipe_0();
 	END_WHILE;
 	
-    MpRecipeRegPar_PreviewPar.MpLink := ADR(gRecipeXmlMpLink);
+    MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewPar.Enable := TRUE;
 	MpRecipeRegPar_PreviewPar.PVName := ADR('RecipeMgt:ParametersPreview');
 	MpRecipeRegPar_PreviewPar.Category := ADR(PRODUCT_CATEGORY); 
 	MpRecipeRegPar_PreviewPar();
 	
-	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gRecipeXmlMpLink);
+	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewCfg.Enable := TRUE;
 	MpRecipeRegPar_PreviewCfg.PVName := ADR('RecipeMgt:MachSettingsPreview');
 	MpRecipeRegPar_PreviewCfg.Category := ADR(MACHINE_CATEGORY); 
@@ -101,7 +101,7 @@ PROGRAM _INIT
 	
 	// Init Filemanager for exporting/importing files 
 	MpFileManagerUI_0.Enable := TRUE;
-	MpFileManagerUI_0.MpLink := ADR(gRecFileMgrUIMpLink);
+	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIRecipe);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipe';

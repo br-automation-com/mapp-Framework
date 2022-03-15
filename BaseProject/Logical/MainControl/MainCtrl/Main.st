@@ -1,4 +1,4 @@
-	(*********************************************************************************
+﻿	(*********************************************************************************
 	* Copyright: B&R Industrial Automation GmbH 
 	* Author:    B&R Industrial Automation GmbH 
 	* Created:   30. Sep 2020/08:00 
@@ -7,11 +7,11 @@
 
 PROGRAM _INIT
 	(* Register parameters to MpRecipe *)
-	MpRecipeRegPar_M.MpLink						:= ADR(gRecipeXmlMpLink);
+	MpRecipeRegPar_M.MpLink						:= ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_M.Enable						:= TRUE;
 	MpRecipeRegPar_M.Category					:= ADR('Machine');
 	MpRecipeRegPar_M.PVName						:= ADR('MainCtrl:MainCtrl.FixPar');
-	MpRecipeRegPar_P.MpLink						:= ADR(gRecipeXmlMpLink);
+	MpRecipeRegPar_P.MpLink						:= ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_P.Enable						:= TRUE;
 	MpRecipeRegPar_P.Category					:= ADR('Product');
 	MpRecipeRegPar_P.PVName						:= ADR('MainCtrl:MainCtrl.Para');
@@ -19,7 +19,7 @@ PROGRAM _INIT
 	MpRecipeRegPar_Pre1.Enable					:= TRUE;
 	MpRecipeRegPar_Pre1.Category				:= ADR('Preview');
 	MpRecipeRegPar_Pre1.PVName					:= ADR('MainCtrl:PreviewParameters');
-	MpRecipeRegPar_Pre2.MpLink					:= ADR(gRecipeXmlMpLink);
+	MpRecipeRegPar_Pre2.MpLink					:= ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_Pre2.Enable					:= TRUE;
 	MpRecipeRegPar_Pre2.Category				:= ADR('Product');
 	MpRecipeRegPar_Pre2.PVName					:= ADR('MainCtrl:PreviewParameters');

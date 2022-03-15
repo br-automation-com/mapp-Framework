@@ -17,12 +17,12 @@ PROGRAM _INIT
 	END_IF	
 
 	MpAlarmXCore_0.Enable := TRUE;
-	MpAlarmXCore_0.MpLink := ADR(gAlarmXMpLink);
+	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXCore_0();
 
 	MpAlarmXHistory_0.Enable := TRUE;
 	MpAlarmXHistory_0.DeviceName := ADR('mappAlarmX');
-	MpAlarmXHistory_0.MpLink := ADR(gAlarmXHistoryMpLink);
+	MpAlarmXHistory_0.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistory_0();
     
 	MpAlarmXListUI_0.Enable := TRUE;
@@ -56,25 +56,25 @@ PROGRAM _CYCLIC
     
 	// Check if any reactions are active. 
 	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application. 
-	// For example, the axis control task might check for the “Error” reaction to determine whether to send a stop command to the axes.
+	// For example, the axis control task might check for the ï¿½Errorï¿½ reaction to determine whether to send a stop command to the axes.
 	// Therefore, copy/paste these IF statements to other places in the application as needed. 
-    IF MpAlarmXCheckReaction(gAlarmXMpLink, 'Error') THEN
+    IF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') THEN
         // Error is active. Add code here to respond to error situation.
-    ELSIF MpAlarmXCheckReaction(gAlarmXMpLink, 'Warning') THEN
+    ELSIF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Warning') THEN
         // Warning is active. Add code here to respond to warning situation.
-	ELSIF MpAlarmXCheckReaction(gAlarmXMpLink, 'Info') THEN
+	ELSIF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Info') THEN
         // Info is active. Add code here to resond to info situation.
 	END_IF
 
 	// Call function blocks 
-	MpAlarmXCore_0.MpLink := ADR(gAlarmXMpLink);
+	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCore);
     MpAlarmXCore_0();
-    MpAlarmXListUI_0.MpLink := ADR(gAlarmXMpLink);
+    MpAlarmXListUI_0.MpLink := ADR(gMpLinkAlarmXCore);
     MpAlarmXListUI_0.UIConnect := ADR(MpAlarmXListUIConnect);
     MpAlarmXListUI_0();
-    MpAlarmXHistory_0.MpLink := ADR(gAlarmXHistoryMpLink);
+    MpAlarmXHistory_0.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistory_0();
-	MpAlarmXHistoryUI_0.MpLink := ADR(gAlarmXHistoryMpLink);
+	MpAlarmXHistoryUI_0.MpLink := ADR(gMpLinkAlarmXHistory);
     MpAlarmXHistoryUI_0.UIConnect := ADR(MpAlarmXHistoryUIConnect);
 	MpAlarmXHistoryUI_0();
 	

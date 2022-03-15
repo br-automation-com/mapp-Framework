@@ -17,10 +17,10 @@ PROGRAM _INIT
 
 	(* Init mapp function blocks *)
 	MpReportCore_0.Enable		:= TRUE;
-	MpReportCore_0.MpLink		:= ADR(gReportMpLink);
+	MpReportCore_0.MpLink		:= ADR(gMpLinkReport);
 	MpReportCore_0.Name			:= ADR(REPORT_NAME);
 	MpReportCore_0.DeviceName	:= ADR(REPORT_DEVICE);
-	MpFileManagerUI_0.MpLink	:= ADR(gRprtFileMgrUIMpLink);
+	MpFileManagerUI_0.MpLink	:= ADR(gMpLinkFileManagerUIReport);
 	MpFileManagerUI_0.UIConnect	:= ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.Enable	:= TRUE;
 	(* Filter for pdf files *)

@@ -18,22 +18,22 @@ PROGRAM _INIT
 
 	(* Init mapp function blocks *)
 	MpFileManagerUI_0.Enable			:= TRUE;
-	MpFileManagerUI_0.MpLink			:= ADR(gDatFileMgrUIMpLink);
+	MpFileManagerUI_0.MpLink			:= ADR(gMpLinkFileManagerUIData);
 	MpFileManagerUI_0.UIConnect			:= ADR(MpFileManagerUIConnect);
 
-	MpDataRecorder_0.MpLink				:= ADR(gDataRecorderMpLink);
+	MpDataRecorder_0.MpLink				:= ADR(gMpLinkDataRecorder);
 	MpDataRecorder_0.Enable				:= TRUE ;
 	MpDataRecorder_0.DeviceName			:= ADR('mappData');
 	MpDataRecorder_0.RecordMode			:= mpDATA_RECORD_MODE_TIME;
 	MpDataRecorder_0.SamplingTime		:= t#5s;
 
 	(* Register PVs for data recording *)
-	MpDataRegPar_x[0].MpLink			:= ADR(gDataRecorderMpLink);
+	MpDataRegPar_x[0].MpLink			:= ADR(gMpLinkDataRecorder);
 	MpDataRegPar_x[0].Enable			:= TRUE;
 	MpDataRegPar_x[0].PVName			:= ADR('PIDControl:rActValue');
 	MpDataRegPar_x[0].Description		:= ADR('Control Value');
 
-	MpDataRegPar_x[1].MpLink			:= ADR(gDataRecorderMpLink);
+	MpDataRegPar_x[1].MpLink			:= ADR(gMpLinkDataRecorder);
 	MpDataRegPar_x[1].Enable			:= TRUE;
 	MpDataRegPar_x[1].PVName			:= ADR('MainCtrl:MpAxisBasic_x[0].Velocity');
 	MpDataRegPar_x[1].Description		:= ADR('Feeder Velocity');

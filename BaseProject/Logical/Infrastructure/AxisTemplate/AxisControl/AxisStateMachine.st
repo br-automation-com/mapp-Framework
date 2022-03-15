@@ -1,4 +1,3 @@
-
 ACTION AxisStateMachine: 
 
     InPositionEdgePos.CLK := MpAxisBasicFB.InPosition;
@@ -13,7 +12,7 @@ ACTION AxisStateMachine:
             // nothing to do as we are already handling any stop or errors in these states
             
         ELSE
-            IF ((MpAxisBasicFB.Error = TRUE) OR MpAlarmXCheckReaction(gAlarmXMpLink, 'Error')) THEN
+            IF ((MpAxisBasicFB.Error = TRUE) OR MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error')) THEN
                 // Check alarm reaction 
                 ResetAllAxisCommands;
                 state := STATE_ABORTING;
@@ -107,7 +106,7 @@ ACTION AxisStateMachine:
             AxisControl.Status.Busy := FALSE;
             IF (ReferenceEdgePos.Q = TRUE) THEN
                 state := STATE_REFERENCE;
-            ELSIF ((MpAlarmXCheckReaction(gAlarmXMpLink, 'Warning') = FALSE) AND (AutomaticCommand(AxisControl.Command) = TRUE)) THEN
+            ELSIF ((MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Warning') = FALSE) AND (AutomaticCommand(AxisControl.Command) = TRUE)) THEN
                 state := STATE_AUTOMATIC_OPERATION;
             ELSIF (ManualCommand(AxisControl.Command) = TRUE) THEN
                 state := STATE_MANUAL_OPERATION;
@@ -121,7 +120,7 @@ ACTION AxisStateMachine:
         STATE_AUTOMATIC_OPERATION:
             AxisControl.Status.Status := 'Automatic running';
             AxisControl.Status.Busy := TRUE;
-            IF MpAlarmXCheckReaction(gAlarmXMpLink, 'Error') THEN
+            IF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') THEN
                 AxisControl.Command.Stop := TRUE;
             END_IF
             
@@ -149,7 +148,7 @@ ACTION AxisStateMachine:
             MpAxisBasicFB.Stop := MpAxisBasicFB.PowerOn;
             IF ((MpAxisBasicFB.PowerOn = FALSE) OR (MpAxisBasicFB.Stopped = TRUE)) THEN
                 MpAxisBasicFB.Stop := FALSE;
-                IF (MpAlarmXCheckReaction(gAlarmXMpLink, 'SafetyError') = TRUE) THEN                
+                IF (MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'SafetyError') = TRUE) THEN                
                     // Safety errors also power off the axis
                     MpAxisBasicFB.Power := FALSE;
                     IF (MpAxisBasicFB.PowerOn = FALSE) THEN
@@ -178,7 +177,7 @@ ACTION AxisStateMachine:
                 MpAxisBasicFB.ErrorReset := FALSE;
             END_IF
             
-            IF ((MpAxisBasicFB.Error = FALSE) AND (MpAlarmXCheckReaction(gAlarmXMpLink, 'Error') = FALSE)) THEN
+            IF ((MpAxisBasicFB.Error = FALSE) AND (MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') = FALSE)) THEN
                 AxisControl.Status.Busy := FALSE;
                 IF (MpAxisBasicFB.PowerOn = FALSE) THEN
                     state := STATE_POWER_ON;

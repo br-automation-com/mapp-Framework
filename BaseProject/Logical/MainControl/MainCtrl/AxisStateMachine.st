@@ -1,11 +1,11 @@
-(*********************************************************************************
+﻿(*********************************************************************************
  * Copyright: B&R Industrial Automation GmbH 
  * Created:   28 June, 2021/14:13 
  * This file contains the logic to control an axis
  *********************************************************************************)
 
 ACTION AxisStateMachine:
-	bStopMovementsReaction												:= EDGEPOS(MpAlarmXCheckReaction(gAlarmXMpLink, 'StopMovements'));
+	bStopMovementsReaction												:= EDGEPOS(MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'StopMovements'));
 	FOR uAxIndex := 0 TO MAX_IDX_AXIS DO
 		(* Update parameters on recipe load *)
 		IF MpRecipeRegPar_P.UpdateNotification THEN
@@ -148,7 +148,7 @@ ACTION AxisStateMachine:
 					ELSIF uAxIndex = 1 THEN
 						brsstrcpy(ADR(sReactionName), ADR('SlaveWaitAcknowledge'));
 					END_IF;
-					IF AxisControl[uAxIndex].Command.ErrorAcknowledge OR NOT MpAlarmXCheckReaction(gAlarmXMpLink, sReactionName)  THEN
+					IF AxisControl[uAxIndex].Command.ErrorAcknowledge OR NOT MpAlarmXCheckReaction(gMpLinkAlarmXCore, sReactionName)  THEN
 						AxisControl[uAxIndex].Command.ErrorAcknowledge	:= FALSE;
 						AxisControl[uAxIndex].AxisState					:= AX_STATE_ERROR_RESET;
 					END_IF;

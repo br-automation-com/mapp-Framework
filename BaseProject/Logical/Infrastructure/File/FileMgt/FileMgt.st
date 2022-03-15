@@ -10,7 +10,7 @@ PROGRAM _INIT
 
 	// Init Filemanager for exporting/importing files 
 	MpFileManagerUI_0.Enable := TRUE;
-	MpFileManagerUI_0.MpLink := ADR(gFileMgrUIMpLink);
+	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipe';

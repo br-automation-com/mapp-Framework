@@ -1,4 +1,4 @@
-(*********************************************************************************
+﻿(*********************************************************************************
  * Copyright: B&R Industrial Automation GmbH 
  * Created:   29 June, 2021/10:43 
  * Process specific logic to update production information and process parameters
@@ -58,15 +58,15 @@ ACTION CrossCutter:
 	//********************************Parameters Limits************
 
 	IF (AxisControl[AXIS_IDX_FEEDER].Parameter.AxPar.Velocity = 0) AND AxisControl[AXIS_IDX_FEEDER].Command.MoveVelocity THEN
-		MpAlarmXSet(gAlarmXMpLink, 'FeederSpeedNotSet');
+		MpAlarmXSet(gMpLinkAlarmXCore, 'FeederSpeedNotSet');
 		AxisControl[AXIS_IDX_FEEDER].Command.MoveVelocity				:= FALSE;
 	END_IF
 	IF (AxisControl[AXIS_IDX_CUTTER].Parameter.AxPar.Velocity = 0) AND AxisControl[AXIS_IDX_CUTTER].Command.MoveAdditive THEN
-		MpAlarmXSet(gAlarmXMpLink, 'CutterSpeedNotSet');
+		MpAlarmXSet(gMpLinkAlarmXCore, 'CutterSpeedNotSet');
 		AxisControl[AXIS_IDX_CUTTER].Command.MoveAdditive				:= FALSE;
 	END_IF
 	IF (AxisControl[AXIS_IDX_CUTTER].Parameter.AxPar.Distance = 0) AND (AxisControl[AXIS_IDX_CUTTER].Command.MoveAdditive)  THEN
-		MpAlarmXSet(gAlarmXMpLink, 'CutterPositionNotSet');
+		MpAlarmXSet(gMpLinkAlarmXCore, 'CutterPositionNotSet');
 		AxisControl[AXIS_IDX_CUTTER].Command.MoveAdditive				:= FALSE;
 	END_IF
 	

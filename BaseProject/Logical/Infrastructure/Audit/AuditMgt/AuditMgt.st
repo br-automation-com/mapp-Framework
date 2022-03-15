@@ -21,7 +21,7 @@ PROGRAM _INIT
 	MpAuditTrail_0.DeviceName		:= ADR('mappAudit');
 
 	MpFileManagerUI_0.Enable		:= TRUE;
-	MpFileManagerUI_0.MpLink		:= ADR(gAuditFileMgrUIMpLink);
+	MpFileManagerUI_0.MpLink		:= ADR(gMpLinkFileManagerUIAudit);
 	MpFileManagerUI_0.UIConnect		:= ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.UISetup.FileListSize	:= 50;
 
