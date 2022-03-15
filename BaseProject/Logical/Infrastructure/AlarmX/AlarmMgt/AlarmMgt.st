@@ -100,6 +100,7 @@ PROGRAM _CYCLIC
 END_PROGRAM
 
 PROGRAM _EXIT
+	
 	// Reset function blocks to unlink mapp links 
     MpAlarmXCore_0.Enable := FALSE;
     MpAlarmXListUI_0.Enable := FALSE;

@@ -22,6 +22,7 @@ PROGRAM _CYCLIC
     MpAxisBasicFB.MpLink := ADR(gAxisTemplate);
     MC_BR_CheckRestorePositionDataFB.Axis := ADR(gAxisTemplate);
     
+	// Call all actions
     SimulationControl;
     AxisStateMachine;
     AxisCyclic;

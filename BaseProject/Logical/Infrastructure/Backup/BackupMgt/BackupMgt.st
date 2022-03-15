@@ -27,7 +27,7 @@ PROGRAM _INIT
     MpBackupCoreConfigFB.Configuration := ADR(hmiBackup.Parameters.AutomaticBackup);
     MpBackupCoreConfigFB.Load := TRUE;
     
-    brsstrcpy(ADR(hmiBackup.Status.DeviceDataProvider[0]), ADR('{"value":"mappBackup","text":"CF/PLC"}'));
+	hmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackup","text":"CF/PLC"}';
     
 END_PROGRAM
 

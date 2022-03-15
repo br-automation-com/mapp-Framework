@@ -6,6 +6,7 @@
 //***********************************************************************
 
 PROGRAM _INIT
+	
 	//Create folder for this component on the user file device
 	DirCreate_New(enable := TRUE, pDevice := ADR('userPartition'), pName := ADR(LOCAL_FOLDER));		
 	
@@ -60,11 +61,6 @@ PROGRAM _INIT
 	WHILE NOT(MpRecipeRegPar_PreviewCfg.Active OR MpRecipeRegPar_PreviewCfg.Error) DO
 		MpRecipeRegPar_PreviewCfg();
 	END_WHILE
-
-	Parameters;
-	MachSettings;
-	ParametersPreview;
-	MachSettingsPreview;
 	
 	// Load Machine Settings 
 	hmiRecipe.Parameters.Category := MACHINE_CATEGORY;
@@ -88,7 +84,6 @@ PROGRAM _INIT
 		MpRecipe_0();
 	END_WHILE
 	Parameters := ParametersPreview;
-	
     
 	hmiRecipe.Parameters.LastLoadedProductRecipe := MpRecipe_0.Info.LastLoadedRecipe;
 	hmiRecipe.Parameters.LastLoadedConfigRecipe := MACHINE_FILENAME;
@@ -108,6 +103,7 @@ PROGRAM _INIT
 	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := '';
     
 	hmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -115,6 +111,8 @@ PROGRAM _CYCLIC
 	// Call actions
 	FormatDeviceDataProvider;	
 	LoadPreview;
+	RecipeHMIcommands;
+	FileCopyOperation;
 	
     // Reset category after saving is done, category should be reset so that autosave files contain ALL the parameters 
     IF EDGEPOS(MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) AND ((NOT MpRecipeUIConnect.Recipe.Load) AND (NOT MpRecipeUIConnect.Recipe.Save)) THEN
@@ -159,10 +157,6 @@ PROGRAM _CYCLIC
 			hmiRecipe.Parameters.FileName := 'Default.par';
         END_IF
     END_IF	
-	
-	// Call Actions
-	RecipeHMIcommands;
-	FileCopyOperation;
     
 	// Error reset 
 	IF NOT MpRecipe_0.Error THEN
@@ -173,14 +167,17 @@ PROGRAM _CYCLIC
 		MpRecipeUI_0.ErrorReset := FALSE;
 	END_IF
 	
+	// Call function blocks
 	MpRecipe_0();
 	MpRecipeUI_0();
 	MpFileManagerUI_0();
 	MpRecipeRegPar_PreviewPar();
 	MpRecipeRegPar_PreviewCfg();
+	
 END_PROGRAM
 
 PROGRAM _EXIT
+	
 	// Reset function blocks to unlink mapp links 
 	MpRecipe_0.Enable := FALSE;
 	MpRecipeUI_0.Enable := FALSE;
@@ -192,5 +189,6 @@ PROGRAM _EXIT
 	MpRecipeRegPar_PreviewPar();
 	MpRecipeRegPar_PreviewCfg();
 	MpFileManagerUI_0();
+	
 END_PROGRAM
 

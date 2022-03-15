@@ -7,6 +7,7 @@
 //***********************************************************************
 
 PROGRAM _INIT
+	
 	// Create folder for this component on the user file device
 	DirCreate_New(enable := TRUE, pDevice := ADR('userPartition'), pName := ADR(LOCAL_FOLDER));		
 	
