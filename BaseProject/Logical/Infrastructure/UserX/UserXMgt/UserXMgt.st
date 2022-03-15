@@ -16,26 +16,29 @@ PROGRAM _INIT
 		DirCreate_New(enable := FALSE);
 	END_IF	
 
-	// Init MpUserX 
+	// Initialize mapp function blocks 
 	UserXMgrUIConnect.User.Create.Lock := FALSE;
 	UserXMgrUIConnect.User.Lock := FALSE;
 	UserXMgrUIConnect.User.Edit.Lock := FALSE;
     UserXMgrUIConnect.User.Create.Dialog.UserName := "";
     UserXMgrUIConnect.User.Create.Dialog.NewPassword := "";
-    UserXMgrUIConnect.User.Create.Dialog.ConfirmPassword := "";
+	UserXMgrUIConnect.User.Create.Dialog.ConfirmPassword := "";
+	UserXMgrUIConnect.User.List.MaxSelection := USER_LIST_MAX_SELECTION;
+	UserXMgrUIConnect.User.List.RangeStart := USER_LIST_RANGE_START;
+	UserXMgrUIConnect.User.List.RangeEnd := USER_LIST_RANGE_END;
     MpUserXManagerUI_0.MpLink := ADR(gMpLinkUserXLogin);    
     MpUserXManagerUI_0.Enable := TRUE;
     MpUserXManagerUI_0.UIConnect := ADR(UserXMgrUIConnect);
-    UserXMgrUIConnect.User.List.MaxSelection := USER_LIST_MAX_SELECTION;
-    UserXMgrUIConnect.User.List.RangeStart := USER_LIST_RANGE_START;
-    UserXMgrUIConnect.User.List.RangeEnd := USER_LIST_RANGE_END;
+	MpUserXManagerUI_0();
 	
 	MpUserXLoginUI_0.MpLink := ADR(gMpLinkUserXLogin);    
     MpUserXLoginUI_0.Enable := TRUE;
 	MpUserXLoginUI_0.UIConnect := ADR(UserXLoginUIConnect);
+	MpUserXLoginUI_0();
 
 	MpUserXLogin_0.MpLink := ADR(gMpLinkUserXLogin);    
-    MpUserXLogin_0.Enable := TRUE;	
+	MpUserXLogin_0.Enable := TRUE;	
+	MpUserXLogin_0();
 	
 END_PROGRAM
 
@@ -54,6 +57,12 @@ PROGRAM _CYCLIC
 		MpUserXLogin_0.ErrorReset := FALSE;
     END_IF
 	    
+	// Assign MpLinks
+	MpUserXManagerUI_0.MpLink := ADR(gMpLinkUserXLogin);    
+	MpUserXLoginUI_0.MpLink := ADR(gMpLinkUserXLogin); 
+	MpUserXLogin_0.MpLink := ADR(gMpLinkUserXLogin);  
+	
+	// Call function blocks
 	MpUserXManagerUI_0();
 	MpUserXLoginUI_0();
 	MpUserXLogin_0();
@@ -62,14 +71,14 @@ END_PROGRAM
 
 PROGRAM _EXIT
 	
-	// Call disbaled mapp function blocks 
+	// Disable the function blocls to unlink the MpLinks
     MpUserXManagerUI_0.Enable := FALSE;
-	MpUserXManagerUI_0();
-	
 	MpUserXLoginUI_0.Enable := FALSE;
-	MpUserXLoginUI_0();
-	
 	MpUserXLogin_0.Enable := FALSE;
+	
+	// Call function blocks
+	MpUserXManagerUI_0();
+	MpUserXLoginUI_0();
 	MpUserXLogin_0();
 	
 END_PROGRAM

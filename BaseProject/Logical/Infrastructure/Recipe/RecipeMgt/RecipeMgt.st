@@ -7,25 +7,15 @@
 
 PROGRAM _INIT
 	
-	//Create folder for this component on the user file device
+	// Create folder for this component on the user file device
 	DirCreate_New(enable := TRUE, pDevice := ADR('userPartition'), pName := ADR(LOCAL_FOLDER));		
 	
-	//Check if folder already exist and if so disabled the function block call
+	// Check if folder already exist and if so disabled the function block call
 	IF DirCreate_New.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreate_New(enable := FALSE);
 	END_IF	
 	
-	// Init MpRecipe function blocks 
-	hmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
-	hmiRecipe.Parameters.DeviceDataProvider[0] := '{"value":"mappRecipe","text":"CF/PLC"}';
-	hmiRecipe.Parameters.DeviceName := 'mappRecipe';
-	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
-	MpRecipe_0.Enable := TRUE;
-	MpRecipe_0.Category := ADR(hmiRecipe.Parameters.Category);
-	MpRecipe_0.DeviceName := ADR(hmiRecipe.Parameters.DeviceName);
-    MpRecipe_0.FileName := ADR(hmiRecipe.Parameters.FileName);
-	MpRecipe_0.Header := ADR(Header);
-	
+	// Initialize mapp function blocks 
 	MpRecipeUISetup.Confirmation.RecipeDelete := TRUE;
 	MpRecipeUISetup.RecipeListSize := 10;
 	MpRecipeUISetup.RecipeListScrollWindow := 0;
@@ -36,8 +26,19 @@ PROGRAM _INIT
 	MpRecipeUI_0.Enable := TRUE;
 	MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
 	MpRecipeUI_0.UISetup := MpRecipeUISetup;
+	MpRecipeUI_0();
+	
+	hmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
+	hmiRecipe.Parameters.DeviceDataProvider[0] := '{"value":"mappRecipe","text":"CF/PLC"}';
+	hmiRecipe.Parameters.DeviceName := 'mappRecipe';
+	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipe_0.Enable := TRUE;
+	MpRecipe_0.Category := ADR(hmiRecipe.Parameters.Category);
+	MpRecipe_0.DeviceName := ADR(hmiRecipe.Parameters.DeviceName);
+    MpRecipe_0.FileName := ADR(hmiRecipe.Parameters.FileName);
+	MpRecipe_0.Header := ADR(Header);
 
-	// Activate component 
+	// Wait for MpRecipe_0 to activate. This must be active before you can call the RegPar function blocks.
 	WHILE NOT(MpRecipe_0.Active OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE;
@@ -54,7 +55,7 @@ PROGRAM _INIT
 	MpRecipeRegPar_PreviewCfg.Category := ADR(MACHINE_CATEGORY); 
 	MpRecipeRegPar_PreviewCfg();
 
-	// Activate RegPar FUBs 
+	// Wait for RegPar function blocks to activate. These must be active before you can load a recipe.
 	WHILE NOT(MpRecipeRegPar_PreviewPar.Active OR MpRecipeRegPar_PreviewPar.Error) DO
 		MpRecipeRegPar_PreviewPar();
 	END_WHILE
@@ -62,7 +63,7 @@ PROGRAM _INIT
 		MpRecipeRegPar_PreviewCfg();
 	END_WHILE
 	
-	// Load Machine Settings 
+	// Load default Machine Settings recipe
 	hmiRecipe.Parameters.Category := MACHINE_CATEGORY;
 	hmiRecipe.Parameters.FileName := MACHINE_FILENAME;
 	MpRecipe_0.Load := TRUE;
@@ -75,12 +76,12 @@ PROGRAM _INIT
 	MpRecipe_0.Load := FALSE;
 	MpRecipe_0();
 
-	// Load Default parameter file 
+	// Load default Parameter recipe 
 	hmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
 	hmiRecipe.Parameters.FileName := 'Default.par';
 	previousRecipe := 'Default.par';
-    MpRecipe_0.Load := TRUE;
-    WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
+	MpRecipe_0.Load := TRUE;
+	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE
 	Parameters := ParametersPreview;
@@ -92,7 +93,7 @@ PROGRAM _INIT
 	MpRecipe_0();
 
 	// Trigger update notification so that the initial parameters are copied to the process 
-	MpRecipe_0.UpdateNotification := TRUE; //might not be necessary.
+	MpRecipe_0.UpdateNotification := TRUE; //might not be necessary.*****
 	
 	// Init Filemanager for exporting/importing files 
 	MpFileManagerUI_0.Enable := TRUE;
@@ -101,7 +102,8 @@ PROGRAM _INIT
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipe';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := '';
-    
+	MpFileManagerUI_0();
+	
 	hmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 	
 END_PROGRAM
@@ -166,6 +168,13 @@ PROGRAM _CYCLIC
 	IF NOT MpRecipeUI_0.Error THEN
 		MpRecipeUI_0.ErrorReset := FALSE;
 	END_IF
+		
+	// Assign MpLinks
+	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
+	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIRecipe);
+	MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeXml);
 	
 	// Call function blocks
 	MpRecipe_0();
@@ -178,12 +187,14 @@ END_PROGRAM
 
 PROGRAM _EXIT
 	
-	// Reset function blocks to unlink mapp links 
+	// Disable the function blocls to unlink the MpLinks
 	MpRecipe_0.Enable := FALSE;
 	MpRecipeUI_0.Enable := FALSE;
 	MpRecipeRegPar_PreviewPar.Enable := FALSE;
 	MpRecipeRegPar_PreviewCfg.Enable := FALSE;
 	MpFileManagerUI_0.Enable := FALSE;
+	
+	// Call function blocks
 	MpRecipe_0();
 	MpRecipeUI_0();
 	MpRecipeRegPar_PreviewPar();

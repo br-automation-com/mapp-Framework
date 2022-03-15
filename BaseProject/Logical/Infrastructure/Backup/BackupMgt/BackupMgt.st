@@ -16,16 +16,19 @@ PROGRAM _INIT
 	END_IF	
 
     MpBackupCoreFB.MpLink := ADR(gMpLinkBackupCore);
-    MpBackupCoreFB.Enable := TRUE;
+	MpBackupCoreFB.Enable := TRUE;
+	MpBackupCoreFB();
     
     MpFileManagerUIFB.MpLink := ADR(gMpLinkFileManagerUIBackup);
     MpFileManagerUIFB.UIConnect := ADR(MpFileManagerUIConnect);
-    MpFileManagerUIFB.Enable := TRUE;
+	MpFileManagerUIFB.Enable := TRUE;
+	MpFileManagerUIFB();
     
     MpBackupCoreConfigFB.Enable := TRUE;
     MpBackupCoreConfigFB.MpLink := ADR(gMpLinkBackupCore);
     MpBackupCoreConfigFB.Configuration := ADR(hmiBackup.Parameters.AutomaticBackup);
-    MpBackupCoreConfigFB.Load := TRUE;
+	MpBackupCoreConfigFB.Load := TRUE;
+	MpBackupCoreConfigFB();
     
 	hmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackup","text":"CF/PLC"}';
     
@@ -151,18 +154,29 @@ PROGRAM _CYCLIC
 	ChangeConfiguration;
 	FormatDeviceDataProvider;
 	
+	// Assign MpLinks
+	MpBackupCoreFB.MpLink := ADR(gMpLinkBackupCore);
+	MpFileManagerUIFB.MpLink := ADR(gMpLinkFileManagerUIBackup);
+	MpBackupCoreConfigFB.MpLink := ADR(gMpLinkBackupCore);
+	
+	// Call function blocks
+	MpBackupCoreFB();
+	MpFileManagerUIFB();
+	MpBackupCoreConfigFB();
+	
 END_PROGRAM
 
 PROGRAM _EXIT
     
-    MpBackupCoreFB.Enable := FALSE;
-    MpBackupCoreFB();
-
-    MpFileManagerUIFB.Enable := FALSE;
-    MpFileManagerUIFB();
-
-    MpBackupCoreConfigFB.Enable := FALSE;
-    MpBackupCoreConfigFB();
+	// Disable the function blocls to unlink the MpLinks
+    MpBackupCoreFB.Enable := FALSE;    
+	MpFileManagerUIFB.Enable := FALSE;
+	MpBackupCoreConfigFB.Enable := FALSE;
+	
+	// Call function blocks
+	MpBackupCoreFB();
+	MpFileManagerUIFB();
+	MpBackupCoreConfigFB();
 
 END_PROGRAM
 
