@@ -6,12 +6,12 @@ TYPE
 		AcknowledgeAlarms : BOOL;
 	END_STRUCT;
 	AlarmExamples_typ : 	STRUCT 
-		LevelMonitoring : INT := 50;
-		DeviationMonitoring : INT := 15;
-		DeviationMonitoringSetpoint : INT := 15;
+		LevelMonitoring : INT;
+		DeviationMonitoring : INT;
+		DeviationMonitoringSetpoint : INT;
 		RateOfChange : INT;
-		SnippetValue : INT := 10;
-		ControlExample : BOOL;
+		SnippetValue : INT;
+		SetControlExample : BOOL;
 	END_STRUCT;
 	ActiveAlarmState_enum : 
 		(

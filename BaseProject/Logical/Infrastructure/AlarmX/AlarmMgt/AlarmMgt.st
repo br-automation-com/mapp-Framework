@@ -59,7 +59,7 @@ PROGRAM _CYCLIC
     
 	// Check if any reactions are active. 
 	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application. 
-	// For example, the axis control task might check for the �Error� reaction to determine whether to send a stop command to the axes.
+	// For example, the axis control task might check for the 'Error' reaction to determine whether to send a stop command to the axes.
 	// Therefore, copy/paste these IF statements to other places in the application as needed. 
     IF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') THEN
         // Error is active. Add code here to respond to error situation.
