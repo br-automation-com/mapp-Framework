@@ -1,8 +1,8 @@
 (*Main Control----------------------------------------*)
 VAR
-	MainCtrl : MainCtrl_typ; (*Main Control Variable*)
+	MainCtrl : MainCtrlType; (*Main Control Variable*)
 	MpAxisBasic_x : ARRAY[0..MAX_IDX_AXIS] OF MpAxisBasic; (*MpAxis Declaration*)
-	PreviewParameters : MainParameters_typ;
+	PreviewParameters : MainParametersType;
 	MpRecipeRegPar_M : MpRecipeRegPar; (*Register fix parameters to MpRecipe*)
 	MpRecipeRegPar_Pre1 : MpRecipeRegPar; (*Register preview parameters*)
 	MpRecipeRegPar_Pre2 : MpRecipeRegPar; (*Register preview parameters*)

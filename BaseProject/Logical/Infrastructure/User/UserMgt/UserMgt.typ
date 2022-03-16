@@ -1,6 +1,6 @@
 
 TYPE
-	User_Par_typ : 	STRUCT  (*Parameters Data Type for User Management*)
+	UserParType : 	STRUCT  (*Parameters Data Type for User Management*)
 		FilePath : STRING[100];
 		UserName : STRING[MAX_USER_ITEM_LEN];
 		UserNameNew : STRING[MAX_USER_ITEM_LEN];
@@ -9,7 +9,7 @@ TYPE
 		PasswordRepeat : STRING[MAX_USER_ITEM_LEN];
 		VisuSlotID : USINT;
 	END_STRUCT;
-	User_Cmd_typ : 	STRUCT  (*Command Data Type for User Management*)
+	UserCmdType : 	STRUCT  (*Command Data Type for User Management*)
 		UserCreate : BOOL; (*Create User*)
 		UserDelete : BOOL; (*Delete User*)
 		UserRename : BOOL; (*Rename User*)
@@ -21,20 +21,20 @@ TYPE
 		ListRefresh : BOOL; (*Refresh List*)
 		ErrorReset : BOOL; (*Error Reset*)
 	END_STRUCT;
-	User_Main_typ : 	STRUCT  (*Main Control Data Type for User Management*)
-		CMD : User_Cmd_typ; (*Command of User Management*)
-		PAR : User_Par_typ; (*Parameters for User Management*)
-		DAT : User_Dat_typ; (*Data for User Management*)
-		VIS : ARRAY[0..MAX_USER_CLIENTS]OF User_Vis_typ; (*Vision related variables for User Management*)
-		ERR : User_Err_typ; (*Errors in User Management*)
+	UserMainType : 	STRUCT  (*Main Control Data Type for User Management*)
+		CMD : UserCmdType; (*Command of User Management*)
+		PAR : UserParType; (*Parameters for User Management*)
+		DAT : UserDatType; (*Data for User Management*)
+		VIS : ARRAY[0..MAX_USER_CLIENTS]OF UserVisType; (*Vision related variables for User Management*)
+		ERR : UserErrType; (*Errors in User Management*)
 	END_STRUCT;
-	User_Dat_typ : 	STRUCT  (*Data Data Type for User Management*)
-		Users : ARRAY[0..MAX_USER_NAMES]OF User_Details_typ; (*Users details*)
+	UserDatType : 	STRUCT  (*Data Data Type for User Management*)
+		Users : ARRAY[0..MAX_USER_NAMES]OF UserDetailsType; (*Users details*)
 		Roles : ARRAY[0..MAX_USER_ROLES]OF STRING[MAX_USER_ITEM_LEN]; (*Roles Details*)
 		Status : STRING[200]; (*Status of the user*)
 		UserActive : ARRAY[0..MAX_USER_CLIENTS]OF STRING[MAX_USER_ITEM_LEN]; (*Active User*)
 	END_STRUCT;
-	User_Vis_typ : 	STRUCT  (*User to HMI Data Type for User Management*)
+	UserVisType : 	STRUCT  (*User to HMI Data Type for User Management*)
 		ListUsers : ARRAY[0..MAX_USER_NAMES]OF STRING[MAX_USER_ITEM_LEN]; (*List of Users*)
 		ListUserIndex : UINT; (*List users Index Selection*)
 		ListUserValue : STRING[MAX_USER_ITEM_LEN]; (*List User Value*)
@@ -47,12 +47,12 @@ TYPE
 		ShowMessageBoxOK : BOOL; (*Show Message Box*)
 		ShowMessageBoxError : BOOL; (*Show Error Message Box*)
 	END_STRUCT;
-	User_Err_typ : 	STRUCT  (*Errors Data Type for User Management*)
+	UserErrType : 	STRUCT  (*Errors Data Type for User Management*)
 		No : DINT; (*Error  Numbers*)
-		State : user_management_enum; (*User Management States*)
+		State : UserManagementEnum; (*User Management States*)
 		Text : STRING[100]; (*Errors Text*)
 	END_STRUCT;
-	user_management_enum : 
+	UserManagementEnum : 
 		(
 		IdleUser, (*Wait state*)
 		DestroyList,
@@ -77,7 +77,7 @@ TYPE
 		PropertyWrite,
 		ErrorUser
 		);
-	User_Details_typ : 	STRUCT 
+	UserDetailsType : 	STRUCT 
 		Roles : ARRAY[0..MAX_USER_ROLES]OF STRING[MAX_USER_ITEM_LEN]; (*User Roles*)
 		Name : STRING[MAX_USER_ITEM_LEN]; (*User Names*)
 	END_STRUCT;

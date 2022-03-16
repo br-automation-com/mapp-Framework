@@ -16,7 +16,7 @@ VAR
 END_VAR
 (*User Management Variables--------------------------------------------------------------------------------------*)
 VAR
-	gUser : User_Main_typ; (*User Declaration Variable*)
+	gUser : User_MainType; (*User Declaration Variable*)
 	dataProvider : ARRAY[0..19] OF WSTRING[80] := ["{'value':'4','text':'Entry1'}",19("")];
 	wsPassword : WSTRING[80]; (*Password*)
 	wsUserName : WSTRING[80]; (*User Name*)

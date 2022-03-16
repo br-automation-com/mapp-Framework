@@ -19,7 +19,7 @@ VAR
 	Index : USINT; (*Index to loop through file devices*)
 	MpRecipeUISetup : MpRecipeUISetupType; (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
 	MpRecipeUIConnect : MpRecipeUIConnectType; (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
-	hmiRecipe : RecipeHmiInterface_type;
+	hmiRecipe : RecipeHmiInterfaceType;
 	Header : MpRecipeXmlHeaderType;
 	DTGetTime_0 : DTGetTime;
 END_VAR
@@ -37,11 +37,11 @@ END_VAR
 VAR
 	MpRecipeRegPar_PreviewPar : MpRecipeRegPar;
 	MpRecipeRegPar_PreviewCfg : MpRecipeRegPar;
-	Parameters : Parameters_type;
-	ParametersEdit : Parameters_type;
-	ParametersPreview : Parameters_type;
-	MachSettings : MachineSettings_type;
-	MachSettingsEdit : MachineSettings_type;
-	MachSettingsPreview : MachineSettings_type;
+	Parameters : ParametersType;
+	ParametersEdit : {REDUND_UNREPLICABLE} ParametersType;
+	ParametersPreview : ParametersType;
+	MachSettings : MachineSettingsType;
+	MachSettingsEdit : MachineSettingsType;
+	MachSettingsPreview : MachineSettingsType;
 	previousRecipe : STRING[80];
 END_VAR

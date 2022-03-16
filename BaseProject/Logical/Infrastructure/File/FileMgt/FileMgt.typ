@@ -1,11 +1,11 @@
 
 TYPE
-	FileHmiInterface_type : 	STRUCT 
-		Commands : FileHmiCommands_type;
-		Parameters : FileHmiParameters_type;
-		Status : FileHmiStatus_type;
+	FileHmiInterfaceType : 	STRUCT 
+		Commands : FileHmiCommandsType;
+		Parameters : FileHmiParametersType;
+		Status : FileHmiStatusType;
 	END_STRUCT;
-	FileDeleteStep_enum : 
+	FileDeleteStepEnum : 
 		(
 		FILE_DELETE_WAIT := 0,
 		FILE_SCAN_FOLDER_WAIT,
@@ -19,40 +19,40 @@ TYPE
 		FILE_CONFIRM_DELETE,
 		FILE_RESET_SORT_BY
 		);
-	FileFifoType_enum : 
+	FileFifoTypeEnum : 
 		(
 		FILE_FIFO_NUM_OF_FILES := 0,
 		FILE_FIFO_SIZE_OF_FOLDER,
 		FILE_FIFO_OLDER_THAN
 		);
-	FileHmiCommands_type : 	STRUCT 
+	FileHmiCommandsType : 	STRUCT 
 		Delete : BOOL;
 		FolderUp : BOOL;
 		EnterFolder : BOOL;
 		MultiSelect : BOOL;
 		CheckFolder : BOOL;
 	END_STRUCT;
-	FileHmiParaFifo_type : 	STRUCT 
+	FileHmiParaFifoType : 	STRUCT 
 		Enable : BOOL;
 		DeviceName : STRING[50];
-		FifoType : FileFifoType_enum;
+		FifoType : FileFifoTypeEnum;
 		ScanInterval : DINT := 60;
 		MaxFileAge : UINT := 365; (*Files older than 1 year will be deleted*)
 		MaxFolderSize : REAL := 1000; (*kB - Max size of files inside the active folder*)
 		MaxNumberOfFiles : UINT := 20; (*Max number of files inside active folder*)
 	END_STRUCT;
-	FileHmiParameters_type : 	STRUCT 
+	FileHmiParametersType : 	STRUCT 
 		SelectedIndex : USINT;
 		OldSortOrder : MpFileManagerUISortOrderEnum;
-		Fifo : FileHmiParaFifo_type;
+		Fifo : FileHmiParaFifoType;
 	END_STRUCT;
-	FileType_enum : 
+	FileTypeEnum : 
 		(
 		FOLDER := 0,
 		FILE := 1,
 		FILE_SELECTED := 2
 		);
-	FileHmiStatus_type : 	STRUCT 
+	FileHmiStatusType : 	STRUCT 
 		FileNames : ARRAY[0..49]OF STRING[80];
 		TimeStamps : ARRAY[0..49]OF DATE_AND_TIME;
 		Type : ARRAY[0..49]OF DINT;
@@ -63,7 +63,7 @@ TYPE
 		TableConfig : ARRAY[0..1]OF STRING[120];
 		IsFolder : BOOL;
 		BackButton : USINT;
-		DeleteStep : FileDeleteStep_enum;
+		DeleteStep : FileDeleteStepEnum;
 		AutoDeleteSelected : USINT;
 		FolderSize : REAL;
 		CurrentPage : STRING[80];
