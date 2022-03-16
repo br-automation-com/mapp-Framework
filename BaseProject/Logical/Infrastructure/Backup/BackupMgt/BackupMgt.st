@@ -81,8 +81,7 @@ PROGRAM _CYCLIC
     
         BACKUP_CREATING:
             IF (MpBackupCoreFB.CommandDone = TRUE) THEN
-                // Force the information refresh
-                LastSelectedIndex := LastSelectedIndex + 1;
+				LastSelectedIndex := LastSelectedIndex + 1;
                 MpBackupCoreFB.Create := FALSE;
                 MpBackupCoreFB.Install := FALSE;
                 MpBackupCoreFB.RequestInfo := FALSE;
@@ -115,13 +114,11 @@ PROGRAM _CYCLIC
                     MpFileManagerUIConnect.MessageBox.Confirm := TRUE;
                 mpFILE_MSG_OK:
                     IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
-                        // Force the information refresh
-                        LastSelectedIndex := LastSelectedIndex + 1;
+						LastSelectedIndex := LastSelectedIndex + 1;
                         FOR i:=0 TO ((SIZEOF(MpFileManagerUIConnect.File.List.Items[i])/SIZEOF(MpFileManagerUIConnect.File.List.Items[0]))-1) DO
                             MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
                         END_FOR
-                        
-                        MpFileManagerUIConnect.MessageBox.Confirm := FALSE;
+						MpFileManagerUIConnect.MessageBox.Confirm := FALSE;
                         BackupState := BACKUP_IDLE;
                     END_IF
 			END_CASE

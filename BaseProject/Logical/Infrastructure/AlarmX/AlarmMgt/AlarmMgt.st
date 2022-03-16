@@ -88,7 +88,7 @@ PROGRAM _CYCLIC
         MpAlarmXHistoryUI_0.ErrorReset := FALSE;
     END_IF
     
-	// Assign MpLinks / UIConnects
+	// Assign MpLinks & UIConnects
 	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUI_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUI_0.UIConnect := ADR(MpAlarmXListUIConnect);
