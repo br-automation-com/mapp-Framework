@@ -3,7 +3,7 @@
   <Bindings>
 
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::AlarmMgt:hmiAlarmX.Commands.RunQuery" attribute="value" />
+<Source xsi:type="opcUa" refId="::AlarmMgt:HmiAlarmX.Commands.RunQuery" attribute="value" />
 <Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="PushButtonRunQuery" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
@@ -20,7 +20,7 @@
 </Binding>
 
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::AlarmMgt:hmiAlarmX.Status.TableConfig[0]" attribute="value" />
+<Source xsi:type="opcUa" refId="::AlarmMgt:HmiAlarmX.Status.TableConfig[0]" attribute="value" />
 <Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="Table1" attribute="tableConfiguration" />
 </Binding>
 </Bindings>

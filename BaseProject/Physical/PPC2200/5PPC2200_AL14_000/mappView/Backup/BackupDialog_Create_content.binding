@@ -2,7 +2,7 @@
 <BindingsSet id="BackupDialog_Create_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.Name" attribute="value" />
+<Source xsi:type="opcUa" refId="::BackupMgt:HmiBackup.Parameters.Name" attribute="value" />
 <Target xsi:type="brease" contentRefId="BackupDialog_Create_content" widgetRefId="txtInNewRecipe" attribute="value" />
 </Binding>
 </Bindings>

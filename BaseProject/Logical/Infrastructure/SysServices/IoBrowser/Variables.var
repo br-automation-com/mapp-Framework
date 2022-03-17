@@ -2,30 +2,30 @@
 VAR
 	GatIoForcingHandler_0 : GatIoForcingHandler; (*Function block for Io handling (browser & forcing)*)
 	IoModules : ARRAY[0..gatMAX_IDX_IO_MODULES] OF GatIoModulesType;
-	pIoChannelTemp : REFERENCE TO GatIoChannelType;
-	pIoChannel : REFERENCE TO GatIoChannelType;
+	IoChannelTemp : REFERENCE TO GatIoChannelType;
+	IoChannel : REFERENCE TO GatIoChannelType;
 END_VAR
 (*Helper variables for mappView*)
 VAR
-	sStationList : ARRAY[0..gatMAX_IDX_IO_MODULES] OF STRING[80];
-	sModuleList : ARRAY[0..gatMAX_IDX_IO_MODULES] OF STRING[80];
-	sIoChannelList : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF STRING[80];
-	sIoPvList : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF STRING[80];
-	sIoValueList : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF STRING[20];
-	iIoValueList : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF DINT;
-	uStationIdx : UINT;
-	uModuleIdx : UINT;
-	uChannelIdx : UINT;
-	sSelectedStation : STRING[80];
-	uSelectedStation : UINT;
-	uLastSelectedStation : UINT;
-	uSelectedModule : UINT;
-	uLastSelectedModule : UINT;
-	uSelectedChannel : UINT;
-	uLastSelectedChannel : UINT;
-	sTableConfigChannels : STRING[200];
-	sTableConfigStations : STRING[200];
-	sTableConfig : STRING[200];
-	sTempStationPath : STRING[80];
-	bLastModuleInvisible : BOOL;
+	StationList : ARRAY[0..gatMAX_IDX_IO_MODULES] OF STRING[80];
+	ModuleList : ARRAY[0..gatMAX_IDX_IO_MODULES] OF STRING[80];
+	IoChannelList : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF STRING[80];
+	IoPvList : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF STRING[80];
+	IoValueListString : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF STRING[20];
+	IoValueList : ARRAY[0..gatMAX_IDX_IO_CHANNELS] OF DINT;
+	StationIdx : UINT;
+	ModuleIdx : UINT;
+	ChannelIdx : UINT;
+	SelectedStation : STRING[80];
+	SelectedStationIndex : UINT;
+	LastSelectedStationIndex : UINT;
+	SelectedModule : UINT;
+	LastSelectedModule : UINT;
+	SelectedChannel : UINT;
+	LastSelectedChannel : UINT;
+	TableConfigChannels : STRING[200];
+	TableConfigStations : STRING[200];
+	TableConfig : STRING[200];
+	TempStationPath : STRING[80];
+	LastModuleInvisible : BOOL;
 END_VAR

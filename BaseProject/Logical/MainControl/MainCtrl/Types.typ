@@ -1,6 +1,6 @@
 
 TYPE
-	AxisState_enum : 
+	AxisStateEnum : 
 		(
 		AX_STATE_WAIT := 0,
 		AX_STATE_POWER_ON,
@@ -18,7 +18,7 @@ TYPE
 		AX_STATE_ERROR := 90,
 		AX_STATE_ERROR_RESET
 		);
-	AxControl_Command_typ : 	STRUCT  (*command structure*)
+	AxControlCommandType : 	STRUCT  (*command structure*)
 		Power : BOOL; (*switch on the controller*)
 		Home : BOOL; (*reference the axis*)
 		MoveAbsolute : BOOL; (*move to an defined position*)
@@ -32,10 +32,10 @@ TYPE
 		ErrorAcknowledge : BOOL; (*reset active errors*)
 		Reset : BOOL;
 	END_STRUCT;
-	AxControl_Parameter_typ : 	STRUCT  (*parameter structure*)
+	AxControlParameterType : 	STRUCT  (*parameter structure*)
 		AxPar : MpAxisBasicParType; (*Cutter axis parameters*)
 	END_STRUCT;
-	AxControl_Status_typ : 	STRUCT  (*status structure*)
+	AxControlStatusType : 	STRUCT  (*status structure*)
 		ErrorID : UDINT; (*ErrorID of any occured error*)
 		Error : BOOL; (*Error on MpAxisBasic*)
 		ActPosition : LREAL; (*actual position of the axis [mm OR °]*)
@@ -47,54 +47,54 @@ TYPE
 		PowerOn : BOOL; (*Axis is powered on*)
 		IsHomed : BOOL; (*Axis is homed*)
 	END_STRUCT;
-	AxControl_typ : 	STRUCT  (*control structure*)
-		Command : AxControl_Command_typ; (*command structure*)
-		Parameter : AxControl_Parameter_typ; (*parameter structure*)
-		Status : AxControl_Status_typ; (*status structure*)
-		AxisState : AxisState_enum;
+	AxControlType : 	STRUCT  (*control structure*)
+		Command : AxControlCommandType; (*command structure*)
+		Parameter : AxControlParameterType; (*parameter structure*)
+		Status : AxControlStatusType; (*status structure*)
+		AxisState : AxisStateEnum;
 	END_STRUCT;
 END_TYPE
 
-(*Main Control-----------------------------------------------------*)
+(*Main Control*)
 
 TYPE
-	MainStatus_typ : 	STRUCT  (*Structure Type for Main Control Status*)
-		sMachineStatus : STRING[80]; (*Machine Status*)
+	MainStatusType : 	STRUCT  (*Structure Type for Main Control Status*)
+		MachineStatus : STRING[80]; (*Machine Status*)
 		CurrentBatch : INT; (*Cutting Batch Index*)
-		bCuttingProcessFinished : BOOL; (*Cutting process Finished*)
-		iBatchIdxCutNumber : INT; (*Batch Index Cut Number*)
-		iCuttingCycle : INT; (*Cutting Cycle*)
+		CuttingProcessFinished : BOOL; (*Cutting process Finished*)
+		BatchIdxCutNumber : INT; (*Batch Index Cut Number*)
+		CuttingCycle : INT; (*Cutting Cycle*)
 		ProductsCutTotal : UINT;
 		ProductsCutBatch : UINT; (*Product Cut Numbebr*)
 		CurrentBatchLength : REAL; (*Current batch product length [mm]*)
 		CurrentBatchTarget : UINT; (*Current batch production target*)
 	END_STRUCT;
-	MainCmd_typ : 	STRUCT  (*Structure Type for Main Control Commands*)
+	MainCmdType : 	STRUCT  (*Structure Type for Main Control Commands*)
 		AutoModeOn : BOOL; (*Power on axes*)
 		RunFeeder : BOOL; (*Run the process*)
 		RunCutter : BOOL; (*Homing of the Axis*)
 	END_STRUCT;
-	MainFixParameters_typ : 	STRUCT 
+	MainFixParametersType : 	STRUCT 
 		MinProductLength : REAL := 50; (*Minimum product length [mm]*)
 		MaxProductLength : REAL := 1000; (*Maximum product length [mm]*)
 		SyncAngle : REAL := 20; (*Sync Angle [°]*)
 		NrOfKnives : USINT := 1; (*Number of knives*)
 		CutDiameter : REAL := 90; (*Cutter radius [mm]*)
 	END_STRUCT;
-	MainParameters_typ : 	STRUCT 
+	MainParametersType : 	STRUCT 
 		ProductNumber : ARRAY[0..4]OF INT; (*Product Number*)
 		ProductLength : ARRAY[0..4]OF REAL; (*Real Product Length*)
 		AxPar : ARRAY[0..MAX_IDX_AXIS]OF MpAxisBasicParType; (*Axis parameters*)
 	END_STRUCT;
-	MainIntern_typ : 	STRUCT  (*Structure Type for Main Control Parameters*)
+	MainInternType : 	STRUCT  (*Structure Type for Main Control Parameters*)
 		ProductNumber : ARRAY[0..4]OF UINT; (*Product Number*)
 		ProductLength : ARRAY[0..4]OF REAL; (*Real Product Length*)
 	END_STRUCT;
-	MainCtrl_typ : 	STRUCT  (*Structure Type for Main Control *)
-		Cmd : MainCmd_typ; (*Main Control Command*)
-		FixPar : MainFixParameters_typ; (*Main Control Parameters*)
-		Para : MainParameters_typ; (*Main Control Parameters*)
-		Status : MainStatus_typ; (*Main Control Status*)
-		Intern : MainIntern_typ;
+	MainCtrlType : 	STRUCT  (*Structure Type for Main Control *)
+		Command : MainCmdType; (*Main Control Command*)
+		FixParameter : MainFixParametersType; (*Main Control Parameters*)
+		Parameter : MainParametersType; (*Main Control Parameters*)
+		Status : MainStatusType; (*Main Control Status*)
+		Intern : MainInternType;
 	END_STRUCT;
 END_TYPE

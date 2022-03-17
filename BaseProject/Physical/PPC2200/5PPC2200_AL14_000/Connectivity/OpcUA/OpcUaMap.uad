@@ -38,8 +38,8 @@
       </EURanges>
       <EURanges Id="14">
         <EURange>
-          <Low ValueProvider="PV">::MainCtrl:MainCtrl.FixPar.MinProductLength</Low>
-          <High ValueProvider="PV">::MainCtrl:MainCtrl.FixPar.MaxProductLength</High>
+          <Low ValueProvider="PV">::MainCtrl:MainCtrl.FixParameter.MinProductLength</Low>
+          <High ValueProvider="PV">::MainCtrl:MainCtrl.FixParameter.MaxProductLength</High>
         </EURange>
       </EURanges>
       <EURanges Id="15">
@@ -78,12 +78,12 @@
   <DefaultView AclId="3">
     <Module Name="&lt;Default&gt;">
       <GlobalVariables Name="Global Variables">
-        <Variable Name="gbUSBAvail" EnableArrayElements="True" />
+        <Variable Name="gUSBAvailable" EnableArrayElements="True" />
       </GlobalVariables>
       <Task Name="MainCtrl">
-        <Variable Name="bCopyPreviewParameters" />
+        <Variable Name="CopyPreviewParameters" />
         <Variable Name="MainCtrl">
-          <Variable Name="Para" AutomaticEnable="True">
+          <Variable Name="Parameter" AutomaticEnable="True">
             <Variable Name="ProductNumber" EnableArrayElements="True">
               <Variable AuditEvents="True" Name="ProductNumber[0]" />
               <Variable AuditEvents="True" Name="ProductNumber[1]" />
@@ -127,7 +127,7 @@
               </Variable>
             </Variable>
           </Variable>
-          <Variable Name="Cmd">
+          <Variable Name="Command">
             <Variable Name="AutoModeOn" />
             <Variable Name="RunFeeder" />
             <Variable Name="RunCutter" />
@@ -136,7 +136,7 @@
             <Variable Name="CurrentBatch" EngineeringUnitId="2" />
             <Variable Name="CurrentBatchLength" EngineeringUnitId="1" />
           </Variable>
-          <Variable Name="FixPar" AutomaticEnable="True">
+          <Variable Name="FixParameter" AutomaticEnable="True">
             <Variable AuditEvents="True" Name="SyncAngle" EURangesId="11" EngineeringUnitId="3" />
             <Variable AuditEvents="True" Name="NrOfKnives" EURangesId="10" />
             <Variable AuditEvents="True" Name="MaxProductLength" EURangesId="12" EngineeringUnitId="1" />
@@ -272,12 +272,12 @@
             <Variable Name="Velocity" EngineeringUnitId="8" />
           </Variable>
         </Variable>
-        <Variable Name="bResetEditValues" />
+        <Variable Name="ResetEditValues" />
       </Task>
       <Task Name="AuditMgt">
-        <Variable Name="sDisplayFileName" />
-        <Variable Name="sStrSelectedFile" />
-        <Variable Name="uDisplayFileNameIndex" />
+        <Variable Name="DisplayFileName" />
+        <Variable Name="StrSelectedFile" />
+        <Variable Name="DisplayFileNameIndex" />
         <Variable Name="MpAuditTrail_0">
           <Variable Name="Export" />
           <Variable Name="Error" />
@@ -288,27 +288,27 @@
             <Variable Name="Refresh" />
           </Variable>
         </Variable>
-        <Variable Name="sTableConfig" />
+        <Variable Name="TableConfig" />
       </Task>
       <Task Name="ReportMgt">
-        <Variable Name="bDeleteReport" />
-        <Variable Name="bEnableDelete" />
-        <Variable Name="bEnableGenerate" />
-        <Variable Name="bStartGenerate" />
-        <Variable Name="sSetLanguage" />
-        <Variable Name="sStrSelectedFile" />
-        <Variable Name="uDisplayFileNameIndex" />
-        <Variable Name="sDisplayFileName" />
+        <Variable Name="DeleteReport" />
+        <Variable Name="EnableDelete" />
+        <Variable Name="EnableGenerate" />
+        <Variable Name="StartGenerate" />
+        <Variable Name="SetLanguage" />
+        <Variable Name="StrSelectedFile" />
+        <Variable Name="DisplayFileNameIndex" />
+        <Variable Name="DisplayFileName" />
         <Variable Name="MpReportCore_0">
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
         </Variable>
-        <Variable Name="sTableConfig" />
+        <Variable Name="TableConfig" />
       </Task>
       <Task Name="DataMgt">
-        <Variable Name="sDisplayFileName" />
-        <Variable Name="sStrSelectedFile" />
-        <Variable Name="uDisplayFileNameIndex" />
+        <Variable Name="DisplayFileName" />
+        <Variable Name="StrSelectedFile" />
+        <Variable Name="DisplayFileNameIndex" />
         <Variable Name="MpDataRecorder_0">
           <Variable Name="Record" />
           <Variable Name="ErrorReset" />
@@ -319,23 +319,23 @@
             <Variable Name="Refresh" />
           </Variable>
         </Variable>
-        <Variable Name="sTableConfig" />
+        <Variable Name="TableConfig" />
         <Variable Name="MpFileManagerUI_0">
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
         </Variable>
       </Task>
       <Task Name="UserMgt">
-        <Variable Name="bCreateNewUser" />
-        <Variable Name="dataProvider" />
+        <Variable Name="CreateNewUser" />
+        <Variable Name="DataProvider" />
         <Variable Name="idx" />
         <Variable Name="idy" />
         <Variable Name="PropertyName" />
         <Variable Name="ROLE_LISTTYPE" />
         <Variable Name="RoleCounter" />
-        <Variable Name="sNewUserConfirmPassword" />
-        <Variable Name="sNewUserName" />
-        <Variable Name="sNewUserPassword" />
+        <Variable Name="NewUserConfirmPassword" />
+        <Variable Name="NewUserName" />
+        <Variable Name="NewUserPassword" />
         <Variable Name="tmpUser" />
         <Variable Name="tmpUserIdx" />
         <Variable Name="tmpUserNew" />
@@ -345,8 +345,8 @@
         <Variable Name="UserCounterTotal" />
         <Variable Name="UserManagementState" />
         <Variable Name="USERROLE_LISTTYPE" />
-        <Variable Name="wsPassword" />
-        <Variable Name="wsUserName" />
+        <Variable Name="Password" />
+        <Variable Name="UserName" />
         <Variable Name="ArUserAssignRole_0">
           <Variable Name="UserName" />
           <Variable Name="RoleName" />
@@ -391,8 +391,8 @@
           <Variable Name="PropertyName" />
           <Variable Name="PropertyValue" />
         </Variable>
-        <Variable Name="gUser">
-          <Variable Name="CMD">
+        <Variable Name="User">
+          <Variable Name="Command">
             <Variable Name="UserCreate" />
             <Variable Name="UserDelete" />
             <Variable Name="UserRename" />
@@ -404,7 +404,7 @@
             <Variable Name="ListRefresh" />
             <Variable Name="ErrorReset" />
           </Variable>
-          <Variable Name="PAR">
+          <Variable Name="Parameter">
             <Variable Name="FilePath" />
             <Variable Name="UserName" />
             <Variable Name="UserNameNew" />
@@ -413,14 +413,14 @@
             <Variable Name="PasswordRepeat" />
             <Variable Name="VisuSlotID" />
           </Variable>
-          <Variable Name="DAT">
+          <Variable Name="Data">
             <Variable Name="Users" EnableArrayElements="True" />
             <Variable Name="Roles" />
             <Variable Name="Status" />
             <Variable Name="UserActive" EnableArrayElements="True" />
           </Variable>
-          <Variable Name="VIS" EnableArrayElements="True" />
-          <Variable Name="ERR">
+          <Variable Name="Visualization" EnableArrayElements="True" />
+          <Variable Name="Error">
             <Variable Name="No" />
             <Variable Name="State" />
             <Variable Name="Text" />
@@ -466,17 +466,17 @@
             </Variable>
           </Variable>
         </Variable>
-        <Variable Name="bReadConfig" />
-        <Variable Name="bWriteConfig" />
+        <Variable Name="ReadConfig" />
+        <Variable Name="WriteConfig" />
         <Variable Name="MC_BR_ProcessConfig_ACP">
           <Variable Name="Name" />
         </Variable>
-        <Variable Name="uSelectedAxis" />
+        <Variable Name="SelectedAxis" />
       </Task>
       <Task Name="SysServs">
         <Variable Name="EthConfig" AutomaticEnable="True" />
-        <Variable Name="bReadEthConfig" />
-        <Variable Name="bWriteEthConfig" />
+        <Variable Name="ReadEthConfig" />
+        <Variable Name="WriteEthConfig" />
         <Variable Name="DTStructureGetTime_0">
           <Variable Name="enable" />
         </Variable>
@@ -509,39 +509,39 @@
           <Variable Name="MinOut" EURangesId="15" />
           <Variable Name="MaxOut" EURangesId="16" />
         </Variable>
-        <Variable Name="rActValue" />
-        <Variable Name="rOutValue" />
-        <Variable Name="bSimulationActive" />
+        <Variable Name="ActValue" />
+        <Variable Name="OutValue" />
+        <Variable Name="SimulationActive" />
         <Variable Name="MTBasicsOscillationTuning_0">
           <Variable Name="Enable" />
           <Variable Name="TuningDone" />
           <Variable Name="TuningActive" />
         </Variable>
-        <Variable Name="rTuningQuality" />
-        <Variable Name="ePidStatus" />
+        <Variable Name="TuningQuality" />
+        <Variable Name="PidStatus" />
       </Task>
       <Task Name="IoBrowser">
-        <Variable Name="sTableConfig" />
-        <Variable Name="sModuleList" EnableArrayElements="True" />
-        <Variable Name="pIoChannel" AutomaticEnable="True">
+        <Variable Name="TableConfig" />
+        <Variable Name="ModuleList" EnableArrayElements="True" />
+        <Variable Name="IoChannel" AutomaticEnable="True">
           <Variable Name="IoForcing">
             <Variable Name="ForceValue" EURangesId="17" EngineeringUnitId="14" />
           </Variable>
         </Variable>
-        <Variable Name="sIoChannelList" EnableArrayElements="True" />
-        <Variable Name="sIoPvList" EnableArrayElements="True" />
-        <Variable Name="uSelectedChannel" />
-        <Variable Name="uSelectedModule" />
-        <Variable Name="sTableConfigChannels" />
-        <Variable Name="sIoValueList" EnableArrayElements="True" />
-        <Variable Name="pIoChannelTemp">
+        <Variable Name="IoChannelList" EnableArrayElements="True" />
+        <Variable Name="IoPvList" EnableArrayElements="True" />
+        <Variable Name="SelectedChannel" />
+        <Variable Name="SelectedModule" />
+        <Variable Name="TableConfigChannels" />
+        <Variable Name="IoValueList" EnableArrayElements="True" />
+        <Variable Name="IoChannelTemp">
           <Variable Name="IoForcing">
             <Variable Name="ForceValue" EURangesId="17" EngineeringUnitId="13" />
           </Variable>
         </Variable>
-        <Variable Name="sStationList" EnableArrayElements="True" />
-        <Variable Name="sTableConfigStations" />
-        <Variable Name="uSelectedStation" />
+        <Variable Name="StationList" EnableArrayElements="True" />
+        <Variable Name="TableConfigStations" />
+        <Variable Name="SelectedStation" />
         <Variable Name="GatIoForcingHandler_0">
           <Variable Name="Initializing" />
         </Variable>

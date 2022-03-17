@@ -8,24 +8,24 @@
  ********************************************************************
  * Local variables of program Visualization Control
  ********************************************************************)
-(*Variable Declaration-------------------------------------------------------------------------*)
+(*Variable Declaration*)
 VAR
-	EthConfig : EthConfig_type; (*Ethernet configuration*)
-	CpuIoMap : CpuIoMap_typ; (*Cpu IO Mapping*)
+	EthConfig : EthConfigType; (*Ethernet configuration*)
+	CpuIoMap : CpuIoMapType; (*Cpu IO Mapping*)
 	CfgGetSubnetMask_0 : CfgGetSubnetMask; (*GetSubnetMask*)
 	CfgGetIPAddr_0 : CfgGetIPAddr; (*GetIPAddr*)
 	CfgGetDefaultGateway_0 : CfgGetDefaultGateway; (*GetDefaultGateway*)
 	CfgSetSubnetMask_0 : CfgSetSubnetMask; (*GetSubnetMask*)
 	CfgSetIPAddr_0 : CfgSetIPAddr; (*GetIPAddr*)
 	CfgSetDefaultGateway_0 : CfgSetDefaultGateway; (*GetDefaultGateway*)
-	sCurrentMode : STRING[80]; (*Current Mode(Simulation/Runtime)*)
-	bSimulation : BOOL; (*Simulation Mode Flag(1: Simulation 0: Runtime)*)
-	bReadEthConfig : BOOL;
-	bWriteEthConfig : BOOL;
+	CurrentMode : STRING[80]; (*Current Mode(Simulation/Runtime)*)
+	Simulation : BOOL; (*Simulation Mode Flag(1: Simulation 0: Runtime)*)
+	ReadEthConfig : BOOL;
+	WriteEthConfig : BOOL;
 	DTStructureSetTime_0 : DTStructureGetTime;
 	DTStructureGetTime_0 : DTStructureSetTime;
 	DateTimeCfg : DTStructure; (*Date Structure*)
-	ClientInfo : ARRAY[0..MAX_IDX_CLIENTS] OF ClientInfo_typ;
+	ClientInfo : ARRAY[0..MAX_IDX_CLIENTS] OF ClientInfoType;
 END_VAR
 VAR CONSTANT
 	MAX_IDX_CLIENTS : USINT := 3;
