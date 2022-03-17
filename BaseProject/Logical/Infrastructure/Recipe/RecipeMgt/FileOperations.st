@@ -3,7 +3,7 @@ ACTION FileCopyOperation:
 	// Export/Import recipes to/from USB
     CASE HmiRecipe.Parameters.CopyStep OF
 		REC_COPY_WAIT:
-			//Wait for export/import command
+			// Wait for export/import command
             IF (HmiRecipe.Commands.ExportToUSB = TRUE) THEN
                 // Check if USB device is available
                 IF (brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[1])) > 0) THEN
@@ -67,7 +67,7 @@ ACTION FileCopyOperation:
             END_IF
 	
 		REC_COPY_TO_USB:
-			//Navigate to USB device and paste files
+			// Navigate to USB device and paste files
             IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
                 
                 IF (MpFileManagerUIConnect.DeviceList.SelectedIndex <> 1) THEN
@@ -84,7 +84,7 @@ ACTION FileCopyOperation:
             END_IF
 
 		REC_COPY_FROM_USB:
-			//Navigate to CF device and paste files
+			// Navigate to CF device and paste files
             IF (MpFileManagerUIConnect.DeviceList.SelectedIndex <> 0) THEN
                 MpFileManagerUIConnect.DeviceList.SelectedIndex := 0;
                 MpFileManagerUIConnect.File.MultiSelect := FALSE;
@@ -97,7 +97,7 @@ ACTION FileCopyOperation:
             END_IF
 	
 		REC_COPY_BUSY:
-			//Wait for copying done
+			// Wait for copying done
             IF (MpFileManagerUIConnect.MessageBox.Type = mpFILE_MSG_CONFIRM_OVERWRITE) OR (MpFileManagerUIConnect.MessageBox.Type = mpFILE_MSG_BUSY) THEN
                 // TODO: Replace by confirm dialog
                 MpFileManagerUIConnect.MessageBox.Confirm := TRUE;

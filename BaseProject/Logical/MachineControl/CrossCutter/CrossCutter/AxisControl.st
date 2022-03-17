@@ -10,7 +10,7 @@ PROGRAM _INIT
 
     MpAlarmXCoreFB.Enable := TRUE;
     ConfigurationInit;
-    
+        
     MpAxisBasicFB.Enable := TRUE;
 
     AxisInit;

@@ -44,12 +44,10 @@ ACTION LoadPreview:
 END_ACTION
 
 ACTION RecipeHMIcommands:
-	
-	
-	
-	CASE HmiRecipe.Status.HMIcommand OF
-		REC_HMI_WAIT:
-			IF HmiRecipe.Commands.CreateRecipe THEN
+    
+    CASE HmiRecipe.Status.HMIcommand OF
+        REC_HMI_WAIT:
+            IF HmiRecipe.Commands.CreateRecipe THEN
 				HmiRecipe.Status.HMIcommand := REC_HMI_CREATE;
 				HmiRecipe.Commands.CreateRecipe := FALSE;
 			ELSIF HmiRecipe.Commands.SaveSelectedRecipe THEN
@@ -82,26 +80,17 @@ ACTION RecipeHMIcommands:
 		REC_HMI_SAVE:
 			IF (brsstrcmp(ADR(HmiRecipe.Parameters.CategoryDropdown),ADR('Product')) = 0) THEN
 				ParametersPreview := ParametersEdit;
+	        ELSIF (brsstrcmp(ADR(HmiRecipe.Parameters.CategoryDropdown),ADR('Machine')) = 0) THEN
+                MachSettingsPreview := MachSettingsEdit;
+            END_IF
 	
-				//make this comparison in mapp view, so I can trigger the load stright from there
-//				hmiRecipe.Parameters.ActiveRecipe;
-//				IF (brsstrcmp(ADR(hmiRecipe.Parameters.LastLoadedProductRecipe),ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]))=0) THEN
-//					hmiRecipe.Commands.LoadRecipe := TRUE;
-//				END_IF
-			ELSIF (brsstrcmp(ADR(HmiRecipe.Parameters.CategoryDropdown),ADR('Machine')) = 0) THEN
-				MachSettingsPreview := MachSettingsEdit;
-//				IF (brsstrcmp(ADR(hmiRecipe.Parameters.LastLoadedConfigRecipe),ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]))=0) THEN
-//					hmiRecipe.Commands.LoadRecipe := TRUE;
-//				END_IF
-			END_IF
-	
-			IF (brsstrlen(ADR(HmiRecipe.Parameters.ActiveRecipe)) > 0) THEN
-				MpRecipe_0.FileName := ADR(HmiRecipe.Parameters.ActiveRecipe);
+            IF (brsstrlen(ADR(HmiRecipe.Parameters.ActiveRecipe)) > 0) THEN
+                MpRecipe_0.FileName := ADR(HmiRecipe.Parameters.ActiveRecipe);
 				MpRecipe_0.Save := TRUE;
 			END_IF
 			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 	
-	END_CASE;
+	END_CASE
 	
 	IF NOT MpRecipe_0.CommandBusy AND brsstrcmp(ADR(PreviousRecipe),ADR(HmiRecipe.Parameters.FileName)) <> 0 THEN
 		HmiRecipe.Parameters.FileName := PreviousRecipe;
