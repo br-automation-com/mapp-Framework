@@ -38,6 +38,9 @@ PROGRAM _INIT
 	MpAlarmXHistoryUI_0.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
 	MpAlarmXHistoryUI_0();
 	
+	// Call action to intialize alarm samples
+	AlarmSampleInit;  
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -50,12 +53,13 @@ PROGRAM _CYCLIC
 		MpAlarmXHistory_0.Export := TRUE;
 	END_IF
 
-	// Call all actions 
-    AlarmHandling;  // PROBLEM RIGHT NOW. SHOULD MOVE THIS TO INIT, IF WE REMOVE THE FUB EXAMPLE
+	// Call all cyclic actions 
+    AlarmHandling;  
 	GetBacktraceInformation;
     ExecuteQuery;
 	QueryTableConfig;
-	AlarmSamples;
+	AlarmSampleFub;
+	
     
 	// Check if any reactions are active. 
 	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application. 
