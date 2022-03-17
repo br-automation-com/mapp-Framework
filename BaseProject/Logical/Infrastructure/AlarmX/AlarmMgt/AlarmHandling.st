@@ -1,13 +1,12 @@
+ACTION AlarmHandling:
 
-ACTION AlarmHandling: 
-
-    // CommissioningModeActive = TRUE will inhibit Alarms[0]. The alarm will not trigger even if the alarm condition is active. 
-	// CommissioningModeActive = FALSE will NOT inhibit Alarms[0]. The alarm will trigger when the alarm condition is active. 
+    // CommissioningModeActive = TRUE will inhibit Alarms[0]. The alarm will not trigger even if the alarm condition is active.
+	// CommissioningModeActive = FALSE will NOT inhibit Alarms[0]. The alarm will trigger when the alarm condition is active.
 	// See Alarm.mpalarmxcore (must enable Advanced Features)
     CommissioningModeActive;
     
-	// Define the condition which triggers each alarm below. 
-	Alarms[0]; 
+	// Define the condition which triggers each alarm below.
+	Alarms[0];
 
 //    Alarms[1] := ;
 //    Alarms[2] := ;
@@ -18,7 +17,7 @@ ACTION AlarmHandling:
 //    Alarms[7] := ;
 //    Alarms[8] := ;
 //    Alarms[9] := ;
-//    
+//
 //    Alarms[10] := ;
 //    Alarms[11] := ;
 //    Alarms[12] := ;
@@ -29,7 +28,7 @@ ACTION AlarmHandling:
 //    Alarms[17] := ;
 //    Alarms[18] := ;
 //    Alarms[19] := ;
-//    
+//
 //    Alarms[20] := ;
 //    Alarms[21] := ;
 //    Alarms[22] := ;
@@ -40,7 +39,7 @@ ACTION AlarmHandling:
 //    Alarms[27] := ;
 //    Alarms[28] := ;
 //    Alarms[29] := ;
-//    
+//
 //    Alarms[30] := ;
 //    Alarms[31] := ;
 //    Alarms[32] := ;
@@ -51,7 +50,7 @@ ACTION AlarmHandling:
 //    Alarms[37] := ;
 //    Alarms[38] := ;
 //    Alarms[39] := ;
-//    
+//
 //    Alarms[40] := ;
 //    Alarms[41] := ;
 //    Alarms[42] := ;
@@ -62,7 +61,7 @@ ACTION AlarmHandling:
 //    Alarms[47] := ;
 //    Alarms[48] := ;
 //    Alarms[49] := ;
-//    
+//
 //    Alarms[50] := ;
 //    Alarms[51] := ;
 //    Alarms[52] := ;
@@ -73,7 +72,7 @@ ACTION AlarmHandling:
 //    Alarms[57] := ;
 //    Alarms[58] := ;
 //    Alarms[59] := ;
-//    
+//
 //    Alarms[60] := ;
 //    Alarms[61] := ;
 //    Alarms[62] := ;
@@ -84,7 +83,7 @@ ACTION AlarmHandling:
 //    Alarms[67] := ;
 //    Alarms[68] := ;
 //    Alarms[69] := ;
-//    
+//
 //    Alarms[70] := ;
 //    Alarms[71] := ;
 //    Alarms[72] := ;
@@ -95,7 +94,7 @@ ACTION AlarmHandling:
 //    Alarms[77] := ;
 //    Alarms[78] := ;
 //    Alarms[79] := ;
-//    
+//
 //    Alarms[80] := ;
 //    Alarms[81] := ;
 //    Alarms[82] := ;
@@ -106,7 +105,7 @@ ACTION AlarmHandling:
 //    Alarms[87] := ;
 //    Alarms[88] := ;
 //    Alarms[89] := ;
-//    
+//
 //    Alarms[90] := ;
 //    Alarms[91] := ;
 //    Alarms[92] := ;

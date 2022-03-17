@@ -2,12 +2,12 @@
 <BindingsSet id="Data_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Bindings>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::DataMgt:sDisplayFileName" attribute="value" />
+			<Source xsi:type="opcUa" refId="::DataMgt:DisplayFileName" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Data_content" widgetRefId="TableItem1" attribute="stringValue" />
 		</Binding>
 
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::DataMgt:sStrSelectedFile" attribute="value" />
+			<Source xsi:type="opcUa" refId="::DataMgt:StrSelectedFile" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Data_content" widgetRefId="PDFViewer1" attribute="src" />
 		</Binding>
 		<Binding mode="twoWay">
@@ -24,11 +24,11 @@
 		</Binding>
 
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::DataMgt:sTableConfig" attribute="value" />
+			<Source xsi:type="opcUa" refId="::DataMgt:TableConfig" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Data_content" widgetRefId="TableDataFileList" attribute="tableConfiguration" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::DataMgt:uDisplayFileNameIndex" attribute="value" />
+			<Source xsi:type="opcUa" refId="::DataMgt:DisplayFileNameIndex" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Data_content" widgetRefId="TableDataFileList" attribute="selectedRow" />
 		</Binding>
 </Bindings>

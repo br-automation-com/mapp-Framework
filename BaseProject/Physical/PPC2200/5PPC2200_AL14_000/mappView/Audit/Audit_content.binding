@@ -2,15 +2,15 @@
 <BindingsSet id="Audit_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Bindings>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::AuditMgt:sDisplayFileName" attribute="value" />
+			<Source xsi:type="opcUa" refId="::AuditMgt:DisplayFileName" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Audit_content" widgetRefId="TableItem1" attribute="stringValue" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::AuditMgt:uDisplayFileNameIndex" attribute="value" />
+			<Source xsi:type="opcUa" refId="::AuditMgt:DisplayFileNameIndex" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Audit_content" widgetRefId="Table1" attribute="selectedRow" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::AuditMgt:sStrSelectedFile" attribute="value" />
+			<Source xsi:type="opcUa" refId="::AuditMgt:StrSelectedFile" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Audit_content" widgetRefId="PDFViewer1" attribute="src" />
 		</Binding>
 		<Binding mode="twoWay">
@@ -19,7 +19,7 @@
 		</Binding>
 	
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::AuditMgt:sTableConfig" attribute="value" />
+<Source xsi:type="opcUa" refId="::AuditMgt:TableConfig" attribute="value" />
 <Target xsi:type="brease" contentRefId="Audit_content" widgetRefId="Table1" attribute="tableConfiguration" />
 </Binding>
 </Bindings>

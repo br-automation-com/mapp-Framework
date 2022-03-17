@@ -1,4 +1,4 @@
-(*ARUser Function Block------------------------------------------------------------------------------------------------------------*)
+(*ARUser Function Block*)
 VAR
 	ArUserAssignRole_0 : ArUserAssignRole;
 	ArUserCreate_0 : ArUserCreate;
@@ -11,15 +11,15 @@ VAR
 	ArUserInitList_0 : ArUserInitList;
 	ArUserReleaseRole_0 : ArUserReleaseRole;
 	ArUserSetPassword_0 : ArUserSetPassword;
-	UserManagementState : user_management_enum;
+	UserManagementState : UserManagementEnum;
 	ArUserSetProperty_0 : ArUserSetProperty;
 END_VAR
-(*User Management Variables--------------------------------------------------------------------------------------*)
+(*User Management Variables*)
 VAR
-	gUser : User_Main_typ; (*User Declaration Variable*)
-	dataProvider : ARRAY[0..19] OF WSTRING[80] := ["{'value':'4','text':'Entry1'}",19("")];
-	wsPassword : WSTRING[80]; (*Password*)
-	wsUserName : WSTRING[80]; (*User Name*)
+	User : UserMainType; (*User Declaration Variable*)
+	DataProvider : ARRAY[0..19] OF WSTRING[80] := ["{'value':'4','text':'Entry1'}",19("")];
+	Password : WSTRING[80]; (*Password*)
+	UserName : WSTRING[80]; (*User Name*)
 	tmpUserNew : STRING[MAX_USER_ITEM_LEN];
 	tmpUser : STRING[MAX_USER_ITEM_LEN];
 	tmpUserOld : STRING[MAX_USER_ITEM_LEN];
@@ -30,16 +30,16 @@ VAR
 	tmpUserIdx : USINT; (*Index used for FOR Loop*)
 	RoleCounter : USINT;
 	UserCounterTotal : ARRAY[0..MAX_USER_CLIENTS] OF USINT;
-	sNewUserName : WSTRING[20];
-	sNewUserConfirmPassword : WSTRING[20];
-	sNewUserPassword : WSTRING[20];
-	bCreateNewUser : BOOL;
-	sTempStr : WSTRING[100];
+	NewUserName : WSTRING[20];
+	NewUserConfirmPassword : WSTRING[20];
+	NewUserPassword : WSTRING[20];
+	CreateNewUser : BOOL;
+	TempStr : WSTRING[100];
 	TypeVar : WSTRING[100];
 	X : BOOL;
-	status : DINT;
+	Status : DINT;
 END_VAR
-(*Constants----------------------------------------------------------*)
+(*Constants*)
 VAR CONSTANT
 	ROLE_LISTTYPE : BYTE := 2; (*List Type Role*)
 	USERROLE_LISTTYPE : BYTE := 3; (*List Type UserRole*)

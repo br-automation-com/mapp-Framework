@@ -6,7 +6,7 @@ ACTION RecipeInit:
     MpRecipeRegPar_Par.MpLink := ADR(gMpLinkRecipeXml);
     MpRecipeRegPar_Par.Enable := TRUE;
     MpRecipeRegPar_Par.PVName := ADR(AxisControl.Status.ProductSettingsName);
-    MpRecipeRegPar_Par.Category := ADR(PRODUCT_CATEGORY); 
+    MpRecipeRegPar_Par.Category := ADR(PRODUCT_CATEGORY);
     MpRecipeRegPar_Par();
     ParametersPreview;
     ParametersEdit;
@@ -16,12 +16,12 @@ ACTION RecipeInit:
     MpRecipeRegPar_Cfg.MpLink := ADR(gMpLinkRecipeXml);
     MpRecipeRegPar_Cfg.Enable := TRUE;
     MpRecipeRegPar_Cfg.PVName := ADR(AxisControl.Status.MachineSettingsName);
-    MpRecipeRegPar_Cfg.Category := ADR(MACHINE_CATEGORY); 
+    MpRecipeRegPar_Cfg.Category := ADR(MACHINE_CATEGORY);
     MpRecipeRegPar_Cfg();
     MachineSettingsPreview;
     MachineSettingsEdit;
 
-    // Activate RegPar FUBs 
+    // Activate RegPar FUBs
     WHILE NOT(MpRecipeRegPar_Par.Active OR MpRecipeRegPar_Par.Error) DO
         MpRecipeRegPar_Par();
     END_WHILE
@@ -40,7 +40,7 @@ ACTION RecipeCyclic:
 			MachineSettingsEdit := MachineSettingsPreview;
 		END_IF
 		AxisRecipe.EditDialogOpened := FALSE;
-		AxisRecipe.CreateDialogOpened := FALSE;	
+		AxisRecipe.CreateDialogOpened := FALSE;
 	END_IF
 	
 	CASE AxisRecipe.State OF
@@ -51,11 +51,11 @@ ACTION RecipeCyclic:
 			ELSIF AxisRecipe.SaveRecipe THEN
 				AxisRecipe.State := REC_AXIS_SAVE;
 				AxisRecipe.SaveRecipe := FALSE;
-			ELSIF AxisRecipe.LoadRecipe THEN 
+			ELSIF AxisRecipe.LoadRecipe THEN
 				AxisRecipe.State := REC_AXIS_LOAD;
 				AxisRecipe.LoadRecipe := FALSE;
 			END_IF
-		
+	
 		REC_AXIS_CREATE:
 			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Product')) = 0) THEN
 				ParametersPreview := ParametersEdit;
@@ -63,7 +63,7 @@ ACTION RecipeCyclic:
 				MachineSettingsPreview := MachineSettingsEdit;
 			END_IF
 			AxisRecipe.State := REC_AXIS_WAIT;
-			
+	
 		REC_AXIS_LOAD:
 			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Product')) = 0) THEN
 				AxisControl.Parameters := ParametersPreview;
@@ -71,13 +71,13 @@ ACTION RecipeCyclic:
 				MachineSettings := MachineSettingsPreview;
 			END_IF
 			AxisRecipe.State := REC_AXIS_WAIT;
-		
+	
 		REC_AXIS_SAVE:
 			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Product')) = 0) THEN
 				ParametersPreview := ParametersEdit;
 			ELSIF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Machine')) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
-			END_IF		
+			END_IF
 			AxisRecipe.State := REC_AXIS_WAIT;
 	
 	END_CASE;

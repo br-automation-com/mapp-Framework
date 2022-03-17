@@ -56,7 +56,7 @@ TYPE
 		Parameters : {REDUND_UNREPLICABLE} AxisControlParametersType;
 		Status : {REDUND_UNREPLICABLE} AxisControlStatusType;
 	END_STRUCT;
-	stateEnum : 
+	StateEnum : 
 		(
 		STATE_INIT,
 		STATE_POWER_ON,
@@ -73,21 +73,21 @@ TYPE
 		STATE_CLEARING,
 		STATE_RESETTING
 		);
-	configurationStateEnum : 
+	ConfigurationStateEnum : 
 		(
 		CONFIG_STATE_INIT,
 		CONFIG_STATE_READ,
 		CONFIG_STATE_WRITE,
 		CONFIG_STATE_READY
 		);
-	manualStateEnum : 
+	ManualStateEnum : 
 		(
 		MANUAL_STATE_IDLE,
 		MANUAL_STATE_JOG,
 		MANUAL_STATE_MOVE,
 		MANUAL_STATE_STOPPING
 		);
-	automaticStateEnum : 
+	AutomaticStateEnum : 
 		(
 		AUTOMATIC_STATE_IDLE,
 		AUTOMATIC_STATE_RUNNING

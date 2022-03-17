@@ -1,30 +1,32 @@
+ACTION RefreshReport:
 
-ACTION RefreshReport: 
-
-	IF bStartGenerate = TRUE THEN		//Generate process
-		MpReportCore_0.Language := ADR(LanguageSelect_0.LanguageSelection[LanguageSelect_0.SelectedIndex]);;
+    // Generate process
+	IF StartGenerate = TRUE THEN
+		MpReportCore_0.Language := ADR(LanguageSelect_0.LanguageSelection[LanguageSelect_0.SelectedIndex]);
 		MpReportCore_0.Generate := TRUE;
-		
+
 		IF MpReportCore_0.CommandDone = TRUE THEN
-			
-			bStartGenerate := FALSE;
+
+			StartGenerate := FALSE;
 			Refresh := TRUE;
-			bEnableGenerate := FALSE;
+			EnableGenerate := FALSE;
 		END_IF
 
-	ELSE 
+	ELSE
 		MpReportCore_0.Generate := FALSE;
 	END_IF
-	
-	IF bDeleteReport = TRUE THEN				//Deleting process  
-		MpFileManagerUIConnect.File.Delete        := TRUE;
+
+    // Deleting process
+	IF DeleteReport = TRUE THEN
+		MpFileManagerUIConnect.File.Delete := TRUE;
 		MpFileManagerUIConnect.MessageBox.Confirm := TRUE;
-		bDeleteReport := FALSE;
+		DeleteReport := FALSE;
 		Refresh := TRUE;
-		bEnableDelete := FALSE;
-	END_IF
-	
-	IF Refresh = TRUE THEN				//Refresh process
+		EnableDelete := FALSE;
+    END_IF
+
+	// Refresh process
+	IF Refresh = TRUE THEN
 		TON_0(IN := TRUE, PT := T#2s);
 		IF TON_0.Q = TRUE THEN
 			Refresh := FALSE;
@@ -32,25 +34,29 @@ ACTION RefreshReport:
 			MpFileManagerUIConnect.File.Refresh := TRUE;
 		END_IF
 	END_IF
-	
-	IF Refresh = FALSE THEN		//reset enable attribute for buttons
-		bEnableDelete := TRUE;
-		bEnableGenerate := TRUE;
+
+    // reset enable attribute for buttons
+	IF Refresh = FALSE THEN
+		EnableDelete := TRUE;
+		EnableGenerate := TRUE;
 	END_IF
-	
-	FOR i := 0 TO 49 DO							// Save Filenames to a seperate array for display in Table
-		sDisplayFileName[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
-		IF uDisplayFileNameIndex = i THEN		// if selected set a index for display selected file in table
-			MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;	
+
+    // Save Filenames to a seperate array for display in Table
+	FOR i := 0 TO 49 DO
+        DisplayFileName[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
+        // if selected set a index for display selected file in table
+		IF DisplayFileNameIndex = i THEN
+			MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
 		END_IF
 	END_FOR
-	
-	sStrSelectedFile := CONCAT(STR_FILE_DEVICE, MpFileManagerUIConnect.File.List.Items[uDisplayFileNameIndex].Name);		// String for pdfViewer to display right report
-	
+
+    // String for pdfViewer to display right report
+	StrSelectedFile := CONCAT(STR_FILE_DEVICE, MpFileManagerUIConnect.File.List.Items[DisplayFileNameIndex].Name);
+
 	IF LanguageSelect_0.SelectedIndex = 0 THEN
-		sSetLanguage := 'en';
+		SetLanguage := 'en';
 	ELSE
-		sSetLanguage := 'de';	
+		SetLanguage := 'de';
 	END_IF
 
 END_ACTION

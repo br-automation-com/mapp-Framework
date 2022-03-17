@@ -1,7 +1,7 @@
-(***********************************************************************************************************************
-* Copyright: B&R Industrial Automation GmbH
-* Description: This program implements an axis control
-***********************************************************************************************************************)
+//***********************************************************************************************************************
+//* Copyright: B&R Industrial Automation GmbH
+//* Description: This program implements an axis control
+//**********************************************************************************************************************
 
 PROGRAM _INIT
     
@@ -10,7 +10,7 @@ PROGRAM _INIT
 
     MpAlarmXCoreFB.Enable := TRUE;
     ConfigurationInit;
-    
+        
     MpAxisBasicFB.Enable := TRUE;
 
     AxisInit;

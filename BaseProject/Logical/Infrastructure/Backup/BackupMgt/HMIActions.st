@@ -1,46 +1,46 @@
-ACTION FormatDeviceDataProvider: 
+ACTION FormatDeviceDataProvider:
     
-	// Select CF device if USB device is not available 
+	// Select CF device if USB device is not available
     FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
-        IF gbUSBAvail[i] THEN
-            brsstrcpy(ADR(hmiBackup.Status.DeviceDataProvider[i + 1]), ADR('{"value":"USB'));
-            brsitoa(i + 1, ADR(hmiBackup.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(hmiBackup.Status.DeviceDataProvider[i + 1])));
-            brsstrcat(ADR(hmiBackup.Status.DeviceDataProvider[i + 1]), ADR('","text":"USB'));
-            brsitoa(i + 1, ADR(hmiBackup.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(hmiBackup.Status.DeviceDataProvider[i + 1])));
-            brsstrcat(ADR(hmiBackup.Status.DeviceDataProvider[i + 1]), ADR('"}'));
+        IF gUSBAvailable[i] THEN
+            brsstrcpy(ADR(HmiBackup.Status.DeviceDataProvider[i + 1]), ADR('{"value":"USB'));
+            brsitoa(i + 1, ADR(HmiBackup.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiBackup.Status.DeviceDataProvider[i + 1])));
+            brsstrcat(ADR(HmiBackup.Status.DeviceDataProvider[i + 1]), ADR('","text":"USB'));
+            brsitoa(i + 1, ADR(HmiBackup.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiBackup.Status.DeviceDataProvider[i + 1])));
+            brsstrcat(ADR(HmiBackup.Status.DeviceDataProvider[i + 1]), ADR('"}'));
             brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]), ADR('USB'));
             brsitoa(i + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1])));
         ELSE
-            brsmemset(ADR(hmiBackup.Status.DeviceDataProvider[i + 1]), 0, SIZEOF(hmiBackup.Status.DeviceDataProvider[i + 1]));
+            brsmemset(ADR(HmiBackup.Status.DeviceDataProvider[i + 1]), 0, SIZEOF(HmiBackup.Status.DeviceDataProvider[i + 1]));
             brsmemset(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]), 0, SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]));
         END_IF
     END_FOR
 	
-	// Configure visible device list 
-    brsstrcpy(ADR(hmiBackup.Status.TableConfig[0]), ADR('{ "specRows": [{"from":'));
-	FOR i := 0 TO 9 DO 
+	// Configure visible device list
+    brsstrcpy(ADR(HmiBackup.Status.TableConfig[0]), ADR('{ "specRows": [{"from":'));
+	FOR i := 0 TO 9 DO
 		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
-			deviceCount := i+1;
+			DeviceCount := i + 1;
 		END_IF
-	END_FOR	
-	brsitoa((deviceCount), ADR(hmiBackup.Status.TableConfig[0]) + brsstrlen(ADR(hmiBackup.Status.TableConfig[0])));	
-    brsstrcat(ADR(hmiBackup.Status.TableConfig[0]),  ADR(',"to":9, "visible":false}]}'));
+	END_FOR
+	brsitoa((DeviceCount), ADR(HmiBackup.Status.TableConfig[0]) + brsstrlen(ADR(HmiBackup.Status.TableConfig[0])));
+    brsstrcat(ADR(HmiBackup.Status.TableConfig[0]),  ADR(',"to":9, "visible":false}]}'));
 	
-	// Configure visible file list 
-    brsstrcpy(ADR(hmiBackup.Status.TableConfig[1]), ADR('{ "specRows": [{"from":'));
-    brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(hmiBackup.Status.TableConfig[1]) + brsstrlen(ADR(hmiBackup.Status.TableConfig[1])));
-    brsstrcat(ADR(hmiBackup.Status.TableConfig[1]),  ADR(',"to":49, "visible":false}]}'));
+	// Configure visible file list
+    brsstrcpy(ADR(HmiBackup.Status.TableConfig[1]), ADR('{ "specRows": [{"from":'));
+    brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(HmiBackup.Status.TableConfig[1]) + brsstrlen(ADR(HmiBackup.Status.TableConfig[1])));
+    brsstrcat(ADR(HmiBackup.Status.TableConfig[1]),  ADR(',"to":49, "visible":false}]}'));
     
 END_ACTION
 
 ACTION SaveBackupConfiguration:
     
-    MpBackupConfiguration.AutomaticBackup.Enabled := hmiBackup.Parameters.AutomaticBackup.Enable;
-    MpBackupConfiguration.AutomaticBackup.NamePrefix := hmiBackup.Parameters.AutomaticBackup.Prefix;
-    MpBackupConfiguration.AutomaticBackup.DeviceName := hmiBackup.Parameters.AutomaticBackup.Device;
-    MpBackupConfiguration.AutomaticBackup.OverwriteOldest := hmiBackup.Parameters.AutomaticBackup.OverwriteOldest;    
-    MpBackupConfiguration.AutomaticBackup.Mode.Time := UDINT_TO_TOD((((USINT_TO_UDINT(hmiBackup.Parameters.AutomaticBackup.Mode.Hour) * 60) + hmiBackup.Parameters.AutomaticBackup.Mode.Minute) * 60) * 1000);
-    CASE hmiBackup.Parameters.AutomaticBackup.Mode.Interval OF
+    MpBackupConfiguration.AutomaticBackup.Enabled := HmiBackup.Parameters.AutomaticBackup.Enable;
+    MpBackupConfiguration.AutomaticBackup.NamePrefix := HmiBackup.Parameters.AutomaticBackup.Prefix;
+    MpBackupConfiguration.AutomaticBackup.DeviceName := HmiBackup.Parameters.AutomaticBackup.Device;
+    MpBackupConfiguration.AutomaticBackup.OverwriteOldest := HmiBackup.Parameters.AutomaticBackup.OverwriteOldest;
+    MpBackupConfiguration.AutomaticBackup.Mode.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiBackup.Parameters.AutomaticBackup.Mode.Hour) * 60) + HmiBackup.Parameters.AutomaticBackup.Mode.Minute) * 60) * 1000);
+    CASE HmiBackup.Parameters.AutomaticBackup.Mode.Interval OF
         BACKUP_EVERYDAY:
             MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_DAILY;
         BACKUP_MONDAY:
@@ -70,31 +70,31 @@ ACTION SaveBackupConfiguration:
  END_ACTION
 
 ACTION LoadBackupConfiguration:
-    hmiBackup.Parameters.AutomaticBackup.Enable := MpBackupConfiguration.AutomaticBackup.Enabled;
-    hmiBackup.Parameters.AutomaticBackup.Prefix := MpBackupConfiguration.AutomaticBackup.NamePrefix;
-    hmiBackup.Parameters.AutomaticBackup.Device := MpBackupConfiguration.AutomaticBackup.DeviceName;
-    hmiBackup.Parameters.AutomaticBackup.OverwriteOldest := MpBackupConfiguration.AutomaticBackup.OverwriteOldest;
-    hmiBackup.Parameters.AutomaticBackup.Mode.Hour := UDINT_TO_USINT(TOD_TO_UDINT(MpBackupConfiguration.AutomaticBackup.Mode.Time) / 1000 / 60 / 60);
-    hmiBackup.Parameters.AutomaticBackup.Mode.Minute := UDINT_TO_USINT(TOD_TO_UDINT(MpBackupConfiguration.AutomaticBackup.Mode.Time) / 1000 / 60) - (hmiBackup.Parameters.AutomaticBackup.Mode.Hour * 60);
+    HmiBackup.Parameters.AutomaticBackup.Enable := MpBackupConfiguration.AutomaticBackup.Enabled;
+    HmiBackup.Parameters.AutomaticBackup.Prefix := MpBackupConfiguration.AutomaticBackup.NamePrefix;
+    HmiBackup.Parameters.AutomaticBackup.Device := MpBackupConfiguration.AutomaticBackup.DeviceName;
+    HmiBackup.Parameters.AutomaticBackup.OverwriteOldest := MpBackupConfiguration.AutomaticBackup.OverwriteOldest;
+    HmiBackup.Parameters.AutomaticBackup.Mode.Hour := UDINT_TO_USINT(TOD_TO_UDINT(MpBackupConfiguration.AutomaticBackup.Mode.Time) / 1000 / 60 / 60);
+    HmiBackup.Parameters.AutomaticBackup.Mode.Minute := UDINT_TO_USINT(TOD_TO_UDINT(MpBackupConfiguration.AutomaticBackup.Mode.Time) / 1000 / 60) - (HmiBackup.Parameters.AutomaticBackup.Mode.Hour * 60);
     CASE MpBackupConfiguration.AutomaticBackup.Mode.Interval OF
         mpBACKUP_INTERVAL_DAILY:
-            hmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_EVERYDAY;
+            HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_EVERYDAY;
         mpBACKUP_INTERVAL_WEEKLY:
             CASE MpBackupConfiguration.AutomaticBackup.Mode.Day OF
                 mpBACKUP_DAY_MONDAY:
-                    hmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_MONDAY;
+                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_MONDAY;
                 mpBACKUP_DAY_TUESDAY:
-                    hmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_TUESDAY;
+                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_TUESDAY;
                 mpBACKUP_DAY_WEDNESDAY:
-                    hmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_WEDNESDAY;
+                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_WEDNESDAY;
                 mpBACKUP_DAY_THURSDAY:
-                    hmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_THURSDAY;
+                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_THURSDAY;
                 mpBACKUP_DAY_FRIDAY:
-                    hmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_FRIDAY;
+                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_FRIDAY;
                 mpBACKUP_DAY_SATURDAY:
-                    hmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_SATURDAY;
+                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_SATURDAY;
                 mpBACKUP_DAY_SUNDAY:
-                    hmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_SUNDAY;
+                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_SUNDAY;
             END_CASE
     END_CASE
 END_ACTION
@@ -103,10 +103,10 @@ ACTION FileManager:
     MpFileManagerUIFB.MpLink := ADR(gMpLinkFileManagerUIBackup);
     MpFileManagerUIFB.UIConnect := ADR(MpFileManagerUIConnect);
     MpFileManagerUIFB();
-    FOR i:=0 TO ((SIZEOF(hmiBackup.Status.FileNames)/SIZEOF(hmiBackup.Status.FileNames[0]))-1) DO
-        hmiBackup.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
-        hmiBackup.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
-        hmiBackup.Status.Size[i] := MpFileManagerUIConnect.File.List.Items[i].Size;
+    FOR i := 0 TO ((SIZEOF(HmiBackup.Status.FileNames)/SIZEOF(HmiBackup.Status.FileNames[0])) - 1) DO
+        HmiBackup.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
+        HmiBackup.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
+        HmiBackup.Status.Size[i] := MpFileManagerUIConnect.File.List.Items[i].Size;
     END_FOR
     
     IF ((MpFileManagerUIConnect.DeviceList.SelectedIndex <> LastSelectedDeviceIndex) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE)) THEN

@@ -8,14 +8,14 @@
  ********************************************************************
  * Local variables of program FileManagement
  ********************************************************************)
-(*File Management Variables-----------------------------------------------------------------------------------------*)
+(*File Management Variables*)
 VAR
 	MpFileManagerUIConnect : MpFileManagerUIConnectType;
 	MpFileManagerUI_0 : MpFileManagerUI;
 	Index : USINT; (*Index to loop through file devices*)
-	hmiFile : FileHmiInterface_type;
+	HmiFile : FileHmiInterfaceType;
 	i : USINT;
-	deviceCount : USINT;
+	DeviceCount : USINT;
 	FolderDepthCount : USINT;
 	R_TRIG_CheckStatus : R_TRIG;
 	TON_ScanFolder : TON;

@@ -23,7 +23,7 @@ TYPE
 		DevUnlink : BOOL; (*unlink cmd*)
 		ErrAck : BOOL; (*error acknowledge cmd*)
 	END_STRUCT;
-	DevLink_FUB_Type : 	STRUCT  (*contains all needed FileIO FUBs*)
+	DevLink_FUBType : 	STRUCT  (*contains all needed FileIO FUBs*)
 		UsbNodeListGet_0 : UsbNodeListGet;
 		UsbNodeGet_0 : UsbNodeGet;
 		UsbMsDeviceReady_0 : UsbMsDeviceReady;
@@ -33,7 +33,7 @@ TYPE
 	DevLinkCtrlType : 	STRUCT  (*Control structure which contains everything necessary for the file handling machine*)
 		Step : StepType; (*actual step*)
 		Cmd : CommandType; (*when in STATE_WAIT a cmd with value true will change the machine state*)
-		FUB : DevLink_FUB_Type; (*all DevLink FUBs*)
+		FUB : DevLink_FUBType; (*all DevLink FUBs*)
 		Params : ParamsType; (*parameters like file device, error ID, Buffer, ...*)
 	END_STRUCT;
 	ParamsType : 	STRUCT  (*Parameter structure*)

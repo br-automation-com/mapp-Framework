@@ -1,11 +1,11 @@
 
 TYPE
-	MachineDigitalInputs_type : 	STRUCT  (*Safety related digital inputs of the machine*)
+	MachineDigitalInputsType : 	STRUCT  (*Safety related digital inputs of the machine*)
 		EmergencyStop : ARRAY[0..MAX_IDX_ESTOP]OF BOOL; (*Emergency stop signal*)
 		SafetyDoor : ARRAY[0..MAX_IDX_SAFETY_DOOR]OF BOOL; (*Safety door signal*)
 		AcknowledgeAlarms : BOOL;
 	END_STRUCT;
-	AlarmExamples_typ : 	STRUCT 
+	AlarmExamplesType : 	STRUCT 
 		LevelMonitoring : INT;
 		DeviationMonitoring : INT;
 		DeviationMonitoringSetpoint : INT;
@@ -13,7 +13,7 @@ TYPE
 		SnippetValue : INT;
 		SetControlExample : BOOL;
 	END_STRUCT;
-	ActiveAlarmState_enum : 
+	ActiveAlarmStateEnum : 
 		(
 		ACTIVE_ALARM_WAIT,
 		ACTIVE_ALARM_QUERY,
@@ -32,27 +32,27 @@ TYPE
 	END_STRUCT;
 	AlarmQueryType : 	STRUCT 
 		Next : BOOL;
-		State : ActiveAlarmState_enum;
+		State : ActiveAlarmStateEnum;
 		LastActiveAlarmUpdateCount : UDINT;
 		ActiveAlarmUpdateCount : UDINT;
 		Alarms : ARRAY[0..MAX_QUERY_RESULTS]OF AlarmType;
 	END_STRUCT;
-	AlarmHmiInterface_type : 	STRUCT 
-		Commands : AlarmCommands_type;
-		Status : AlarmStatus_type;
+	AlarmHmiInterfaceType : 	STRUCT 
+		Commands : AlarmCommandsType;
+		Status : {REDUND_UNREPLICABLE} AlarmStatusType;
 	END_STRUCT;
-	AlarmStatus_type : 	STRUCT 
+	AlarmStatusType : 	STRUCT 
 		AlarmHistSortCfg : STRING[1000];
 		AlarmHistFilterCfg : STRING[1000];
 		AlarmSortCfg : STRING[1000];
 		AlarmFilterCfg : STRING[1000];
 		TableConfig : ARRAY[0..1]OF STRING[120];
 	END_STRUCT;
-	AlarmCommands_type : 	STRUCT 
+	AlarmCommandsType : 	STRUCT 
 		ExportAlarms : BOOL;
 		RunQuery : BOOL;
 	END_STRUCT;
-	AlarmQueryHMI_type : 	STRUCT 
+	AlarmQueryHMIType : 	STRUCT 
 		Active : ARRAY[0..MAX_QUERY_RESULTS]OF BOOL;
 		Acknowledged : ARRAY[0..MAX_QUERY_RESULTS]OF BOOL;
 		Scope : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[80];

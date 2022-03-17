@@ -185,7 +185,7 @@
       <Source xsi:type="widgets.brease.UserList.Event" contentRefId="UserX_content" widgetRefId="UserListManagement" event="ItemClick" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::UserXMgt:selectedUser">
+          <Target xsi:type="opcUa.NodeAction" refId="::UserXMgt:SelectedUser">
             <Method xsi:type="opcUa.NodeAction.SetValueString" value="=UserName" />
           </Target>
         </Action>
