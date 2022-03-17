@@ -59,11 +59,9 @@ ACTION FIFOOperation:
                 HmiFile.Status.DeleteStep := FILE_SELECT_OLDEST_FILES_0;
             ELSIF (HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_SIZE_OF_FOLDER) THEN
 				HmiFile.Status.DeleteStep := FILE_CALC_FOLDER_SIZE;
-//			ELSIF (HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_OLDER_THAN) THEN
-//                HmiFile.Status.DeleteStep := FILE_SORT_BY_DATE;
-			END_IF
+            END_IF
 	
-		FILE_SELECT_OLDEST_FILES_0:
+        FILE_SELECT_OLDEST_FILES_0:
 			// Scan and select all file over the filter setting
 			IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
 				IF MpFileManagerUIConnect.File.PathInfo.FileCount > 1 THEN

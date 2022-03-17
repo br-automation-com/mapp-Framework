@@ -1,4 +1,4 @@
-﻿//*********************************************************************************
+//*********************************************************************************
 //* Copyright: B&R Industrial Automation GmbH
 //* Created:   29 June, 2021/09:58
 //* This file contains the logic to update the axis status information

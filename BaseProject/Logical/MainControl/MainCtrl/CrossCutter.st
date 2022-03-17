@@ -1,4 +1,4 @@
-﻿//*********************************************************************************
+//*********************************************************************************
 //* Copyright: B&R Industrial Automation GmbH
 //* Created:   29 June, 2021/10:43
 //* Process specific logic to update production information and process parameters
@@ -7,9 +7,8 @@
 ACTION CrossCutter:
 	
 	//****************************Starting and stopping the process*********************************
-	
-	IF MainCtrl.Command.AutoModeOn THEN
-		// Switch on axes 
+    IF MainCtrl.Command.AutoModeOn THEN
+        // Switch on axes 
 		AxisControl[AXIS_IDX_FEEDER].Command.Power := TRUE;
 		AxisControl[AXIS_IDX_CUTTER].Command.Power := TRUE;
 		// Home axes if not homed yet 
@@ -72,9 +71,8 @@ ACTION CrossCutter:
 	
 
 	//****************************Product Cutting numbering*********************************
-
-	// Update parameters on recipe load 
-	IF MpRecipeRegPar_P.UpdateNotification THEN
+    // Update parameters on recipe load 
+    IF MpRecipeRegPar_P.UpdateNotification THEN
 		brsmemcpy(ADR(MainCtrl.Intern.ProductLength), ADR(MainCtrl.Parameter.ProductLength), SIZEOF(MainCtrl.Intern.ProductLength));
 		brsmemcpy(ADR(MainCtrl.Intern.ProductNumber), ADR(MainCtrl.Parameter.ProductNumber), SIZEOF(MainCtrl.Intern.ProductNumber));
 		UpdateCamAutomat := TRUE;

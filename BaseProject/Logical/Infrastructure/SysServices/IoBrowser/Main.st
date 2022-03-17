@@ -1,4 +1,4 @@
-﻿//*********************************************************************************
+//*********************************************************************************
 //* Copyright: B&R Industrial Automation GmbH
 //* This program provides an Io browser and the related interface for
 //* mappView widgets.

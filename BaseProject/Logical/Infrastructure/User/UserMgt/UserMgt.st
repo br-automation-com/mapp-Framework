@@ -1,4 +1,4 @@
-﻿//*********************************************************************************
+//*********************************************************************************
 //* Copyright: B&R
 //* Author:    B&R
 //* Created:   30. Sep 2020/08:00
@@ -692,7 +692,7 @@ PROGRAM _CYCLIC
     ArUserGetProperty_0();
     ArUserAssignRole_0();
     ArUserReleaseRole_0();
-    //****//This instruction Enables the ArUser-Based User Management Page
+    //This instruction Enables the ArUser-Based User Management Page
 
     gVisuCtrl.cmd.bEnableArUser := TRUE;
     gVisuCtrl.cmd.bEnableMpUserX := FALSE;

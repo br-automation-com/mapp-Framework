@@ -1,4 +1,4 @@
-﻿//*********************************************************************************
+//*********************************************************************************
 //* Copyright: B&R Industrial Automation GmbH
 //* Created:   30. Sep 2020/08:00
 //* Description: Tasks FOR Visualization control. The HMI handling is done in this task.

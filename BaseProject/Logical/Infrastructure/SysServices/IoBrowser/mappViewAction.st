@@ -1,4 +1,4 @@
-﻿//*********************************************************************************
+//*********************************************************************************
 //* Copyright: B&R Industrial Automation GmbH
 //* This action sets all the strings and pointers so that the mappView page can
 //* present the IO information in a user friendly way
