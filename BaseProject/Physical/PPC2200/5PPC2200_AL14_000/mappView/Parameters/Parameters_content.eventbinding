@@ -15,7 +15,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="CamError_content" widgetRefId="BtnResetCamAutomat" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::AsGlobalPV:gVisuCtrl.cmd.bCamErrorReset">
+          <Target xsi:type="opcUa.NodeAction" refId="::AsGlobalPV:gVisuCtrl.Command.bCamErrorReset">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -75,21 +75,21 @@
               <Sequence>
                 <Step order="0">
                   <Action>
-                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.StoreMachineSettings">
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Commands.StoreMachineSettings">
                       <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                     </Target>
                   </Action>
                 </Step>
                 <Step order="1">
                   <Action>
-                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:uSelectedAxis">
+                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:SelectedAxis">
                       <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="0" />
                     </Target>
                   </Action>
                 </Step>
                 <Step order="2">
                   <Action>
-                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:bWriteConfig">
+                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:WriteConfig">
                       <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                     </Target>
                   </Action>
@@ -110,7 +110,7 @@
           <Result>
             <ResultHandler condition="result=4">
               <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.FactoryResetMachineSettings">
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Commands.FactoryResetMachineSettings">
                   <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                 </Target>
               </Action>
@@ -134,14 +134,14 @@
               <Sequence>
                 <Step order="1">
                   <Action>
-                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:uSelectedAxis">
+                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:SelectedAxis">
                       <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="0" />
                     </Target>
                   </Action>
                 </Step>
                 <Step order="2">
                   <Action>
-                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:bReadConfig">
+                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:ReadConfig">
                       <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                     </Target>
                   </Action>

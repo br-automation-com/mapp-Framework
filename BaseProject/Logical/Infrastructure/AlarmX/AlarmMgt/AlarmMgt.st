@@ -1,20 +1,20 @@
-//*********************************************************************** 
-// Copyright: B&R Industrial Automation GmbH 
-// Author: B&R Industrial Automation GmbH 
-// Created: Jan 1, 2022 
-// Description: Tasks for alarm control. The Alarm Management handling is 
+//***********************************************************************
+// Copyright: B&R Industrial Automation GmbH
+// Author: B&R Industrial Automation GmbH
+// Created: Jan 1, 2022
+// Description: Tasks for alarm control. The Alarm Management handling is
 // done in this task.
 //***********************************************************************
 
 PROGRAM _INIT
 
 	// Create folder for this component on the user file device
-	DirCreate_New(enable := TRUE, pDevice := ADR('userPartition'), pName := ADR(LOCAL_FOLDER));		
+	DirCreate_New(enable := TRUE, pDevice := ADR('userPartition'), pName := ADR(LOCAL_FOLDER));
 	
 	// Check if folder already exist and if so disabled the function block call
 	IF DirCreate_New.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreate_New(enable := FALSE);
-	END_IF	
+	END_IF
 
 	// Initialize mapp function blocks
 	MpAlarmXCore_0.Enable := TRUE;
@@ -34,9 +34,12 @@ PROGRAM _INIT
 	
 	MpAlarmXHistoryUI_0.Enable := TRUE;
 	MpAlarmXHistoryUI_0.UISetup.AlarmListScrollWindow := 10;
-	MpAlarmXHistoryUI_0.UISetup.AlarmListSize := (SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID)/SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID[0]));
+    MpAlarmXHistoryUI_0.UISetup.AlarmListSize := (SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID) / SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID[0]));
 	MpAlarmXHistoryUI_0.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
 	MpAlarmXHistoryUI_0();
+	
+	// Call action to intialize alarm samples
+	AlarmSampleInit;  
 	
 END_PROGRAM
 
@@ -46,21 +49,22 @@ PROGRAM _CYCLIC
         MpAlarmXListUIConnect.AcknowledgeAll := TRUE;
 	END_IF
 	
-	IF (hmiAlarmX.Commands.ExportAlarms = TRUE) THEN
+	IF (HmiAlarmX.Commands.ExportAlarms = TRUE) THEN
 		MpAlarmXHistory_0.Export := TRUE;
 	END_IF
 
-	// Call all actions 
-    AlarmHandling;  // PROBLEM RIGHT NOW. SHOULD MOVE THIS TO INIT, IF WE REMOVE THE FUB EXAMPLE
+	// Call all cyclic actions 
+    AlarmHandling;  
 	GetBacktraceInformation;
     ExecuteQuery;
 	QueryTableConfig;
-	AlarmSamples;
+	AlarmSampleFub;
+	
     
-	// Check if any reactions are active. 
-	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application. 
+	// Check if any reactions are active.
+	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application.
 	// For example, the axis control task might check for the 'Error' reaction to determine whether to send a stop command to the axes.
-	// Therefore, copy/paste these IF statements to other places in the application as needed. 
+	// Therefore, copy/paste these IF statements to other places in the application as needed.
     IF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') THEN
         // Error is active. Add code here to respond to error situation.
     ELSIF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Warning') THEN
@@ -70,11 +74,11 @@ PROGRAM _CYCLIC
 	END_IF
 	
 	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
-		hmiAlarmX.Commands.ExportAlarms := FALSE;
+		HmiAlarmX.Commands.ExportAlarms := FALSE;
 		MpAlarmXHistory_0.Export := FALSE;
 	END_IF
 
-    // Error reset 
+    // Error reset
     IF NOT MpAlarmXCore_0.Error THEN
         MpAlarmXCore_0.ErrorReset := FALSE;
     END_IF
@@ -96,7 +100,7 @@ PROGRAM _CYCLIC
 	MpAlarmXHistoryUI_0.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistoryUI_0.UIConnect := ADR(MpAlarmXHistoryUIConnect);
 	
-	// Call function blocks 
+	// Call function blocks
 	MpAlarmXCore_0();
 	MpAlarmXListUI_0();
 	MpAlarmXHistory_0();

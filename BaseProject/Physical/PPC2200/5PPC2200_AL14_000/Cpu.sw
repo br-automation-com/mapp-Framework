@@ -153,6 +153,8 @@
     <LibraryObject Name="ashw" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="arproject" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="arcert" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="LoggingLib" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="snprintf" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asarlog" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asarprof" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </Libraries>

@@ -1,4 +1,4 @@
-ACTION ChangeConfiguration: 
+ACTION ChangeConfiguration:
 
     MpBackupCoreConfigFB.MpLink := ADR(gMpLinkBackupCore);
     MpBackupCoreConfigFB.Configuration := ADR(MpBackupConfiguration);
@@ -15,7 +15,7 @@ ACTION ChangeConfiguration:
     MpBackupCoreConfigFB();
     MpBackupCoreConfigFB.ErrorReset := FALSE;
     IF (MpBackupCoreConfigFB.CommandDone = TRUE) THEN
-        IF (MpBackupCoreConfigFB.Load = TRUE) THEN        
+        IF (MpBackupCoreConfigFB.Load = TRUE) THEN
             LoadBackupConfiguration;
         END_IF
         MpBackupCoreConfigFB.Load := FALSE;

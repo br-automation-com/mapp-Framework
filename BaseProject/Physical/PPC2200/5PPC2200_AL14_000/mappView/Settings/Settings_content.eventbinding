@@ -11,7 +11,7 @@
           <Result>
             <ResultHandler condition="result = 4">
               <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::SysServs:bReadEthConfig">
+                <Target xsi:type="opcUa.NodeAction" refId="::SysServs:ReadEthConfig">
                   <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                 </Target>
               </Action>
@@ -30,7 +30,7 @@
           <Result>
             <ResultHandler condition="result = 4">
               <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::SysServs:bWriteEthConfig">
+                <Target xsi:type="opcUa.NodeAction" refId="::SysServs:WriteEthConfig">
                   <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                 </Target>
               </Action>

@@ -10,15 +10,15 @@
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileDeviceListItem" attribute="stringValue" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.Size" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.Size" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileSize" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.TimeStamps" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.TimeStamps" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="TableItemDateTime1" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.FileNames" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.FileNames" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ObjectNames" attribute="stringValue" />
 		</Binding>
 		<Binding mode="twoWay">
@@ -70,23 +70,23 @@
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="txtInSearchKeyword" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.DeviceName" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.DeviceName" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="txtOutCurrentDevice" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.IsFolder" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.IsFolder" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="pshBtnForward" attribute="enable" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.BackButton" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.BackButton" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="pshBtnBack" attribute="enable" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Commands.EnterFolder" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Commands.EnterFolder" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="pshBtnForward" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Commands.FolderUp" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Commands.FolderUp" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="pshBtnBack" attribute="value" />
 		</Binding>
 		
@@ -94,18 +94,18 @@
 
 
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.Type" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.Type" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="TableItemImageListType" attribute="selectedIndex" />
 		</Binding>
 
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Parameters.SelectedIndex" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Parameters.SelectedIndex" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="selectedRow" />
 		</Binding>
 		
 		<Binding mode="oneWay">
 			<Source xsi:type="session" refId="::SYSTEM:clientInfo.currentPageId" attribute="value" />
-			<Target xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.CurrentPage" attribute="value" />
+			<Target xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.CurrentPage" attribute="value" />
 		</Binding>
 
 	
@@ -113,11 +113,11 @@
 
 
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.TableConfig[0]" attribute="value" />
+<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.TableConfig[0]" attribute="value" />
 <Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileDeviceTable" attribute="tableConfiguration" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FileMgt:hmiFile.Status.TableConfig[1]" attribute="value" />
+<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.TableConfig[1]" attribute="value" />
 <Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="tableConfiguration" />
 </Binding>
 </Bindings>

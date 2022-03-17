@@ -1,4 +1,3 @@
-
 ACTION AxisInit:
     
     MC_BR_CamAutomatCommandFB.Enable := TRUE;
@@ -7,7 +6,7 @@ ACTION AxisInit:
     MC_BR_CamAutomatGetParFB.Execute := TRUE;
 
     MC_BR_CamAutomatSetParFB.Command := mcSET_UPDATE_FROM_ADR;
-    MC_BR_CamAutomatSetParFB.AdvancedParameters.ParLock	:= mcCAMAUT_UNLOCK_SYNCHRON;
+    MC_BR_CamAutomatSetParFB.AdvancedParameters.ParLock := mcCAMAUT_UNLOCK_SYNCHRON;
     
     MpRegMarkDetectionFB.Enable := TRUE;
     MpRegMarkDetectionConfigFB.Enable := TRUE;
@@ -23,9 +22,9 @@ ACTION AxisInit:
     MC_BR_PhasingFB.Acceleration := 90;
     MC_BR_PhasingFB.AdvancedParameters.ShiftMode := mcSHIFT_RELATIVE;
     
-END_ACTION
+    END_ACTION
 
-ACTION AxisCyclic: 
+ACTION AxisCyclic:
 
     IF ((MpRegMarkDetectionConfigFB.Active = TRUE) AND (state = STATE_INIT)) THEN
         MpRegMarkDetectionConfigFB.Load := TRUE;
@@ -37,11 +36,12 @@ ACTION AxisCyclic:
     END_IF
 
     MC_BR_CamAutomatGetParFB.CamAutomat.DataAddress := ADR(McCamAutPar);
-    MC_BR_CamAutomatGetParFB.Slave :=  ADR(gAxisCrossCutter);
+    MC_BR_CamAutomatGetParFB.Slave := ADR(gAxisCrossCutter);
     MC_BR_CamAutomatGetParFB();
     IF (MC_BR_CamAutomatGetParFB.Done = TRUE) THEN
         MC_BR_CamAutomatGetParFB.Execute := FALSE;
     END_IF
+    i:=i + 1;
     
     MC_BR_CamAutomatSetParFB.Slave := ADR(gAxisCrossCutter);
     MC_BR_CamAutomatSetParFB.CamAutomat.DataAddress := ADR(McCamAutPar);
@@ -54,7 +54,7 @@ ACTION AxisCyclic:
     MC_BR_CamAutomatCommandFB();
     
     MpRegMarkDetectionFB.MpLink := ADR(gRegMarkDetection_Cutter);
-    MpRegMarkDetectionFB(); 
+    MpRegMarkDetectionFB();
 
     MpRegMarkDetectionConfigFB.MpLink := ADR(gRegMarkDetection_Cutter);
     MpRegMarkDetectionConfigFB.Configuration := ADR(RegistrationControl.Configuration);
@@ -78,7 +78,7 @@ ACTION AxisCyclic:
     MpAlarmXControlProductLengthFB.Reset := FALSE;
 
 
-END_ACTION
+    END_ACTION
 
 ACTION UpdateCamAutomat:
     
@@ -105,7 +105,7 @@ ACTION UpdateCamAutomat:
         MC_BR_CamAutomatSetParFB.Execute := TRUE;
     END_IF
     
-END_ACTION
+    END_ACTION
     
 ACTION UpdateRegistrationControl:
     
@@ -116,7 +116,7 @@ ACTION UpdateRegistrationControl:
     
     MpRegMarkDetectionConfigFB.Save := TRUE;
     
-END_ACTION
+    END_ACTION
     
 ACTION AxisManual:
     
@@ -182,7 +182,7 @@ ACTION AxisManual:
             END_IF
     END_CASE
     
-END_ACTION
+    END_ACTION
 
 ACTION AxisAutomatic:
     
@@ -246,15 +246,15 @@ ACTION AxisAutomatic:
     AxisControl.Status.ActualProductLength := RegistrationControl.ActualProductLength;
     AxisControl.Status.ValidProducts := MpRegMarkDetectionFB.Info.Detection.TotalValidMarks;
     
-END_ACTION
+    END_ACTION
 
 ACTION AxisReset:
 
-//    edge alarms don't require a reset
-//    IF (MpAlarmXControlProductLengthFB.Set = TRUE) THEN
-//        MpAlarmXControlProductLengthFB.Set := FALSE;
-//        MpAlarmXControlProductLengthFB.ID := MpAlarmXControlProductLengthZeroFB.InstanceID;
-//        MpAlarmXControlProductLengthFB.Reset := TRUE;
-//    END_IF
+    //    edge alarms don't require a reset
+    //    IF (MpAlarmXControlProductLengthFB.Set = TRUE) THEN
+    //        MpAlarmXControlProductLengthFB.Set := FALSE;
+    //        MpAlarmXControlProductLengthFB.ID := MpAlarmXControlProductLengthZeroFB.InstanceID;
+    //        MpAlarmXControlProductLengthFB.Reset := TRUE;
+    //    END_IF
 
-END_ACTION
+    END_ACTION

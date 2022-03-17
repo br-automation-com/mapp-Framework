@@ -1,6 +1,6 @@
 
 TYPE
-	RecipeCommands_type : 	STRUCT 
+	RecipeCommandsType : 	STRUCT 
 		StoreMachineSettings : BOOL;
 		FactoryResetMachineSettings : BOOL;
 		SaveCurrentRecipe : BOOL;
@@ -10,7 +10,7 @@ TYPE
 		LoadRecipe : BOOL;
 		CreateRecipe : BOOL;
 	END_STRUCT;
-	RecipeParameters_type : 	STRUCT 
+	RecipeParametersType : 	STRUCT 
 		Category : STRING[30];
 		LastLoadedConfigRecipe : STRING[255];
 		LastLoadedProductRecipe : STRING[255];
@@ -21,41 +21,41 @@ TYPE
 		LastSelectedIndex : UINT;
 		LastStatus : MpRecipeUIStatusEnum;
 		TableConfig : STRING[120];
-		CopyStep : RecipeCopyStep_enum;
+		CopyStep : RecipeCopyStepEnum;
 		CategoryDropdown : STRING[50];
 		EditDialogOpened : BOOL;
 		CreateDialogOpened : BOOL;
 	END_STRUCT;
-	RecipeStatus_type : 	STRUCT 
-		HMIcommand : RecipeHmiStep_enum;
+	RecipeStatusType : 	STRUCT 
+		HMIcommand : RecipeHmiStepEnum;
 	END_STRUCT;
-	RecipeHmiInterface_type : 	STRUCT 
-		Commands : RecipeCommands_type;
-		Parameters : RecipeParameters_type;
-		Status : RecipeStatus_type;
+	RecipeHmiInterfaceType : 	STRUCT 
+		Commands : RecipeCommandsType;
+		Parameters : RecipeParametersType;
+		Status : RecipeStatusType;
 	END_STRUCT;
-	RecipeCopyStep_enum : 
+	RecipeCopyStepEnum : 
 		(
 		REC_COPY_WAIT := 0,
 		REC_COPY_TO_USB,
 		REC_COPY_FROM_USB,
 		REC_COPY_BUSY
 		);
-	MachineSettings_type : 	STRUCT 
+	MachineSettingsType : 	STRUCT 
 		AddMachineSettingsHere1 : USINT;
 		AddMachineSettingsHere2 : DINT;
 		AddMachineSettingsHere3 : BOOL;
 		AddMachineSettingsHere4 : REAL;
 		AddMachineSettingsHere5 : UINT;
 	END_STRUCT;
-	Parameters_type : 	STRUCT 
+	ParametersType : 	STRUCT 
 		AddParametersHere1 : BOOL;
 		AddParametersHere2 : STRING[80];
 		AddParametersHere3 : REAL;
 		AddParametersHere4 : REAL;
 		AddParametersHere5 : REAL;
 	END_STRUCT;
-	RecipeHmiStep_enum : 
+	RecipeHmiStepEnum : 
 		(
 		REC_HMI_WAIT,
 		REC_HMI_LOAD,

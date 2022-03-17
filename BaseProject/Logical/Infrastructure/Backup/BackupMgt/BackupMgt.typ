@@ -1,6 +1,6 @@
 
 TYPE
-	AutomaticBackupInterval_enum : 
+	AutomaticBackupIntervalEnum : 
 		(
 		BACKUP_EVERYDAY,
 		BACKUP_MONDAY,
@@ -11,19 +11,19 @@ TYPE
 		BACKUP_SATURDAY,
 		BACKUP_SUNDAY
 		);
-	AutomaticBackupMode_type : 	STRUCT 
-		Interval : AutomaticBackupInterval_enum;
+	AutomaticBackupModeType : 	STRUCT 
+		Interval : AutomaticBackupIntervalEnum;
 		Hour : USINT;
 		Minute : USINT;
 	END_STRUCT;
-	AutomaticBackup_type : 	STRUCT 
+	AutomaticBackupType : 	STRUCT 
 		Enable : BOOL;
 		Prefix : STRING[50];
 		Device : STRING[255];
-		Mode : AutomaticBackupMode_type;
+		Mode : AutomaticBackupModeType;
 		OverwriteOldest : MpBackupOverwriteOldestType;
 	END_STRUCT;
-	BackupHmiCommands_type : 	STRUCT 
+	BackupHmiCommandsType : 	STRUCT 
 		Create : BOOL;
 		RestoreAuto : BOOL;
 		Restore : BOOL;
@@ -32,12 +32,12 @@ TYPE
 		CopyFromUSB : BOOL;
 		SaveConfig : BOOL;
 	END_STRUCT;
-	BackupHmiParameters_type : 	STRUCT 
+	BackupHmiParametersType : 	STRUCT 
 		Name : STRING[80] := 'myBackup';
 		SelectedIndex : USINT;
-		AutomaticBackup : AutomaticBackup_type;
+		AutomaticBackup : AutomaticBackupType;
 	END_STRUCT;
-	BackupHmiStatus_type : 	STRUCT 
+	BackupHmiStatusType : 	STRUCT 
 		Busy : BOOL;
 		CreateAllowed : BOOL;
 		RestoreAllowed : BOOL;
@@ -48,12 +48,12 @@ TYPE
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100];
 		TableConfig : ARRAY[0..1]OF STRING[120];
 	END_STRUCT;
-	BackupHmiInterface_type : 	STRUCT 
-		Commands : BackupHmiCommands_type;
-		Parameters : BackupHmiParameters_type;
-		Status : BackupHmiStatus_type;
+	BackupHmiInterfaceType : 	STRUCT 
+		Commands : BackupHmiCommandsType;
+		Parameters : BackupHmiParametersType;
+		Status : BackupHmiStatusType;
 	END_STRUCT;
-	BackupState_enum : 
+	BackupStateEnum : 
 		(
 		BACKUP_IDLE,
 		BACKUP_CREATING,

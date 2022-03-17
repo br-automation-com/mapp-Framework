@@ -7,7 +7,7 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::BackupMgt:hmiBackup.Commands.Restore">
+              <Target xsi:type="opcUa.NodeAction" refId="::BackupMgt:HmiBackup.Commands.Restore">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -43,7 +43,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="BackupDialog_Restore_content.BusyFalse">
-      <Source xsi:type="opcUa.Event" refId="::BackupMgt:hmiBackup.Status.Busy" event="ValueChanged" />
+      <Source xsi:type="opcUa.Event" refId="::BackupMgt:HmiBackup.Status.Busy" event="ValueChanged" />
       <EventHandler condition="(newValue = false) AND (oldValue = true)">
         <Sequence>
           <Step order="1">
