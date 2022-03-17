@@ -2,18 +2,18 @@
 <tmx version="1.4">
   <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
     <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
-    <prop type="x-BR-TS:Namespace">MpReportCore/Alarms</prop>
+    <prop type="x-BR-TS:Namespace">UserX/Alarms</prop>
   </header>
   <body>
-    <tu tuid="GenerateFailed">
+    <tu tuid="UserLocked">
+      <tuv xml:lang="de">
+        <seg>Benutzer wurde aufgrund zu vieler fehlerhafter Loginversuche gesperrt </seg>
+      </tuv>
       <tuv xml:lang="zh">
-        <seg>生成报告文件失败</seg>
+        <seg>登录失败次数过多，该用户已锁定</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Report generation failed</seg>
-      </tuv>
-      <tuv xml:lang="de">
-        <seg>Erstellung des Reports fehlgeschlagen</seg>
+        <seg>User blocked due to too many failed login attempts </seg>
       </tuv>
     </tu>
   </body>

@@ -14,13 +14,13 @@ PROGRAM _INIT
     
     MpAxisBasicFB.Enable := TRUE;
 
-    AxisInit;
+	AxisInit;
 END_PROGRAM
 
 PROGRAM _CYCLIC
 
-    MpAxisBasicFB.MpLink := ADR(gAppAxis_1);
-    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gAppAxis_1);
+    MpAxisBasicFB.MpLink := ADR(gMpLinkAppAxis_1);
+    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gMpLinkAppAxis_1);
     
     SimulationControl;
     AxisStateMachine;

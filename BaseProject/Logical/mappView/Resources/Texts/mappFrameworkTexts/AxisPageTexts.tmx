@@ -1,0 +1,783 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT/Axis</prop>
+  </header>
+  <body>
+    <tu tuid="ActOut">
+      <tuv xml:lang="de">
+        <seg>Tats�chliche Ausgabe</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>实际输出</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Actual Output</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ActPosition">
+      <tuv xml:lang="de">
+        <seg>Aktuelle Position</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>实际位置</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Act Position</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>实际位置</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ActSpeed">
+      <tuv xml:lang="de">
+        <seg>Aktuelle Geschwindigkeit</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>实际速度</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Act Speed </seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>实际速度</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ActTorque">
+      <tuv xml:lang="de">
+        <seg>Aktuelles Drehmoment</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>当前扭矩</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Act Torque</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>实际速度</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ActualParameters">
+      <tuv xml:lang="de">
+        <seg>Aktuelle Parameter</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>实际参数
+</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Actual Parameters</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ActValue">
+      <tuv xml:lang="de">
+        <seg>Tats�chlicher Wert</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>实际值</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Actual Value</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Auto">
+      <tuv xml:lang="de">
+        <seg>Auto</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>自动</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Auto</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>自动</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoModeOff">
+      <tuv xml:lang="de">
+        <seg>Auto-Modus AUS</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>关闭自动模式</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Auto mode OFF</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AutoModeOn">
+      <tuv xml:lang="de">
+        <seg>Auto-Modus EIN</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>打开自动模式
+</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Auto mode ON</seg>
+      </tuv>
+    </tu>
+    <tu tuid="BatchCut">
+      <tuv xml:lang="de">
+        <seg>Batch-Ziel</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>批数</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Batch Target</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ControlMode">
+      <tuv xml:lang="de">
+        <seg>Aktueller Steuermodus</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>控制模式</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Current Control Mode</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>控制模式</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CurrentControlMode">
+      <tuv xml:lang="de">
+        <seg>Aktueller Steuermodus</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>当前控制模式</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Current Control Mode</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>当前控制模式</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CurrentRecipe">
+      <tuv xml:lang="de">
+        <seg>Aktuelles Rezept</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>当前配方</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Current Recipe</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CutsInBatch">
+      <tuv xml:lang="de">
+        <seg>Aktuelle Charge</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>批已切</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Current Batch</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CutsTotal">
+      <tuv xml:lang="de">
+        <seg>Gesamt</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>已切</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Total</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CuttingCycle">
+      <tuv xml:lang="de">
+        <seg>Schneidzyklus</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>切割循环</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Cutting Cycle</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DerivativeTime">
+      <tuv xml:lang="de">
+        <seg>Ableitungszeit</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>微分时间</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Derivative Time</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Distance">
+      <tuv xml:lang="de">
+        <seg>Distanz</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>距离</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Distance</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ErrorReset">
+      <tuv xml:lang="de">
+        <seg>Fehler zur�cksetzen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>复位</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Error Reset</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>复位</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Feedback">
+      <tuv xml:lang="de">
+        <seg>Feedback</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>反馈</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Feedback</seg>
+      </tuv>
+    </tu>
+    <tu tuid="FeederSetSpeed">
+      <tuv xml:lang="de">
+        <seg>Einzugsgeschwindigkeit einstellen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>送料设定速度 </seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Feeder Set Speed </seg>
+      </tuv>
+    </tu>
+    <tu tuid="FilterTime">
+      <tuv xml:lang="de">
+        <seg>Filterzeit</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>滤波时间</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Filter Time</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Gain">
+      <tuv xml:lang="de">
+        <seg>Verst�rkung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>比例</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Gain</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Home">
+      <tuv xml:lang="de">
+        <seg>Achse referenzieren</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>寻参</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Home Axis</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Homing">
+      <tuv xml:lang="de">
+        <seg>Referenzfahrt</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>轴寻参</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Homing</seg>
+      </tuv>
+    </tu>
+    <tu tuid="IntegrationTime">
+      <tuv xml:lang="de">
+        <seg>Integrationszeit</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>积分时间</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Integration Time</seg>
+      </tuv>
+    </tu>
+    <tu tuid="JogNeg">
+      <tuv xml:lang="de">
+        <seg>Joggen negativ</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>负向点动</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Jog Negative</seg>
+      </tuv>
+    </tu>
+    <tu tuid="JogPos">
+      <tuv xml:lang="de">
+        <seg>Joggen Sie positiv</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>正向点动</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Jog Positive</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LimitTorque">
+      <tuv xml:lang="de">
+        <seg>Drehmoment begrenzen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>限制扭矩</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Limit Torque</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineOff">
+      <tuv xml:lang="de">
+        <seg>Maschine aus</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>关机</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Machine Off</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MachineOn">
+      <tuv xml:lang="de">
+        <seg>Maschine an</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>开机</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Machine On</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manu">
+      <tuv xml:lang="de">
+        <seg>Handbuch</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>手动</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Manual</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>手动</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MaxNumber">
+      <tuv xml:lang="de">
+        <seg>Maximale Anzahl</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>最大数量</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Max Number</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>最大数量</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MaxOut">
+      <tuv xml:lang="de">
+        <seg>Maximal aus</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>最大输出</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Max Out</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MaxTorque">
+      <tuv xml:lang="de">
+        <seg>Maximaler Drehmoment</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>最大扭矩</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Max Torque</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MinOut">
+      <tuv xml:lang="de">
+        <seg>Min aus</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>最小输出</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Min Out</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MoveAbsolute">
+      <tuv xml:lang="de">
+        <seg>Absolut bewegen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>绝对</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Move Absolute</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MoveAdditive">
+      <tuv xml:lang="de">
+        <seg>Additiv verschieben</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>相对定位</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Move Additive</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MoveRelative">
+      <tuv xml:lang="de">
+        <seg>Rel. Verschieben</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>相对</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Rel Move</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MoveVelocity">
+      <tuv xml:lang="de">
+        <seg>Bewegungsgeschwindigkeit</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>按速度运行</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Move Velocity</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Number">
+      <tuv xml:lang="de">
+        <seg>Anzahl</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>数量</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Number</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>数量</seg>
+      </tuv>
+    </tu>
+    <tu tuid="On">
+      <tuv xml:lang="de">
+        <seg>An</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>开启</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>On</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Override">
+      <tuv xml:lang="de">
+        <seg>Der Standard�berschreibungswert ist 1,0 (100 %). Das Maximum ist 2,0 (200 %).</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>默认覆盖值为 1.0 （100%）。最大值为 2.0 （200%）。</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>The default override value is 1.0 (100%). The maximum is 2.0 (200%).</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PIDControl">
+      <tuv xml:lang="de">
+        <seg>PID-Steuerung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>PID控制</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PID Control</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PIDTuning">
+      <tuv xml:lang="de">
+        <seg>PID-Parameterabstimmung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>PID参数整定</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PID Parameter Tuning</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Pieces">
+      <tuv xml:lang="de">
+        <seg>[Stck]</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>[件]</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>[Pcs]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Position">
+      <tuv xml:lang="de">
+        <seg>Position</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>位置</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Position</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Power">
+      <tuv xml:lang="de">
+        <seg>Leistung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>使能</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Power</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>使能</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ProductCount">
+      <tuv xml:lang="de">
+        <seg>Produktanzahl</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>已切数量</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Product Count</seg>
+      </tuv>
+    </tu>
+    <tu tuid="RecipeParameters">
+      <tuv xml:lang="de">
+        <seg>Rezeptparameter</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>配方参数</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Recipe Parameters</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SetDistance">
+      <tuv xml:lang="de">
+        <seg>Abstand einstellen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>设置距离</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Set Distance</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SetPosition">
+      <tuv xml:lang="de">
+        <seg>Soll Position</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>设定位置</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Set Position</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>设定位置</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SetSpeed">
+      <tuv xml:lang="de">
+        <seg>Soll Geschwindigkeit</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>设定速度 </seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Set Speed </seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>设定速度 [m/s]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SetValue">
+      <tuv xml:lang="de">
+        <seg>Wert einstellen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>设定值</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Set Value</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SimulateActValue">
+      <tuv xml:lang="de">
+        <seg>Tats�chlichen Wert simuliert</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>仿真实际值</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Simulate Actual Value</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Start">
+      <tuv xml:lang="de">
+        <seg>Start</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>启动</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Start</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>开始</seg>
+      </tuv>
+    </tu>
+    <tu tuid="StartVelocity">
+      <tuv xml:lang="de">
+        <seg>Geschwindigkeit starten</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>启动速度</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Start Velocity</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Stop">
+      <tuv xml:lang="de">
+        <seg>Stoppen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>停止</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Stop</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>停止</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SwitchAutoOff">
+      <tuv xml:lang="de">
+        <seg>Schalten Sie zuerst den Auto-Modus aus!</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>首先关闭自动模式</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Switch off auto mode first!</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SyncOff">
+      <tuv xml:lang="de">
+        <seg>SyncAus</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>解耦</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>SyncOff</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SyncOn">
+      <tuv xml:lang="de">
+        <seg>SyncOn</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>耦合</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>SyncOn</seg>
+      </tuv>
+    </tu>
+    <tu tuid="TuningActive">
+      <tuv xml:lang="de">
+        <seg>Abstimmung aktiv</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>整定开始</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Tuning Active</seg>
+      </tuv>
+    </tu>
+    <tu tuid="TuningDone">
+      <tuv xml:lang="de">
+        <seg>Das Tuning ist abgeschlossen, klicken Sie auf �Save &amp; Apply�, um die PID-Parameter aus dem Tuning-Prozess zu �bernehmen.</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>整定完成, 点击"保存 &amp; 使用" 按钮保存并使用整定参数</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Tuning is complete, click "Save &amp; Apply" to accept the PID parameters from the tuning process.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="TuningQuality">
+      <tuv xml:lang="de">
+        <seg>Tuning-Ergebnisqualit�t</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>整定质量</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Tuning Result Quality</seg>
+      </tuv>
+    </tu>
+    <tu tuid="UpdateVelocity">
+      <tuv xml:lang="de">
+        <seg>Geschindigkeit aktualisieren</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>更新
+速度</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Update Vel.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="VelocityFactor">
+      <tuv xml:lang="de">
+        <seg>Geschw.-Faktor</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>速度倍数</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Vel Factor</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>
