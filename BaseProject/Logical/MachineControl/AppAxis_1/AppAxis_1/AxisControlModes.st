@@ -3,7 +3,7 @@ ACTION AxisInit:
 END_ACTION
     
 
-ACTION AxisCyclic: 
+ACTION AxisCyclic:
        
     MpAlarmXControlSpeedNotSetFB.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
     MpAlarmXControlSpeedNotSetFB.Enable := TRUE;

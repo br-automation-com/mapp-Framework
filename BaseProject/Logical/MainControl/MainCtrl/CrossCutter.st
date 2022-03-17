@@ -1,10 +1,10 @@
-(*********************************************************************************
- * Copyright: B&R Industrial Automation GmbH 
- * Created:   29 June, 2021/10:43 
+﻿(*********************************************************************************
+ * Copyright: B&R Industrial Automation GmbH
+ * Created:   29 June, 2021/10:43
  * Process specific logic to update production information and process parameters
  *********************************************************************************)
 
-ACTION CrossCutter: 
+ACTION CrossCutter:
 	
 	//****************************Starting and stopping the process*********************************
 	
@@ -19,16 +19,16 @@ ACTION CrossCutter:
 		IF NOT MpAxisBasic_x[AXIS_IDX_CUTTER].IsHomed AND (AxisControl[AXIS_IDX_CUTTER].AxisState = AX_STATE_WAIT) THEN
 			AxisControl[AXIS_IDX_CUTTER].Command.Home := TRUE;
 		END_IF
-		
+	
 		(* Reset run switches when in error state *)
 		IF (AxisControl[AXIS_IDX_FEEDER].AxisState = AX_STATE_ERROR) OR (AxisControl[AXIS_IDX_CUTTER].AxisState = AX_STATE_ERROR) THEN
 			MainCtrl.Command.RunCutter := FALSE;
 			MainCtrl.Command.RunFeeder := FALSE;
 		END_IF
-		
+	
 		(* Start movement of feeder axis *)
 		AxisControl[AXIS_IDX_FEEDER].Command.MoveVelocity := MainCtrl.Command.RunFeeder;
-		
+	
 		(* Start synchronized movement of Cutter with cam automat *)
 		IF MainCtrl.Command.RunCutter THEN
 			AxisControl[AXIS_IDX_CUTTER].Command.RunCamAutomat := TRUE;

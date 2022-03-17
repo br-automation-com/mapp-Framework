@@ -1,5 +1,5 @@
 
-ACTION SimulationControl: 
+ACTION SimulationControl:
 
 	IF NOT (DiagCpuIsARsim() OR DiagCpuIsSimulated()) THEN
 		RETURN;

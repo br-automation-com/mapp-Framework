@@ -1,4 +1,4 @@
-ACTION AxisStateMachine: 
+ACTION AxisStateMachine:
 
     InPositionEdgePos.CLK := MpAxisBasicFB.InPosition;
     InPositionEdgePos();
@@ -13,7 +13,7 @@ ACTION AxisStateMachine:
             
         ELSE
             IF ((MpAxisBasicFB.Error = TRUE) OR MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error')) THEN
-                // Check alarm reaction 
+                // Check alarm reaction
                 ResetAllAxisCommands;
                 State := STATE_ABORTING;
             ELSIF ((AxisControl.Command.Power = FALSE) AND (State > STATE_POWER_ON)) THEN
@@ -148,7 +148,7 @@ ACTION AxisStateMachine:
             MpAxisBasicFB.Stop := MpAxisBasicFB.PowerOn;
             IF ((MpAxisBasicFB.PowerOn = FALSE) OR (MpAxisBasicFB.Stopped = TRUE)) THEN
                 MpAxisBasicFB.Stop := FALSE;
-                IF (MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'SafetyError') = TRUE) THEN                
+                IF (MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'SafetyError') = TRUE) THEN
                     // Safety errors also power off the axis
                     MpAxisBasicFB.Power := FALSE;
                     IF (MpAxisBasicFB.PowerOn = FALSE) THEN
@@ -205,7 +205,7 @@ ACTION AxisStateMachine:
 END_ACTION
 
 
-ACTION ResetAllAxisCommands: 
+ACTION ResetAllAxisCommands:
     
     MpAxisBasicFB.MoveAbsolute := FALSE;
     MpAxisBasicFB.MoveAdditive := FALSE;

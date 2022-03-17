@@ -1,8 +1,8 @@
-//*********************************************************************** 
-// Copyright: B&R Industrial Automation GmbH 
-// Author: B&R Industrial Automation GmbH 
-// Created: Jan 1, 2022 
-// Description: Tasks for File management control. The File management 
+//***********************************************************************
+// Copyright: B&R Industrial Automation GmbH
+// Author: B&R Industrial Automation GmbH
+// Created: Jan 1, 2022
+// Description: Tasks for File management control. The File management
 // handling is done in this task.
 //***********************************************************************
 
@@ -22,11 +22,11 @@ PROGRAM _INIT
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	MpFileManagerUI_0();
 
-	// Initialize FIFO feature 
+	// Initialize FIFO feature
 	HmiFile.Parameters.Fifo.DeviceName := 'mappData';
-	HmiFile.Parameters.Fifo.MaxFolderSize := 20000; // kB
+	HmiFile.Parameters.Fifo.MaxFolderSize := 20000;// kB
 	HmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
-	HmiFile.Parameters.Fifo.ScanInterval := 60; // minutes
+	HmiFile.Parameters.Fifo.ScanInterval := 60;// minutes
 	
 	HmiFile.Status.DeviceDataProvider[0] := '{"value":"mappRecipe","text":"mappRecipe"}';
 	HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappAudit","text":"mappAudit"}';
@@ -45,9 +45,9 @@ PROGRAM _CYCLIC
 	FileManager;
 	IF HmiFile.Parameters.Fifo.Enable THEN
 		FIFOOperation;
-	END_IF 
+	END_IF
 	
-	// Error reset 
+	// Error reset
     IF NOT MpFileManagerUI_0.Error THEN
         MpFileManagerUI_0.ErrorReset := FALSE;
     END_IF
@@ -66,7 +66,7 @@ PROGRAM _EXIT
 	MpFileManagerUI_0.Enable := FALSE;
 	
 	// Call function block
-	MpFileManagerUI_0();	
+	MpFileManagerUI_0();
 	
 END_PROGRAM
 

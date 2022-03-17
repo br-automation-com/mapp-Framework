@@ -1,8 +1,8 @@
 (*********************************************************************************
- * Copyright: B&R Industrial Automation GmbH 
- * Author:    MITC 
- * Created:   August 26, 2021/08:40 
- * This program provides an Io browser and the related interface for 
+ * Copyright: B&R Industrial Automation GmbH
+ * Author:    MITC
+ * Created:   August 26, 2021/08:40
+ * This program provides an Io browser and the related interface for
  * mappView widgets.
  *********************************************************************************)
 

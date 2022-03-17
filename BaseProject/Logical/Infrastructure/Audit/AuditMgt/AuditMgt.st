@@ -1,19 +1,19 @@
 (*********************************************************************************
-* Copyright: B&R Industrial Automation GmbH 
-* Author:    B&R Industrial Automation GmbH 
-* Created:   30. Dec 2020/08:00 
+* Copyright: B&R Industrial Automation GmbH
+* Author:    B&R Industrial Automation GmbH
+* Created:   30. Dec 2020/08:00
 * Description: Tasks FOR Audit Management.  The Audit Management is done in this task.
 *********************************************************************************)
 
 PROGRAM _INIT
 
 	(*Create folder for this component on the user file device*)
-	DirCreate_New(enable := TRUE, pDevice := ADR('userPartition'), pName := ADR(LOCAL_FOLDER));		
+	DirCreate_New(enable := TRUE, pDevice := ADR('userPartition'), pName := ADR(LOCAL_FOLDER));
 	
 	(*Check if folder already exist and if so disabled the function block call*)
 	IF DirCreate_New.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreate_New(enable := FALSE);
-	END_IF	
+	END_IF
 
 	(* Init function blocks *)
 	MpAuditTrail_0.MpLink := ADR(gAuditTrailMpLink);
@@ -48,10 +48,10 @@ PROGRAM _CYCLIC
 	FOR i := 0 TO 49 DO							// Save Filenames to a seperate array for display in Table
 		DisplayFileName[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
 		IF DisplayFileNameIndex = INT_TO_USINT(i) THEN		// if selected set a index for display selected file in table
-			MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;	
+			MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
 		END_IF
 	END_FOR
-	StrSelectedFile := CONCAT(STR_FILE_DEVICE, MpFileManagerUIConnect.File.List.Items[DisplayFileNameIndex].Name);		// String for pdfViewer to display right report
+	StrSelectedFile := CONCAT(STR_FILE_DEVICE, MpFileManagerUIConnect.File.List.Items[DisplayFileNameIndex].Name);// String for pdfViewer to display right report
 
 	(* Configure visible file list *)
 	brsstrcpy(ADR(TableConfig), ADR('{ "specRows": [{"from":'));
@@ -65,6 +65,6 @@ END_PROGRAM
 
 PROGRAM _EXIT
 	(* Insert code here *)
-	 
+	
 END_PROGRAM
 

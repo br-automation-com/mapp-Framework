@@ -1,8 +1,7 @@
-
-ACTION ConfigurationInit: 
+ACTION ConfigurationInit:
 
     AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.DataAddress := ADR(AxisSettings.AxisFeatures);
-    AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfArrayElements := SIZEOF(AxisSettings.AxisFeatures)/SIZEOF(AxisSettings.AxisFeatures[0]);	
+    AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfArrayElements := SIZEOF(AxisSettings.AxisFeatures)/SIZEOF(AxisSettings.AxisFeatures[0]);
     AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfElements := 0;
     i := 0;
     WHILE ((i <= SIZEOF(AxisSettings.AxisFeatures)/SIZEOF(AxisSettings.AxisFeatures[0])) AND (AxisSettings.AxisFeatures[i] <> '')) DO
@@ -10,7 +9,7 @@ ACTION ConfigurationInit:
     END_WHILE
     AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfElements := i;
     
-    MC_BR_ProcessConfig_AX.DataAddress := ADR(AxisSettings.BaseConfiguration);    
+    MC_BR_ProcessConfig_AX.DataAddress := ADR(AxisSettings.BaseConfiguration);
     MC_BR_ProcessConfig_AX.DataType := mcCFG_AX;
 
     MC_BR_ProcessConfig_ACP.DataAddress := ADR(AxisSettings.DriveConfiguration);
@@ -25,7 +24,7 @@ ACTION ChangeConfiguration:
     CASE ConfigurationState OF
         CONFIG_STATE_INIT:
 
-            // Build up the string for the name 
+            // Build up the string for the name
             MC_BR_ProcessConfig_ACP.Name := MpAxisBasicFB.Info.HardwareInfo.Axis.ConfigElementLocation;
             MC_BR_ProcessConfig_AX.Name := MpAxisBasicFB.Info.HardwareInfo.Axis.AxisName;
             

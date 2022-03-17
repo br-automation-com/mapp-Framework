@@ -1,6 +1,6 @@
 (*********************************************************************************
- * Copyright: B&R Industrial Automation GmbH 
- * Created:   22 July, 2021/15:54 
+ * Copyright: B&R Industrial Automation GmbH
+ * Created:   22 July, 2021/15:54
  * This task contains the logic for a PID controller
  *********************************************************************************)
 
@@ -68,7 +68,7 @@ PROGRAM _CYCLIC
 	MTBasicsOscillationTuning_0();
 	
 	(* Update status value *)
-	IF MTBasicsOscillationTuning_0.TuningActive THEN 
+	IF MTBasicsOscillationTuning_0.TuningActive THEN
 		PidStatus := PID_TUNING;
 	ELSIF MTBasicsPID_0.Error THEN
 		PidStatus := PID_ERROR;

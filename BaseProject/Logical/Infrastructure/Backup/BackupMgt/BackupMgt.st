@@ -1,19 +1,19 @@
-//*********************************************************************** 
-// Copyright: B&R Industrial Automation GmbH 
-// Author: B&R Industrial Automation GmbH 
-// Created: Jan 1, 2022 
+//***********************************************************************
+// Copyright: B&R Industrial Automation GmbH
+// Author: B&R Industrial Automation GmbH
+// Created: Jan 1, 2022
 // Description: Tasks for backup control.
 //***********************************************************************
 
 PROGRAM _INIT
     
 	// Create folder for this component on the user file device
-	DirCreate_New(enable := TRUE, pDevice := ADR('userPartition'), pName := ADR(LOCAL_FOLDER));		
+	DirCreate_New(enable := TRUE, pDevice := ADR('userPartition'), pName := ADR(LOCAL_FOLDER));
 	
 	// Check if folder already exist and if so disabled the function block call
 	IF DirCreate_New.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreate_New(enable := FALSE);
-	END_IF	
+	END_IF
 
     MpBackupCoreFB.MpLink := ADR(gMpLinkBackupCore);
 	MpBackupCoreFB.Enable := TRUE;
@@ -91,7 +91,7 @@ PROGRAM _CYCLIC
                 BackupState := BACKUP_ERROR;
                 MpBackupCoreFB.Create := FALSE;
                 MpBackupCoreFB.Install := FALSE;
-                MpBackupCoreFB.RequestInfo := FALSE;                
+                MpBackupCoreFB.RequestInfo := FALSE;
             END_IF
                
         BACKUP_RESTORING:
@@ -105,7 +105,7 @@ PROGRAM _CYCLIC
                 BackupState := BACKUP_ERROR;
                 MpBackupCoreFB.Create := FALSE;
                 MpBackupCoreFB.Install := FALSE;
-                MpBackupCoreFB.RequestInfo := FALSE;                
+                MpBackupCoreFB.RequestInfo := FALSE;
             END_IF
             
         BACKUP_DELETING:
@@ -115,7 +115,7 @@ PROGRAM _CYCLIC
                 mpFILE_MSG_OK:
                     IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
 						LastSelectedIndex := LastSelectedIndex + 1;
-                        FOR i:=0 TO ((SIZEOF(MpFileManagerUIConnect.File.List.Items[i])/SIZEOF(MpFileManagerUIConnect.File.List.Items[0]))-1) DO
+                        FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.File.List.Items[i])/SIZEOF(MpFileManagerUIConnect.File.List.Items[0])) - 1) DO
                             MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
                         END_FOR
 						MpFileManagerUIConnect.MessageBox.Confirm := FALSE;
@@ -144,7 +144,7 @@ PROGRAM _CYCLIC
         MpBackupCoreFB.ErrorReset := FALSE;
     END_IF
     
-    HmiBackup.Status.RestoreAllowed := (HmiBackup.Status.Info.ConfigurationID <> '') AND NOT(MpBackupCoreFB.Info.Automatic.Backup.InProgress); 
+    HmiBackup.Status.RestoreAllowed := (HmiBackup.Status.Info.ConfigurationID <> '') AND NOT(MpBackupCoreFB.Info.Automatic.Backup.InProgress);
     
 	// Call all actions
     FileManager;
@@ -166,7 +166,7 @@ END_PROGRAM
 PROGRAM _EXIT
     
 	// Disable the function blocls to unlink the MpLinks
-    MpBackupCoreFB.Enable := FALSE;    
+    MpBackupCoreFB.Enable := FALSE;
 	MpFileManagerUIFB.Enable := FALSE;
 	MpBackupCoreConfigFB.Enable := FALSE;
 	

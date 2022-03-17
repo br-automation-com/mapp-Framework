@@ -1,7 +1,7 @@
-(*********************************************************************************
-* Copyright: B&R Industrial Automation GmbH 
-* Author:    B&R Industrial Automation GmbH 
-* Created:   30. Sep 2020/08:00 
+﻿(*********************************************************************************
+* Copyright: B&R Industrial Automation GmbH
+* Author:    B&R Industrial Automation GmbH
+* Created:   30. Sep 2020/08:00
 * Description: Tasks for axis control. The Main Cross Cutter handling is done in this task.
 *********************************************************************************)
 
@@ -71,7 +71,7 @@ PROGRAM _CYCLIC
 	(********************* Crosscutter control *********************)
 	CrossCutter;
 	
-	//*************************************************	
+	//*************************************************
 
 	(********************* Copy preview parameters before creating or saving a recipe *********************)
 	IF CopyPreviewParameters THEN

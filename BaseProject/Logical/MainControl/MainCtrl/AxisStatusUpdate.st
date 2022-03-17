@@ -1,6 +1,6 @@
-(*********************************************************************************
- * Copyright: B&R Industrial Automation GmbH 
- * Created:   29 June, 2021/09:58 
+﻿(*********************************************************************************
+ * Copyright: B&R Industrial Automation GmbH
+ * Created:   29 June, 2021/09:58
  * This file contains the logic to update the axis status information
  *********************************************************************************)
 
@@ -31,7 +31,7 @@ ACTION AxisStatusUpdate:
 				AxisControl[AxIndex].Status.ErrorID := MC_ReadAxisError_x[AxIndex].AxisErrorID;
 			END_IF
 		END_IF
-		
+	
 		(**************** CHECK FOR GENERAL AXIS ERROR ******************)
 		IF ((MC_ReadAxisError_x[AxIndex].AxisErrorID <> 0) AND MC_ReadAxisError_x[AxIndex].Valid) OR MpAxisBasic_x[AxIndex].Error THEN
 			(* Set error state if not already in error state / or error reset state *)
@@ -39,7 +39,7 @@ ACTION AxisStatusUpdate:
 				AxisControl[AxIndex].AxisState := AX_STATE_ERROR;
 			END_IF
 		ELSIF AxisControl[AxIndex].AxisState < AX_STATE_ERROR THEN
-			AxisControl[AxIndex].Command.ErrorAcknowledge := FALSE ; 
+			AxisControl[AxIndex].Command.ErrorAcknowledge := FALSE ;
 		END_IF
 	END_FOR // FOR uAxIndex := 0 TO MAX_IDX_AXIS DO
 END_ACTION

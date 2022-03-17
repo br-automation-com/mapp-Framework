@@ -1,6 +1,6 @@
-ACTION FormatDeviceDataProvider: 
+ACTION FormatDeviceDataProvider:
     
-	// Select CF device if USB device is not available 
+	// Select CF device if USB device is not available
     FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
         IF gUSBAvailable[i] THEN
             brsstrcpy(ADR(HmiBackup.Status.DeviceDataProvider[i + 1]), ADR('{"value":"USB'));
@@ -16,17 +16,17 @@ ACTION FormatDeviceDataProvider:
         END_IF
     END_FOR
 	
-	// Configure visible device list 
+	// Configure visible device list
     brsstrcpy(ADR(HmiBackup.Status.TableConfig[0]), ADR('{ "specRows": [{"from":'));
-	FOR i := 0 TO 9 DO 
+	FOR i := 0 TO 9 DO
 		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
-			DeviceCount := i+1;
+			DeviceCount := i + 1;
 		END_IF
-	END_FOR	
-	brsitoa((DeviceCount), ADR(HmiBackup.Status.TableConfig[0]) + brsstrlen(ADR(HmiBackup.Status.TableConfig[0])));	
+	END_FOR
+	brsitoa((DeviceCount), ADR(HmiBackup.Status.TableConfig[0]) + brsstrlen(ADR(HmiBackup.Status.TableConfig[0])));
     brsstrcat(ADR(HmiBackup.Status.TableConfig[0]),  ADR(',"to":9, "visible":false}]}'));
 	
-	// Configure visible file list 
+	// Configure visible file list
     brsstrcpy(ADR(HmiBackup.Status.TableConfig[1]), ADR('{ "specRows": [{"from":'));
     brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(HmiBackup.Status.TableConfig[1]) + brsstrlen(ADR(HmiBackup.Status.TableConfig[1])));
     brsstrcat(ADR(HmiBackup.Status.TableConfig[1]),  ADR(',"to":49, "visible":false}]}'));
@@ -38,7 +38,7 @@ ACTION SaveBackupConfiguration:
     MpBackupConfiguration.AutomaticBackup.Enabled := HmiBackup.Parameters.AutomaticBackup.Enable;
     MpBackupConfiguration.AutomaticBackup.NamePrefix := HmiBackup.Parameters.AutomaticBackup.Prefix;
     MpBackupConfiguration.AutomaticBackup.DeviceName := HmiBackup.Parameters.AutomaticBackup.Device;
-    MpBackupConfiguration.AutomaticBackup.OverwriteOldest := HmiBackup.Parameters.AutomaticBackup.OverwriteOldest;    
+    MpBackupConfiguration.AutomaticBackup.OverwriteOldest := HmiBackup.Parameters.AutomaticBackup.OverwriteOldest;
     MpBackupConfiguration.AutomaticBackup.Mode.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiBackup.Parameters.AutomaticBackup.Mode.Hour) * 60) + HmiBackup.Parameters.AutomaticBackup.Mode.Minute) * 60) * 1000);
     CASE HmiBackup.Parameters.AutomaticBackup.Mode.Interval OF
         BACKUP_EVERYDAY:
@@ -103,7 +103,7 @@ ACTION FileManager:
     MpFileManagerUIFB.MpLink := ADR(gMpLinkFileManagerUIBackup);
     MpFileManagerUIFB.UIConnect := ADR(MpFileManagerUIConnect);
     MpFileManagerUIFB();
-    FOR i:=0 TO ((SIZEOF(HmiBackup.Status.FileNames)/SIZEOF(HmiBackup.Status.FileNames[0]))-1) DO
+    FOR i := 0 TO ((SIZEOF(HmiBackup.Status.FileNames)/SIZEOF(HmiBackup.Status.FileNames[0])) - 1) DO
         HmiBackup.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
         HmiBackup.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
         HmiBackup.Status.Size[i] := MpFileManagerUIConnect.File.List.Items[i].Size;

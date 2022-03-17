@@ -1,12 +1,12 @@
 (*********************************************************************************
- * Copyright: B&R Industrial Automation GmbH 
+ * Copyright: B&R Industrial Automation GmbH
  * Author:    MITC
- * Created:   September 29, 2021/09:24 
- * This action sets all the strings and pointers so that the mappView page can 
+ * Created:   September 29, 2021/09:24
+ * This action sets all the strings and pointers so that the mappView page can
  * present the IO information in a user friendly way
  *********************************************************************************)
 
-ACTION mappViewAction: 
+ACTION mappViewAction:
 	(* Set pointers to the correct Forcing handler for easier interface to HMI *)
 	IF (SelectedModule <> LastSelectedModule) OR (SelectedChannel <> LastSelectedChannel) THEN
 		(* Check range *)

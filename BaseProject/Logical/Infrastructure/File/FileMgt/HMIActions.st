@@ -1,9 +1,9 @@
-ACTION FormatDeviceDataProvider: 
+ACTION FormatDeviceDataProvider:
     
-	// Select CF device if USB device is not available 
+	// Select CF device if USB device is not available
     FOR Index := 0 TO MAX_IDX_USB_DEV_LIST DO
         IF gUSBAvailable[Index] THEN
-		
+	
             brsstrcpy(ADR(HmiFile.Status.DeviceDataProvider[Index + 7]), ADR('{"value":"USB'));
             brsitoa(Index + 1, ADR(HmiFile.Status.DeviceDataProvider[Index + 7]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[Index + 7])));
             
@@ -19,18 +19,18 @@ ACTION FormatDeviceDataProvider:
         END_IF
     END_FOR
 	
-	// Configure visible device list 
+	// Configure visible device list
     brsstrcpy(ADR(HmiFile.Status.TableConfig[0]), ADR('{ "specRows": [{"from":'));
-	FOR i := 0 TO 9 DO 
+	FOR i := 0 TO 9 DO
 		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
-			DeviceCount := i+1;
+			DeviceCount := i + 1;
 		END_IF
-	END_FOR	
-	brsitoa((DeviceCount), ADR(HmiFile.Status.TableConfig[0]) + brsstrlen(ADR(HmiFile.Status.TableConfig[0])));	
+	END_FOR
+	brsitoa((DeviceCount), ADR(HmiFile.Status.TableConfig[0]) + brsstrlen(ADR(HmiFile.Status.TableConfig[0])));
     brsstrcat(ADR(HmiFile.Status.TableConfig[0]),  ADR(',"to":9, "visible":false}]}'));
 	
     
-    // Configure visible file list 
+    // Configure visible file list
     brsstrcpy(ADR(HmiFile.Status.TableConfig[1]), ADR('{ "specRows": [{"from":'));
     brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(HmiFile.Status.TableConfig[1]) + brsstrlen(ADR(HmiFile.Status.TableConfig[1])));
     brsstrcat(ADR(HmiFile.Status.TableConfig[1]),  ADR(',"to":49, "visible":false}]}'));
@@ -42,29 +42,29 @@ ACTION FileManager:
     MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
     MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
     MpFileManagerUI_0();
-    FOR i:=0 TO ((SIZEOF(HmiFile.Status.FileNames)/SIZEOF(HmiFile.Status.FileNames[0]))-1) DO
+    FOR i := 0 TO ((SIZEOF(HmiFile.Status.FileNames)/SIZEOF(HmiFile.Status.FileNames[0])) - 1) DO
         HmiFile.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
         HmiFile.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
         HmiFile.Status.Size[i] := REAL_TO_UDINT(UDINT_TO_REAL(MpFileManagerUIConnect.File.List.Items[i].Size) * 0.001);
-		
-		// Set image array based on item type 
+	
+		// Set image array based on item type
 		IF MpFileManagerUIConnect.File.List.Items[i].IsFolder THEN
 			HmiFile.Status.Type[i] := FOLDER;
-		ELSIF NOT MpFileManagerUIConnect.File.List.Items[i].IsFolder AND MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN	
+		ELSIF NOT MpFileManagerUIConnect.File.List.Items[i].IsFolder AND MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
 			HmiFile.Status.Type[i] := FILE_SELECTED;
-		ELSE	
+		ELSE
 			HmiFile.Status.Type[i] := FILE;
-		END_IF	
-		
-		// Set file selected when the table is clicked Single and MultiSelect 
+		END_IF
+	
+		// Set file selected when the table is clicked Single and MultiSelect
 		IF HmiFile.Status.DeleteStep = FILE_DELETE_WAIT THEN
 			IF (MpFileManagerUIConnect.File.MultiSelect = FALSE) THEN
 				IF (i = HmiFile.Parameters.SelectedIndex) THEN
 					MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
-				ELSE	
+				ELSE
 					MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
 				END_IF
-			ELSIF (MpFileManagerUIConnect.File.MultiSelect = TRUE) AND HmiFile.Commands.MultiSelect THEN			
+			ELSIF (MpFileManagerUIConnect.File.MultiSelect = TRUE) AND HmiFile.Commands.MultiSelect THEN
 				IF (i = HmiFile.Parameters.SelectedIndex) AND NOT MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
 					MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
 					HmiFile.Commands.MultiSelect := FALSE;
@@ -76,13 +76,13 @@ ACTION FileManager:
 		END_IF
     END_FOR
     
-	// Read currently selected device name for HMI 
+	// Read currently selected device name for HMI
 	HmiFile.Status.DeviceName := MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex];
 	
-	// Read if current selected object is folder 
+	// Read if current selected object is folder
 	HmiFile.Status.IsFolder := MpFileManagerUIConnect.File.List.Items[HmiFile.Parameters.SelectedIndex].IsFolder;
 	
-	// Control the folder structure when entering and leaving folders 
+	// Control the folder structure when entering and leaving folders
 	IF (HmiFile.Commands.EnterFolder) AND MpFileManagerUIConnect.File.List.Items[HmiFile.Parameters.SelectedIndex].IsFolder THEN
 		HmiFile.Commands.EnterFolder := FALSE;
 		MpFileManagerUIConnect.File.EnterFolder := TRUE;
@@ -95,12 +95,12 @@ ACTION FileManager:
 		HmiFile.Commands.FolderUp := FALSE;
 		MpFileManagerUIConnect.File.FolderUp := TRUE;
 		FolderDepthCount := FolderDepthCount - 1;
-	END_IF	
+	END_IF
 	
-	IF FolderDepthCount > 0 THEN 	
+	IF FolderDepthCount > 0 THEN
 		HmiFile.Status.BackButton := TRUE;
 	ELSE
 		HmiFile.Status.BackButton := FALSE;
-	END_IF		
+	END_IF
     
 END_ACTION

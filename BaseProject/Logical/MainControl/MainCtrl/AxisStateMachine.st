@@ -1,6 +1,6 @@
-(*********************************************************************************
- * Copyright: B&R Industrial Automation GmbH 
- * Created:   28 June, 2021/14:13 
+﻿(*********************************************************************************
+ * Copyright: B&R Industrial Automation GmbH
+ * Created:   28 June, 2021/14:13
  * This file contains the logic to control an axis
  *********************************************************************************)
 
@@ -13,7 +13,7 @@ ACTION AxisStateMachine:
 		END_IF
 
 		CASE AxisControl[AxIndex].AxisState OF
-		 
+	
 			AX_STATE_WAIT: // Wait for command
 				IF AxisControl[AxIndex].Command.Home THEN
 					AxisControl[AxIndex].Parameter.AxPar.Homing.Mode := mcHOMING_DEFAULT;
@@ -69,7 +69,7 @@ ACTION AxisStateMachine:
 					MpAxisBasic_x[AxIndex].MoveVelocity := FALSE;
 					AxisControl[AxIndex].AxisState := AX_STATE_WAIT;
 				END_IF
-		
+	
 			AX_STATE_JOG_NEGATIVE:
 				IF (NOT AxisControl[AxIndex].Command.MoveJogNeg) OR AxisControl[AxIndex].Command.Stop THEN
 					(* Jog done or stopped *)
@@ -97,7 +97,7 @@ ACTION AxisStateMachine:
 					AxisControl[AxIndex].Command.MoveAdditive := FALSE;
 					AxisControl[AxIndex].AxisState := AX_STATE_WAIT;
 				END_IF
-			
+	
 			AX_STATE_MOVE_VELOCITY:
 				IF (NOT AxisControl[AxIndex].Command.MoveVelocity) OR AxisControl[AxIndex].Command.Stop THEN
 					(* Move velocity done or stopped *)
@@ -106,7 +106,7 @@ ACTION AxisStateMachine:
 					MpAxisBasic_x[AxIndex].MoveVelocity := FALSE;
 					AxisControl[AxIndex].AxisState := AX_STATE_WAIT;
 				END_IF
-			
+	
 			AX_STATE_CAM_AUTOMAT:
 				(* Start synchronized movement *)
 				IF MC_BR_CamAutomatCommand_0.Ready THEN
@@ -153,7 +153,7 @@ ACTION AxisStateMachine:
 						AxisControl[AxIndex].AxisState := AX_STATE_ERROR_RESET;
 					END_IF
 				END_IF
-			
+	
 			AX_STATE_ERROR_RESET:
 				(* Check if CamAutomat needs to be reset *)
 				MC_BR_CamAutomatCommand_0.Enable := NOT MC_BR_CamAutomatCommand_0.Error AND NOT MC_BR_CamAutomatCommand_0.CommandAborted;
@@ -189,14 +189,14 @@ ACTION AxisStateMachine:
 		IF NOT MpAxisBasic_x[AxIndex].Info.ReadyToPowerOn THEN
 			AxisControl[AxIndex].Command.Power := FALSE;
 		END_IF
-		
+	
 		(* Always directly access power, stop, and torque control *)
 		IF AxisControl[AxIndex].AxisState < AX_STATE_ERROR THEN
 			MpAxisBasic_x[AxIndex].Power := AxisControl[AxIndex].Command.Power;
 			MpAxisBasic_x[AxIndex].Stop := AxisControl[AxIndex].Command.Stop;
 			MpAxisBasic_x[AxIndex].LimitLoad := AxisControl[AxIndex].Command.TorqueControl AND MpAxisBasic_x[AxIndex].PowerOn AND MpAxisBasic_x[AxIndex].IsHomed;
 		END_IF
-		
+	
 		(* Reset update command when update is done, or no movement is active *)
 		IF MpAxisBasic_x[AxIndex].UpdateDone OR NOT MpAxisBasic_x[AxIndex].MoveActive THEN
 			MpAxisBasic_x[AxIndex].Update := FALSE;
