@@ -7,6 +7,5 @@
     <File Description="Local variables" Private="true">RecipeMgt.var</File>
     <File>HMIActions.st</File>
     <File>FileOperations.st</File>
-    <File>RecipeAlarms.tmx</File>
   </Files>
 </Program>

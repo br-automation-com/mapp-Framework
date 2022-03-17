@@ -18,7 +18,9 @@ ACTION AlarmSamples:
 	// Typically this function is called from other tasks within the application (decentralized).
 	// For example, if you have an error in the recipe system, you can trigger it directly in the recipe task. 
 	// Therefore, copy/paste this example to other places in the application as needed. 
-    MpAlarmXControlExampleFB.MpLink := ADR(gMpLinkAlarmXCore);
+    
+	// TAKE THIS OUT???
+	MpAlarmXControlExampleFB.MpLink := ADR(gMpLinkAlarmXCore);
     MpAlarmXControlExampleFB.Enable := TRUE;
     MpAlarmXControlExampleFB.Name := ADR('MpAlarmXControlExample');
     MpAlarmXControlExampleFB.Set := AlarmExamples.SetControlExample;

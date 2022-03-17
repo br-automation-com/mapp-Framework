@@ -42,7 +42,7 @@ END_VAR
 VAR
 	CommissioningModeActive : {REDUND_UNREPLICABLE} BOOL; (*Inhibits the Alarms[0] alarm*)
 	Alarms : {REDUND_UNREPLICABLE} ARRAY[0..99] OF BOOL; (*Array of active alarm*)
-	AlarmExamples : {REDUND_UNREPLICABLE} AlarmExamples_typ; (*Sample alarms for different monitoring types*)
+	AlarmExamples : {REDUND_UNREPLICABLE} AlarmExamples_typ := (LevelMonitoring:=50); (*Sample alarms for different monitoring types*)
 	MpAlarmXControlExampleFB : {REDUND_UNREPLICABLE} MpAlarmXAlarmControl; (*MpAlarmXAlarmControl instance*)
 END_VAR
 VAR CONSTANT

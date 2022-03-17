@@ -51,11 +51,11 @@ PROGRAM _CYCLIC
 	END_IF
 
 	// Call all actions 
-    AlarmHandling;
+    AlarmHandling;  // PROBLEM RIGHT NOW. SHOULD MOVE THIS TO INIT, IF WE REMOVE THE FUB EXAMPLE
 	GetBacktraceInformation;
     ExecuteQuery;
-	AlarmSamples;
 	QueryTableConfig;
+	AlarmSamples;
     
 	// Check if any reactions are active. 
 	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application. 
