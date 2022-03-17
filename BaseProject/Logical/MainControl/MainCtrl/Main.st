@@ -1,12 +1,12 @@
-﻿(*********************************************************************************
-* Copyright: B&R Industrial Automation GmbH
-* Author:    B&R Industrial Automation GmbH
-* Created:   30. Sep 2020/08:00
-* Description: Tasks for axis control. The Main Cross Cutter handling is done in this task.
-*********************************************************************************)
+﻿//*********************************************************************************
+//* Copyright: B&R Industrial Automation GmbH
+//* Author:    B&R Industrial Automation GmbH
+//* Created:   30. Sep 2020/08:00
+//* Description: Tasks for axis control. The Main Cross Cutter handling is done in this task.
+//*********************************************************************************
 
 PROGRAM _INIT
-	(* Register parameters to MpRecipe *)
+	// Register parameters to MpRecipe 
 	MpRecipeRegPar_M.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_M.Enable := TRUE;
 	MpRecipeRegPar_M.Category := ADR('Machine');
@@ -24,7 +24,7 @@ PROGRAM _INIT
 	MpRecipeRegPar_Pre2.Category := ADR('Product');
 	MpRecipeRegPar_Pre2.PVName := ADR('MainCtrl:PreviewParameters');
 	
-	(* Activate RegPar FUBs *)
+	// Activate RegPar FUBs 
 	WHILE NOT MpRecipeRegPar_M.Active DO
 		MpRecipeRegPar_M();
 	END_WHILE
@@ -58,22 +58,22 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 	
-	(********************* Init cam automat parameters *********************)
+	//******************** Init cam automat parameters ********************
 	GetCamAutPar;
 
-	(********************* Axis status updates *********************)
-	(********************* Status information is read before the state machine to attain a shorter reaction time in case of error *********************)
+	//******************** Axis status updates ********************
+	//******************** Status information is read before the state machine to attain a shorter reaction time in case of error ********************
 	AxisStatusUpdate;
 
-	(********************* Axis control *********************)
+	//******************** Axis control ********************
 	AxisStateMachine;
 
-	(********************* Crosscutter control *********************)
+	//******************** Crosscutter control ********************
 	CrossCutter;
 	
 	//*************************************************
 
-	(********************* Copy preview parameters before creating or saving a recipe *********************)
+	//******************** Copy preview parameters before creating or saving a recipe ********************
 	IF CopyPreviewParameters THEN
 		PreviewParameters := MainCtrl.Parameter;
 		CopyPreviewParameters := FALSE;
@@ -83,17 +83,17 @@ PROGRAM _CYCLIC
 		ResetEditValues := FALSE;
     END_IF
 
-	(********************* MpAxisBasic function block calls *********************)
+	//******************** MpAxisBasic function block calls ********************
 	FOR AxIndex := 0 TO MAX_IDX_AXIS DO
 		MpAxisBasic_x[AxIndex]();
 	END_FOR
 
-	(********************* CamAutomat function block calls *********************)
+	//******************** CamAutomat function block calls ********************
 	MC_BR_CamAutomatSetPar_AcpAx_0();
 	MC_BR_CamAutomatGetPar_AcpAx_0();
 	MC_BR_CamAutomatCommand_0();
 
-	(********************* MpRecipeRegPar FB calls *********************)
+	//******************** MpRecipeRegPar FB calls ********************
 	MpRecipeRegPar_M();
 	MpRecipeRegPar_P();
 	MpRecipeRegPar_Pre1();

@@ -1,17 +1,16 @@
-(*********************************************************************************
-* Copyright: B&R
-* Author:    B&R
-* Created:   30. Sep 2020/08:00
-* Description: Tasks FOR user control. The User Management handling is done in this task.
-*********************************************************************************)
+﻿//*********************************************************************************
+//* Copyright: B&R
+//* Author:    B&R
+//* Created:   30. Sep 2020/08:00
+//* Description: Tasks FOR user control. The User Management handling is done in this task.
+//********************************************************************************
 
 PROGRAM _INIT
-	(* Insert code here *)
-    User.Command.ListRefresh := TRUE;// Refresh user data on boot
+    // Refresh user data on boot
+    User.Command.ListRefresh := TRUE;
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	(* Insert code here *)
     
     IF ArUserInitList_0.ElementName = 'Administrators' THEN
         User.Command.ErrorReset := TRUE;
@@ -693,7 +692,7 @@ PROGRAM _CYCLIC
     ArUserGetProperty_0();
     ArUserAssignRole_0();
     ArUserReleaseRole_0();
-    //****(*This instruction Enables the ArUser-Based User Management Page*)
+    //****//This instruction Enables the ArUser-Based User Management Page
 
     gVisuCtrl.cmd.bEnableArUser := TRUE;
     gVisuCtrl.cmd.bEnableMpUserX := FALSE;
@@ -706,7 +705,7 @@ PROGRAM _CYCLIC
 END_PROGRAM
 
 PROGRAM _EXIT
-	(* Insert code here *)
+	// Insert code here 
 	
 END_PROGRAM
 

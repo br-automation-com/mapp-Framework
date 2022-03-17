@@ -1,17 +1,16 @@
-(*********************************************************************************
-* Copyright: B&R Industrial Automation GmbH
-* Author:    B&R Industrial Automation GmbH
-* Created:   30. Sep 2020/08:00
-* Description: Tasks FOR Visualization control. The HMI handling is done in this task.
-*********************************************************************************)
+﻿//*********************************************************************************
+//* Copyright: B&R Industrial Automation GmbH
+//* Created:   30. Sep 2020/08:00
+//* Description: Tasks FOR Visualization control. The HMI handling is done in this task.
+//********************************************************************************
 
 
 PROGRAM _INIT
-	(* Insert code here *)
+	// Insert code here 
 
     brsstrcpy(ADR(EthConfig.Device), ADR('IF2'));
 
-    (* Configure Ethernet configuration function blocks *)
+    // Configure Ethernet configuration function blocks 
     CfgGetIPAddr_0.pDevice := ADR(EthConfig.Device);
     CfgGetDefaultGateway_0.pDevice := ADR(EthConfig.Device);
     CfgGetSubnetMask_0.pDevice := ADR(EthConfig.Device);
@@ -31,26 +30,26 @@ PROGRAM _INIT
 	CfgSetDefaultGateway_0.Option := 1;
 	CfgSetSubnetMask_0.Option := 1;
 
-	(* Read ETHERNET information after booting *)
+	// Read ETHERNET information after booting 
 	ReadEthConfig := TRUE;
 	
-	(* Configure Get/Set time function blocks *)
+	// Configure Get/Set time function blocks 
 	DTStructureGetTime_0.pDTStructure := ADR(DateTimeCfg);
 	DTStructureSetTime_0.pDTStructure := ADR(DateTimeCfg);
 	
-	(* Client info *)
+	// Client info 
 	ClientInfo[0].activityCount := 0;
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	(* Read ethernet information from target *)
+	// Read ethernet information from target 
 	IF ReadEthConfig THEN
 		CfgGetIPAddr_0.enable := TRUE;
 		CfgGetDefaultGateway_0.enable := TRUE;
 		CfgGetSubnetMask_0.enable := TRUE;
 		ReadEthConfig := FALSE;
 	END_IF
-	(* Write ethernet information to target *)
+	// Write ethernet information to target 
 	IF WriteEthConfig THEN
 		CfgSetIPAddr_0.enable := TRUE;
 		CfgSetDefaultGateway_0.enable := TRUE;
@@ -58,7 +57,7 @@ PROGRAM _CYCLIC
 		WriteEthConfig := FALSE;
 	END_IF
 	
-	(* Call ethernet configuration related function blocks *)
+	// Call ethernet configuration related function blocks 
 	CfgGetIPAddr_0();
 	CfgGetDefaultGateway_0();
 	CfgGetSubnetMask_0();
@@ -66,7 +65,7 @@ PROGRAM _CYCLIC
 	CfgSetDefaultGateway_0();
 	CfgSetSubnetMask_0();
 
-	(* Reset the enable inputs when done *)
+	// Reset the enable inputs when done 
 	IF (CfgGetIPAddr_0.status <> ERR_FUB_BUSY) AND (CfgGetIPAddr_0.status <> ERR_FUB_ENABLE_FALSE) THEN
 		CfgGetIPAddr_0.enable := FALSE;
 	END_IF
@@ -86,7 +85,7 @@ PROGRAM _CYCLIC
 		CfgSetSubnetMask_0.enable := FALSE;
 	END_IF
 	
-	(* Reset time function block enable commands *)
+	// Reset time function block enable commands 
 	IF (DTStructureGetTime_0.status <> ERR_FUB_BUSY) AND (DTStructureGetTime_0.status <> ERR_FUB_ENABLE_FALSE) THEN
 		DTStructureGetTime_0.enable := FALSE;
 	END_IF
@@ -94,7 +93,7 @@ PROGRAM _CYCLIC
 		DTStructureSetTime_0.enable := FALSE;
 	END_IF
 	
-	(* Call time configuration function blocks *)
+	// Call time configuration function blocks 
 	DTStructureGetTime_0();
 	DTStructureSetTime_0();
 	
@@ -109,7 +108,7 @@ PROGRAM _CYCLIC
 END_PROGRAM
 
 PROGRAM _EXIT
-	(* Insert code here *)
+	// Insert code here 
 
 END_PROGRAM
 

@@ -1,14 +1,14 @@
-(*********************************************************************************
- * Copyright: B&R Industrial Automation GmbH
- * Created:   27 July, 2021/16:41
- * Handles Io forcing
- *********************************************************************************)
+//*********************************************************************************
+//* Copyright: B&R Industrial Automation GmbH
+//* Created:   27 July, 2021/16:41
+//* Handles Io forcing
+//********************************************************************************
 
-(* Handles IO forcing for all modules *)
+// Handles IO forcing for all modules
 FUNCTION_BLOCK GatIoForcingHandler
-	(* Function block not enabled *)
+	// Function block not enabled 
 	IF NOT Enable THEN
-		(* Close arcfg *)
+		// Close arcfg 
 		IF Internal.ArCfgIdent <> 0 THEN
 			Internal.AR_CloseArCfg_Int.Ident := Internal.ArCfgIdent;
 			Internal.AR_CloseArCfg_Int.Enable := TRUE;
@@ -21,7 +21,7 @@ FUNCTION_BLOCK GatIoForcingHandler
 				Internal.ArCfgIdent := 0;
 			END_IF
 		END_IF
-		(* Close iomap *)
+		// Close iomap 
 		IF Internal.IoMapIdent <> 0 THEN
 			Internal.IO_CloseIoMap_Int.Ident := Internal.IoMapIdent;
 			Internal.IO_CloseIoMap_Int.Enable := TRUE;
@@ -34,7 +34,7 @@ FUNCTION_BLOCK GatIoForcingHandler
 				Internal.IoMapIdent := 0;
 			END_IF
 		END_IF
-		(* Function block disabled, return here *)
+		// Function block disabled, return here 
 		Internal.InitState := 0;
 		Internal.CommandState := 0;
 		Internal.NrOfIoChannels := 0;
@@ -44,10 +44,10 @@ FUNCTION_BLOCK GatIoForcingHandler
 		RETURN;
 	END_IF
 	
-	(* Initialize Io module and channel structure *)
+	// Initialize Io module and channel structure 
 	IF NOT Ready THEN
 		Initializing := TRUE;
-		(* Open arcfg *)
+		// Open arcfg 
 		IF Internal.ArCfgIdent = 0 THEN
 			Internal.InitState := 0;
 			Internal.AR_OpenArCfg_Int.Enable := TRUE;
@@ -61,7 +61,7 @@ FUNCTION_BLOCK GatIoForcingHandler
 				RETURN;
 			END_IF
 		END_IF
-		(* Open iomap *)
+		// Open iomap 
 		IF Internal.IoMapIdent = 0 THEN
 			Internal.InitState := 0;
 			Internal.IO_OpenIoMap_Int.Enable := TRUE;
@@ -78,13 +78,13 @@ FUNCTION_BLOCK GatIoForcingHandler
 			END_IF
 		END_IF
 	
-		(* iomap and arcfg are open, start initialization *)
+		// iomap and arcfg are open, start initialization 
 		CASE Internal.InitState OF
 			0: // Find all visible IoChannels and sort them by module path
-				(* Loop through IoChannels *)
+				// Loop through IoChannels 
 				IF IO_ReadChannel(Internal.IoMapIdent, Internal.IdxIoChannel, ADR(Internal.TempChannel.Type), ADR(Internal.TempChannel.Inverted),
 					ADR(Internal.TempChannel.ChannelName), ADR(Internal.TempChannel.PvName), ADR(Internal.TempChannel.ModulePath), ADR(Internal.TempChannel.TaskClass)) THEN
-					(* Check visibility *)
+					// Check visibility 
 					IF (NOT GatIoIsVisible(ADR(Internal.TempChannel.ChannelName))) OR (brsstrlen(ADR(Internal.TempChannel.ModulePath)) = 0) THEN
 						Internal.IdxIoChannel := Internal.IdxIoChannel + 1;
 						IF Internal.IdxIoChannel > Internal.NrOfIoChannels THEN
@@ -93,14 +93,14 @@ FUNCTION_BLOCK GatIoForcingHandler
 						END_IF
 						RETURN;
 					END_IF
-					(* Search related module *)
+					// Search related module 
 					FOR Internal.IdxModule := 0 TO gatMAX_IDX_IO_MODULES DO
 						IF brsstrcmp(ADR(IoModules[Internal.IdxModule].ModulePath), ADR('')) = 0 THEN
-							(* Related module not in list yet, add module *)
+							// Related module not in list yet, add module 
 							brsstrcpy(ADR(IoModules[Internal.IdxModule].ModulePath), ADR(Internal.TempChannel.ModulePath));
 						END_IF
 						IF brsstrcmp(ADR(IoModules[Internal.IdxModule].ModulePath), ADR(Internal.TempChannel.ModulePath)) = 0 THEN
-							(* Module found *)
+							// Module found 
 							GatMakeIoDpName(Internal.TempChannel, ADR(Internal.TempChannel.IoForcing.DpName));
 							IoModules[Internal.IdxModule].IoChannels[IoModules[Internal.IdxModule].NrOfIoChannels] := Internal.TempChannel;
 							IoModules[Internal.IdxModule].NrOfIoChannels := IoModules[Internal.IdxModule].NrOfIoChannels + 1;
@@ -115,7 +115,7 @@ FUNCTION_BLOCK GatIoForcingHandler
 				END_IF
 
 			1: // Add Module names to each io module
-				(* Check if module index is populated *)
+				// Check if module index is populated 
 				IF brsstrlen(ADR(IoModules[Internal.IdxModule].ModulePath)) = 0 THEN
 					Internal.IdxModule := Internal.IdxModule + 1;
 					IF Internal.IdxModule > gatMAX_IDX_IO_MODULES THEN
@@ -125,11 +125,11 @@ FUNCTION_BLOCK GatIoForcingHandler
 					END_IF
 					RETURN;
 				END_IF
-				(* Loop through modules in arcfg to find the correct name *)
+				// Loop through modules in arcfg to find the correct name 
 				FOR Internal.IdxModuleNames := 1 TO Internal.NrOfModules DO
 					AR_GetModuleInfo(Internal.ArCfgIdent, Internal.IdxModuleNames, ADR(IoModules[Internal.IdxModule].ModuleName), ADR(IoModules[Internal.IdxModule].ModulePath));
 					IF brsstrcmp(ADR(IoModules[Internal.IdxModule].ModulePath), ADR(IoModules[Internal.IdxModule].IoChannels[0].ModulePath)) = 0 THEN
-						(* Correct name was found *)
+						// Correct name was found 
 						Internal.IdxModule := Internal.IdxModule + 1;
 						IF Internal.IdxModule > gatMAX_IDX_IO_MODULES THEN
 							Internal.IdxModule := 0;
@@ -159,7 +159,7 @@ FUNCTION_BLOCK GatIoForcingHandler
 				END_IF
 		END_CASE;
 	ELSE // Ready = TRUE
-		(* Check if current indices are populated *)
+		// Check if current indices are populated 
 		WHILE (brsstrlen(ADR(IoModules[Internal.IdxModule].IoChannels[Internal.IdxIoChannel].ChannelName)) = 0)
 			OR (SelectedRefreshMode AND NOT IoModules[Internal.IdxModule].IoChannels[Internal.IdxIoChannel].IoForcing.RefreshActualValue AND NOT (Internal.CommandState = 1)) DO
 			Internal.IdxModule := Internal.IdxModule + 1;
@@ -170,7 +170,7 @@ FUNCTION_BLOCK GatIoForcingHandler
 			END_IF
 		END_WHILE
 	
-		(* Set force value *)
+		// Set force value 
 		IF IoModules[Internal.IdxModule].IoChannels[Internal.IdxIoChannel].IoForcing.ForceValue <> Internal.ForceValue[Internal.IdxModule, Internal.IdxIoChannel] THEN
 			Internal.AsIOSetForceValue_Int.enable := TRUE;
 			Internal.AsIOSetForceValue_Int.pDatapoint := ADR(IoModules[Internal.IdxModule].IoChannels[Internal.IdxIoChannel].IoForcing.DpName);
@@ -182,7 +182,7 @@ FUNCTION_BLOCK GatIoForcingHandler
 				Internal.ForceValue[Internal.IdxModule, Internal.IdxIoChannel] := IoModules[Internal.IdxModule].IoChannels[Internal.IdxIoChannel].IoForcing.ForceValue;
 			END_IF
 		END_IF
-		(* Enable/Disable forcing *)
+		// Enable/Disable forcing 
 		IF IoModules[Internal.IdxModule].IoChannels[Internal.IdxIoChannel].IoForcing.SetForceActive <> Internal.ForceEnabled[Internal.IdxModule, Internal.IdxIoChannel] THEN
 			IF IoModules[Internal.IdxModule].IoChannels[Internal.IdxIoChannel].IoForcing.SetForceActive THEN
 				Internal.AsIOEnableForcing_Int.enable := TRUE;
@@ -204,7 +204,7 @@ FUNCTION_BLOCK GatIoForcingHandler
 				END_IF
 			END_IF
 		END_IF
-		(* Set actual value *)
+		// Set actual value 
 		Internal.AsIODPStatus_Int.enable := TRUE;
 		Internal.AsIODPStatus_Int.pDatapoint := ADR(IoModules[Internal.IdxModule].IoChannels[Internal.IdxIoChannel].IoForcing.DpName);
 		Internal.AsIODPStatus_Int();
@@ -217,7 +217,7 @@ FUNCTION_BLOCK GatIoForcingHandler
 			Internal.AsIODPStatus_Int.enable := FALSE;
 			Internal.AsIODPStatus_Int();
 		END_IF
-		(* Go to next index when nothing to do *)
+		// Go to next index when nothing to do 
 		IF ((Internal.AsIOSetForceValue_Int.status = ERR_FUB_ENABLE_FALSE) OR (Internal.AsIOSetForceValue_Int.status = ERR_OK))
 			AND ((Internal.AsIOEnableForcing_Int.status = ERR_FUB_ENABLE_FALSE) OR (Internal.AsIOEnableForcing_Int.status = ERR_OK))
 			AND ((Internal.AsIODisableForcing_Int.status = ERR_FUB_ENABLE_FALSE) OR (Internal.AsIODisableForcing_Int.status = ERR_OK))
@@ -230,9 +230,9 @@ FUNCTION_BLOCK GatIoForcingHandler
 			IF Internal.IdxModule > gatMAX_IDX_IO_MODULES THEN
 				Internal.IdxModule := 0;
 			END_IF
-			(* Handle command inputs *)
+			// Handle command inputs 
 			CASE Internal.CommandState OF
-				0: (* Wait for command *)
+				0: // Wait for command 
 					IF ResetAllForcing THEN
 						FOR Internal.IdxModuleCmd := 0 TO gatMAX_IDX_IO_MODULES DO
 							FOR Internal.IdxIoChannelCmd := 0 TO gatMAX_IDX_IO_CHANNELS DO
@@ -242,7 +242,7 @@ FUNCTION_BLOCK GatIoForcingHandler
 						CommandBusy := TRUE;
 						Internal.CommandState := 1;
 					END_IF
-				1: (* ResetAllForcing *)
+				1: // ResetAllForcing 
 					CommandBusy := TRUE;
 					FOR Internal.IdxModuleCmd := 0 TO gatMAX_IDX_IO_MODULES DO
 						FOR Internal.IdxIoChannelCmd := 0 TO gatMAX_IDX_IO_CHANNELS DO
@@ -251,11 +251,11 @@ FUNCTION_BLOCK GatIoForcingHandler
 							END_IF
 						END_FOR
 					END_FOR
-					(* All forcing is disabled *)
+					// All forcing is disabled 
 					CommandBusy := FALSE;
 					CommandDone := TRUE;
 					Internal.CommandState := 10;
-				10: (* Command done *)
+				10: // Command done 
 					CommandDone := TRUE;
 					IF NOT ResetAllForcing THEN
 						CommandDone := FALSE;
@@ -266,7 +266,7 @@ FUNCTION_BLOCK GatIoForcingHandler
 	END_IF
 END_FUNCTION_BLOCK
 
-(* Creates the IO data point name from the given information *)
+// Creates the IO data point name from the given information 
 FUNCTION GatMakeIoDpName
 	brsmemset(ADR(DpName), 0, SIZEOF(DpName));
 	
@@ -312,7 +312,7 @@ FUNCTION GatMakeIoDpName
 	GatMakeIoDpName := TRUE;
 END_FUNCTION
 
-(* Determines whether an IO channel should be accessible on the HMI *)
+// Determines whether an IO channel should be accessible on the HMI 
 FUNCTION GatIoIsVisible
 	GatIoIsVisible := TRUE;
 	IF (brsmemcmp(ADR(ChannelName), ADR('DigitalOutput'), 13) = 0) THEN

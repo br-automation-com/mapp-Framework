@@ -23,10 +23,12 @@ PROGRAM _INIT
 	MpFileManagerUI_0();
 
 	// Initialize FIFO feature
-	HmiFile.Parameters.Fifo.DeviceName := 'mappData';
-	HmiFile.Parameters.Fifo.MaxFolderSize := 20000;// kB
-	HmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
-	HmiFile.Parameters.Fifo.ScanInterval := 60;// minutes
+    HmiFile.Parameters.Fifo.DeviceName := 'mappData';
+    // MaxFolderSize is in kB
+	HmiFile.Parameters.Fifo.MaxFolderSize := 20000;
+    HmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
+    // ScanInterval is in minutes
+	HmiFile.Parameters.Fifo.ScanInterval := 60;
 	
 	HmiFile.Status.DeviceDataProvider[0] := '{"value":"mappRecipe","text":"mappRecipe"}';
 	HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappAudit","text":"mappAudit"}';

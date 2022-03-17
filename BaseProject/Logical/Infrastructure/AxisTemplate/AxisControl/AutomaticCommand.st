@@ -1,4 +1,3 @@
-﻿
 // Returns True if an automatic command is active
 FUNCTION AutomaticCommand
 

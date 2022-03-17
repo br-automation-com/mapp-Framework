@@ -1,4 +1,3 @@
-﻿
 ACTION SimulationControl:
 
     IF NOT (DiagCpuIsARsim() OR DiagCpuIsSimulated()) THEN

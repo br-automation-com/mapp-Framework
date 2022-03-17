@@ -2,7 +2,6 @@ ACTION AxisInit:
     
 END_ACTION
     
-
 ACTION AxisCyclic:
        
     MpAlarmXControlSpeedNotSetFB.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
@@ -13,7 +12,6 @@ ACTION AxisCyclic:
     
 END_ACTION
 
-  
 ACTION AxisManual:
     
     MpAxisParameters.Jog.Velocity := AxisControl.Parameters.JogVelocity;

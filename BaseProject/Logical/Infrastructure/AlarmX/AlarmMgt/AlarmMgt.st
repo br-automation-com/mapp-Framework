@@ -34,7 +34,7 @@ PROGRAM _INIT
 	
 	MpAlarmXHistoryUI_0.Enable := TRUE;
 	MpAlarmXHistoryUI_0.UISetup.AlarmListScrollWindow := 10;
-	MpAlarmXHistoryUI_0.UISetup.AlarmListSize := (SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID)/SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID[0]));
+    MpAlarmXHistoryUI_0.UISetup.AlarmListSize := (SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID) / SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID[0]));
 	MpAlarmXHistoryUI_0.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
 	MpAlarmXHistoryUI_0();
 	

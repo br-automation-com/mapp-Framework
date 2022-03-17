@@ -36,9 +36,9 @@ TYPE
 		Enable : BOOL;
 		DeviceName : STRING[50];
 		FifoType : FileFifoTypeEnum;
-		ScanInterval : DINT := 60;
-		MaxFileAge : UINT := 365; (*Files older than 1 year will be deleted*)
-		MaxFolderSize : REAL := 1000; (*kB - Max size of files inside the active folder*)
+		ScanInterval : DINT := 60; (*[minutes]*)
+		MaxFileAge : UINT := 365; (*[days] Files older than 1 year will be deleted*)
+		MaxFolderSize : REAL := 1000; (*[kB] - Max size of files inside the active folder*)
 		MaxNumberOfFiles : UINT := 20; (*Max number of files inside active folder*)
 	END_STRUCT;
 	FileHmiParametersType : 	STRUCT 

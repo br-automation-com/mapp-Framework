@@ -1,9 +1,8 @@
-﻿
+
 ACTION AxisInit:
     
 END_ACTION
     
-
 ACTION AxisCyclic:
 
     IF (MpRecipeRegPar_Par.UpdateNotification) THEN

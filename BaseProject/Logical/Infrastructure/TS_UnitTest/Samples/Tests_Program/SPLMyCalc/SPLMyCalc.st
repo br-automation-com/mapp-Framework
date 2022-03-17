@@ -6,9 +6,9 @@
  * Author: B+R
  ********************************************************************
  * Implementation of library SPLMyCalc
- ********************************************************************)
+ *******************************************************************
 
-(* This can be used as a sample for  Test Driven Development (TDD)/ Test First Development
+// This can be used as a sample for  Test Driven Development (TDD)/ Test First Development
 Steps (in a nutshell):
     o Define your API (FB, functions, ...)
 		 this is already done for the FB MyCalc
@@ -28,7 +28,7 @@ Note:
 	The sample test program in SPL_MyCalcLib_C provides some test cases using this FB.
 
 
- *)
+ 
 FUNCTION_BLOCK MyCalculator
 
 	Status := ERR_NOTIMPLEMENTED;
