@@ -51,15 +51,15 @@ PROGRAM _CYCLIC
 	END_IF
 
 	// Call all actions 
-    AlarmHandling;
+    AlarmHandling;  // PROBLEM RIGHT NOW. SHOULD MOVE THIS TO INIT, IF WE REMOVE THE FUB EXAMPLE
 	GetBacktraceInformation;
     ExecuteQuery;
-	AlarmSamples;
 	QueryTableConfig;
+	AlarmSamples;
     
 	// Check if any reactions are active. 
 	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application. 
-	// For example, the axis control task might check for the �Error� reaction to determine whether to send a stop command to the axes.
+	// For example, the axis control task might check for the 'Error' reaction to determine whether to send a stop command to the axes.
 	// Therefore, copy/paste these IF statements to other places in the application as needed. 
     IF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') THEN
         // Error is active. Add code here to respond to error situation.
@@ -88,7 +88,7 @@ PROGRAM _CYCLIC
         MpAlarmXHistoryUI_0.ErrorReset := FALSE;
     END_IF
     
-	// Assign MpLinks / UIConnects
+	// Assign MpLinks & UIConnects
 	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUI_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUI_0.UIConnect := ADR(MpAlarmXListUIConnect);

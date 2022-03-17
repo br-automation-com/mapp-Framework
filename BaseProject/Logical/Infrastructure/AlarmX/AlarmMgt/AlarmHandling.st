@@ -7,7 +7,8 @@ ACTION AlarmHandling:
     CommissioningModeActive;
     
 	// Define the condition which triggers each alarm below. 
-    Alarms[0];
+	Alarms[0]; 
+
 //    Alarms[1] := ;
 //    Alarms[2] := ;
 //    Alarms[3] := ;

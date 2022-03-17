@@ -41,16 +41,15 @@ END_PROGRAM
 
 PROGRAM _EXIT
 
-	// Disable the function blocls to unlink the MpLinks
+	// Disable the function blocls to unlink the MpLinks.
+	// Do NOT disable MpAxisBasic, as this can cause problems during project transfer.
     MpRecipeRegPar_Par.Enable := FALSE;
 	MpRecipeRegPar_Cfg.Enable := FALSE;
-	MpAxisBasicFB.Enable := FALSE;
 	MpAlarmXCoreFB.Enable := FALSE;
 	
 	// Call function blocks
 	MpRecipeRegPar_Par();
 	MpRecipeRegPar_Cfg();
-	MpAxisBasicFB();
 	MpAlarmXCoreFB();
 
 END_PROGRAM

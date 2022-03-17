@@ -281,6 +281,12 @@
         </Group>
       </Group>
     </Group>
-    <Selector ID="Alarms" Value="MpAlarmX" />
+    <Selector ID="Alarms" Value="MpAlarmX">
+      <Group ID="mapp.AlarmX.Core.Configuration">
+        <Group ID="[0]">
+          <Property ID="Message" Value="{$Report/Alarms/GenerateFailed}" />
+        </Group>
+      </Group>
+    </Selector>
   </Element>
 </Configuration>
