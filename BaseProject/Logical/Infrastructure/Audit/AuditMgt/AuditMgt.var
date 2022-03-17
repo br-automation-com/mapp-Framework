@@ -17,11 +17,11 @@ VAR
 END_VAR
 (*Audit Management Related Variables -------------------------------------------------------------------------------------*)
 VAR
-	sTableConfig : STRING[80];
+	TableConfig : STRING[80];
 	i : INT;
-	uDisplayFileNameIndex : USINT := 0; (*index of selected file for display in table in mappView*)
-	sStrSelectedFile : STRING[256] := '0'; (*Gives the path of selected report to pdfViewer in mappView*)
-	sDisplayFileName : ARRAY[0..49] OF STRING[255] := [50('')]; (*Displayed Files for mappView*)
+	DisplayFileNameIndex : USINT := 0; (*index of selected file for display in table in mappView*)
+	StrSelectedFile : STRING[256] := '0'; (*Gives the path of selected report to pdfViewer in mappView*)
+	DisplayFileName : ARRAY[0..49] OF STRING[255] := [50('')]; (*Displayed Files for mappView*)
 	STR_FILE_DEVICE : STRING[80] := '/FileDevice:mappAudit/'; (*File Device*)
 END_VAR
 VAR CONSTANT

@@ -8,23 +8,23 @@
 
 PROGRAM _INIT
 	(* Init Io handler *)
-	GatIoForcingHandler_0.Enable						:= TRUE;
-	GatIoForcingHandler_0.SelectedRefreshMode			:= TRUE;
-	GatIoForcingHandler_0.IoModules						:= ADR(IoModules);
+	GatIoForcingHandler_0.Enable := TRUE;
+	GatIoForcingHandler_0.SelectedRefreshMode := TRUE;
+	GatIoForcingHandler_0.IoModules := ADR(IoModules);
 
 	(* Init refresh selection *)
-	FOR uChannelIdx := 0 TO gatMAX_IDX_IO_CHANNELS DO
-		IoModules[0].IoChannels[uChannelIdx].IoForcing.RefreshActualValue	:= TRUE;
-	END_FOR;
+	FOR ChannelIdx := 0 TO gatMAX_IDX_IO_CHANNELS DO
+		IoModules[0].IoChannels[ChannelIdx].IoForcing.RefreshActualValue := TRUE;
+	END_FOR
 
 	(* Init Table configs for mappView *)
-	brsstrcpy(ADR(sTableConfig), ADR('{ "specRows": [{"from":0,"to":19, "visible":false}]}'));
-	brsstrcpy(ADR(sTableConfigStations), ADR('{ "specRows": [{"from":0,"to":19, "visible":false}]}'));
-	brsstrcpy(ADR(sTableConfigChannels), ADR('{ "specRows": [{"from":0,"to":31, "visible":false}]}'));
+	brsstrcpy(ADR(TableConfig), ADR('{ "specRows": [{"from":0,"to":19, "visible":false}]}'));
+	brsstrcpy(ADR(TableConfigStations), ADR('{ "specRows": [{"from":0,"to":19, "visible":false}]}'));
+	brsstrcpy(ADR(TableConfigChannels), ADR('{ "specRows": [{"from":0,"to":31, "visible":false}]}'));
 
 	(* Init pointers *)
-	pIoChannel ACCESS ADR(IoModules[0].IoChannels[0]);
-	pIoChannelTemp ACCESS ADR(IoModules[0].IoChannels[0]);
+	IoChannel ACCESS ADR(IoModules[0].IoChannels[0]);
+	IoChannelTemp ACCESS ADR(IoModules[0].IoChannels[0]);
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -37,6 +37,6 @@ END_PROGRAM
 
 PROGRAM _EXIT
 	(* Disabled function block call *)
-	GatIoForcingHandler_0.Enable						:= FALSE;
+	GatIoForcingHandler_0.Enable := FALSE;
 	GatIoForcingHandler_0();
 END_PROGRAM

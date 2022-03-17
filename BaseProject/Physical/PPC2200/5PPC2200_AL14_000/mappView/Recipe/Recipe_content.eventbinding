@@ -56,7 +56,7 @@
               <Sequence>
                 <Step order="0">
                   <Action>
-                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Commands.LoadRecipe">
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Commands.LoadRecipe">
                       <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                     </Target>
                   </Action>
@@ -80,7 +80,7 @@
         <Sequence>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.CreateDialogOpened">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Parameters.CreateDialogOpened">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -101,7 +101,7 @@
         <Sequence>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.EditDialogOpened">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Parameters.EditDialogOpened">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -184,7 +184,7 @@
       <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" event="SelectedIndexChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.CategoryDropdown">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Parameters.CategoryDropdown">
             <Method xsi:type="opcUa.NodeAction.SetValueString" value="=selectedValue" />
           </Target>
         </Action>
@@ -277,7 +277,7 @@
       </Operand>
       <EventHandler condition="contentId = &quot;Recipe_content&quot;">
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:hmiRecipe.Parameters.CategoryDropdown">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Parameters.CategoryDropdown">
             <Method xsi:type="opcUa.NodeAction.SetValueString" value="=CategoryDropdownValue" />
           </Target>
         </Action>

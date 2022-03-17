@@ -5,8 +5,8 @@
  *********************************************************************************)
 
 ACTION SimulateActValue:
-	IF bSimulationActive THEN
-		rSimAddValue	:= (rSimAddValue * 0.99) + (rOutValue * 0.01);
-		rActValue		:= (rActValue * 0.9999) + (0.01 * rSimAddValue);
-	END_IF;
+	IF SimulationActive THEN
+		SimAddValue	:= (SimAddValue * 0.99) + (OutValue * 0.01);
+		ActValue		:= (ActValue * 0.9999) + (0.01 * SimAddValue);
+	END_IF
 END_ACTION

@@ -5,41 +5,41 @@
  *********************************************************************************)
 
 ACTION AxisStatusUpdate:
-	FOR uAxIndex := 0 TO MAX_IDX_AXIS DO
+	FOR AxIndex := 0 TO MAX_IDX_AXIS DO
 		(************************ MpAxisBasic_x information *************************)
-		AxisControl[uAxIndex].Status.ActualPLCOpenState			:= MpAxisBasic_x[uAxIndex].Info.PLCopenState;
-		AxisControl[uAxIndex].Status.MovementActive				:= MpAxisBasic_x[uAxIndex].MoveActive;
-		AxisControl[uAxIndex].Status.TorqueLimited				:= MpAxisBasic_x[uAxIndex].Info.LimitLoadActive;
-		AxisControl[uAxIndex].Status.ActPosition				:= MpAxisBasic_x[uAxIndex].Position;
-		AxisControl[uAxIndex].Status.ActVelocity				:= MpAxisBasic_x[uAxIndex].Velocity;
-		AxisControl[uAxIndex].Status.Error						:= MpAxisBasic_x[uAxIndex].Error;
-		AxisControl[uAxIndex].Status.PowerOn					:= MpAxisBasic_x[uAxIndex].PowerOn;
-		AxisControl[uAxIndex].Status.IsHomed					:= MpAxisBasic_x[uAxIndex].IsHomed;
+		AxisControl[AxIndex].Status.ActualPLCOpenState := MpAxisBasic_x[AxIndex].Info.PLCopenState;
+		AxisControl[AxIndex].Status.MovementActive := MpAxisBasic_x[AxIndex].MoveActive;
+		AxisControl[AxIndex].Status.TorqueLimited := MpAxisBasic_x[AxIndex].Info.LimitLoadActive;
+		AxisControl[AxIndex].Status.ActPosition := MpAxisBasic_x[AxIndex].Position;
+		AxisControl[AxIndex].Status.ActVelocity := MpAxisBasic_x[AxIndex].Velocity;
+		AxisControl[AxIndex].Status.Error := MpAxisBasic_x[AxIndex].Error;
+		AxisControl[AxIndex].Status.PowerOn := MpAxisBasic_x[AxIndex].PowerOn;
+		AxisControl[AxIndex].Status.IsHomed := MpAxisBasic_x[AxIndex].IsHomed;
 	
-		IF MpAxisBasic_x[uAxIndex].Active AND (MpAxisBasic_x[uAxIndex].Info.CommunicationState = mcCOMM_STATE_ACTIVE) THEN
+		IF MpAxisBasic_x[AxIndex].Active AND (MpAxisBasic_x[AxIndex].Info.CommunicationState = mcCOMM_STATE_ACTIVE) THEN
 			(******************** MC_READACTUALTORQUE *********************)
-			MC_ReadActualTorque_x[uAxIndex].Enable				:= NOT(MC_ReadActualTorque_x[uAxIndex].Error);
-			MC_ReadActualTorque_x[uAxIndex]();
-			IF MC_ReadActualTorque_x[uAxIndex].Valid THEN
-				AxisControl[uAxIndex].Status.ActTorque			:= MC_ReadActualTorque_x[uAxIndex].Torque;
-			END_IF;
+			MC_ReadActualTorque_x[AxIndex].Enable := NOT(MC_ReadActualTorque_x[AxIndex].Error);
+			MC_ReadActualTorque_x[AxIndex]();
+			IF MC_ReadActualTorque_x[AxIndex].Valid THEN
+				AxisControl[AxIndex].Status.ActTorque := MC_ReadActualTorque_x[AxIndex].Torque;
+			END_IF
 	
 			(************************ MC_READAXISERROR **********************)
-			MC_ReadAxisError_x[uAxIndex].Enable					:= NOT(MC_ReadAxisError_x[uAxIndex].Error);
-			MC_ReadAxisError_x[uAxIndex]();
-			IF MC_ReadAxisError_x[uAxIndex].Valid THEN
-				AxisControl[uAxIndex].Status.ErrorID			:= MC_ReadAxisError_x[uAxIndex].AxisErrorID;
-			END_IF;
-		END_IF;
+			MC_ReadAxisError_x[AxIndex].Enable := NOT(MC_ReadAxisError_x[AxIndex].Error);
+			MC_ReadAxisError_x[AxIndex]();
+			IF MC_ReadAxisError_x[AxIndex].Valid THEN
+				AxisControl[AxIndex].Status.ErrorID := MC_ReadAxisError_x[AxIndex].AxisErrorID;
+			END_IF
+		END_IF
 		
 		(**************** CHECK FOR GENERAL AXIS ERROR ******************)
-		IF ((MC_ReadAxisError_x[uAxIndex].AxisErrorID <> 0) AND MC_ReadAxisError_x[uAxIndex].Valid) OR MpAxisBasic_x[uAxIndex].Error THEN
+		IF ((MC_ReadAxisError_x[AxIndex].AxisErrorID <> 0) AND MC_ReadAxisError_x[AxIndex].Valid) OR MpAxisBasic_x[AxIndex].Error THEN
 			(* Set error state if not already in error state / or error reset state *)
-			IF AxisControl[uAxIndex].AxisState < AX_STATE_ERROR THEN
-				AxisControl[uAxIndex].AxisState					:= AX_STATE_ERROR;
-			END_IF;
-		ELSIF AxisControl[uAxIndex].AxisState < AX_STATE_ERROR THEN
-			AxisControl[uAxIndex].Command.ErrorAcknowledge		:= FALSE ; 
-		END_IF;
-	END_FOR; // FOR uAxIndex := 0 TO MAX_IDX_AXIS DO
+			IF AxisControl[AxIndex].AxisState < AX_STATE_ERROR THEN
+				AxisControl[AxIndex].AxisState := AX_STATE_ERROR;
+			END_IF
+		ELSIF AxisControl[AxIndex].AxisState < AX_STATE_ERROR THEN
+			AxisControl[AxIndex].Command.ErrorAcknowledge := FALSE ; 
+		END_IF
+	END_FOR // FOR uAxIndex := 0 TO MAX_IDX_AXIS DO
 END_ACTION

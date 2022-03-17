@@ -6,11 +6,11 @@
             <Target xsi:type="brease" contentRefId="AlarmXHistory_content" widgetRefId="AlmHist" attribute="mpLink" />
         </Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::AlarmMgt:hmiAlarmX.Status.AlarmHistFilterCfg" attribute="value" />
+			<Source xsi:type="opcUa" refId="::AlarmMgt:HmiAlarmX.Status.AlarmHistFilterCfg" attribute="value" />
 			<Target xsi:type="brease" contentRefId="AlarmXHistory_content" widgetRefId="AlmHist" attribute="filterConfiguration" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::AlarmMgt:hmiAlarmX.Status.AlarmHistSortCfg" attribute="value" />
+			<Source xsi:type="opcUa" refId="::AlarmMgt:HmiAlarmX.Status.AlarmHistSortCfg" attribute="value" />
 			<Target xsi:type="brease" contentRefId="AlarmXHistory_content" widgetRefId="AlmHist" attribute="sortConfiguration" />
 		</Binding>
 </Bindings>

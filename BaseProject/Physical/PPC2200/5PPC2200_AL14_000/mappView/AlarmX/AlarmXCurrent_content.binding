@@ -47,11 +47,11 @@
             <Target xsi:type="brease" contentRefId="AlarmXCurrent_content" widgetRefId="NumericOutputBackTrace1" attribute="value" />
         </Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::AlarmMgt:hmiAlarmX.Status.AlarmFilterCfg" attribute="value" />
+			<Source xsi:type="opcUa" refId="::AlarmMgt:HmiAlarmX.Status.AlarmFilterCfg" attribute="value" />
 			<Target xsi:type="brease" contentRefId="AlarmXCurrent_content" widgetRefId="AlmLstCurrentAlarms" attribute="filterConfiguration" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::AlarmMgt:hmiAlarmX.Status.AlarmSortCfg" attribute="value" />
+			<Source xsi:type="opcUa" refId="::AlarmMgt:HmiAlarmX.Status.AlarmSortCfg" attribute="value" />
 			<Target xsi:type="brease" contentRefId="AlarmXCurrent_content" widgetRefId="AlmLstCurrentAlarms" attribute="sortConfiguration" />
 		</Binding>
 

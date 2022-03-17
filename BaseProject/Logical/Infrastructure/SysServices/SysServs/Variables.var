@@ -18,10 +18,10 @@ VAR
 	CfgSetSubnetMask_0 : CfgSetSubnetMask; (*GetSubnetMask*)
 	CfgSetIPAddr_0 : CfgSetIPAddr; (*GetIPAddr*)
 	CfgSetDefaultGateway_0 : CfgSetDefaultGateway; (*GetDefaultGateway*)
-	sCurrentMode : STRING[80]; (*Current Mode(Simulation/Runtime)*)
-	bSimulation : BOOL; (*Simulation Mode Flag(1: Simulation 0: Runtime)*)
-	bReadEthConfig : BOOL;
-	bWriteEthConfig : BOOL;
+	CurrentMode : STRING[80]; (*Current Mode(Simulation/Runtime)*)
+	Simulation : BOOL; (*Simulation Mode Flag(1: Simulation 0: Runtime)*)
+	ReadEthConfig : BOOL;
+	WriteEthConfig : BOOL;
 	DTStructureSetTime_0 : DTStructureGetTime;
 	DTStructureGetTime_0 : DTStructureSetTime;
 	DateTimeCfg : DTStructure; (*Date Structure*)

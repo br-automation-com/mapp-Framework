@@ -28,20 +28,20 @@ PROGRAM _INIT
 	MpRecipeUI_0.UISetup := MpRecipeUISetup;
 	MpRecipeUI_0();
 	
-	hmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
-	hmiRecipe.Parameters.DeviceDataProvider[0] := '{"value":"mappRecipe","text":"CF/PLC"}';
-	hmiRecipe.Parameters.DeviceName := 'mappRecipe';
+	HmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
+	HmiRecipe.Parameters.DeviceDataProvider[0] := '{"value":"mappRecipe","text":"CF/PLC"}';
+	HmiRecipe.Parameters.DeviceName := 'mappRecipe';
 	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipe_0.Enable := TRUE;
-	MpRecipe_0.Category := ADR(hmiRecipe.Parameters.Category);
-	MpRecipe_0.DeviceName := ADR(hmiRecipe.Parameters.DeviceName);
-    MpRecipe_0.FileName := ADR(hmiRecipe.Parameters.FileName);
+	MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
+	MpRecipe_0.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
+    MpRecipe_0.FileName := ADR(HmiRecipe.Parameters.FileName);
 	MpRecipe_0.Header := ADR(Header);
 
 	// Wait for MpRecipe_0 to activate. This must be active before you can call the RegPar function blocks.
 	WHILE NOT(MpRecipe_0.Active OR MpRecipe_0.Error) DO
 		MpRecipe_0();
-	END_WHILE;
+	END_WHILE
 	
     MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewPar.Enable := TRUE;
@@ -64,8 +64,8 @@ PROGRAM _INIT
 	END_WHILE
 	
 	// Load default Machine Settings recipe
-	hmiRecipe.Parameters.Category := MACHINE_CATEGORY;
-	hmiRecipe.Parameters.FileName := MACHINE_FILENAME;
+	HmiRecipe.Parameters.Category := MACHINE_CATEGORY;
+	HmiRecipe.Parameters.FileName := MACHINE_FILENAME;
 	MpRecipe_0.Load := TRUE;
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
@@ -77,17 +77,17 @@ PROGRAM _INIT
 	MpRecipe_0();
 
 	// Load default Parameter recipe 
-	hmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
-	hmiRecipe.Parameters.FileName := 'Default.par';
-	previousRecipe := 'Default.par';
+	HmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
+	HmiRecipe.Parameters.FileName := 'Default.par';
+	PreviousRecipe := 'Default.par';
 	MpRecipe_0.Load := TRUE;
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE
 	Parameters := ParametersPreview;
     
-	hmiRecipe.Parameters.LastLoadedProductRecipe := MpRecipe_0.Info.LastLoadedRecipe;
-	hmiRecipe.Parameters.LastLoadedConfigRecipe := MACHINE_FILENAME;
+	HmiRecipe.Parameters.LastLoadedProductRecipe := MpRecipe_0.Info.LastLoadedRecipe;
+	HmiRecipe.Parameters.LastLoadedConfigRecipe := MACHINE_FILENAME;
 	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
 	MpRecipe_0.Load := FALSE;
 	MpRecipe_0();
@@ -104,7 +104,7 @@ PROGRAM _INIT
 	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := '';
 	MpFileManagerUI_0();
 	
-	hmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
+	HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 	
 END_PROGRAM
 
@@ -119,35 +119,35 @@ PROGRAM _CYCLIC
     // Reset category after saving is done, category should be reset so that autosave files contain ALL the parameters 
     IF EDGEPOS(MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) AND ((NOT MpRecipeUIConnect.Recipe.Load) AND (NOT MpRecipeUIConnect.Recipe.Save)) THEN
         // Check if 'Product' category has been loaded 
-        IF ((brsstrcmp(ADR(hmiRecipe.Parameters.Category), ADR(PRODUCT_CATEGORY)) = 0) AND (hmiRecipe.Parameters.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
-			hmiRecipe.Parameters.LastLoadedProductRecipe := MpRecipe_0.Info.LastLoadedRecipe;
+        IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PRODUCT_CATEGORY)) = 0) AND (HmiRecipe.Parameters.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
+			HmiRecipe.Parameters.LastLoadedProductRecipe := MpRecipe_0.Info.LastLoadedRecipe;
 			MpRecipe_0.UpdateNotification := TRUE;
-		ELSIF ((brsstrcmp(ADR(hmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY)) = 0) AND (hmiRecipe.Parameters.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
-			hmiRecipe.Parameters.LastLoadedConfigRecipe := MpRecipe_0.Info.LastLoadedRecipe;
+		ELSIF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY)) = 0) AND (HmiRecipe.Parameters.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
+			HmiRecipe.Parameters.LastLoadedConfigRecipe := MpRecipe_0.Info.LastLoadedRecipe;
 			MpRecipe_0.UpdateNotification := TRUE;
         END_IF
 		// Trigger a reload of the preview parameters 
-        hmiRecipe.Parameters.LastSelectedIndex := hmiRecipe.Parameters.LastSelectedIndex + 1;
-        brsstrcpy(ADR(hmiRecipe.Parameters.Category), ADR(PRODUCT_CATEGORY));
+        HmiRecipe.Parameters.LastSelectedIndex := HmiRecipe.Parameters.LastSelectedIndex + 1;
+        brsstrcpy(ADR(HmiRecipe.Parameters.Category), ADR(PRODUCT_CATEGORY));
     END_IF
-    hmiRecipe.Parameters.LastStatus := MpRecipeUIConnect.Status;
-	hmiRecipe.Parameters.ActiveRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
+    HmiRecipe.Parameters.LastStatus := MpRecipeUIConnect.Status;
+	HmiRecipe.Parameters.ActiveRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
 
     // Save current recipe 
-    IF (hmiRecipe.Commands.SaveCurrentRecipe = TRUE) AND NOT (MpRecipe_0.Load OR MpRecipe_0.Save OR MpRecipe_0.UpdateNotification) THEN
-		hmiRecipe.Parameters.FileName := hmiRecipe.Parameters.LastLoadedProductRecipe;
+    IF (HmiRecipe.Commands.SaveCurrentRecipe = TRUE) AND NOT (MpRecipe_0.Load OR MpRecipe_0.Save OR MpRecipe_0.UpdateNotification) THEN
+		HmiRecipe.Parameters.FileName := HmiRecipe.Parameters.LastLoadedProductRecipe;
         DTGetTime_0(enable := TRUE);
         Header.DateTime := DTGetTime_0.DT1;
-        Header.Name := hmiRecipe.Parameters.FileName;
+        Header.Name := HmiRecipe.Parameters.FileName;
         Header.Description := '';
         MpRecipe_0.Save := TRUE;
-        hmiRecipe.Commands.SaveCurrentRecipe := FALSE;
+        HmiRecipe.Commands.SaveCurrentRecipe := FALSE;
     END_IF
 	
 	// Reset commands on MpRecipe FUB 
 	IF MpRecipe_0.CommandDone THEN
 		// Set update notification for machine category 
-		IF ((brsstrcmp(ADR(hmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
+		IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
 			MpRecipe_0.UpdateNotification := TRUE;
 			MpRecipe_0.Load := FALSE;
 			MpRecipe_0.Save := FALSE;
@@ -155,8 +155,8 @@ PROGRAM _CYCLIC
 			MpRecipe_0.UpdateNotification := FALSE;
 			MpRecipe_0.Load := FALSE;
 			MpRecipe_0.Save := FALSE;
-			hmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
-			hmiRecipe.Parameters.FileName := 'Default.par';
+			HmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
+			HmiRecipe.Parameters.FileName := 'Default.par';
         END_IF
     END_IF	
     

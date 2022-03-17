@@ -16,13 +16,13 @@ ACTION ConfigurationInit:
     MC_BR_ProcessConfig_ACP.DataAddress := ADR(AxisSettings.DriveConfiguration);
     MC_BR_ProcessConfig_ACP.DataType := mcCFG_PURE_V_AX;
     
-    configurationState := CONFIG_STATE_INIT;
+    ConfigurationState := CONFIG_STATE_INIT;
     
 END_ACTION
 
 ACTION ChangeConfiguration:
 
-    CASE configurationState OF
+    CASE ConfigurationState OF
         CONFIG_STATE_INIT:
 
             // Build up the string for the name 
@@ -30,7 +30,7 @@ ACTION ChangeConfiguration:
             MC_BR_ProcessConfig_AX.Name := MpAxisBasicFB.Info.HardwareInfo.Axis.AxisName;
             
             IF (MpAxisBasicFB.Active = TRUE) THEN
-                configurationState := CONFIG_STATE_READ;
+                ConfigurationState := CONFIG_STATE_READ;
             END_IF
 
         CONFIG_STATE_READ:
@@ -42,7 +42,7 @@ ACTION ChangeConfiguration:
             IF (MC_BR_ProcessConfig_ACP.Done = TRUE) AND (MC_BR_ProcessConfig_AX.Done = TRUE) THEN
                 MC_BR_ProcessConfig_ACP.Execute := FALSE;
                 MC_BR_ProcessConfig_AX.Execute := FALSE;
-                configurationState := CONFIG_STATE_READY;
+                ConfigurationState := CONFIG_STATE_READY;
             END_IF
     
         CONFIG_STATE_WRITE:
@@ -54,7 +54,7 @@ ACTION ChangeConfiguration:
             IF (MC_BR_ProcessConfig_ACP.Done = TRUE) AND (MC_BR_ProcessConfig_AX.Done = TRUE) THEN
                 MC_BR_ProcessConfig_ACP.Execute := FALSE;
                 MC_BR_ProcessConfig_AX.Execute := FALSE;
-                configurationState := CONFIG_STATE_READY;
+                ConfigurationState := CONFIG_STATE_READY;
             END_IF
             
         CONFIG_STATE_READY:

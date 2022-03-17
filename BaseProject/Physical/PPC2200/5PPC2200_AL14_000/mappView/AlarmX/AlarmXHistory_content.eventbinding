@@ -5,7 +5,7 @@
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXHistory_content" widgetRefId="PBtnExport" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:hmiAlarmX.Commands.ExportAlarms">
+          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:HmiAlarmX.Commands.ExportAlarms">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -32,7 +32,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="hmiAlarmX.Commands.ExportAlarms.Success">
-      <Source xsi:type="opcUa.Event" refId="::AlarmMgt:hmiAlarmX.Commands.ExportAlarms" event="ValueChanged" />
+      <Source xsi:type="opcUa.Event" refId="::AlarmMgt:HmiAlarmX.Commands.ExportAlarms" event="ValueChanged" />
       <EventHandler condition="newValue = false AND oldValue = true">
         <Action>
           <Target xsi:type="clientSystem.Action">

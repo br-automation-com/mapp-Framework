@@ -46,7 +46,7 @@ PROGRAM _CYCLIC
         MpAlarmXListUIConnect.AcknowledgeAll := TRUE;
 	END_IF
 	
-	IF (hmiAlarmX.Commands.ExportAlarms = TRUE) THEN
+	IF (HmiAlarmX.Commands.ExportAlarms = TRUE) THEN
 		MpAlarmXHistory_0.Export := TRUE;
 	END_IF
 
@@ -70,7 +70,7 @@ PROGRAM _CYCLIC
 	END_IF
 	
 	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
-		hmiAlarmX.Commands.ExportAlarms := FALSE;
+		HmiAlarmX.Commands.ExportAlarms := FALSE;
 		MpAlarmXHistory_0.Export := FALSE;
 	END_IF
 

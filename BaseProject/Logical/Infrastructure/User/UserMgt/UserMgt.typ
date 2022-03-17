@@ -22,11 +22,11 @@ TYPE
 		ErrorReset : BOOL; (*Error Reset*)
 	END_STRUCT;
 	UserMainType : 	STRUCT  (*Main Control Data Type for User Management*)
-		CMD : UserCmdType; (*Command of User Management*)
-		PAR : UserParType; (*Parameters for User Management*)
-		DAT : UserDatType; (*Data for User Management*)
-		VIS : ARRAY[0..MAX_USER_CLIENTS]OF UserVisType; (*Vision related variables for User Management*)
-		ERR : UserErrType; (*Errors in User Management*)
+		Command : UserCmdType; (*Command of User Management*)
+		Parameter : UserParType; (*Parameters for User Management*)
+		Data : UserDatType; (*Data for User Management*)
+		Visualization : ARRAY[0..MAX_USER_CLIENTS]OF UserVisType; (*Vision related variables for User Management*)
+		Error : UserErrType; (*Errors in User Management*)
 	END_STRUCT;
 	UserDatType : 	STRUCT  (*Data Data Type for User Management*)
 		Users : ARRAY[0..MAX_USER_NAMES]OF UserDetailsType; (*Users details*)

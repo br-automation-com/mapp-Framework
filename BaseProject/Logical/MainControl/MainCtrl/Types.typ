@@ -91,9 +91,9 @@ TYPE
 		ProductLength : ARRAY[0..4]OF REAL; (*Real Product Length*)
 	END_STRUCT;
 	MainCtrlType : 	STRUCT  (*Structure Type for Main Control *)
-		Cmd : MainCmdType; (*Main Control Command*)
-		FixPar : MainFixParametersType; (*Main Control Parameters*)
-		Para : MainParametersType; (*Main Control Parameters*)
+		Command : MainCmdType; (*Main Control Command*)
+		FixParameter : MainFixParametersType; (*Main Control Parameters*)
+		Parameter : MainParametersType; (*Main Control Parameters*)
 		Status : MainStatusType; (*Main Control Status*)
 		Intern : MainInternType;
 	END_STRUCT;

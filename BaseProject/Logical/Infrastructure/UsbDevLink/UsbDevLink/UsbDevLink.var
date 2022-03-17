@@ -13,5 +13,5 @@ VAR
 	TempFileDevName : STRING[30] := '';
 	TempUSBInfo : usbNode_typ := (0); (*temp info structure*)
 	Index : USINT := 0; (*index to loop through ussb devices*)
-	bAttachedUSB : ARRAY[0..MAX_IDX_USB_DEV_LIST] OF BOOL := [2(FALSE)];
+	AttachedUSB : ARRAY[0..MAX_IDX_USB_DEV_LIST] OF BOOL := [2(FALSE)];
 END_VAR

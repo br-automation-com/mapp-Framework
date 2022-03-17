@@ -1,9 +1,9 @@
-	(*********************************************************************************
-	* Copyright: B&R Industrial Automation GmbH 
-	* Author:    B&R Industrial Automation GmbH 
-	* Created:   30. Sep 2020/08:00 
-	* Description: Tasks FOR Data Management control. The Data Management handling is done in this task.
-	*********************************************************************************)
+(*********************************************************************************
+* Copyright: B&R Industrial Automation GmbH 
+* Author:    B&R Industrial Automation GmbH 
+* Created:   30. Sep 2020/08:00 
+* Description: Tasks FOR Data Management control. The Data Management handling is done in this task.
+*********************************************************************************)
 
 
 PROGRAM _INIT
@@ -46,33 +46,33 @@ PROGRAM _CYCLIC
 	//***************************************************
 	FOR i := 0 TO 49 DO
 		// Save Filenames to a seperate array for display in Table
-		sDisplayFileName[i]											:= MpFileManagerUIConnect.File.List.Items[i].Name;
+		DisplayFileName[i]											:= MpFileManagerUIConnect.File.List.Items[i].Name;
 		// mark file selection
-		MpFileManagerUIConnect.File.List.Items[i].IsSelected		:= (uDisplayFileNameIndex = INT_TO_USINT(i));	
+		MpFileManagerUIConnect.File.List.Items[i].IsSelected		:= (DisplayFileNameIndex = INT_TO_USINT(i));	
 	END_FOR
-	sStrSelectedFile := CONCAT(STR_FILE_DEVICE, MpFileManagerUIConnect.File.List.Items[uDisplayFileNameIndex].Name);		// String for pdfViewer to display right report
+	StrSelectedFile := CONCAT(STR_FILE_DEVICE, MpFileManagerUIConnect.File.List.Items[DisplayFileNameIndex].Name);		// String for pdfViewer to display right report
 	
 	(* Configure visible file list *)
-	brsstrcpy(ADR(sTableConfig), ADR('{ "specRows": [{"from":'));
-	brsitoa(MpFileManagerUIConnect.File.PathInfo.FileCount, ADR(sTableConfig) + brsstrlen(ADR(sTableConfig)));
-	brsstrcat(ADR(sTableConfig),  ADR(',"to":49, "visible":false}]}'));
+	brsstrcpy(ADR(TableConfig), ADR('{ "specRows": [{"from":'));
+	brsitoa(MpFileManagerUIConnect.File.PathInfo.FileCount, ADR(TableConfig) + brsstrlen(ADR(TableConfig)));
+	brsstrcat(ADR(TableConfig),  ADR(',"to":49, "visible":false}]}'));
 
 	(* Call function blocks *)
 	MpDataRecorder_0();
 	FOR i := 0 TO MAX_IDX_DATA_REG DO
 		MpDataRegPar_x[i]();
-	END_FOR;
+	END_FOR
 	MpFileManagerUI_0();
 
 	(* Reset ErrorReset command *)
 	IF NOT MpDataRecorder_0.Error THEN
 		MpDataRecorder_0.ErrorReset			:= FALSE;
-	END_IF;
+	END_IF
 	FOR i := 0 TO MAX_IDX_DATA_REG DO
 		IF NOT MpDataRegPar_x[i].Error THEN
 			MpDataRegPar_x[i].ErrorReset	:= FALSE;
-		END_IF;
-	END_FOR;
+		END_IF
+	END_FOR
 END_PROGRAM
 
 PROGRAM _EXIT
@@ -84,6 +84,6 @@ PROGRAM _EXIT
 	FOR i := 0 TO MAX_IDX_DATA_REG DO
 		MpDataRegPar_x[i].Enable	:= FALSE;
 		MpDataRegPar_x[i]();
-	END_FOR;
+	END_FOR
 END_PROGRAM
 

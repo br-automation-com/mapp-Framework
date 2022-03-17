@@ -19,10 +19,10 @@ END_VAR
 (*Data Management Related Function Blocks--------------------------------------------------------------------------------------------*)
 VAR
 	MpFileManagerUI_0 : MpFileManagerUI; (*File Manager Function Block*)
-	sDisplayFileName : ARRAY[0..49] OF STRING[80]; (*Displayed File Name*)
-	sStrSelectedFile : STRING[80]; (*Selected File*)
-	sTableConfig : STRING[80];
-	uDisplayFileNameIndex : USINT; (*Selected file index*)
+	DisplayFileName : ARRAY[0..49] OF STRING[80]; (*Displayed File Name*)
+	StrSelectedFile : STRING[80]; (*Selected File*)
+	TableConfig : STRING[80];
+	DisplayFileNameIndex : USINT; (*Selected file index*)
 END_VAR
 (*Constants*)
 VAR CONSTANT

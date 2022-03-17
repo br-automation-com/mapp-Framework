@@ -23,18 +23,18 @@ PROGRAM _INIT
 	MpFileManagerUI_0();
 
 	// Initialize FIFO feature 
-	hmiFile.Parameters.Fifo.DeviceName := 'mappData';
-	hmiFile.Parameters.Fifo.MaxFolderSize := 20000; // kB
-	hmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
-	hmiFile.Parameters.Fifo.ScanInterval := 60; // minutes
+	HmiFile.Parameters.Fifo.DeviceName := 'mappData';
+	HmiFile.Parameters.Fifo.MaxFolderSize := 20000; // kB
+	HmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
+	HmiFile.Parameters.Fifo.ScanInterval := 60; // minutes
 	
-	hmiFile.Status.DeviceDataProvider[0] := '{"value":"mappRecipe","text":"mappRecipe"}';
-	hmiFile.Status.DeviceDataProvider[1] := '{"value":"mappAudit","text":"mappAudit"}';
-	hmiFile.Status.DeviceDataProvider[2] := '{"value":"mappReport","text":"mappReport"}';
-	hmiFile.Status.DeviceDataProvider[3] := '{"value":"mappData","text":"mappData"}';
-	hmiFile.Status.DeviceDataProvider[4] := '{"value":"mappBackup","text":"mappBackup"}';
-	hmiFile.Status.DeviceDataProvider[5] := '{"value":"mappAlarmX","text":"mappAlarmX"}';
-	hmiFile.Status.DeviceDataProvider[6] := '{"value":"mappUserX","text":"mappUserX"}';
+	HmiFile.Status.DeviceDataProvider[0] := '{"value":"mappRecipe","text":"mappRecipe"}';
+	HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappAudit","text":"mappAudit"}';
+	HmiFile.Status.DeviceDataProvider[2] := '{"value":"mappReport","text":"mappReport"}';
+	HmiFile.Status.DeviceDataProvider[3] := '{"value":"mappData","text":"mappData"}';
+	HmiFile.Status.DeviceDataProvider[4] := '{"value":"mappBackup","text":"mappBackup"}';
+	HmiFile.Status.DeviceDataProvider[5] := '{"value":"mappAlarmX","text":"mappAlarmX"}';
+	HmiFile.Status.DeviceDataProvider[6] := '{"value":"mappUserX","text":"mappUserX"}';
 	
 END_PROGRAM
 
@@ -43,7 +43,7 @@ PROGRAM _CYCLIC
 	// Call all actions
 	FormatDeviceDataProvider;
 	FileManager;
-	IF hmiFile.Parameters.Fifo.Enable THEN
+	IF HmiFile.Parameters.Fifo.Enable THEN
 		FIFOOperation;
 	END_IF 
 	

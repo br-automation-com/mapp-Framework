@@ -8,11 +8,11 @@ ACTION ExecuteQuery:
     
     CASE (AlarmQuery.State) OF
         ACTIVE_ALARM_WAIT:
-            IF (hmiAlarmX.Commands.RunQuery = TRUE) THEN
+            IF (HmiAlarmX.Commands.RunQuery = TRUE) THEN
                 brsmemset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
                 AlarmQuery.LastActiveAlarmUpdateCount := AlarmQuery.ActiveAlarmUpdateCount;
 				QueryActiveAlarms.Execute := TRUE;
-				hmiAlarmX.Commands.RunQuery := FALSE;
+				HmiAlarmX.Commands.RunQuery := FALSE;
                 AlarmQuery.State := ACTIVE_ALARM_QUERY;
             END_IF
             
@@ -49,6 +49,6 @@ ACTION ExecuteQuery:
 		AlarmQueryHMI.AdditionalInfo[i] := AlarmQuery.Alarms[i].AdditionalInfo;
 		AlarmQueryHMI.TimeStamp[i] := AlarmQuery.Alarms[i].TimeStamp;
 		AlarmQueryHMI.Severity[i] := AlarmQuery.Alarms[i].Severity;
-	END_FOR;
+	END_FOR
     
 END_ACTION

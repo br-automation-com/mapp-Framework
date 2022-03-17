@@ -1,9 +1,9 @@
-	(*********************************************************************************
-	* Copyright: B&R Industrial Automation GmbH 
-	* Author:    B&R Industrial Automation GmbH 
-	* Created:   30. Sep 2020/08:00 
-	* Description: Tasks FOR report control. The Report Control handling is done in this task.
-	*********************************************************************************)
+(*********************************************************************************
+* Copyright: B&R Industrial Automation GmbH 
+* Author:    B&R Industrial Automation GmbH 
+* Created:   30. Sep 2020/08:00 
+* Description: Tasks FOR report control. The Report Control handling is done in this task.
+*********************************************************************************)
 
 PROGRAM _INIT
 
@@ -29,9 +29,9 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 	(* Configure visible file list *)
-	brsstrcpy(ADR(sTableConfig), ADR('{ "specRows": [{"from":'));
-	brsitoa(MpFileManagerUIConnect.File.PathInfo.FileCount, ADR(sTableConfig) + brsstrlen(ADR(sTableConfig)));
-	brsstrcat(ADR(sTableConfig),  ADR(',"to":49, "visible":false}]}'));
+	brsstrcpy(ADR(TableConfig), ADR('{ "specRows": [{"from":'));
+	brsitoa(MpFileManagerUIConnect.File.PathInfo.FileCount, ADR(TableConfig) + brsstrlen(ADR(TableConfig)));
+	brsstrcat(ADR(TableConfig),  ADR(',"to":49, "visible":false}]}'));
 	
 	// Refresh report action
 	RefreshReport;
@@ -39,7 +39,7 @@ PROGRAM _CYCLIC
 	(* Reset ErrorReset command *)
 	IF NOT MpReportCore_0.Error THEN
 		MpReportCore_0.ErrorReset	:= FALSE;
-	END_IF;
+	END_IF
 	
 	(* Function block calls *)
 	MpReportCore_0();

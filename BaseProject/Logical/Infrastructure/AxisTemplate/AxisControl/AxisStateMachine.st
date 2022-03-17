@@ -7,7 +7,7 @@ ACTION AxisStateMachine:
     ReferenceEdgePos.CLK := AxisControl.Command.Reference;
     ReferenceEdgePos();
     
-    CASE state OF
+    CASE State OF
         STATE_STOPPING..STATE_RESETTING:
             // nothing to do as we are already handling any stop or errors in these states
             
@@ -15,24 +15,24 @@ ACTION AxisStateMachine:
             IF ((MpAxisBasicFB.Error = TRUE) OR MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error')) THEN
                 // Check alarm reaction 
                 ResetAllAxisCommands;
-                state := STATE_ABORTING;
-            ELSIF ((AxisControl.Command.Power = FALSE) AND (state > STATE_POWER_ON)) THEN
+                State := STATE_ABORTING;
+            ELSIF ((AxisControl.Command.Power = FALSE) AND (State > STATE_POWER_ON)) THEN
                 ResetAllAxisCommands;
                 AxisControl.Status.Busy := TRUE;
                 MpAxisBasicFB.Power := FALSE;
-                state := STATE_POWER_ON;
+                State := STATE_POWER_ON;
             END_IF
     
     END_CASE
     
-    CASE state OF
+    CASE State OF
     
         STATE_INIT:
             AxisControl.Status.Status := 'Initializing';
             ChangeConfiguration;
-            IF ((configurationState = CONFIG_STATE_READY) AND (MpAxisBasicFB.Active = TRUE)) THEN
+            IF ((ConfigurationState = CONFIG_STATE_READY) AND (MpAxisBasicFB.Active = TRUE)) THEN
                 AxisControl.Status.IsReady := TRUE;
-                state := STATE_POWER_ON;
+                State := STATE_POWER_ON;
             END_IF
             
         STATE_POWER_ON:
@@ -45,7 +45,7 @@ ACTION AxisStateMachine:
             IF (MpAxisBasicFB.PowerOn = TRUE) THEN
                 MC_BR_CheckRestorePositionDataFB.Execute := (MpAxisBasicFB.Info.HardwareInfo.Axis.AxisType <> mcAX_TYPE_PURE_VIRT);
                 AxisControl.Status.Busy := FALSE;
-                state := STATE_HOME;
+                State := STATE_HOME;
             ELSE
                 ChangeConfiguration;
             END_IF
@@ -59,7 +59,7 @@ ACTION AxisStateMachine:
                 AxisControl.Status.Busy := TRUE;
             ELSIF (MC_BR_CheckRestorePositionDataFB.Busy = FALSE) THEN
                 AxisControl.Status.ReferenceRequired := TRUE;
-                state := STATE_REFERENCE;
+                State := STATE_REFERENCE;
             END_IF
             
             IF (MpAxisBasicFB.IsHomed = TRUE) THEN
@@ -68,7 +68,7 @@ ACTION AxisStateMachine:
                 AxisControl.Status.Busy := FALSE;
                 AxisControl.Command.Reference := FALSE;
                 MpAxisBasicFB.Home := FALSE;
-                state := STATE_MOVE_TO_HOME_POSITION;
+                State := STATE_MOVE_TO_HOME_POSITION;
                 ResetAllAxisCommands;
             END_IF
             
@@ -85,7 +85,7 @@ ACTION AxisStateMachine:
                 MC_BR_CheckRestorePositionDataFB.Execute := FALSE;
                 AxisControl.Status.ReferenceRequired := FALSE;
                 MpAxisBasicFB.Home := FALSE;
-                state := STATE_MOVE_TO_HOME_POSITION;
+                State := STATE_MOVE_TO_HOME_POSITION;
                 ResetAllAxisCommands;
             END_IF
             
@@ -97,19 +97,19 @@ ACTION AxisStateMachine:
             IF (InPositionEdgePos.Q  = TRUE) THEN
                 AxisControl.Status.Busy := FALSE;
                 MpAxisBasicFB.MoveAbsolute := FALSE;
-                state := STATE_READY;
+                State := STATE_READY;
             END_IF
             
-        // In this state the module is error free and ready for a command (manual or automatic)
+        // In this State the module is error free and ready for a command (manual or automatic)
         STATE_READY:
             AxisControl.Status.Status := 'Ready';
             AxisControl.Status.Busy := FALSE;
             IF (ReferenceEdgePos.Q = TRUE) THEN
-                state := STATE_REFERENCE;
+                State := STATE_REFERENCE;
             ELSIF ((MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Warning') = FALSE) AND (AutomaticCommand(AxisControl.Command) = TRUE)) THEN
-                state := STATE_AUTOMATIC_OPERATION;
+                State := STATE_AUTOMATIC_OPERATION;
             ELSIF (ManualCommand(AxisControl.Command) = TRUE) THEN
-                state := STATE_MANUAL_OPERATION;
+                State := STATE_MANUAL_OPERATION;
             END_IF
         
         STATE_MANUAL_OPERATION:
@@ -126,7 +126,7 @@ ACTION AxisStateMachine:
             
             AxisAutomatic;
             
-        // In this state the module will attempt to bring the axis to a controlled stop.
+        // In this State the module will attempt to bring the axis to a controlled stop.
         STATE_STOPPING:
             AxisControl.Status.Status := 'Stopping';
             
@@ -135,14 +135,14 @@ ACTION AxisStateMachine:
             MpAxisParameters.Deceleration := AxisControl.Parameters.StopDeceleration;
             IF ((MpAxisBasicFB.PowerOn = FALSE) OR (MpAxisBasicFB.Stopped = TRUE)) THEN
                 MpAxisBasicFB.Stop := FALSE;
-                state := STATE_STOPPED;
+                State := STATE_STOPPED;
             END_IF
 
-        // In this state the module is powered on and at standstill.
+        // In this State the module is powered on and at standstill.
         STATE_STOPPED:
-            state := STATE_RESETTING;
+            State := STATE_RESETTING;
 
-        // In this state the module will bring the axis to a rapid stop
+        // In this State the module will bring the axis to a rapid stop
         STATE_ABORTING:
             MpAxisParameters.Stop.Deceleration := 0;
             MpAxisBasicFB.Stop := MpAxisBasicFB.PowerOn;
@@ -152,20 +152,20 @@ ACTION AxisStateMachine:
                     // Safety errors also power off the axis
                     MpAxisBasicFB.Power := FALSE;
                     IF (MpAxisBasicFB.PowerOn = FALSE) THEN
-                        state := STATE_ABORTED;
+                        State := STATE_ABORTED;
                     END_IF
                 ELSE
-                    state := STATE_ABORTED;
+                    State := STATE_ABORTED;
                 END_IF
             END_IF
             
         STATE_ABORTED:
-            state := STATE_CLEARING;
+            State := STATE_CLEARING;
             
         STATE_CLEARING:
-            state := STATE_RESETTING;
+            State := STATE_RESETTING;
         
-        // In this state the module attempts to clear any outstanding errors.  No hazardous motion should occur in this state.
+        // In this State the module attempts to clear any outstanding errors.  No hazardous motion should occur in this State.
         STATE_RESETTING:
             ResetAllAxisCommands;
             IF (AxisControl.Command.Reset = TRUE) THEN
@@ -180,11 +180,11 @@ ACTION AxisStateMachine:
             IF ((MpAxisBasicFB.Error = FALSE) AND (MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') = FALSE)) THEN
                 AxisControl.Status.Busy := FALSE;
                 IF (MpAxisBasicFB.PowerOn = FALSE) THEN
-                    state := STATE_POWER_ON;
+                    State := STATE_POWER_ON;
                 ELSIF (MpAxisBasicFB.IsHomed = TRUE) THEN
-                    state := STATE_READY;
+                    State := STATE_READY;
                 ELSE
-                    state := STATE_HOME;
+                    State := STATE_HOME;
                 END_IF
             END_IF
         
@@ -193,7 +193,7 @@ ACTION AxisStateMachine:
     MpAxisBasicFB.Parameters := ADR(MpAxisParameters);
     MpAxisBasicFB();
     
-    MC_BR_CheckRestorePositionDataFB.DataAddress := ADR(restorePosition);
+    MC_BR_CheckRestorePositionDataFB.DataAddress := ADR(RestorePosition);
     MC_BR_CheckRestorePositionDataFB();
     
     AxisControl.Status.ErrorActive := MpAxisBasicFB.Error;
