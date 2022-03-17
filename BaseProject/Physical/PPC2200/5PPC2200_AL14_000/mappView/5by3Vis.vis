@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <vdef:Visualization id="MyVisu" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
-	<StartPage pageRefId="File_page" />
+	<StartPage pageRefId="Start_page" />
 	<Pages>
 		<Page refId="Axis_page"/> 
 		<Page refId="Welcome_page" />
@@ -53,6 +53,8 @@
         <BindingsSet refId="File_content_binding" />
 		<BindingsSet refId="FileDialog_Message_dialog_content_binding" /> 
 		<BindingsSet refId="FileDialog_FIFO_dialog_content_binding" /> 
+		<BindingsSet refId="Navigation_content_binding" /> 
+		
     </BindingsSets>
 	<EventBindingsSets>
 		<EventBindingsSet refId="AlarmXCurrent_content_eventbinding" />
@@ -89,6 +91,9 @@
 		<EventBindingsSet refId="File_content_eventbinding" />
 		<EventBindingsSet refId="FileDialog_Message_dialog_content_eventbinding" />
 		<EventBindingsSet refId="FileDialog_FIFO_dialog_content_eventbinding" />
+		<EventBindingsSet refId="Navigation_content_eventbinding" />
+		
+		
 	</EventBindingsSets>
 	<Dialogs>
 		<Dialog refId="NewRecipe_dialog" />

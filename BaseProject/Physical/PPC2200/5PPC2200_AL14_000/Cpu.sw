@@ -42,7 +42,6 @@
     <BinaryObject Name="TCData" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="udbdef" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="FWRules" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="McMechSys" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="mvLoader" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McAcpSim" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arflatprv" Source="" Memory="UserROM" Language="Binary" />
@@ -86,6 +85,8 @@
     <BinaryObject Name="Axis1Alm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Axis1Grp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AppAxis1" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="RecipeFile" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="McMechSys" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ConvVirt" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ConvAxis" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ConvGrp" Source="" Memory="UserROM" Language="Binary" />
@@ -149,10 +150,10 @@
     <LibraryObject Name="arssl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asepl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="powerlnk" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="asarlog" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="ashw" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="arproject" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="arcert" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="asarlog" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asarprof" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>
