@@ -51,7 +51,7 @@ PROGRAM _INIT
 	
 	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewCfg.Enable := TRUE;
-	MpRecipeRegPar_PreviewCfg.PVName := ADR('RecipeMgt:MachSettingsPreview');
+	MpRecipeRegPar_PreviewCfg.PVName := ADR('RecipeMgt:MachineSettingsPreview');
 	MpRecipeRegPar_PreviewCfg.Category := ADR(MACHINE_CATEGORY);
 	MpRecipeRegPar_PreviewCfg();
 
@@ -70,7 +70,7 @@ PROGRAM _INIT
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
     END_WHILE
-	MachSettings := MachSettingsPreview;
+	MachineSettings := MachineSettingsPreview;
 	
 	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
 	MpRecipe_0.Load := FALSE;
