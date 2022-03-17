@@ -1,4 +1,4 @@
-(*Main Control----------------------------------------*)
+(*Main Control*)
 VAR
 	MainCtrl : MainCtrlType; (*Main Control Variable*)
 	MpAxisBasic_x : ARRAY[0..MAX_IDX_AXIS] OF MpAxisBasic; (*MpAxis Declaration*)
@@ -12,7 +12,7 @@ VAR
 	ResetEditValues : BOOL;
 	CopyPreviewParameters : BOOL;
 END_VAR
-(*Motion Control Related Variables ------------------------------------------------------------------------------------------------*)
+(*Motion Control Related Variables*)
 VAR
 	AxisControl : ARRAY[0..MAX_IDX_AXIS] OF AxControlType; (*control structure*)
 	McCamAutDefine : McAcpAxCamAutDefineType; (*Definition of cam automat parameters*)
@@ -28,7 +28,7 @@ VAR
 	UpdateCamAutomat : BOOL;
 	CamUpdateState : USINT;
 END_VAR
-(*Constants---------------------------------------------------------------------------------------------------------------------------------*)
+(*Constants*)
 VAR CONSTANT
 	AXIS_IDX_FEEDER : USINT := 0; (*Axis index of the feeder axis*)
 	AXIS_IDX_CUTTER : USINT := 1; (*Axis index of the cutter axis*)

@@ -8,7 +8,7 @@
  ********************************************************************
  * Local variables of program Alarm Management
  ********************************************************************)
-(*Function Block Declaration------------------------------------------------------------------------------------------*)
+(*Function Block Declaration*)
 VAR
 	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappReport',9('')]));
 	MpFileManagerUI_0 : MpFileManagerUI;
@@ -17,7 +17,7 @@ VAR
 	LanguageSelect_0 : LanguageSelect := (LanguageSelection:=['en','de'],SelectedIndex:=0);
 	DirCreate_New : DirCreate;
 END_VAR
-(*Report Management Variables------------------------------------------------------------------------------------------*)
+(*Report Management Variables*)
 VAR
 	EnableDelete : BOOL := TRUE; (*HMI control bit*)
 	EnableGenerate : BOOL := TRUE; (*HMI control bit*)
@@ -31,7 +31,7 @@ VAR
 	TableConfig : STRING[80];
 	StrSelectedFile : STRING[256] := '0'; (*Gives the path of selected report to pdfViewer in mappView*)
 END_VAR
-(*Constants--------------------------------------------------------------------------------------------------------------------------------*)
+(*Constants*)
 VAR CONSTANT
 	REPORT_DEVICE : STRING[80] := 'mappReport'; (*Constant contains filedevice for save reports *)
 	REPORT_NAME : STRING[80] := 'Report'; (*Constant contains name of Report*)

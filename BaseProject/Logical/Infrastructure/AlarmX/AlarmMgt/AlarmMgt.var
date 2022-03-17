@@ -8,7 +8,7 @@
  ********************************************************************
  * Local variables of program AlarmManagement
  ********************************************************************)
-(*Function Blocks--------------------------------------------------------------------------------------------------------------------*)
+(*Function Blocks*)
 VAR
 	HmiAlarmX : AlarmHmiInterfaceType;
 	MpAlarmXHistory_0 : MpAlarmXHistory; (*MpAlarmXHistory instance*)
@@ -17,7 +17,7 @@ VAR
 	MpAlarmXCore_0 : MpAlarmXCore; (*MpAlarmXCore instance*) (*ChangeStyleAlarmButton : USINT := 0; (*changeStyle of a AlarmFlyout in mappView*)
 	DirCreate_New : DirCreate;
 END_VAR
-(*Alarm Management Variables------------------------------------------------------------------------------------------------*)
+(*Alarm Management Variables*)
 VAR
 	Index : USINT; (*Index to loop through alarm list*)
 	MaxIndex : USINT; (*Maximum index for the alarm list*)

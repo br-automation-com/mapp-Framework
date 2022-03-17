@@ -55,7 +55,7 @@ TYPE
 	END_STRUCT;
 END_TYPE
 
-(*Main Control-----------------------------------------------------*)
+(*Main Control*)
 
 TYPE
 	MainStatusType : 	STRUCT  (*Structure Type for Main Control Status*)

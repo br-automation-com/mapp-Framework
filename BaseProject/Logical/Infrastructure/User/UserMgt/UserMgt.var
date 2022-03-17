@@ -1,4 +1,4 @@
-(*ARUser Function Block------------------------------------------------------------------------------------------------------------*)
+(*ARUser Function Block*)
 VAR
 	ArUserAssignRole_0 : ArUserAssignRole;
 	ArUserCreate_0 : ArUserCreate;
@@ -14,7 +14,7 @@ VAR
 	UserManagementState : UserManagementEnum;
 	ArUserSetProperty_0 : ArUserSetProperty;
 END_VAR
-(*User Management Variables--------------------------------------------------------------------------------------*)
+(*User Management Variables*)
 VAR
 	User : UserMainType; (*User Declaration Variable*)
 	DataProvider : ARRAY[0..19] OF WSTRING[80] := ["{'value':'4','text':'Entry1'}",19("")];
@@ -39,7 +39,7 @@ VAR
 	X : BOOL;
 	Status : DINT;
 END_VAR
-(*Constants----------------------------------------------------------*)
+(*Constants*)
 VAR CONSTANT
 	ROLE_LISTTYPE : BYTE := 2; (*List Type Role*)
 	USERROLE_LISTTYPE : BYTE := 3; (*List Type UserRole*)
