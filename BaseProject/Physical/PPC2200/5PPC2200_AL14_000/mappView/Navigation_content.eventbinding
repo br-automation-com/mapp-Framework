@@ -61,5 +61,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="Navigation_content.HelpContent.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Navigation_content" widgetRefId="HelpContent" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="Help_content" pageId="Start_page" areaId="AreaContent" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
