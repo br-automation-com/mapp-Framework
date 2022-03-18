@@ -36,7 +36,7 @@ Section # Remove old
 	RMDir /r "$INSTDIR\${ProductNameShort}"
 
 	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
-	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.0.9.*"
+	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.*.9.*"
 	loop:
 		StrCmp $1 "" done
 		RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\$1"
