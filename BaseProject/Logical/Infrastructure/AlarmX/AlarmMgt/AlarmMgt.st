@@ -53,17 +53,12 @@ PROGRAM _CYCLIC
 		MpAlarmXHistory_0.Export := TRUE;
 	END_IF
 
-<<<<<<< HEAD
-	// Call all cyclic actions 
+    // Call all cyclic actions 
     AlarmHandling;  
-=======
-	// Call all actions
-    AlarmHandling;// PROBLEM RIGHT NOW. SHOULD MOVE THIS TO INIT, IF WE REMOVE THE FUB EXAMPLE
->>>>>>> c07ac7a28475b1bb78196874b577e12c674e4f97
-	GetBacktraceInformation;
+    GetBacktraceInformation;
     ExecuteQuery;
-	QueryTableConfig;
-	AlarmSampleFub;
+    QueryTableConfig;
+    AlarmSampleFub;
 	
     
 	// Check if any reactions are active.
