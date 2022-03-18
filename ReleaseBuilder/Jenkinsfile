@@ -62,7 +62,9 @@ def MS_Build(){
 
 pipeline {
     agent any 
-
+    options {
+        retry(2)
+    }
     environment {
         BUILD_FOLDER = "$WORKSPACE\\ReleaseBuilder\\Builder"
         PROJECT_DIR = "$WORKSPACE\\BaseProject"
