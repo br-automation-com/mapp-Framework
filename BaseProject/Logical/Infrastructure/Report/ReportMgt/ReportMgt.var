@@ -10,7 +10,7 @@
  ********************************************************************)
 (*Function Block Declaration*)
 VAR
-	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappReport',9('')]));
+	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappReportFiles',9('')]));
 	MpFileManagerUI_0 : MpFileManagerUI;
 	TON_0 : TON := (0); (*Timer to wait before refresh*)
 	MpReportCore_0 : MpReportCore := (0); (*Core variable for MpReport*)
@@ -33,7 +33,7 @@ VAR
 END_VAR
 (*Constants*)
 VAR CONSTANT
-	REPORT_DEVICE : STRING[80] := 'mappReport'; (*Constant contains filedevice for save reports *)
+	REPORT_DEVICE : STRING[80] := 'mappReportFiles'; (*Constant contains filedevice for save reports *)
 	REPORT_NAME : STRING[80] := 'Report'; (*Constant contains name of Report*)
 	STR_FILE_DEVICE : STRING[80] := '/FileDevice:mappReport/'; (*File Device*)
 	LOCAL_FOLDER : STRING[10] := 'Report';

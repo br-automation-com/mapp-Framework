@@ -22,7 +22,7 @@ PROGRAM _INIT
 	MpAlarmXCore_0();
 
 	MpAlarmXHistory_0.Enable := TRUE;
-	MpAlarmXHistory_0.DeviceName := ADR('mappAlarmX');
+	MpAlarmXHistory_0.DeviceName := ADR('mappAlarmXFiles');
 	MpAlarmXHistory_0.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistory_0();
     

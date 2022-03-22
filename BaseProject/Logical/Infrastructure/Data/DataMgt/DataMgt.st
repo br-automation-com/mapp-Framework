@@ -22,7 +22,7 @@ PROGRAM _INIT
 
 	MpDataRecorder_0.MpLink := ADR(gMpLinkDataRecorder);
 	MpDataRecorder_0.Enable := TRUE ;
-	MpDataRecorder_0.DeviceName := ADR('mappData');
+	MpDataRecorder_0.DeviceName := ADR('mappDataFiles');
 	MpDataRecorder_0.RecordMode := mpDATA_RECORD_MODE_TIME;
 	MpDataRecorder_0.SamplingTime := t#5s;
 

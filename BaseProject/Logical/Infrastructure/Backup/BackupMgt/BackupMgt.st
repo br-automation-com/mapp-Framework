@@ -30,7 +30,7 @@ PROGRAM _INIT
 	MpBackupCoreConfigFB.Load := TRUE;
 	MpBackupCoreConfigFB();
     
-	HmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackup","text":"CF/PLC"}';
+	HmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackupFiles","text":"CF/PLC"}';
     
 END_PROGRAM
 

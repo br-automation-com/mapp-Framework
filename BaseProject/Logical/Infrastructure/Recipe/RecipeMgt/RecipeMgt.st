@@ -29,8 +29,8 @@ PROGRAM _INIT
 	MpRecipeUI_0();
 	
 	HmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
-	HmiRecipe.Parameters.DeviceDataProvider[0] := '{"value":"mappRecipe","text":"CF/PLC"}';
-	HmiRecipe.Parameters.DeviceName := 'mappRecipe';
+	HmiRecipe.Parameters.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"CF/PLC"}';
+	HmiRecipe.Parameters.DeviceName := 'mappRecipeFiles';
 	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipe_0.Enable := TRUE;
 	MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
@@ -103,7 +103,7 @@ PROGRAM _INIT
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIRecipe);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
-	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipe';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipeFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := '';
 	MpFileManagerUI_0();
 	

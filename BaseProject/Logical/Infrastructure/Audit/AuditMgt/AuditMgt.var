@@ -11,7 +11,7 @@
 (*Audit Management Related Function Blocks*)
 VAR
 	MpAuditTrail_0 : MpAuditTrail; (*mapp Audit function block*)
-	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappAudit',9('')])); (*mapp File Manager to UI Connect*)
+	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappAuditFiles',9('')])); (*mapp File Manager to UI Connect*)
 	MpFileManagerUI_0 : MpFileManagerUI;
 	DirCreate_New : DirCreate;
 END_VAR

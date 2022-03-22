@@ -18,7 +18,7 @@ PROGRAM _INIT
 	// Init function blocks 
 	MpAuditTrail_0.MpLink := ADR(gAuditTrailMpLink);
 	MpAuditTrail_0.Enable := TRUE;
-	MpAuditTrail_0.DeviceName := ADR('mappAudit');
+	MpAuditTrail_0.DeviceName := ADR('mappAuditFiles');
 
 	MpFileManagerUI_0.Enable := TRUE;
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIAudit);

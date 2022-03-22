@@ -13,7 +13,7 @@ VAR
 	i : INT; (*index used in for loop*)
 	MpDataRecorder_0 : MpDataRecorder; (*mapp Data Recorder Function block*)
 	MpDataRegPar_x : ARRAY[0..MAX_IDX_DATA_REG] OF MpDataRegPar; (*Function Block to Set the recorded variable*)
-	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappData',9('')]));
+	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappDataFiles',9('')]));
 	DirCreate_New : DirCreate;
 END_VAR
 (*Data Management Related Function Blocks*)

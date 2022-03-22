@@ -9,13 +9,13 @@
 PROGRAM _INIT
 
 	// Inititialize mapp function block
-	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipe';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := 'mappAudit';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[2] := 'mappReport';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[3] := 'mappData';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := 'mappBackup';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := 'mappAlarmX';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappUserX';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipeFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := 'mappAuditFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[2] := 'mappReportFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[3] := 'mappDataFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := 'mappBackupFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := 'mappAlarmXFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappUserXFiles';
 	MpFileManagerUI_0.Enable := TRUE;
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
@@ -23,7 +23,7 @@ PROGRAM _INIT
 	MpFileManagerUI_0();
 
 	// Initialize FIFO feature
-    HmiFile.Parameters.Fifo.DeviceName := 'mappData';
+    HmiFile.Parameters.Fifo.DeviceName := 'mappDataFiles';
     // MaxFolderSize is in kB
 	HmiFile.Parameters.Fifo.MaxFolderSize := 20000;
     HmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
