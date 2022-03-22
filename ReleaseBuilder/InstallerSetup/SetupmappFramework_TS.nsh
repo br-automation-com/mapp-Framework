@@ -2,7 +2,7 @@
 !define nsh_SetupTest_TS
 
 !define ProductNameLong "mapp Framework Import"
-!define ProductNameShort "mapp Framework"
+!define ProductNameShort "mappFramework"
 !define Version "0.0.9.76"
 !define VersionAsString "${Version}"
 !define ProductVersion "4.4.4.0001"

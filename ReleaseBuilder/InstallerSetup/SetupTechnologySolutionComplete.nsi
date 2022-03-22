@@ -11,12 +11,12 @@ LangString mappFrameworkLongText ${LANG_ENGLISH} "${ProductNameLong} ${Version}"
 
 LangString mappFrameworkBaseShortText ${LANG_GERMAN} "Solution Hauptpaket"
 LangString mappFrameworkBaseShortText ${LANG_ENGLISH} "Solution main package"
-LangString mappFrameworkBaseLongText ${LANG_GERMAN} "mapp Framework - Importer Tool / Technology Solution / Hilfe"
-LangString mappFrameworkBaseLongText ${LANG_ENGLISH} "mapp Framework - Importer Tool / Technology Solution / Help"
+LangString mappFrameworkBaseLongText ${LANG_GERMAN} "mapp Framework - Importer Tool / Technology Package / Hilfe"
+LangString mappFrameworkBaseLongText ${LANG_ENGLISH} "mapp Framework - Importer Tool / Technology Package / Help"
 
-LangString MenuShortText ${LANG_GERMAN} "Start Men¸ Eintrag"
+LangString MenuShortText ${LANG_GERMAN} "Start Menù Eintrag"
 LangString MenuShortText ${LANG_ENGLISH} "Start Menu entry"
-LangString MenuLongText ${LANG_GERMAN} "Eintrag in das Startmen¸"
+LangString MenuLongText ${LANG_GERMAN} "Eintrag in das Startmenù"
 LangString MenuLongText ${LANG_ENGLISH} "Entry into the start menu"
 
 LangString mappFrameworkEndShortText ${LANG_GERMAN} "mappFramework Ende"
@@ -35,11 +35,11 @@ Section # Remove old
 	SetOutPath "$INSTDIR\${ProductNameShort}"
 	RMDir /r "$INSTDIR\${ProductNameShort}"
 
-	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
-	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V0.*.9.*"
+	SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}"
+	FindFirst $0 $1 "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}\*.*.9"
 	loop:
 		StrCmp $1 "" done
-		RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\$1"
+		RMDir /r "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}\$1"
 		FindNext $0 $1
 		Goto loop
 	done:
@@ -60,8 +60,8 @@ Section "$(mappFrameworkBaseShortText)" mappFrameworkBase
 
 	!insertmacro InstallHelp "$VersionBaseFolder" "Help"
 
-	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
-	File /r "TechnologySolution\*.*"
+	SetOutPath "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}"
+	File /r "TechnologyPackage\*.*"
 
 	SetOutPath "$VersionBaseFolder\AS\Images\Files\"
 	File /oname=FrameworkImporter.exe.ico mappFrameworkLogo.ico
@@ -71,7 +71,7 @@ SectionEnd
 Section "$(MenuShortText)" Menu
 	# Start Menu
 	createDirectory "$SMPROGRAMS\${COMPANYNAME}\${ProductNameShort}"
-	createShortCut "$SMPROGRAMS\${COMPANYNAME}\${ProductNameShort}\mapp Framework Importer.lnk" "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}\V${Version}\Importer\FrameworkImporter.exe" "" "$INSTDIR\${ProductNameShort}\mappFrameworkLogo.ico"
+	createShortCut "$SMPROGRAMS\${COMPANYNAME}\${ProductNameShort}\mapp Framework Importer.lnk" "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}\${Version}\bin\FrameworkImporter.exe" "" "$INSTDIR\${ProductNameShort}\mappFrameworkLogo.ico"
 
 SectionEnd
 
@@ -91,7 +91,7 @@ SectionEnd
 ;!insertmacro CreateUninstaller "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
 
 Section "un.Uninstaller"
-	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
+	RMDir /r "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}"
 SectionEnd
 
 ;!insertmacro CreateUninstaller "$INSTDIR\${ProductNameShort}"
