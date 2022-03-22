@@ -2,7 +2,6 @@ def mailRecipients = "Brittany.Langston@br-automation.com;Marcel.Voigt@br-automa
 
 def Version() {
     echo "Version";
-    def branch = Branch();
     def tag = Tag();
     def count = powershell(returnStdout: true, script: "git rev-list HEAD --count").trim();
     try {
@@ -10,8 +9,7 @@ def Version() {
     }
     catch (err){
     }
-    echo "$branch";
-    if (branch.matches("release/(.*)")) {
+    if (IsReleaseBranch()) {
         echo "Release Branch";
         return "$tag.$count";
     }
@@ -19,6 +17,10 @@ def Version() {
     tag = tag.substring(0, tag.lastIndexOf('.'))
     tag = tag + '.9';
     return "$tag.$count";
+}
+
+def IsReleaseBranch(){
+    return Branch().matches("release/(.*)");
 }
 
 def Tag() {
@@ -62,14 +64,11 @@ def MS_Build(){
 
 pipeline {
     agent any 
-    options {
-        retry(2)
-    }
     environment {
         BUILD_FOLDER = "$WORKSPACE\\ReleaseBuilder\\Builder"
         PROJECT_DIR = "$WORKSPACE\\BaseProject"
         EXPORT_DIR = "$WORKSPACE\\ReleaseBuilder\\ExportConfigurations"
-        OUTPUT_DIR = "$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\TechnologySolution"
+        OUTPUT_DIR = "$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\TechnologyPackage"
         PHYSICAL = "Physical\\PPC2200"
         IMPORT_TOOL = "ImportTool\\FrameworkImporter"
         HELP_LOCATION = "$WORKSPACE\\Documentation";
@@ -79,7 +78,7 @@ pipeline {
     stages {
         stage('Export Framework') {
             environment {
-                VERSION = Version();
+                VERSION =  Version().substring(1, Version().lastIndexOf('.'));
             }
             steps {
                 bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\AlarmX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
@@ -92,7 +91,7 @@ pipeline {
         }
         stage('Build Import Tool') {
             environment {
-                VERSION = Version();
+                VERSION = Version().substring(1, Version().lastIndexOf('.'));
                 BRANCH = Branch();
                 MSBUILD_PATH = MS_Build();
                 MSBUILD = "$MSBUILD_PATH\\Current\\Bin\\msbuild.exe";
@@ -102,10 +101,11 @@ pipeline {
                 powershell(returnStdout: true, script: ". '$IMPORT_TOOL\\GitVersion.ps1' \"$IMPORT_TOOL\\FrameworkImporter\" \"$BRANCH\"");
                 powershell(returnStdout: true, script: ". '$NUGET' \"restore\" \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter.sln\"");
                 powershell(returnStdout: true, script: ". '$MSBUILD' \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter.sln\" \"-p:Configuration=Release;optimize=true;DebugSymbols=false;DebugType=None;PreBuildEvent=\"");
-                powershell(returnStdout: true, script: "New-Item -Path \"$OUTPUT_DIR\\$VERSION\" -Name \"Importer\" -ItemType \"directory\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter\\bin\\Release\\*.exe\" -Destination \"$OUTPUT_DIR\\$VERSION\\Importer\\\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter\\bin\\Release\\*.dll\" -Destination \"$OUTPUT_DIR\\$VERSION\\Importer\\\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$OUTPUT_DIR\\$VERSION\\Importer\\*.exe\" -Destination \"$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\FrameworkImporter_TS\\Logical\\mappFrameworkImporter\\FrameworkImporter.exe\"");
+                powershell(returnStdout: true, script: "New-Item -Path \"$OUTPUT_DIR\\$VERSION\" -Name \"bin\" -ItemType \"directory\"");
+                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkExtension\\bin\\Release\\*.exe\" -Destination \"$OUTPUT_DIR\\$VERSION\\bin\\\"");
+                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkExtension\\bin\\Release\\*.dll\" -Destination \"$OUTPUT_DIR\\$VERSION\\bin\\\"");
+                powershell(returnStdout: true, script: "New-Item -Path \"$OUTPUT_DIR\\$VERSION\" -Name \"ApplicationSettings\" -ItemType \"directory\"");
+                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkExtension\\AS\\ApplicationSettings\\*.cfg\" -Destination \"$OUTPUT_DIR\\$VERSION\\ApplicationSettings\\\"");
             }
         }
         stage('Build Help') {
@@ -122,23 +122,18 @@ pipeline {
                         try { 
                             powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --name $HELP_FILE --output \"$HELP_OUTPUT\"");
                         } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e) {
-                            error "Caught ${e.toString()}" 
+                            caughtException = e;
+                            error "Timeout Exceeded";
                         } catch (Throwable e) {
                             caughtException = e
                         }
                     }
                     if (caughtException) {
-                        error caughtException.message
+                        if (IsReleaseBranch()){ 
+                            error("Build failed because building the help timed out");
+                        }
                     }
                 }
-            }
-        }
-        stage('Create Technology Solution') {
-            environment {
-                VERSION = Version()
-            }
-            steps {
-                bat "python \"$BUILD_FOLDER\\ExportTechnologySolution.py\" --project \"$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\FrameworkImporter_TS\" --version $Version"
             }
         }
         stage('Create Installer') {
@@ -146,7 +141,7 @@ pipeline {
                 VERSION = Version()
             }
             steps {
-                bat "python \"$ProjectBuilderScripts\\CreateInstaller.py\" --project \"$WORKSPACE\\ReleaseBuilder\" --name mappFramework --version $Version"
+                bat "python \"$BUILD_FOLDER\\CreateInstaller.py\" --project \"$WORKSPACE\\ReleaseBuilder\" --name mappFramework --version $Version"
             }
         }
         stage('Deploy Release')

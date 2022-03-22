@@ -38,13 +38,12 @@ if __name__ == '__main__':
     parser.add_argument('-v', '--version', help='Project Version', dest='version', required=False, default="V0.0.9.000")
     args = parser.parse_args()
     version = args.version.replace('V', '')
-
-    directory = rf'{args.project}\InstallerSetup\TechnologySolution\\'
+    minorVersion  = version[0: version.rindex('.')]
+    directory = rf'{args.project}\InstallerSetup\TechnologyPackage\\'
+    
     for f in os.listdir(directory):
-        if f != args.version:
+        if f != minorVersion:
             removeDir(os.path.join(directory, f))
-
-    shutil.copy(rf'{args.project}\InstallerSetup\FrameworkImporter_TS.zip', rf'{args.project}\InstallerSetup\TechnologySolution\{args.version}\FrameworkImporter_TS.zip')
 
     UpdateVersionNumberInstaller(rf'{args.project}\InstallerSetup', f'Setup{args.name}_TS.nsh', f'{version}')
     CreateInstaller(f'{args.project}\InstallerSetup', f'AS4_TS_{args.name}', f'{version}')
