@@ -38,7 +38,8 @@ PROGRAM _INIT
     MpRecipe_0.FileName := ADR(HmiRecipe.Parameters.FileName);
 	MpRecipe_0.Header := ADR(Header);
 
-	// Wait for MpRecipe_0 to activate. This must be active before you can call the RegPar function blocks.
+	// Wait for MpRecipe_0 to activate. This must be active before you can call the RegPar function blocks, 
+	// which is further down in the Initialization program.
 	WHILE NOT(MpRecipe_0.Active OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE
@@ -55,7 +56,8 @@ PROGRAM _INIT
 	MpRecipeRegPar_PreviewCfg.Category := ADR(MACHINE_CATEGORY);
 	MpRecipeRegPar_PreviewCfg();
 
-	// Wait for RegPar function blocks to activate. These must be active before you can load a recipe.
+	// Wait for RegPar function blocks to activate. These must be active before you can load a recipe,
+	// which is further down in the Initialization program.
 	WHILE NOT(MpRecipeRegPar_PreviewPar.Active OR MpRecipeRegPar_PreviewPar.Error) DO
 		MpRecipeRegPar_PreviewPar();
 	END_WHILE
