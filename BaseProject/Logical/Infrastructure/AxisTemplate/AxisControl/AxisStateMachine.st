@@ -9,7 +9,7 @@ ACTION AxisStateMachine:
     
     CASE State OF
         STATE_STOPPING..STATE_RESETTING:
-            // nothing to do as we are already handling any stop or errors in these states
+            // Nothing to do as we are already handling any stop or errors in these states
             
         ELSE
             IF ((MpAxisBasicFB.Error = TRUE) OR MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error')) THEN

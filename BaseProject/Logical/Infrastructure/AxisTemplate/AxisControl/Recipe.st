@@ -1,6 +1,6 @@
 ACTION RecipeInit:
 
-    // register the variables with the recipe system
+    // Register the variables with the recipe system
     AxisControl.Status.ProductSettingsName := AxisControl.Status.TaskName;
     brsstrcat(ADR(AxisControl.Status.ProductSettingsName), ADR(':ParametersPreview'));
     MpRecipeRegPar_Par.MpLink := ADR(gMpLinkRecipeXml);

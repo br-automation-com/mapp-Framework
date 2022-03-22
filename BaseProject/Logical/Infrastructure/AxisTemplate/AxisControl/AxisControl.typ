@@ -98,10 +98,10 @@ TYPE
 		SaveRecipe : BOOL;
 		LoadRecipe : BOOL;
 		CreateRecipe : BOOL;
-		State : AxisRecipeStep_enum;
+		State : AxisRecipeStepEnum;
 		CategoryDropdown : STRING[50];
 	END_STRUCT;
-	AxisRecipeStep_enum : 
+	AxisRecipeStepEnum : 
 		(
 		REC_AXIS_WAIT,
 		REC_AXIS_LOAD,

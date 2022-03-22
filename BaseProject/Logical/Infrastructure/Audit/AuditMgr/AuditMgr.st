@@ -7,10 +7,10 @@
 
 PROGRAM _INIT
 
-	//Create folder for this component on the user file device
+	// Create folder for this component on the user file device
 	DirCreate_New(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
 	
-	//Check if folder already exist and if so disabled the function block call
+	// Check if folder already exist and if so disabled the function block call
 	IF DirCreate_New.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreate_New(enable := FALSE);
 	END_IF
@@ -44,7 +44,7 @@ PROGRAM _CYCLIC
     // Save Filenames to a seperate array for display in Table
 	FOR i := 0 TO 49 DO
         DisplayFileName[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
-        // if selected set a index for display selected file in table
+        // If selected set a index for display selected file in table
 		IF DisplayFileNameIndex = INT_TO_USINT(i) THEN
 			MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
 		END_IF

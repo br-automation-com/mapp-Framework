@@ -14,7 +14,7 @@ ACTION AlarmSampleInit:
 	// If AlarmExamples.RateOfChange increases at a rate of more than 5 units per second, the RateOfChangeExample alarm will trigger
 	AlarmExamples.RateOfChange := 0;  
 	
-	//If AlarmExamples.SnippetValue gets between 50 and 100, an alarm will trigger and the current value will be shown in the alarm text
+	// If AlarmExamples.SnippetValue gets between 50 and 100, an alarm will trigger and the current value will be shown in the alarm text
 	AlarmExamples.SnippetValue := 10; 
     
 END_ACTION

@@ -22,14 +22,13 @@ PROGRAM _INIT
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	// BEGIN OF STATE MACHINE 
+
 	CASE DevLinkCtrl.Step OF
-		// WAIT STEP 
 		STATE_WAIT:
-			// UPDATE USB INFO LIST IF THE NODE LIST HAS CHANGED 
+			// Update USB info list if the node list has changed
 			IF (brsmemcmp(ADR(DevLinkCtrl.Params.NodeList), ADR(LastNodeList), SIZEOF(LastNodeList)) <> 0) THEN
 				DevLinkCtrl.Cmd.GetUSBInfo := TRUE;
-				// preserve the previously created drive information in CASE the order has changed when unplugging a device 
+				// Preserve the previously created drive information in CASE the order has changed when unplugging a device 
 				FOR DevLinkCtrl.Params.Index := 0 TO MAX_IDX_USB_DEV_LIST DO
 					FOR Index := 0 TO MAX_IDX_USB_DEV_LIST DO
 						IF ((DevLinkCtrl.Params.NodeList[DevLinkCtrl.Params.Index] = LastNodeList[Index]) AND
@@ -50,17 +49,17 @@ PROGRAM _CYCLIC
 			END_IF
 	
 			FOR DevLinkCtrl.Params.Index := 0 TO MAX_IDX_USB_DEV_LIST DO
-				// SKIP IF LOADING USB LIST INFORMATION 
+				// Skip if loading USB list information 
 				IF DevLinkCtrl.Cmd.GetUSBInfo THEN
 					EXIT;
 				END_IF
-				// ALWAYS KEEP DEVICES LINKED WHEN AVAILABLE 
+				// Always keep devices linked when available
 				IF ((DevLinkCtrl.Params.FileDevHandle[DevLinkCtrl.Params.Index] = 0) AND AttachedUSB[DevLinkCtrl.Params.Index]
 					AND (DevLinkCtrl.Params.NodeList[DevLinkCtrl.Params.Index] <> 0)) THEN
 					DevLinkCtrl.Cmd.DevLink := TRUE;
 					EXIT;
 				END_IF
-				// UNLINK DEVICE IF IT IS NOT CONNECTED ANYMORE 
+				// Unlink device if it is not connected anymore
 				IF ((DevLinkCtrl.Params.FileDevHandle[DevLinkCtrl.Params.Index] <> 0) AND
 					(DevLinkCtrl.Params.NodeInfoList[DevLinkCtrl.Params.Index].interfaceClass <> 8)) THEN
 					DevLinkCtrl.Cmd.DevUnlink := TRUE;
@@ -68,7 +67,7 @@ PROGRAM _CYCLIC
 				END_IF
 			END_FOR
 	
-			// CHECK FOR USB DEVICES EVERY 3 SEC 
+			// Check for USB devices every 3 seconds 
 			TON_0.PT := t#3s;
 			IF (TON_0.Q AND NOT DevLinkCtrl.Cmd.GetUSBInfo AND NOT DevLinkCtrl.Cmd.DevLink AND NOT DevLinkCtrl.Cmd.DevUnlink) THEN
 				DevLinkCtrl.Cmd.GetUSBList := TRUE;
@@ -79,35 +78,33 @@ PROGRAM _CYCLIC
 			TON_0();
 	
 			IF DevLinkCtrl.Cmd.GetUSBInfo THEN
-				// get usb info cmd 
+				// Get USB info cmd 
 				DevLinkCtrl.Cmd.GetUSBInfo := FALSE;
 				brsmemset(ADR(DevLinkCtrl.Params.NodeInfoList), 0, SIZEOF(DevLinkCtrl.Params.NodeInfoList));
 				DevLinkCtrl.Step := STATE_GET_USB_INFO;
 				DevLinkCtrl.Params.Index := 0;
 			ELSIF DevLinkCtrl.Cmd.GetUSBList THEN
-				// get usb list cmd 
+				// Get USB list cmd 
 				DevLinkCtrl.Cmd.GetUSBList := FALSE;
 				brsmemset(ADR(DevLinkCtrl.Params.NodeList), 0, SIZEOF(DevLinkCtrl.Params.NodeList));
 				DevLinkCtrl.Step := STATE_GET_USB_LIST;
 			ELSIF DevLinkCtrl.Cmd.DevLink THEN
-				// link cmd 
+				// Link cmd 
 				DevLinkCtrl.Cmd.DevLink := FALSE;
 				DevLinkCtrl.Step := STATE_DEV_LINK;
 			ELSIF DevLinkCtrl.Cmd.DevUnlink THEN
-				// unlink cmd 
+				// Unlink cmd 
 				DevLinkCtrl.Cmd.DevUnlink := FALSE;
 				DevLinkCtrl.Step := STATE_DEV_UNLINK;
 			END_IF
-			// END OF WAIT STEP 
 
-			// GET USB LIST STEP 
 		STATE_GET_USB_LIST:
-			// SET FUB PARAMS 
+			// Set FUB parameters
 			DevLinkCtrl.FUB.UsbNodeListGet_0.enable := TRUE;
 			DevLinkCtrl.FUB.UsbNodeListGet_0.bufferSize := SIZEOF(DevLinkCtrl.Params.NodeList);
 			DevLinkCtrl.FUB.UsbNodeListGet_0.pBuffer := ADR(DevLinkCtrl.Params.NodeList);
 	
-			// ERROR HANDLING 
+			// Error handling
 			IF ((DevLinkCtrl.FUB.UsbNodeListGet_0.status = ERR_OK) OR (DevLinkCtrl.FUB.UsbNodeListGet_0.status = asusbERR_USB_NOTFOUND)) THEN
 				DevLinkCtrl.Step := STATE_WAIT;
 				DevLinkCtrl.FUB.UsbNodeListGet_0.enable := FALSE;
@@ -117,26 +114,24 @@ PROGRAM _CYCLIC
 				DevLinkCtrl.Params.ErrorID := DevLinkCtrl.FUB.UsbNodeListGet_0.status;
 				DevLinkCtrl.FUB.UsbNodeListGet_0.enable := FALSE;
 			END_IF
-			// CALL OF FUB 
+
 			DevLinkCtrl.FUB.UsbNodeListGet_0();
-			// END OF GET USB LIST STEP 
-	
-			// GET USB INFO STEP 
+
 		STATE_GET_USB_INFO:
-			// SET FUB PARAMS 
+			// Set FUB parameters 
 			DevLinkCtrl.FUB.UsbNodeGet_0.bufferSize := SIZEOF(DevLinkCtrl.Params.NodeInfoList[DevLinkCtrl.Params.Index]);
 			DevLinkCtrl.FUB.UsbNodeGet_0.enable := TRUE;
 			DevLinkCtrl.FUB.UsbNodeGet_0.nodeId := DevLinkCtrl.Params.NodeList[DevLinkCtrl.Params.Index];
 			DevLinkCtrl.FUB.UsbNodeGet_0.pBuffer := ADR(DevLinkCtrl.Params.NodeInfoList[DevLinkCtrl.Params.Index]);
 
-			// CHECK IF DevLinkCtrl.Params.Index CONTAINS AN ENTRY 
+			// Check if DevLinkCtrl.Params.Index contains an entry
 			IF (DevLinkCtrl.Params.NodeList[DevLinkCtrl.Params.Index] = 0) THEN
 				DevLinkCtrl.FUB.UsbNodeGet_0.enable := TRUE;
 				brsmemset(ADR(DevLinkCtrl.Params.NodeInfoList[DevLinkCtrl.Params.Index]), 0, SIZEOF(DevLinkCtrl.Params.NodeInfoList[DevLinkCtrl.Params.Index]));
 				DevLinkCtrl.Params.Index := DevLinkCtrl.Params.Index + 1;
 			END_IF
 
-			// ERROR HANDLING 
+			// Error handling
 			IF (DevLinkCtrl.FUB.UsbNodeGet_0.status = ERR_OK) THEN
 				DevLinkCtrl.FUB.UsbNodeGet_0.enable := FALSE;
 				DevLinkCtrl.Params.Index := DevLinkCtrl.Params.Index + 1;
@@ -146,7 +141,7 @@ PROGRAM _CYCLIC
 				DevLinkCtrl.FUB.UsbNodeGet_0.enable := FALSE;
 			END_IF
 
-			// END OF LIST REACHED 
+			// End of list reached
 			IF (DevLinkCtrl.Params.Index > MAX_IDX_USB_DEV_LIST) THEN
 				DevLinkCtrl.FUB.UsbNodeGet_0.enable := FALSE;
 				DevLinkCtrl.Step := STATE_WAIT;
@@ -159,21 +154,18 @@ PROGRAM _CYCLIC
 					END_IF
 				END_FOR
 			END_IF
-
-			// CALL OF FUB
+			
 			DevLinkCtrl.FUB.UsbNodeGet_0();
-			// END OF GET USB INFO STEP
 
-			// LINK DEVICE STEP
 		STATE_DEV_LINK:
-            // SET FUB PARAMS 
+            // Set FUB parameters
 			DevLinkCtrl.FUB.DevLink_0.enable := TRUE;
 			DevLinkCtrl.FUB.DevLink_0.pDevice := ADR(DevLinkCtrl.Params.FileDevName[DevLinkCtrl.Params.Index]);
 			brsstrcpy(ADR(DevLinkCtrl.Params.LinkParam), ADR('/DEVICE='));
 			brsstrcat(ADR(DevLinkCtrl.Params.LinkParam), ADR(DevLinkCtrl.Params.NodeInfoList[DevLinkCtrl.Params.Index].ifName));
 			DevLinkCtrl.FUB.DevLink_0.pParam := ADR(DevLinkCtrl.Params.LinkParam);
 	
-			// ERROR HANDLING 
+			// Error handling
 			IF (DevLinkCtrl.FUB.DevLink_0.status = ERR_OK) THEN
 				DevLinkCtrl.Params.FileDevHandle[DevLinkCtrl.Params.Index] := DevLinkCtrl.FUB.DevLink_0.handle;
 				DevLinkCtrl.Step := STATE_WAIT;
@@ -186,23 +178,21 @@ PROGRAM _CYCLIC
 				DevLinkCtrl.Params.ErrorID := DevLinkCtrl.FUB.DevLink_0.status;
 				DevLinkCtrl.FUB.DevLink_0.enable := FALSE;
 			END_IF
-			// CALL OF FUB 
+			
 			DevLinkCtrl.FUB.DevLink_0();
-			// END OF LINK DEVICE STEP 
-	
-			// UNLINK DEVICE STEP 
+
 		STATE_DEV_UNLINK:
-			// SET FUB PARAMS 
+			// Set FUB parameters
 			DevLinkCtrl.FUB.DevUnlink_0.enable := TRUE;
 			DevLinkCtrl.FUB.DevUnlink_0.handle := DevLinkCtrl.Params.FileDevHandle[DevLinkCtrl.Params.Index];
 	
-			// CHECK IF WE HAVE A HANDLE 
+			// Check if we have a handle
 			IF (DevLinkCtrl.Params.FileDevHandle[DevLinkCtrl.Params.Index] = 0) THEN
 				DevLinkCtrl.FUB.DevUnlink_0.enable := FALSE;
 				DevLinkCtrl.Step := STATE_WAIT;
 			END_IF
 	
-			// ERROR HANDLING 
+			// Error handling
 			IF (DevLinkCtrl.FUB.DevUnlink_0.status = ERR_OK) THEN
 				DevLinkCtrl.Params.FileDevHandle[DevLinkCtrl.Params.Index] := 0;
 				DevLinkCtrl.FUB.DevUnlink_0.enable := FALSE;
@@ -212,21 +202,19 @@ PROGRAM _CYCLIC
 				DevLinkCtrl.Params.ErrorID := DevLinkCtrl.FUB.DevUnlink_0.status;
 				DevLinkCtrl.FUB.DevUnlink_0.enable := FALSE;
 			END_IF
-			// CALL OF FUB 
+
 			DevLinkCtrl.FUB.DevUnlink_0();
-			// END OF UNLINK DEVICE STEP 
-	
-			// WAIT FOR ERRACK CMD STEP 
+ 
 		STATE_ERROR_USB:
-			// DELETE ERROR ID AND GO BACK TO WAIT STEP WHEN ERROR IS ACKNOWLEDGED 
+			// Delete error ID and go back to wait step when error is acknowledged
 			IF DevLinkCtrl.Cmd.ErrAck THEN
 				DevLinkCtrl.Params.ErrorID := 0;
 				DevLinkCtrl.Cmd.ErrAck := FALSE;
 				DevLinkCtrl.Step := STATE_WAIT;
 			END_IF
-		// END OF WAIT FOR ERRACK STEP 
+
 	END_CASE;
-	// END OF STATE MACHINE 
+
 END_PROGRAM
 
 PROGRAM _EXIT
