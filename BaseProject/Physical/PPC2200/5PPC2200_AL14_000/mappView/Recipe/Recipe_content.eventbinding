@@ -17,12 +17,12 @@
             <ResultHandler condition="result = 1">
               <Parallel>
                 <Action>
-                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Confirm">
+                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
                     <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                   </Target>
                 </Action>
                 <Action>
-                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Delete">
+                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Delete">
                     <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                   </Target>
                 </Action>
@@ -30,7 +30,7 @@
             </ResultHandler>
             <ResultHandler condition="result = 2">
               <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.MessageBox.Cancel">
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Cancel">
                   <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                 </Target>
               </Action>
@@ -56,7 +56,7 @@
               <Sequence>
                 <Step order="0">
                   <Action>
-                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Commands.LoadRecipe">
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.LoadRecipe">
                       <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                     </Target>
                   </Action>
@@ -80,7 +80,7 @@
         <Sequence>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Parameters.CreateDialogOpened">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Parameters.CreateDialogOpened">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -101,7 +101,7 @@
         <Sequence>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Parameters.EditDialogOpened">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Parameters.EditDialogOpened">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -144,14 +144,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.SelectedIndex">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex">
                 <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="9" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.PageDown">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.PageDown">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -165,14 +165,14 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.SelectedIndex">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex">
                 <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="0" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.List.PageUp">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.PageUp">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -184,7 +184,7 @@
       <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" event="SelectedIndexChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Parameters.CategoryDropdown">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Parameters.CategoryDropdown">
             <Method xsi:type="opcUa.NodeAction.SetValueString" value="=selectedValue" />
           </Target>
         </Action>
@@ -193,7 +193,7 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Filter">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Filter">
                 <Method xsi:type="opcUa.NodeAction.SetValueString" value="*par" />
               </Target>
             </Action>
@@ -211,7 +211,7 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Filter">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Filter">
                 <Method xsi:type="opcUa.NodeAction.SetValueString" value="*mcfg" />
               </Target>
             </Action>
@@ -227,7 +227,7 @@
       </EventHandler>
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Refresh">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -239,7 +239,7 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Filter">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Filter">
                 <Method xsi:type="opcUa.NodeAction.SetValueString" value="*par" />
               </Target>
             </Action>
@@ -260,7 +260,7 @@
           </Step>
           <Step order="3">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUIConnect.Recipe.Refresh">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -277,7 +277,7 @@
       </Operand>
       <EventHandler condition="contentId = &quot;Recipe_content&quot;">
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Parameters.CategoryDropdown">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Parameters.CategoryDropdown">
             <Method xsi:type="opcUa.NodeAction.SetValueString" value="=CategoryDropdownValue" />
           </Target>
         </Action>

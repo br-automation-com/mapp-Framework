@@ -8,7 +8,7 @@
 			<Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="BtnGenerate" event="Click" />
 			<EventHandler>
 				<Action>
-					<Target xsi:type="opcUa.NodeAction" refId="::ReportMgt:StartGenerate">
+					<Target xsi:type="opcUa.NodeAction" refId="::ReportMgr:StartGenerate">
 						<Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
 					</Target>
 				</Action>
@@ -19,7 +19,7 @@
 			<Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="BtnDelete" event="Click" />
 			<EventHandler>
 				<Action>
-					<Target xsi:type="opcUa.NodeAction" refId="::ReportMgt:DeleteReport">
+					<Target xsi:type="opcUa.NodeAction" refId="::ReportMgr:DeleteReport">
 						<Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
 					</Target>
 				</Action>
