@@ -4,7 +4,7 @@
     <EventBinding id="ContentLoaded.FileDialog_Message_dialog_content">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="ANY_INT" name="MsgType">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgt:MpFileManagerUIConnect.MessageBox.Type">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:MpFileManagerUIConnect.MessageBox.Type">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
@@ -31,7 +31,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="MpFileManagerUIConnect.MessageBox.LayerStatus.ValueChange.1">
-      <Source xsi:type="opcUa.Event" refId="::FileMgt:MpFileManagerUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
+      <Source xsi:type="opcUa.Event" refId="::FileMgr:MpFileManagerUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
       <EventHandler condition="newValue = 1">
         <Action>
           <Target xsi:type="clientSystem.Action">

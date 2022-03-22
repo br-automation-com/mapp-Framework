@@ -1,0 +1,47 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * Program: FolderHandling
+ * File: FolderHandling.var
+ * Author: Bernecker + Rainer
+ * Created: December , 2020
+ ********************************************************************
+ * Local variables of program AlarmManagement
+ ********************************************************************)
+(*Function Block Declaration*)
+VAR
+	MpRecipe_0 : MpRecipeXml; (*Recipe Management Function Block*)
+	MpRecipeUI_0 : MpRecipeUI; (*Recipe to UI*)
+	DirCreate_New : DirCreate;
+END_VAR
+(*Recipe Management Variables*)
+VAR
+	Index : USINT; (*Index to loop through file devices*)
+	MpRecipeUISetup : MpRecipeUISetupType; (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
+	MpRecipeUIConnect : MpRecipeUIConnectType; (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
+	HmiRecipe : RecipeHmiInterfaceType;
+	Header : MpRecipeXmlHeaderType;
+	DTGetTime_0 : DTGetTime;
+END_VAR
+(*File Management Variables*)
+VAR
+	MpFileManagerUIConnect : MpFileManagerUIConnectType;
+	MpFileManagerUI_0 : MpFileManagerUI;
+END_VAR
+(*Defines*)
+VAR CONSTANT
+	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 1;
+	MACHINE_FILENAME : STRING[12] := 'Machine.mcfg';
+	LOCAL_FOLDER : STRING[10] := 'Recipe';
+END_VAR
+VAR
+	MpRecipeRegPar_PreviewPar : MpRecipeRegPar;
+	MpRecipeRegPar_PreviewCfg : MpRecipeRegPar;
+	Parameters : ParametersType;
+	ParametersEdit : {REDUND_UNREPLICABLE} ParametersType;
+	ParametersPreview : ParametersType;
+	MachineSettings : MachineSettingsType;
+	MachineSettingsEdit : MachineSettingsType;
+	MachineSettingsPreview : MachineSettingsType;
+	PreviousRecipe : STRING[80];
+END_VAR

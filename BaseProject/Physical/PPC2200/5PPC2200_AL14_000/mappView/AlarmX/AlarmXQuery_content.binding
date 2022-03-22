@@ -3,24 +3,24 @@
   <Bindings>
 
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::AlarmMgt:HmiAlarmX.Commands.RunQuery" attribute="value" />
+<Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Commands.RunQuery" attribute="value" />
 <Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="PushButtonRunQuery" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::AlarmMgt:AlarmQueryHMI.TimeStamp" attribute="value" />
+<Source xsi:type="opcUa" refId="::AlarmMgr:AlarmQueryHMI.TimeStamp" attribute="value" />
 <Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableItemDateTime1" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::AlarmMgt:AlarmQueryHMI.Message" attribute="value" />
+<Source xsi:type="opcUa" refId="::AlarmMgr:AlarmQueryHMI.Message" attribute="value" />
 <Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableItem1" attribute="stringValue" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::AlarmMgt:AlarmQueryHMI.AdditionalInfo" attribute="value" />
+<Source xsi:type="opcUa" refId="::AlarmMgr:AlarmQueryHMI.AdditionalInfo" attribute="value" />
 <Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableItem2" attribute="stringValue" />
 </Binding>
 
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::AlarmMgt:HmiAlarmX.Status.TableConfig[0]" attribute="value" />
+<Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Status.TableConfig[0]" attribute="value" />
 <Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="Table1" attribute="tableConfiguration" />
 </Binding>
 </Bindings>

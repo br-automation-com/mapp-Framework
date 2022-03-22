@@ -46,13 +46,13 @@ PROGRAM _INIT
 	
     MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewPar.Enable := TRUE;
-	MpRecipeRegPar_PreviewPar.PVName := ADR('RecipeMgt:ParametersPreview');
+	MpRecipeRegPar_PreviewPar.PVName := ADR('Recipe:ParametersPreview');
 	MpRecipeRegPar_PreviewPar.Category := ADR(PRODUCT_CATEGORY);
 	MpRecipeRegPar_PreviewPar();
 	
 	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewCfg.Enable := TRUE;
-	MpRecipeRegPar_PreviewCfg.PVName := ADR('RecipeMgt:MachineSettingsPreview');
+	MpRecipeRegPar_PreviewCfg.PVName := ADR('Recipe:MachineSettingsPreview');
 	MpRecipeRegPar_PreviewCfg.Category := ADR(MACHINE_CATEGORY);
 	MpRecipeRegPar_PreviewCfg();
 

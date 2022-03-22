@@ -75,7 +75,7 @@
               <Sequence>
                 <Step order="0">
                   <Action>
-                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Commands.StoreMachineSettings">
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.StoreMachineSettings">
                       <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                     </Target>
                   </Action>
@@ -110,7 +110,7 @@
           <Result>
             <ResultHandler condition="result=4">
               <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Commands.FactoryResetMachineSettings">
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.FactoryResetMachineSettings">
                   <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
                 </Target>
               </Action>

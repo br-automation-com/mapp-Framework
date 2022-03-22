@@ -45,7 +45,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpAuditTrail" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::AuditMgt:MpAuditTrail_0.ErrorReset">
+          <Target xsi:type="opcUa.NodeAction" refId="::AuditMgr:MpAuditTrail_0.ErrorReset">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -55,7 +55,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAlarmXHistory" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:MpAlarmXHistory_0.ErrorReset">
+          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgr:MpAlarmXHistory_0.ErrorReset">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -65,7 +65,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpAlarmXHistoryUI" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:MpAlarmXHistoryUI_0.ErrorReset">
+          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgr:MpAlarmXHistoryUI_0.ErrorReset">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -75,7 +75,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpAlarmXListUI" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgt:MpAlarmXListUI_0.ErrorReset">
+          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgr:MpAlarmXListUI_0.ErrorReset">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -85,7 +85,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpReportCore" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::ReportMgt:MpReportCore_0.ErrorReset">
+          <Target xsi:type="opcUa.NodeAction" refId="::ReportMgr:MpReportCore_0.ErrorReset">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -95,7 +95,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpDataRecorder" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::DataMgt:MpDataRecorder_0.ErrorReset">
+          <Target xsi:type="opcUa.NodeAction" refId="::DataMgr:MpDataRecorder_0.ErrorReset">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -105,7 +105,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnAckMpRecipeUI" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipeUI_0.ErrorReset">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUI_0.ErrorReset">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -115,7 +115,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnMpRecipeXml" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:MpRecipe_0.ErrorReset">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipe_0.ErrorReset">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
