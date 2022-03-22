@@ -2,23 +2,23 @@
 <BindingsSet id="RecipeDialog_EditMachConfig_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:MachineSettingsEdit.AddMachineSettingsHere1" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere1" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumericInputMachConfig1Edit" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:MachineSettingsEdit.AddMachineSettingsHere2" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere2" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="TextInputMachConfig2Edit" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:MachineSettingsEdit.AddMachineSettingsHere3" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere3" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumericInputMachConfig3Edit" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:MachineSettingsEdit.AddMachineSettingsHere4" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere4" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumericInputMachConfig4Edit" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgt:MachineSettingsEdit.AddMachineSettingsHere5" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere5" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumericInputMachConfig5Edit" attribute="value" />
 		</Binding>
 </Bindings>

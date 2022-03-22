@@ -2,91 +2,91 @@
 <BindingsSet id="File_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Bindings>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.DeviceList.SelectedIndex" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.DeviceList.SelectedIndex" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileDeviceTable" attribute="selectedRow" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.DeviceList.DeviceNames" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.DeviceList.DeviceNames" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileDeviceListItem" attribute="stringValue" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.Size" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.Size" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileSize" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.TimeStamps" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.TimeStamps" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="TableItemDateTime1" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.FileNames" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.FileNames" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ObjectNames" attribute="stringValue" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.PathInfo.CurrentDir" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.PathInfo.CurrentDir" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="txtOutCurrentPath" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.SortOrder" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.SortOrder" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="drpBoxSortOrder" attribute="selectedIndex" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.Rename" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.Rename" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonRename" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.CreateFolder" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.CreateFolder" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonCreateDir" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.Delete" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.Delete" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonDelete" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.Paste" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.Paste" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonPaste" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.Cut" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.Cut" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonCut" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.NewName" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.NewName" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="txtInNewName" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.Copy" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.Copy" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonCopy" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.MultiSelect" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.MultiSelect" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonMultiSelect" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.Refresh" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonRefresh" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:MpFileManagerUIConnect.File.Filter" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.Filter" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="txtInSearchKeyword" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.DeviceName" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.DeviceName" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="txtOutCurrentDevice" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.IsFolder" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.IsFolder" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="pshBtnForward" attribute="enable" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.BackButton" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.BackButton" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="pshBtnBack" attribute="enable" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Commands.EnterFolder" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Commands.EnterFolder" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="pshBtnForward" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Commands.FolderUp" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Commands.FolderUp" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="pshBtnBack" attribute="value" />
 		</Binding>
 		
@@ -94,18 +94,18 @@
 
 
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.Type" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.Type" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="TableItemImageListType" attribute="selectedIndex" />
 		</Binding>
 
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Parameters.SelectedIndex" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.SelectedIndex" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="selectedRow" />
 		</Binding>
 		
 		<Binding mode="oneWay">
 			<Source xsi:type="session" refId="::SYSTEM:clientInfo.currentPageId" attribute="value" />
-			<Target xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.CurrentPage" attribute="value" />
+			<Target xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.CurrentPage" attribute="value" />
 		</Binding>
 
 	
@@ -113,11 +113,11 @@
 
 
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.TableConfig[0]" attribute="value" />
+<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.TableConfig[0]" attribute="value" />
 <Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileDeviceTable" attribute="tableConfiguration" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FileMgt:HmiFile.Status.TableConfig[1]" attribute="value" />
+<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.TableConfig[1]" attribute="value" />
 <Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="tableConfiguration" />
 </Binding>
 </Bindings>

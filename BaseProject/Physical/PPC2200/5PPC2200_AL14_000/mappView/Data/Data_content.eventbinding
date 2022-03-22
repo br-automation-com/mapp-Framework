@@ -6,7 +6,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Data_content" widgetRefId="BtnRefresh" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::DataMgt:MpFileManagerUIConnect.File.Refresh">
+          <Target xsi:type="opcUa.NodeAction" refId="::DataMgr:MpFileManagerUIConnect.File.Refresh">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>

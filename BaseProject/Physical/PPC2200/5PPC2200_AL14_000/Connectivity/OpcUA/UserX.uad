@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="D4.91">
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleName="Service" Access="0x015F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+        <ACE RoleName="Operators" Access="0x015F" />
+        <ACE RoleName="Everyone" Access="0x015F" />
+      </ACL>
+      <ACL Id="3">
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x017F" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView AclId="3">
+    <Module Name="&lt;Default&gt;">
+      <Task Name="UserX1">
+        <Variable Name="UserXMgrUIConnect" AutomaticEnable="True">
+          <Variable Name="User">
+            <Variable Name="List">
+              <Variable Name="UserNames" EnableArrayElements="True" />
+              <Variable Name="UserOptions" EnableArrayElements="True" />
+            </Variable>
+            <Variable Name="Info">
+              <Variable Name="Roles" EnableArrayElements="True" />
+              <Variable Name="AdditionalData" EnableArrayElements="True" />
+            </Variable>
+          </Variable>
+          <Variable Name="Import">
+            <Variable Name="Dialog">
+              <Variable Name="List">
+                <Variable Name="FileNames" EnableArrayElements="True" />
+              </Variable>
+            </Variable>
+          </Variable>
+        </Variable>
+        <Variable Name="MpUserXManagerUI_0">
+          <Variable Name="ErrorReset" />
+          <Variable Name="Error" />
+        </Variable>
+        <Variable Name="UserXLoginUIConnect" AutomaticEnable="True" />
+        <Variable Name="MpUserXLoginUI_0">
+          <Variable Name="Error" />
+        </Variable>
+        <Variable Name="MpUserXLogin_0">
+          <Variable Name="Error" />
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

@@ -14,35 +14,35 @@
     <EventBinding id="Recipe_Eventbinding_EditConfirm">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="SaveButton" event="Click" />
       <Operand datatype="ANY_STRING" name="LastProductRecipe">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgt:HmiRecipe.Parameters.LastLoadedProductRecipe">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Parameters.LastLoadedProductRecipe">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="LastMachineRecipe">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgt:HmiRecipe.Parameters.LastLoadedConfigRecipe">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Parameters.LastLoadedConfigRecipe">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="ActiveRecipe">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgt:HmiRecipe.Parameters.ActiveRecipe">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Parameters.ActiveRecipe">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="RecipeCategory">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgt:HmiRecipe.Parameters.CategoryDropdown">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Parameters.CategoryDropdown">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
       <EventHandler condition="">
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Commands.SaveSelectedRecipe">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.SaveSelectedRecipe">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="(LastProductRecipe = ActiveRecipe AND RecipeCategory = &quot;Product&quot;) OR (LastMachineRecipe = ActiveRecipe AND RecipeCategory = &quot;Machine&quot;) ">
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgt:HmiRecipe.Commands.LoadRecipe">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.LoadRecipe">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
