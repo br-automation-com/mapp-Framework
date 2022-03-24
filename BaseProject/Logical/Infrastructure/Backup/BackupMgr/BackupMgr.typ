@@ -31,6 +31,7 @@ TYPE
 		CopyToUSB : BOOL;
 		CopyFromUSB : BOOL;
 		SaveConfig : BOOL;
+		ErrorReset : BOOL;
 	END_STRUCT;
 	BackupHmiParametersType : 	STRUCT 
 		Name : STRING[80] := 'myBackup';
@@ -39,6 +40,7 @@ TYPE
 	END_STRUCT;
 	BackupHmiStatusType : 	STRUCT 
 		Busy : BOOL;
+		Error : BOOL;
 		CreateAllowed : BOOL;
 		RestoreAllowed : BOOL;
 		FileNames : ARRAY[0..49]OF STRING[80];

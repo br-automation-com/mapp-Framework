@@ -18,7 +18,7 @@ PROGRAM _INIT
     MpBackupCoreFB.MpLink := ADR(gMpLinkBackupCore);
 	MpBackupCoreFB.Enable := TRUE;
 	MpBackupCoreFB();
-    
+	    
     MpFileManagerUIFB.MpLink := ADR(gMpLinkFileManagerUIBackup);
     MpFileManagerUIFB.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUIFB.Enable := TRUE;
@@ -88,7 +88,7 @@ PROGRAM _CYCLIC
                 MpFileManagerUIConnect.File.Refresh := TRUE;
                 BackupState := BACKUP_IDLE;
             ELSIF (MpBackupCoreFB.Error = TRUE) THEN
-                BackupState := BACKUP_ERROR;
+                BackupState := BACKUP_ERROR;				
                 MpBackupCoreFB.Create := FALSE;
                 MpBackupCoreFB.Install := FALSE;
                 MpBackupCoreFB.RequestInfo := FALSE;
@@ -124,7 +124,12 @@ PROGRAM _CYCLIC
 			END_CASE
         
         BACKUP_ERROR:
-        
+		
+			HmiBackup.Status.Error := TRUE;
+			IF HmiBackup.Commands.ErrorReset THEN
+				MpBackupCoreFB.ErrorReset := TRUE;
+        		BackupState := BACKUP_IDLE;
+			END_IF	
     END_CASE
 
     // Reset any errors caused by requesting information
@@ -142,6 +147,7 @@ PROGRAM _CYCLIC
     END_IF
     IF (MpBackupCoreFB.Error = FALSE) THEN
         MpBackupCoreFB.ErrorReset := FALSE;
+		HmiBackup.Status.Error := FALSE;
     END_IF
     
     HmiBackup.Status.RestoreAllowed := (HmiBackup.Status.Info.ConfigurationID <> '') AND NOT(MpBackupCoreFB.Info.Automatic.Backup.InProgress);
