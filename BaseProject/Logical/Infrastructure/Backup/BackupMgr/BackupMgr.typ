@@ -31,7 +31,7 @@ TYPE
 		CopyToUSB : BOOL;
 		CopyFromUSB : BOOL;
 		SaveConfig : BOOL;
-		ErrorReset : BOOL;
+		Reset : BOOL;
 	END_STRUCT;
 	BackupHmiParametersType : 	STRUCT 
 		Name : STRING[80] := 'myBackup';
@@ -49,6 +49,7 @@ TYPE
 		Info : MpBackupProjectInfoRequestType;
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100];
 		TableConfig : ARRAY[0..1]OF STRING[120];
+		SimulationActive : BOOL;
 	END_STRUCT;
 	BackupHmiInterfaceType : 	STRUCT 
 		Commands : BackupHmiCommandsType;

@@ -55,13 +55,6 @@
 <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.TableConfig[0]" attribute="value" />
 <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="FileDeviceTable" attribute="tableConfiguration" />
 </Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.Error" attribute="value" />
-<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="ButtonBackupErrorReset" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Commands.ErrorReset" attribute="value" />
-<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="ButtonBackupErrorReset" attribute="value" />
-</Binding>
+
 </Bindings>
 </BindingsSet>

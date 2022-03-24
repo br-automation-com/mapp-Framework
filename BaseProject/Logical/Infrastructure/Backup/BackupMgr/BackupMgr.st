@@ -35,7 +35,7 @@ PROGRAM _INIT
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	
+
     CASE BackupState OF
         BACKUP_IDLE:
             HmiBackup.Status.CreateAllowed := NOT(MpBackupCoreFB.Info.Automatic.Backup.InProgress);
@@ -77,6 +77,10 @@ PROGRAM _CYCLIC
                 LastSelectedIndex := HmiBackup.Parameters.SelectedIndex;
                 MpBackupCoreFB.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Parameters.SelectedIndex].Name);
                 MpBackupCoreFB.RequestInfo := TRUE;
+			ELSIF DiagCpuIsARsim() OR DiagCpuIsSimulated() THEN
+              	HmiBackup.Status.SimulationActive := TRUE;
+                HmiBackup.Status.CreateAllowed := FALSE;
+                HmiBackup.Status.RestoreAllowed := FALSE;
             END_IF
     
         BACKUP_CREATING:
@@ -124,9 +128,11 @@ PROGRAM _CYCLIC
 			END_CASE
         
         BACKUP_ERROR:
-		
-			HmiBackup.Status.Error := TRUE;
-			IF HmiBackup.Commands.ErrorReset THEN
+			IF MpBackupCoreFB.Info.Diag.StatusID.ID = mpBACKUP_ERR_CREATE_FAILED THEN
+				HmiBackup.Status.Error := TRUE;
+			END_IF	
+			IF HmiBackup.Commands.Reset THEN
+				HmiBackup.Commands.Reset := FALSE;
 				MpBackupCoreFB.ErrorReset := TRUE;
         		BackupState := BACKUP_IDLE;
 			END_IF	

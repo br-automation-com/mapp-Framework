@@ -63,7 +63,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_4">
+    <EventBinding id="BackupDialog_Create.Status.Error">
       <Source xsi:type="opcUa.Event" refId="::BackupMgr:HmiBackup.Status.Error" event="ValueChanged" />
       <EventHandler condition="(newValue = true)">
         <Sequence>
