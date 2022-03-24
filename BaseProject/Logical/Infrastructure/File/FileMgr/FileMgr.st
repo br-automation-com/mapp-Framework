@@ -30,13 +30,13 @@ PROGRAM _INIT
     // ScanInterval is in minutes
 	HmiFile.Parameters.Fifo.ScanInterval := 60;
 	
-	HmiFile.Status.DeviceDataProvider[0] := '{"value":"mappRecipe","text":"mappRecipe"}';
-	HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappAudit","text":"mappAudit"}';
-	HmiFile.Status.DeviceDataProvider[2] := '{"value":"mappReport","text":"mappReport"}';
-	HmiFile.Status.DeviceDataProvider[3] := '{"value":"mappData","text":"mappData"}';
-	HmiFile.Status.DeviceDataProvider[4] := '{"value":"mappBackup","text":"mappBackup"}';
-	HmiFile.Status.DeviceDataProvider[5] := '{"value":"mappAlarmX","text":"mappAlarmX"}';
-	HmiFile.Status.DeviceDataProvider[6] := '{"value":"mappUserX","text":"mappUserX"}';
+	HmiFile.Status.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"mappRecipeFiles"}';
+	HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappAuditFiles","text":"mappAuditFiles"}';
+	HmiFile.Status.DeviceDataProvider[2] := '{"value":"mappReportFiles","text":"mappReportFiles"}';
+	HmiFile.Status.DeviceDataProvider[3] := '{"value":"mappDataFiles","text":"mappDataFiles"}';
+	HmiFile.Status.DeviceDataProvider[4] := '{"value":"mappBackupFiles","text":"mappBackupFiles"}';
+	HmiFile.Status.DeviceDataProvider[5] := '{"value":"mappAlarmXFiles","text":"mappAlarmXFiles"}';
+	HmiFile.Status.DeviceDataProvider[6] := '{"value":"mappUserXFiles","text":"mappUserXFiles"}';
 	
 END_PROGRAM
 
