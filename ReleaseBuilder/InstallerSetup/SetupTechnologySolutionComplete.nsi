@@ -68,13 +68,6 @@ Section "$(mappFrameworkBaseShortText)" mappFrameworkBase
 
 SectionEnd
 
-Section "$(MenuShortText)" Menu
-	# Start Menu
-	createDirectory "$SMPROGRAMS\${COMPANYNAME}\${ProductNameShort}"
-	createShortCut "$SMPROGRAMS\${COMPANYNAME}\${ProductNameShort}\mapp Framework Importer.lnk" "$VersionBaseFolder\AS\TechnologyPackages\${ProductNameShort}\${Version}\bin\FrameworkImporter.exe" "" "$INSTDIR\${ProductNameShort}\mappFrameworkLogo.ico"
-
-SectionEnd
-
 ; Dummy section for the end of the root group
 Section "$(mappFrameworkEndShortText)" mappFrameworkEnd
 SectionEnd

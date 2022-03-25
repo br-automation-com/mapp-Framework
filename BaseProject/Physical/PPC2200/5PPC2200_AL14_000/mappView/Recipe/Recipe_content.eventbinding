@@ -80,7 +80,7 @@
         <Sequence>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Parameters.CreateDialogOpened">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.CreateDialogOpened">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -101,7 +101,7 @@
         <Sequence>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Parameters.EditDialogOpened">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.EditDialogOpened">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -184,7 +184,7 @@
       <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" event="SelectedIndexChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Parameters.CategoryDropdown">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown">
             <Method xsi:type="opcUa.NodeAction.SetValueString" value="=selectedValue" />
           </Target>
         </Action>
@@ -277,7 +277,7 @@
       </Operand>
       <EventHandler condition="contentId = &quot;Recipe_content&quot;">
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Parameters.CategoryDropdown">
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown">
             <Method xsi:type="opcUa.NodeAction.SetValueString" value="=CategoryDropdownValue" />
           </Target>
         </Action>

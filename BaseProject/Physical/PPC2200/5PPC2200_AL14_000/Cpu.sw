@@ -6,6 +6,7 @@
     <Task Name="AxisContro" Source="Infrastructure.AxisTemplate.AxisControl.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
     <Task Name="AppAxis_1" Source="MachineControl.AppAxis_1.AppAxis_1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="CrossCutte" Source="MachineControl.CrossCutter.CrossCutter.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
+    <Task Name="AlarmX1" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2">
     <Task Name="PIDControl" Source="MainControl.PIDControl.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
@@ -24,7 +25,6 @@
     <Task Name="RecipeMgr" Source="Infrastructure.Recipe.RecipeMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="UsbMgr" Source="Infrastructure.Usb.UsbMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="BackupMgr" Source="Infrastructure.Backup.BackupMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="AlarmX1" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
@@ -39,13 +39,6 @@
     <NcDataObject Name="McDriveLog" Source="" Memory="UserROM" Language="Binary" />
   </NcDataObjects>
   <Binaries>
-    <BinaryObject Name="AuditCfg" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="FileCfg" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="BackupCfg" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="AlarmXCfg" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="ReportCfg" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="UserXCfg" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="DataCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TCData" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="OpcUaSrv" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McAcpSim" Source="" Memory="UserROM" Language="Binary" />
@@ -59,7 +52,9 @@
     <BinaryObject Name="arflatprv" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="FWRules" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arcoal" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Recipe" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Report" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Audit" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Data" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="sysconf" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="CutterAlm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="asfw" Source="" Memory="SystemROM" Language="Binary" />
@@ -91,12 +86,17 @@
     <BinaryObject Name="DataFile" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ReportFile" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AuditFile" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Report" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Audit" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="Data" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Backup" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UserX" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AlarmX" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AuditCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="FileCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="BackupCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AlarmXCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="ReportCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="UserXCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="DataCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="Recipe" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="McMechSys" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ConvVirt" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ConvAxis" Source="" Memory="UserROM" Language="Binary" />

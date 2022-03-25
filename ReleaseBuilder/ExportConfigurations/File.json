@@ -8,9 +8,7 @@
     ],
     "mapp" :
     [
-        "MpFile",
-        "MpServer",
-        "MpBase"
+        "MpFile"
     ],
     "files" :
     [
@@ -22,7 +20,7 @@
     ],
     "mappViewfiles" :
     [
-        
+        "Logical\\Libraries\\MpServer",        
         "Logical\\mappView\\Layouts\\SmallDialog.layout",
         "Logical\\mappView\\Resources\\Texts\\mappFrameworkTexts\\FileTexts.tmx",
         "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat1",
@@ -31,7 +29,7 @@
         "Logical\\mappView\\Visualization\\Pages\\FrameworkPackage\\FileContent",
         "Logical\\mappView\\Visualization\\Pages\\StartPage",
         "Logical\\mappView\\Visualization\\Dialogs\\FileDialogs",
-        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\FileMgt.uad",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\FileMgr.uad",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Config.mappviewcfg",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\File",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\File.vis"
@@ -40,11 +38,11 @@
     {
         "deployTasks" :
         [
-            "Infrastructure.File.FileMgt.prg"
+            "Infrastructure.File.FileMgr.prg"
         ],
         "fileDevices" :
         [
-            "userPartition"
+            "UserPartition"
         ],
         "enableOpcUa" : false,
         "UserPartitionSize" : true

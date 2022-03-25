@@ -8,9 +8,7 @@
     ],
     "mapp" :
     [
-        "MpUserX",
-        "MpServer",
-        "MpBase"
+        "MpUserX"
     ],
     "files" :
     [
@@ -22,6 +20,7 @@
     ],
     "mappViewfiles" :
     [
+        "Logical\\Libraries\\MpServer",
         "Logical\\mappView\\Layouts\\SmallDialog.layout",
         "Logical\\mappView\\Layouts\\LargeDialog.layout",
         "Logical\\mappView\\Resources\\Texts\\mappFrameworkTexts\\UserMgtPageTexts.tmx",
@@ -34,7 +33,7 @@
         "Logical\\mappView\\Visualization\\Pages\\StartPage",
         "Logical\\mappView\\Visualization\\Variables\\UserX.svar",
         "Logical\\mappView\\Visualization\\Dialogs\\UserXDialogs",
-        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\UserXMgt.uad",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\UserXMgr.uad",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Config.mappviewcfg",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\UserX",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\UserX.vis"
@@ -43,12 +42,12 @@
     {
         "deployTasks" :
         [
-            "Infrastructure.UserX.UserXMgt.prg"
+            "Infrastructure.UserX.UserXMgr.prg"
         ],
         "fileDevices" :
         [
-            "userPartition",
-            "mappUserX"
+            "UserPartition",
+            "mappUserXFiles"
         ],
         "enableOpcUa" : false,
         "UserPartitionSize" : true

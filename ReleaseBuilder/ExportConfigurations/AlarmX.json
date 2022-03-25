@@ -8,9 +8,7 @@
     ],
     "mapp" :
     [
-        "MpAlarmX",
-        "MpServer",
-        "MpBase"
+        "MpAlarmX"
     ],
     "files" :
     [
@@ -22,13 +20,14 @@
     ],
     "mappViewfiles" :
     [
+        "Logical\\Libraries\\MpServer",
         "Logical\\mappView\\Resources\\Texts\\mappFrameworkTexts\\AlarmPageTexts.tmx",
         "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat1",
         "Logical\\mappView\\Resources\\Media",
         "Logical\\mappView\\Layouts\\DefaultPage.layout",
         "Logical\\mappView\\Visualization\\Pages\\FrameworkPackage\\AlarmsContent",
         "Logical\\mappView\\Visualization\\Pages\\StartPage",
-        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\AlarmMgt.uad",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\AlarmMgr.uad",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Config.mappviewcfg",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\AlarmX",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\AlarmX.vis"
@@ -37,12 +36,12 @@
     {
         "deployTasks" :
         [
-            "Infrastructure.AlarmX.AlarmMgt.prg"
+            "Infrastructure.AlarmX.AlarmMgr.prg"
         ],
         "fileDevices" :
         [
-            "userPartition",
-            "mappAlarmX"
+            "UserPartition",
+            "mappAlarmXFiles"
         ],
         "enableOpcUa" : false,
         "UserPartitionSize" : true
