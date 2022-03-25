@@ -64,3 +64,49 @@ ACTION ChangeConfiguration:
     MC_BR_ProcessConfig_AX();
 
 END_ACTION
+
+ACTION ParameterInit:
+
+	MC_BR_ProcessParam_AX.DataAddress := ADR(AxisSettings.BaseParam);
+    MC_BR_ProcessParam_AX.DataType := mcCFG_AX_MOVE_LIM;
+    
+    ParameterState := PAR_STATE_INIT;
+    
+END_ACTION
+
+ACTION ChangeParameter:
+
+    CASE ParameterState OF
+        PAR_STATE_INIT:
+
+            MC_BR_ProcessParam_AX.Component := MpAxisBasic_0.MpLink;
+            
+            IF (MpAxisBasic_0.Active = TRUE) THEN
+                ParameterState := PAR_STATE_READ;
+            END_IF
+
+        PAR_STATE_READ:
+            MC_BR_ProcessParam_AX.Mode := mcPPM_READ;
+            MC_BR_ProcessParam_AX.Execute := TRUE;
+            
+            IF (MC_BR_ProcessParam_AX.Done = TRUE) THEN
+                MC_BR_ProcessParam_AX.Execute := FALSE;
+                ParameterState := PAR_STATE_READY;
+            END_IF
+    
+        PAR_STATE_WRITE:
+            MC_BR_ProcessParam_AX.Mode := mcPPM_WRITE;
+            MC_BR_ProcessParam_AX.Execute := TRUE;
+
+            IF (MC_BR_ProcessParam_AX.Done = TRUE) THEN
+                MC_BR_ProcessParam_AX.Execute := FALSE;
+                ParameterState := PAR_STATE_READY;
+            END_IF
+            
+        PAR_STATE_READY:
+    
+    END_CASE
+    
+    MC_BR_ProcessParam_AX();
+
+END_ACTION

@@ -4,6 +4,7 @@ TYPE
 		AxisFeatures : {REDUND_UNREPLICABLE} ARRAY[0..2]OF STRING[255];
 		DriveConfiguration : {REDUND_UNREPLICABLE} McCfgPureVAxType;
 		BaseConfiguration : {REDUND_UNREPLICABLE} McCfgAxType;
+		BaseParam : {REDUND_UNREPLICABLE} McCfgAxMoveLimType;
 	END_STRUCT;
 	AxisMachineSettingsType : {REDUND_UNREPLICABLE} 	STRUCT 
 		ReferencePosition : {REDUND_UNREPLICABLE} LREAL := 0; (*[mm] Axis position after reference*)
@@ -72,6 +73,13 @@ TYPE
 		STATE_ABORTED,
 		STATE_CLEARING,
 		STATE_RESETTING
+		);
+	ParameterStateEnum : 
+		(
+		PAR_STATE_INIT,
+		PAR_STATE_READ,
+		PAR_STATE_WRITE,
+		PAR_STATE_READY
 		);
 	ConfigurationStateEnum : 
 		(
