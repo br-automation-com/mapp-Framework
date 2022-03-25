@@ -1,10 +1,10 @@
-ACTION SimulationControl:
+﻿ACTION SimulationControl:
 
     IF NOT (DiagCpuIsARsim() OR DiagCpuIsSimulated()) THEN
         RETURN;
     END_IF
     
-    IF ((MpAxisBasicFB.IsHomed = FALSE) AND (MpAxisBasicFB.Home = FALSE)) THEN
+    IF ((MpAxisBasic_0.IsHomed = FALSE) AND (MpAxisBasic_0.Home = FALSE)) THEN
         AxisControl.Command.Reference := TRUE;
     END_IF
     

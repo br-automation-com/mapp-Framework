@@ -25,10 +25,10 @@ ACTION ChangeConfiguration:
         CONFIG_STATE_INIT:
 
             // Build up the string for the name
-            MC_BR_ProcessConfig_ACP.Name := MpAxisBasicFB.Info.HardwareInfo.Axis.ConfigElementLocation;
-            MC_BR_ProcessConfig_AX.Name := MpAxisBasicFB.Info.HardwareInfo.Axis.AxisName;
+            MC_BR_ProcessConfig_ACP.Name := MpAxisBasic_0.Info.HardwareInfo.Axis.ConfigElementLocation;
+            MC_BR_ProcessConfig_AX.Name := MpAxisBasic_0.Info.HardwareInfo.Axis.AxisName;
             
-            IF (MpAxisBasicFB.Active = TRUE) THEN
+            IF (MpAxisBasic_0.Active = TRUE) THEN
                 ConfigurationState := CONFIG_STATE_READ;
             END_IF
 

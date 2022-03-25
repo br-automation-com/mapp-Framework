@@ -115,13 +115,13 @@ PROGRAM _EXIT
     MpAlarmXListUI_0.Enable := FALSE;
     MpAlarmXHistory_0.Enable := FALSE;
 	MpAlarmXHistoryUI_0.Enable := FALSE;
-	QueryActiveAlarms.Enable := FALSE;
+	QueryActiveAlarms_0.Enable := FALSE;
 	
 	// Call function blocks
     MpAlarmXCore_0();
     MpAlarmXListUI_0();
     MpAlarmXHistory_0();
     MpAlarmXHistoryUI_0();
-    QueryActiveAlarms();
+    QueryActiveAlarms_0();
     
 END_PROGRAM
