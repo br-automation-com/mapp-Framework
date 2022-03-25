@@ -9,6 +9,7 @@ PROGRAM _INIT
     
 	RecipeInit;
 	ConfigurationInit;
+	ParameterInit;
     
 	// Inititialize mapp function blocks
     MpAlarmXCore_0.Enable := TRUE;

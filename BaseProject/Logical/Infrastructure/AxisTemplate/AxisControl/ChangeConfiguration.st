@@ -67,8 +67,8 @@ END_ACTION
 
 ACTION ParameterInit:
 
-	MC_BR_ProcessParam_ACP.DataAddress := ADR(AxisSettings.MechanicalParameter);
-    MC_BR_ProcessParam_ACP.DataType := mcCFG_ACP_MECH_ELM;
+	MC_BR_ProcessParam_AX.DataAddress := ADR(AxisSettings.BaseParam);
+    MC_BR_ProcessParam_AX.DataType := mcCFG_AX_MOVE_LIM;
     
     ParameterState := PAR_STATE_INIT;
     
@@ -79,27 +79,27 @@ ACTION ChangeParameter:
     CASE ParameterState OF
         PAR_STATE_INIT:
 
-            MC_BR_ProcessParam_ACP.Component := MpAxisBasicFB.MpLink;
+            MC_BR_ProcessParam_AX.Component := MpAxisBasic_0.MpLink;
             
-            IF (MpAxisBasicFB.Active = TRUE) THEN
+            IF (MpAxisBasic_0.Active = TRUE) THEN
                 ParameterState := PAR_STATE_READ;
             END_IF
 
         PAR_STATE_READ:
-            MC_BR_ProcessParam_ACP.Mode := mcPPM_READ;
-            MC_BR_ProcessParam_ACP.Execute := TRUE;
+            MC_BR_ProcessParam_AX.Mode := mcPPM_READ;
+            MC_BR_ProcessParam_AX.Execute := TRUE;
             
-            IF (MC_BR_ProcessParam_ACP.Done = TRUE) THEN
-                MC_BR_ProcessParam_ACP.Execute := FALSE;
+            IF (MC_BR_ProcessParam_AX.Done = TRUE) THEN
+                MC_BR_ProcessParam_AX.Execute := FALSE;
                 ParameterState := PAR_STATE_READY;
             END_IF
     
         PAR_STATE_WRITE:
-            MC_BR_ProcessParam_ACP.Mode := mcPPM_WRITE;
-            MC_BR_ProcessParam_ACP.Execute := TRUE;
+            MC_BR_ProcessParam_AX.Mode := mcPPM_WRITE;
+            MC_BR_ProcessParam_AX.Execute := TRUE;
 
-            IF (MC_BR_ProcessParam_ACP.Done = TRUE) THEN
-                MC_BR_ProcessParam_ACP.Execute := FALSE;
+            IF (MC_BR_ProcessParam_AX.Done = TRUE) THEN
+                MC_BR_ProcessParam_AX.Execute := FALSE;
                 ParameterState := PAR_STATE_READY;
             END_IF
             
@@ -107,6 +107,6 @@ ACTION ChangeParameter:
     
     END_CASE
     
-    MC_BR_ProcessParam_ACP();
+    MC_BR_ProcessParam_AX();
 
 END_ACTION
