@@ -45,7 +45,7 @@
 </Binding>
 
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.LastLoadedConfigRecipe" attribute="value" />
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.LastLoadedConfigRecipe" attribute="value" />
 <Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="txtOutRecipeName" attribute="value" />
 </Binding>
 </Bindings>

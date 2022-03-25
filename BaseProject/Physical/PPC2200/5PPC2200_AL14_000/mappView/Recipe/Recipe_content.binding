@@ -65,7 +65,7 @@
 		</Binding>
 		
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.LastLoadedProductRecipe" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.LastLoadedProductRecipe" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 		

@@ -12,22 +12,22 @@ TYPE
 	END_STRUCT;
 	RecipeParametersType : 	STRUCT 
 		Category : STRING[30];
-		LastLoadedConfigRecipe : STRING[255];
-		LastLoadedProductRecipe : STRING[255];
-		ActiveRecipe : STRING[255];
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100];
 		DeviceName : STRING[50];
 		FileName : STRING[255];
+		TableConfig : STRING[120];
+	END_STRUCT;
+	RecipeStatusType : 	STRUCT 
+		HMIcommand : RecipeHmiStepEnum;
+		LastLoadedConfigRecipe : STRING[255];
+		LastLoadedProductRecipe : STRING[255];
+		ActiveRecipe : STRING[255];
 		LastSelectedIndex : UINT;
 		LastStatus : MpRecipeUIStatusEnum;
-		TableConfig : STRING[120];
 		CopyStep : RecipeCopyStepEnum;
 		CategoryDropdown : STRING[50];
 		EditDialogOpened : BOOL;
 		CreateDialogOpened : BOOL;
-	END_STRUCT;
-	RecipeStatusType : 	STRUCT 
-		HMIcommand : RecipeHmiStepEnum;
 	END_STRUCT;
 	RecipeHmiInterfaceType : 	STRUCT 
 		Commands : RecipeCommandsType;
