@@ -26,12 +26,12 @@ PROGRAM _INIT
     
     MpBackupCoreConfig_0.Enable := TRUE;
     MpBackupCoreConfig_0.MpLink := ADR(gMpLinkBackupCore);
-    MpBackupCoreConfig_0.Configuration := ADR(HmiBackup.Parameters.AutomaticBackup);
+    MpBackupCoreConfig_0.Configuration := ADR(MpBackupConfiguration);
 	MpBackupCoreConfig_0.Load := TRUE;
 	MpBackupCoreConfig_0();
     
 	HmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackupFiles","text":"CF/PLC"}';
-    
+	    
 END_PROGRAM
 
 PROGRAM _CYCLIC
