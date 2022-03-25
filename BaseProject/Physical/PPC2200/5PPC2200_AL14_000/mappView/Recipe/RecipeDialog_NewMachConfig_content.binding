@@ -7,12 +7,13 @@
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere2" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="TextInputMachConfig2New" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumericInputMachConfig2New" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere3" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumericInputMachConfig3New" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="DropDownBoxMachConfig3New" attribute="selectedIndex" />
 		</Binding>
+		
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere4" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumericInputMachConfig4New" attribute="value" />
@@ -21,5 +22,5 @@
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere5" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumericInputMachConfig5New" attribute="value" />
 		</Binding>
-</Bindings>
+	</Bindings>
 </BindingsSet>
