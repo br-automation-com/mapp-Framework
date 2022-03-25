@@ -2,7 +2,7 @@
 <EventBindingSet id="UserX_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
     <EventBinding id="EventBinding_9" deactivated="true">
-      <Source xsi:type="opcUa.Event" refId="::UserXMgt:UserXMgrUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
+      <Source xsi:type="opcUa.Event" refId="::UserXMgr:UserXMgrUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
       <Operand datatype="BOOL" name="Status">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="UserXPwdChangeDialogOpen">
           <Method xsi:type="session.VariableAction.GetValue" />
@@ -79,7 +79,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserX_content" widgetRefId="ButtonExportUser" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::UserXMgt:UserXMgrUIConnect.Export.ShowDialog">
+          <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:UserXMgrUIConnect.Export.ShowDialog">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -96,7 +96,7 @@
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserX_content" widgetRefId="ButtonImportUser" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::UserXMgt:UserXMgrUIConnect.Import.ShowDialog">
+          <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:UserXMgrUIConnect.Import.ShowDialog">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -110,7 +110,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="UserXErrorDialog">
-      <Source xsi:type="opcUa.Event" refId="::UserXMgt:UserXMgrUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
+      <Source xsi:type="opcUa.Event" refId="::UserXMgr:UserXMgrUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
       <Operand datatype="BOOL" name="Status">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="UserXErrorDialogOpen">
           <Method xsi:type="session.VariableAction.GetValue" />
@@ -134,14 +134,14 @@
           </Step>
           <Step order="4">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::UserXMgt:UserXMgrUIConnect.Import.Dialog.Cancel">
+              <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.Cancel">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
           </Step>
           <Step order="5">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::UserXMgt:UserXMgrUIConnect.Export.Dialog.Cancel">
+              <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:UserXMgrUIConnect.Export.Dialog.Cancel">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -166,14 +166,14 @@
           </Step>
           <Step order="4">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::UserXMgt:UserXMgrUIConnect.Import.Dialog.Cancel">
+              <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.Cancel">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
           </Step>
           <Step order="5">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::UserXMgt:UserXMgrUIConnect.Export.Dialog.Cancel">
+              <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:UserXMgrUIConnect.Export.Dialog.Cancel">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -185,7 +185,7 @@
       <Source xsi:type="widgets.brease.UserList.Event" contentRefId="UserX_content" widgetRefId="UserListManagement" event="ItemClick" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::UserXMgt:SelectedUser">
+          <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:SelectedUser">
             <Method xsi:type="opcUa.NodeAction.SetValueString" value="=UserName" />
           </Target>
         </Action>

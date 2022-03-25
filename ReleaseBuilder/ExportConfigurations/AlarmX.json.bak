@@ -2,49 +2,46 @@
     "libraries" :
     [
         "AsBrStr",
-        "runtime",
+        "astime",
         "FileIO",
-        "AsArCfg"
+        "runtime"
     ],
     "mapp" :
     [
-        "MpBackup",
-        "MpFile"
+        "MpAlarmX"
     ],
     "files" :
     [
         "Logical\\Infrastructure\\Project.language",
         "Logical\\Infrastructure\\mappFrameworkGlobal.var",
-        "Logical\\Infrastructure\\Backup",
+        "Logical\\Infrastructure\\AlarmX",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\AccessAndSecurity\\UserRoleSystem",
-        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\Backup"
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\AlarmX"
     ],
     "mappViewfiles" :
     [
         "Logical\\Libraries\\MpServer",
-        "Logical\\mappView\\Layouts\\SmallDialog.layout",
-        "Logical\\mappView\\Resources\\Texts\\mappFrameworkTexts\\BackupTexts.tmx",
+        "Logical\\mappView\\Resources\\Texts\\mappFrameworkTexts\\AlarmPageTexts.tmx",
         "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat1",
         "Logical\\mappView\\Resources\\Media",
         "Logical\\mappView\\Layouts\\DefaultPage.layout",
-        "Logical\\mappView\\Visualization\\Pages\\FrameworkPackage\\BackupContent",
-        "Logical\\mappView\\Visualization\\Pages\\DemoPage",
-        "Logical\\mappView\\Visualization\\Dialogs\\BackupDialogs",
-        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\BackupMgr.uad",
+        "Logical\\mappView\\Visualization\\Pages\\FrameworkPackage\\AlarmsContent",
+        "Logical\\mappView\\Visualization\\Pages\\StartPage",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\AlarmMgr.uad",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Config.mappviewcfg",
-        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Backup",
-        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Backup.vis"
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\AlarmX",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\AlarmX.vis"
     ],
     "physical":
     {
         "deployTasks" :
         [
-            "Infrastructure.Backup.BackupMgr.prg"
+            "Infrastructure.AlarmX.AlarmMgr.prg"
         ],
         "fileDevices" :
         [
             "UserPartition",
-            "mappBackupFiles"
+            "mappAlarmXFiles"
         ],
         "enableOpcUa" : false,
         "UserPartitionSize" : true
