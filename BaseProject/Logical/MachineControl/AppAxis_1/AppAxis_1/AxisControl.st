@@ -9,6 +9,7 @@ PROGRAM _INIT
     RecipeInit;
 
     ConfigurationInit;
+	ParameterInit;
     
     MpAlarmXCoreFB.Enable := TRUE;
     

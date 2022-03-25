@@ -1,6 +1,7 @@
 VAR
 	i : {REDUND_UNREPLICABLE} USINT;
 	RestorePosition : {REDUND_UNREPLICABLE} McAcpAxRestorePosType;
+	ParameterState : {REDUND_UNREPLICABLE} ParameterStateEnum;
 	ConfigurationState : {REDUND_UNREPLICABLE} ConfigurationStateEnum;
 	State : {REDUND_UNREPLICABLE} StateEnum;
 	AutomaticState : {REDUND_UNREPLICABLE} AutomaticStateEnum;
@@ -21,6 +22,7 @@ VAR
 	IsHomedEdgePos : {REDUND_UNREPLICABLE} R_TRIG;
 	InPositionEdgePos : {REDUND_UNREPLICABLE} R_TRIG;
 	ReferenceEdgePos : {REDUND_UNREPLICABLE} R_TRIG;
+	MC_BR_ProcessParam_ACP : {REDUND_UNREPLICABLE} MC_BR_ProcessParam; (*Function block to read and write the ACOPOS configuration*)
 END_VAR
 (*Recipe*)
 VAR

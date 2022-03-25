@@ -73,6 +73,13 @@ TYPE
 		STATE_CLEARING,
 		STATE_RESETTING
 		);
+	ParameterStateEnum : 
+		(
+		PAR_STATE_INIT,
+		PAR_STATE_READ,
+		PAR_STATE_WRITE,
+		PAR_STATE_READY
+		);
 	ConfigurationStateEnum : 
 		(
 		CONFIG_STATE_INIT,

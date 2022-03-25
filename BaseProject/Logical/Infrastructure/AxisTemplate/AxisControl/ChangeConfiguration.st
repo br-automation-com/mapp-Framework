@@ -64,3 +64,49 @@ ACTION ChangeConfiguration:
     MC_BR_ProcessConfig_AX();
 
 END_ACTION
+
+ACTION ParameterInit:
+
+	MC_BR_ProcessParam_ACP.DataAddress := ADR(AxisSettings.MechanicalParameter);
+    MC_BR_ProcessParam_ACP.DataType := mcCFG_ACP_MECH_ELM;
+    
+    ParameterState := PAR_STATE_INIT;
+    
+END_ACTION
+
+ACTION ChangeParameter:
+
+    CASE ParameterState OF
+        PAR_STATE_INIT:
+
+            MC_BR_ProcessParam_ACP.Component := MpAxisBasicFB.MpLink;
+            
+            IF (MpAxisBasicFB.Active = TRUE) THEN
+                ParameterState := PAR_STATE_READ;
+            END_IF
+
+        PAR_STATE_READ:
+            MC_BR_ProcessParam_ACP.Mode := mcPPM_READ;
+            MC_BR_ProcessParam_ACP.Execute := TRUE;
+            
+            IF (MC_BR_ProcessParam_ACP.Done = TRUE) THEN
+                MC_BR_ProcessParam_ACP.Execute := FALSE;
+                ParameterState := PAR_STATE_READY;
+            END_IF
+    
+        PAR_STATE_WRITE:
+            MC_BR_ProcessParam_ACP.Mode := mcPPM_WRITE;
+            MC_BR_ProcessParam_ACP.Execute := TRUE;
+
+            IF (MC_BR_ProcessParam_ACP.Done = TRUE) THEN
+                MC_BR_ProcessParam_ACP.Execute := FALSE;
+                ParameterState := PAR_STATE_READY;
+            END_IF
+            
+        PAR_STATE_READY:
+    
+    END_CASE
+    
+    MC_BR_ProcessParam_ACP();
+
+END_ACTION
