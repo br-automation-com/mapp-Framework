@@ -34,9 +34,9 @@ ACTION FIFOOperation:
         			IF HmiFile.Parameters.Fifo.DeviceName = MpFileManagerUIConnect.DeviceList.DeviceNames[i] THEN
 						MpFileManagerUIConnect.DeviceList.SelectedIndex := i;
 					END_IF
-    			END_FOR
+    			END_FOR				
             END_IF
-            
+    
             IF (HmiFile.Status.DeviceName = HmiFile.Parameters.Fifo.DeviceName) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
                 HmiFile.Status.DeleteStep := FILE_SORT_BY_DATE;
             END_IF
@@ -48,8 +48,14 @@ ACTION FIFOOperation:
             ELSIF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
                 MpFileManagerUIConnect.File.Refresh := TRUE;
             END_IF
-            
-            IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH) THEN
+			
+			IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH) AND (MpFileManagerUIConnect.File.Refresh = FALSE) THEN
+                HmiFile.Status.DeleteStep := FILE_SORT_BY_DATE_WAIT;
+            END_IF
+			
+       FILE_SORT_BY_DATE_WAIT:  
+	      
+            IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
                 HmiFile.Status.DeleteStep := FILE_CHECK_FOR_FILTER;
             END_IF
 	
@@ -136,12 +142,14 @@ ACTION FIFOOperation:
                 MpFileManagerUIConnect.File.SortOrder := HmiFile.Parameters.OldSortOrder;
             ELSIF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
                 MpFileManagerUIConnect.File.Refresh := TRUE;
+				HmiFile.Status.DeleteStep := FILE_RESET_SORT_BY_WAIT;
             END_IF
-            
-            IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH) THEN
+			
+        FILE_RESET_SORT_BY_WAIT:    
+            IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH) OR (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
                 HmiFile.Status.DeleteStep := FILE_DELETE_WAIT;
 				IF (MpFileManagerUIConnect.MessageBox.Type = mpFILE_MSG_BUSY) THEN
-					MpFileManagerUIConnect.MessageBox.Confirm := TRUE;
+					MpFileManagerUIConnect.MessageBox.Confirm := TRUE;					
 				END_IF
             END_IF
 	END_CASE
