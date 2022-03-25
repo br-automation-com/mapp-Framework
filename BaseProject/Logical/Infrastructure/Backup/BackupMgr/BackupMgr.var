@@ -1,10 +1,10 @@
 VAR
 	MpBackupConfiguration : MpBackupCoreConfigType;
-	MpBackupCoreConfigFB : MpBackupCoreConfig;
+	MpBackupCoreConfig_0 : MpBackupCoreConfig;
 	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappBackupFiles','USB1',8('')]));
-	MpFileManagerUIFB : MpFileManagerUI;
+	MpFileManagerUI_0 : MpFileManagerUI;
 	DirCreate_New : DirCreate;
-	MpBackupCoreFB : MpBackupCore;
+	MpBackupCore_0 : MpBackupCore;
 	HmiBackup : BackupHmiInterfaceType;
 	i : USINT;
 	DeviceCount : USINT;

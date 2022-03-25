@@ -11,16 +11,16 @@ PROGRAM _INIT
 	ConfigurationInit;
     
 	// Inititialize mapp function blocks
-    MpAlarmXCoreFB.Enable := TRUE;
-	MpAxisBasicFB.Enable := TRUE;
+    MpAlarmXCore_0.Enable := TRUE;
+	MpAxisBasic_0.Enable := TRUE;
 
 	AxisInit;
 END_PROGRAM
 
 PROGRAM _CYCLIC
 
-    MpAxisBasicFB.MpLink := ADR(gMpLinkAppAxis_1);
-    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gMpLinkAppAxis_1);
+    MpAxisBasic_0.MpLink := ADR(gMpLinkAppAxis_1);
+    MC_BR_CheckRestorePositionData_0.Axis := ADR(gMpLinkAppAxis_1);
     
 	// Call all actions
     SimulationControl;
@@ -29,10 +29,10 @@ PROGRAM _CYCLIC
     RecipeCyclic;
     
 	// Assign MpLink
-	MpAlarmXCoreFB.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
+	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
 	
 	// Call function block
-    MpAlarmXCoreFB();
+    MpAlarmXCore_0();
 
 END_PROGRAM
 
@@ -42,11 +42,11 @@ PROGRAM _EXIT
 	// Do NOT disable MpAxisBasic, as this can cause problems during project transfer.
     MpRecipeRegPar_Par.Enable := FALSE;
 	MpRecipeRegPar_Cfg.Enable := FALSE;
-	MpAlarmXCoreFB.Enable := FALSE;
+	MpAlarmXCore_0.Enable := FALSE;
 	
 	// Call function blocks
 	MpRecipeRegPar_Par();
 	MpRecipeRegPar_Cfg();
-	MpAlarmXCoreFB();
+	MpAlarmXCore_0();
 
 END_PROGRAM

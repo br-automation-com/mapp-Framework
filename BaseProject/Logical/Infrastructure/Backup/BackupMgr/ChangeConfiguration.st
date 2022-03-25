@@ -1,25 +1,25 @@
 ACTION ChangeConfiguration:
 
-    MpBackupCoreConfigFB.MpLink := ADR(gMpLinkBackupCore);
-    MpBackupCoreConfigFB.Configuration := ADR(MpBackupConfiguration);
-    IF (MpBackupCoreConfigFB.Error = TRUE) THEN
+    MpBackupCoreConfig_0.MpLink := ADR(gMpLinkBackupCore);
+    MpBackupCoreConfig_0.Configuration := ADR(MpBackupConfiguration);
+    IF (MpBackupCoreConfig_0.Error = TRUE) THEN
         // Loading currently always throws an error about failed to write Auditing.Type
-        IF (MpBackupCoreConfigFB.StatusID = mpBACKUP_ERR_CONFIG_LOAD) THEN
+        IF (MpBackupCoreConfig_0.StatusID = mpBACKUP_ERR_CONFIG_LOAD) THEN
             LoadBackupConfiguration;
         END_IF
         
-        MpBackupCoreConfigFB.Load := FALSE;
-        MpBackupCoreConfigFB.Save := FALSE;
-        MpBackupCoreConfigFB.ErrorReset := TRUE;
+        MpBackupCoreConfig_0.Load := FALSE;
+        MpBackupCoreConfig_0.Save := FALSE;
+        MpBackupCoreConfig_0.ErrorReset := TRUE;
     END_IF
-    MpBackupCoreConfigFB();
-    MpBackupCoreConfigFB.ErrorReset := FALSE;
-    IF (MpBackupCoreConfigFB.CommandDone = TRUE) THEN
-        IF (MpBackupCoreConfigFB.Load = TRUE) THEN
+    MpBackupCoreConfig_0();
+    MpBackupCoreConfig_0.ErrorReset := FALSE;
+    IF (MpBackupCoreConfig_0.CommandDone = TRUE) THEN
+        IF (MpBackupCoreConfig_0.Load = TRUE) THEN
             LoadBackupConfiguration;
         END_IF
-        MpBackupCoreConfigFB.Load := FALSE;
-        MpBackupCoreConfigFB.Save := FALSE;
+        MpBackupCoreConfig_0.Load := FALSE;
+        MpBackupCoreConfig_0.Save := FALSE;
     END_IF
     
 END_ACTION

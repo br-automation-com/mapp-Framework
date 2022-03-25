@@ -100,9 +100,9 @@ ACTION LoadBackupConfiguration:
 END_ACTION
 
 ACTION FileManager:
-    MpFileManagerUIFB.MpLink := ADR(gMpLinkFileManagerUIBackup);
-    MpFileManagerUIFB.UIConnect := ADR(MpFileManagerUIConnect);
-    MpFileManagerUIFB();
+    MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
+    MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
+    MpFileManagerUI_0();
     FOR i := 0 TO ((SIZEOF(HmiBackup.Status.FileNames)/SIZEOF(HmiBackup.Status.FileNames[0])) - 1) DO
         HmiBackup.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
         HmiBackup.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;

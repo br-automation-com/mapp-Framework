@@ -1,4 +1,4 @@
-//***********************************************************************
+﻿//***********************************************************************
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
 // Created: Jan 1, 2022
@@ -10,13 +10,13 @@ PROGRAM _INIT
     ST_name(0, ADR(AxisControl.Status.TaskName), 0);
     
 	// Inititialize mapp function blocks
-	MpAlarmXCoreFB.Enable := TRUE;
-	MpAlarmXCoreFB();
+	MpAlarmXCore_0.Enable := TRUE;
+	MpAlarmXCore_0();
     ConfigurationInit;
 
-    MpAxisBasicFB.Enable := TRUE;
-	MpAxisBasicFB.MpLink := ADR(gAxisTemplate);
-	MpAxisBasicFB();
+    MpAxisBasic_0.Enable := TRUE;
+	MpAxisBasic_0.MpLink := ADR(gAxisTemplate);
+	MpAxisBasic_0();
     
     AxisInit;
 
@@ -24,8 +24,8 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
     
-    MpAxisBasicFB.MpLink := ADR(gAxisTemplate);
-    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gAxisTemplate);
+    MpAxisBasic_0.MpLink := ADR(gAxisTemplate);
+    MC_BR_CheckRestorePositionData_0.Axis := ADR(gAxisTemplate);
     
 	// Call all actions
     SimulationControl;
@@ -34,10 +34,10 @@ PROGRAM _CYCLIC
 	RecipeCyclic;
 	
     // Assign MpLink
-    MpAlarmXCoreFB.MpLink := ADR(gAlarmXCore_AxisTemplate);
+    MpAlarmXCore_0.MpLink := ADR(gAlarmXCore_AxisTemplate);
     
 	// Call function block
-	MpAlarmXCoreFB();
+	MpAlarmXCore_0();
     
 END_PROGRAM
 
@@ -47,11 +47,11 @@ PROGRAM _EXIT
 	// Do NOT disable MpAxisBasic, as this can cause problems during project transfer.
     MpRecipeRegPar_Par.Enable := FALSE;
 	MpRecipeRegPar_Cfg.Enable := FALSE;
-	MpAlarmXCoreFB.Enable := FALSE;
+	MpAlarmXCore_0.Enable := FALSE;
 	
 	// Call function blocks
 	MpRecipeRegPar_Par();
 	MpRecipeRegPar_Cfg();
-	MpAlarmXCoreFB();
+	MpAlarmXCore_0();
 
 END_PROGRAM

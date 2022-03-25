@@ -1,29 +1,28 @@
-
 ACTION ExecuteQuery:
 
-    QueryActiveAlarms.MpLink := ADR(gMpLinkAlarmXCore);
-    QueryActiveAlarms.Enable := TRUE;
-    QueryActiveAlarms.Name := ADR('ActiveAlarms');
-    QueryActiveAlarms.Language := ADR('en');
-    QueryActiveAlarms();
+    QueryActiveAlarms_0.MpLink := ADR(gMpLinkAlarmXCore);
+    QueryActiveAlarms_0.Enable := TRUE;
+    QueryActiveAlarms_0.Name := ADR('ActiveAlarms');
+    QueryActiveAlarms_0.Language := ADR('en');
+    QueryActiveAlarms_0();
     
     CASE (AlarmQuery.State) OF
         ACTIVE_ALARM_WAIT:
             IF (HmiAlarmX.Commands.RunQuery = TRUE) THEN
                 brsmemset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
                 AlarmQuery.LastActiveAlarmUpdateCount := AlarmQuery.ActiveAlarmUpdateCount;
-				QueryActiveAlarms.Execute := TRUE;
+				QueryActiveAlarms_0.Execute := TRUE;
 				HmiAlarmX.Commands.RunQuery := FALSE;
                 AlarmQuery.State := ACTIVE_ALARM_QUERY;
             END_IF
             
         ACTIVE_ALARM_QUERY:
-            IF ((QueryActiveAlarms.CommandDone = TRUE) AND (QueryActiveAlarms.Info.HasMoreRows = FALSE)) THEN
-                QueryActiveAlarms.Execute := FALSE;
-                QueryActiveAlarms.Next := FALSE;
+            IF ((QueryActiveAlarms_0.CommandDone = TRUE) AND (QueryActiveAlarms_0.Info.HasMoreRows = FALSE)) THEN
+                QueryActiveAlarms_0.Execute := FALSE;
+                QueryActiveAlarms_0.Next := FALSE;
                 AlarmQuery.State := ACTIVE_ALARM_WAIT;
-            ELSIF ((QueryActiveAlarms.CommandDone = TRUE) AND (QueryActiveAlarms.Info.HasMoreRows = TRUE)) THEN
-                QueryActiveAlarms.Next := FALSE;
+            ELSIF ((QueryActiveAlarms_0.CommandDone = TRUE) AND (QueryActiveAlarms_0.Info.HasMoreRows = TRUE)) THEN
+                QueryActiveAlarms_0.Next := FALSE;
                 AlarmQuery.State := ACTIVE_ALARM_NEXT;
             END_IF
             
@@ -35,7 +34,7 @@ ACTION ExecuteQuery:
 				// Otherwise, the older alarms in the query will get overwritten with the newest entries here.
 				brsmemset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
                 AlarmQuery.Next := FALSE;
-                QueryActiveAlarms.Next := TRUE;
+                QueryActiveAlarms_0.Next := TRUE;
                 AlarmQuery.State := ACTIVE_ALARM_QUERY;
             END_IF
 	END_CASE

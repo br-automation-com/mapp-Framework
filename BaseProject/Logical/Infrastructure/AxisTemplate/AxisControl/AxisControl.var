@@ -10,12 +10,12 @@ VAR
 END_VAR
 (*Function Blocks*)
 VAR
-	MC_BR_CheckRestorePositionDataFB : {REDUND_UNREPLICABLE} MC_BR_CheckRestorePositionData;
+	MC_BR_CheckRestorePositionData_0 : {REDUND_UNREPLICABLE} MC_BR_CheckRestorePositionData;
 	MpRecipeRegPar_Cfg : {REDUND_UNREPLICABLE} MpRecipeRegPar;
 	MpRecipeRegPar_Par : {REDUND_UNREPLICABLE} MpRecipeRegPar;
-	MpAlarmXCoreFB : {REDUND_UNREPLICABLE} MpAlarmXCore;
+	MpAlarmXCore_0 : {REDUND_UNREPLICABLE} MpAlarmXCore;
 	MpAxisParameters : {REDUND_UNREPLICABLE} MpAxisBasicParType := (Distance:=70,Velocity:=100,Acceleration:=5000,Deceleration:=5000,Jog:=(Velocity:=70,Acceleration:=5000,Deceleration:=5000),AutoTune:=(MaxCurrentPercent:=50,MaxDistance:=720,MaxPositionError:=5));
-	MpAxisBasicFB : {REDUND_UNREPLICABLE} MpAxisBasic;
+	MpAxisBasic_0 : {REDUND_UNREPLICABLE} MpAxisBasic;
 	MC_BR_ProcessConfig_AX : {REDUND_UNREPLICABLE} MC_BR_ProcessConfig; (*Function block to read and write the axis configuration*)
 	MC_BR_ProcessConfig_ACP : {REDUND_UNREPLICABLE} MC_BR_ProcessConfig; (*Function block to read and write the ACOPOS configuration*)
 	IsHomedEdgePos : {REDUND_UNREPLICABLE} R_TRIG;
