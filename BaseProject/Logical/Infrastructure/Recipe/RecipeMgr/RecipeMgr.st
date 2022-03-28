@@ -127,19 +127,19 @@ PROGRAM _CYCLIC
 	
 	// Reset commands on MpRecipe FUB
 	IF MpRecipe_0.CommandDone THEN
+		MpRecipe_0.Load := FALSE;
+		MpRecipe_0.Save := FALSE;
 		// Set update notification for machine category
-		IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
-			MpRecipe_0.UpdateNotification := TRUE;
-			MpRecipe_0.Load := FALSE;
-			MpRecipe_0.Save := FALSE;
+	//	IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
+		IF ((brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
+			MpRecipe_0.UpdateNotification := TRUE;	
 		ELSE
 			MpRecipe_0.UpdateNotification := FALSE;
-			MpRecipe_0.Load := FALSE;
-			MpRecipe_0.Save := FALSE;
 			HmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
 			HmiRecipe.Parameters.FileName := 'Default.par';
 		END_IF
-	END_IF
+		END_IF
+	
     
 	// Error reset
 	IF NOT MpRecipe_0.Error THEN
