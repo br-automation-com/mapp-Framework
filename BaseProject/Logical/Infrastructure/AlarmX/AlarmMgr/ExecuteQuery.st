@@ -41,14 +41,15 @@ ACTION ExecuteQuery:
 	
 	// Convert the query results into arrays that can easily be bound to the Table widget in mapp View
 	FOR i := 0 TO MAX_QUERY_RESULTS DO
-		AlarmQueryHMI.Active[i] := AlarmQuery.Alarms[i].Active;
-		AlarmQueryHMI.Acknowledged[i] := AlarmQuery.Alarms[i].Acknowledged;
-		AlarmQueryHMI.Scope[i] := AlarmQuery.Alarms[i].Scope;
-		AlarmQueryHMI.Name[i] := AlarmQuery.Alarms[i].Name;
-		AlarmQueryHMI.Message[i] := AlarmQuery.Alarms[i].Message;
-		AlarmQueryHMI.AdditionalInfo[i] := AlarmQuery.Alarms[i].AdditionalInfo;
-		AlarmQueryHMI.TimeStamp[i] := AlarmQuery.Alarms[i].TimeStamp;
-		AlarmQueryHMI.Severity[i] := AlarmQuery.Alarms[i].Severity;
+		HmiAlarmX.Status.Query.Active[i] := AlarmQuery.Alarms[i].Active;
+		HmiAlarmX.Status.Query.Acknowledged[i] := AlarmQuery.Alarms[i].Acknowledged;
+		HmiAlarmX.Status.Query.Scope[i] := AlarmQuery.Alarms[i].Scope;
+		HmiAlarmX.Status.Query.Name[i] := AlarmQuery.Alarms[i].Name;
+		HmiAlarmX.Status.Query.Message[i] := AlarmQuery.Alarms[i].Message;
+		HmiAlarmX.Status.Query.AdditionalInfo[i] := AlarmQuery.Alarms[i].AdditionalInfo;
+		HmiAlarmX.Status.Query.TimeStamp[i] := AlarmQuery.Alarms[i].TimeStamp;
+		HmiAlarmX.Status.Query.Severity[i] := AlarmQuery.Alarms[i].Severity;
+	
 	END_FOR
     
 END_ACTION

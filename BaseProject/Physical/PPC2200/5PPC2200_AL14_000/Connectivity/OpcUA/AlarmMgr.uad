@@ -41,7 +41,6 @@
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
         </Variable>
-        <Variable Name="InstanceID" />
         <Variable Name="MpAlarmXListUIConnect">
           <Variable Name="Details">
             <Variable Name="Backtrace">
@@ -60,17 +59,6 @@
         <Variable Name="QueryActiveAlarms_0" />
         <Variable Name="AlarmQuery">
           <Variable Name="Alarms" EnableArrayElements="True" />
-        </Variable>
-        <Variable Name="AlarmQueryHMI" AutomaticEnable="True">
-          <Variable Name="Active" EnableArrayElements="True" />
-          <Variable Name="Acknowledged" EnableArrayElements="True" />
-          <Variable Name="Scope" EnableArrayElements="True" />
-          <Variable Name="Name" EnableArrayElements="True" />
-          <Variable Name="Message" EnableArrayElements="True" />
-          <Variable Name="AdditionalInfo" EnableArrayElements="True" />
-          <Variable Name="Code" EnableArrayElements="True" />
-          <Variable Name="Severity" EnableArrayElements="True" />
-          <Variable Name="TimeStamp" EnableArrayElements="True" />
         </Variable>
       </Task>
     </Module>
