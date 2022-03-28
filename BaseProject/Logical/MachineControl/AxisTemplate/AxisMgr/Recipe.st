@@ -6,7 +6,7 @@ ACTION RecipeInit:
     MpRecipeRegPar_Par.MpLink := ADR(gMpLinkRecipeXml);
     MpRecipeRegPar_Par.Enable := TRUE;
     MpRecipeRegPar_Par.PVName := ADR(AxisControl.Status.ProductSettingsName);
-    MpRecipeRegPar_Par.Category := ADR(PRODUCT_CATEGORY);
+    MpRecipeRegPar_Par.Category := ADR(PARAMETERS_CATEGORY);
     MpRecipeRegPar_Par();
     ParametersPreview;
     ParametersEdit;
@@ -16,7 +16,7 @@ ACTION RecipeInit:
     MpRecipeRegPar_Cfg.MpLink := ADR(gMpLinkRecipeXml);
     MpRecipeRegPar_Cfg.Enable := TRUE;
     MpRecipeRegPar_Cfg.PVName := ADR(AxisControl.Status.MachineSettingsName);
-    MpRecipeRegPar_Cfg.Category := ADR(MACHINE_CATEGORY);
+    MpRecipeRegPar_Cfg.Category := ADR(MACHINE_CONFIGURATION_CATEGORY);
     MpRecipeRegPar_Cfg();
     MachineSettingsPreview;
     MachineSettingsEdit;
