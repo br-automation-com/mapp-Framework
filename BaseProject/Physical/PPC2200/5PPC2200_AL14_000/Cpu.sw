@@ -3,7 +3,7 @@
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
     <Task Name="MainCtrl" Source="MainControl.MainCtrl.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
-    <Task Name="AxisContro" Source="Infrastructure.AxisTemplate.AxisControl.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
+    <Task Name="AxisMgr" Source="MachineControl.AxisTemplate.AxisMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
     <Task Name="AppAxis_1" Source="MachineControl.AppAxis_1.AppAxis_1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="CrossCutte" Source="MachineControl.CrossCutter.CrossCutter.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
     <Task Name="AlarmX1" Source="" Memory="UserROM" Language="Binary" Debugging="true" />

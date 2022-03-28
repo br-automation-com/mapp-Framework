@@ -45,6 +45,15 @@ Section # Remove old
 	done:
 	FindClose $0
 
+	SetOutPath "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
+	RMDir /r "$VersionBaseFolder\AS\TechnologySolutions\${ProductNameShort}"
+
+	SetOutPath "$VersionBaseFolder\Help-en\Data\technologysolutions\mappFrameworkHelp"
+	RMDir /r "$VersionBaseFolder\Help-en\Data\technologysolutions\mappFrameworkHelp"
+
+	SetOutPath "$MSPROGRAMS\${COMPANYNAME}\${ProductNameShort}"
+	RMDir /r "$MSPROGRAMS\${COMPANYNAME}\${ProductNameShort}"
+
 SectionEnd
 
 ; Dummy section for the start of the root group

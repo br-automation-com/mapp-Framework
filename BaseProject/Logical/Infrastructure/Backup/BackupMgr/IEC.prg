@@ -5,7 +5,7 @@
     <File Description="Init, cyclic, exit code">BackupMgr.st</File>
     <File Description="Local data types" Private="true">BackupMgr.typ</File>
     <File Description="Local variables" Private="true">BackupMgr.var</File>
-    <File>HMIActions.st</File>
-    <File>ChangeConfiguration.st</File>
+    <File Description="Supporting code for the HMI interface">HMIActions.st</File>
+    <File Description="Modifies the backup configuration at runtime">ChangeConfiguration.st</File>
   </Files>
 </Program>

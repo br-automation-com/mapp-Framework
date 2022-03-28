@@ -45,9 +45,12 @@ END_ACTION
 
 ACTION RecipeHMIcommands:
     
-    CASE HmiRecipe.Status.HMIcommand OF
-        REC_HMI_WAIT:
-            IF HmiRecipe.Commands.CreateRecipe THEN
+	CASE HmiRecipe.Status.HMIcommand OF
+		REC_HMI_WAIT:
+			// The following commands are triggered directly from the HMI. If you imported the mapp View front end of
+			// the Framework, then this is already taken care of. If you did not, then your visualization must 
+			// trigger each one of these command variables (CreateRecipe, SaveSelectedRecipe, LoadRecipe). 
+			IF HmiRecipe.Commands.CreateRecipe THEN
 				HmiRecipe.Status.HMIcommand := REC_HMI_CREATE;
 				HmiRecipe.Commands.CreateRecipe := FALSE;
 			ELSIF HmiRecipe.Commands.SaveSelectedRecipe THEN
@@ -84,8 +87,8 @@ ACTION RecipeHMIcommands:
                 MachineSettingsPreview := MachineSettingsEdit;
             END_IF
 	
-            IF (brsstrlen(ADR(HmiRecipe.Status.ActiveRecipe)) > 0) THEN
-                MpRecipe_0.FileName := ADR(HmiRecipe.Status.ActiveRecipe);
+			IF (brsstrlen(ADR(HmiRecipe.Status.ActiveRecipe)) > 0) THEN
+				MpRecipe_0.FileName := ADR(HmiRecipe.Status.ActiveRecipe);
 				MpRecipe_0.Save := TRUE;
 			END_IF
 			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
@@ -96,6 +99,7 @@ ACTION RecipeHMIcommands:
 		HmiRecipe.Parameters.FileName := PreviousRecipe;
 	END_IF
 	
+	// If the Edit or Create dialog boxes open, copy the Preview structure into the Edit structure. 
 	IF HmiRecipe.Status.EditDialogOpened OR HmiRecipe.Status.CreateDialogOpened THEN
 		IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR('Product')) = 0) THEN
 			ParametersEdit := ParametersPreview;
@@ -108,4 +112,7 @@ ACTION RecipeHMIcommands:
 		HmiRecipe.Status.CreateDialogOpened := FALSE;
 	END_IF
 	
+	HmiRecipe.Status.LastStatus := MpRecipeUIConnect.Status;
+	HmiRecipe.Status.ActiveRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
+
 END_ACTION
