@@ -16,6 +16,8 @@ PROGRAM _INIT
 	END_IF
 	
 	// Initialize mapp function blocks
+	// By default, the Framework sets up an XML recipe system. To swtich to the CSV format, refer to the "Change Recipe Format" 
+	// page in the AS Help (GUID 2052b3a5-f59b-45f9-9fcd-3289c93401af)
 	MpRecipeUISetup.Confirmation.RecipeDelete := TRUE;
 	MpRecipeUISetup.RecipeListSize := 10;
 	MpRecipeUISetup.RecipeListScrollWindow := 0;
