@@ -64,7 +64,7 @@ ACTION RecipeHMIcommands:
 		REC_HMI_CREATE:
 			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Parameters')) = 0) THEN
 				ParametersPreview := ParametersEdit;
-			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
+			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine Configuration')) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
 			END_IF
 			MpRecipeUIConnect.New.Create := TRUE;
@@ -74,7 +74,7 @@ ACTION RecipeHMIcommands:
 			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Parameters')) = 0) THEN
 				Parameters := ParametersPreview;
 				HmiRecipe.Status.LastLoadedProductRecipe := HmiRecipe.Status.ActiveRecipe;
-			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
+			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine Configuration')) = 0) THEN
 				MachineSettings := MachineSettingsPreview;
 				HmiRecipe.Status.LastLoadedConfigRecipe := HmiRecipe.Status.ActiveRecipe;
 			END_IF
@@ -83,7 +83,7 @@ ACTION RecipeHMIcommands:
 		REC_HMI_SAVE:
 			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Parameters')) = 0) THEN
 				ParametersPreview := ParametersEdit;
-			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
+			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine Configuration')) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
 			END_IF
 	
@@ -104,7 +104,7 @@ ACTION RecipeHMIcommands:
 		IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Parameters')) = 0) THEN
 			ParametersEdit := ParametersPreview;
 			MpRecipeUIConnect.New.FileName := 'newParameters.par';
-		ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
+		ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine Configuration')) = 0) THEN
 			MachineSettingsEdit := MachineSettingsPreview;
 			MpRecipeUIConnect.New.FileName := 'newMachConfig.mcfg';
 		END_IF

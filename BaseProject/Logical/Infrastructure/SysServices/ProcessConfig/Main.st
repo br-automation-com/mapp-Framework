@@ -1,4 +1,4 @@
-//*********************************************************************************
+﻿//*********************************************************************************
 //* Copyright: B&R Industrial Automation GmbH
 //* This task let's the OEM change the ACOPOS configuration via the HMI
 //*********************************************************************************
@@ -20,19 +20,19 @@ PROGRAM _INIT
 	// Register "Machine" category PVs 
 	MpRecipeRegPar_M[0].MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_M[0].Enable := TRUE;
-	MpRecipeRegPar_M[0].Category := ADR('Machine');
+	MpRecipeRegPar_M[0].Category := ADR('Machine Configuration');
 	MpRecipeRegPar_M[0].PVName := ADR('ProcessCon:AcpAxConfig');
 	MpRecipeRegPar_M[1].MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_M[1].Enable := TRUE;
-	MpRecipeRegPar_M[1].Category := ADR('Machine');
+	MpRecipeRegPar_M[1].Category := ADR('Machine Configuration');
 	MpRecipeRegPar_M[1].PVName := ADR('ProcessCon:BaseAxConfig');
 	MpRecipeRegPar_M[2].MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_M[2].Enable := TRUE;
-	MpRecipeRegPar_M[2].Category := ADR('Machine');
+	MpRecipeRegPar_M[2].Category := ADR('Machine Configuration');
 	MpRecipeRegPar_M[2].PVName := ADR('ProcessCon:sAxFeatures1');
 	MpRecipeRegPar_M[3].MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_M[3].Enable := TRUE;
-	MpRecipeRegPar_M[3].Category := ADR('Machine');
+	MpRecipeRegPar_M[3].Category := ADR('Machine Configuration');
 	MpRecipeRegPar_M[3].PVName := ADR('ProcessCon:sAxFeatures2');
 
 	// Activate RegPar FUBs 

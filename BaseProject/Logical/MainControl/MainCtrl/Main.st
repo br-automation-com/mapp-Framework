@@ -9,7 +9,7 @@ PROGRAM _INIT
 	// Register parameters to MpRecipe 
 	MpRecipeRegPar_M.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_M.Enable := TRUE;
-	MpRecipeRegPar_M.Category := ADR('Machine');
+	MpRecipeRegPar_M.Category := ADR('Machine Configuration');
 	MpRecipeRegPar_M.PVName := ADR('MainCtrl:MainCtrl.FixPar');
 	MpRecipeRegPar_P.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_P.Enable := TRUE;
