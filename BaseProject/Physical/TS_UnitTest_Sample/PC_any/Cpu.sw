@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
-    <Task Name="AxisContro" Source="Infrastructure.AxisTemplate.AxisControl.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AxisMgr" Source="Infrastructure.AxisTemplate.AxisMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="prototypeT" Source="Infrastructure.AxisTemplate.UnitTests.prototypeTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2" />

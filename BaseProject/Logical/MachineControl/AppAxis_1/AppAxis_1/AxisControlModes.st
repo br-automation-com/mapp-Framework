@@ -4,11 +4,11 @@ END_ACTION
     
 ACTION AxisCyclic:
        
-    MpAlarmXControlSpeedNotSetFB.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
-    MpAlarmXControlSpeedNotSetFB.Enable := TRUE;
-    MpAlarmXControlSpeedNotSetFB.Name := ADR('AppAxis_1SpeedNotSet');
-    MpAlarmXControlSpeedNotSetFB();
-    MpAlarmXControlSpeedNotSetFB.Reset := FALSE;
+    MpAlarmXControl_SpeedNotSet.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
+    MpAlarmXControl_SpeedNotSet.Enable := TRUE;
+    MpAlarmXControl_SpeedNotSet.Name := ADR('AppAxis_1SpeedNotSet');
+    MpAlarmXControl_SpeedNotSet();
+    MpAlarmXControl_SpeedNotSet.Reset := FALSE;
     
 END_ACTION
 
@@ -83,7 +83,7 @@ ACTION AxisAutomatic:
     CASE AutomaticState OF
         AUTOMATIC_STATE_IDLE:
             IF (AxisControl.Command.Start = TRUE) THEN
-                MpAlarmXControlSpeedNotSetFB.Set := (MpAxisParameters.Velocity = 0);
+                MpAlarmXControl_SpeedNotSet.Set := (MpAxisParameters.Velocity = 0);
                 AxisControl.Command.Start := FALSE;
                 AutomaticState := AUTOMATIC_STATE_RUNNING;
             END_IF
@@ -107,10 +107,10 @@ END_ACTION
 ACTION AxisReset:
 
 //    edge alarms don't require a reset
-//    IF (MpAlarmXControlSpeedNotSetFB.Set = TRUE) THEN
-//        MpAlarmXControlSpeedNotSetFB.Set := FALSE;
-//        MpAlarmXControlSpeedNotSetFB.ID := MpAlarmXControlSpeedNotSetFB.InstanceID;
-//        MpAlarmXControlSpeedNotSetFB.Reset := TRUE;
+//    IF (MpAlarmXControl_SpeedNotSet.Set = TRUE) THEN
+//        MpAlarmXControl_SpeedNotSet.Set := FALSE;
+//        MpAlarmXControl_SpeedNotSet.ID := MpAlarmXControl_SpeedNotSet.InstanceID;
+//        MpAlarmXControl_SpeedNotSet.Reset := TRUE;
 //    END_IF
     
 END_ACTION

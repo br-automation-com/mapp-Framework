@@ -81,7 +81,7 @@ ACTION AxisAutomatic:
     CASE AutomaticState OF
         AUTOMATIC_STATE_IDLE:
             IF (AxisControl.Command.Start = TRUE) THEN
-                MpAlarmXControlSpeedNotSetFB.Set := (MpAxisParameters.Velocity = 0);
+                MpAlarmXControl_SpeedNotSet.Set := (MpAxisParameters.Velocity = 0);
                 AxisControl.Command.Start := FALSE;
                 AutomaticState := AUTOMATIC_STATE_RUNNING;
             END_IF

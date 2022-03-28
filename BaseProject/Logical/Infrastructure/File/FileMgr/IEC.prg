@@ -5,7 +5,7 @@
     <File Description="Init, cyclic, exit code">FileMgr.st</File>
     <File Description="Local data types" Private="true">FileMgr.typ</File>
     <File Description="Local variables" Private="true">FileMgr.var</File>
-    <File>HMIActions.st</File>
-    <File>FIFOOperations.st</File>
+    <File Description="Supporting code for the HMI interface">HMIActions.st</File>
+    <File Description="Implements a first-in-first-out mechanism on one file device">FIFOOperations.st</File>
   </Files>
 </Program>
