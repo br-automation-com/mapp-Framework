@@ -62,7 +62,7 @@ ACTION RecipeHMIcommands:
 			END_IF
 	
 		REC_HMI_CREATE:
-			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Product')) = 0) THEN
+			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Parameters')) = 0) THEN
 				ParametersPreview := ParametersEdit;
 			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
@@ -71,7 +71,7 @@ ACTION RecipeHMIcommands:
 			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 	
 		REC_HMI_LOAD:
-			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Product')) = 0) THEN
+			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Parameters')) = 0) THEN
 				Parameters := ParametersPreview;
 				HmiRecipe.Status.LastLoadedProductRecipe := HmiRecipe.Status.ActiveRecipe;
 			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
@@ -81,7 +81,7 @@ ACTION RecipeHMIcommands:
 			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 	
 		REC_HMI_SAVE:
-			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Product')) = 0) THEN
+			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Parameters')) = 0) THEN
 				ParametersPreview := ParametersEdit;
 			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
@@ -101,7 +101,7 @@ ACTION RecipeHMIcommands:
 	
 	// If the Edit or Create dialog boxes open, copy the Preview structure into the Edit structure. 
 	IF HmiRecipe.Status.EditDialogOpened OR HmiRecipe.Status.CreateDialogOpened THEN
-		IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Product')) = 0) THEN
+		IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Parameters')) = 0) THEN
 			ParametersEdit := ParametersPreview;
 			MpRecipeUIConnect.New.FileName := 'newParameters.par';
 		ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown),ADR('Machine')) = 0) THEN

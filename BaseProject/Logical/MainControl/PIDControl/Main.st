@@ -1,4 +1,4 @@
-//*********************************************************************************
+﻿//*********************************************************************************
 //* Copyright: B&R Industrial Automation GmbH
 //* Created:   22 July, 2021/15:54
 //* This task contains the logic for a PID controller
@@ -9,7 +9,7 @@ PROGRAM _INIT
 	MpRecipeRegPar_P.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_P.Enable := TRUE;
 	MpRecipeRegPar_P.PVName := ADR('PIDControl:PidControlParameters');
-	MpRecipeRegPar_P.Category := ADR('Product');
+	MpRecipeRegPar_P.Category := ADR('Parameters');
 	MpRecipeRegPar_Pre.MpLink := ADR(gRecipeXmlPreviewMpLink);
 	MpRecipeRegPar_Pre.Enable := TRUE;
 	MpRecipeRegPar_Pre.PVName := ADR('PIDControl:PidControlParameters');
