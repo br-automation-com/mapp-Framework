@@ -1,55 +1,33 @@
-(********************************************************************
- * COPYRIGHT -- Bernecker + Rainer
- ********************************************************************
- * Program: FolderHandling
- * File: FolderHandling.var
- * Author: Bernecker + Rainer
- * Created: December , 2020
- ********************************************************************
- * Local variables of program AlarmManagement
- ********************************************************************)
 (*Function Blocks*)
 VAR
-	HmiAlarmX : AlarmHmiInterfaceType;
+	HmiAlarmX : AlarmHmiInterfaceType; (*HMI interface structure*)
 	MpAlarmXHistory_0 : MpAlarmXHistory; (*MpAlarmXHistory instance*)
 	MpAlarmXHistoryUI_0 : MpAlarmXHistoryUI; (*MpAlarmXHistoryUI instance*)
 	MpAlarmXListUI_0 : MpAlarmXListUI; (*MpAlarmXList instance*)
 	MpAlarmXCore_0 : MpAlarmXCore; (*MpAlarmXCore instance*) (*ChangeStyleAlarmButton : USINT := 0; (*changeStyle of a AlarmFlyout in mappView*)
-	DirCreate_New : DirCreate;
-END_VAR
-(*Alarm Management Variables*)
-VAR
-	Index : USINT; (*Index to loop through alarm list*)
-	MaxIndex : USINT; (*Maximum index for the alarm list*)
-	InstanceID : UINT; (*Instance ID*)
-	MpAlarmXListUIConnect : MpAlarmXListUIConnectType := (0); (*AlarmVideo : WSTRING[255] := "";
-	AlarmInfo : BOOL := 0;*)
-	MpAlarmXHistoryUIConnect : MpAlarmXHistoryUIConnectType; (*AlarmX History connection to UI*)
-	AlarmQuery : {REDUND_UNREPLICABLE} AlarmQueryType; (*Query Results*)
-	QueryActiveAlarms_0 : {REDUND_UNREPLICABLE} MpAlarmXQuery; (*MpAlarmXQuery instance*)
-END_VAR
-(*Safety Inputs*)
-VAR
-	SafetyInputs : MachineDigitalInputsType;
-END_VAR
-(*Defines*)
-VAR CONSTANT
-	MAX_IDX_ESTOP : UINT := 2;
-	MAX_IDX_SAFETY_DOOR : UINT := 5;
-	LOCAL_FOLDER : STRING[10] := 'AlarmX';
-END_VAR
-(*Examples*)
-VAR
-	CommissioningModeActive : {REDUND_UNREPLICABLE} BOOL; (*Inhibits the Alarms[0] alarm*)
-	Alarms : {REDUND_UNREPLICABLE} ARRAY[0..99] OF BOOL; (*Array of active alarm*)
-	AlarmExamples : {REDUND_UNREPLICABLE} AlarmExamplesType; (*Sample alarms for different monitoring types*)
 	MpAlarmXControlExample_0 : {REDUND_UNREPLICABLE} MpAlarmXAlarmControl; (*MpAlarmXAlarmControl instance*)
+	QueryActiveAlarms_0 : {REDUND_UNREPLICABLE} MpAlarmXQuery; (*MpAlarmXQuery instance*)
+	DirCreate_New : DirCreate; (*DirCreate instance*)
 END_VAR
+(*Constants*)
 VAR CONSTANT
-	MAX_QUERY_RESULTS : USINT := 19;
+	MAX_QUERY_RESULTS : USINT := 19; (*Maximum number of query results (Value+1)*)
+	MAX_SAFETY_DOOR : UINT := 5; (*Maximum number of safety doors (Value+1)*)
+	MAX_ESTOP : UINT := 2; (*Maximum number of emergency stops (Value+1)*)
+	LOCAL_FOLDER : STRING[10] := 'AlarmX'; (*Folder name on the file device for AlarmX files*)
 END_VAR
+(*Structure Types*)
 VAR
-	AlarmQueryHMI : AlarmQueryHMIType;
-	i : USINT;
-	EntryCount : USINT;
+	MpAlarmXListUIConnect : MpAlarmXListUIConnectType := (0); (*AlarmX list connection to the UI*)
+	MpAlarmXHistoryUIConnect : MpAlarmXHistoryUIConnectType; (*AlarmX History connection to the UI*)
+	SafetyInputs : MachineDigitalInputsType; (*Safety related digital inputs*)
+	AlarmExamples : {REDUND_UNREPLICABLE} AlarmExamplesType; (*Sample alarms for different monitoring types*)
+	AlarmQuery : {REDUND_UNREPLICABLE} AlarmQueryType; (*Query results and status*)
+END_VAR
+(*Variables*)
+VAR
+	Alarms : {REDUND_UNREPLICABLE} ARRAY[0..99] OF BOOL; (*Array of monitored alarm bits*)
+	CommissioningModeActive : {REDUND_UNREPLICABLE} BOOL; (*Boolean value to enable commissioning mode. By default, this inhibits the Alarms[0] alarm*)
+	i : USINT; (*Index for loops*)
+	MaxIndex : USINT; (*Maximum index for the alarm list*)
 END_VAR

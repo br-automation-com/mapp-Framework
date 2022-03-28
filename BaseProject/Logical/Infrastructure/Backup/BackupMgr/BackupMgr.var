@@ -5,7 +5,7 @@ VAR
 	MpFileManagerUI_0 : MpFileManagerUI;
 	DirCreate_New : DirCreate;
 	MpBackupCore_0 : MpBackupCore;
-	HmiBackup : BackupHmiInterfaceType;
+	HmiBackup : BackupHmiInterfaceType; (*HMI interface structure*)
 	i : USINT;
 	DeviceCount : USINT;
 	BackupState : BackupStateEnum;
@@ -14,5 +14,5 @@ VAR
 END_VAR
 VAR CONSTANT
 	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 1;
-	LOCAL_FOLDER : STRING[10] := 'Backup';
+	LOCAL_FOLDER : STRING[10] := 'Backup'; (*Folder name on the file device for Backup files*)
 END_VAR
