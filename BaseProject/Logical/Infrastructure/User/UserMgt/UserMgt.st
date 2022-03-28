@@ -338,7 +338,7 @@ PROGRAM _CYCLIC
         RoleListInitList:
             IF User.Data.Users[UserCounter].Name <> '' THEN
 
-                ArUserInitList_0(Execute := TRUE ,ListType := USERROLE_LISTTYPE , ElementName := User.Data.Users[UserCounter].Name);
+                ArUserInitList_0(Execute := TRUE, ListType := USERROLE_LISTTYPE, ElementName := User.Data.Users[UserCounter].Name);
 	
                 // --------------------------------------------------------------------------------------------------------------------
                 // Success

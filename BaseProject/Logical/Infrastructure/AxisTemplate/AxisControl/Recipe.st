@@ -34,9 +34,9 @@ END_ACTION
 ACTION RecipeCyclic:
 
 	IF (AxisRecipe.EditDialogOpened OR AxisRecipe.CreateDialogOpened) THEN
-		IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Product')) = 0) THEN
+		IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Product')) = 0) THEN
 			ParametersEdit := ParametersPreview;
-		ELSIF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Machine')) = 0) THEN
+		ELSIF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Machine')) = 0) THEN
 			MachineSettingsEdit := MachineSettingsPreview;
 		END_IF
 		AxisRecipe.EditDialogOpened := FALSE;
@@ -57,25 +57,25 @@ ACTION RecipeCyclic:
 			END_IF
 	
 		REC_AXIS_CREATE:
-			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Product')) = 0) THEN
+			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Product')) = 0) THEN
 				ParametersPreview := ParametersEdit;
-			ELSIF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Machine')) = 0) THEN
+			ELSIF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Machine')) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
 			END_IF
 			AxisRecipe.State := REC_AXIS_WAIT;
 	
 		REC_AXIS_LOAD:
-			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Product')) = 0) THEN
+			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Product')) = 0) THEN
 				AxisControl.Parameters := ParametersPreview;
-			ELSIF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Machine')) = 0) THEN
+			ELSIF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Machine')) = 0) THEN
 				MachineSettings := MachineSettingsPreview;
 			END_IF
 			AxisRecipe.State := REC_AXIS_WAIT;
 	
 		REC_AXIS_SAVE:
-			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Product')) = 0) THEN
+			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Product')) = 0) THEN
 				ParametersPreview := ParametersEdit;
-			ELSIF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown),ADR('Machine')) = 0) THEN
+			ELSIF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Machine')) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
 			END_IF
 			AxisRecipe.State := REC_AXIS_WAIT;
