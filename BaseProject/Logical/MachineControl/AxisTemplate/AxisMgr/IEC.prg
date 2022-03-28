@@ -6,13 +6,13 @@
     <File Description="Local data types" Private="true">AxisMgr.typ</File>
     <File Description="Local variables, used for all axes" Private="true">AxisMgr.var</File>
     <File Description="Local variables, specific to this axis" Private="true">Variables.var</File>
-    <File>AxisStateMachine.st</File>
-    <File>AxisControlModes.st</File>
-    <File>Recipe.st</File>
-    <File>SimulationControl.st</File>
-    <File Private="true">LocalFunctions.fun</File>
-    <File>ManualCommand.st</File>
-    <File>AutomaticCommand.st</File>
-    <File>ChangeConfiguration.st</File>
+    <File Description="Generic state machine, used for all axes">AxisStateMachine.st</File>
+    <File Description="Code that is specific to this axis">AxisControlModes.st</File>
+    <File Description="Recipe handling">Recipe.st</File>
+    <File Description="Simulation handling">SimulationControl.st</File>
+    <File Description="Functions for manual/automatic command" Private="true">LocalFunctions.fun</File>
+    <File Description="Defines conditions for manual mode">ManualCommand.st</File>
+    <File Description="Defines conditions for automatic mode">AutomaticCommand.st</File>
+    <File Description="Changes the axis configuration at runtime">ChangeConfiguration.st</File>
   </Files>
 </Program>
