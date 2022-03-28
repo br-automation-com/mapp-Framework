@@ -1,6 +1,5 @@
 VAR
 	i : {REDUND_UNREPLICABLE} USINT;
-	RestorePosition : {REDUND_UNREPLICABLE} McAcpAxRestorePosType;
 	ParameterState : {REDUND_UNREPLICABLE} ParameterStateEnum;
 	ConfigurationState : {REDUND_UNREPLICABLE} ConfigurationStateEnum;
 	State : {REDUND_UNREPLICABLE} StateEnum;
@@ -26,10 +25,12 @@ VAR
 END_VAR
 (*Recipe*)
 VAR
+	RestorePosition : {REDUND_UNREPLICABLE} McAcpAxRestorePosType;
 	ParametersEdit : {REDUND_UNREPLICABLE} AxisControlParametersType;
 	ParametersPreview : {REDUND_UNREPLICABLE} AxisControlParametersType;
 	MachineSettings : {REDUND_UNREPLICABLE} AxisMachineSettingsType;
 	MachineSettingsEdit : {REDUND_UNREPLICABLE} AxisMachineSettingsType;
 	MachineSettingsPreview : {REDUND_UNREPLICABLE} AxisMachineSettingsType;
 	AxisRecipe : {REDUND_UNREPLICABLE} AxisRecipeType;
+	MpAlarmXControl_SpeedNotSet : MpAlarmXAlarmControl;
 END_VAR

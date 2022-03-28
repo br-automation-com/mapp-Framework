@@ -5,7 +5,7 @@
     <File Description="Init, cyclic, exit code">RecipeMgr.st</File>
     <File Description="Local data types" Private="true">RecipeMgr.typ</File>
     <File Description="Local variables" Private="true">RecipeMgr.var</File>
-    <File>HMIActions.st</File>
-    <File>FileOperations.st</File>
+    <File Description="Supporting code for the HMI interface">HMIActions.st</File>
+    <File Description="Handles copying recipes between User partition and USB stick">FileOperations.st</File>
   </Files>
 </Program>
