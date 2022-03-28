@@ -125,34 +125,6 @@ PROGRAM _CYCLIC
 	RecipeHMIcommands;
 	FileCopyOperation;
 	
-    // Reset category after saving is done, category should be reset so that autosave files contain ALL the parameters
-    IF EDGEPOS(MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) AND ((NOT MpRecipeUIConnect.Recipe.Load) AND (NOT MpRecipeUIConnect.Recipe.Save)) THEN
-        // Check if 'Product' category has been loaded
-        IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PRODUCT_CATEGORY)) = 0) AND (HmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
-			HmiRecipe.Status.LastLoadedProductRecipe := MpRecipe_0.Info.LastLoadedRecipe;
-			MpRecipe_0.UpdateNotification := TRUE;
-		ELSIF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CATEGORY)) = 0) AND (HmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_LOAD)) THEN
-			HmiRecipe.Status.LastLoadedConfigRecipe := MpRecipe_0.Info.LastLoadedRecipe;
-			MpRecipe_0.UpdateNotification := TRUE;
-        END_IF
-		// Trigger a reload of the preview parameters
-        HmiRecipe.Status.LastSelectedIndex := HmiRecipe.Status.LastSelectedIndex + 1;
-        brsstrcpy(ADR(HmiRecipe.Parameters.Category), ADR(PRODUCT_CATEGORY));
-    END_IF
-    HmiRecipe.Status.LastStatus := MpRecipeUIConnect.Status;
-	HmiRecipe.Status.ActiveRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
-
-    // Save current recipe
-    IF (HmiRecipe.Commands.SaveCurrentRecipe = TRUE) AND NOT (MpRecipe_0.Load OR MpRecipe_0.Save OR MpRecipe_0.UpdateNotification) THEN
-		HmiRecipe.Parameters.FileName := HmiRecipe.Status.LastLoadedProductRecipe;
-        DTGetTime_0(enable := TRUE);
-        Header.DateTime := DTGetTime_0.DT1;
-        Header.Name := HmiRecipe.Parameters.FileName;
-        Header.Description := '';
-        MpRecipe_0.Save := TRUE;
-        HmiRecipe.Commands.SaveCurrentRecipe := FALSE;
-    END_IF
-	
 	// Reset commands on MpRecipe FUB
 	IF MpRecipe_0.CommandDone THEN
 		// Set update notification for machine category
@@ -166,8 +138,8 @@ PROGRAM _CYCLIC
 			MpRecipe_0.Save := FALSE;
 			HmiRecipe.Parameters.Category := PRODUCT_CATEGORY;
 			HmiRecipe.Parameters.FileName := 'Default.par';
-        END_IF
-    END_IF
+		END_IF
+	END_IF
     
 	// Error reset
 	IF NOT MpRecipe_0.Error THEN
