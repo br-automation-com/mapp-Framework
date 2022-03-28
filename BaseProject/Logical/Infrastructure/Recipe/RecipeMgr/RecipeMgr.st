@@ -40,11 +40,15 @@ PROGRAM _INIT
     MpRecipe_0.FileName := ADR(HmiRecipe.Parameters.FileName);
 	MpRecipe_0.Header := ADR(Header);
 
-	// Wait for MpRecipe_0 to activate. This must be active before you can call the RegPar function blocks, 
-	// which is further down in the Initialization program.
+	// Wait for MpRecipe_0 to activate. This must be active before you can call the RegPar function blocks, which is below. 
 	WHILE NOT(MpRecipe_0.Active OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE
+	
+	// Register the preview variables to the recipe. These preview variables are a buffer between the recipe system and the 
+	// variables used at runtime on the machine (Parameters, MachineSettings). By using these preview variables, you can 
+	// preview and edit a recipe on the HMI without actually loading it to the machine. For more details, refer to the 
+	// "Recipe System Design" page in the AS Help (GUID 3ccd7409-0b52-4bbc-a93a-4010f6db414c). 
 	
     MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewPar.Enable := TRUE;
