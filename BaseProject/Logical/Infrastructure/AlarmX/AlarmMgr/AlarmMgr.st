@@ -16,6 +16,9 @@ PROGRAM _INIT
 		DirCreate_New(enable := FALSE);
 	END_IF
 
+	// Call action to intialize alarm samples
+	AlarmSampleInit; 
+	
 	// Initialize mapp function blocks
 	MpAlarmXCore_0.Enable := TRUE;
 	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCore);
@@ -34,12 +37,9 @@ PROGRAM _INIT
 	
 	MpAlarmXHistoryUI_0.Enable := TRUE;
 	MpAlarmXHistoryUI_0.UISetup.AlarmListScrollWindow := 10;
-    MpAlarmXHistoryUI_0.UISetup.AlarmListSize := (SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID) / SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID[0]));
+	MpAlarmXHistoryUI_0.UISetup.AlarmListSize := (SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID) / SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID[0]));
 	MpAlarmXHistoryUI_0.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
 	MpAlarmXHistoryUI_0();
-	
-	// Call action to intialize alarm samples
-	AlarmSampleInit;  
 	
 END_PROGRAM
 
