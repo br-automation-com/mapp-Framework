@@ -57,21 +57,13 @@ PROGRAM _CYCLIC
                 HmiBackup.Status.RestoreAllowed := FALSE;
                 MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
                 BackupState := BACKUP_RESTORING;
-            ELSIF (HmiBackup.Commands.RestoreAuto = TRUE) THEN
-                HmiBackup.Commands.RestoreAuto := FALSE;
-                MpBackupCore_0.Install := TRUE;
-                HmiBackup.Status.Busy := TRUE;
-                HmiBackup.Status.CreateAllowed := FALSE;
-                HmiBackup.Status.RestoreAllowed := FALSE;
-                MpBackupCore_0.Name := ADR(MpBackupCore_0.Info.Automatic.Update.Name);
-                BackupState := BACKUP_RESTORING;
-            ELSIF (HmiBackup.Commands.Delete = TRUE) THEN
-                MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].IsSelected := TRUE;
-                HmiBackup.Commands.Delete := FALSE;
-                MpFileManagerUIConnect.File.Delete := TRUE;
-                BackupState := BACKUP_DELETING;
-            ELSIF (HmiBackup.Commands.SaveConfig = TRUE) THEN
-                HmiBackup.Commands.SaveConfig := FALSE;
+			ELSIF (HmiBackup.Commands.Delete = TRUE) THEN
+				MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].IsSelected := TRUE;
+				HmiBackup.Commands.Delete := FALSE;
+				MpFileManagerUIConnect.File.Delete := TRUE;
+				BackupState := BACKUP_DELETING;
+			ELSIF (HmiBackup.Commands.SaveConfig = TRUE) THEN
+				HmiBackup.Commands.SaveConfig := FALSE;
                 SaveBackupConfiguration;
                 MpBackupCoreConfig_0.Save := TRUE;
 			ELSIF ((HmiBackup.Status.SelectedIndex <> HmiBackup.Status.LastSelectedIndex) AND (MpBackupCore_0.CommandBusy <> TRUE)) THEN
@@ -178,7 +170,7 @@ END_PROGRAM
 
 PROGRAM _EXIT
     
-	// Disable the function blocls to unlink the MpLinks
+	// Disable the function blocks to unlink the MpLinks
     MpBackupCore_0.Enable := FALSE;
 	MpFileManagerUI_0.Enable := FALSE;
 	MpBackupCoreConfig_0.Enable := FALSE;
