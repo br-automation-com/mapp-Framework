@@ -1,9 +1,8 @@
 //***********************************************************************
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
-// Created: Jan 1, 2022
-// Description: Tasks for alarm control. The Alarm Management handling is
-// done in this task.
+// Created: April 12, 2022
+// Description: Tasks for alarm management. 
 //***********************************************************************
 
 PROGRAM _INIT
@@ -60,7 +59,6 @@ PROGRAM _CYCLIC
     QueryTableConfig;
     AlarmSampleFub;
 	
-    
 	// Check if any reactions are active.
 	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application.
 	// For example, the axis control task might check for the 'Error' reaction to determine whether to send a stop command to the axes.

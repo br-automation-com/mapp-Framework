@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="AlarmXCurrent_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="Alarm_Eventbinding_1">
+    <EventBinding id="AlarmXCurrent_content.PBtnAcknowledge.Click">
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXCurrent_content" widgetRefId="PBtnAcknowledge" event="Click" />
       <EventHandler>
         <Action>
@@ -11,7 +11,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Alarm_Eventbinding_2">
+    <EventBinding id="AlarmXCurrent_content.PBtnAcknowledgeAll.Click">
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXCurrent_content" widgetRefId="PBtnAcknowledgeAll" event="Click" />
       <EventHandler>
         <Action>
@@ -21,7 +21,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_AlarmSelection">
+    <EventBinding id="AlarmXCurrent_content.AlmLstCurrentAlarms.ItemClick">
       <Source xsi:type="widgets.brease.AlarmList.Event" contentRefId="AlarmXCurrent_content" widgetRefId="AlmLstCurrentAlarms" event="ItemClick" />
       <EventHandler>
         <Action>
@@ -31,7 +31,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_BackTraceVisible1">
+    <EventBinding id="MpAlarmXListUIConnect.Details.Backtrace.EventID[0].ValueChanged">
       <Source xsi:type="opcUa.Event" refId="::AlarmMgr:MpAlarmXListUIConnect.Details.Backtrace.EventID[0]" event="ValueChanged" />
       <EventHandler>
         <Sequence>
@@ -52,7 +52,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_BackTraceVisible2">
+    <EventBinding id="MpAlarmXListUIConnect.Details.Backtrace.EventID[1].ValueChanged">
       <Source xsi:type="opcUa.Event" refId="::AlarmMgr:MpAlarmXListUIConnect.Details.Backtrace.EventID[1]" event="ValueChanged" />
       <EventHandler>
         <Sequence>
@@ -73,7 +73,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_BackTraceVisible3">
+    <EventBinding id="MpAlarmXListUIConnect.Details.Backtrace.EventID[2].ValueChanged">
       <Source xsi:type="opcUa.Event" refId="::AlarmMgr:MpAlarmXListUIConnect.Details.Backtrace.EventID[2]" event="ValueChanged" />
       <EventHandler>
         <Sequence>
@@ -94,7 +94,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_BackTraceVisible4">
+    <EventBinding id="MpAlarmXListUIConnect.Details.Backtrace.EventID[3].ValueChanged">
       <Source xsi:type="opcUa.Event" refId="::AlarmMgr:MpAlarmXListUIConnect.Details.Backtrace.EventID[3]" event="ValueChanged" />
       <EventHandler>
         <Sequence>
@@ -115,7 +115,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_BackTraceVisible5">
+    <EventBinding id="MpAlarmXListUIConnect.Details.Backtrace.EventID[4].ValueChanged">
       <Source xsi:type="opcUa.Event" refId="::AlarmMgr:MpAlarmXListUIConnect.Details.Backtrace.EventID[4]" event="ValueChanged" />
       <EventHandler>
         <Sequence>
@@ -156,6 +156,5 @@
         </Action>
       </EventHandler>
     </EventBinding>
-
   </Bindings>
 </EventBindingSet>

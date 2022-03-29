@@ -31,7 +31,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="hmiAlarmX.Commands.ExportAlarms.Success">
+    <EventBinding id="HmiAlarmX.Commands.ExportAlarms.ValueChanged">
       <Source xsi:type="opcUa.Event" refId="::AlarmMgr:HmiAlarmX.Commands.ExportAlarms" event="ValueChanged" />
       <EventHandler condition="newValue = false AND oldValue = true">
         <Action>
