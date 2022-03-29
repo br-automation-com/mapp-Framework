@@ -24,7 +24,7 @@ TYPE
 		RestoreAllowed : BOOL; (*Bit to indicate it is allowable to restore a backup right now*)
 		FileNames : ARRAY[0..49]OF STRING[80]; (*Existing backup file names*)
 		TimeStamps : ARRAY[0..49]OF DATE_AND_TIME; (*Time stamps for existing backups*)
-		Size : ARRAY[0..49]OF UDINT; (*Sizes of existing backup files*)
+		Size : REFERENCE TO ARRAY[0..49]OF UDINT; (*Sizes of existing backup files*)
 		Info : MpBackupProjectInfoRequestType; (*Project information (name, configuration ID, configuration version)*)
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for file device dropdown on automatic backup configuration pop-up*)
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the list of available backups*)
@@ -33,7 +33,7 @@ TYPE
 		LastSelectedIndex : USINT; (*Index of the last selected backup file*)
 		LastSelectedDeviceIndex : UINT; (*Index of the last selected file device. Compared with MpFileManagerUIConnect.DeviceList.SelectedIndex*)
 	END_STRUCT;
-	AutomaticBackupType : 	STRUCT 
+	AutomaticBackupType : 	STRUCT  (*Automatic backup settings*)
 		Enable : BOOL; (*Enable automatic backup feature*)
 		Prefix : STRING[50]; (*Name prefix for each automatic backup file*)
 		Device : STRING[255]; (*File device to store the automatic backup*)
