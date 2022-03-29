@@ -5,5 +5,6 @@
     <File Description="Init, cyclic, exit code">UserXMgr.st</File>
     <File Description="Local data types" Private="true">UserXMgr.typ</File>
     <File Description="Local variables" Private="true">UserXMgr.var</File>
+    <File>GetErrorText.st</File>
   </Files>
 </Program>

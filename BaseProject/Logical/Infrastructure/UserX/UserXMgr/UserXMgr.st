@@ -44,6 +44,9 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 	
+	// Call action
+	GetErrorText;
+	
 	// Error reset
 	IF NOT MpUserXManagerUI_0.Error THEN
 		MpUserXManagerUI_0.ErrorReset := FALSE;
