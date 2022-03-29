@@ -23,7 +23,7 @@
         </Binding>
 
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.SelectedIndex" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.SelectedIndex" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="Table1" attribute="selectedRow" />
         </Binding>
         <Binding mode="twoWay">

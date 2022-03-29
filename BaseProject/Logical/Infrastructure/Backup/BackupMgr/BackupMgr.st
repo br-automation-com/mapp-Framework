@@ -55,7 +55,7 @@ PROGRAM _CYCLIC
                 HmiBackup.Status.Busy := TRUE;
                 HmiBackup.Status.CreateAllowed := FALSE;
                 HmiBackup.Status.RestoreAllowed := FALSE;
-                MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Parameters.SelectedIndex].Name);
+                MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
                 BackupState := BACKUP_RESTORING;
             ELSIF (HmiBackup.Commands.RestoreAuto = TRUE) THEN
                 HmiBackup.Commands.RestoreAuto := FALSE;
@@ -66,7 +66,7 @@ PROGRAM _CYCLIC
                 MpBackupCore_0.Name := ADR(MpBackupCore_0.Info.Automatic.Update.Name);
                 BackupState := BACKUP_RESTORING;
             ELSIF (HmiBackup.Commands.Delete = TRUE) THEN
-                MpFileManagerUIConnect.File.List.Items[HmiBackup.Parameters.SelectedIndex].IsSelected := TRUE;
+                MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].IsSelected := TRUE;
                 HmiBackup.Commands.Delete := FALSE;
                 MpFileManagerUIConnect.File.Delete := TRUE;
                 BackupState := BACKUP_DELETING;
@@ -74,9 +74,9 @@ PROGRAM _CYCLIC
                 HmiBackup.Commands.SaveConfig := FALSE;
                 SaveBackupConfiguration;
                 MpBackupCoreConfig_0.Save := TRUE;
-            ELSIF ((HmiBackup.Parameters.SelectedIndex <> LastSelectedIndex) AND (MpBackupCore_0.CommandBusy <> TRUE)) THEN
-                LastSelectedIndex := HmiBackup.Parameters.SelectedIndex;
-                MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Parameters.SelectedIndex].Name);
+			ELSIF ((HmiBackup.Status.SelectedIndex <> HmiBackup.Status.LastSelectedIndex) AND (MpBackupCore_0.CommandBusy <> TRUE)) THEN
+                HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.SelectedIndex;
+                MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
                 MpBackupCore_0.RequestInfo := TRUE;
 			ELSIF DiagCpuIsARsim() OR DiagCpuIsSimulated() THEN
               	HmiBackup.Status.SimulationActive := TRUE;
@@ -86,7 +86,7 @@ PROGRAM _CYCLIC
     
         BACKUP_CREATING:
             IF (MpBackupCore_0.CommandDone = TRUE) THEN
-				LastSelectedIndex := LastSelectedIndex + 1;
+				HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;
                 MpBackupCore_0.Create := FALSE;
                 MpBackupCore_0.Install := FALSE;
                 MpBackupCore_0.RequestInfo := FALSE;
@@ -119,7 +119,7 @@ PROGRAM _CYCLIC
                     MpFileManagerUIConnect.MessageBox.Confirm := TRUE;
                 mpFILE_MSG_OK:
                     IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
-						LastSelectedIndex := LastSelectedIndex + 1;
+						HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;
                         FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.File.List.Items[i])/SIZEOF(MpFileManagerUIConnect.File.List.Items[0])) - 1) DO
                             MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
                         END_FOR

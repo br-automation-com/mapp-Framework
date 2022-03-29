@@ -111,9 +111,9 @@ ACTION FileManager:
         HmiBackup.Status.Size[i] := MpFileManagerUIConnect.File.List.Items[i].Size;
     END_FOR
     
-    IF ((MpFileManagerUIConnect.DeviceList.SelectedIndex <> LastSelectedDeviceIndex) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE)) THEN
-        LastSelectedDeviceIndex := MpFileManagerUIConnect.DeviceList.SelectedIndex;
-        LastSelectedIndex := LastSelectedIndex + 1;
+    IF ((MpFileManagerUIConnect.DeviceList.SelectedIndex <> HmiBackup.Status.LastSelectedDeviceIndex) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE)) THEN
+        HmiBackup.Status.LastSelectedDeviceIndex := MpFileManagerUIConnect.DeviceList.SelectedIndex;
+        HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;
     END_IF
     
 END_ACTION

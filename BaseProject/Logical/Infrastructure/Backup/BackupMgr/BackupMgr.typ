@@ -35,7 +35,6 @@ TYPE
 	END_STRUCT;
 	BackupHmiParametersType : 	STRUCT 
 		Name : STRING[80] := 'myBackup';
-		SelectedIndex : USINT;
 		AutomaticBackup : AutomaticBackupType;
 	END_STRUCT;
 	BackupHmiStatusType : 	STRUCT 
@@ -50,14 +49,17 @@ TYPE
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100];
 		TableConfig : ARRAY[0..1]OF STRING[120];
 		SimulationActive : BOOL;
+		SelectedIndex : USINT; (*Index of the selected backup file*)
+		LastSelectedIndex : USINT; (*Index of the last selected backup file*)
+		LastSelectedDeviceIndex : UINT; (*Index of the last selected file device. Compared with MpFileManagerUIConnect.DeviceList.SelectedIndex*)
 	END_STRUCT;
-	BackupHmiInterfaceType : 	STRUCT 
+	BackupHmiInterfaceType : 	STRUCT  (*HMI interface structure*)
 		Commands : BackupHmiCommandsType;
 		Parameters : BackupHmiParametersType;
 		Status : BackupHmiStatusType;
 	END_STRUCT;
 	BackupStateEnum : 
-		(
+		( (*States for backup state machine*)
 		BACKUP_IDLE,
 		BACKUP_CREATING,
 		BACKUP_RESTORING,
