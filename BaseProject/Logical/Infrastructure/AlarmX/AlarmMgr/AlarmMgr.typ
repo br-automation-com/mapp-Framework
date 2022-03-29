@@ -19,10 +19,10 @@ TYPE
 	END_STRUCT;
 	AlarmQueryType : 	STRUCT  (*Structure for query results and status*)
 		State : ActiveAlarmStateEnum; (*State variable for the query state machine*)
-		LastActiveAlarmUpdateCount : UDINT;
-		ActiveAlarmUpdateCount : UDINT;
-		Alarms : ARRAY[0..MAX_QUERY_RESULTS]OF AlarmType;
-		Next : BOOL;
+		LastUpdateCount : UDINT; (*Previous count of query results. Used to check for new query data. *)
+		UpdateCount : UDINT; (*Count of query results. Increases each time new results are availble. *)
+		Alarms : ARRAY[0..MAX_QUERY_RESULTS]OF AlarmType; (*Query data*)
+		Next : BOOL; (*Trigger to query the next data, if there are more results than MAX_QUERY_RESULTS*)
 	END_STRUCT;
 	AlarmQueryHMIType : 	STRUCT  (*Datatype for the structure which rearranges the query data from AlarmQuery into a structure of arrays for easy connection to the Table widget in mapp View*)
 		Active : ARRAY[0..MAX_QUERY_RESULTS]OF BOOL; (*StateActive array*)
@@ -34,8 +34,7 @@ TYPE
 		TimeStamp : ARRAY[0..MAX_QUERY_RESULTS]OF DATE_AND_TIME; (*TimeStamp array*)
 		Code : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT; (*Code array*)
 		Severity : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT; (*Severity array*)
-		QueryCount : USINT; (*Count of query results. Increases each time new results are availble. *)
-		LastQueryCount : USINT; (*Previous count of query results. Used to check for new query data. *)
+		QueryCount : USINT; (*Count of query results for building the query table configuration string*)
 	END_STRUCT;
 	AlarmType : 	STRUCT  (*Structure to hold the alarm data for the query results*)
 		Active : BOOL; (*ActiveAlarms query, StateActive column*)
