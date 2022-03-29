@@ -5,10 +5,10 @@ TYPE
 		Status : {REDUND_UNREPLICABLE} AlarmStatusType; (*HMI status*)
 	END_STRUCT;
 	AlarmCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
-		ExportAlarms : BOOL; (*Triggers an alarm export of the alarm history. Connected to a button in mapp View.*)
-		RunQuery : BOOL; (*Triggers the query to run. Connected to a button in mapp View*)
+		ExportAlarms : BOOL; (*Triggers an alarm export of the alarm history. Connected to a button on the HMI. *)
+		RunQuery : BOOL; (*Triggers the query to run. Connected to a button on the HMI. *)
 	END_STRUCT;
-	AlarmStatusType : 	STRUCT  (*Structure to hold status information from the mapp View HMI*)
+	AlarmStatusType : 	STRUCT  (*Structure to hold status information from the mapp View HMI. (This structure is not compatible/relevant if you are using a VC4 visualization)*)
 		AlarmHistSortCfg : STRING[1000]; (*Sort configuration property for the AlarmHistory widget *)
 		AlarmHistFilterCfg : STRING[1000]; (*Filter configuration property for the AlarmHistory widget*)
 		AlarmSortCfg : STRING[1000]; (*Sort configuration for the AlarmList widget*)
@@ -24,7 +24,7 @@ TYPE
 		Alarms : ARRAY[0..MAX_QUERY_RESULTS]OF AlarmType;
 		Next : BOOL;
 	END_STRUCT;
-	AlarmQueryHMIType : 	STRUCT  (*Datatype for the structure which rearranges the query data from AlarmQuery into a structure of arrays for easy connection to the Table widget*)
+	AlarmQueryHMIType : 	STRUCT  (*Datatype for the structure which rearranges the query data from AlarmQuery into a structure of arrays for easy connection to the Table widget in mapp View*)
 		Active : ARRAY[0..MAX_QUERY_RESULTS]OF BOOL; (*StateActive array*)
 		Acknowledged : ARRAY[0..MAX_QUERY_RESULTS]OF BOOL; (*StateAcknowledged array*)
 		Scope : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[80]; (*Scope array*)

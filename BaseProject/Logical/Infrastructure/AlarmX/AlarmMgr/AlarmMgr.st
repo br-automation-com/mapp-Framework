@@ -59,7 +59,6 @@ PROGRAM _CYCLIC
     QueryTableConfig;
     AlarmSampleFub;
 	
-    
 	// Check if any reactions are active.
 	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application.
 	// For example, the axis control task might check for the 'Error' reaction to determine whether to send a stop command to the axes.
