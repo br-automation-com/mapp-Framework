@@ -12,7 +12,7 @@ ACTION ExecuteQuery:
 			// Wait until the RunQuery command is triggered from the HMI. 
 			// If you prefer that the query runs anytime new data is available, then uncomment line 15 and comment out line 16 and delete 
 			// the "Run query" button from the HMI.
-			//			IF (HmiAlarmX.Status.Query.LastQueryCount <> HmiAlarmX.Status.Query.QueryCount) THEN
+//			IF (AlarmQuery.LastActiveAlarmUpdateCount <> AlarmQuery.ActiveAlarmUpdateCount) THEN
 			IF (HmiAlarmX.Commands.RunQuery = TRUE) THEN
 				brsmemset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
 				AlarmQuery.LastActiveAlarmUpdateCount := AlarmQuery.ActiveAlarmUpdateCount;
@@ -20,7 +20,6 @@ ACTION ExecuteQuery:
 				HmiAlarmX.Commands.RunQuery := FALSE;
 				AlarmQuery.State := ACTIVE_ALARM_QUERY;
 			END_IF 
-			HmiAlarmX.Status.Query.LastQueryCount := HmiAlarmX.Status.Query.QueryCount;
             
 		ACTIVE_ALARM_QUERY:
 			// If the number of query results is less than MAX_QUERY_RESULTS, return to the wait state
@@ -59,4 +58,6 @@ ACTION ExecuteQuery:
 		HmiAlarmX.Status.Query.Severity[i] := AlarmQuery.Alarms[i].Severity;
 	END_FOR
 	
+	
+
 END_ACTION
