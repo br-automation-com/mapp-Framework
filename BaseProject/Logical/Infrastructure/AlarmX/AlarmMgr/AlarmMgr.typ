@@ -34,7 +34,8 @@ TYPE
 		TimeStamp : ARRAY[0..MAX_QUERY_RESULTS]OF DATE_AND_TIME; (*TimeStamp array*)
 		Code : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT; (*Code array*)
 		Severity : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT; (*Severity array*)
-		QueryCount : USINT; (*Count of query results*)
+		QueryCount : USINT; (*Count of query results. Increases each time new results are availble. *)
+		LastQueryCount : USINT; (*Previous count of query results. Used to check for new query data. *)
 	END_STRUCT;
 	AlarmType : 	STRUCT  (*Structure to hold the alarm data for the query results*)
 		Active : BOOL; (*ActiveAlarms query, StateActive column*)
