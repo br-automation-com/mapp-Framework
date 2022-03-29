@@ -70,6 +70,7 @@ ACTION SaveBackupConfiguration:
  END_ACTION
 
 ACTION LoadBackupConfiguration:
+	
     HmiBackup.Parameters.AutomaticBackup.Enable := MpBackupConfiguration.AutomaticBackup.Enabled;
     HmiBackup.Parameters.AutomaticBackup.Prefix := MpBackupConfiguration.AutomaticBackup.NamePrefix;
     HmiBackup.Parameters.AutomaticBackup.Device := MpBackupConfiguration.AutomaticBackup.DeviceName;
@@ -100,6 +101,7 @@ ACTION LoadBackupConfiguration:
 END_ACTION
 
 ACTION FileManager:
+	
     MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
     MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
     MpFileManagerUI_0();

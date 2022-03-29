@@ -1,20 +1,21 @@
 //***********************************************************************
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
-// Created: Jan 1, 2022
-// Description: Tasks for backup control.
+// Created: April 12, 2022
+// Description: Task for backup management.
 //***********************************************************************
 
 PROGRAM _INIT
     
 	// Create folder for this component on the user file device
-	DirCreate_New(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
+	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
 	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_New.status = fiERR_DIR_ALREADY_EXIST THEN
-		DirCreate_New(enable := FALSE);
+	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
+		DirCreate_0(enable := FALSE);
 	END_IF
 
+	// Initialize mapp function blocks
     MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
 	MpBackupCore_0.Enable := TRUE;
 	MpBackupCore_0();
