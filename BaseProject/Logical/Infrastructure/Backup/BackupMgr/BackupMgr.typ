@@ -24,7 +24,7 @@ TYPE
 		RestoreAllowed : BOOL; (*Bit to indicate it is allowable to restore a backup right now*)
 		FileNames : ARRAY[0..49]OF STRING[80]; (*Existing backup file names*)
 		TimeStamps : ARRAY[0..49]OF DATE_AND_TIME; (*Time stamps for existing backups*)
-		Size : REFERENCE TO ARRAY[0..49]OF UDINT; (*Sizes of existing backup files*)
+		Size : {REDUND_UNREPLICABLE} ARRAY[0..49]OF UDINT; (*Sizes of existing backup files*)
 		Info : MpBackupProjectInfoRequestType; (*Project information (name, configuration ID, configuration version)*)
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for file device dropdown on automatic backup configuration pop-up*)
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the list of available backups*)
