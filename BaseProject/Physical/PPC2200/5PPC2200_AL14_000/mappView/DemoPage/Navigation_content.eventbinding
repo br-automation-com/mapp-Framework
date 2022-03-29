@@ -1,66 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="Navigation_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="Navigation_content.AlarmContent.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Navigation_content" widgetRefId="AlarmContent" event="Click" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="AlarmX_content" pageId="Demo_page" areaId="AreaContent" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
-    <EventBinding id="Navigation_content.RecipeContent.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Navigation_content" widgetRefId="RecipeContent" event="Click" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="Recipe_content" pageId="Demo_page" areaId="AreaContent" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
-    <EventBinding id="Navigation_content.UserContent.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Navigation_content" widgetRefId="UserContent" event="Click" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="UserX_content" pageId="Demo_page" areaId="AreaContent" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
-    <EventBinding id="Navigation_content.BackupContent.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Navigation_content" widgetRefId="BackupContent" event="Click" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="Backup_content" pageId="Demo_page" areaId="AreaContent" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
-    <EventBinding id="Navigation_content.FileContent.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Navigation_content" widgetRefId="FileContent" event="Click" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="File_content" pageId="Demo_page" areaId="AreaContent" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
-    <EventBinding id="Navigation_content.AxisContent.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Navigation_content" widgetRefId="AxisContent" event="Click" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="Axis_content" pageId="Demo_page" areaId="AreaContent" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
     <EventBinding id="Navigation_content.HelpContent.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Navigation_content" widgetRefId="HelpContent" event="Click" />
       <EventHandler>
