@@ -70,6 +70,7 @@ ACTION SaveBackupConfiguration:
  END_ACTION
 
 ACTION LoadBackupConfiguration:
+	
     HmiBackup.Parameters.AutomaticBackup.Enable := MpBackupConfiguration.AutomaticBackup.Enabled;
     HmiBackup.Parameters.AutomaticBackup.Prefix := MpBackupConfiguration.AutomaticBackup.NamePrefix;
     HmiBackup.Parameters.AutomaticBackup.Device := MpBackupConfiguration.AutomaticBackup.DeviceName;
@@ -100,6 +101,7 @@ ACTION LoadBackupConfiguration:
 END_ACTION
 
 ACTION FileManager:
+	
     MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
     MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
     MpFileManagerUI_0();
@@ -109,9 +111,9 @@ ACTION FileManager:
         HmiBackup.Status.Size[i] := MpFileManagerUIConnect.File.List.Items[i].Size;
     END_FOR
     
-    IF ((MpFileManagerUIConnect.DeviceList.SelectedIndex <> LastSelectedDeviceIndex) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE)) THEN
-        LastSelectedDeviceIndex := MpFileManagerUIConnect.DeviceList.SelectedIndex;
-        LastSelectedIndex := LastSelectedIndex + 1;
+    IF ((MpFileManagerUIConnect.DeviceList.SelectedIndex <> HmiBackup.Status.LastSelectedDeviceIndex) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE)) THEN
+        HmiBackup.Status.LastSelectedDeviceIndex := MpFileManagerUIConnect.DeviceList.SelectedIndex;
+        HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;
     END_IF
     
 END_ACTION

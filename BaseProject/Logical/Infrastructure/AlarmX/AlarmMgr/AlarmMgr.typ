@@ -1,3 +1,4 @@
+(*Structure types*)
 
 TYPE
 	AlarmHmiInterfaceType : 	STRUCT  (*Structure to hold commands and status from the HMI*)
@@ -47,12 +48,6 @@ TYPE
 		Code : UDINT; (*ActiveAlarms query, Code column*)
 		Severity : UDINT; (*ActiveAlarms query, Severity column*)
 	END_STRUCT;
-	ActiveAlarmStateEnum : 
-		( (*Enumeration for the state for the query state machine*)
-		ACTIVE_ALARM_WAIT, (*Wait state*)
-		ACTIVE_ALARM_QUERY, (*State to query the alarm data*)
-		ACTIVE_ALARM_NEXT (*State to check if more alarms meet the query criteria and need to be queried*)
-		);
 	MachineDigitalInputsType : 	STRUCT  (*Safety related digital inputs *)
 		EmergencyStop : ARRAY[0..MAX_ESTOP]OF BOOL; (*Emergency stop input signals*)
 		SafetyDoor : ARRAY[0..MAX_SAFETY_DOOR]OF BOOL; (*Safety door input signals*)
@@ -66,4 +61,15 @@ TYPE
 		SnippetValue : INT; (*Process variable used in the SnippetExample alarm for the snippet*)
 		SetControlExample : BOOL; (*Boolean to trigger the example alarm which is triggerd by MpAlarmXControlExample_0*)
 	END_STRUCT;
+END_TYPE
+
+(*Enumerations*)
+
+TYPE
+	ActiveAlarmStateEnum : 
+		( (*Enumeration for the state for the query state machine*)
+		ACTIVE_ALARM_WAIT, (*Wait state*)
+		ACTIVE_ALARM_QUERY, (*State to query the alarm data*)
+		ACTIVE_ALARM_NEXT (*State to check if more alarms meet the query criteria and need to be queried*)
+		);
 END_TYPE

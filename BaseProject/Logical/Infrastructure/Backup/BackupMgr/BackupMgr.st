@@ -1,20 +1,21 @@
 //***********************************************************************
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
-// Created: Jan 1, 2022
-// Description: Tasks for backup control.
+// Created: April 12, 2022
+// Description: Task for backup management.
 //***********************************************************************
 
 PROGRAM _INIT
     
 	// Create folder for this component on the user file device
-	DirCreate_New(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
+	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
 	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_New.status = fiERR_DIR_ALREADY_EXIST THEN
-		DirCreate_New(enable := FALSE);
+	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
+		DirCreate_0(enable := FALSE);
 	END_IF
 
+	// Initialize mapp function blocks
     MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
 	MpBackupCore_0.Enable := TRUE;
 	MpBackupCore_0();
@@ -54,28 +55,20 @@ PROGRAM _CYCLIC
                 HmiBackup.Status.Busy := TRUE;
                 HmiBackup.Status.CreateAllowed := FALSE;
                 HmiBackup.Status.RestoreAllowed := FALSE;
-                MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Parameters.SelectedIndex].Name);
+                MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
                 BackupState := BACKUP_RESTORING;
-            ELSIF (HmiBackup.Commands.RestoreAuto = TRUE) THEN
-                HmiBackup.Commands.RestoreAuto := FALSE;
-                MpBackupCore_0.Install := TRUE;
-                HmiBackup.Status.Busy := TRUE;
-                HmiBackup.Status.CreateAllowed := FALSE;
-                HmiBackup.Status.RestoreAllowed := FALSE;
-                MpBackupCore_0.Name := ADR(MpBackupCore_0.Info.Automatic.Update.Name);
-                BackupState := BACKUP_RESTORING;
-            ELSIF (HmiBackup.Commands.Delete = TRUE) THEN
-                MpFileManagerUIConnect.File.List.Items[HmiBackup.Parameters.SelectedIndex].IsSelected := TRUE;
-                HmiBackup.Commands.Delete := FALSE;
-                MpFileManagerUIConnect.File.Delete := TRUE;
-                BackupState := BACKUP_DELETING;
-            ELSIF (HmiBackup.Commands.SaveConfig = TRUE) THEN
-                HmiBackup.Commands.SaveConfig := FALSE;
+			ELSIF (HmiBackup.Commands.Delete = TRUE) THEN
+				MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].IsSelected := TRUE;
+				HmiBackup.Commands.Delete := FALSE;
+				MpFileManagerUIConnect.File.Delete := TRUE;
+				BackupState := BACKUP_DELETING;
+			ELSIF (HmiBackup.Commands.SaveConfig = TRUE) THEN
+				HmiBackup.Commands.SaveConfig := FALSE;
                 SaveBackupConfiguration;
                 MpBackupCoreConfig_0.Save := TRUE;
-            ELSIF ((HmiBackup.Parameters.SelectedIndex <> LastSelectedIndex) AND (MpBackupCore_0.CommandBusy <> TRUE)) THEN
-                LastSelectedIndex := HmiBackup.Parameters.SelectedIndex;
-                MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Parameters.SelectedIndex].Name);
+			ELSIF ((HmiBackup.Status.SelectedIndex <> HmiBackup.Status.LastSelectedIndex) AND (MpBackupCore_0.CommandBusy <> TRUE)) THEN
+                HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.SelectedIndex;
+                MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
                 MpBackupCore_0.RequestInfo := TRUE;
 			ELSIF DiagCpuIsARsim() OR DiagCpuIsSimulated() THEN
               	HmiBackup.Status.SimulationActive := TRUE;
@@ -85,7 +78,7 @@ PROGRAM _CYCLIC
     
         BACKUP_CREATING:
             IF (MpBackupCore_0.CommandDone = TRUE) THEN
-				LastSelectedIndex := LastSelectedIndex + 1;
+				HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;
                 MpBackupCore_0.Create := FALSE;
                 MpBackupCore_0.Install := FALSE;
                 MpBackupCore_0.RequestInfo := FALSE;
@@ -118,7 +111,7 @@ PROGRAM _CYCLIC
                     MpFileManagerUIConnect.MessageBox.Confirm := TRUE;
                 mpFILE_MSG_OK:
                     IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
-						LastSelectedIndex := LastSelectedIndex + 1;
+						HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;
                         FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.File.List.Items[i])/SIZEOF(MpFileManagerUIConnect.File.List.Items[0])) - 1) DO
                             MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
                         END_FOR
@@ -156,8 +149,8 @@ PROGRAM _CYCLIC
 		HmiBackup.Status.Error := FALSE;
     END_IF
     
-    HmiBackup.Status.RestoreAllowed := (HmiBackup.Status.Info.ConfigurationID <> '') AND NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress);
-    
+	HmiBackup.Status.RestoreAllowed := (MpFileManagerUIConnect.File.PathInfo.FolderCount > 0) AND NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress);
+	
 	// Call all actions
     FileManager;
 	ChangeConfiguration;
@@ -177,7 +170,7 @@ END_PROGRAM
 
 PROGRAM _EXIT
     
-	// Disable the function blocls to unlink the MpLinks
+	// Disable the function blocks to unlink the MpLinks
     MpBackupCore_0.Enable := FALSE;
 	MpFileManagerUI_0.Enable := FALSE;
 	MpBackupCoreConfig_0.Enable := FALSE;
