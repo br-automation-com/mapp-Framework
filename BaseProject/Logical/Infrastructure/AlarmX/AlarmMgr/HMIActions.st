@@ -10,19 +10,19 @@ ACTION GetBacktraceInformation:
         END_IF
 	
         IF (MpAlarmXListUIConnect.AlarmList.InstanceID[i] = HmiAlarmX.Status.InstanceID) THEN
-            // Found alarm
+            // Found an alarm
             MpAlarmXListUIConnect.AlarmList.SelectedIndex := i;
             EXIT;
         END_IF
         
         IF (MpAlarmXListUIConnect.AlarmList.InstanceID[i] = 0) THEN
             IF (MpAlarmXCore_0.PendingAlarms > i) THEN
-                // Alarm not found, List can page up
+                // Alarm not found, list can page up
                 MpAlarmXListUIConnect.AlarmList.PageUp := TRUE;
             END_IF
 			EXIT;
         ELSIF (i = MaxIndex) THEN
-            // Alarm not found, List can page down
+            // Alarm not found, list can page down
             MpAlarmXListUIConnect.AlarmList.PageDown := TRUE;
         END_IF
 	END_FOR
