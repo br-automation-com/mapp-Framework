@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<pdef:Page xmlns:pdef="http://www.br-automation.com/iat2015/pageDefinition/v2" id="Demo_page" layoutRefId="Default_layout">
-  <Assignments />
+<pdef:Page xmlns:pdef="http://www.br-automation.com/iat2015/pageDefinition/v2" id="Demo_page" layoutRefId="Standard_layout">
+  <Assignments>
+    <Assignment type="Content" baseContentRefId="Help_content" areaRefId="AreaContent" />
+    <Assignment type="Content" baseContentRefId="Navigation_content" areaRefId="AreaNavigation" />
+  </Assignments>
 </pdef:Page>

@@ -25,29 +25,9 @@
   <DefaultView AclId="3">
     <Module Name="&lt;Default&gt;">
       <Task Name="BackupMgr">
-        <Variable Name="MpFileManagerUIConnect" AutomaticEnable="True">
-          <Variable Name="File">
-            <Variable Name="List">
-              <Variable Name="Items" EnableArrayElements="True" />
-            </Variable>
-          </Variable>
+        <Variable Name="MpBackupCore_0">
+          <Variable Name="Active" />
         </Variable>
-        <Variable Name="HmiBackup" AutomaticEnable="True">
-          <Variable Name="Status">
-            <Variable AclInherit="1" Name="FileNames" EnableArrayElements="True" />
-            <Variable AclInherit="1" Name="TimeStamps" EnableArrayElements="True" />
-            <Variable AclInherit="1" Name="Size" EnableArrayElements="True" EngineeringUnitId="15" />
-            <Variable AclInherit="1" Name="Busy" />
-            <Variable AclInherit="1" Name="CreateAllowed" />
-            <Variable AclInherit="1" Name="RestoreAllowed" />
-            <Variable Name="TableConfig" EnableArrayElements="True" />
-          </Variable>
-          <Variable Name="Commands">
-            <Variable Name="Restore" />
-            <Variable Name="Delete" />
-          </Variable>
-        </Variable>
-        <Variable Name="MpBackupCore_0" />
       </Task>
     </Module>
   </DefaultView>
