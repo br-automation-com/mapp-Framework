@@ -163,7 +163,7 @@ PROGRAM _CYCLIC
             // Set FUB parameters
 			DevLinkCtrl.FUB.DevLink_0.enable := TRUE;
 			DevLinkCtrl.FUB.DevLink_0.pDevice := ADR(DevLinkCtrl.Parameters.FileDevName[DevLinkCtrl.Parameters.Index]);
-			brsstrcpy(ADR(DevLinkCtrl.Parameters.LinkParam), ADR('/DEVICE='));
+			DevLinkCtrl.Parameters.LinkParam := '/DEVICE=';
 			brsstrcat(ADR(DevLinkCtrl.Parameters.LinkParam), ADR(DevLinkCtrl.Parameters.NodeInfoList[DevLinkCtrl.Parameters.Index].ifName));
 			DevLinkCtrl.FUB.DevLink_0.pParam := ADR(DevLinkCtrl.Parameters.LinkParam);
 	

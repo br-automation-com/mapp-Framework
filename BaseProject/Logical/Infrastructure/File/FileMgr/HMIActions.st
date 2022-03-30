@@ -4,14 +4,14 @@ ACTION FormatDeviceDataProvider:
     FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
         IF gUSBAvailable[i] THEN
 	
-            brsstrcpy(ADR(HmiFile.Status.DeviceDataProvider[i + 7]), ADR('{"value":"USB'));
+			HmiFile.Status.DeviceDataProvider[i + 7] := '{"value":"USB';
             brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[i + 7]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[i + 7])));
             
 			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i + 7]), ADR('","text":"USB'));
             brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[i + 7]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[i + 7])));
             brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i + 7]), ADR('"}'));
            
-		    brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 7]), ADR('USB'));
+			MpFileManagerUIConnect.DeviceList.DeviceNames[i + 7] := 'USB';
             brsitoa(i + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 7]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 7])));
         ELSE
             brsmemset(ADR(HmiFile.Status.DeviceDataProvider[i + 7]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[i + 7]));
@@ -20,7 +20,7 @@ ACTION FormatDeviceDataProvider:
     END_FOR
 	
 	// Configure visible device list
-    brsstrcpy(ADR(HmiFile.Status.TableConfig[0]), ADR('{ "specRows": [{"from":'));
+	HmiFile.Status.TableConfig[0] := '{ "specRows": [{"from":';
 	FOR i := 0 TO 9 DO
 		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
 			DeviceCount := i + 1;
@@ -31,7 +31,7 @@ ACTION FormatDeviceDataProvider:
 	
     
     // Configure visible file list
-    brsstrcpy(ADR(HmiFile.Status.TableConfig[1]), ADR('{ "specRows": [{"from":'));
+	HmiFile.Status.TableConfig[1] := '{ "specRows": [{"from":';
     brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(HmiFile.Status.TableConfig[1]) + brsstrlen(ADR(HmiFile.Status.TableConfig[1])));
     brsstrcat(ADR(HmiFile.Status.TableConfig[1]),  ADR(',"to":49, "visible":false}]}'));
     

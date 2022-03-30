@@ -3,12 +3,12 @@ ACTION FormatDeviceDataProvider:
 	// Select CF device if USB device is not available
     FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
         IF gUSBAvailable[i] THEN
-            brsstrcpy(ADR(HmiBackup.Status.DeviceDataProvider[i + 1]), ADR('{"value":"USB'));
+			HmiBackup.Status.DeviceDataProvider[i + 1] := '{"value":"USB';
             brsitoa(i + 1, ADR(HmiBackup.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiBackup.Status.DeviceDataProvider[i + 1])));
             brsstrcat(ADR(HmiBackup.Status.DeviceDataProvider[i + 1]), ADR('","text":"USB'));
             brsitoa(i + 1, ADR(HmiBackup.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiBackup.Status.DeviceDataProvider[i + 1])));
             brsstrcat(ADR(HmiBackup.Status.DeviceDataProvider[i + 1]), ADR('"}'));
-            brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]), ADR('USB'));
+			MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1] := 'USB';
             brsitoa(i + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1])));
         ELSE
             brsmemset(ADR(HmiBackup.Status.DeviceDataProvider[i + 1]), 0, SIZEOF(HmiBackup.Status.DeviceDataProvider[i + 1]));
@@ -17,7 +17,7 @@ ACTION FormatDeviceDataProvider:
     END_FOR
 	
 	// Configure visible device list
-    brsstrcpy(ADR(HmiBackup.Status.TableConfig[0]), ADR('{ "specRows": [{"from":'));
+	HmiBackup.Status.TableConfig[0] := '{ "specRows": [{"from":';
 	FOR i := 0 TO 9 DO
 		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
 			DeviceCount := i + 1;
@@ -27,7 +27,7 @@ ACTION FormatDeviceDataProvider:
     brsstrcat(ADR(HmiBackup.Status.TableConfig[0]),  ADR(',"to":9, "visible":false}]}'));
 	
 	// Configure visible file list
-    brsstrcpy(ADR(HmiBackup.Status.TableConfig[1]), ADR('{ "specRows": [{"from":'));
+	HmiBackup.Status.TableConfig[1] := '{ "specRows": [{"from":';
     brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(HmiBackup.Status.TableConfig[1]) + brsstrlen(ADR(HmiBackup.Status.TableConfig[1])));
     brsstrcat(ADR(HmiBackup.Status.TableConfig[1]),  ADR(',"to":49, "visible":false}]}'));
     

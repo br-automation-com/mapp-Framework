@@ -8,7 +8,7 @@ ACTION FormatDeviceDataProvider:
 			brsstrcat(ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1]), ADR('","text":"USB'));
 			brsitoa(Index + 1, ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1]) + brsstrlen(ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1])));
 			brsstrcat(ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1]), ADR('"}'));
-			brsstrcpy(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1]), ADR('USB'));
+			MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1] := 'USB';
 			brsitoa(Index + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1])));
 		ELSE
 			brsmemset(ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1]), 0, SIZEOF(HmiRecipe.Parameters.DeviceDataProvider[Index + 1]));
