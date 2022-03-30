@@ -95,8 +95,8 @@ ACTION RecipeHMIcommands:
 	
 	END_CASE
 	
-	IF NOT MpRecipe_0.CommandBusy AND brsstrcmp(ADR(PreviousRecipe), ADR(HmiRecipe.Parameters.FileName)) <> 0 THEN
-		HmiRecipe.Parameters.FileName := PreviousRecipe;
+	IF NOT MpRecipe_0.CommandBusy AND brsstrcmp(ADR(HmiRecipe.Status.PreviousRecipe), ADR(HmiRecipe.Parameters.FileName)) <> 0 THEN
+		HmiRecipe.Parameters.FileName := HmiRecipe.Status.PreviousRecipe;
 	END_IF
 	
 	// If the Edit or Create dialog boxes open, copy the Preview structure into the Edit structure. 

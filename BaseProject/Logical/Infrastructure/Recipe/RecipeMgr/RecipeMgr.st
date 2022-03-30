@@ -73,7 +73,7 @@ PROGRAM _INIT
 	
 	// Load default Machine Settings recipe
 	HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
-	HmiRecipe.Parameters.FileName := MACHINE_FILENAME;
+	HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION;
 	MpRecipe_0.Load := TRUE;
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
@@ -86,16 +86,16 @@ PROGRAM _INIT
 
 	// Load default Parameter recipe
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
-	HmiRecipe.Parameters.FileName := 'Default.par';
-	PreviousRecipe := 'Default.par';
+	HmiRecipe.Parameters.FileName := DEFAULT_PARAMETERS;
+	HmiRecipe.Status.PreviousRecipe := DEFAULT_PARAMETERS; 
 	MpRecipe_0.Load := TRUE;
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE
 	Parameters := ParametersPreview;
     
-	HmiRecipe.Status.LastLoadedProductRecipe := MpRecipe_0.Info.LastLoadedRecipe;
-	HmiRecipe.Status.LastLoadedConfigRecipe := MACHINE_FILENAME;
+	HmiRecipe.Status.LastLoadedProductRecipe := DEFAULT_PARAMETERS;
+	HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
 	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
 	MpRecipe_0.Load := FALSE;
 	MpRecipe_0();
