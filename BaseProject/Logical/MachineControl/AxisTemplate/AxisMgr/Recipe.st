@@ -33,6 +33,7 @@ END_ACTION
 
 ACTION RecipeCyclic:
 
+	// HMI support handling
 	IF (AxisRecipe.EditDialogOpened OR AxisRecipe.CreateDialogOpened) THEN
 		IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Product')) = 0) THEN
 			ParametersEdit := ParametersPreview;
@@ -44,6 +45,7 @@ ACTION RecipeCyclic:
 	END_IF
 	
 	CASE AxisRecipe.State OF
+		// Wait state
 		REC_AXIS_WAIT:
 			IF AxisRecipe.CreateRecipe THEN
 				AxisRecipe.State := REC_AXIS_CREATE;
@@ -55,7 +57,7 @@ ACTION RecipeCyclic:
 				AxisRecipe.State := REC_AXIS_LOAD;
 				AxisRecipe.LoadRecipe := FALSE;
 			END_IF
-	
+		// Create recipe state
 		REC_AXIS_CREATE:
 			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Product')) = 0) THEN
 				ParametersPreview := ParametersEdit;
@@ -63,7 +65,7 @@ ACTION RecipeCyclic:
 				MachineSettingsPreview := MachineSettingsEdit;
 			END_IF
 			AxisRecipe.State := REC_AXIS_WAIT;
-	
+		// Load recipe state
 		REC_AXIS_LOAD:
 			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Product')) = 0) THEN
 				AxisControl.Parameters := ParametersPreview;
@@ -71,7 +73,7 @@ ACTION RecipeCyclic:
 				MachineSettings := MachineSettingsPreview;
 			END_IF
 			AxisRecipe.State := REC_AXIS_WAIT;
-	
+		// Save recipe state
 		REC_AXIS_SAVE:
 			IF (brsstrcmp(ADR(AxisRecipe.CategoryDropdown), ADR('Product')) = 0) THEN
 				ParametersPreview := ParametersEdit;
@@ -82,6 +84,7 @@ ACTION RecipeCyclic:
 	
 	END_CASE;
 
+	// Cyclic function block calls
 	MpRecipeRegPar_Par.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_Par();
 

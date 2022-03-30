@@ -1,5 +1,5 @@
 ACTION ConfigurationInit:
-
+	// Initalize drive configuration
     AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.DataAddress := ADR(AxisSettings.AxisFeatures);
     AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfArrayElements := SIZEOF(AxisSettings.AxisFeatures)/SIZEOF(AxisSettings.AxisFeatures[0]);
     AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.NumberOfElements := 0;
@@ -24,7 +24,7 @@ ACTION ChangeConfiguration:
     CASE ConfigurationState OF
         CONFIG_STATE_INIT:
 
-            // Build up the string for the name
+            // Assign string for the name
             MC_BR_ProcessConfig_ACP.Name := MpAxisBasic_0.Info.HardwareInfo.Axis.ConfigElementLocation;
             MC_BR_ProcessConfig_AX.Name := MpAxisBasic_0.Info.HardwareInfo.Axis.AxisName;
             
@@ -33,6 +33,7 @@ ACTION ChangeConfiguration:
             END_IF
 
         CONFIG_STATE_READ:
+			// Read the current configuration 
             MC_BR_ProcessConfig_ACP.Mode := mcPCM_LOAD;
             MC_BR_ProcessConfig_ACP.Execute := TRUE;
             
@@ -45,6 +46,7 @@ ACTION ChangeConfiguration:
             END_IF
     
         CONFIG_STATE_WRITE:
+			// Write the configuration after changes
             MC_BR_ProcessConfig_ACP.Mode := mcPCM_SAVE;
             MC_BR_ProcessConfig_ACP.Execute := TRUE;
             
@@ -66,7 +68,7 @@ ACTION ChangeConfiguration:
 END_ACTION
 
 ACTION ParameterInit:
-
+	// Initalize drive parameter
 	MC_BR_ProcessParam_AX.DataAddress := ADR(AxisSettings.BaseParam);
     MC_BR_ProcessParam_AX.DataType := mcCFG_AX_MOVE_LIM;
     
@@ -78,7 +80,7 @@ ACTION ChangeParameter:
 
     CASE ParameterState OF
         PAR_STATE_INIT:
-
+			// Wait state
             MC_BR_ProcessParam_AX.Component := MpAxisBasic_0.MpLink;
             
             IF (MpAxisBasic_0.Active = TRUE) THEN
@@ -86,6 +88,7 @@ ACTION ChangeParameter:
             END_IF
 
         PAR_STATE_READ:
+			// Read current parameter values
             MC_BR_ProcessParam_AX.Mode := mcPPM_READ;
             MC_BR_ProcessParam_AX.Execute := TRUE;
             
@@ -93,9 +96,10 @@ ACTION ChangeParameter:
                 MC_BR_ProcessParam_AX.Execute := FALSE;
                 ParameterState := PAR_STATE_READY;
             END_IF
-    
+    	
         PAR_STATE_WRITE:
-            MC_BR_ProcessParam_AX.Mode := mcPPM_WRITE;
+            // Write new parameter values
+			MC_BR_ProcessParam_AX.Mode := mcPPM_WRITE;
             MC_BR_ProcessParam_AX.Execute := TRUE;
 
             IF (MC_BR_ProcessParam_AX.Done = TRUE) THEN

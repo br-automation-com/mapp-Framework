@@ -26,7 +26,7 @@ ACTION AxisStateMachine:
     END_CASE
     
     CASE State OF
-    
+    	// Init state
         STATE_INIT:
             AxisControl.Status.Status := 'Initializing';
             ChangeConfiguration;
@@ -35,7 +35,7 @@ ACTION AxisStateMachine:
                 AxisControl.Status.IsReady := TRUE;
                 State := STATE_POWER_ON;
             END_IF
-            
+        // Power on the axis    
         STATE_POWER_ON:
             AxisControl.Status.Status := 'Waiting for power on';
             IF (MpAxisBasic_0.Info.ReadyToPowerOn = TRUE) THEN
@@ -50,7 +50,7 @@ ACTION AxisStateMachine:
             ELSE
                 ChangeConfiguration;
             END_IF
-            
+        // Restore home position    
         STATE_HOME:
             AxisControl.Status.Status := 'Waiting for home';
             IF ((MC_BR_CheckRestorePositionData_0.Done = TRUE) AND (MC_BR_CheckRestorePositionData_0.DataValid = TRUE)) THEN
@@ -72,7 +72,7 @@ ACTION AxisStateMachine:
                 State := STATE_MOVE_TO_HOME_POSITION;
                 ResetAllAxisCommands;
             END_IF
-            
+        // Create reference position    
         STATE_REFERENCE:
             IF (AxisControl.Command.Reference = TRUE) THEN
                 AxisControl.Command.Reference := FALSE;
@@ -89,7 +89,7 @@ ACTION AxisStateMachine:
                 State := STATE_MOVE_TO_HOME_POSITION;
                 ResetAllAxisCommands;
             END_IF
-            
+        // Move to home position    
         STATE_MOVE_TO_HOME_POSITION:
             AxisControl.Status.Status := 'Moving to home position';
             MpAxisParameters.Position := AxisControl.Parameters.HomePosition;
@@ -112,12 +112,12 @@ ACTION AxisStateMachine:
             ELSIF (ManualCommand(AxisControl.Command) = TRUE) THEN
                 State := STATE_MANUAL_OPERATION;
             END_IF
-        
+        // Axis can be moved manually / jogged
         STATE_MANUAL_OPERATION:
             AxisControl.Status.Status := 'Manual running';
             AxisControl.Status.Busy := TRUE;
             AxisManual;
-            
+        // Axis put into automatic mode / camming    
         STATE_AUTOMATIC_OPERATION:
             AxisControl.Status.Status := 'Automatic running';
             AxisControl.Status.Busy := TRUE;
@@ -191,12 +191,14 @@ ACTION AxisStateMachine:
         
     END_CASE
     
+	// Cyclic function block calls
     MpAxisBasic_0.Parameters := ADR(MpAxisParameters);
     MpAxisBasic_0();
     
     MC_BR_CheckRestorePositionData_0.DataAddress := ADR(RestorePosition);
     MC_BR_CheckRestorePositionData_0();
     
+	// Status assignments
     AxisControl.Status.ErrorActive := MpAxisBasic_0.Error;
     AxisControl.Status.IsHomed := MpAxisBasic_0.IsHomed;
     AxisControl.Status.IsPowered := MpAxisBasic_0.PowerOn;
