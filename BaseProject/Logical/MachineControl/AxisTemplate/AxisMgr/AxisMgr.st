@@ -6,7 +6,7 @@
 //***********************************************************************
 
 PROGRAM _INIT
-    
+    // Read current task name for category setup
     ST_name(0, ADR(AxisControl.Status.TaskName), 0);
     
 	// Inititialize mapp function blocks

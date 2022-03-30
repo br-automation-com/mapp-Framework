@@ -1,9 +1,9 @@
-﻿ACTION AxisInit:
-    
+ACTION AxisInit:
+    // Action call during init
 END_ACTION
     
 ACTION AxisCyclic:
-
+	// Cyclic action call
     IF (MpRecipeRegPar_Par.UpdateNotification) THEN
         
     END_IF
@@ -11,7 +11,7 @@ ACTION AxisCyclic:
 END_ACTION
 
 ACTION AxisManual:
-    
+    // Action handling manual axis control
     MpAxisParameters.Jog.Velocity := AxisControl.Parameters.JogVelocity;
     MpAxisParameters.Position := AxisControl.Parameters.Position;
     MpAxisParameters.Distance := AxisControl.Parameters.Distance;
@@ -19,6 +19,7 @@ ACTION AxisManual:
     MpAxisParameters.Deceleration := AxisControl.Parameters.Deceleration;
     
     CASE ManualState OF
+		// Wait state
         MANUAL_STATE_IDLE:
             IF ((AxisControl.Command.JogNegative = TRUE) OR (AxisControl.Command.JogPositive = TRUE)) THEN
                 ManualState := MANUAL_STATE_JOG;
@@ -29,7 +30,7 @@ ACTION AxisManual:
                 AxisControl.Command.MoveAdditive := FALSE;
                 ManualState := MANUAL_STATE_MOVE;
             END_IF
-            
+        // Jog state    
         MANUAL_STATE_JOG:
             MpAxisBasic_0.JogNegative := AxisControl.Command.JogNegative;
             MpAxisBasic_0.JogPositive := AxisControl.Command.JogPositive;
@@ -43,7 +44,7 @@ ACTION AxisManual:
                 MpAxisBasic_0.JogNegative := FALSE;
                 ManualState := MANUAL_STATE_STOPPING;
             END_IF
-            
+        // Direct move state    
         MANUAL_STATE_MOVE:
             IF (AxisControl.Command.Stop = TRUE) THEN
                 MpAxisBasic_0.MoveAbsolute := FALSE;
@@ -61,7 +62,7 @@ ACTION AxisManual:
                 MpAxisBasic_0.MoveAdditive := FALSE;
                 ManualState := MANUAL_STATE_JOG;
             END_IF
-            
+        // Stopping active movements    
         MANUAL_STATE_STOPPING:
             MpAxisBasic_0.JogNegative := FALSE;
             MpAxisBasic_0.JogPositive := FALSE;
@@ -77,15 +78,16 @@ ACTION AxisManual:
 END_ACTION
 
 ACTION AxisAutomatic:
-
+	// Action handling automatic mode
     CASE AutomaticState OF
+		// Wait state
         AUTOMATIC_STATE_IDLE:
             IF (AxisControl.Command.Start = TRUE) THEN
                 MpAlarmXControl_SpeedNotSet.Set := (MpAxisParameters.Velocity = 0);
                 AxisControl.Command.Start := FALSE;
                 AutomaticState := AUTOMATIC_STATE_RUNNING;
             END_IF
-            
+        // Automatic mode commands    
         AUTOMATIC_STATE_RUNNING:
             MpAxisBasic_0.MoveVelocity := TRUE;
             MpAxisParameters.Velocity := AxisControl.Parameters.Velocity;
