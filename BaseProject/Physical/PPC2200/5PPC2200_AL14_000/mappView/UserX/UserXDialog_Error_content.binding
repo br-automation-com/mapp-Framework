@@ -5,9 +5,5 @@
 <Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.MessageBox.Confirm" attribute="value" />
 <Target xsi:type="brease" contentRefId="UserXDialog_Error_content" widgetRefId="BtnConfirmErroMessageBox" attribute="value" />
 </Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::UserXMgr:ErrorText" attribute="value" />
-<Target xsi:type="brease" contentRefId="UserXDialog_Error_content" widgetRefId="TextOutputUserError" attribute="value" />
-</Binding>
-</Bindings>
+	</Bindings>
 </BindingsSet>
