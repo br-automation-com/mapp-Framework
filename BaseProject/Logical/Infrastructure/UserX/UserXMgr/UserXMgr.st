@@ -1,9 +1,8 @@
 //***********************************************************************
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
-// Created: Jan 1, 2022
-// Description: Tasks for user control. The User Management handling is
-// done in this task.
+// Created: April 12, 2022
+// Description: Tasks for user management. 
 //***********************************************************************
 
 PROGRAM _INIT
