@@ -29,8 +29,8 @@ TYPE
 		IsFolder : BOOL; (*Flag for whether the item is a folder (versus a file)*)
 		BackButton : BOOL; (*Flag for whether the back button should be shown*)
 		DeleteStep : FileDeleteStepEnum; (*Enumeration for automatic file deletion steps*)
-		AutoDeleteSelected : USINT;
-		FolderSize : REAL;
+		AutoDeleteSelected : USINT; (*Number of selected items*)
+		FolderSize : REAL; (*Size of currently selected folder*)
 		SelectedIndex : USINT; (*Selected index in the file list*)
 		CurrentPage : STRING[80]; (*Current page*)
 	END_STRUCT;
@@ -52,9 +52,9 @@ TYPE
 		( (*Enumeration for file deletion steps*)
 		FILE_DELETE_WAIT := 0, (*Wait state*)
 		FILE_SCAN_FOLDER_WAIT, (*Wait for check for old files command*)
-		FILE_SELECT_DEVICE,
+		FILE_SELECT_DEVICE, (*Switch file device to the configured one *)
 		FILE_SORT_BY_DATE, (*Sort by date so the oldest files are at the end*)
-		FILE_SORT_BY_DATE_WAIT,
+		FILE_SORT_BY_DATE_WAIT, (*Wait step switching sorting mode*)
 		FILE_CHECK_FOR_FILTER, (*Check which delete filter is active*)
 		FILE_SELECT_OLDEST_FILES_0, (*Scan and select all file over the filter setting*)
 		FILE_CALC_FOLDER_SIZE, (*Calculate the overall file size in the open folder*)
@@ -62,7 +62,7 @@ TYPE
 		FILE_DELETE_FILES, (*Set command to delete the selected oldest files*)
 		FILE_CONFIRM_DELETE, (*Confirm the file delete*)
 		FILE_RESET_SORT_BY, (*Restore old sort order*)
-		FILE_RESET_SORT_BY_WAIT
+		FILE_RESET_SORT_BY_WAIT (*Waiting for restore previous sort order*)
 		);
 	FileFifoTypeEnum : 
 		( (*Defines the delete behavior of the FIFO*)
