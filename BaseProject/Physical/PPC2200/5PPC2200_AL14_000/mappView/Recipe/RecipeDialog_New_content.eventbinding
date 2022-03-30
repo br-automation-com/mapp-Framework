@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="RecipeDialog_New_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="Recipe_Eventbinding_CancelNew">
+    <EventBinding id="RecipeDialog_NewButtons_content.CancelButton.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="CancelButton" event="Click" />
       <EventHandler>
         <Parallel>
@@ -18,7 +18,7 @@
         </Parallel>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_Eventbinding_ConfirmCreate">
+    <EventBinding id="RecipeDialog_NewButtons_content.CreateButton.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="CreateButton" event="Click" />
       <EventHandler>
         <Parallel>
@@ -40,7 +40,7 @@
         </Parallel>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_2">
+    <EventBinding id="NewRecipe_dialog.Opened">
       <Source xsi:type="clientSystem.Event" event="DialogOpened" />
       <Operand datatype="ANY_INT" name="CategoryDropdown">
         <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">

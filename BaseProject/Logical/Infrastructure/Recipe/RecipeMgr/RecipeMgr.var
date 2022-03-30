@@ -1,47 +1,35 @@
-(********************************************************************
- * COPYRIGHT -- Bernecker + Rainer
- ********************************************************************
- * Program: FolderHandling
- * File: FolderHandling.var
- * Author: Bernecker + Rainer
- * Created: December , 2020
- ********************************************************************
- * Local variables of program AlarmManagement
- ********************************************************************)
-(*Function Block Declaration*)
+(*Function Blocks*)
 VAR
-	MpRecipe_0 : MpRecipeXml; (*Recipe Management Function Block*)
-	MpRecipeUI_0 : MpRecipeUI; (*Recipe to UI*)
-	DirCreate_0 : DirCreate;
+	MpRecipe_0 : MpRecipeXml; (*MpRecipe instance*)
+	MpRecipeRegPar_PreviewPar : MpRecipeRegPar; (*MpRecipeRegPar instance for ParametersPreview variable*)
+	MpRecipeRegPar_PreviewCfg : MpRecipeRegPar; (*MpRecipeRegPar instance for MachineSettingsPreview*)
+	MpRecipeUI_0 : MpRecipeUI; (*MpRecupeUI instance*)
+	MpFileManagerUI_0 : MpFileManagerUI; (*MpFileManagerUI instance*)
+	DTGetTime_0 : DTGetTime; (*DTGetTime instance*)
+	DirCreate_0 : DirCreate; (*DirCreate instance*)
 END_VAR
-(*Recipe Management Variables*)
-VAR
-	Index : USINT; (*Index to loop through file devices*)
-	MpRecipeUISetup : MpRecipeUISetupType; (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
-	MpRecipeUIConnect : MpRecipeUIConnectType; (*MpRecipeUI connection datapoints*) (*ParameterFileStep : INT;*)
-	HmiRecipe : RecipeHmiInterfaceType; (*HMI interface structure*)
-	Header : MpRecipeXmlHeaderType;
-	DTGetTime_0 : DTGetTime;
-END_VAR
-(*File Management Variables*)
-VAR
-	MpFileManagerUIConnect : MpFileManagerUIConnectType;
-	MpFileManagerUI_0 : MpFileManagerUI;
-END_VAR
-(*Defines*)
+(*Constants*)
 VAR CONSTANT
-	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 1;
-	MACHINE_FILENAME : STRING[12] := 'Machine.mcfg';
+	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 1; (*Maximum number of  file devices *)
+	DEFAULT_PARAMETERS : STRING[12] := 'Default.par'; (*Default parameters recipe file name*)
+	DEFAULT_MACHINE_CONFIGURATION : STRING[12] := 'Machine.mcfg'; (*Default machine configuration recipe file name*)
 	LOCAL_FOLDER : STRING[10] := 'Recipe'; (*Folder name on the file device for Recipe files*)
 END_VAR
+(*Structure Types*)
 VAR
-	MpRecipeRegPar_PreviewPar : MpRecipeRegPar;
-	MpRecipeRegPar_PreviewCfg : MpRecipeRegPar;
-	Parameters : ParametersType;
-	ParametersEdit : {REDUND_UNREPLICABLE} ParametersType;
-	ParametersPreview : ParametersType;
-	MachineSettings : MachineSettingsType;
-	MachineSettingsEdit : MachineSettingsType;
-	MachineSettingsPreview : MachineSettingsType;
-	PreviousRecipe : STRING[80];
+	HmiRecipe : RecipeHmiInterfaceType; (*HMI interface structure*)
+	Parameters : ParametersType; (*Machine parameters. Used by the machine at runtime*)
+	ParametersEdit : {REDUND_UNREPLICABLE} ParametersType; (*Machine parameters edit structure. Enables you to edit a recipe that is not currently active*)
+	ParametersPreview : ParametersType; (*Machine parameters preview structure. Registered to the recipe. Enables you to preview a recipe that is not currently active.*)
+	MachineSettings : MachineSettingsType; (*Machine settings. Used by the machine at runtime.*)
+	MachineSettingsEdit : MachineSettingsType; (*Machine settings edit structure. Enables you to edit a recipe that is not currently active*)
+	MachineSettingsPreview : MachineSettingsType; (*Machine settings preview structure. Registered to the recipe. Enables you to preview a recipe that is not currently active. *)
+	MpRecipeUIConnect : MpRecipeUIConnectType; (*MpRecipeUI connection to the HMI*) (*ParameterFileStep : INT;*)
+	MpRecipeUISetup : MpRecipeUISetupType; (*MpRecipeUI setup connection to the HMI*) (*ParameterFileStep : INT;*)
+	MpFileManagerUIConnect : MpFileManagerUIConnectType; (*File manager connection to the HMI*)
+	Header : MpRecipeXmlHeaderType; (*Header information*)
+END_VAR
+(*Variables*)
+VAR
+	Index : USINT; (*Index to loop through file devices*)
 END_VAR
