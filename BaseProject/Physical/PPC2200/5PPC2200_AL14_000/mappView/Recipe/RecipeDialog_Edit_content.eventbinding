@@ -32,7 +32,17 @@
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
-      </Operand>
+			</Operand>
+			<Operand datatype="ANY_STRING" name="ParametersRecipe">
+				<ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:PARAMETERS_RECIPE">
+					<Method xsi:type="opcUa.NodeAction.GetValue" />
+				</ReadTarget>
+			</Operand>
+			<Operand datatype="ANY_STRING" name="MachineConfigurationRecipe">
+				<ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:MACHINE_CONFIGURATION_RECIPE">
+					<Method xsi:type="opcUa.NodeAction.GetValue" />
+				</ReadTarget>
+			</Operand>
       <EventHandler condition="">
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.SaveSelectedRecipe">
@@ -40,7 +50,7 @@
           </Target>
         </Action>
       </EventHandler>
-      <EventHandler condition="(LastProductRecipe = ActiveRecipe AND RecipeCategory = &quot;Product&quot;) OR (LastMachineRecipe = ActiveRecipe AND RecipeCategory = &quot;Machine&quot;) ">
+      <EventHandler condition="(LastProductRecipe = ActiveRecipe AND RecipeCategory = ParametersRecipe) OR (LastMachineRecipe = ActiveRecipe AND RecipeCategory = MachineConfigurationRecipe) ">
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.LoadRecipe">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
