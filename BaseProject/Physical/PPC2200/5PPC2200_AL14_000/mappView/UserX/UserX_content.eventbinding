@@ -1,50 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="UserX_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="UserXMgrUIConnect.MessageBox.LayerStatus.ValueChanged" deactivated="true">
-      <Source xsi:type="opcUa.Event" refId="::UserXMgr:UserXMgrUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
-      <Operand datatype="BOOL" name="Status">
-        <ReadTarget xsi:type="session.VariableAction.Read" refId="UserXPwdChangeDialogOpen">
-          <Method xsi:type="session.VariableAction.GetValue" />
-        </ReadTarget>
-      </Operand>
-      <EventHandler condition="newValue=0">
-        <Sequence>
-          <Step order="0">
-            <Action>
-              <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXChangePwd_dialog" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="session.VariableAction" refId="UserXPwdChangeDialogOpen">
-                <Method xsi:type="session.VariableAction.SetValueBool" value="true" />
-              </Target>
-            </Action>
-          </Step>
-        </Sequence>
-      </EventHandler>
-      <EventHandler condition="newValue=1 AND Status = true">
-        <Sequence>
-          <Step order="0">
-            <Action>
-              <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXChangePwd_dialog" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="session.VariableAction" refId="UserXPwdChangeDialogOpen">
-                <Method xsi:type="session.VariableAction.SetValueBool" value="false" />
-              </Target>
-            </Action>
-          </Step>
-        </Sequence>
-      </EventHandler>
-    </EventBinding>
     <EventBinding id="UserX_content.ButtonEditUser.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserX_content" widgetRefId="ButtonEditUser" event="Click" />
       <EventHandler>
