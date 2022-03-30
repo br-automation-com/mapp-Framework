@@ -13,6 +13,12 @@ VAR CONSTANT
 	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 1; (*Maximum number of  file devices *)
 	DEFAULT_PARAMETERS : STRING[12] := 'Default.par'; (*Default parameters recipe file name*)
 	DEFAULT_MACHINE_CONFIGURATION : STRING[12] := 'Machine.mcfg'; (*Default machine configuration recipe file name*)
+END_VAR
+VAR
+	PARAMETERS_RECIPE : STRING[50] := 'Parameters'; (*Value of the DropDownBox selection for the Parameters category*)
+	MACHINE_CONFIGURATION_RECIPE : STRING[50] := 'Machine Configuration'; (*Value of the DropDownBox selection for the Machine Configuration category*)
+END_VAR
+VAR CONSTANT
 	LOCAL_FOLDER : STRING[10] := 'Recipe'; (*Folder name on the file device for Recipe files*)
 END_VAR
 (*Structure Types*)
