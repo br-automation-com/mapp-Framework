@@ -6,6 +6,7 @@
 //*********************************************************************************
 
 PROGRAM _INIT
+	
 	DevLinkCtrl.FUB.DevLink_0.enable := FALSE;
 	DevLinkCtrl.FUB.DevUnlink_0.enable := FALSE;
 	DevLinkCtrl.FUB.UsbNodeGet_0.enable := FALSE;
@@ -19,6 +20,7 @@ PROGRAM _INIT
 		AttachedUSB[i] := FALSE;
 		gUSBAvailable[i] := FALSE;
 	END_FOR
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -218,5 +220,7 @@ PROGRAM _CYCLIC
 END_PROGRAM
 
 PROGRAM _EXIT
+	
 	// Insert code here 
+	
 END_PROGRAM
