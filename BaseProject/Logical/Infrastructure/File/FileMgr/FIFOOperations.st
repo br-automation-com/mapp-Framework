@@ -54,7 +54,7 @@ ACTION FIFOOperation:
             END_IF
 			
        FILE_SORT_BY_DATE_WAIT:  
-	        //
+	        // Wait for the file manager to complete sorting change
             IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
                 HmiFile.Status.DeleteStep := FILE_CHECK_FOR_FILTER;
             END_IF
@@ -146,7 +146,7 @@ ACTION FIFOOperation:
             END_IF
 			
 		FILE_RESET_SORT_BY_WAIT:
-			//
+			// Wait for file manager to complete restoring previous sorting mode
             IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH) OR (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
                 HmiFile.Status.DeleteStep := FILE_DELETE_WAIT;
 				IF (MpFileManagerUIConnect.MessageBox.Type = mpFILE_MSG_BUSY) THEN
@@ -155,6 +155,7 @@ ACTION FIFOOperation:
             END_IF
 	END_CASE
 	
+	// Timer to scan file device in intervals 
 	TON_ScanFolder(PT := DINT_TO_TIME(HmiFile.Parameters.Fifo.ScanInterval * 60000));
 	
 END_ACTION
