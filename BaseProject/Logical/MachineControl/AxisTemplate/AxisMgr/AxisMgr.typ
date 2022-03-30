@@ -1,3 +1,5 @@
+(*Structure types*)
+(*Enumerations*)
 
 TYPE
 	AxisSettingsType : 	STRUCT 

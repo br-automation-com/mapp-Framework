@@ -28,7 +28,7 @@ ACTION FIFOOperation:
 			END_IF
 	
 		FILE_SELECT_DEVICE:
-			// Sort by date so the oldest files are at the end
+			// 
             IF (HmiFile.Status.DeviceName <> HmiFile.Parameters.Fifo.DeviceName) THEN
 				FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
         			IF HmiFile.Parameters.Fifo.DeviceName = MpFileManagerUIConnect.DeviceList.DeviceNames[i] THEN
@@ -54,7 +54,7 @@ ACTION FIFOOperation:
             END_IF
 			
        FILE_SORT_BY_DATE_WAIT:  
-	      
+	        //
             IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
                 HmiFile.Status.DeleteStep := FILE_CHECK_FOR_FILTER;
             END_IF
@@ -145,7 +145,8 @@ ACTION FIFOOperation:
 				HmiFile.Status.DeleteStep := FILE_RESET_SORT_BY_WAIT;
             END_IF
 			
-        FILE_RESET_SORT_BY_WAIT:    
+		FILE_RESET_SORT_BY_WAIT:
+			//
             IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH) OR (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
                 HmiFile.Status.DeleteStep := FILE_DELETE_WAIT;
 				IF (MpFileManagerUIConnect.MessageBox.Type = mpFILE_MSG_BUSY) THEN

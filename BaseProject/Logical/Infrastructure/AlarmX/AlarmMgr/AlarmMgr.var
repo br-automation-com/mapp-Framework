@@ -1,6 +1,5 @@
 (*Function Blocks*)
 VAR
-	HmiAlarmX : AlarmHmiInterfaceType; (*HMI interface structure*)
 	MpAlarmXHistory_0 : MpAlarmXHistory; (*MpAlarmXHistory instance*)
 	MpAlarmXHistoryUI_0 : MpAlarmXHistoryUI; (*MpAlarmXHistoryUI instance*)
 	MpAlarmXListUI_0 : MpAlarmXListUI; (*MpAlarmXList instance*)
@@ -18,6 +17,7 @@ VAR CONSTANT
 END_VAR
 (*Structure Types*)
 VAR
+	HmiAlarmX : AlarmHmiInterfaceType; (*HMI interface structure*)
 	MpAlarmXListUIConnect : MpAlarmXListUIConnectType := (0); (*AlarmX list connection to the UI*)
 	MpAlarmXHistoryUIConnect : MpAlarmXHistoryUIConnectType; (*AlarmX History connection to the UI*)
 	SafetyInputs : MachineDigitalInputsType; (*Safety related digital inputs*)

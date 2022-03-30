@@ -1,26 +1,24 @@
-(********************************************************************
- * COPYRIGHT -- Bernecker + Rainer
- ********************************************************************
- * Program: FileManagement
- * File: FileManagement.var
- * Author: Bernecker + Rainer
- * Created: December , 2020
- ********************************************************************
- * Local variables of program FileManagement
- ********************************************************************)
-(*File Management Variables*)
+(*Function Blocks*)
 VAR
-	MpFileManagerUIConnect : MpFileManagerUIConnectType;
-	MpFileManagerUI_0 : MpFileManagerUI;
-	Index : USINT; (*Index to loop through file devices*)
-	HmiFile : FileHmiInterfaceType; (*HMI interface structure*)
-	i : USINT;
-	DeviceCount : USINT;
-	FolderDepthCount : USINT;
+	MpFileManagerUI_0 : MpFileManagerUI; (*MpFileManagerUI instance*)
+END_VAR
+(*Functions*)
+VAR
 	R_TRIG_CheckStatus : R_TRIG;
 	TON_ScanFolder : TON;
 END_VAR
-(*Defines*)
+(*Constants*)
 VAR CONSTANT
-	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 7;
+	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 7; (*Maximum number of  file devices *)
+END_VAR
+(*Structure Types*)
+VAR
+	MpFileManagerUIConnect : MpFileManagerUIConnectType; (*File manager connection to the HMI*)
+	HmiFile : FileHmiInterfaceType; (*HMI interface structure*)
+END_VAR
+(*Variables*)
+VAR
+	i : USINT; (*Index for FOR loops*)
+	DeviceCount : USINT; (*Counter for available file devices*)
+	FolderDepthCount : USINT; (*Keeps track of the folder depth location to determine whether or not the back button should be shown*)
 END_VAR

@@ -99,7 +99,7 @@
 		</Binding>
 
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.SelectedIndex" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.SelectedIndex" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="selectedRow" />
 		</Binding>
 		

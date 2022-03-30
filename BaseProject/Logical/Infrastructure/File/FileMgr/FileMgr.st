@@ -2,7 +2,7 @@
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
 // Created: April 12, 2022
-// Description: Tasks for file management 
+// Description: Task for file management 
 //***********************************************************************
 
 PROGRAM _INIT
