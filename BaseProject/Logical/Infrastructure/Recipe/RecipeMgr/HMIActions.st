@@ -67,6 +67,15 @@ ACTION RecipeHMIcommands:
 			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
 			END_IF
+			Header.Name := MpRecipeUIConnect.New.FileName;
+			DTGetTime_0.enable := TRUE;
+			DTGetTime_0();
+			WHILE DTGetTime_0.status <> 0 DO
+				DTGetTime_0();
+			END_WHILE;
+			Header.DateTime := DTGetTime_0.DT1;
+			DTGetTime_0.enable := FALSE;
+			DTGetTime_0();
 			MpRecipeUIConnect.New.Create := TRUE;
 			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 	
