@@ -3,7 +3,7 @@
   <Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere1" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="NumericInputPar1Edit" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="DropDownBoxPar1EditEdit" attribute="selectedIndex" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere2" attribute="value" />
@@ -21,5 +21,5 @@
 			<Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere3" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="NumericInputPar3Edit" attribute="value" />
 		</Binding>
-</Bindings>
+	</Bindings>
 </BindingsSet>
