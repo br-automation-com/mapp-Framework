@@ -24,7 +24,7 @@ PROGRAM _INIT
 	MpRecipeUISetup.AutoLoadHeader := TRUE;
 	MpRecipeUIConnect.New.FileName := 'newRecipe.par';
 	MpRecipeUIConnect.Recipe.Filter := '*par';
-	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeCsv);
 	MpRecipeUI_0.Enable := TRUE;
 	MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
 	MpRecipeUI_0.UISetup := MpRecipeUISetup;
@@ -33,7 +33,7 @@ PROGRAM _INIT
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
 	HmiRecipe.Parameters.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"CF/PLC"}';
 	HmiRecipe.Parameters.DeviceName := 'mappRecipeFiles';
-	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipe_0.MpLink := ADR(gMpLinkRecipeCsv);
 	MpRecipe_0.Enable := TRUE;
 	MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
 	MpRecipe_0.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
@@ -50,13 +50,13 @@ PROGRAM _INIT
 	// preview and edit a recipe on the HMI without actually loading it to the machine. For more details, refer to the 
 	// "Recipe System Design" page in the AS Help (GUID 3ccd7409-0b52-4bbc-a93a-4010f6db414c). 
 	
-    MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
+    MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeCsv);
 	MpRecipeRegPar_PreviewPar.Enable := TRUE;
 	MpRecipeRegPar_PreviewPar.PVName := ADR('RecipeMgr:ParametersPreview');
 	MpRecipeRegPar_PreviewPar.Category := ADR(PARAMETERS_CATEGORY);
 	MpRecipeRegPar_PreviewPar();
 	
-	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeCsv);
 	MpRecipeRegPar_PreviewCfg.Enable := TRUE;
 	MpRecipeRegPar_PreviewCfg.PVName := ADR('RecipeMgr:MachineSettingsPreview');
 	MpRecipeRegPar_PreviewCfg.Category := ADR(MACHINE_CONFIGURATION_CATEGORY);
@@ -151,11 +151,11 @@ PROGRAM _CYCLIC
 	END_IF
 	
 	// Assign MpLinks
-	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
-	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipe_0.MpLink := ADR(gMpLinkRecipeCsv);
+	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeCsv);
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIRecipe);
-	MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
-	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeCsv);
+	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeCsv);
 	
 	// Call function blocks
 	MpRecipe_0();
