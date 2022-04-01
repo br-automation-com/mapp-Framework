@@ -20,13 +20,13 @@
     </EventBinding>
     <EventBinding id="RecipeDialog_NewButtons_content.CreateButton.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_NewButtons_content" widgetRefId="CreateButton" event="Click" />
-      <EventHandler>
+      <Operand datatype="BOOL" name="Duplicate">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.FileDuplicate">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="Duplicate = false">
         <Parallel>
-          <Action>
-            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
-              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-            </Target>
-          </Action>
           <Action>
             <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.CreateRecipe">
               <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
@@ -38,6 +38,33 @@
             </Target>
           </Action>
         </Parallel>
+      </EventHandler>
+      <EventHandler condition="Duplicate = true">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="$IAT/Recipe/MsgBox.Confirm.3" header="$IAT/Recipe/Create" icon="Warning" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 4">
+              <Sequence>
+                <Step order="0">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.CreateRecipe">
+                      <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+                <Step order="1">
+                  <Action>
+                    <Target xsi:type="clientSystem.Action">
+                      <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
+                    </Target>
+                  </Action>
+                </Step>
+              </Sequence>
+            </ResultHandler>
+          </Result>
+        </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="NewRecipe_dialog.Opened">

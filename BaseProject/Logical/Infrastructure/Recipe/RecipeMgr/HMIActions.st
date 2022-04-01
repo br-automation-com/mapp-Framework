@@ -1,18 +1,18 @@
 ACTION FormatDeviceDataProvider:
     
 	// Select CF device if USB device is not available
-	FOR Index := 0 TO MAX_IDX_USB_DEV_LIST DO
-		IF gUSBAvailable[Index] THEN
-			HmiRecipe.Parameters.DeviceDataProvider[Index + 1] := '{"value":"USB';
-			brsitoa(Index + 1, ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1]) + brsstrlen(ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1])));
-			brsstrcat(ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1]), ADR('","text":"USB'));
-			brsitoa(Index + 1, ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1]) + brsstrlen(ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1])));
-			brsstrcat(ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1]), ADR('"}'));
-			MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1] := 'USB';
-			brsitoa(Index + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1])));
+	FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
+		IF gUSBAvailable[i] THEN
+			HmiRecipe.Parameters.DeviceDataProvider[i + 1] := '{"value":"USB';
+			brsitoa(i + 1, ADR(HmiRecipe.Parameters.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiRecipe.Parameters.DeviceDataProvider[i + 1])));
+			brsstrcat(ADR(HmiRecipe.Parameters.DeviceDataProvider[i + 1]), ADR('","text":"USB'));
+			brsitoa(i + 1, ADR(HmiRecipe.Parameters.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiRecipe.Parameters.DeviceDataProvider[i + 1])));
+			brsstrcat(ADR(HmiRecipe.Parameters.DeviceDataProvider[i + 1]), ADR('"}'));
+			MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1] := 'USB';
+			brsitoa(i + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1])));
 		ELSE
-			brsmemset(ADR(HmiRecipe.Parameters.DeviceDataProvider[Index + 1]), 0, SIZEOF(HmiRecipe.Parameters.DeviceDataProvider[Index + 1]));
-			brsmemset(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1]), 0, SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[Index + 1]));
+			brsmemset(ADR(HmiRecipe.Parameters.DeviceDataProvider[i + 1]), 0, SIZEOF(HmiRecipe.Parameters.DeviceDataProvider[i + 1]));
+			brsmemset(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]), 0, SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]));
 		END_IF
 	END_FOR
 	
@@ -123,9 +123,17 @@ ACTION RecipeHMIcommands:
 			MachineSettingsEdit := MachineSettingsPreview;
 			MpRecipeUIConnect.New.FileName := 'newMachConfig.mcfg';
 		END_IF
+	
 		HmiRecipe.Status.EditDialogOpened := FALSE;
 		HmiRecipe.Status.CreateDialogOpened := FALSE;
 	END_IF
+		
+	HmiRecipe.Status.FileDuplicate := FALSE;
+	FOR i:= 0 TO 19 DO
+		IF MpRecipeUIConnect.New.FileName = MpRecipeUIConnect.Recipe.List.Names[i] THEN
+			HmiRecipe.Status.FileDuplicate := TRUE;
+		END_IF
+	END_FOR	
 	
 	HmiRecipe.Status.LastStatus := MpRecipeUIConnect.Status;
 	HmiRecipe.Status.ActiveRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];

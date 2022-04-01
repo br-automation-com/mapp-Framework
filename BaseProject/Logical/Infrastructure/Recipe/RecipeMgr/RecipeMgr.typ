@@ -32,6 +32,7 @@ TYPE
 		EditDialogOpened : BOOL; (*Flag that the edit dialog box was opened*)
 		CreateDialogOpened : BOOL; (*Flag that the create dialog box was opened*)
 		PreviousRecipe : STRING[80]; (*Name of the previous recipe*)
+		FileDuplicate : BOOL; (*Recipe file already exists, warn the user.*)
 		FilesAvailable : BOOL; (*Control access to widget when no files are available*)
 	END_STRUCT;
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)

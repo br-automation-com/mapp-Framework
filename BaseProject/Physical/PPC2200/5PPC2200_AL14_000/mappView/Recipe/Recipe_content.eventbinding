@@ -234,12 +234,12 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_content.loaded">
-		<Source xsi:type="clientSystem.Event" event="ContentLoaded" />
-		<Operand datatype="ANY_STRING" name="CategoryDropdownValue">
-			<ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
-				<Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedValue" />
-			</ReadTarget>
-		</Operand>
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <Operand datatype="ANY_STRING" name="CategoryDropdownValue">
+        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
+          <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedValue" />
+        </ReadTarget>
+      </Operand>
       <EventHandler condition="contentId = &quot;Recipe_content&quot;">
         <Sequence>
           <Step order="0">
@@ -269,16 +269,111 @@
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
-			</Step>
-					<Step order="4">
-					<Action>
-						<Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown">
-							<Method xsi:type="opcUa.NodeAction.SetValueString" value="=CategoryDropdownValue" />
-						</Target>
-						</Action>
-						</Step>
+          </Step>
+          <Step order="4">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown">
+                <Method xsi:type="opcUa.NodeAction.SetValueString" value="=CategoryDropdownValue" />
+              </Target>
+            </Action>
+          </Step>
         </Sequence>
       </EventHandler>
     </EventBinding>
-	</Bindings>
+    <EventBinding id="MpRecipeUIConnect.MessageBox.LayerStatus.ValueChange" deactivated="true">
+      <Source xsi:type="opcUa.Event" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Type" event="ValueChanged" />
+      <EventHandler condition="newValue = 2">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="$IAT/Recipe/MsgBox.Confirm.2" header="$IAT/Recipe/Create" icon="Question" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 1">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+            <ResultHandler condition="result = 2">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Cancel">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue = 3">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="$IAT/Recipe/MsgBox.Confirm.3" header="$IAT/Recipe/Create" icon="Question" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 1">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+            <ResultHandler condition="result = 2">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Cancel">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue = 4">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="$IAT/Recipe/MsgBox.Confirm.4" header="$IAT/Recipe/Create" icon="Question" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 1">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+            <ResultHandler condition="result = 2">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Cancel">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue = 5">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="$IAT/Recipe/MsgBox.Confirm.5" header="$IAT/Recipe/Create" icon="Question" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 1">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+            <ResultHandler condition="result = 2">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Cancel">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
 </EventBindingSet>
