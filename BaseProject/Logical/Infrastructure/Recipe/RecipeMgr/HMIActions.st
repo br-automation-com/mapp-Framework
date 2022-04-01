@@ -17,10 +17,16 @@ ACTION FormatDeviceDataProvider:
 	END_FOR
 	
 	// Configure visible recipe list
-	HmiRecipe.Parameters.TableConfig := '{ "specRows": [{"from":';
-	brsitoa(MpRecipeUIConnect.Recipe.List.MaxSelection + 1, ADR(HmiRecipe.Parameters.TableConfig) + brsstrlen(ADR(HmiRecipe.Parameters.TableConfig)));
-	brsstrcat(ADR(HmiRecipe.Parameters.TableConfig),  ADR(',"to":19, "visible":false}]}'));
-    
+	IF MpRecipeUIConnect.Recipe.List.Names[0] = '' THEN
+		HmiRecipe.Parameters.TableConfig := '{ "specRows": [{"from":0,"to":19, "visible":false}]}';
+	ELSE
+		HmiRecipe.Parameters.TableConfig := '{ "specRows": [{"from":';
+		brsitoa(MpRecipeUIConnect.Recipe.List.MaxSelection + 1, ADR(HmiRecipe.Parameters.TableConfig) + brsstrlen(ADR(HmiRecipe.Parameters.TableConfig)));
+		brsstrcat(ADR(HmiRecipe.Parameters.TableConfig),  ADR(',"to":19, "visible":false}]}'));
+    END_IF
+	
+	HmiRecipe.Status.FilesAvailable := (MpRecipeUIConnect.Recipe.List.Names[0] <> '');
+	
 END_ACTION
 
 ACTION LoadPreview:

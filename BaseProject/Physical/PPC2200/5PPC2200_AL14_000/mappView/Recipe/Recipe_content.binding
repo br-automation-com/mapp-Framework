@@ -182,5 +182,17 @@
 		
 
 	
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="BtnLoad" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="BtnEdit" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="BtnDelete" attribute="enable" />
+</Binding>
 </Bindings>
 </BindingsSet>

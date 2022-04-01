@@ -156,7 +156,7 @@ PROGRAM _CYCLIC
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIRecipe);
 	MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeXml);
-	
+
 	// Call function blocks
 	MpRecipe_0();
 	MpRecipeUI_0();

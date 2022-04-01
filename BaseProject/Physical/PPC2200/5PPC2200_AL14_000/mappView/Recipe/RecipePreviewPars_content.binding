@@ -47,5 +47,30 @@
 		
 		
 		
+
+
+
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar5Sel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar4Sel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar3Sel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar1Sel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="TextOutputPar2Sel" attribute="visible" />
+</Binding>
 </Bindings>
 </BindingsSet>
