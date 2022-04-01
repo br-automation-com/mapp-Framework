@@ -1,6 +1,6 @@
 (*Function Blocks*)
 VAR
-	MpRecipe_0 : MpRecipeCsv; (*MpRecipe instance*)
+	MpRecipe_0 : MpRecipeXml; (*MpRecipe instance*)
 	MpRecipeRegPar_PreviewPar : MpRecipeRegPar; (*MpRecipeRegPar instance for ParametersPreview variable*)
 	MpRecipeRegPar_PreviewCfg : MpRecipeRegPar; (*MpRecipeRegPar instance for MachineSettingsPreview*)
 	MpRecipeUI_0 : MpRecipeUI; (*MpRecupeUI instance*)
@@ -33,7 +33,7 @@ VAR
 	MpRecipeUIConnect : MpRecipeUIConnectType; (*MpRecipeUI connection to the HMI*) (*ParameterFileStep : INT;*)
 	MpRecipeUISetup : MpRecipeUISetupType; (*MpRecipeUI setup connection to the HMI*) (*ParameterFileStep : INT;*)
 	MpFileManagerUIConnect : MpFileManagerUIConnectType; (*File manager connection to the HMI*)
-	Header : MpRecipeCsvHeaderType; (*Header information*)
+	Header : MpRecipeXmlHeaderType; (*Header information*)
 END_VAR
 (*Variables*)
 VAR
