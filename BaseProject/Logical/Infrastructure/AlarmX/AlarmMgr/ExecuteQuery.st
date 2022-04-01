@@ -12,7 +12,7 @@ ACTION ExecuteQuery:
 			// Wait until the RunQuery command is triggered from the HMI. 
 			// If you prefer that the query runs anytime new data is available, then uncomment line 15 and comment out line 16 and delete 
 			// the "Run query" button from the HMI.
-//			IF (AlarmQuery.LastUpdateCount <> AlarmQuery.UpdateCount) THEN
+			//IF (AlarmQuery.LastUpdateCount <> AlarmQuery.UpdateCount) THEN
 			IF (HmiAlarmX.Commands.RunQuery = TRUE) THEN
 				brsmemset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
 				AlarmQuery.LastUpdateCount := AlarmQuery.UpdateCount;

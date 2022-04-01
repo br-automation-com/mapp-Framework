@@ -1,24 +1,24 @@
 //***********************************************************************
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
-// Created: Jan 1, 2022
+// Created: April 12, 2022
 // Description: Tasks for axis control. 
 //***********************************************************************
 
 PROGRAM _INIT
-    // Read current task name for category setup
-    ST_name(0, ADR(AxisControl.Status.TaskName), 0);
+	
+	// Read current task name for category setup
+	ST_name(0, ADR(AxisControl.Status.TaskName), 0);
     
-	// Inititialize mapp function blocks
+	// Call initialization actions
+	RecipeInit;
+	ConfigurationInit;
+	ParameterInit;
+	AxisInit;
+	
+	// Enable mapp function blocks
 	MpAlarmXCore_0.Enable := TRUE;
-	MpAlarmXCore_0();
-    ConfigurationInit;
-
-    MpAxisBasic_0.Enable := TRUE;
-	MpAxisBasic_0.MpLink := ADR(gAxisTemplate);
-	MpAxisBasic_0();
-    
-    AxisInit;
+	MpAxisBasic_0.Enable := TRUE;
 
 END_PROGRAM
 
