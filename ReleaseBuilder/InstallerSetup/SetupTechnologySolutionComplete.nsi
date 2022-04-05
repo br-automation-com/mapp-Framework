@@ -54,6 +54,14 @@ Section # Remove old
 	SetOutPath "$SMPROGRAMS\${COMPANYNAME}\${ProductNameShort}"
 	RMDir /r "$SMPROGRAMS\${COMPANYNAME}\${ProductNameShort}"
 
+	FileOpen $0 script.ps1 w ;Opens a Empty File
+	FileWrite $0 "$$xml = [xml](Get-Content $VersionBaseFolder\Help-en\Data\brhelpcontent.xml)$\r$\n"
+	FileWrite $0 "$$node = $$xml.SelectSingleNode($\"//Section[@Id='1cd338de-421a-4206-851c-f843afd2d154']$\")$\r$\n"
+	FileWrite $0 "$$node.ParentNode.RemoveChild($$node) | Out-Null$\r$\n"
+	FileWrite $0 "$$xml.Save('$VersionBaseFolder\Help-en\Data\brhelpcontent.xml')$\r$\n"
+	FileClose $0 ;Closes the file
+
+	ExecWait "powershell -ExecutionPolicy Bypass -WindowStyle Hidden -File .\script.ps1 -FFFeatureOff"
 SectionEnd
 
 ; Dummy section for the start of the root group
