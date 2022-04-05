@@ -100,7 +100,7 @@ pipeline {
             steps {
                 powershell(returnStdout: true, script: ". '$IMPORT_TOOL\\GitVersion.ps1' \"$IMPORT_TOOL\\FrameworkImporter\" \"$BRANCH\"");
                 powershell(returnStdout: true, script: ". '$NUGET' \"restore\" \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter.sln\"");
-                powershell(returnStdout: true, script: ". '$MSBUILD' \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter.sln\" \"-p:Configuration=Release;optimize=true;DebugSymbols=false;DebugType=None;PreBuildEvent=\";PostBuildEvent=\"");
+                powershell(returnStdout: true, script: ". '$MSBUILD' \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter.sln\" \"-p:Configuration=Release;optimize=true;DebugSymbols=false;DebugType=None;PreBuildEvent=;PostBuildEvent=\"");
                 powershell(returnStdout: true, script: "New-Item -Path \"$OUTPUT_DIR\\$VERSION\" -Name \"bin\" -ItemType \"directory\"");
                 powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkExtension\\bin\\Release\\*.exe\" -Destination \"$OUTPUT_DIR\\$VERSION\\bin\\\"");
                 powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkExtension\\bin\\Release\\*.dll\" -Destination \"$OUTPUT_DIR\\$VERSION\\bin\\\"");
