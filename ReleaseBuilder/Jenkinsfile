@@ -102,10 +102,10 @@ pipeline {
                 powershell(returnStdout: true, script: ". '$NUGET' \"restore\" \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter.sln\"");
                 powershell(returnStdout: true, script: ". '$MSBUILD' \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter.sln\" \"-p:Configuration=Release;optimize=true;DebugSymbols=false;DebugType=None;PreBuildEvent=;PostBuildEvent=\"");
                 powershell(returnStdout: true, script: "New-Item -Path \"$OUTPUT_DIR\\$VERSION\" -Name \"bin\" -ItemType \"directory\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkExtension\\bin\\Release\\*.exe\" -Destination \"$OUTPUT_DIR\\$VERSION\\bin\\\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkExtension\\bin\\Release\\*.dll\" -Destination \"$OUTPUT_DIR\\$VERSION\\bin\\\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkExtension\\AS\\ApplicationSettings\" -Destination \"$OUTPUT_DIR\\$VERSION\\\"");
-                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkExtension\\AS\\Images\" -Destination \"$OUTPUT_DIR\\$VERSION\\\"");
+                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\mappFrameworkExtension\\bin\\Release\\*.exe\" -Destination \"$OUTPUT_DIR\\$VERSION\\bin\\\"");
+                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\mappFrameworkExtension\\bin\\Release\\*.dll\" -Destination \"$OUTPUT_DIR\\$VERSION\\bin\\\"");
+                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\mappFrameworkExtension\\AS\\ApplicationSettings\" -Destination \"$OUTPUT_DIR\\$VERSION\\\"");
+                powershell(returnStdout: true, script: "Copy-Item \"$WORKSPACE\\$IMPORT_TOOL\\mappFrameworkExtension\\AS\\Images\" -Destination \"$OUTPUT_DIR\\$VERSION\\\"");
             }
         }
         stage('Build Help') {
