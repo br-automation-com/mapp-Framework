@@ -14,4 +14,5 @@ VAR
 	TempFileDeviceName : STRING[30] := ''; (*Temporary file device name*)
 	TempFileDeviceHandle : UDINT := 0; (*Temporary file device handle*)
 	i : USINT := 0; (*index to loop through ussb devices*)
+	tempDigit : STRING[80];
 END_VAR

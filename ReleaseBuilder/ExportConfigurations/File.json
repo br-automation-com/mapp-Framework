@@ -4,6 +4,7 @@
         "runtime",
         "FileIO",
         "AsBrStr",
+		"AsUSB",
         "standard"
     ],
     "mapp" :
@@ -16,6 +17,7 @@
         "Logical\\Infrastructure\\Project.language",
         "Logical\\Infrastructure\\mappFrameworkGlobal.var",
         "Logical\\Infrastructure\\File",
+		"Logical\\Infrastructure\\Usb",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\AccessAndSecurity\\UserRoleSystem",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\File"
     ],
@@ -41,7 +43,8 @@
     {
         "deployTasks" :
         [
-            "Infrastructure.File.FileMgr.prg"
+            "Infrastructure.File.FileMgr.prg",
+			"Infrastructure.Usb.UsbMgr.prg"
         ],
         "fileDevices" :
         [

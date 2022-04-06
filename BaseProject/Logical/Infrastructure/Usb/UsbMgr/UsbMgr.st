@@ -19,6 +19,9 @@ PROGRAM _INIT
 	FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
 		AttachedUSB[i] := FALSE;
 		gUSBAvailable[i] := FALSE;
+		brsitoa(i, ADR(tempDigit));
+		brsstrcat(ADR(DevLinkCtrl.Parameters.FileDevName[i]),ADR('USB'));
+		brsstrcat(ADR(DevLinkCtrl.Parameters.FileDevName[i]),ADR(tempDigit));
 	END_FOR
 	
 END_PROGRAM
