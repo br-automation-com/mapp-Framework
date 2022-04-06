@@ -67,8 +67,7 @@ TYPE
 	FileFifoTypeEnum : 
 		( (*Defines the delete behavior of the FIFO*)
 		FILE_FIFO_NUM_OF_FILES := 0, (*Delete according to total number of files*)
-		FILE_FIFO_SIZE_OF_FOLDER, (*Delete according to maximum folder size*)
-		FILE_FIFO_OLDER_THAN (*Delete according to files older than a certain date*)
+		FILE_FIFO_SIZE_OF_FOLDER (*Delete according to maximum folder size*)
 		);
 	FileTypeEnum : 
 		( (*Defines the type of file in order to update the displayed icon*)

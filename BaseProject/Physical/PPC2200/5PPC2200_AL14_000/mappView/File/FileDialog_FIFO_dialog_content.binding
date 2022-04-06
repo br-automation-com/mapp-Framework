@@ -19,12 +19,16 @@
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.Fifo.MaxFolderSize" attribute="value" />
-<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="numInMaxNumFiles1" attribute="value" />
+<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="numInMaxFolderSize" attribute="value" />
 </Binding>
 
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.Fifo.ScanInterval" attribute="value" />
 <Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="NumInMinute" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.Fifo.FifoType" attribute="value" />
+<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="ddFifoOptions" attribute="selectedIndex" />
 </Binding>
 </Bindings>
 </BindingsSet>
