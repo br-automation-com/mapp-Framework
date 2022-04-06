@@ -34,7 +34,7 @@ TYPE
 		SelectedIndex : USINT; (*Selected index in the file list*)
 		CurrentPage : STRING[80]; (*Current page*)
 	END_STRUCT;
-	FileHmiParaFifoType : 	STRUCT 
+	FileHmiParaFifoType : 	STRUCT  (*Parameters for the FIFO feature (first-in-first-out)*)
 		Enable : BOOL; (*FIFO enable*)
 		DeviceName : STRING[50]; (*File device that the FIFO is active on*)
 		FifoType : FileFifoTypeEnum; (*Defines the delete behavior of the FIFO*)
