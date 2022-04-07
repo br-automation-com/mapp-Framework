@@ -14,7 +14,7 @@ PROGRAM _INIT
 	MpFileManagerUIConnect.DeviceList.DeviceNames[3] := 'mappDataFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := 'mappBackupFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := 'mappAlarmXFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappUserXFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappUserXFiles';	
 	MpFileManagerUI_0.Enable := TRUE;
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
@@ -28,6 +28,16 @@ PROGRAM _INIT
     HmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
     // ScanInterval is in minutes
 	HmiFile.Parameters.Fifo.ScanInterval := 60;
+	
+	// Initialize which folders should exist
+	PathCheck.DeviceList := MpFileManagerUIConnect.DeviceList;
+	PathCheck.Folder[0] := 'Recipe';
+	PathCheck.Folder[1] := 'Audit';
+	PathCheck.Folder[2] := 'Report';
+	PathCheck.Folder[3] := 'Data';
+	PathCheck.Folder[4] := 'Backup';
+	PathCheck.Folder[5] := 'AlarmX';
+	PathCheck.Folder[6] := 'UserX';
 	
 	HmiFile.Status.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"mappRecipeFiles"}';
 	HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappAuditFiles","text":"mappAuditFiles"}';
@@ -58,6 +68,7 @@ PROGRAM _CYCLIC
 	
 	// Call function block
 	MpFileManagerUI_0();
+	
 	
 END_PROGRAM
 
