@@ -134,7 +134,13 @@ ACTION RecipeHMIcommands:
 		
 	HmiRecipe.Status.FileDuplicate := FALSE;
 	FOR i:= 0 TO 19 DO
-		IF MpRecipeUIConnect.New.FileName = MpRecipeUIConnect.Recipe.List.Names[i] THEN
+		temp := MpRecipeUIConnect.New.FileName;
+		IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
+			brsstrcat(ADR(temp),ADR('.par'));
+		ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
+			brsstrcat(ADR(temp),ADR('.mcfg'));
+		END_IF
+		IF temp = MpRecipeUIConnect.Recipe.List.Names[i] THEN
 			HmiRecipe.Status.FileDuplicate := TRUE;
 		END_IF
 	END_FOR	

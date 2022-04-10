@@ -38,4 +38,5 @@ END_VAR
 (*Variables*)
 VAR
 	i : USINT; (*Index to loop through file devices*)
+	temp : STRING[260]; (*Temporary recipe name, used to check for duplicates when creating a new recipe*)
 END_VAR
