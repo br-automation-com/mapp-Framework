@@ -32,13 +32,14 @@ END_ACTION
 ACTION LoadPreview:
 
 	// Load preview when a recipe is selected
-	IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) THEN
+	IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR (HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection) THEN
 		// Check selected recipe name is not empty
 		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
 			MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
 			MpRecipe_0.Category := ADR(HmiRecipe.Status.CategoryDropdown);
 			MpRecipe_0.Load := TRUE;
 			HmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
+			HmiRecipe.Status.LastMaxSelection := MpRecipeUIConnect.Recipe.List.MaxSelection;
 		END_IF
 	END_IF
 
@@ -70,9 +71,12 @@ ACTION RecipeHMIcommands:
 		REC_HMI_CREATE:
 			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
 				ParametersPreview := ParametersEdit;
+				brsstrcat(ADR(MpRecipeUIConnect.New.FileName),ADR('.par'));
 			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
+				brsstrcat(ADR(MpRecipeUIConnect.New.FileName),ADR('.mcfg'));
 			END_IF
+			
 			Header.Name := MpRecipeUIConnect.New.FileName;
 			DTGetTime_0.enable := TRUE;
 			DTGetTime_0();
@@ -118,10 +122,10 @@ ACTION RecipeHMIcommands:
 	IF HmiRecipe.Status.EditDialogOpened OR HmiRecipe.Status.CreateDialogOpened THEN
 		IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
 			ParametersEdit := ParametersPreview;
-			MpRecipeUIConnect.New.FileName := 'newParameters.par';
+			MpRecipeUIConnect.New.FileName := 'newParameters';
 		ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 			MachineSettingsEdit := MachineSettingsPreview;
-			MpRecipeUIConnect.New.FileName := 'newMachConfig.mcfg';
+			MpRecipeUIConnect.New.FileName := 'newMachConfig';
 		END_IF
 	
 		HmiRecipe.Status.EditDialogOpened := FALSE;

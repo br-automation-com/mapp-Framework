@@ -25,6 +25,7 @@ TYPE
 		LastLoadedConfigRecipe : STRING[255]; (*Last loaded configuration recipe*)
 		LastLoadedProductRecipe : STRING[255]; (*Last loaded product recipe*)
 		ActiveRecipe : STRING[255]; (*The name of the active recipe*)
+		LastMaxSelection : UINT; (*The previous maximum number of recipes*)
 		LastSelectedIndex : UINT; (*The previous selected index*)
 		LastStatus : MpRecipeUIStatusEnum; (*The previous UI status*)
 		CopyStep : RecipeCopyStepEnum; (*State machine step for copying a recipe to/from a USB drive*)

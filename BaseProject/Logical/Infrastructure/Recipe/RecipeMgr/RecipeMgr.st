@@ -22,7 +22,7 @@ PROGRAM _INIT
 	MpRecipeUISetup.RecipeListSize := 10;
 	MpRecipeUISetup.RecipeListScrollWindow := 0;
 	MpRecipeUISetup.AutoLoadHeader := TRUE;
-	MpRecipeUIConnect.New.FileName := 'newRecipe.par';
+	MpRecipeUIConnect.New.FileName := 'newRecipe';
 	MpRecipeUIConnect.Recipe.Filter := '*par';
 	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeUI_0.Enable := TRUE;
