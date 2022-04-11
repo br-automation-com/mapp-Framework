@@ -75,7 +75,7 @@ ACTION FIFOOperation:
 				END_IF
 				HmiFile.Status.AutoDeleteSelected := 0;
 				FOR i := 0 TO ((SIZEOF(HmiFile.Status.FileNames)/SIZEOF(HmiFile.Status.FileNames[0])) - 1) DO
-					IF i >= HmiFile.Parameters.Fifo.MaxNumberOfFiles THEN
+					IF i >= (HmiFile.Parameters.Fifo.MaxNumberOfFiles + MpFileManagerUIConnect.File.PathInfo.FolderCount) THEN
 						MpFileManagerUIConnect.File.List.Items[0].IsSelected := FALSE;
 						IF (MpFileManagerUIConnect.File.List.Items[i].ItemType <> mpFILE_ITEM_TYPE_NONE) AND NOT MpFileManagerUIConnect.File.List.Items[i].IsFolder THEN
 							MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
