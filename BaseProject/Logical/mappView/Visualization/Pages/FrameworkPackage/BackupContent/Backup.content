@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="Backup_content" height="620" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Table" id="Table1" top="30" left="195" width="770" height="460" zIndex="0">
+    <Widget xsi:type="widgets.brease.Table" id="Table1" top="30" left="195" width="690" height="460" zIndex="0">
       <Widgets>
-        <Widget xsi:type="widgets.brease.TableItem" id="TableItem1" zIndex="0" columnWidth="530" text="$IAT/Backup/Backups" />
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItem1" zIndex="0" columnWidth="450" text="$IAT/Backup/Backups" />
         <Widget xsi:type="widgets.brease.TableItemDateTime" id="TableItemDateTime1" zIndex="1" columnWidth="140" format="$IAT/Backup/DateTimeFormat" text="$IAT/Backup/Timestamp" />
         <Widget xsi:type="widgets.brease.TableItem" id="TableItem2" zIndex="2" showUnit="true" text="$IAT/Backup/Size" unit="{'metric':'4L','imperial':'4L','imperial-us':'4L'}" />
       </Widgets>
@@ -19,9 +19,9 @@
     <Widget xsi:type="widgets.brease.TextOutput" id="txtOutVersion" top="530" left="175" width="140" zIndex="5" fontSize="18px" />
     <Widget xsi:type="widgets.brease.TextOutput" id="txtOutVersion2" top="560" left="25" width="140" zIndex="6" value="$IAT/Backup/Configuration" fontSize="18px" bold="true" />
     <Widget xsi:type="widgets.brease.TextOutput" id="txtOutConfiguration" top="560" left="175" width="140" zIndex="7" fontSize="18px" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonBackupDialog_Create_content" top="110" left="975" width="130" height="50" zIndex="8" text="$IAT/Backup/Create" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonBackupDialog_Delete_content" top="190" left="975" width="130" height="50" zIndex="9" text="$IAT/Backup/Delete" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonBackupDialog_Restore_content" top="270" left="975" width="130" height="50" zIndex="10" text="$IAT/Backup/Restore" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonBackupSettings" top="350" left="975" width="130" height="50" zIndex="11" text="$IAT/Backup/AutomaticSettings" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonBackupDialog_Create_content" top="110" left="905" width="200" height="50" zIndex="8" text="$IAT/Backup/Create" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonBackupDialog_Delete_content" top="190" left="905" width="200" height="50" zIndex="9" text="$IAT/Backup/Delete" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonBackupDialog_Restore_content" top="270" left="905" width="200" height="50" zIndex="10" text="$IAT/Backup/Restore" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonBackupSettings" top="350" left="905" width="200" height="50" zIndex="11" text="$IAT/Backup/AutomaticSettings" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
   </Widgets>
 </Content>

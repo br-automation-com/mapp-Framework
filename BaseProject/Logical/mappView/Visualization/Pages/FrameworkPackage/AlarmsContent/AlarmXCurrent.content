@@ -4,8 +4,8 @@
     <Widget xsi:type="widgets.brease.AlarmList" id="AlmLstCurrentAlarms" top="40" left="0" width="1120" height="380" zIndex="0" format="yyyy-MM-dd hh:mm" imagePrefix="Media/SymbolLib/Alarm/" itemsPerPage="6" searchBox="false" borderStyle="solid" borderWidth="2px" borderColor="rgba(100, 100, 100, 1)" headerBackColor="rgba(255, 255, 255, 1)" headerTextColor="rgba(0, 0, 0, 1)" backColorOddRow="rgba(240, 240, 240, 1)" textColor="rgba(0, 0, 0, 1)" fontSize="16px" textAlign="left">
       <Widgets>
         <Widget xsi:type="widgets.brease.AlarmListItem" id="AlmLstItmTimeStamp" width="160" zIndex="0" columnType="timestamp" text="$IAT/Alarm/TimeStamp" />
-        <Widget xsi:type="widgets.brease.AlarmListItem" id="AlmLstItmAlarmMessage" width="620" zIndex="1" text="$IAT/Alarm/AlarmMessage" />
-        <Widget xsi:type="widgets.brease.AlarmListItem" id="AlmLstItmState" width="75" zIndex="2" columnType="state" text="$IAT/Alarm/State" />
+        <Widget xsi:type="widgets.brease.AlarmListItem" id="AlmLstItmAlarmMessage" width="585" zIndex="1" text="$IAT/Alarm/AlarmMessage" />
+        <Widget xsi:type="widgets.brease.AlarmListItem" id="AlmLstItmState" width="120" zIndex="2" columnType="state" text="$IAT/Alarm/State" />
         <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem1" width="250" zIndex="3" columnType="additionalInfo1" text="$IAT/Alarm/AdditionalInformation" />
       </Widgets>
     </Widget>
