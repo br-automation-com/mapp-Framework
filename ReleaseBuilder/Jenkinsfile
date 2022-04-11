@@ -155,7 +155,6 @@ pipeline {
             }
             steps {
                 bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\$TAG\\\" /y"
-                bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\mapp Framework Prototype Testers - General\\Releases\\$TAG\\\" /y"
             }
         }
         stage('Deploy Feature')
