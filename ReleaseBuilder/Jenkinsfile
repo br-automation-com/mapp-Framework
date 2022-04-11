@@ -72,6 +72,7 @@ pipeline {
         PHYSICAL = "Physical\\PPC2200"
         IMPORT_TOOL = "ImportTool\\FrameworkImporter"
         HELP_LOCATION = "$WORKSPACE\\Documentation";
+        HELP_NAME = "mappFramework";
         HELP_FILE = "mappFramework.hnd";
         GERMAN_HELP_FILE = "mappFrameworkGerman.hnd";
         HELP_OUTPUT = "..\\ReleaseBuilder\\InstallerSetup\\Help";
@@ -118,8 +119,8 @@ pipeline {
                     Exception caughtException = null
                     catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED') { 
                         try { 
-                            powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --name $HELP_FILE --output \"$HELP_OUTPUT\"");
-                            powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --name $GERMAN_HELP_FILE --output \"$HELP_OUTPUT\" --lang de");
+                            powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --file $HELP_FILE --name $HELP_NAME --output \"$HELP_OUTPUT\"");
+                            powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --file $GERMAN_HELP_FILE --name $HELP_NAME --output \"$HELP_OUTPUT\" --language de");
                         } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e) {
                             caughtException = e;
                             error "Timeout Exceeded";
