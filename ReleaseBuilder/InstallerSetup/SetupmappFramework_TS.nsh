@@ -7,14 +7,14 @@
 !define VersionAsString "${Version}"
 !define ProductVersion "4.4.4.0001"
 !define ASBaseVersion "4.4.4.0001"
-!define InternalName	"TS/${ProductNameShort}"
+!define InternalName	"TP/${ProductNameShort}"
 !define BRAddonIniFile ""
 !define ASDestinationFolder "AS44"
 !define Publisher "B&R Industrial Automation"
 
 !define SetupDataDir ".\Setup"
 !define SetupName "${ProductNameLong} ${VersionAsString}"
-!define SetupFileName ".\Install\AS4_TS_${ProductNameShort}_${Version}.exe"
+!define SetupFileName ".\Install\AS4_TP_${ProductNameShort}_${Version}.exe"
 !define COMPANYNAME "B&R Automation"
 
 !system 'mkdir ".\Install"'
