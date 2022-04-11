@@ -1,0 +1,18 @@
+(*Function Blocks*)
+VAR
+	TON_0 : TON; (*Tiimer to refresh available usb devices*)
+END_VAR
+(*Structure Types*)
+VAR
+	DevLinkCtrl : DevLinkControlType := (0); (*DevLink control structure*)
+	TempUSBInfo : usbNode_typ := (0); (*Temporary info structure*)
+END_VAR
+(*Variables*)
+VAR
+	LastNodeList : ARRAY[0..MAX_IDX_USB_DEV_LIST] OF UDINT; (*Temporary variable to check if the node list has changed*)
+	AttachedUSB : ARRAY[0..MAX_IDX_USB_DEV_LIST] OF BOOL := [2(FALSE)]; (*Flags for whether the USB devices are detected*)
+	TempFileDeviceName : STRING[30] := ''; (*Temporary file device name*)
+	TempFileDeviceHandle : UDINT := 0; (*Temporary file device handle*)
+	i : USINT := 0; (*index to loop through ussb devices*)
+	tempDigit : STRING[80];
+END_VAR

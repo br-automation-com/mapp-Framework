@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="UserXDialog_Import_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Label" id="labelImportFileName" top="185" left="12" width="148" height="45" zIndex="0" text="$IAT/UserMgmt/ImportFileName" fontSize="20px" padding="15px" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushButtonConfirm" top="240" left="60" width="150" height="50" zIndex="1" text="$IAT/UserMgmt/Confirm" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushButtonCancel" top="240" left="260" width="150" height="50" zIndex="2" text="$IAT/UserMgmt/Cancel" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.CheckBox" id="chkBxUser" top="60" left="280" width="220" zIndex="3" text="$IAT/UserMgmt/ImportUser" />
+    <Widget xsi:type="widgets.brease.CheckBox" id="chkBxUser1" top="20" left="280" width="220" zIndex="4" text="$IAT/UserMgmt/ImportRole" />
+    <Widget xsi:type="widgets.brease.Table" id="Table1" top="20" left="20" width="250" height="149" zIndex="5">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItem1" zIndex="0" columnWidth="250" text="$IAT/UserMgmt/ImportFileList" />
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.TextOutput" id="TxtOutImportFileName" top="196" left="146" width="292" height="23" zIndex="6" style="Output" />
+  </Widgets>
+</Content>
