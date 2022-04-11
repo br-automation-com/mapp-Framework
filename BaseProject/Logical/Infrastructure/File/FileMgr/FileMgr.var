@@ -22,4 +22,5 @@ VAR
 	Index : USINT; (*Index for avaliable devices*)
 	FolderDepthCount : USINT; (*Keeps track of the folder depth location to determine whether or not the back button should be shown*)
 	PathCheck : FilePathCheckType;
+	USBOffset : USINT := 0; (*Device list offset where to add USB device*)
 END_VAR

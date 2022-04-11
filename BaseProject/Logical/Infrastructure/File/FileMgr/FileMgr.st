@@ -47,6 +47,13 @@ PROGRAM _INIT
 	HmiFile.Status.DeviceDataProvider[5] := '{"value":"mappAlarmXFiles","text":"mappAlarmXFiles"}';
 	HmiFile.Status.DeviceDataProvider[6] := '{"value":"mappUserXFiles","text":"mappUserXFiles"}';
 	
+	// Calculate offset for potential additional USB devices
+	FOR i := 0 TO 9 DO
+		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
+			USBOffset := USBOffset + 1;
+		END_IF
+	END_FOR
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC
