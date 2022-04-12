@@ -1,4 +1,4 @@
-def mailRecipients = "MappFramework@br-automation.com"
+def mailRecipients = "mappframework@br-automation.com"
 
 def Version() {
     echo "Version";
@@ -69,7 +69,7 @@ pipeline {
         PROJECT_DIR = "$WORKSPACE\\BaseProject\\mappFramework"
         EXPORT_DIR = "$WORKSPACE\\ReleaseBuilder\\ExportConfigurations"
         OUTPUT_DIR = "$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\TechnologyPackage"
-        PHYSICAL = "Physical\\PPC2200"
+        PHYSICAL = "Physical\\Simulation"
         IMPORT_TOOL = "ImportTool\\FrameworkImporter"
         HELP_LOCATION = "$WORKSPACE\\Documentation";
         HELP_NAME = "mappFramework";
