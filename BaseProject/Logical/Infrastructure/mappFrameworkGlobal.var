@@ -1,8 +1,0 @@
-VAR CONSTANT
-	PARAMETERS_CATEGORY : STRING[10] := 'Parameters'; (*Recipe category for runtime parameters*)
-	MACHINE_CONFIGURATION_CATEGORY : STRING[30] := 'Machine Configuration'; (*Recipe category for machine configuration settings*)
-	MAX_IDX_USB_DEV_LIST : USINT := 1; (*Maximum number of USB storage devices. Value 1 = 2 USB devices (index 0 and 1)*)
-END_VAR
-VAR
-	gUSBAvailable : ARRAY[0..MAX_IDX_USB_DEV_LIST] OF BOOL; (*Boolean array for whether the USB device is plugged in*)
-END_VAR
