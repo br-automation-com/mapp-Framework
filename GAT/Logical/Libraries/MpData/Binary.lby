@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Library Version="5.16.1" SubType="Binary" Description="Data recording and archiving" xmlns="http://br-automation.co.at/AS/Library">
+  <Files>
+    <File>MpData.typ</File>
+    <File>MpDataError.typ</File>
+    <File>MpDataAlarm.typ</File>
+    <File>MpData.fun</File>
+  </Files>
+  <Dependencies>
+    <Dependency ObjectName="astime" />
+    <Dependency ObjectName="FileIO" />
+    <Dependency ObjectName="sys_lib" />
+    <Dependency ObjectName="DataObj" />
+    <Dependency ObjectName="brsystem" />
+    <Dependency ObjectName="MpBase" FromVersion="5.16.0" ToVersion="5.16.9" />
+  </Dependencies>
+</Library>

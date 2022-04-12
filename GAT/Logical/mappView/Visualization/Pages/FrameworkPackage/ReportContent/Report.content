@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="Report_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Label" id="LblReport" top="0" left="0" height="20" zIndex="0" text="$IAT/Report_ID" textAlign="center" fontSize="18px" bold="true" />
+    <Widget xsi:type="widgets.brease.Table" id="TblReport" top="40" left="699" width="380" height="380" zIndex="1" fontSize="18px" headerFontSize="20px">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.TableItem" id="TblItm" zIndex="0" columnWidth="380" rowHeight="30" text="$IAT/Report_ID" headerFontSize="20px" fontSize="20px" />
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.Button" id="BtnGenerate" top="570" left="699" width="160" height="50" zIndex="2" image="Media/SymbolLib/Edit/Add.svg" text="$IAT/Create_ID" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnDelete" top="570" left="919" width="160" height="50" zIndex="3" image="Media/SymbolLib/Edit/Delete.svg" text="$IAT/Recipe/Delete" imageHeight="25" imageWidth="25" fontSize="20px" permissionView="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.PDFViewer" id="PViewReport" top="40" left="59" width="501" height="600" zIndex="4" />
+  </Widgets>
+</Content>

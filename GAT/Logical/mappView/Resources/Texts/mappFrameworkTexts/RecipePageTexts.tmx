@@ -1,0 +1,697 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT/Recipe</prop>
+  </header>
+  <body>
+    <tu tuid="RecipeList">
+      <tuv xml:lang="de">
+        <seg>Rezeptliste</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>配方列表</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Recipe List</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>配方列表</seg>
+      </tuv>
+    </tu>
+    <tu tuid="New">
+      <tuv xml:lang="de">
+        <seg>Neu</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>新建</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>New</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>添加</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Delete">
+      <tuv xml:lang="de">
+        <seg>Löschen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>删除</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Delete</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>删除</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Load">
+      <tuv xml:lang="de">
+        <seg>Laden</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>打开</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Load</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Edit">
+      <tuv xml:lang="de">
+        <seg>Bearbeiten</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>编辑</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Edit</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>编辑</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Length">
+      <tuv xml:lang="de">
+        <seg>Länge</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>长度</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Length</seg>
+      </tuv>
+      <tuv xml:lang="zh-CN">
+        <seg>长度</seg>
+      </tuv>
+    </tu>
+    <tu tuid="NewRecipeName">
+      <tuv xml:lang="de">
+        <seg>Neuer Rezeptname</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>名称</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>New Recipe Name</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Confirm">
+      <tuv xml:lang="de">
+        <seg>Bestätigen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>确定？</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Confirm?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Yes">
+      <tuv xml:lang="de">
+        <seg>Ja</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>是</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Yes</seg>
+      </tuv>
+    </tu>
+    <tu tuid="No">
+      <tuv xml:lang="de">
+        <seg>Nein</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>否</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>No</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Save">
+      <tuv xml:lang="de">
+        <seg>Speichern</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>保存</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Save</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Cancel">
+      <tuv xml:lang="de">
+        <seg>Stornieren</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>取消</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Cancel</seg>
+      </tuv>
+    </tu>
+    <tu tuid="BatchNo">
+      <tuv xml:lang="de">
+        <seg>Chargennummer</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>批号</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Batch No</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Preview">
+      <tuv xml:lang="de">
+        <seg>Vorschau</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>预览</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Preview</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DeleteRecipe">
+      <tuv xml:lang="de">
+        <seg>Rezept {@RecipeName} löschen?</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>删除 {@RecipeName}?</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Delete Recipe {@RecipeName}?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="LoadRecipe">
+      <tuv xml:lang="de">
+        <seg>Rezept {@RecipeName} laden?</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>打开 {@RecipeName}?</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Load Recipe {@RecipeName}?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="EditRecipeDiagHead">
+      <tuv xml:lang="de">
+        <seg>Rezept bearbeiten</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>编辑配方</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Edit Recipe</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CreateRecipeDiagHead">
+      <tuv xml:lang="de">
+        <seg>Rezept erstellen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>新建配方</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Create Recipe</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Create">
+      <tuv xml:lang="de">
+        <seg>Erstellen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>新建</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Create</seg>
+      </tuv>
+    </tu>
+    <tu tuid="TimeStamp">
+      <tuv xml:lang="de">
+        <seg>Zeitstempel</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>时间戳</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Time Stamp</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Comparison">
+      <tuv xml:lang="de">
+        <seg>Vergleich</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>比较</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Comparison</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Current">
+      <tuv xml:lang="de">
+        <seg>Aktuell</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>当前</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Current</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SaveAndApply">
+      <tuv xml:lang="de">
+        <seg>Speichern &amp; Anwenden</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>保存 &amp; 应用</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Save &amp; Apply</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CreateAndApply">
+      <tuv xml:lang="de">
+        <seg>Erstellen &amp; Anwenden</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>新建 &amp; 应用</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Create &amp; Apply</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ProductParameters">
+      <tuv xml:lang="de">
+        <seg>Produktparameter</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>产品参数</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Product Parameters</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PidParameters">
+      <tuv xml:lang="de">
+        <seg>Pid-Parameter</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>PID参数</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Pid Parameters</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Acceleration">
+      <tuv xml:lang="de">
+        <seg>Beschleunigung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>加速度</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Acceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Deceleration">
+      <tuv xml:lang="de">
+        <seg>Verzögerung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>减速度</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Deceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="StopDeceleration">
+      <tuv xml:lang="de">
+        <seg>Stop Verzögerung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>停止减速度</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Stop Deceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AxParameters">
+      <tuv xml:lang="de">
+        <seg>Achsenparameter</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>轴参数</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Axes Parameters</seg>
+      </tuv>
+    </tu>
+    <tu tuid="FileDevice">
+      <tuv xml:lang="de">
+        <seg>Dateigerät</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>文件设备</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>File Device</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PageDown">
+      <tuv xml:lang="de">
+        <seg>Seite nach unten</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>下一页</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Page Down</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PageUp">
+      <tuv xml:lang="de">
+        <seg>Seite nach oben</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>上一页</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Page Up</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ImportFromUSB">
+      <tuv xml:lang="de">
+        <seg>USB &gt; SPS</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>USB &gt; PLC</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>USB &gt; PLC</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ExportToUSB">
+      <tuv xml:lang="de">
+        <seg>SPS &gt; USB</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>PLC &gt; USB</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PLC &gt; USB</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MinPrintMark">
+      <tuv xml:lang="de">
+        <seg>Minimale Druckmarke</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>最小打印标记</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Minimum Print Mark</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MaxPrintMark">
+      <tuv xml:lang="de">
+        <seg>Maximale Druckmarke</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>最大打印标记</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Maximum Print Mark</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ActiveRecipe">
+      <tuv xml:lang="de">
+        <seg>Aktives Rezept</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>当前配方</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Active Recipe</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MinOut">
+      <tuv xml:lang="de">
+        <seg>Min Ausgabe</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>最小输出</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Min Out</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MaxOut">
+      <tuv xml:lang="de">
+        <seg>Max Ausgabe</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>最大输出</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Max Out</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SetValue">
+      <tuv xml:lang="de">
+        <seg>Wert einstellen</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>设定值</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Set Value</seg>
+      </tuv>
+    </tu>
+    <tu tuid="FilterTime">
+      <tuv xml:lang="de">
+        <seg>Filterzeit</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>滤波时间</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Filter Time</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Category">
+      <tuv xml:lang="de">
+        <seg>Kategorie</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>分类</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Category</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Parameter5">
+      <tuv xml:lang="de">
+        <seg>Parameter 5</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>参数5</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Parameter 5</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Parameter4">
+      <tuv xml:lang="de">
+        <seg>Parameter 4</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>参数4</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Parameter 4</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Parameter3">
+      <tuv xml:lang="de">
+        <seg>Parameter 3</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>参数3</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Parameter 3</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Parameter2">
+      <tuv xml:lang="de">
+        <seg>Parameter 2</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>参数2</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Parameter 2</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Parameter1">
+      <tuv xml:lang="de">
+        <seg>Parameter 1</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>参数1</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Parameter 1</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Setting5">
+      <tuv xml:lang="de">
+        <seg>Einstellung 5</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>设置5</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Setting 5</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Setting4">
+      <tuv xml:lang="de">
+        <seg>Einstellung 4</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>设置4</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Setting 4</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Setting3">
+      <tuv xml:lang="de">
+        <seg>Einstellung 3</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>设置3</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Setting 3</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Setting2">
+      <tuv xml:lang="de">
+        <seg>Einstellung 2</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>设置2</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Setting 2</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Setting1">
+      <tuv xml:lang="de">
+        <seg>Einstellung 1</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>设置1</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Setting 1</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SelectedRecipe">
+      <tuv xml:lang="de">
+        <seg>Ausgewähltes Rezept</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>已选择的配方</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Selected Recipe</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Value">
+      <tuv xml:lang="de">
+        <seg>Wert</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>值</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Value</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MsgBoxType">
+      <tuv xml:lang="de">
+        <seg>{@IndexTextSnippetRecipeMsgBoxType}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{@IndexTextSnippetRecipeMsgBoxType}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MsgBox.Confirm.0">
+      <tuv xml:lang="de">
+        <seg>0</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>0</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MsgBox.Confirm.1">
+      <tuv xml:lang="de">
+        <seg>Laden der ausgewaehlten Datei bestaetigen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Please confirm loading this recipe.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MsgBox.Confirm.2">
+      <tuv xml:lang="de">
+        <seg>Speichern der ausgewaehlten Datei bestaetigen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Please confirm saving this recipe under this name.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MsgBox.Confirm.3">
+      <tuv xml:lang="de">
+        <seg>Eine Datei mit demselben Namen {@NewRecipeName} existiert bereits!
+
+Möchten Sie fortfahren und die vorhandene überschreiben?</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>A file with the same name {@NewRecipeName} already exists! 
+
+Do you want to continue and overwrite the existing one?</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MsgBox.Confirm.4">
+      <tuv xml:lang="de">
+        <seg>Loeschen der ausgewaehlten Datei bestaetigen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Please confirm deleting the selected recipe.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MsgBox.Confirm.5">
+      <tuv xml:lang="de">
+        <seg>Umbenennen der ausgewaehlten Datei bestaetigen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Please confirm renaming the selected recipe.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CreateNewRecipe">
+      <tuv xml:lang="de">
+        <seg>{@NewRecipeName} </seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{@NewRecipeName} </seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

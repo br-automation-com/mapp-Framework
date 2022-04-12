@@ -1,0 +1,47 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * Program: SPL_Asserts
+ * Author: B+R
+ ********************************************************************
+ * Local variables of program SPL_Asserts 
+ * For test set testSet_Asserts.c
+ ********************************************************************)
+VAR
+	Buffer1 : ARRAY[0..9] OF USINT := [10(0)];
+	Buffer2 : ARRAY[0..19] OF USINT := [20(0)];
+	MySecondVar : UDINT := 2;
+	Pointer : REFERENCE TO UDINT;
+	ConditionFlag : BOOL := FALSE;
+END_VAR
+(*Strings*)
+VAR
+	String1 : STRING[80] := '';
+	String2 : STRING[80] := '';
+	WString1 : WSTRING[80] := "World";
+	WString2 : WSTRING[80] := "Hello";
+END_VAR
+(*Integer*)
+VAR
+	Si1 : SINT := 0;
+	Si2 : SINT := 0;
+	Usi1 : USINT := 0;
+	Usi2 : USINT := 0;
+	I1 : INT := 0;
+	I2 : INT := 0;
+	Ui1 : UINT := 0;
+	Ui2 : UINT := 0;
+	Di1 : DINT := 0;
+	Di2 : DINT := 0;
+	Udi1 : UDINT := 0;
+	Udi2 : UDINT := 0;
+END_VAR
+(*Floatingpoint*)
+VAR
+	LReal2 : REAL;
+	LRealDeltaForComparison : REAL;
+	LReal1 : REAL;
+	Real2 : REAL;
+	RealDeltaForComparison : REAL;
+	Real1 : REAL;
+END_VAR

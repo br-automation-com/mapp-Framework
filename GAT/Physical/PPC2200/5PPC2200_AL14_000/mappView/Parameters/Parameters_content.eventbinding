@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="Parameters_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="Parameters_EventBinding_4">
+      <Source xsi:type="widgets.brease.Image.Event" contentRefId="CamError_content" widgetRefId="ImgHideDialog" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="CamError_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Parameters_EventBinding_5">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="CamError_content" widgetRefId="BtnResetCamAutomat" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::AsGlobalPV:gVisuCtrl.Command.bCamErrorReset">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Parameters_EventBinding_7">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnWarmRestart" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="$IAT/WarmRestart_ID" header="" icon="Question" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 1">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::VisuCtrl:WarmRestart">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Parameters_EventBinding_8">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Diagnostic_content" widgetRefId="BtnColdRestart" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="$IAT/ColdRestart_ID" header="" icon="Question" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 1">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::VisuCtrl:ColdRestart">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+		</EventBinding>
+		
+		
+		
+		
+    <EventBinding id="EventBinding_SaveMachineSettings">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Parameters_content" widgetRefId="ButtonSave" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="$IAT/Settings/AxisConfig/SaveMsgBox" header="$IAT/Recipe/Save" icon="Question" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result=4">
+              <Sequence>
+                <Step order="0">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.StoreMachineSettings">
+                      <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+                <Step order="1">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:SelectedAxis">
+                      <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="0" />
+                    </Target>
+                  </Action>
+                </Step>
+                <Step order="2">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:WriteConfig">
+                      <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+              </Sequence>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_FactoryReset">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Parameters_content" widgetRefId="ButtonReset" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="$IAT/Settings/AxisConfig/ResetMsgBox" header="$IAT/Recipe/Load" icon="Question" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result=4">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.FactoryResetMachineSettings">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+		</EventBinding>
+		
+		
+		
+    <EventBinding id="EventBinding_UndoChanges">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Parameters_content" widgetRefId="ButtonUndo" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="$IAT/Settings/AxisConfig/UndoMsgBox" header="$IAT/Settings/AxisConfig/UndoBtn" icon="Question" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result=4">
+              <Sequence>
+                <Step order="1">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:SelectedAxis">
+                      <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="0" />
+                    </Target>
+                  </Action>
+                </Step>
+                <Step order="2">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::ProcessCon:ReadConfig">
+                      <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+              </Sequence>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

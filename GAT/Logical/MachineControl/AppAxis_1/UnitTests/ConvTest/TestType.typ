@@ -1,0 +1,10 @@
+
+TYPE
+	testState_enum : 
+		(
+		TEST_STATE_ARRANGE,
+		TEST_STATE_ACT,
+		TEST_STATE_ASSERT,
+		TEST_STATE_DONE
+		);
+END_TYPE

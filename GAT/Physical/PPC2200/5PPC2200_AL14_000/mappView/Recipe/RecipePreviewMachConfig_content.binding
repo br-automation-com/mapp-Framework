@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="RecipePreviewMachConfig_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsPreview.AddMachineSettingsHere5" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting5Sel" attribute="value" />
+		</Binding>
+		
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsPreview.AddMachineSettingsHere4" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting4Sel" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsPreview.AddMachineSettingsHere3" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting3Sel" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsPreview.AddMachineSettingsHere2" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting2Sel" attribute="value" />
+</Binding>
+		<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsPreview.AddMachineSettingsHere1" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting1Sel" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettings.AddMachineSettingsHere5" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting5Active" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettings.AddMachineSettingsHere4" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting4Active" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettings.AddMachineSettingsHere3" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting3Active" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettings.AddMachineSettingsHere2" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting2Active" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettings.AddMachineSettingsHere1" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting1Active" attribute="value" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.LastLoadedConfigRecipe" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="txtOutRecipeName" attribute="value" />
+</Binding>
+
+
+
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting5Sel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting4Sel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting1Sel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting3Sel" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting2Sel" attribute="visible" />
+</Binding>
+</Bindings>
+</BindingsSet>

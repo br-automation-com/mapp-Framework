@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAlarmXCore_Cutter" Type="mpalarmxcore">
+    <Group ID="mapp.AlarmX.Core">
+      <Group ID="BySeverity">
+        <Group ID="[0]">
+          <Property ID="Severity" Value="1..9" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Info" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+          <Selector ID="[2]" Value="Remain" />
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Severity" Value="10..19" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Warning" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+          <Selector ID="[2]" Value="Remain" />
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Severity" Value="20..29" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="Error" />
+          </Selector>
+          <Selector ID="[1]" Value="Escalate" />
+          <Selector ID="[2]" Value="Remain" />
+        </Group>
+      </Group>
+      <Group ID="Default">
+        <Selector ID="[0]" Value="Reaction">
+          <Property ID="Name" Value="Duplicate" />
+        </Selector>
+        <Selector ID="[1]" Value="Escalate" />
+        <Selector ID="[2]" Value="Remain" />
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

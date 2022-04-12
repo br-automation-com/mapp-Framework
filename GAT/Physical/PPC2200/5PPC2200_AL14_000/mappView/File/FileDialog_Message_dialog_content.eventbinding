@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="FileDialog_Message_dialog_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="ContentLoaded.FileDialog_Message_dialog_content">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <Operand datatype="ANY_INT" name="MsgType">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:MpFileManagerUIConnect.MessageBox.Type">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="MsgType = 1">
+        <Action>
+          <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="FileDialog_Message_dialog_content" widgetRefId="txtOutFileMessage">
+            <Method xsi:type="widgets.brease.TextOutput.Action.SetValue" value="$IAT/File/ConfirmDelete" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="MsgType = 2">
+        <Action>
+          <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="FileDialog_Message_dialog_content" widgetRefId="txtOutFileMessage">
+            <Method xsi:type="widgets.brease.TextOutput.Action.SetValue" value="$IAT/File/ConfirmDelete" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="MsgType = 3">
+        <Action>
+          <Target xsi:type="widgets.brease.TextOutput.Action" contentRefId="FileDialog_Message_dialog_content" widgetRefId="txtOutFileMessage">
+            <Method xsi:type="widgets.brease.TextOutput.Action.SetValue" value="$IAT/File/ConfirmDelete" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MpFileManagerUIConnect.MessageBox.Type.ValueChange.1">
+      <Source xsi:type="opcUa.Event" refId="::FileMgr:MpFileManagerUIConnect.MessageBox.Type" event="ValueChanged" />
+      <EventHandler condition="newValue = 0 AND oldValue &gt; 0">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="FileMessage_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gMpLinkDataRecorder" Type="mpdatarecorder">
+    <Group ID="DataRecorder">
+      <Property ID="MaxFileSize" Value="10000" />
+      <Property ID="SaveInterval" Value="2000" />
+      <Selector ID="Format" Value="PDF">
+        <Property ID="Font" Value="3" />
+        <Property ID="OwnerPassword" Value="" />
+        <Property ID="AllowCopy" Value="TRUE" />
+        <Property ID="AllowEdit" Value="TRUE" />
+      </Selector>
+      <Selector ID="UnitDefinition" Value="MeasurementSystemBased">
+        <Property ID="UnitDisplay" Value="1" />
+      </Selector>
+    </Group>
+    <Selector ID="Alarms" Value="MpAlarmX" />
+  </Element>
+</Configuration>

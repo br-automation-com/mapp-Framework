@@ -1,0 +1,14 @@
+                                                                      
+VAR CONSTANT
+    iommERR_INTERNAL      : UINT := 30170;			(*internal error*)
+    iommERR_INSTALL       : UINT := 30171;			(*installation error*)
+    iommERR_DEINSTALL     : UINT := 30172;			(*deinstallation error*)
+    iommERR_COPY          : UINT := 30173;			(*error during copying*)
+    iommERR_NOSUCH_MODULE : UINT := 30174;			(*module does not exist*)
+    iommERR_MODULE_TYPE   : UINT := 30175;			(*incorrect module type*)
+    iommERR_WRONG_NAME    : UINT := 30176;			(*invalid name*)
+    iommERR_DUPOBJECT     : UINT := 30177;			(*module already exists with this name*)
+
+    iommMAPPING           : USINT := 1;				(*mapping module*)
+    iommCONFIG            : USINT := 2;				(*configuration module*)
+END_VAR

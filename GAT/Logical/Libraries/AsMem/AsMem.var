@@ -1,0 +1,8 @@
+                                                                      
+VAR CONSTANT
+	asmemERR_DESTROY	: UINT	:= 30501;		(*cannot free up memory partition*)
+	asmemERR_CREATE	: UINT	:= 30500;			(*cannot create memory partition*)
+	asmemERR_NOMEM	: UINT	:= 30502;			(*cannot allocate memory block with requested size*)
+	asmemERR_INFO	: UINT	:= 30504;			(*information about free memory can not be detected*)
+	asmemERR_FREE	: UINT	:= 30503;			(*cannot free up memory block*)
+END_VAR

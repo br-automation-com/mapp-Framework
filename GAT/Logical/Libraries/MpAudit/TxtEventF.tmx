@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">MpAudit/SysF/Event</prop>
+  </header>
+  <body>
+    <tu tuid="Root">
+      <tuv xml:lang="de">
+        <seg>{&amp;evtime[TIME=%u%R]} {&amp;op} {=$MpAudit/SysF/Event/{&amp;ev}}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{&amp;evtime[TIME=%u%R]} {&amp;op} {=$MpAudit/SysF/Event/{&amp;ev}}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="2">
+      <tuv xml:lang="de">
+        <seg>{=$MpAudit/SysF/User/{&amp;act}}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{=$MpAudit/SysF/User/{&amp;act}}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="16">
+      <tuv xml:lang="de">
+        <seg>hat Wert {&amp;dpid} von {&amp;old} auf {&amp;new} geändert</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>changed value of {&amp;dpid} from {&amp;old} to {&amp;new}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="17">
+      <tuv xml:lang="de">
+        <seg>hat Wert (UserID: {&amp;dpid}) von {&amp;old} auf {&amp;new} geändert</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>changed value of (UserID: {&amp;dpid}) from {&amp;old} to {&amp;new}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="18">
+      <tuv xml:lang="de">
+        <seg>{=$MpAudit/Custom/{&amp;typ}}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{=$MpAudit/Custom/{&amp;typ}}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="19">
+      <tuv xml:lang="de">
+        <seg>hat Wert {=$MpAudit/DP/{&amp;dpid}} von {&amp;old} auf {&amp;new} geändert</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>changed value of {=$MpAudit/DP/{&amp;dpid}} from {&amp;old} to {&amp;new}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="33">
+      <tuv xml:lang="de">
+        <seg>Alarm {&amp;name} Status geändert: {&amp;stold} -&gt; {&amp;stnew}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>alarm {&amp;name} changed state: {&amp;stold} to {&amp;stnew}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="48">
+      <tuv xml:lang="de">
+        <seg>{=$MpAudit/SysF/Recipe/{&amp;act}}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{=$MpAudit/SysF/Recipe/{&amp;act}}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="64">
+      <tuv xml:lang="de">
+        <seg>PackML Zustandsänderung: von {&amp;old} zu {&amp;new}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PackML State-Change: {&amp;old} to {&amp;new}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="65">
+      <tuv xml:lang="de">
+        <seg>PackML Modusänderung: von {&amp;old} zu {&amp;new}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PackML Mode-Change: {&amp;old} to {&amp;new}</seg>
+      </tuv>
+    </tu>
+    <tu tuid="66">
+      <tuv xml:lang="de">
+        <seg>PackML Substatus-Änderung: von {&amp;old} zu {&amp;new}</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PackML Substate-Change: {&amp;old} to {&amp;new}</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>
