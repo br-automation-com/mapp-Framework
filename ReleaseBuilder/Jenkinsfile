@@ -66,7 +66,7 @@ pipeline {
     agent any 
     environment {
         BUILD_FOLDER = "$WORKSPACE\\ReleaseBuilder\\Builder"
-        PROJECT_DIR = "$WORKSPACE\\BaseProject"
+        PROJECT_DIR = "$WORKSPACE\\BaseProject\\mappFramework"
         EXPORT_DIR = "$WORKSPACE\\ReleaseBuilder\\ExportConfigurations"
         OUTPUT_DIR = "$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\TechnologyPackage"
         PHYSICAL = "Physical\\PPC2200"
@@ -80,7 +80,7 @@ pipeline {
     stages {
         stage('Export Framework') {
             environment {
-                VERSION =  Version().substring(1, Version().lastIndexOf('.'));
+                VERSION =  Version().substring(1, Version().lastIndexOf('.')).replaceAll("0\d", "");
             }
             steps {
                 bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\_Chinese Help.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
@@ -94,7 +94,7 @@ pipeline {
         }
         stage('Build Import Tool') {
             environment {
-                VERSION = Version().substring(1, Version().lastIndexOf('.'));
+                VERSION = Version().substring(1, Version().lastIndexOf('.')).replaceAll("0\d", "");
                 BRANCH = Branch();
                 MSBUILD_PATH = MS_Build();
                 MSBUILD = "$MSBUILD_PATH\\Current\\Bin\\msbuild.exe";
