@@ -80,7 +80,7 @@ pipeline {
     stages {
         stage('Export Framework') {
             environment {
-                VERSION =  Version().substring(1, Version().lastIndexOf('.')).replaceAll("0\d", "");
+                VERSION =  Version().substring(1, Version().lastIndexOf('.'));
             }
             steps {
                 bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\_Chinese Help.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
@@ -94,7 +94,7 @@ pipeline {
         }
         stage('Build Import Tool') {
             environment {
-                VERSION = Version().substring(1, Version().lastIndexOf('.')).replaceAll("0\d", "");
+                VERSION = Version().substring(1, Version().lastIndexOf('.'));
                 BRANCH = Branch();
                 MSBUILD_PATH = MS_Build();
                 MSBUILD = "$MSBUILD_PATH\\Current\\Bin\\msbuild.exe";
