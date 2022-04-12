@@ -2,49 +2,59 @@
 <BindingsSet id="Backup_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Bindings>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgt:MpFileManagerUIConnect.DeviceList.SelectedIndex" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:MpFileManagerUIConnect.DeviceList.SelectedIndex" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="FileDeviceTable" attribute="selectedRow" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgt:MpFileManagerUIConnect.DeviceList.DeviceNames" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:MpFileManagerUIConnect.DeviceList.DeviceNames" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="FileDeviceListItem" attribute="stringValue" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.Size" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.Size" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="TableItem2" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.TimeStamps" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.TimeStamps" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="TableItemDateTime1" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.FileNames" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.FileNames" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="TableItem1" attribute="stringValue" />
         </Binding>
 
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.SelectedIndex" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.SelectedIndex" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="Table1" attribute="selectedRow" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.CreateAllowed" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.CreateAllowed" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Create_content" attribute="enable" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.RestoreAllowed" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.RestoreAllowed" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Restore_content" attribute="enable" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.Info.ConfigurationID" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.Info.ConfigurationID" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="txtOutConfiguration" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.Info.ConfigurationVersion" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.Info.ConfigurationVersion" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="txtOutVersion" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.Info.Name" attribute="value" />
+            <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.Info.Name" attribute="value" />
             <Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="txtOutName" attribute="value" />
         </Binding>
-  </Bindings>
+  
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.TableConfig[1]" attribute="value" />
+<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="Table1" attribute="tableConfiguration" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.TableConfig[0]" attribute="value" />
+<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="FileDeviceTable" attribute="tableConfiguration" />
+</Binding>
+
+</Bindings>
 </BindingsSet>

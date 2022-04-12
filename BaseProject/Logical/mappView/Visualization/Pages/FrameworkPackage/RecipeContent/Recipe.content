@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="Recipe_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Button" id="BtnDelete" top="540" left="900" width="150" height="40" zIndex="0" image="Media/SymbolLib/Edit/Delete.svg" text="$IAT/Recipe/Delete" imageHeight="25" imageWidth="25" textAlign="center" fontSize="18px" permissionView="['Administrators', 'Everyone', 'Service']" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="BtnCreate" top="540" left="719" width="150" height="40" zIndex="1" image="Media/SymbolLib/Edit/Save.svg" text="$IAT/Recipe/New" imageHeight="20" imageWidth="20" fontSize="18px" permissionView="['Administrators', 'Everyone', 'Service']" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="BtnEdit" top="600" left="900" width="150" height="40" zIndex="2" image="Media/SymbolLib/Edit/Edit.svg" text="$IAT/Recipe/Edit" imageHeight="25" imageWidth="25" fontSize="18px" permissionView="['Administrators', 'Everyone', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnDelete" top="540" left="900" width="150" height="40" zIndex="0" image="Media/SymbolLib/Edit/Delete.svg" text="$IAT/Recipe/Delete" imageHeight="25" imageWidth="25" textAlign="center" fontSize="18px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnCreate" top="540" left="719" width="150" height="40" zIndex="1" image="Media/SymbolLib/Edit/Save.svg" text="$IAT/Recipe/New" imageHeight="20" imageWidth="20" fontSize="18px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnEdit" top="600" left="900" width="150" height="40" zIndex="2" image="Media/SymbolLib/Edit/Edit.svg" text="$IAT/Recipe/Edit" imageHeight="25" imageWidth="25" fontSize="18px" permissionOperate="['Administrators', 'Service']" style="Command" />
     <Widget xsi:type="widgets.brease.Table" id="Tbl" top="80" left="0" width="620" height="440" zIndex="3" rowHeight="40" cornerRadius="0px 0px 0px 0px" fontSize="18px" headerFontSize="20px">
       <Widgets>
         <Widget xsi:type="widgets.brease.TableItem" id="TblItmRecipeList" zIndex="0" columnWidth="380" rowHeight="40" text="$IAT/Recipe/RecipeList" />
@@ -11,17 +11,16 @@
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.NavigationButton" id="NavBtnWelcomePage" top="740" left="220" zIndex="4" pageId="Welcome_page" text="NavigationButton1" />
-    <Widget xsi:type="widgets.brease.Button" id="BtnLoad" top="600" left="719" width="150" height="40" zIndex="5" image="Media/SymbolLib/File/Recipe.svg" text="$IAT/Recipe/Load" imageHeight="20" imageWidth="20" fontSize="18px" style="Command" />
-    <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownBoxRecipeDevice" top="16" left="100" width="160" height="40" zIndex="7" dataProvider="[{'value':'mappRecipe','text':'CF/PLC'},{'value':'USB1','text':'USB1'},{'value':'USB2','text':'USB2'}]" selectedValue="mappRecipe" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnLoad" top="600" left="719" width="150" height="40" zIndex="5" image="Media/SymbolLib/File/Recipe.svg" text="$IAT/Recipe/Load" imageHeight="20" imageWidth="20" fontSize="18px" permissionOperate="['Administrators', 'Operators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownBoxRecipeDevice" top="16" left="100" width="160" height="40" zIndex="7" dataProvider="[{'value':'mappRecipeFiles','text':'CF/PLC'},{'value':'USB1','text':'USB1'},{'value':'USB2','text':'USB2'}]" selectedValue="mappRecipeFiles" fontSize="18px" />
     <Widget xsi:type="widgets.brease.Label" id="LabelFileDev" top="20" left="0" width="100" height="35" zIndex="8" text="$IAT/Recipe/FileDevice" fontName="Arial Unicode" fontSize="16px" bold="true" />
     <Widget xsi:type="widgets.brease.Button" id="ButtonRecipePageDown" top="540" left="280" width="150" height="40" zIndex="9" text="$IAT/Recipe/PageDown" fontSize="18px" style="Command" />
     <Widget xsi:type="widgets.brease.Button" id="ButtonRecipePageUp" top="540" left="470" width="150" height="40" zIndex="10" text="$IAT/Recipe/PageUp" fontSize="18px" style="Command" />
     <Widget xsi:type="widgets.brease.PushButton" id="PushButtonImportFromUSB" top="600" left="280" width="150" height="40" zIndex="11" image="Media/SymbolLib/File/Recipe.svg" text="$IAT/Recipe/ImportFromUSB" imageHeight="20" imageWidth="20" fontSize="18px" style="Command" />
     <Widget xsi:type="widgets.brease.PushButton" id="PushButtonExportToUSB" top="600" left="470" width="150" height="40" zIndex="12" image="Media/SymbolLib/File/Recipe.svg" text="$IAT/Recipe/ExportToUSB" imageHeight="20" imageWidth="20" fontSize="18px" style="Command" />
-    <Widget xsi:type="widgets.brease.Rectangle" id="Rectangle3" top="0" left="4" width="1117" height="10" zIndex="13" borderStyle="none" opacity="0.3" backGroundGradient="linear-gradient(to bottom, #E4E4E4 0%,#ffffff 100%)" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelFileDev1" top="20" left="320" width="100" height="35" zIndex="14" text="$IAT/Recipe/Category" fontName="Arial Unicode" fontSize="16px" bold="true" />
-    <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownBoxRecipeCategory" top="16" left="400" width="220" height="40" zIndex="15" dataProvider="[{'value':'Product','text':'Parameters'},{'value':'Machine','text':'Machine Settings'}]" listWidth="220" selectedValue="Product" fontSize="18px" />
-    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="80" left="660" width="440" height="440" zIndex="34" text="$IAT/Recipe/Preview">
+    <Widget xsi:type="widgets.brease.Label" id="LabelFileDev1" top="20" left="320" width="100" height="35" zIndex="13" text="$IAT/Recipe/Category" fontName="Arial Unicode" fontSize="16px" bold="true" />
+    <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownBoxRecipeCategory" top="16" left="400" width="220" height="40" zIndex="14" dataProvider="[{'value':'Parameters','text':'Parameters'},{'value':'Machine Configuration','text':'Machine Settings'}]" listWidth="220" selectedValue="Product" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="80" left="660" width="440" height="440" zIndex="33" text="$IAT/Recipe/Preview">
       <Widgets>
         <Widget xsi:type="widgets.brease.ContentControl" id="ContentControlPreview" top="4" left="0" width="440" height="400" zIndex="0" contentId="RecipePreviewPars_content" />
       </Widgets>

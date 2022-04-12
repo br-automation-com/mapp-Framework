@@ -1,6 +1,6 @@
 
 TYPE
-	CpuIoMap_typ : 	STRUCT 
+	CpuIoMapType : 	STRUCT 
 		SerialNumber_CPU : UDINT;
 		ModuleID_CPU : UINT;
 		HardwareVariant : UINT;
@@ -18,13 +18,13 @@ TYPE
 		LanguageSelection : ARRAY[0..1]OF STRING[80] := ['en','de'];
 		SelectedIndex : INT := 0;
 	END_STRUCT;
-	EthConfig_type : 	STRUCT 
+	EthConfigType : 	STRUCT 
 		Ip : STRING[15];
 		Gateway : STRING[15];
 		SubnetMask : STRING[15];
 		Device : STRING[20];
 	END_STRUCT;
-	ClientInfo_typ : 	STRUCT 
+	ClientInfoType : 	STRUCT 
 		userId : STRING[40];
 		ipAddress : STRING[15];
 		activityCount : USINT;

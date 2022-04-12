@@ -24,6 +24,7 @@
     </Connector>
     <Parameter ID="ConfigurationID" Value="mappFW_PPC2200" />
     <Parameter ID="UserPartitionSize" Value="128" />
+    <Parameter ID="Simulation" Value="1" />
     <Parameter ID="SystemTick" Value="1600" />
     <Parameter ID="TaskClassIdleTime" Value="1600" />
     <Parameter ID="Cyclic1Duration" Value="1600" />
@@ -42,28 +43,28 @@
     <Parameter ID="Cyclic7Tolerance" Value="102400" />
     <Parameter ID="Cyclic8Duration" Value="9600" />
     <Group ID="FileDevice1" />
-    <Parameter ID="FileDeviceName1" Value="userPartition" />
+    <Parameter ID="FileDeviceName1" Value="UserPartition" />
     <Parameter ID="FileDevicePath1" Value="F:\" />
     <Group ID="FileDevice2" />
-    <Parameter ID="FileDeviceName2" Value="mappRecipe" />
+    <Parameter ID="FileDeviceName2" Value="mappRecipeFiles" />
     <Parameter ID="FileDevicePath2" Value="F:\Recipe" />
     <Group ID="FileDevice3" />
-    <Parameter ID="FileDeviceName3" Value="mappAudit" />
+    <Parameter ID="FileDeviceName3" Value="mappAuditFiles" />
     <Parameter ID="FileDevicePath3" Value="F:\Audit" />
     <Group ID="FileDevice4" />
-    <Parameter ID="FileDeviceName4" Value="mappReport" />
+    <Parameter ID="FileDeviceName4" Value="mappReportFiles" />
     <Parameter ID="FileDevicePath4" Value="F:\Report" />
     <Group ID="FileDevice5" />
-    <Parameter ID="FileDeviceName5" Value="mappData" />
+    <Parameter ID="FileDeviceName5" Value="mappDataFiles" />
     <Parameter ID="FileDevicePath5" Value="F:\Data" />
     <Group ID="FileDevice6" />
-    <Parameter ID="FileDeviceName6" Value="mappBackup" />
+    <Parameter ID="FileDeviceName6" Value="mappBackupFiles" />
     <Parameter ID="FileDevicePath6" Value="F:\Backup" />
     <Group ID="FileDevice7" />
-    <Parameter ID="FileDeviceName7" Value="mappAlarmX" />
+    <Parameter ID="FileDeviceName7" Value="mappAlarmXFiles" />
     <Parameter ID="FileDevicePath7" Value="F:\AlarmX" />
     <Group ID="FileDevice8" />
-    <Parameter ID="FileDeviceName8" Value="mappUserX" />
+    <Parameter ID="FileDeviceName8" Value="mappUserXFiles" />
     <Parameter ID="FileDevicePath8" Value="F:\UserX" />
     <Parameter ID="TimeZone" Value="65" />
     <Parameter ID="ActivateDaylightSavingTime" Value="1" />

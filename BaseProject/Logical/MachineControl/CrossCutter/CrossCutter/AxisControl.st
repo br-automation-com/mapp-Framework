@@ -1,33 +1,33 @@
-(***********************************************************************************************************************
-* Copyright: B&R Industrial Automation GmbH
-* Description: This program implements an axis control
-***********************************************************************************************************************)
+﻿//***********************************************************************************************************************
+//* Copyright: B&R Industrial Automation GmbH
+//* Description: This program implements an axis control
+//**********************************************************************************************************************
 
 PROGRAM _INIT
     
     ST_name(0, ADR(AxisControl.Status.TaskName), 0);
     RecipeInit;
 
-    MpAlarmXCoreFB.Enable := TRUE;
+    MpAlarmXCore_0.Enable := TRUE;
     ConfigurationInit;
-    
-    MpAxisBasicFB.Enable := TRUE;
+        
+    MpAxisBasic_0.Enable := TRUE;
 
     AxisInit;
 END_PROGRAM
 
 PROGRAM _CYCLIC
 
-    MpAxisBasicFB.MpLink := ADR(gAxisCrossCutter);
-    MC_BR_CheckRestorePositionDataFB.Axis := ADR(gAxisCrossCutter);
+    MpAxisBasic_0.MpLink := ADR(gAxisCrossCutter);
+    MC_BR_CheckRestorePositionData_0.Axis := ADR(gAxisCrossCutter);
     
     SimulationControl;
     AxisStateMachine;
     AxisCyclic;
     RecipeCyclic;
     
-    MpAlarmXCoreFB.MpLink := ADR(gAlarmXCore_Cutter);
-    MpAlarmXCoreFB();
+    MpAlarmXCore_0.MpLink := ADR(gAlarmXCore_Cutter);
+    MpAlarmXCore_0();
    
 END_PROGRAM
 
@@ -45,13 +45,13 @@ PROGRAM _EXIT
     MpRecipeRegPar_UserPreFB.Enable := FALSE;
     MpRecipeRegPar_UserPreFB();
     
-    MpAxisBasicFB.Enable := FALSE;
-    MpAxisBasicFB();
+    MpAxisBasic_0.Enable := FALSE;
+    MpAxisBasic_0();
 
     MC_BR_CamAutomatCommandFB.Enable := FALSE;
     MC_BR_CamAutomatCommandFB();
     
-    MpAlarmXCoreFB.Enable := FALSE;
-    MpAlarmXCoreFB();
+    MpAlarmXCore_0.Enable := FALSE;
+    MpAlarmXCore_0();
 
 END_PROGRAM

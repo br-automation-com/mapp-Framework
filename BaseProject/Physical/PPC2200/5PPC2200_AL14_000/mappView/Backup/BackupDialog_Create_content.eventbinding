@@ -7,7 +7,7 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::BackupMgt:hmiBackup.Commands.Create">
+              <Target xsi:type="opcUa.NodeAction" refId="::BackupMgr:HmiBackup.Commands.Create">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
@@ -43,8 +43,29 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="BackupDialog_Create_content.BusyFalse">
-      <Source xsi:type="opcUa.Event" refId="::BackupMgt:hmiBackup.Status.Busy" event="ValueChanged" />
+      <Source xsi:type="opcUa.Event" refId="::BackupMgr:HmiBackup.Status.Busy" event="ValueChanged" />
       <EventHandler condition="(newValue = false) AND (oldValue = true)">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="BackupDialog_Create_content" widgetRefId="ContentGroup">
+                <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="BackupCreate_dialog" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="BackupDialog_Create.Status.Error">
+      <Source xsi:type="opcUa.Event" refId="::BackupMgr:HmiBackup.Status.Error" event="ValueChanged" />
+      <EventHandler condition="(newValue = true)">
         <Sequence>
           <Step order="0">
             <Action>

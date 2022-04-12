@@ -2,8 +2,8 @@
 <BindingsSet id="UserXDialog_Error_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::UserXMgt:UserXMgrUIConnect.MessageBox.Confirm" attribute="value" />
+<Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.MessageBox.Confirm" attribute="value" />
 <Target xsi:type="brease" contentRefId="UserXDialog_Error_content" widgetRefId="BtnConfirmErroMessageBox" attribute="value" />
 </Binding>
-</Bindings>
+	</Bindings>
 </BindingsSet>

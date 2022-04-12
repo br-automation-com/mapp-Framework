@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<vdef:Visualization id="MyVisu" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
-	<StartPage pageRefId="File_page" />
+<vdef:Visualization id="mappFrameworkVis" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+	<StartPage pageRefId="Demo_page" />
 	<Pages>
 		<Page refId="Axis_page"/> 
 		<Page refId="Welcome_page" />
@@ -16,6 +16,7 @@
 		<Page refId="Audit_page"/>
 		<Page refId="File_page"/>
 		<Page refId="WidgetSample_page"/>
+		<Page refId="Demo_page"/>
 	</Pages>
 	<Navigations>
 		<!--<Navigation refId="" />-->
@@ -37,8 +38,8 @@
 		<BindingsSet refId="Parameters_content_binding" />
         <!--<BindingsSet refId="Axis_content_binding" />-->
 		<BindingsSet refId="AxisAuto_content_binding" />        
-		<BindingsSet refId="AxisManual_content_binding" />			
-		<BindingsSet refId="Welcome_content_binding" />
+        <BindingsSet refId="AxisManual_content_binding" />
+        <BindingsSet refId="Welcome_content_binding" />
 		<BindingsSet refId="Data_content_binding" />
 		<BindingsSet refId="Audit_content_binding" />
 		<BindingsSet refId="UserX_content_binding" />
@@ -53,6 +54,12 @@
         <BindingsSet refId="File_content_binding" />
 		<BindingsSet refId="FileDialog_Message_dialog_content_binding" /> 
 		<BindingsSet refId="FileDialog_FIFO_dialog_content_binding" /> 
+		<BindingsSet refId="AlarmX_Navigation_content_binding" />
+		<BindingsSet refId="UserX_Navigation_content_binding" /> 
+		<BindingsSet refId="Recipe_Navigation_content_binding" />
+		<BindingsSet refId="File_Navigation_content_binding" />
+		<BindingsSet refId="Backup_Navigation_content_binding" />
+		<BindingsSet refId="Axis_Navigation_content_binding" />
     </BindingsSets>
 	<EventBindingsSets>
 		<EventBindingsSet refId="AlarmXCurrent_content_eventbinding" />
@@ -75,7 +82,10 @@
 		<EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
 		<!--<EventBindingsSet refId="Axis_content_eventbinding" />-->
 		<EventBindingsSet refId="AxisAuto_content_eventbinding" />
-		<EventBindingsSet refId="AxisManual_content_eventbinding" />
+        <EventBindingsSet refId="AxisManual_content_eventbinding" />
+		<EventBindingsSet refId="AxisRecipe_content_eventbinding" />
+		<EventBindingsSet refId="AxisRecipeDialog_New_content_eventbinding" />
+		<EventBindingsSet refId="AxisRecipeDialog_Edit_content_eventbinding" />
 		<EventBindingsSet refId="Settings_content_eventbinding" />
         <EventBindingsSet refId="Diagnostic_content_eventbinding" />
         <EventBindingsSet refId="Backup_content_eventbinding" />
@@ -86,16 +96,23 @@
 		<EventBindingsSet refId="File_content_eventbinding" />
 		<EventBindingsSet refId="FileDialog_Message_dialog_content_eventbinding" />
 		<EventBindingsSet refId="FileDialog_FIFO_dialog_content_eventbinding" />
+		<EventBindingsSet refId="Navigation_content_eventbinding" />
+		<EventBindingsSet refId="AlarmX_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Recipe_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="File_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Backup_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Axis_Navigation_content_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs>
 		<Dialog refId="NewRecipe_dialog" />
 		<Dialog refId="CamError_dialog" />
 		<Dialog refId="EditRecipe_dialog" />
 		<Dialog refId="UserXLogin_dialog" />
-		<Dialog refId="UserXChangePwd_dialog" />
+
 		<Dialog refId="UserXError_dialog" />
-		<Dialog refId="UserManXError_dialog" />
-        <Dialog refId="UserManXMessage_dialog" />
+
+
 		<Dialog refId="UserXExport_dialog" />
 		<Dialog refId="UserXImport_dialog" />
         <Dialog refId="IoForcing_dialog" />
@@ -124,6 +141,7 @@
 		<Content refId="AlarmXCurrent_content" />
 		<Content refId="AlarmXHistory_content" />
 		<Content refId="AlarmXQuery_content" />
+		<Content refId="AlarmX_content" />
 		<Content refId="Data_content" />
 		<Content refId="Diagnostic_content" />
 		<Content refId="Help_content" />
@@ -135,13 +153,11 @@
         <Content refId="Backup_content" />
 		<Content refId="Trend_content" />
 		<Content refId="RenameRecipe_content" />
-		<Content refId="UserManXErrorDialog_content" />
 		<Content refId="UserXDialog_Login_content" />
 		<Content refId="UserXDialog_Error_content" />
-		<Content refId="UserManXMessageDialog_content" />
 		<Content refId="IoForcing_content" />
-		<Content refId="UserXDialog_ChangePwd_content" />
 		<Content refId="File_content" />
+		<Content refId="Navigation_content" />
 	</Contents>	
 	<SnippetsSets>
 		<SnippetsSet refId="Recipe_snippets" />

@@ -1,0 +1,212 @@
+def mailRecipients = "Brittany.Langston@br-automation.com;Marcel.Voigt@br-automation.com;Wesley.Buchanan@br-automation.com"
+
+def Version() {
+    echo "Version";
+    def tag = Tag();
+    def count = powershell(returnStdout: true, script: "git rev-list HEAD --count").trim();
+    try {
+        count = powershell(returnStdout: true, script: "git rev-list $tag..HEAD --count").trim();
+    }
+    catch (err){
+    }
+    if (IsReleaseBranch()) {
+        echo "Release Branch";
+        return "$tag.$count";
+    }
+    echo "Not Release Branch";
+    tag = tag.substring(0, tag.lastIndexOf('.'))
+    tag = tag + '.9';
+    return "$tag.$count";
+}
+
+def IsReleaseBranch(){
+    return Branch().matches("release/(.*)");
+}
+
+def Tag() {
+    echo "Tag";
+    def tag = "V0.0.9"
+    try {
+        tag = powershell(returnStdout: true, script: "git describe --abbrev=0 --always").trim();
+    }
+    catch (err){
+    }
+    return "$tag";
+}
+
+def Branch(){
+    echo "Branch";
+    def branch = "develop";
+    if (env.BRANCH_NAME) {
+        echo "environment variable set"
+        branch = "${env.BRANCH_NAME}";
+    }else {
+        echo "environment variable not set"
+        try {
+            powershell(returnStdout: true, script: "git branch --show-current").trim();
+        }catch (err){ 
+
+        }
+    }
+    echo "$branch";
+    return "$branch";
+}
+
+def MS_Build(){
+    if (fileExists("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild") == true){
+        return "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild";
+    }
+    if (fileExists("C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild") == true){
+        return "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild";
+    }
+    return "";
+}
+
+pipeline {
+    agent any 
+    environment {
+        BUILD_FOLDER = "$WORKSPACE\\ReleaseBuilder\\Builder"
+        PROJECT_DIR = "$WORKSPACE\\BaseProject"
+        EXPORT_DIR = "$WORKSPACE\\ReleaseBuilder\\ExportConfigurations"
+        OUTPUT_DIR = "$WORKSPACE\\ReleaseBuilder\\InstallerSetup\\TechnologyPackage"
+        PHYSICAL = "Physical\\PPC2200"
+        IMPORT_TOOL = "ImportTool\\FrameworkImporter"
+        HELP_LOCATION = "$WORKSPACE\\Documentation";
+        HELP_NAME = "mappFramework";
+        HELP_FILE = "mappFramework.hnd";
+        GERMAN_HELP_FILE = "mappFrameworkGerman.hnd";
+        HELP_OUTPUT = "..\\ReleaseBuilder\\InstallerSetup\\Help";
+    }
+    stages {
+        stage('Export Framework') {
+            environment {
+                VERSION =  Version().substring(1, Version().lastIndexOf('.'));
+            }
+            steps {
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\_Chinese Help.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\AlarmX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Axis.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Backup.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\File.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Recipe.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\UserX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
+            }
+        }
+        stage('Build Import Tool') {
+            environment {
+                VERSION = Version().substring(1, Version().lastIndexOf('.'));
+                BRANCH = Branch();
+                MSBUILD_PATH = MS_Build();
+                MSBUILD = "$MSBUILD_PATH\\Current\\Bin\\msbuild.exe";
+                NUGET = "$MSBUILD_PATH\\nuget.exe";
+            }
+            steps {
+                powershell(returnStdout: true, script: ". '$IMPORT_TOOL\\GitVersion.ps1' \"$IMPORT_TOOL\\FrameworkImporter\" \"$BRANCH\"");
+                powershell(returnStdout: true, script: ". '$NUGET' \"restore\" \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter.sln\"");
+                powershell(returnStdout: true, script: ". '$MSBUILD' \"$WORKSPACE\\$IMPORT_TOOL\\FrameworkImporter.sln\" \"-p:Configuration=Release;optimize=true;DebugSymbols=false;DebugType=None;PreBuildEvent=;PostBuildEvent=;OutputPath=$OUTPUT_DIR\\$VERSION\\bin\\\"");
+                powershell(returnStdout: true, script: "Copy-Item -Recurse \"$WORKSPACE\\$IMPORT_TOOL\\mappFrameworkExtension\\AS\\*\" -Destination \"$OUTPUT_DIR\\$VERSION\\\"");
+            }
+        }
+        stage('Build Help') {
+            environment {
+                VERSION = Version();
+            }
+            options {
+                timeout(time: 30, unit: "SECONDS")
+            }
+            steps {
+                script {
+                    Exception caughtException = null
+                    catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED') { 
+                        try { 
+                            powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --file $HELP_FILE --name $HELP_NAME --output \"$HELP_OUTPUT\"");
+                            powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --file $GERMAN_HELP_FILE --name $HELP_NAME --output \"$HELP_OUTPUT\" --language de");
+                        } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e) {
+                            caughtException = e;
+                            error "Timeout Exceeded";
+                        } catch (Throwable e) {
+                            caughtException = e
+                        }
+                    }
+                    if (caughtException) {
+                        if (IsReleaseBranch()){ 
+                            error("Build failed because building the help timed out");
+                        }
+                    }
+                }
+            }
+        }
+        stage('Create Installer') {
+            environment {
+                VERSION = Version()
+            }
+            steps {
+                bat "python \"$BUILD_FOLDER\\CreateInstaller.py\" --project \"$WORKSPACE\\ReleaseBuilder\" --name mappFramework --version $Version"
+            }
+        }
+        stage('Deploy Release')
+        {
+            environment {
+                TAG = Tag()
+            }
+            when
+            {
+                branch 'release/*'
+            }
+            steps {
+                bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\$TAG\\\" /y"
+            }
+        }
+        stage('Deploy Feature')
+        {
+            environment {
+                BRANCH = Branch()
+            }
+            when
+            {
+                anyOf {
+                    branch 'feature/*'
+                    branch 'develop'
+                }
+            }
+            steps {
+                bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\$BRANCH\\\" /y"
+            }
+        }
+
+    }
+    post {
+         success {
+            script {
+                def jobName = currentBuild.fullDisplayName
+        
+                emailext body: '''${SCRIPT, template="groovy-html.template"}''',
+                        mimeType: 'text/html',
+                        subject: "[Jenkins] ${jobName}",
+                        to: "${mailRecipients}",
+                        from: "wesley.buchanan@br-automation.com",
+                        replyTo: "${mailRecipients}"
+            }
+        }
+         failure {
+            script {
+                def jobName = currentBuild.fullDisplayName
+        
+                emailext body: '''${SCRIPT, template="groovy-html.template"}''',
+                        mimeType: 'text/html',
+                        subject: "[Jenkins] ${jobName}",
+                        to: "${mailRecipients}",
+                        from: "wesley.buchanan@br-automation.com",
+                        replyTo: "${mailRecipients}"
+            }
+
+         }
+         unstable {
+             echo 'This will run only if the run was marked as unstable'
+         }
+         changed {
+             echo 'This will run only if the state of the Pipeline has changed'
+             echo 'For example, if the Pipeline was previously failing but is now successful'
+         }
+    }
+}

@@ -36,7 +36,7 @@ def cleanPackageFile(dir, file):
                 f.write(line)
         f.truncate()
 
-def copyTasksDeployment(dir, tasks):
+def copySwDeployment(dir, tasks, libraries, mapps):
     global projectPath
     global physicalDir
     cpuDir = os.listdir(os.path.join(dir, physicalDir))[0]
@@ -49,7 +49,10 @@ def copyTasksDeployment(dir, tasks):
             task = ''
             if (line.find('<Task Name="') != -1):
                  task = line[line.find('Source="') + 8 : line.find('"', line.find('Source="') + 8)]
-            if (task == '') or (task in tasks):
+            lib = ''
+            if (line.find('<LibraryObject Name="') != -1):
+                 lib = line[line.find('Name="') + 6 : line.find('"', line.find('Name="') + 6)]
+            if ((task == '') and (lib == '')) or (task in tasks) or (lib in libraries) or (lib in mapps):
                 f.write(line)
         f.truncate()
 
@@ -113,7 +116,7 @@ def setUserPartitionSize(dir):
             f.write(line)
         f.truncate()
 
-def createZip(exportName, exportDir):
+def cleanPackage(exportName, exportDir):
     global projectPath
     for root, dirs, files in os.walk(exportDir):
         for name in dirs:
@@ -125,8 +128,6 @@ def createZip(exportName, exportDir):
             if ((len(exportPackageFile) == 0) and (len(projectPackageFile) != 0)):
                 shutil.copy(projectPath + '\\' + relativePath + '\\' + Path(projectPackageFile[0]).name, exportDir + '\\' + relativePath + '\\' + Path(projectPackageFile[0]).name)
                 cleanPackageFile(exportDir + '\\' + relativePath, Path(projectPackageFile[0]).name)
-    
-    shutil.make_archive(exportName, 'zip', exportDir)
 
 def main() -> None:
     parser = argparse.ArgumentParser()
@@ -134,6 +135,7 @@ def main() -> None:
     parser.add_argument('-c', '--config', help='Configuration File Name', dest='config', required=True)
     parser.add_argument('-s', '--physical', help='Physical Directory', dest='physical', required=True)
     parser.add_argument('-o', '--output', help='Output Directory', dest='output', required=True)
+    parser.add_argument('-z', '--zip', help='zip output directory', dest='zip', required=False, default=True)
     global projectPath
     global physicalDir
     args = parser.parse_args()
@@ -159,14 +161,21 @@ def main() -> None:
         for f in export['files']:
             copy(exportDir, f)
     if ('physical' in export):
-        copyTasksDeployment(exportDir, export['physical']["deployTasks"])
+        copySwDeployment(exportDir, export['physical']["deployTasks"], export["libraries"], export["mapp"])
         copyFileDevices(exportDir, export['physical']["fileDevices"])
         if (('enableOpcUa' in export['physical']) and (export['physical']['enableOpcUa'] == True)):
             enableOpcUa(exportDir)
         if (('UserPartitionSize' in export['physical']) and (export['physical']['UserPartitionSize'] == True)):
             setUserPartitionSize(exportDir)
 
-    createZip(args.output + '\\' + Path(args.config).stem, exportDir)
+    cleanPackage(args.output + '\\' + Path(args.config).stem, exportDir)
+    if (args.zip == True):
+        shutil.make_archive(args.output + '\\' + Path(args.config).stem, 'zip', exportDir)
+    else:
+        shutil.copytree(exportDir, args.output + '\\' + Path(args.config).stem)
+
+    if ('mappViewfiles' in export) == False:
+        return
 
     removeDir(exportDir)
     os.mkdir(exportDir)
@@ -183,13 +192,17 @@ def main() -> None:
         for f in export['mappViewfiles']:
             copy(exportDir, f)
     if ('physical' in export):
-        copyTasksDeployment(exportDir, export['physical']["deployTasks"])
+        copySwDeployment(exportDir, export['physical']["deployTasks"], export["libraries"], export["mapp"])
         copyFileDevices(exportDir, export['physical']["fileDevices"])
         enableOpcUa(exportDir)
         if (('UserPartitionSize' in export['physical']) and (export['physical']['UserPartitionSize'] == True)):
             setUserPartitionSize(exportDir)
 
-    createZip(args.output + '\\' + Path(args.config).stem + 'MappView', exportDir)
+    cleanPackage(args.output + '\\' + Path(args.config).stem + 'MappView', exportDir)
+    if (args.zip == True):
+        shutil.make_archive(args.output + '\\' + Path(args.config).stem + 'MappView', 'zip', exportDir)
+    else:
+        shutil.copytree(exportDir, args.output + '\\' + Path(args.config).stem + 'MappView')
 
 if __name__ == '__main__':
     main()

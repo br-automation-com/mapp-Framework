@@ -5,7 +5,7 @@
       <Source xsi:type="widgets.brease.TextInput.Event" contentRefId="File_content" widgetRefId="txtInSearchKeyword" event="ValueChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::FileMgt:MpFileManagerUIConnect.File.Refresh">
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -14,13 +14,13 @@
     <EventBinding id="File_content.FileFolderTable.Click">
       <Source xsi:type="widgets.brease.Table.Event" contentRefId="File_content" widgetRefId="FileFolderTable" event="Click" />
       <Operand datatype="BOOL" name="MultiSelect">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgt:MpFileManagerUIConnect.File.MultiSelect">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:MpFileManagerUIConnect.File.MultiSelect">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
       <EventHandler condition="MultiSelect = true">
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::FileMgt:hmiFile.Commands.MultiSelect">
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:HmiFile.Commands.MultiSelect">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -29,13 +29,13 @@
     <EventBinding id="File_content.FileFolderTable.Click.2">
       <Source xsi:type="widgets.brease.Table.Event" contentRefId="File_content" widgetRefId="FileFolderTable" event="Click" />
       <Operand datatype="BOOL" name="IsFolder">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgt:hmiFile.Status.IsFolder">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:HmiFile.Status.IsFolder">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
       <EventHandler condition="IsFolder = true">
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::FileMgt:hmiFile.Commands.EnterFolder">
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:HmiFile.Commands.EnterFolder">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
@@ -45,16 +45,16 @@
       <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="File_content" widgetRefId="drpBoxSortOrder" event="SelectedIndexChanged" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::FileMgt:MpFileManagerUIConnect.File.Refresh">
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="MpFileManagerUIConnect.MessageBox.LayerStatus.ValueChange">
-      <Source xsi:type="opcUa.Event" refId="::FileMgt:MpFileManagerUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
+      <Source xsi:type="opcUa.Event" refId="::FileMgr:MpFileManagerUIConnect.MessageBox.LayerStatus" event="ValueChanged" />
       <Operand datatype="ANY_INT" name="MsgType">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgt:MpFileManagerUIConnect.MessageBox.Type">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:MpFileManagerUIConnect.MessageBox.Type">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
@@ -71,7 +71,7 @@
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="FileFIFO_dialog" headerText="$IAT/File/FIFO.Configure" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="FileFIFO_dialog" />
           </Target>
         </Action>
       </EventHandler>

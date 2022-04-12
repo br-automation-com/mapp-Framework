@@ -44,21 +44,15 @@
         </Binding>
         
     <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Status.DeviceDataProvider" attribute="value" />
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.DeviceDataProvider" attribute="value" />
 <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="DropDownBoxDevice" attribute="dataProvider" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="CheckBoxOverwriteOldest" attribute="value" />
 <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumericInputOverwrite" attribute="enable" />
 </Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Mode.Hour" attribute="node" />
-<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumInHour" attribute="node" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Mode.Minute" attribute="node" />
-<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumInMinute" attribute="node" />
-</Binding>
+
+
 
 <Binding mode="twoWay">
 <Source xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="CheckBoxEnable" attribute="value" />
@@ -70,28 +64,37 @@
 </Binding>
 
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Device" attribute="value" />
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.Device" attribute="value" />
 <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="DropDownBoxDevice" attribute="selectedValue" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Prefix" attribute="value" />
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.Prefix" attribute="value" />
 <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="TextInputPrefix" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Mode.Interval" attribute="value" />
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.Mode.Interval" attribute="value" />
 <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="DropDownInterval" attribute="selectedIndex" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.Enable" attribute="value" />
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.Enable" attribute="value" />
 <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="CheckBoxEnable" attribute="value" />
 </Binding>
+
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.OverwriteOldest.MaximumNumberOfBackups" attribute="node" />
-<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumericInputOverwrite" attribute="node" />
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.OverwriteOldest.Enabled" attribute="value" />
+<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="CheckBoxOverwriteOldest" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::BackupMgt:hmiBackup.Parameters.AutomaticBackup.OverwriteOldest.Enabled" attribute="value" />
-<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="CheckBoxOverwriteOldest" attribute="value" />
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.Mode.Hour" attribute="value" />
+<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumInHour" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.Mode.Minute" attribute="value" />
+<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumInMinute" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.OverwriteOldest.MaximumNumberOfBackups" attribute="value" />
+<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumericInputOverwrite" attribute="value" />
 </Binding>
 </Bindings>
 </BindingsSet>

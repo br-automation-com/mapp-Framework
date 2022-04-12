@@ -8,47 +8,50 @@
     ],
     "mapp" :
     [
+        "MpBase",
         "MpUserX",
-        "MpServer",
-        "MpBase"
+		"MpFile"
     ],
     "files" :
     [
         "Logical\\Infrastructure\\Project.language",
         "Logical\\Infrastructure\\mappFrameworkGlobal.var",
         "Logical\\Infrastructure\\UserX",
-        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\UserX",
-        "Physical\\PPC2200\\5PPC2200_AL14_000\\AccessAndSecurity\\UserRoleSystem"
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\AccessAndSecurity\\UserRoleSystem",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\UserX"
     ],
     "mappViewfiles" :
     [
+        "Logical\\Libraries\\MpServer",
         "Logical\\mappView\\Layouts\\SmallDialog.layout",
         "Logical\\mappView\\Layouts\\LargeDialog.layout",
-        "Logical\\mappView\\Resources\\Texts\\HMI_PagesTexts\\UserMgtPageTexts.tmx",
-        "Logical\\mappView\\Resources\\Texts\\Infrastructure_Texts\\MpUserXLogin_Alarms.tmx",
+		"Logical\\mappView\\Layouts\\StandardPage.layout",
+        "Logical\\mappView\\Resources\\Texts\\mappFrameworkTexts\\UserXPageTexts.tmx",
+		"Logical\\mappView\\Resources\\Texts\\mappFrameworkTexts\\UserManualPageTexts.tmx",
         "Logical\\mappView\\Resources\\Texts\\UserList.tmx",
         "Logical\\mappView\\Resources\\Snippets\\User.snippet",
         "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat1",
         "Logical\\mappView\\Resources\\Media",
-        "Logical\\mappView\\Layouts\\DefaultPage.layout",
         "Logical\\mappView\\Visualization\\Pages\\FrameworkPackage\\UserXContent",
-        "Logical\\mappView\\Visualization\\Pages\\StartPage",
+        "Logical\\mappView\\Visualization\\Pages\\DemoPage",
         "Logical\\mappView\\Visualization\\Variables\\UserX.svar",
         "Logical\\mappView\\Visualization\\Dialogs\\UserXDialogs",
-        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\UserXMgt.uad",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\UserXMgr.uad",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Config.mappviewcfg",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\UserX",
+		"Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\DemoPage",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\UserX.vis"
     ],
     "physical":
     {
         "deployTasks" :
         [
-            "Infrastructure.UserX.UserXMgt.prg"
+            "Infrastructure.UserX.UserXMgr.prg"
         ],
         "fileDevices" :
         [
-            "userPartition",
-            "mappUserX"
+            "UserPartition",
+            "mappUserXFiles"
         ],
         "enableOpcUa" : false,
         "UserPartitionSize" : true

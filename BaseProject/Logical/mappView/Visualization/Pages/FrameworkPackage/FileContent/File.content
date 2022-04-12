@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="File_content" height="620" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Table" id="FileFolderTable" top="155" left="195" width="770" height="335" zIndex="0">
+    <Widget xsi:type="widgets.brease.Table" id="FileFolderTable" top="155" left="195" width="695" height="335" zIndex="0">
       <Widgets>
         <Widget xsi:type="widgets.brease.TableItemImageList" id="TableItemImageListType" zIndex="0" columnWidth="65" imageList="['Folder.svg', 'File.svg', 'FileSelected.svg']" imagePrefix="Media/SymbolLib/File/" />
-        <Widget xsi:type="widgets.brease.TableItem" id="ObjectNames" zIndex="1" columnWidth="405" text="$IAT/File/Files" />
+        <Widget xsi:type="widgets.brease.TableItem" id="ObjectNames" zIndex="1" columnWidth="330" text="$IAT/File/Files" />
         <Widget xsi:type="widgets.brease.TableItemDateTime" id="TableItemDateTime1" zIndex="2" columnWidth="180" format="$IAT/File/DateTimeFormat" text="$IAT/File/Timestamp" />
         <Widget xsi:type="widgets.brease.TableItem" id="FileSize" zIndex="3" columnWidth="120" showUnit="true" text="$IAT/File/Size" unit="{'metric':'2P','imperial':'2P','imperial-us':'2P'}" />
       </Widgets>
@@ -14,14 +14,14 @@
         <Widget xsi:type="widgets.brease.TableItem" id="FileDeviceListItem" zIndex="0" columnWidth="160" text="$IAT/File/Devices" />
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.PushButton" id="ButtonRename" top="560" left="25" width="130" height="50" zIndex="2" text="$IAT/File/Rename" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
+    <Widget xsi:type="widgets.brease.PushButton" id="ButtonRename" top="560" left="25" width="130" height="50" zIndex="2" text="$IAT/File/Rename" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
     <Widget xsi:type="widgets.brease.PushButton" id="ButtonDelete" top="560" left="844" width="130" height="50" zIndex="3" text="$IAT/File/Delete" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
-    <Widget xsi:type="widgets.brease.PushButton" id="ButtonCut" top="560" left="516" width="130" height="50" zIndex="4" text="$IAT/File/Cut" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
-    <Widget xsi:type="widgets.brease.PushButton" id="ButtonPaste" top="560" left="680" width="130" height="50" zIndex="5" text="$IAT/File/Paste" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
-    <Widget xsi:type="widgets.brease.PushButton" id="ButtonCopy" top="560" left="353" width="130" height="50" zIndex="6" text="$IAT/File/Copy" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
-    <Widget xsi:type="widgets.brease.PushButton" id="ButtonCreateDir" top="560" left="189" width="130" height="50" zIndex="7" breakWord="true" multiLine="true" text="$IAT/File/CreateDir" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
-    <Widget xsi:type="widgets.brease.PushButton" id="ButtonRefresh" top="155" left="975" width="130" height="50" zIndex="8" text="$IAT/File/Refresh" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
-    <Widget xsi:type="widgets.brease.ToggleButton" id="ButtonMultiSelect" top="225" left="975" width="130" height="50" zIndex="9" text="$IAT/File/MultiSelect" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.PushButton" id="ButtonCut" top="560" left="516" width="130" height="50" zIndex="4" text="$IAT/File/Cut" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.PushButton" id="ButtonPaste" top="560" left="680" width="130" height="50" zIndex="5" text="$IAT/File/Paste" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.PushButton" id="ButtonCopy" top="560" left="353" width="130" height="50" zIndex="6" text="$IAT/File/Copy" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.PushButton" id="ButtonCreateDir" top="560" left="189" width="130" height="50" zIndex="7" breakWord="true" multiLine="true" text="$IAT/File/CreateDir" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.PushButton" id="ButtonRefresh" top="155" left="905" width="200" height="50" zIndex="8" text="$IAT/File/Refresh" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ButtonMultiSelect" top="225" left="905" width="200" height="50" zIndex="9" text="$IAT/File/MultiSelect" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
     <Widget xsi:type="widgets.brease.Label" id="LblSort" top="110" left="30" width="150" height="35" zIndex="10" text="$IAT/File/Sort" borderWidth="2px" borderStyle="none" fontName="Arial Unicode" fontSize="16px" bold="true" />
     <Widget xsi:type="widgets.brease.Label" id="LblSearch" top="60" left="30" width="150" height="35" zIndex="11" text="$IAT/File/Search" borderWidth="2px" borderStyle="none" fontName="Arial Unicode" fontSize="16px" bold="true" />
     <Widget xsi:type="widgets.brease.Label" id="LblPath" top="10" left="30" width="150" height="35" zIndex="12" text="$IAT/File/Path" borderWidth="2px" borderStyle="none" fontName="Arial Unicode" fontSize="16px" bold="true" />
@@ -33,6 +33,6 @@
     <Widget xsi:type="widgets.brease.Label" id="LblRename" top="510" left="25" width="285" height="35" zIndex="18" text="$IAT/File/NewName" borderWidth="2px" borderStyle="none" fontName="Arial Unicode" fontSize="16px" bold="true" />
     <Widget xsi:type="widgets.brease.TextInput" id="txtInNewName" top="510" left="355" width="325" height="35" zIndex="19" value="New Name Folder / File" style="Input" />
     <Widget xsi:type="widgets.brease.TextOutput" id="txtOutCurrentDevice" top="13" left="375" width="140" height="35" zIndex="20" value="Current Device" borderWidth="0px 2px 0px 0px" borderStyle="solid" />
-    <Widget xsi:type="widgets.brease.ToggleButton" id="ButtonFIFOConfigure" top="80" left="975" width="130" height="50" zIndex="21" breakWord="true" multiLine="true" text="$IAT/File/FIFO.Configure" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ButtonFIFOConfigure" top="80" left="905" width="200" height="50" zIndex="21" breakWord="true" multiLine="true" text="$IAT/File/FIFO.Configure" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
   </Widgets>
 </Content>

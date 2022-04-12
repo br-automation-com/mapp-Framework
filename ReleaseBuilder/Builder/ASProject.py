@@ -137,6 +137,8 @@ class ASLibrary:
             shutil.copyfile(self._projectDir + '\\Temp\\Includes\\' + self.name + '.h', exportDir + '\\SG4\\' + self.name + '.h')
             for c in self._configurations:
                 config = self._configurations[c]
+                if (os.path.isfile(self._projectDir + '\\Temp\\Objects\\' + config._name + '\\ConfigurationOptions.opt') == False):
+                    continue
                 root = ET.parse(self._projectDir + '\\Temp\\Objects\\' + config._name + '\\ConfigurationOptions.opt').getroot()
                 target = root.get('Target')
                 shutil.copyfile(self._projectDir + '\\Temp\\Archives\\' + config._name + '\\' + config._cpuName + '\\lib' + self.name + '.a', exportDir + '\\' + target + '\\lib' + self.name + '.a')
@@ -163,17 +165,17 @@ class ASPackage:
         self.libraries = []
         objects = ET.parse(directory + '\\Package.pkg').getroot().find(ASPackage.Namespace() + 'Objects')
         for o in objects.findall(ASPackage.Namespace() + 'Object'):
-            if (o.get('Type') == ASPackage.Type()):
+            if ((os.path.isdir(self._directory + '\\' + o.text)) and (o.get('Type') == ASPackage.Type())):
                 self.packages.append(ASPackage(o.text, self._directory + '\\' + o.text, projectDir, configurations))
-            elif (o.get('Type') == ASLibrary.Type()):
+            elif ((os.path.isdir(self._directory + '\\' + o.text)) and (o.get('Type') == ASLibrary.Type())):
                 try:
                     description = o.attrib['Description']
                     self.libraries.append(ASLibrary(o.text, self._directory + '\\' + o.text, projectDir, configurations, description))
                 except:
                     self.libraries.append(ASLibrary(o.text, self._directory + '\\' + o.text, projectDir, configurations))
-            elif (o.get('Type') == ASTask.Type()):
+            elif ((os.path.isdir(self._directory + '\\' + o.text)) and (o.get('Type') == ASTask.Type())):
                 self.tasks.append(ASTask(o.text, self._directory + '\\' + o.text))
-            elif (o.get('Type') == 'File'):
+            elif ((os.path.isfile(self._directory + '\\' + o.text)) and (o.get('Type') == 'File')):
                 self.files.append(o.text)
 
 class ASConfiguration:
@@ -284,11 +286,11 @@ class ASProject:
         self.projectName = ASProject.__projectName(projectDir)
         self._configurations = {}
         objects = ET.parse(projectDir + '\\Physical\\Physical.pkg').getroot().find(ASConfiguration.Namespace() + 'Objects')
-        [self.addConfiguration(ASConfiguration(o.text, projectDir + '\\Physical\\' + o.text)) for o in objects.findall(ASConfiguration.Namespace() + 'Object') if o.get('Type') == ASConfiguration.Type()]
+        [self.addConfiguration(ASConfiguration(o.text, projectDir + '\\Physical\\' + o.text)) for o in objects.findall(ASConfiguration.Namespace() + 'Object') if ((os.path.isdir(projectDir + '\\Physical\\' + o.text)) and (o.get('Type') == ASConfiguration.Type()))]
 
         self._packages = []
         objects = ET.parse(projectDir + '\\Logical\\Package.pkg').getroot().find(ASPackage.Namespace() + 'Objects')
-        [self.addPackage(ASPackage(o.text, projectDir + '\\Logical\\' + o.text, projectDir, self._configurations)) for o in objects.findall(ASPackage.Namespace() + 'Object') if o.get('Type') == ASPackage.Type()]
+        [self.addPackage(ASPackage(o.text, projectDir + '\\Logical\\' + o.text, projectDir, self._configurations)) for o in objects.findall(ASPackage.Namespace() + 'Object') if ((os.path.isdir(projectDir + '\\Logical\\' + o.text)) and (o.get('Type') == ASPackage.Type()))]
 
     def addConfiguration(self, configuration):
         self._configurations[configuration._name] = configuration

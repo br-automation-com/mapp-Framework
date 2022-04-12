@@ -4,45 +4,51 @@
         "runtime",
         "FileIO",
         "AsBrStr",
+		"AsUSB",
         "standard"
     ],
     "mapp" :
     [
-        "MpFile",
-        "MpServer",
-        "MpBase"
+        "MpBase",
+        "MpFile"
     ],
     "files" :
     [
         "Logical\\Infrastructure\\Project.language",
         "Logical\\Infrastructure\\mappFrameworkGlobal.var",
         "Logical\\Infrastructure\\File",
+		"Logical\\Infrastructure\\Usb",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\AccessAndSecurity\\UserRoleSystem",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappServices\\File"
     ],
     "mappViewfiles" :
     [
-        
+        "Logical\\Libraries\\MpServer",        
         "Logical\\mappView\\Layouts\\SmallDialog.layout",
-        "Logical\\mappView\\Resources\\Texts\\HMI_PagesTexts\\FileTexts.tmx",
+		"Logical\\mappView\\Layouts\\StandardPage.layout",
+        "Logical\\mappView\\Resources\\Texts\\mappFrameworkTexts\\FileTexts.tmx",
+		"Logical\\mappView\\Resources\\Texts\\mappFrameworkTexts\\UserManualPageTexts.tmx",
         "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat1",
         "Logical\\mappView\\Resources\\Media",
-        "Logical\\mappView\\Layouts\\DefaultPage.layout",
         "Logical\\mappView\\Visualization\\Pages\\FrameworkPackage\\FileContent",
-        "Logical\\mappView\\Visualization\\Pages\\StartPage",
+        "Logical\\mappView\\Visualization\\Pages\\DemoPage",
         "Logical\\mappView\\Visualization\\Dialogs\\FileDialogs",
-        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\FileMgt.uad",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\Connectivity\\OpcUA\\FileMgr.uad",
+        "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\Config.mappviewcfg",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\File",
+		"Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\DemoPage",
         "Physical\\PPC2200\\5PPC2200_AL14_000\\mappView\\File.vis"
     ],
     "physical":
     {
         "deployTasks" :
         [
-            "Infrastructure.File.FileMgt.prg"
+            "Infrastructure.File.FileMgr.prg",
+			"Infrastructure.Usb.UsbMgr.prg"
         ],
         "fileDevices" :
         [
-            "userPartition"
+            "UserPartition"
         ],
         "enableOpcUa" : false,
         "UserPartitionSize" : true

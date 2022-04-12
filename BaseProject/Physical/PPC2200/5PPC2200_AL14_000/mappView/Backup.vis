@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <vdef:Visualization id="MyVisuBackup" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
-	<StartPage pageRefId="Start_page" />
-	<Pages>
+	<StartPage pageRefId="Demo_page" />
+    <Pages>
+        <Page refId="Demo_page" />
     </Pages>
     <Navigations>
         <!--<Navigation refId="" />-->
@@ -9,14 +10,17 @@
     <BindingsSets>
         <BindingsSet refId="BackupDialog_Create_content_binding" />
         <BindingsSet refId="Backup_content_binding" />
-        <BindingsSet refId="BackupDialog_AutoSettings_content_binding" />
+		<BindingsSet refId="BackupDialog_AutoSettings_content_binding" />
+		<BindingsSet refId="Backup_Navigation_content_binding" />
     </BindingsSets>
     <EventBindingsSets>
         <EventBindingsSet refId="Backup_content_eventbinding" />
         <EventBindingsSet refId="BackupDialog_Create_content_eventbinding" />
         <EventBindingsSet refId="BackupDialog_Delete_content_eventbinding" />
         <EventBindingsSet refId="BackupDialog_Restore_content_eventbinding" />
-        <EventBindingsSet refId="BackupDialog_AutoSettings_content_eventbinding" />
+		<EventBindingsSet refId="BackupDialog_AutoSettings_content_eventbinding" />
+		<EventBindingsSet refId="Backup_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Navigation_content_eventbinding" />
     </EventBindingsSets>
     <Dialogs>
         <Dialog refId="BackupCreate_dialog" />
@@ -26,6 +30,8 @@
     </Dialogs>
     <Contents > 
         <Content refId="Backup_content" />
+		<Content refId="Help_content" />
+		<Content refId="Navigation_content" />
     </Contents>	
     <SnippetsSets>
     </SnippetsSets>
