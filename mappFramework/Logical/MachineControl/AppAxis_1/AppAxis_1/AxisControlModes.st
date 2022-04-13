@@ -14,7 +14,8 @@ END_ACTION
 
 ACTION AxisManual:
     // Action handling manual axis control
-    MpAxisParameters.Jog.Velocity := AxisControl.Parameters.JogVelocity;
+    MpAxisParameters.Jog.Velocity := AxisControl.Parameters.Velocity;
+	MpAxisParameters.Velocity := AxisControl.Parameters.Velocity;
     MpAxisParameters.Position := AxisControl.Parameters.Position;
     MpAxisParameters.Distance := AxisControl.Parameters.Distance;
     MpAxisParameters.Acceleration := AxisControl.Parameters.Acceleration;
@@ -70,8 +71,10 @@ ACTION AxisManual:
             MpAxisBasic_0.JogPositive := FALSE;
             MpAxisBasic_0.MoveAbsolute := FALSE;
             MpAxisBasic_0.MoveAdditive := FALSE;
+			MpAxisBasic_0.Stop := TRUE;
 
             IF (MpAxisBasic_0.MoveActive = FALSE) THEN
+				MpAxisBasic_0.Stop := FALSE;
                 ManualState := MANUAL_STATE_IDLE;
                 State := STATE_READY;
             END_IF
