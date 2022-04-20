@@ -148,6 +148,9 @@ pipeline {
         {
             environment {
                 TAG = Tag()
+                VERSION = Version().substring(0, Version().lastIndexOf('.'));
+                FILENAME = "AS4_TP_mappFramework_";
+                FILEVERSION = Version().substring(1);
             }
             when
             {
@@ -155,12 +158,16 @@ pipeline {
             }
             steps {
                 bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\$TAG\\\" /y"
+                pwsh ". '$ProjectBuilderScripts\\UploadToGitHub.ps1' $VERSION br-na-pm mappFramework \"ReleaseBuilder\\InstallerSetup\\Install\\${FILENAME}${FILEVERSION}.exe\""
             }
         }
         stage('Deploy Feature')
         {
             environment {
-                BRANCH = Branch()
+                BRANCH = Branch();
+                VERSION = Version().substring(0, Version().lastIndexOf('.'));
+                FILENAME = "AS4_TP_mappFramework_";
+                FILEVERSION = Version().substring(1);
             }
             when
             {
@@ -171,6 +178,7 @@ pipeline {
             }
             steps {
                 bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\$BRANCH\\\" /y"
+                pwsh ". '$ProjectBuilderScripts\\UploadToGitHub.ps1' $VERSION br-na-pm mappFramework \"ReleaseBuilder\\InstallerSetup\\Install\\${FILENAME}${FILEVERSION}.exe\""
             }
         }
 
