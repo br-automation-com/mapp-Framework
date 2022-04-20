@@ -19,7 +19,8 @@ ACTION AxisManual:
     MpAxisParameters.Position := AxisControl.Parameters.Position;
     MpAxisParameters.Distance := AxisControl.Parameters.Distance;
     MpAxisParameters.Acceleration := AxisControl.Parameters.Acceleration;
-    MpAxisParameters.Deceleration := AxisControl.Parameters.Deceleration;
+	MpAxisParameters.Deceleration := AxisControl.Parameters.Deceleration;
+	MpAxisParameters.Stop.Deceleration := AxisControl.Parameters.StopDeceleration;
     
     CASE ManualState OF
 	// Wait state
