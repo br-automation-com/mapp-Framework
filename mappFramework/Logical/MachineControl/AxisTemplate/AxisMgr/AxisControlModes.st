@@ -57,7 +57,7 @@ ACTION AxisManual:
                 MpAxisBasic_0.MoveAbsolute := FALSE;
                 MpAxisBasic_0.MoveAdditive := FALSE;
                 ManualState := MANUAL_STATE_IDLE;
-                state := STATE_READY;
+                State := STATE_READY;
             ELSIF ((AxisControl.Command.JogNegative = TRUE) OR (AxisControl.Command.JogPositive = TRUE)) THEN
                 MpAxisBasic_0.MoveAbsolute := FALSE;
                 MpAxisBasic_0.MoveAdditive := FALSE;
@@ -74,7 +74,7 @@ ACTION AxisManual:
             IF (MpAxisBasic_0.MoveActive = FALSE) THEN
 				MpAxisBasic_0.Stop := FALSE;
                 ManualState := MANUAL_STATE_IDLE;
-                state := STATE_READY;
+                State := STATE_READY;
             END_IF
     END_CASE
     
@@ -100,7 +100,7 @@ ACTION AxisAutomatic:
             IF (AxisControl.Command.Stop = TRUE) THEN
                 AxisControl.Command.Stop := FALSE;
                 MpAxisBasic_0.MoveVelocity := FALSE;
-                state := STATE_READY;
+                State := STATE_READY;
                 AutomaticState := AUTOMATIC_STATE_IDLE;
             END_IF
     END_CASE
