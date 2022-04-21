@@ -53,7 +53,7 @@
       </Group>
       <Group ID="[1]">
         <Property ID="Name" Value="AppAxis_1SpeedNotSet" />
-        <Property ID="Message" Value="{$IAT/AppAxis_1/Info/Name} : {$Axis/Alarms/AppAxis_1SpeedNotSet}" />
+        <Property ID="Message" Value="{$IAT/AppAxis_1/Info/Name} : {$Axis/Alarms/AxisSpeedNotSet}" />
         <Property ID="Code" Value="250" />
         <Property ID="Severity" Value="20" />
         <Selector ID="Behavior">
@@ -63,7 +63,7 @@
     </Group>
     <Group ID="mapp.AlarmX.Core.Snippets">
       <Group ID="[0]">
-        <Property ID="Key" Value="AppAxis_1Speed" />
+        <Property ID="Key" Value="AxisSpeed" />
         <Selector ID="Value">
           <Property ID="PV" Value="::AppAxis_1:AxisControl.Parameters.Velocity" />
         </Selector>
