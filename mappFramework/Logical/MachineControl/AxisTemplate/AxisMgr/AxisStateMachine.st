@@ -60,8 +60,10 @@ ACTION AxisStateMachine:
                 MpAxisBasic_0.Home := TRUE;
                 MpAxisParameters.Homing.Mode := mcHOMING_DEFAULT;
                 AxisControl.Status.Busy := TRUE;
-            ELSIF (MC_BR_CheckRestorePositionData_0.Busy = FALSE) THEN
+            ELSIF ((MC_BR_CheckRestorePositionData_0.Done = TRUE) AND (MC_BR_CheckRestorePositionData_0.DataValid = FALSE)) THEN
                 AxisControl.Status.ReferenceRequired := TRUE;
+                State := STATE_REFERENCE;
+            ELSIF (MC_BR_CheckRestorePositionData_0.Execute = FALSE) THEN
                 State := STATE_REFERENCE;
             END_IF
             
