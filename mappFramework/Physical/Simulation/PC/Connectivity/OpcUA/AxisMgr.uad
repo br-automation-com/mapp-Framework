@@ -15,6 +15,12 @@
         <ACE RoleName="Operators" Access="0x01FF" />
         <ACE RoleName="Everyone" Access="0x017F" />
       </ACL>
+      <ACL Id="4">
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x005F" />
+      </ACL>
     </ACLAliases>
     <EURangeViolationAliases />
     <EURangesAliases />
@@ -30,7 +36,7 @@
     <Module Name="&lt;Default&gt;">
       <Task Name="AppAxis_1">
         <Variable Name="AxisControl" AutomaticEnable="True">
-          <Variable Name="Parameters">
+          <Variable AclId="4" AclInherit="2" Name="Parameters">
             <Variable Name="Position" EngineeringUnitId="1" />
             <Variable Name="Distance" EngineeringUnitId="1" />
             <Variable Name="HomePosition" EngineeringUnitId="1" />
@@ -38,17 +44,18 @@
             <Variable Name="Deceleration" EngineeringUnitId="2" />
             <Variable Name="Velocity" EngineeringUnitId="3" />
           </Variable>
-          <Variable Name="Status">
+          <Variable AclInherit="1" Name="Status">
             <Variable Name="LagError" EngineeringUnitId="1" />
             <Variable Name="Position" EngineeringUnitId="1" />
             <Variable Name="Velocity" EngineeringUnitId="3" />
             <Variable Name="Current" EngineeringUnitId="4" />
             <Variable Name="MotorTemperature" EngineeringUnitId="5" />
           </Variable>
+          <Variable AclId="4" AclInherit="2" Name="Command" />
         </Variable>
-        <Variable Name="AxisRecipe" AutomaticEnable="True" />
+        <Variable AclId="3" AclInherit="2" Name="AxisRecipe" AutomaticEnable="True" />
         <Variable Name="MpAxisBasic_0">
-          <Variable Name="Active" />
+          <Variable AclInherit="1" Name="Active" />
         </Variable>
       </Task>
     </Module>
