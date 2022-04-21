@@ -102,6 +102,7 @@ ACTION AxisAutomatic:
             END_IF
 
             IF ((AxisControl.Command.Start = FALSE) OR (AxisControl.Command.Stop = TRUE)) THEN
+                AxisControl.Command.Start := FALSE;
                 AxisControl.Command.Stop := FALSE;
                 MpAxisBasic_0.MoveVelocity := FALSE;
                 State := STATE_READY;
