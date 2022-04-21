@@ -82,30 +82,39 @@ ACTION AxisManual:
 END_ACTION
 
 ACTION AxisAutomatic:
-	// Action handling automatic mode
+    
     CASE AutomaticState OF
-		// Wait state
         AUTOMATIC_STATE_IDLE:
             IF (AxisControl.Command.Start = TRUE) THEN
                 MpAlarmXControl_SpeedNotSet.Set := (MpAxisParameters.Velocity = 0);
-                AxisControl.Command.Start := FALSE;
                 AutomaticState := AUTOMATIC_STATE_RUNNING;
             END_IF
-        // Automatic mode commands    
+            
         AUTOMATIC_STATE_RUNNING:
             MpAxisBasic_0.MoveVelocity := TRUE;
-            MpAxisParameters.Velocity := AxisControl.Parameters.Velocity;
             MpAxisParameters.Acceleration := AxisControl.Parameters.Acceleration;
             MpAxisParameters.Deceleration := AxisControl.Parameters.Deceleration;
+            MpAxisParameters.Velocity := ABS(AxisControl.Parameters.Velocity);
+            IF (AxisControl.Parameters.Velocity < 0) THEN
+                MpAxisParameters.Direction := mcDIR_NEGATIVE;
+            ELSE
+                MpAxisParameters.Direction := mcDIR_POSITIVE;
+            END_IF
 
-            IF (AxisControl.Command.Stop = TRUE) THEN
+            IF ((AxisControl.Command.Start = FALSE) OR (AxisControl.Command.Stop = TRUE)) THEN
                 AxisControl.Command.Stop := FALSE;
                 MpAxisBasic_0.MoveVelocity := FALSE;
                 State := STATE_READY;
                 AutomaticState := AUTOMATIC_STATE_IDLE;
-            END_IF
+            ELSIF (AxisControl.Command.UpdateVelocity = TRUE) THEN
+                AxisControl.Command.UpdateVelocity := FALSE;
+                MpAlarmXControl_SpeedNotSet.Set := (MpAxisParameters.Velocity = 0);
+                MpAxisBasic_0.Update := TRUE;
+            ELSIF (MpAxisBasic_0.UpdateDone = TRUE) THEN
+                MpAxisBasic_0.Update := FALSE;
+            END_IF        
     END_CASE
-
+    
 END_ACTION
 
 
