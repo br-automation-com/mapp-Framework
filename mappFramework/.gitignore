@@ -1,0 +1,34 @@
+# Git Repository File Ignore Specifications
+# B&R Automation Studio project directory files
+
+# Ignore AR versions as those are not considered part of the project
+/AS/System/
+# Ignore build results
+/Binaries/
+# Ignore (all) debugging content
+/Diagnosis/**
+# But save the watch windows and task trace configurations (if it should stay in the repository)
+!/Diagnosis/**/
+!/Diagnosis/**/*.PVM
+!/Diagnosis/**/*.tc
+# Ignore Temporary Safety files
+/Physical/*/*/*/DLFiles/
+# Ignore standard temp folder
+/Temp/
+# Ignore upgrades as those are not considered part of the project source code
+/Upgrades/
+# Ignore user settings file
+/*.set
+# Ignore is open indication
+/*.isopen
+# Ignore debug logs
+/debug.log
+
+# Ignore .zip files, for the moment
+*.zip
+
+# Ignore temp files
+*~
+~*
+*.[Bb]ak
+*.[Oo]rig
