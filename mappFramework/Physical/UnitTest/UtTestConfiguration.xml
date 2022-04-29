@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testconfiguration>
+<tests />
+<config-def id="AS_Test_Configuration">
+<test timeout="60" name="FileMgr" /></config-def>
+<settings id="AS_Test_Setting" timeout="60" communication-protocol="http" port="80" host="http://127.0.0.1" />
+<run StartTestsAfterTransfer="true" setting="AS_Test_Setting" configuration="AS_Test_Configuration" />
+</testconfiguration>
