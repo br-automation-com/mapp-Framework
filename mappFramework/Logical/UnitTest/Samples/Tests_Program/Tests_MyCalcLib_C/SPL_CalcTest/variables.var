@@ -1,0 +1,17 @@
+(********************************************************************
+ * COPYRIGHT -- Bernecker + Rainer
+ ********************************************************************
+ * Program: SPL_CalcTest
+ * Author: B+R
+ ********************************************************************
+ * Local variables of program SPL_CalcTest
+ * General variables - do not change
+ ********************************************************************)
+(*Describe the test*)
+VAR
+	Testsuite : UtMgrTestSuite := (Name:='SPL_MyCalcTests',Description:='Tests for MyCalc',Type:=utMgrTEST_TYPE_C,MetaInformation:='Some Meta Information can be added here');
+END_VAR
+(*Variables used in the tests*)
+VAR
+	instMyCalc : MyCalculator := (0);
+END_VAR
