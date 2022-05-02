@@ -1,12 +1,12 @@
 ## Documentation for the mapp Framework
-For a full description of the mapp Framework and how to use it, [download](https://github.com/br-na-pm/mapp-Framework/releases) and install the Framework. Then refer to the Automation Studio Help at the following path: 
+For a full description of the mapp Framework and how to use it, [download](https://github.com/br-automation-com/mapp-Framework/releases) and install the Framework. Then refer to the Automation Studio Help at the following path: 
 **mapp Technology -> mapp Framework**
 
 
 ## Intended Use of this Repository
 Cloning this Git repository for the mapp Framework is only intended to be used by applications engineers that would like to submit a code change or a new piece of code to the Framework. This could be a bugfix, new feature, etc. The project in the repository uses AS4.11 and mapp 5.18.  
 
-Cloning the Git repository is not necessary to simply use the Framework. Refer to the [releases page](https://github.com/br-na-pm/mapp-Framework/releases) to download the latest .exe. 
+Cloning the Git repository is not necessary to simply use the Framework. Refer to the [releases page](https://github.com/br-automation-com/mapp-Framework/releases) to download the latest .exe. 
 
 
 
