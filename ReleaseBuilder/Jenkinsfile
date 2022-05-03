@@ -101,7 +101,8 @@ pipeline {
                         try { 
                             powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --file $HELP_FILE --name $HELP_NAME --output \"$HELP_OUTPUT\"");
                             powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --file $GERMAN_HELP_FILE --name $HELP_NAME --output \"$HELP_OUTPUT\" --language de");
-                        } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e) {
+                            powershell(returnStdout: true, script: "& \"C:\\Program Files (x86)\\IBE Software\\HelpNDoc 6\\hnd6.exe\" \"$HELP_LOCATION\\${HELP_FILE}\" -s build -x=\"Build PDF documentation\" -o=\"Build PDF documentation:${PROJECT_DIR}\\Logical\\mappView\\Resources\\Media\\Documents\\mappFrameworkEN.pdf\"");
+                            powershell(returnStdout: true, script: "& \"C:\\Program Files (x86)\\IBE Software\\HelpNDoc 6\\hnd6.exe\" \"$HELP_LOCATION\\${GERMAN_HELP_FILE}\" -s build -x=\"Build PDF documentation\" -o=\"Build PDF documentation:${PROJECT_DIR}\\Logical\\mappView\\Resources\\Media\\Documents\\mappFrameworkDE.pdf\"");                        } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e) {
                             caughtException = e;
                             error "Timeout Exceeded";
                         } catch (Throwable e) {
