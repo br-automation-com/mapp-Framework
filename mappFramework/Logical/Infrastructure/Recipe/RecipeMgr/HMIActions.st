@@ -79,10 +79,10 @@ ACTION RecipeHMIcommands:
 			
 			Header.Name := MpRecipeUIConnect.New.FileName;
 			DTGetTime_0.enable := TRUE;
-			DTGetTime_0();
-			WHILE DTGetTime_0.status <> 0 DO
+			REPEAT
 				DTGetTime_0();
-			END_WHILE;
+				UNTIL  (DTGetTime_0.status <> 0)
+			END_REPEAT;
 			Header.DateTime := DTGetTime_0.DT1;
 			DTGetTime_0.enable := FALSE;
 			DTGetTime_0();
