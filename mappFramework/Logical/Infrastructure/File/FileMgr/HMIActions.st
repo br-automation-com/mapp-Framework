@@ -19,11 +19,12 @@ ACTION FormatDeviceDataProvider:
         END_IF
     END_FOR
 	
+	MaxDeviceNameIndex := ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1);
 	//Check initilized folder for existance and remove any from the device list that don't exist	
 	IF DirInfo_0.status = ERR_OK  THEN		
 		IF PathCheck.DeviceList.DeviceNames[DeviceListCount] = '' THEN
 			//Delete entries past the actual number of devices found
-			FOR i:=Index TO 9 DO 
+			FOR i:=Index TO MaxDeviceNameIndex DO 
 				MpFileManagerUIConnect.DeviceList.DeviceNames[i] := '';
 			END_FOR
 			Index := -1;
@@ -34,24 +35,24 @@ ACTION FormatDeviceDataProvider:
 		Index := Index + 1;	
 
 		DeviceListCount := DeviceListCount + 1;
-		IF DeviceListCount > 9 THEN
+		IF (DeviceListCount > MaxDeviceNameIndex) THEN
 			DeviceListCount := 0;
 		END_IF
-		IF Index > 9 THEN
+		IF (Index > MaxDeviceNameIndex) THEN
 			Index := 0;
 		END_IF
 	ELSIF DirInfo_0.status = fiERR_DIR_NOT_EXIST  THEN
 		DeviceListCount := DeviceListCount + 1;
-		IF DeviceListCount > 9 THEN
+		IF DeviceListCount > ((SIZEOF(PathCheck.DeviceList.DeviceNames) / SIZEOF(PathCheck.DeviceList.DeviceNames[0])) - 1) THEN
 			DeviceListCount := 0;
-		END_IF	
+		END_IF
 	END_IF		
 	
 	DirInfo_0(enable:= TRUE, pDevice := ADR('UserPartition'), pPath := ADR(PathCheck.Folder[DeviceListCount]));
 		
 	// Configure visible device list
 	HmiFile.Status.TableConfig[0] := '{ "specRows": [{"from":';
-	FOR i := 0 TO 9 DO
+	FOR i := 0 TO MaxDeviceNameIndex DO
 		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
 			DeviceCount := i + 1;
 		END_IF

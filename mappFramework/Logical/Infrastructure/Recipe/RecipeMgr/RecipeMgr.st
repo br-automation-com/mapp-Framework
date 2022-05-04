@@ -130,7 +130,6 @@ PROGRAM _CYCLIC
 		MpRecipe_0.Load := FALSE;
 		MpRecipe_0.Save := FALSE;
 		// Set update notification for machine category
-	//	IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
 		IF ((brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
 			MpRecipe_0.UpdateNotification := TRUE;	
 		ELSE
@@ -138,7 +137,7 @@ PROGRAM _CYCLIC
 			HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
 			HmiRecipe.Parameters.FileName := 'Default.par';
 		END_IF
-		END_IF
+	END_IF
 	
     
 	// Error reset
