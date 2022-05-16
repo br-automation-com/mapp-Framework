@@ -1,21 +1,21 @@
 ACTION FormatDeviceDataProvider:
     
 	// Select CF device if USB device is not available
-    FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
+    FOR i := 1 TO MAX_IDX_USB_DEV_LIST DO
         IF gUSBAvailable[i] THEN
 	
-			HmiFile.Status.DeviceDataProvider[i + USBOffset] := '{"value":"USB';
-            brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset])));
+			HmiFile.Status.DeviceDataProvider[i + USBOffset - 1] := '{"value":"USB';
+            brsitoa(i, ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset - 1]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset - 1])));
             
-			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset]), ADR('","text":"USB'));
-            brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset])));
-            brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset]), ADR('"}'));
+			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset - 1]), ADR('","text":"USB'));
+            brsitoa(i, ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset - 1]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset - 1])));
+            brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset - 1]), ADR('"}'));
            
-			PathCheck.DeviceList.DeviceNames[i + USBOffset] := 'USB';
-			brsitoa(i + 1, ADR(PathCheck.DeviceList.DeviceNames[i + USBOffset]) + brsstrlen(ADR(PathCheck.DeviceList.DeviceNames[i + USBOffset])));
+			PathCheck.DeviceList.DeviceNames[i + USBOffset - 1] := 'USB';
+			brsitoa(i, ADR(PathCheck.DeviceList.DeviceNames[i + USBOffset - 1]) + brsstrlen(ADR(PathCheck.DeviceList.DeviceNames[i + USBOffset - 1])));
         ELSE
-			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[i + USBOffset]));
-            brsmemset(ADR(PathCheck.DeviceList.DeviceNames[i + USBOffset]), 0, SIZEOF(PathCheck.DeviceList.DeviceNames[i + USBOffset]));
+			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[i + USBOffset - 1]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[i + USBOffset - 1]));
+            brsmemset(ADR(PathCheck.DeviceList.DeviceNames[i + USBOffset - 1]), 0, SIZEOF(PathCheck.DeviceList.DeviceNames[i + USBOffset - 1]));
         END_IF
     END_FOR
 	
