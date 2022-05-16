@@ -16,6 +16,9 @@ PROGRAM _INIT
 	ParameterInit;
 	AxisInit;
 	
+	// Call initialization variables
+	RestorePosition;
+	
     // Enable mapp function blocks
 	MpAlarmXCore_0.Enable := TRUE;
 	MpAxisBasic_0.Enable := TRUE;
@@ -25,8 +28,7 @@ END_PROGRAM
 PROGRAM _CYCLIC
 
     MpAxisBasic_0.MpLink := ADR(gMpLinkAppAxis_1);
-    MC_BR_CheckRestorePositionData_0.Axis := ADR(gMpLinkAppAxis_1);
-    
+
 	// Call all actions
     SimulationControl;
     AxisStateMachine;

@@ -11,6 +11,22 @@
         </Action>
       </EventHandler>
     </EventBinding>
-  
+    <EventBinding id="EventBinding_1">
+      <Source xsi:type="opcUa.Event" refId="::AlarmMgr:MpAlarmXCore_0.PendingAlarms" event="ValueChanged" />
+      <EventHandler condition="newValue &gt; 0">
+        <Action>
+          <Target xsi:type="widgets.brease.Button.Action" contentRefId="Navigation_content" widgetRefId="AlarmContent">
+            <Method xsi:type="widgets.brease.Button.Action.SetImage" image="Media/SymbolLib/Alarm/AlarmActive.svg" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue = 0">
+        <Action>
+          <Target xsi:type="widgets.brease.Button.Action" contentRefId="Navigation_content" widgetRefId="AlarmContent">
+            <Method xsi:type="widgets.brease.Button.Action.SetImage" image="Media/SymbolLib/Alarm/Alarm.svg" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
