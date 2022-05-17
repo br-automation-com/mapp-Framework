@@ -28,7 +28,7 @@ PROGRAM _CYCLIC
 				StateMachine := USB_ERROR;				
 			END_IF
 			
-			FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
+			FOR i := 1 TO MAX_IDX_USB_DEV_LIST DO
 					gUSBAvailable[i] := USB.Par.IsConnected[i];
 			END_FOR
 			
