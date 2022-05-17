@@ -27,10 +27,13 @@ ACTION FormatDeviceDataProvider:
     brsstrcat(ADR(HmiBackup.Status.TableConfig[0]),  ADR(',"to":9, "visible":false}]}'));
 	
 	// Configure visible file list
-	HmiBackup.Status.TableConfig[1] := '{ "specRows": [{"from":';
-    brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(HmiBackup.Status.TableConfig[1]) + brsstrlen(ADR(HmiBackup.Status.TableConfig[1])));
-    brsstrcat(ADR(HmiBackup.Status.TableConfig[1]),  ADR(',"to":49, "visible":false}]}'));
-    
+	ItemCount := MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount;
+	HmiBackup.Status.TableConfig[1] := '{ "specRows": [{"from":';	
+    brsitoa((ItemCount), ADR(HmiBackup.Status.TableConfig[1]) + brsstrlen(ADR(HmiBackup.Status.TableConfig[1])));
+    brsstrcat(ADR(HmiBackup.Status.TableConfig[1]),  ADR(',"to":50, "visible":false}]}'));
+	
+	HmiBackup.Status.FileOverMax := ItemCount > 50;
+
 END_ACTION
 
 ACTION SaveBackupConfiguration:

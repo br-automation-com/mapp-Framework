@@ -12,6 +12,8 @@ TYPE
 		Delete : BOOL; (*Delete a backup*)
 		SaveConfig : BOOL; (*Save automatic backup configuration settings*)
 		Reset : BOOL; (*Error reset*)
+		PageDown : BOOL; (*Page Down*)
+		PageUp : BOOL; (*Page Up*)
 	END_STRUCT;
 	BackupHmiParametersType : 	STRUCT  (*Structure to hold the parameters for the HMI*)
 		Name : STRING[80] := 'myBackup'; (*Name of the backup*)
@@ -32,6 +34,7 @@ TYPE
 		SelectedIndex : USINT; (*Index of the selected backup file*)
 		LastSelectedIndex : USINT; (*Index of the last selected backup file*)
 		LastSelectedDeviceIndex : UINT; (*Index of the last selected file device. Compared with MpFileManagerUIConnect.DeviceList.SelectedIndex*)
+		FileOverMax : BOOL; (*Active when more than 50 items detected*)
 	END_STRUCT;
 	AutomaticBackupType : 	STRUCT  (*Automatic backup settings*)
 		Enable : BOOL; (*Enable automatic backup feature*)

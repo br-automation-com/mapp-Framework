@@ -1,9 +1,9 @@
 (*Function Blocks*)
 VAR
 	MpFileManagerUI_0 : MpFileManagerUI; (*MpFileManagerUI instance*)
-	DirInfo_0 : DirInfo;
-	R_TRIG_CheckStatus : R_TRIG;
-	TON_ScanFolder : TON;
+	DirInfo_0 : DirInfo; (*Directory info function block*)
+	R_TRIG_CheckStatus : R_TRIG; (*Trigger function block*)
+	TON_ScanFolder : TON; (*Timer to scan for folder*)
 END_VAR
 (*Constants*)
 VAR CONSTANT
@@ -21,7 +21,8 @@ VAR
 	DeviceCount : USINT; (*Counter for available file devices*)
 	Index : USINT; (*Index for avaliable devices*)
 	FolderDepthCount : USINT; (*Keeps track of the folder depth location to determine whether or not the back button should be shown*)
-	PathCheck : FilePathCheckType;
+	PathCheck : FilePathCheckType; (*Parameter structure controlling the visible file device based on available folders*)
 	USBOffset : USINT := 0; (*Device list offset where to add USB device*)
-	MaxDeviceNameIndex : USINT;
+	MaxDeviceNameIndex : USINT; (*How many devices are configured*)
+	tempIdx : USINT;
 END_VAR
