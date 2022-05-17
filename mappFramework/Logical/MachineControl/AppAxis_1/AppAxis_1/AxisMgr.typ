@@ -35,7 +35,7 @@ TYPE
 		Acceleration : {REDUND_UNREPLICABLE} REAL := 360; (*[mm/s2] Acceleration for absoluate and relative moves*)
 		Deceleration : {REDUND_UNREPLICABLE} REAL := 360; (*[mm/s2] Deceleration for absoluate and relative moves*)
 		JogVelocity : {REDUND_UNREPLICABLE} REAL := 100; (*[mm/s] Velocity used when jogging the axis*)
-		StopDeceleration : {REDUND_UNREPLICABLE} REAL := 720; (*[mm/s2] Deceleration for stopping*)
+		StopDeceleration : {REDUND_UNREPLICABLE} REAL := 0; (*[mm/s2] Deceleration for stopping*)
 		ProductNumber : {REDUND_UNREPLICABLE} INT := 0; (*Product Number*)
 		ProductLength : {REDUND_UNREPLICABLE} REAL := 70; (*Real Product Length*)
 	END_STRUCT;

@@ -101,7 +101,6 @@ PROGRAM _INIT
 	MpRecipe_0();
 
     // Trigger update notification so that the initial parameters are copied to the process
-    // might not be necessary.*****
 	MpRecipe_0.UpdateNotification := TRUE;
 	
 	// Init Filemanager for exporting/importing files

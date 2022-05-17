@@ -72,8 +72,7 @@ ACTION AxisStateMachine:
                 AxisControl.Status.ReferenceRequired := FALSE;
                 AxisControl.Status.Busy := FALSE;
                 AxisControl.Command.Reference := FALSE;
-                MpAxisBasic_0.Home := FALSE;
-                State := STATE_MOVE_TO_HOME_POSITION;
+				State := STATE_MOVE_TO_HOME_POSITION;
                 ResetAllAxisCommands;
             END_IF
 
@@ -90,8 +89,7 @@ ACTION AxisStateMachine:
             IF (IsHomedEdgePos.Q  = TRUE) THEN
                 MC_BR_CheckRestorePositionData_0.Execute := FALSE;
                 AxisControl.Status.ReferenceRequired := FALSE;
-                MpAxisBasic_0.Home := FALSE;
-                State := STATE_MOVE_TO_HOME_POSITION;
+				State := STATE_MOVE_TO_HOME_POSITION;
                 ResetAllAxisCommands;
             END_IF
             
@@ -141,7 +139,7 @@ ACTION AxisStateMachine:
             
             // Stop the axis if it is powered on
             MpAxisBasic_0.Stop := MpAxisBasic_0.PowerOn;
-            MpAxisParameters.Deceleration := AxisControl.Parameters.StopDeceleration;
+			MpAxisParameters.Stop.Deceleration := AxisControl.Parameters.StopDeceleration;
             IF ((MpAxisBasic_0.PowerOn = FALSE) OR (MpAxisBasic_0.Stopped = TRUE)) THEN
                 MpAxisBasic_0.Stop := FALSE;
                 State := STATE_STOPPED;
@@ -224,6 +222,7 @@ ACTION ResetAllAxisCommands:
     MpAxisBasic_0.ReleaseBrake := FALSE;
     MpAxisBasic_0.ErrorReset := FALSE;
     MpAxisBasic_0.JogPositive := FALSE;
-    MpAxisBasic_0.JogNegative := FALSE;
+	MpAxisBasic_0.JogNegative := FALSE;
+	MpAxisBasic_0.Home := FALSE;
     
 END_ACTION
