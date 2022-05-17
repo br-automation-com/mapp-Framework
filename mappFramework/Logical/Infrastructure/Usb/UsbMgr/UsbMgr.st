@@ -28,8 +28,8 @@ PROGRAM _CYCLIC
 				StateMachine := USB_ERROR;				
 			END_IF
 			
-			FOR i := 1 TO MAX_IDX_USB_DEV_LIST DO
-					gUSBAvailable[i] := USB.Par.IsConnected[i];
+			FOR i := 0 TO IDX_USB_DEV_LIST DO
+					gUSBAvailable[i] := USB.Par.IsConnected[i+1];
 			END_FOR
 			
 		// -----------------------------------------------------------------------------------------------------------
@@ -181,7 +181,7 @@ PROGRAM _CYCLIC
 			// Create device string
 			brsstrcpy(ADR(Device_param), ADR('/DEVICE='));  		
 			brsstrcat(ADR(Device_param), ADR(Usb_data[Node].ifName));
-			brsstrcpy(ADR(Device_name), ADR('USB_DEVICE'));
+			brsstrcpy(ADR(Device_name), ADR('USB'));
 			brsitoa(i, ADR(tmpSTR));
 			brsstrcat(ADR(Device_name), ADR(tmpSTR));
 			// Link device

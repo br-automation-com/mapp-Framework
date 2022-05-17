@@ -1,20 +1,20 @@
 ACTION FormatDeviceDataProvider:
     
 	// Select CF device if USB device is not available
-    FOR i := 1 TO MAX_IDX_USB_DEV_LIST DO
-		tempIdx := (i + USBOffset - 1);
+    FOR i := 0 TO IDX_USB_DEV_LIST DO
+		tempIdx := (i + USBOffset);
         
 		IF gUSBAvailable[i] THEN
 		
 			HmiFile.Status.DeviceDataProvider[tempIdx] := '{"value":"USB';
-            brsitoa(i, ADR(HmiFile.Status.DeviceDataProvider[tempIdx]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[tempIdx])));
+            brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[tempIdx]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[tempIdx])));
             
 			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[tempIdx]), ADR('","text":"USB'));
-            brsitoa(i, ADR(HmiFile.Status.DeviceDataProvider[tempIdx]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[tempIdx])));
+            brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[tempIdx]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[tempIdx])));
             brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[tempIdx]), ADR('"}'));
            
 			PathCheck.DeviceList.DeviceNames[tempIdx] := 'USB';
-			brsitoa(i, ADR(PathCheck.DeviceList.DeviceNames[tempIdx]) + brsstrlen(ADR(PathCheck.DeviceList.DeviceNames[tempIdx])));
+			brsitoa(i + 1, ADR(PathCheck.DeviceList.DeviceNames[tempIdx]) + brsstrlen(ADR(PathCheck.DeviceList.DeviceNames[tempIdx])));
         ELSE
 			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[tempIdx]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[tempIdx]));
             brsmemset(ADR(PathCheck.DeviceList.DeviceNames[tempIdx]), 0, SIZEOF(PathCheck.DeviceList.DeviceNames[tempIdx]));
