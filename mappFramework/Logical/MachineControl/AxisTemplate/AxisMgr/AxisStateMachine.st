@@ -33,19 +33,19 @@ ACTION AxisStateMachine:
 			ChangeParameter;
             IF ((ConfigurationState = CONFIG_STATE_READY) AND (ParameterState = PAR_STATE_READY) AND (MpAxisBasic_0.Active = TRUE)) THEN
                 AxisControl.Status.IsReady := TRUE;
+				
                 State := STATE_POWER_ON;
             END_IF
         
         // Power on the axis    
         STATE_POWER_ON:
-            AxisControl.Status.Status := 'Waiting for power on';
+            AxisControl.Status.Status := 'Waiting for power on';		
             IF (MpAxisBasic_0.Info.ReadyToPowerOn = TRUE) THEN
                 MpAxisBasic_0.Power := AxisControl.Command.Power;
             END_IF
             
             AxisControl.Status.Busy := MpAxisBasic_0.Power;
             IF (MpAxisBasic_0.PowerOn = TRUE) THEN
-                MC_BR_CheckRestorePositionData_0.Execute := (MpAxisBasic_0.Info.HardwareInfo.Axis.AxisType <> mcAX_TYPE_PURE_VIRT);
                 AxisControl.Status.Busy := FALSE;
                 State := STATE_HOME;
             ELSE
@@ -55,20 +55,12 @@ ACTION AxisStateMachine:
         // Restore home position    
         STATE_HOME:
             AxisControl.Status.Status := 'Waiting for home';
-            IF ((MC_BR_CheckRestorePositionData_0.Done = TRUE) AND (MC_BR_CheckRestorePositionData_0.DataValid = TRUE)) THEN
-                AxisControl.Status.ReferenceRequired := FALSE;
-                MpAxisBasic_0.Home := TRUE;
-                MpAxisParameters.Homing.Mode := mcHOMING_DEFAULT;
-                AxisControl.Status.Busy := TRUE;
-            ELSIF ((MC_BR_CheckRestorePositionData_0.Done = TRUE) AND (MC_BR_CheckRestorePositionData_0.DataValid = FALSE)) THEN
-                AxisControl.Status.ReferenceRequired := TRUE;
-                State := STATE_REFERENCE;
-            ELSIF (MC_BR_CheckRestorePositionData_0.Execute = FALSE) THEN
+            IF ((MpAxisBasic_0.IsHomed = FALSE) AND (MpAxisBasic_0.PowerOn = TRUE)) THEN
+				AxisControl.Status.ReferenceRequired := TRUE;
                 State := STATE_REFERENCE;
             END_IF
             
             IF (MpAxisBasic_0.IsHomed = TRUE) THEN
-                MC_BR_CheckRestorePositionData_0.Execute := FALSE;
                 AxisControl.Status.ReferenceRequired := FALSE;
                 AxisControl.Status.Busy := FALSE;
                 AxisControl.Command.Reference := FALSE;
@@ -87,7 +79,6 @@ ACTION AxisStateMachine:
             END_IF
             
             IF (IsHomedEdgePos.Q  = TRUE) THEN
-                MC_BR_CheckRestorePositionData_0.Execute := FALSE;
                 AxisControl.Status.ReferenceRequired := FALSE;
 				State := STATE_MOVE_TO_HOME_POSITION;
                 ResetAllAxisCommands;
@@ -200,9 +191,6 @@ ACTION AxisStateMachine:
 	// Cyclic function block calls
     MpAxisBasic_0.Parameters := ADR(MpAxisParameters);
     MpAxisBasic_0();
-    
-    MC_BR_CheckRestorePositionData_0.DataAddress := ADR(RestorePosition);
-    MC_BR_CheckRestorePositionData_0();
     
 	// Status assignments
     AxisControl.Status.ErrorActive := MpAxisBasic_0.Error;
