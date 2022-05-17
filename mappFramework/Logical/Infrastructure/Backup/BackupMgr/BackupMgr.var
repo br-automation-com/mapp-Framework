@@ -2,7 +2,7 @@
 VAR
 	MpBackupCore_0 : MpBackupCore; (*MpBackupCore instance*)
 	MpBackupCoreConfig_0 : MpBackupCoreConfig; (*MpBackupCoreConfig instance*)
-	MpFileManagerUI_0 : MpFileManagerUI; (*MpFileManagerUI instance*)
+	MpFileManagerUI_0 : MpFileManagerUI := (UISetup:=(FileListSize:=50)); (*MpFileManagerUI instance*)
 	DirCreate_0 : DirCreate; (*DirCreate instance*)
 END_VAR
 (*Constants*)
@@ -24,4 +24,5 @@ END_VAR
 VAR
 	i : USINT; (*Index for loops*)
 	DeviceCount : USINT; (*Counter for available file devices*)
+	ItemCount : UDINT;
 END_VAR
