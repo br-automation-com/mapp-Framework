@@ -1,7 +1,7 @@
 ACTION FormatDeviceDataProvider:
     
 	// Select CF device if USB device is not available
-    FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
+    FOR i := 0 TO ((SIZEOF(gUSBAvailable) / SIZEOF(gUSBAvailable[0])) - 1) DO
         IF gUSBAvailable[i] THEN
 			HmiBackup.Status.DeviceDataProvider[i + 1] := '{"value":"USB';
             brsitoa(i + 1, ADR(HmiBackup.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiBackup.Status.DeviceDataProvider[i + 1])));
@@ -18,7 +18,7 @@ ACTION FormatDeviceDataProvider:
 	
 	// Configure visible device list
 	HmiBackup.Status.TableConfig[0] := '{ "specRows": [{"from":';
-	FOR i := 0 TO 9 DO
+	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
 		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
 			DeviceCount := i + 1;
 		END_IF

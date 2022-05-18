@@ -1,8 +1,8 @@
 ACTION FormatDeviceDataProvider:
     
 	// Select CF device if USB device is not available
-	FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
-		IF gUSBAvailable[i] THEN
+    FOR i := 0 TO ((SIZEOF(gUSBAvailable) / SIZEOF(gUSBAvailable[0])) - 1) DO
+        IF gUSBAvailable[i] THEN
 			HmiRecipe.Parameters.DeviceDataProvider[i + 1] := '{"value":"USB';
 			brsitoa(i + 1, ADR(HmiRecipe.Parameters.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiRecipe.Parameters.DeviceDataProvider[i + 1])));
 			brsstrcat(ADR(HmiRecipe.Parameters.DeviceDataProvider[i + 1]), ADR('","text":"USB'));

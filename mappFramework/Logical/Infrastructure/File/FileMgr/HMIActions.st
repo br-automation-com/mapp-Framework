@@ -29,15 +29,14 @@ ACTION FormatDeviceDataProvider:
 			FOR i:=Index TO MaxDeviceNameIndex DO 
 				MpFileManagerUIConnect.DeviceList.DeviceNames[i] := '';
 			END_FOR
-			Index := -1;
-			DeviceListCount := -1;			
+			Index := 0;
+			DeviceListCount := 0;
 		END_IF	
 		// copy device name from source list into the actual device list 
 		MpFileManagerUIConnect.DeviceList.DeviceNames[Index] := PathCheck.DeviceList.DeviceNames[DeviceListCount];		
-		Index := Index + 1;	
-
-		DeviceListCount := DeviceListCount + 1;
-		IF (DeviceListCount > MaxDeviceNameIndex) THEN
+		Index := Index + 1;
+        DeviceListCount := DeviceListCount + 1;
+		IF (DeviceListCount > ((SIZEOF(PathCheck.DeviceList.DeviceNames) / SIZEOF(PathCheck.DeviceList.DeviceNames[0])) - 1)) THEN
 			DeviceListCount := 0;
 		END_IF
 		IF (Index > MaxDeviceNameIndex) THEN
