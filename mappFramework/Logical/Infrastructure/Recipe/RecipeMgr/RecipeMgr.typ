@@ -37,6 +37,7 @@ TYPE
 		FileDuplicate : BOOL; (*Recipe file already exists, warn the user.*)
 		FilesAvailable : BOOL; (*Control access to widget when no files are available*)
 		InvalidRecipe : BOOL; (*The selected recipe cannot be previewed*)
+		LoadingRecipeList : BOOL; (*The recipe list is loading*)
 	END_STRUCT;
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)
 		AddParametersHere1 : BOOL; (*Add your parameteres here *)

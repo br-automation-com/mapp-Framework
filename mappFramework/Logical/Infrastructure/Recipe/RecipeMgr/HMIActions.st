@@ -164,5 +164,11 @@ ACTION RecipeHMIcommands:
 	
 	HmiRecipe.Status.LastStatus := MpRecipeUIConnect.Status;
 	HmiRecipe.Status.SelectedRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
+	
+	IF MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_REFRESH THEN
+		HmiRecipe.Status.LoadingRecipeList := TRUE;
+	ELSE
+		HmiRecipe.Status.LoadingRecipeList := FALSE;
+	END_IF
 
 END_ACTION

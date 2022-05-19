@@ -50,25 +50,6 @@
             <Variable Name="Cancel" />
           </Variable>
         </Variable>
-        <Variable Name="HmiRecipe">
-          <Variable Name="Commands" AutomaticEnable="True" />
-          <Variable Name="Status">
-            <Variable Name="LastLoadedConfigRecipe" />
-            <Variable Name="LastLoadedProductRecipe" />
-            <Variable Name="CategoryDropdown" />
-            <Variable Name="EditDialogOpened" />
-            <Variable Name="CreateDialogOpened" />
-            <Variable Name="FilesAvailable" />
-            <Variable Name="FileDuplicate" />
-            <Variable Name="SelectedRecipe" />
-            <Variable Name="InvalidRecipe" />
-          </Variable>
-          <Variable Name="Parameters">
-            <Variable Name="DeviceDataProvider" />
-            <Variable Name="DeviceName" />
-            <Variable Name="TableConfig" />
-          </Variable>
-        </Variable>
         <Variable Name="MpRecipeUI_0">
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
@@ -90,6 +71,11 @@
         </Variable>
         <Variable Name="MACHINE_CONFIGURATION_RECIPE" />
         <Variable Name="PARAMETERS_RECIPE" />
+        <Variable Name="HmiRecipe" AutomaticEnable="True">
+          <Variable Name="Parameters">
+            <Variable Name="DeviceDataProvider" EnableArrayElements="True" />
+          </Variable>
+        </Variable>
       </Task>
     </Module>
   </DefaultView>
