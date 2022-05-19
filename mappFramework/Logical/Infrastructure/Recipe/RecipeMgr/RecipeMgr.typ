@@ -12,6 +12,7 @@ TYPE
 		CreateRecipe : BOOL; (*Create recipe*)
 		ImportFromUSB : BOOL; (*Import from USB device*)
 		ExportToUSB : BOOL; (*Export to USB device*)
+		ResetPreview : BOOL; (*Reset the preview to empty/zeros in the event of an invalid recipe*)
 	END_STRUCT;
 	RecipeParametersType : 	STRUCT  (*Structure to hold the parameters for the HMI*)
 		Category : STRING[30]; (*Current category*)
@@ -35,6 +36,7 @@ TYPE
 		PreviousRecipe : STRING[80]; (*Name of the previous recipe*)
 		FileDuplicate : BOOL; (*Recipe file already exists, warn the user.*)
 		FilesAvailable : BOOL; (*Control access to widget when no files are available*)
+		InvalidRecipe : BOOL; (*The selected recipe cannot be previewed*)
 	END_STRUCT;
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)
 		AddParametersHere1 : BOOL; (*Add your parameteres here *)
@@ -67,6 +69,7 @@ TYPE
 		REC_HMI_WAIT, (*Wait*)
 		REC_HMI_LOAD, (*Load recipe*)
 		REC_HMI_SAVE, (*Save recipe*)
-		REC_HMI_CREATE (*Create recipe*)
+		REC_HMI_CREATE, (*Create recipe*)
+		REC_HMI_RESET_PREVIEW (*Reset the preview values to 0 / empty*)
 		);
 END_TYPE

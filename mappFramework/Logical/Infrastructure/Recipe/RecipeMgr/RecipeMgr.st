@@ -161,7 +161,7 @@ PROGRAM _CYCLIC
 	MpFileManagerUI_0();
 	MpRecipeRegPar_PreviewPar();
 	MpRecipeRegPar_PreviewCfg();
-	
+
 END_PROGRAM
 
 PROGRAM _EXIT
