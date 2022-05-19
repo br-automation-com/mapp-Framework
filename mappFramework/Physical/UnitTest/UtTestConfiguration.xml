@@ -2,7 +2,7 @@
 <testconfiguration>
 <tests />
 <config-def id="AS_Test_Configuration">
-<test timeout="60" name="FileMgr" /></config-def>
-<settings id="AS_Test_Setting" timeout="60" communication-protocol="http" port="80" host="http://127.0.0.1" />
-<run StartTestsAfterTransfer="true" setting="AS_Test_Setting" configuration="AS_Test_Configuration" />
+<test name="FileMgr" timeout="60" /></config-def>
+<settings id="AS_Test_Setting" timeout="60" host="http://127.0.0.1" port="80" communication-protocol="http" />
+<run configuration="AS_Test_Configuration" setting="AS_Test_Setting" StartTestsAfterTransfer="true" />
 </testconfiguration>
