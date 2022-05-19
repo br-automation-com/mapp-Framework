@@ -30,11 +30,16 @@ ACTION FIFOOperation:
 		FILE_SELECT_DEVICE:
 			// 
             IF (HmiFile.Status.DeviceName <> HmiFile.Parameters.Fifo.DeviceName) THEN
-				FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
-        			IF HmiFile.Parameters.Fifo.DeviceName = MpFileManagerUIConnect.DeviceList.DeviceNames[i] THEN
-						MpFileManagerUIConnect.DeviceList.SelectedIndex := i;
-					END_IF
-    			END_FOR				
+                FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
+                    IF HmiFile.Parameters.Fifo.DeviceName = MpFileManagerUIConnect.DeviceList.DeviceNames[i] THEN
+                        MpFileManagerUIConnect.DeviceList.SelectedIndex := i;
+                        EXIT;
+                    END_IF
+                END_FOR
+                IF (HmiFile.Parameters.Fifo.DeviceName <> MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]) THEN
+                    // file device not found
+                    HmiFile.Status.DeleteStep := FILE_DELETE_WAIT;
+                END_IF
             END_IF
     
             IF (HmiFile.Status.DeviceName = HmiFile.Parameters.Fifo.DeviceName) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
@@ -95,10 +100,8 @@ ACTION FIFOOperation:
                 HmiFile.Status.AutoDeleteSelected := 0;
                 // start from the first file to delete and select everything after
                 // e.g. if there are 100 files and we want to keep 60 files around then we'd start at 60 + 0 MOD 50 = 10 and go to index 49
-                // 50 - (60 mod 50) = 40 -> 49 = 60 - 10
-                // 50 - (120 mod 50) = 30 -> 49 = 200 - 20 = 180, 160, 140, 120
                 FileNameArraySize := SIZEOF(HmiFile.Status.FileNames)/SIZEOF(HmiFile.Status.FileNames[0]);
-                StartIndex := SEL(HmiFile.Parameters.Fifo.MaxNumberOfFiles >= FileNameArraySize,                     UDINT_TO_USINT(HmiFile.Parameters.Fifo.MaxNumberOfFiles + MpFileManagerUIConnect.File.PathInfo.FolderCount) MOD FileNameArraySize,
+                StartIndex := SEL(HmiFile.Parameters.Fifo.MaxNumberOfFiles >= FileNameArraySize, UDINT_TO_USINT(HmiFile.Parameters.Fifo.MaxNumberOfFiles + MpFileManagerUIConnect.File.PathInfo.FolderCount) MOD FileNameArraySize,
                                                                                                  FileNameArraySize - UDINT_TO_USINT(HmiFile.Parameters.Fifo.MaxNumberOfFiles + MpFileManagerUIConnect.File.PathInfo.FolderCount) MOD FileNameArraySize);
                 FOR i := StartIndex TO (FileNameArraySize - 1) DO
                     MpFileManagerUIConnect.File.List.Items[0].IsSelected := FALSE;
