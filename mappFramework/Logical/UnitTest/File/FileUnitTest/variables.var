@@ -26,5 +26,7 @@ VAR
 	DirInfo_UT : DirInfo;
 	fileInfo : fiDIR_READ_DATA;
 	DirRead_UT : DirRead;
+	FileWrite_UT : FileWrite;
+	testData : {REDUND_UNREPLICABLE} STRING[1023] := 'testing data';
 	FileDelete_UT : FileDelete;
 END_VAR

@@ -29,15 +29,14 @@ ACTION FormatDeviceDataProvider:
 			FOR i:=Index TO MaxDeviceNameIndex DO 
 				MpFileManagerUIConnect.DeviceList.DeviceNames[i] := '';
 			END_FOR
-			Index := -1;
-			DeviceListCount := -1;			
+			Index := 0;
+			DeviceListCount := 0;
 		END_IF	
 		// copy device name from source list into the actual device list 
 		MpFileManagerUIConnect.DeviceList.DeviceNames[Index] := PathCheck.DeviceList.DeviceNames[DeviceListCount];		
-		Index := Index + 1;	
-
-		DeviceListCount := DeviceListCount + 1;
-		IF (DeviceListCount > MaxDeviceNameIndex) THEN
+		Index := Index + 1;
+        DeviceListCount := DeviceListCount + 1;
+		IF (DeviceListCount > ((SIZEOF(PathCheck.DeviceList.DeviceNames) / SIZEOF(PathCheck.DeviceList.DeviceNames[0])) - 1)) THEN
 			DeviceListCount := 0;
 		END_IF
 		IF (Index > MaxDeviceNameIndex) THEN
@@ -105,11 +104,18 @@ ACTION FileManager:
 		END_IF
     END_FOR
     
-	// Read currently selected device name for HMI
-	HmiFile.Status.DeviceName := MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex];
+    
+    // Read currently selected device name for HMI
+    IF (MpFileManagerUIConnect.DeviceList.SelectedIndex >= (SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0]))) THEN
+        MpFileManagerUIConnect.DeviceList.SelectedIndex := 0;
+    END_IF
+    HmiFile.Status.DeviceName := MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex];
 	
 	// Read if current selected object is folder
-	HmiFile.Status.IsFolder := MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsFolder;
+    IF (HmiFile.Status.SelectedIndex >= (SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]))) THEN
+        HmiFile.Status.SelectedIndex := 0;
+    END_IF
+    HmiFile.Status.IsFolder := MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsFolder;
 	
 	// Control the folder structure when entering and leaving folders
 	IF (HmiFile.Commands.EnterFolder) AND MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsFolder THEN

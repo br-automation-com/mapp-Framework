@@ -90,21 +90,28 @@
         </Action>
       </EventHandler>
     </EventBinding>
-	<EventBinding id="Backup_content.ButtonBackupPageDown.Click">
+    <EventBinding id="Backup_content.ButtonBackupPageDown.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupPageDown" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::BackupMgr:MpFileManagerUIConnect.File.List.PageDown">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="Table1">
+                <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="49" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
               <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="Table1">
-                <Method xsi:type="widgets.brease.Table.Action.ScrollPageDown" />
+                <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="49" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::BackupMgr:MpFileManagerUIConnect.File.List.PageDown">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
           </Step>
@@ -117,15 +124,22 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::BackupMgr:MpFileManagerUIConnect.File.List.PageUp">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="Table1">
+                <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="0" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
               <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="Table1">
-                <Method xsi:type="widgets.brease.Table.Action.ScrollPageUp" />
+                <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="0" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::BackupMgr:MpFileManagerUIConnect.File.List.PageUp">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
           </Step>
