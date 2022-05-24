@@ -142,13 +142,14 @@ ACTION RecipeHMIcommands:
 			MpRecipeUIConnect.New.FileName := 'newParameters';
 		ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 			MachineSettingsEdit := MachineSettingsPreview;
-			MpRecipeUIConnect.New.FileName := 'newMachConfig';
+			MpRecipeUIConnect.New.FileName := 'newMachineConfig';
 		END_IF
 	
 		HmiRecipe.Status.EditDialogOpened := FALSE;
 		HmiRecipe.Status.CreateDialogOpened := FALSE;
 	END_IF
 		
+	// Check if the file name has already been used
 	HmiRecipe.Status.FileDuplicate := FALSE;
 	FOR i:= 0 TO ((SIZEOF(MpRecipeUIConnect.Recipe.List.Names) / SIZEOF(MpRecipeUIConnect.Recipe.List.Names[0])) - 1) DO
 		temp := MpRecipeUIConnect.New.FileName;
@@ -162,13 +163,15 @@ ACTION RecipeHMIcommands:
 		END_IF
 	END_FOR	
 	
-	HmiRecipe.Status.LastStatus := MpRecipeUIConnect.Status;
-	HmiRecipe.Status.SelectedRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
-	
+	// Set whether the loading .gif should be shown on the HMI
 	IF MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_REFRESH THEN
 		HmiRecipe.Status.LoadingRecipeList := TRUE;
 	ELSE
 		HmiRecipe.Status.LoadingRecipeList := FALSE;
 	END_IF
+	
+	// Update status information
+	HmiRecipe.Status.LastStatus := MpRecipeUIConnect.Status;
+	HmiRecipe.Status.SelectedRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
 
 END_ACTION
