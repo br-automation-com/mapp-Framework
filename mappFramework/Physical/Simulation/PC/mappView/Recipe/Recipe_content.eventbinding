@@ -85,7 +85,7 @@
               </Target>
             </Action>
           </Step>
-          <Step order="3">
+          <Step order="2">
             <Action>
               <Target xsi:type="clientSystem.Action">
                 <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" />
@@ -280,96 +280,71 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="MpRecipeUIConnect.MessageBox.LayerStatus.ValueChange" deactivated="true">
-      <Source xsi:type="opcUa.Event" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Type" event="ValueChanged" />
-      <EventHandler condition="newValue = 2">
+    <EventBinding id="RecipePreviewPars_content.loaded">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <Operand datatype="BOOL" name="DefaultParametersMissing">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.ParameterRecipeMissing">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="contentId = &quot;RecipePreviewPars_content&quot; AND DefaultParametersMissing">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="$IAT/Recipe/MsgBox.Confirm.2" header="$IAT/Recipe/Create" icon="Question" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="The default recipe is missing. Please create one now. " header="Missing Default Recipe" />
           </Target>
           <Result>
-            <ResultHandler condition="result = 1">
-              <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
-                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                </Target>
-              </Action>
-            </ResultHandler>
-            <ResultHandler condition="result = 2">
-              <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Cancel">
-                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                </Target>
-              </Action>
+            <ResultHandler condition="result = 4">
+              <Sequence>
+                <Step order="1">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.CreateDialogOpened">
+                      <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+                <Step order="2">
+                  <Action>
+                    <Target xsi:type="clientSystem.Action">
+                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" />
+                    </Target>
+                  </Action>
+                </Step>
+              </Sequence>
             </ResultHandler>
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="newValue = 3">
+    </EventBinding>
+    <EventBinding id="RecipePreviewMachConfig_content.loaded">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <Operand datatype="BOOL" name="DefaultMachineSettingsMissing">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.MachineSettingsRecipeMissing">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="contentId = &quot;RecipePreviewMachConfig_content&quot; AND  DefaultMachineSettingsMissing">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="$IAT/Recipe/MsgBox.Confirm.3" header="$IAT/Recipe/Create" icon="Question" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="The default recipe is missing. Please create one now. " header="Missing Default Recipe" />
           </Target>
           <Result>
-            <ResultHandler condition="result = 1">
-              <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
-                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                </Target>
-              </Action>
-            </ResultHandler>
-            <ResultHandler condition="result = 2">
-              <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Cancel">
-                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                </Target>
-              </Action>
-            </ResultHandler>
-          </Result>
-        </Action>
-      </EventHandler>
-      <EventHandler condition="newValue = 4">
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="$IAT/Recipe/MsgBox.Confirm.4" header="$IAT/Recipe/Create" icon="Question" />
-          </Target>
-          <Result>
-            <ResultHandler condition="result = 1">
-              <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
-                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                </Target>
-              </Action>
-            </ResultHandler>
-            <ResultHandler condition="result = 2">
-              <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Cancel">
-                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                </Target>
-              </Action>
-            </ResultHandler>
-          </Result>
-        </Action>
-      </EventHandler>
-      <EventHandler condition="newValue = 5">
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="$IAT/Recipe/MsgBox.Confirm.5" header="$IAT/Recipe/Create" icon="Question" />
-          </Target>
-          <Result>
-            <ResultHandler condition="result = 1">
-              <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
-                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                </Target>
-              </Action>
-            </ResultHandler>
-            <ResultHandler condition="result = 2">
-              <Action>
-                <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Cancel">
-                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                </Target>
-              </Action>
+            <ResultHandler condition="result = 4">
+              <Sequence>
+                <Step order="1">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.CreateDialogOpened">
+                      <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+                <Step order="2">
+                  <Action>
+                    <Target xsi:type="clientSystem.Action">
+                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" />
+                    </Target>
+                  </Action>
+                </Step>
+              </Sequence>
             </ResultHandler>
           </Result>
         </Action>
