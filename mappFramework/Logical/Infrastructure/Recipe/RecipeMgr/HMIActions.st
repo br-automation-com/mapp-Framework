@@ -81,9 +81,11 @@ ACTION RecipeHMIcommands:
 			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
 				ParametersPreview := ParametersEdit;
 				brsstrcat(ADR(MpRecipeUIConnect.New.FileName),ADR('.par'));
+				HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
 			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
 				brsstrcat(ADR(MpRecipeUIConnect.New.FileName),ADR('.mcfg'));
+				HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
 			END_IF
 			
 			Header.Name := MpRecipeUIConnect.New.FileName;
@@ -139,20 +141,20 @@ ACTION RecipeHMIcommands:
 	IF HmiRecipe.Status.EditDialogOpened OR HmiRecipe.Status.CreateDialogOpened THEN
 		IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
 			ParametersEdit := ParametersPreview;
-			IF HmiRecipe.Status.ParameterRecipeMissing THEN
-				MpRecipeUIConnect.New.FileName := DEFAULT_PARAMETERS;
-				HmiRecipe.Status.ParameterRecipeMissing := FALSE;
-			ELSE
+//			IF HmiRecipe.Status.ParameterRecipeMissing THEN
+//				MpRecipeUIConnect.New.FileName := DEFAULT_PARAMETERS;
+//				HmiRecipe.Status.ParameterRecipeMissing := FALSE;
+//			ELSE
 				MpRecipeUIConnect.New.FileName := 'newParameters';
-			END_IF
+//			END_IF
 		ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 			MachineSettingsEdit := MachineSettingsPreview;
-			IF HmiRecipe.Status.MachineSettingsRecipeMissing THEN
-				MpRecipeUIConnect.New.FileName := DEFAULT_MACHINE_CONFIGURATION;
-				HmiRecipe.Status.MachineSettingsRecipeMissing := FALSE;
-			ELSE
+//			IF HmiRecipe.Status.MachineSettingsRecipeMissing THEN
+//				MpRecipeUIConnect.New.FileName := DEFAULT_MACHINE_CONFIGURATION;
+//				HmiRecipe.Status.MachineSettingsRecipeMissing := FALSE;
+//			ELSE
 				MpRecipeUIConnect.New.FileName := 'newMachineConfig';
-			END_IF
+//			END_IF
 		END_IF
 	
 		HmiRecipe.Status.EditDialogOpened := FALSE;
