@@ -40,10 +40,16 @@ ACTION LoadPreview:
 			MpRecipe_0.Load := TRUE;
 			HmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
 			HmiRecipe.Status.LastMaxSelection := MpRecipeUIConnect.Recipe.List.MaxSelection;
+			HmiRecipe.Status.InvalidRecipe := FALSE;
 		END_IF
 	END_IF
-
-	// Reset load command on MpRecipe_Pre FUB
+	
+	// Reset load command on MpRecipe_0 FUB
+	IF MpRecipe_0.StatusID <> 0 THEN
+		HmiRecipe.Status.InvalidRecipe := TRUE;
+		HmiRecipe.Commands.ResetPreview := TRUE;
+	END_IF;
+	
 	IF ((MpRecipe_0.CommandDone = TRUE) OR (MpRecipe_0.Error = TRUE)) THEN
 		MpRecipe_0.Load := FALSE;
 	END_IF
@@ -66,22 +72,27 @@ ACTION RecipeHMIcommands:
 			ELSIF HmiRecipe.Commands.LoadRecipe THEN
 				HmiRecipe.Status.HMIcommand := REC_HMI_LOAD;
 				HmiRecipe.Commands.LoadRecipe := FALSE;
+			ELSIF HmiRecipe.Commands.ResetPreview THEN
+				HmiRecipe.Status.HMIcommand := REC_HMI_RESET_PREVIEW;
+				HmiRecipe.Commands.ResetPreview := FALSE;
 			END_IF
 	
 		REC_HMI_CREATE:
 			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
 				ParametersPreview := ParametersEdit;
 				brsstrcat(ADR(MpRecipeUIConnect.New.FileName),ADR('.par'));
+				HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
 			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
 				brsstrcat(ADR(MpRecipeUIConnect.New.FileName),ADR('.mcfg'));
+				HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
 			END_IF
 			
 			Header.Name := MpRecipeUIConnect.New.FileName;
 			DTGetTime_0.enable := TRUE;
 			REPEAT
 				DTGetTime_0();
-				UNTIL  (DTGetTime_0.status <> 0)
+				UNTIL  (DTGetTime_0.status = 0)
 			END_REPEAT;
 			Header.DateTime := DTGetTime_0.DT1;
 			DTGetTime_0.enable := FALSE;
@@ -92,10 +103,10 @@ ACTION RecipeHMIcommands:
 		REC_HMI_LOAD:
 			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
 				Parameters := ParametersPreview;
-				HmiRecipe.Status.LastLoadedProductRecipe := HmiRecipe.Status.ActiveRecipe;
+				HmiRecipe.Status.LastLoadedProductRecipe := HmiRecipe.Status.SelectedRecipe;
 			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 				MachineSettings := MachineSettingsPreview;
-				HmiRecipe.Status.LastLoadedConfigRecipe := HmiRecipe.Status.ActiveRecipe;
+				HmiRecipe.Status.LastLoadedConfigRecipe := HmiRecipe.Status.SelectedRecipe;
 			END_IF
 			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 	
@@ -106,9 +117,17 @@ ACTION RecipeHMIcommands:
                 MachineSettingsPreview := MachineSettingsEdit;
             END_IF
 	
-			IF (brsstrlen(ADR(HmiRecipe.Status.ActiveRecipe)) > 0) THEN
-				MpRecipe_0.FileName := ADR(HmiRecipe.Status.ActiveRecipe);
+			IF (brsstrlen(ADR(HmiRecipe.Status.SelectedRecipe)) > 0) THEN
+				MpRecipe_0.FileName := ADR(HmiRecipe.Status.SelectedRecipe);
 				MpRecipe_0.Save := TRUE;
+			END_IF
+			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
+		
+		REC_HMI_RESET_PREVIEW:
+			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
+				brsmemset(ADR(ParametersPreview),0,SIZEOF(ParametersPreview));
+			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
+				brsmemset(ADR(MachineSettingsPreview),0,SIZEOF(MachineSettingsPreview));
 			END_IF
 			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 	
@@ -122,16 +141,27 @@ ACTION RecipeHMIcommands:
 	IF HmiRecipe.Status.EditDialogOpened OR HmiRecipe.Status.CreateDialogOpened THEN
 		IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
 			ParametersEdit := ParametersPreview;
-			MpRecipeUIConnect.New.FileName := 'newParameters';
+			IF HmiRecipe.Status.ParameterRecipeMissing THEN
+				MpRecipeUIConnect.New.FileName := DEFAULT_PARAMETERS;
+				HmiRecipe.Status.ParameterRecipeMissing := FALSE;
+			ELSE
+				MpRecipeUIConnect.New.FileName := 'newParameters';
+			END_IF
 		ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 			MachineSettingsEdit := MachineSettingsPreview;
-			MpRecipeUIConnect.New.FileName := 'newMachConfig';
+			IF HmiRecipe.Status.MachineSettingsRecipeMissing THEN
+				MpRecipeUIConnect.New.FileName := DEFAULT_MACHINE_CONFIGURATION;
+				HmiRecipe.Status.MachineSettingsRecipeMissing := FALSE;
+			ELSE
+				MpRecipeUIConnect.New.FileName := 'newMachineConfig';
+			END_IF
 		END_IF
 	
 		HmiRecipe.Status.EditDialogOpened := FALSE;
 		HmiRecipe.Status.CreateDialogOpened := FALSE;
 	END_IF
 		
+	// Check if the file name has already been used
 	HmiRecipe.Status.FileDuplicate := FALSE;
 	FOR i:= 0 TO ((SIZEOF(MpRecipeUIConnect.Recipe.List.Names) / SIZEOF(MpRecipeUIConnect.Recipe.List.Names[0])) - 1) DO
 		temp := MpRecipeUIConnect.New.FileName;
@@ -145,7 +175,15 @@ ACTION RecipeHMIcommands:
 		END_IF
 	END_FOR	
 	
+	// Set whether the loading .gif should be shown on the HMI
+	IF MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_REFRESH THEN
+		HmiRecipe.Status.LoadingRecipeList := TRUE;
+	ELSE
+		HmiRecipe.Status.LoadingRecipeList := FALSE;
+	END_IF
+	
+	// Update status information
 	HmiRecipe.Status.LastStatus := MpRecipeUIConnect.Status;
-	HmiRecipe.Status.ActiveRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
+	HmiRecipe.Status.SelectedRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
 
 END_ACTION

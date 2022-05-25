@@ -73,12 +73,18 @@ PROGRAM _INIT
 	
 	// Load default Machine Settings recipe
 	HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
-	HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION;
+	HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION; 
+	brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(MACHINE_CONFIG_FILE_EXTENSION));
 	MpRecipe_0.Load := TRUE;
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
     END_WHILE
 	MachineSettings := MachineSettingsPreview;
+	
+	// Check if the default machine settings recipe is missing 
+	IF MpRecipe_0.Info.Diag.StatusID.Code = 32770 THEN
+		HmiRecipe.Status.MachineSettingsRecipeMissing := TRUE;
+	END_IF
 	
 	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
 	MpRecipe_0.Load := FALSE;
@@ -87,15 +93,23 @@ PROGRAM _INIT
 	// Load default Parameter recipe
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
 	HmiRecipe.Parameters.FileName := DEFAULT_PARAMETERS;
-	HmiRecipe.Status.PreviousRecipe := DEFAULT_PARAMETERS; 
+	brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(PARAMETERS_FILE_EXTENSION));
+	HmiRecipe.Status.PreviousRecipe := DEFAULT_PARAMETERS;
 	MpRecipe_0.Load := TRUE;
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE
 	Parameters := ParametersPreview;
+	
+	// Check if the default parameters recipe is missing 
+	IF MpRecipe_0.Info.Diag.StatusID.Code = 32770 THEN
+		HmiRecipe.Status.ParameterRecipeMissing := TRUE;
+	END_IF
     
 	HmiRecipe.Status.LastLoadedProductRecipe := DEFAULT_PARAMETERS;
+	brsstrcat(ADR(HmiRecipe.Status.LastLoadedProductRecipe),ADR(PARAMETERS_FILE_EXTENSION));
 	HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
+	brsstrcat(ADR(HmiRecipe.Status.LastLoadedConfigRecipe),ADR(MACHINE_CONFIG_FILE_EXTENSION));
 	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
 	MpRecipe_0.Load := FALSE;
 	MpRecipe_0();
@@ -161,7 +175,7 @@ PROGRAM _CYCLIC
 	MpFileManagerUI_0();
 	MpRecipeRegPar_PreviewPar();
 	MpRecipeRegPar_PreviewCfg();
-	
+
 END_PROGRAM
 
 PROGRAM _EXIT

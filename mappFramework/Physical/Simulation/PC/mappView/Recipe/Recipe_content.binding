@@ -215,5 +215,9 @@
 		</Binding>
 
 		
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.LoadingRecipeList" attribute="value" />
+<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Image1" attribute="visible" />
+</Binding>
 </Bindings>
 </BindingsSet>

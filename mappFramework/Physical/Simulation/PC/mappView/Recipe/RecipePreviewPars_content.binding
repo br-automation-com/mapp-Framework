@@ -72,5 +72,13 @@
 <Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
 <Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="TextOutputPar2Sel" attribute="visible" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.SelectedRecipe" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="txtOutSelectedRecipe" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.InvalidRecipe" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="LabelInvalidRecipe" attribute="visible" />
+</Binding>
 </Bindings>
 </BindingsSet>
