@@ -38,6 +38,8 @@ TYPE
 		FilesAvailable : BOOL; (*Control access to widget when no files are available*)
 		InvalidRecipe : BOOL; (*The selected recipe cannot be previewed*)
 		LoadingRecipeList : BOOL; (*The recipe list is loading*)
+		MachineSettingsRecipeMissing : BOOL; (*Flag for if the default machine settings recipe is not present*)
+		ParameterRecipeMissing : BOOL; (*Flag for if the default parameters recipe is not present*)
 	END_STRUCT;
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)
 		AddParametersHere1 : BOOL; (*Add your parameteres here *)
