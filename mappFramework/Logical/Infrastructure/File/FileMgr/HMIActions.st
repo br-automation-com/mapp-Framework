@@ -65,6 +65,19 @@ ACTION FormatDeviceDataProvider:
 	HmiFile.Status.TableConfig[1] := '{ "specRows": [{"from":';
     brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(HmiFile.Status.TableConfig[1]) + brsstrlen(ADR(HmiFile.Status.TableConfig[1])));
     brsstrcat(ADR(HmiFile.Status.TableConfig[1]),  ADR(',"to":49, "visible":false}]}'));
+	
+	// Create device data provider for FIFO drop down
+    FOR i := 0 TO MaxDeviceNameIndex DO       	
+		IF (MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '') THEN
+			HmiFile.Status.DeviceDataProvider[i] := '{"value":"';			
+			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i]));	           
+			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR('","text":"'));
+			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i]));	
+	        brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR('"}'));
+		ELSE	
+			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[i]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[i]));
+		END_IF	         
+    END_FOR
     
 END_ACTION
 
