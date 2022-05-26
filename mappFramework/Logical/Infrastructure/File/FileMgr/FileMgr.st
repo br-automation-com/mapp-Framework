@@ -22,12 +22,12 @@ PROGRAM _INIT
 	MpFileManagerUI_0();
 
 	// Initialize FIFO feature
-    HmiFile.Parameters.Fifo.DeviceName := 'mappDataFiles';
+    HmiFile.Parameters.Fifo.DeviceName := 'mappUserXFiles';
     // MaxFolderSize is in kB
 	HmiFile.Parameters.Fifo.MaxFolderSize := 20000;
-    HmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
+    HmiFile.Parameters.Fifo.MaxNumberOfFiles := 55;
     // ScanInterval is in minutes
-	HmiFile.Parameters.Fifo.ScanInterval := 60;
+	HmiFile.Parameters.Fifo.ScanInterval := 1;
 	
 	// Initialize which folders should exist
 	PathCheck.DeviceList := MpFileManagerUIConnect.DeviceList;
@@ -69,8 +69,8 @@ PROGRAM _CYCLIC
     IF NOT MpFileManagerUI_0.Error THEN
         MpFileManagerUI_0.ErrorReset := FALSE;
     END_IF
-	
-	// Assign MpLink
+
+    // Assign MpLink
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
 	
 	// Call function block
@@ -82,10 +82,12 @@ END_PROGRAM
 PROGRAM _EXIT
 	
 	// Disable the function blocls to unlink the MpLink
-	MpFileManagerUI_0.Enable := FALSE;
+    MpFileManagerUI_0.Enable := FALSE;
+    MpFileManagerUI_FIFO.Enable := FALSE;
 	
 	// Call function block
-	MpFileManagerUI_0();
-	
+    MpFileManagerUI_0();
+    MpFileManagerUI_FIFO();
+
 END_PROGRAM
 

@@ -1,8 +1,10 @@
 (*Function Blocks*)
 VAR
 	MpFileManagerUI_0 : MpFileManagerUI; (*MpFileManagerUI instance*)
+	MpFileManagerUI_FIFO : MpFileManagerUI; (*MpFileManagerUI instance*)
 	DirInfo_0 : DirInfo; (*Directory info function block*)
 	R_TRIG_CheckStatus : R_TRIG; (*Trigger function block*)
+	TON_Wait : TON;
 	TON_ScanFolder : TON; (*Timer to scan for folder*)
 END_VAR
 (*Constants*)
@@ -12,6 +14,7 @@ END_VAR
 (*Structure Types*)
 VAR
 	MpFileManagerUIConnect : MpFileManagerUIConnectType; (*File manager connection to the HMI*)
+	MpFileManagerUIConnect_FIFO : MpFileManagerUIConnectType; (*File manager connection to the HMI*)
 	HmiFile : FileHmiInterfaceType; (*HMI interface structure*)
 END_VAR
 (*Variables*)
@@ -28,4 +31,5 @@ VAR
 	FileNameArraySize : USINT;
 	StartIndex : USINT;
 	LastIndex : UDINT;
+	Fifo_Count : USINT;
 END_VAR
