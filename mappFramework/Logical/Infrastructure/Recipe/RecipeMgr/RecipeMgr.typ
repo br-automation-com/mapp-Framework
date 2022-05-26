@@ -25,6 +25,8 @@ TYPE
 		HMIcommand : RecipeHmiStepEnum; (*State machine step for HMI commands*)
 		LastLoadedConfigRecipe : STRING[255]; (*Last loaded configuration recipe*)
 		LastLoadedProductRecipe : STRING[255]; (*Last loaded product recipe*)
+		ProductRecipeLoaded : BOOL; (*Product recipe was loaded*)
+		ConfigRecipeLoaded : BOOL; (*Config recipe was loaded*)
 		SelectedRecipe : STRING[255]; (*The name of the selected recipe*)
 		LastMaxSelection : UINT; (*The previous maximum number of recipes*)
 		LastSelectedIndex : UINT; (*The previous selected index*)

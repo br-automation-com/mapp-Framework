@@ -104,9 +104,11 @@ ACTION RecipeHMIcommands:
 			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
 				Parameters := ParametersPreview;
 				HmiRecipe.Status.LastLoadedProductRecipe := HmiRecipe.Status.SelectedRecipe;
+				HmiRecipe.Status.ProductRecipeLoaded := TRUE;
 			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 				MachineSettings := MachineSettingsPreview;
 				HmiRecipe.Status.LastLoadedConfigRecipe := HmiRecipe.Status.SelectedRecipe;
+				HmiRecipe.Status.ConfigRecipeLoaded := TRUE;
 			END_IF
 			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 	

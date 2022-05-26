@@ -81,5 +81,25 @@
 <Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.InvalidRecipe" attribute="value" />
 <Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="LabelInvalidRecipe" attribute="visible" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ConfigRecipeLoaded" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting1Active" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ConfigRecipeLoaded" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting3Active" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ConfigRecipeLoaded" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting5Active" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ConfigRecipeLoaded" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting2Active" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ConfigRecipeLoaded" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="NumericOutputSetting4Active" attribute="visible" />
+</Binding>
 </Bindings>
 </BindingsSet>
