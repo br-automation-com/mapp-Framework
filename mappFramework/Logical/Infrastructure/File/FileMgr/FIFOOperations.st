@@ -51,7 +51,8 @@ ACTION FIFOOperation:
             IF (MpFileManagerUIConnect.File.SortOrder <> mpFILE_SORT_BY_MOD_TIME_DESC) THEN
                 MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_MOD_TIME_DESC;
             ELSIF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
-                MpFileManagerUIConnect.File.Refresh := TRUE;
+				MpFileManagerUIConnect.File.Refresh := TRUE;
+				MpFileManagerUI_0();
             END_IF
 			
 			IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH) AND (MpFileManagerUIConnect.File.Refresh = FALSE) THEN
