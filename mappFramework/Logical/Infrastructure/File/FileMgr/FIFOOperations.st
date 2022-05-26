@@ -21,8 +21,8 @@ ACTION FIFOOperation:
 	
 		FILE_SCAN_FOLDER_WAIT:
 			// Wait for check for old files command
-			IF (HmiFile.Commands.CheckFolder = TRUE) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
-				HmiFile.Commands.CheckFolder := FALSE;
+            IF (HmiFile.Commands.CheckFolder = TRUE) AND ((MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) OR (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_ERROR)) THEN
+                HmiFile.Commands.CheckFolder := FALSE;
 				HmiFile.Status.DeleteStep := FILE_SELECT_DEVICE;
 				HmiFile.Parameters.OldSortOrder := MpFileManagerUIConnect.File.SortOrder;
 			END_IF
