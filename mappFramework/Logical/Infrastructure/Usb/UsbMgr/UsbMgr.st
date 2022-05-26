@@ -1,3 +1,10 @@
+//*********************************************************************************
+// Copyright: B&R Industrial Automation GmbH
+// Author: B&R Industrial Automation GmbH
+// Created: April 12, 2022
+// Description: This task automatically detects and (un)links USB storage devices
+//*********************************************************************************
+
 PROGRAM _INIT
 END_PROGRAM
 
