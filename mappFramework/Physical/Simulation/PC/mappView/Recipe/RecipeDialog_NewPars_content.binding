@@ -21,5 +21,25 @@
 			<Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere5" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="NumericInputPar5New" attribute="value" />
 		</Binding>
+		
+		
+		
+		
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ParameterRecipeMissing" attribute="value" />
+			<Target xsi:type="expression" refId="CannotCancelNewRecipe" attribute="MissingDefaultParameterRecipe" />
+		</Binding>
+		
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="CannotCancelNewRecipe" attribute="result" />
+			<Target xsi:type="brease" widgetRefId="CancelButton" contentRefId="RecipeDialog_NewButtons_content" attribute="enable" />
+		</Binding>
+		
+		<Binding mode="oneWay">
+			<Source xsi:type="session" refId="SessionVarCannotEditRecipeName" attribute="value" />
+			<Target xsi:type="brease" widgetRefId="txtInNewRecipe" contentRefId="RecipeDialog_NewPars_content" attribute="enable" />
+		</Binding>
+		
+	
 	</Bindings>
 </BindingsSet>
