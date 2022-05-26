@@ -80,10 +80,13 @@ PROGRAM _INIT
 		MpRecipe_0();
     END_WHILE
 	MachineSettings := MachineSettingsPreview;
+	HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
+	brsstrcat(ADR(HmiRecipe.Status.LastLoadedConfigRecipe),ADR(MACHINE_CONFIG_FILE_EXTENSION));
 	
 	// Check if the default machine settings recipe is missing 
-	IF MpRecipe_0.Info.Diag.StatusID.Code = 32770 THEN
+	IF MpRecipe_0.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
 		HmiRecipe.Status.MachineSettingsRecipeMissing := TRUE;
+		HmiRecipe.Status.LastLoadedConfigRecipe := '';
 	END_IF
 	
 	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
@@ -100,16 +103,17 @@ PROGRAM _INIT
 		MpRecipe_0();
 	END_WHILE
 	Parameters := ParametersPreview;
-	
-	// Check if the default parameters recipe is missing 
-	IF MpRecipe_0.Info.Diag.StatusID.Code = 32770 THEN
-		HmiRecipe.Status.ParameterRecipeMissing := TRUE;
-	END_IF
-    
 	HmiRecipe.Status.LastLoadedProductRecipe := DEFAULT_PARAMETERS;
 	brsstrcat(ADR(HmiRecipe.Status.LastLoadedProductRecipe),ADR(PARAMETERS_FILE_EXTENSION));
-	HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
-	brsstrcat(ADR(HmiRecipe.Status.LastLoadedConfigRecipe),ADR(MACHINE_CONFIG_FILE_EXTENSION));
+	
+	// Check if the default parameters recipe is missing 
+	IF MpRecipe_0.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
+		HmiRecipe.Status.ParameterRecipeMissing := TRUE;
+		HmiRecipe.Status.LastLoadedProductRecipe := '';
+	END_IF
+    
+	
+	
 	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
 	MpRecipe_0.Load := FALSE;
 	MpRecipe_0();
