@@ -82,11 +82,13 @@ PROGRAM _INIT
 	MachineSettings := MachineSettingsPreview;
 	HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
 	brsstrcat(ADR(HmiRecipe.Status.LastLoadedConfigRecipe),ADR(MACHINE_CONFIG_FILE_EXTENSION));
+	HmiRecipe.Status.ConfigRecipeLoaded := TRUE;
 	
 	// Check if the default machine settings recipe is missing 
 	IF MpRecipe_0.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
 		HmiRecipe.Status.MachineSettingsRecipeMissing := TRUE;
 		HmiRecipe.Status.LastLoadedConfigRecipe := '';
+		HmiRecipe.Status.ConfigRecipeLoaded := FALSE;
 	END_IF
 	
 	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
@@ -105,11 +107,13 @@ PROGRAM _INIT
 	Parameters := ParametersPreview;
 	HmiRecipe.Status.LastLoadedProductRecipe := DEFAULT_PARAMETERS;
 	brsstrcat(ADR(HmiRecipe.Status.LastLoadedProductRecipe),ADR(PARAMETERS_FILE_EXTENSION));
+	HmiRecipe.Status.ProductRecipeLoaded := TRUE;
 	
 	// Check if the default parameters recipe is missing 
 	IF MpRecipe_0.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
 		HmiRecipe.Status.ParameterRecipeMissing := TRUE;
 		HmiRecipe.Status.LastLoadedProductRecipe := '';
+		HmiRecipe.Status.ProductRecipeLoaded := FALSE;
 	END_IF
     
 	

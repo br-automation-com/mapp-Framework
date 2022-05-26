@@ -82,10 +82,18 @@ ACTION RecipeHMIcommands:
 				ParametersPreview := ParametersEdit;
 				brsstrcat(ADR(MpRecipeUIConnect.New.FileName),ADR('.par'));
 				HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
+				// If the default recipe was initially missing and just now created, immediately load it
+				IF HmiRecipe.Status.ParameterRecipeMissing THEN
+					HmiRecipe.Commands.LoadRecipe := TRUE;
+				END_IF
 			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 				MachineSettingsPreview := MachineSettingsEdit;
 				brsstrcat(ADR(MpRecipeUIConnect.New.FileName),ADR('.mcfg'));
 				HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
+				// If the default recipe was initially missing and just now created, immediately load it
+				IF HmiRecipe.Status.MachineSettingsRecipeMissing THEN
+					HmiRecipe.Commands.LoadRecipe := TRUE;
+				END_IF
 			END_IF
 			
 			Header.Name := MpRecipeUIConnect.New.FileName;
@@ -103,12 +111,28 @@ ACTION RecipeHMIcommands:
 		REC_HMI_LOAD:
 			IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
 				Parameters := ParametersPreview;
-				HmiRecipe.Status.LastLoadedProductRecipe := HmiRecipe.Status.SelectedRecipe;
 				HmiRecipe.Status.ProductRecipeLoaded := TRUE;
+				// If the default recipe was initially missing and just now created, then it is the last loaded recipe
+				IF HmiRecipe.Status.ParameterRecipeMissing THEN
+					HmiRecipe.Status.LastLoadedProductRecipe := DEFAULT_PARAMETERS;
+					brsstrcat(ADR(HmiRecipe.Status.LastLoadedProductRecipe),ADR(PARAMETERS_FILE_EXTENSION));
+					HmiRecipe.Status.ParameterRecipeMissing := FALSE;
+				// Otherwise, the last loaded recipe is the selected recipe
+				ELSE
+					HmiRecipe.Status.LastLoadedProductRecipe := HmiRecipe.Status.SelectedRecipe;
+				END_IF
 			ELSIF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 				MachineSettings := MachineSettingsPreview;
-				HmiRecipe.Status.LastLoadedConfigRecipe := HmiRecipe.Status.SelectedRecipe;
 				HmiRecipe.Status.ConfigRecipeLoaded := TRUE;
+				// If the default recipe was initially missing and just now created, then it is the last loaded recipe
+				IF HmiRecipe.Status.MachineSettingsRecipeMissing THEN
+					HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
+					brsstrcat(ADR(HmiRecipe.Status.LastLoadedConfigRecipe),ADR(MACHINE_CONFIG_FILE_EXTENSION));
+					HmiRecipe.Status.MachineSettingsRecipeMissing := FALSE;
+				// Otherwise, the last loaded recipe is the selected recipe
+				ELSE
+					HmiRecipe.Status.LastLoadedConfigRecipe := HmiRecipe.Status.SelectedRecipe;
+				END_IF
 			END_IF
 			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 	
@@ -145,7 +169,6 @@ ACTION RecipeHMIcommands:
 			ParametersEdit := ParametersPreview;
 			IF HmiRecipe.Status.ParameterRecipeMissing THEN
 				MpRecipeUIConnect.New.FileName := DEFAULT_PARAMETERS;
-				HmiRecipe.Status.ParameterRecipeMissing := FALSE;
 			ELSE
 				MpRecipeUIConnect.New.FileName := 'newParameters';
 			END_IF
@@ -153,7 +176,6 @@ ACTION RecipeHMIcommands:
 			MachineSettingsEdit := MachineSettingsPreview;
 			IF HmiRecipe.Status.MachineSettingsRecipeMissing THEN
 				MpRecipeUIConnect.New.FileName := DEFAULT_MACHINE_CONFIGURATION;
-				HmiRecipe.Status.MachineSettingsRecipeMissing := FALSE;
 			ELSE
 				MpRecipeUIConnect.New.FileName := 'newMachineConfig';
 			END_IF
