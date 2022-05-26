@@ -182,13 +182,13 @@
     </EventBinding>
     <EventBinding id="Recipe_content.DropDownBoxRecipeCategory.SelectedIndexChanged">
       <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" event="SelectedIndexChanged" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown">
-            <Method xsi:type="opcUa.NodeAction.SetValueString" value="=selectedValue" />
-          </Target>
-        </Action>
-      </EventHandler>
+			<EventHandler>
+				<Action>
+					<Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
+						<Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+					</Target>
+				</Action>
+			</EventHandler>
       <EventHandler condition="selectedIndex = 0">
         <Sequence>
           <Step order="0">
@@ -225,14 +225,7 @@
           </Step>
         </Sequence>
       </EventHandler>
-      <EventHandler>
-        <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
-            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
+		</EventBinding>
     <EventBinding id="Recipe_content.loaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="ANY_STRING" name="CategoryDropdownValue">

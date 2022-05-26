@@ -42,17 +42,7 @@
 			<Source xsi:type="opcUa" refId="::RecipeMgr:ParametersPreview.AddParametersHere5" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar5Sel" attribute="value" />
 		</Binding>
-		
-		
-		
-		
-		
-
-
-
-
-
-<Binding mode="twoWay">
+		<Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
 <Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar5Sel" attribute="visible" />
 </Binding>

@@ -213,11 +213,27 @@
 			<Source xsi:type="snippet" refId="IndexTextSnippetRecipeMsgBoxType" attribute="value" />
 			<Target xsi:type="session" refId="SessionVarMsgBoxType" attribute="value" />
 		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" attribute="selectedValue" /> 
+			<Target xsi:type="session" refId="SessionVarCategoryDropdown" attribute="value" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="session" refId="SessionVarCategoryDropdown" attribute="value" />
+			<Target xsi:type="expression" refId="CannotCancelNewRecipe" attribute="CategorySelection" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="expression" refId="CannotCancelNewRecipe" attribute="result" />
+			<Target xsi:type="session" refId="SessionVarCannotEditRecipeName" attribute="value" />
+		</Binding>
 
 		
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.LoadingRecipeList" attribute="value" />
 <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Image1" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown" attribute="value" samplingRate="fast"/>
+<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" attribute="selectedValue" />
 </Binding>
 </Bindings>
 </BindingsSet>
