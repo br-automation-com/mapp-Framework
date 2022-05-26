@@ -148,7 +148,7 @@ ACTION FIFOOperation:
             		HmiFile.Status.FolderSize := HmiFile.Status.FolderSize + UDINT_TO_REAL(MpFileManagerUIConnect_FIFO.File.List.Items[i].Size);
             	END_IF
             END_FOR
-            HmiFile.Status.DeleteStep := SEL(HmiFile.Status.FolderSize > HmiFile.Parameters.Fifo.MaxFolderSize, FILE_RESET_SORT_BY, FILE_SELECT_OLDEST_FILES_1);
+            HmiFile.Status.DeleteStep := SEL(HmiFile.Status.FolderSize > HmiFile.Parameters.Fifo.MaxFolderSize*1000, FILE_RESET_SORT_BY, FILE_SELECT_OLDEST_FILES_1);
 
         FILE_SELECT_OLDEST_FILES_1:
             // Scan and select all file over the filter setting

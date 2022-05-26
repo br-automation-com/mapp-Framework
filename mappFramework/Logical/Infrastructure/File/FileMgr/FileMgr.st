@@ -24,7 +24,7 @@ PROGRAM _INIT
 	// Initialize FIFO feature
     HmiFile.Parameters.Fifo.DeviceName := 'mappUserXFiles';
     // MaxFolderSize is in kB
-	HmiFile.Parameters.Fifo.MaxFolderSize := 20000;
+	HmiFile.Parameters.Fifo.MaxFolderSize := 1000;
     HmiFile.Parameters.Fifo.MaxNumberOfFiles := 55;
     // ScanInterval is in minutes
 	HmiFile.Parameters.Fifo.ScanInterval := 1;
