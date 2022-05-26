@@ -20,8 +20,11 @@
 # Ignore .zip files, for the moment
 *.zip
 
-# Ignore .bak files
-*.bak
+# ignore temp files
+*~
+~*
+*.[Bb]ak
+*.[Oo]rig
 
 # Exception for Diagnosis/ sub-directories -> these won't be committed anyways
 #   because there are no files inside that will be committed
@@ -39,12 +42,10 @@
 !**/Diagnosis/**/*.tc
 
 # add here
-BaseProject/Diagnosis/
-Documentation/mappFramework.lck
-Documentation/mappFramework.hnd-journal
+Documentation/*.lck
+Documentation/*.hnd-journal
 Documentation/html/
 ReleaseBuilder/InstallerSetup/Help/Help-en/mappFrameworkHelp/mappFrameworkHelp/
 ReleaseBuilder/InstallerSetup/Install/
 ReleaseBuilder/InstallerSetup/TechnologySolution/
-ReleaseBuilder/Builder/__pycache__/
-TMX/
+**/__pycache__/
