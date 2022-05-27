@@ -11,22 +11,5 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="clientSystem.ContentLoaded.File_content">
-      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
-      <EventHandler condition="contentId = &quot;File_content&quot;">
-        <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:HmiFile.Status.FileContentActive">
-            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-          </Target>
-        </Action>
-      </EventHandler>
-      <EventHandler condition="contentId &lt;&gt; &quot;File_content&quot;">
-        <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:HmiFile.Status.FileContentActive">
-            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
   </Bindings>
 </EventBindingSet>
