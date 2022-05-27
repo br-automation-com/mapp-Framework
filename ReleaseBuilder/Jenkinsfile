@@ -149,7 +149,7 @@ pipeline {
             }
             when
             {
-                branch 'release/*'
+                branch 'main'
             }
             steps {
                 bat "xcopy \"ReleaseBuilder\\InstallerSetup\\Install\\*.exe\" \"C:\\Users\\buchananw\\ABB\\NA Product Management - mapp Framework\\Releases\\$TAG\\\" /y"
@@ -170,6 +170,7 @@ pipeline {
                 anyOf {
                     branch 'feature/*'
                     branch 'develop'
+                    branch 'release/*'
                 }
             }
             steps {
