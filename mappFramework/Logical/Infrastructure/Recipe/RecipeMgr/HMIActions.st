@@ -26,6 +26,7 @@ ACTION FormatDeviceDataProvider:
     END_IF
 	
 	HmiRecipe.Status.FilesAvailable := (MpRecipeUIConnect.Recipe.List.Names[0] <> '');
+	HmiRecipe.Status.LoadAllowed := HmiRecipe.Status.FilesAvailable AND NOT HmiRecipe.Status.InvalidRecipe;
 	
 END_ACTION
 

@@ -42,6 +42,7 @@ TYPE
 		LoadingRecipeList : BOOL; (*The recipe list is loading*)
 		MachineSettingsRecipeMissing : BOOL; (*Flag for if the default machine settings recipe is not present*)
 		ParameterRecipeMissing : BOOL; (*Flag for if the default parameters recipe is not present*)
+		LoadAllowed : BOOL; (*Flag for whether you can load a recipe. Recipe must exist and be valid. *)
 	END_STRUCT;
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)
 		AddParametersHere1 : BOOL; (*Add your parameteres here *)
