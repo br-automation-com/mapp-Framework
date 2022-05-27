@@ -32,7 +32,7 @@ TYPE
 		AutoDeleteSelected : USINT; (*Number of selected items*)
 		FolderSize : REAL; (*Size of currently selected folder*)
 		SelectedIndex : USINT; (*Selected index in the file list*)
-		CurrentPage : STRING[80]; (*Current page*)
+		FileContentActive : BOOL; (*File content is active*)
 	END_STRUCT;
 	FileHmiParaFifoType : 	STRUCT  (*Parameters for the FIFO feature (first-in-first-out)*)
 		Enable : BOOL; (*FIFO enable*)
