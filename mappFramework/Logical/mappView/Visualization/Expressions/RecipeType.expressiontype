@@ -28,5 +28,14 @@
 				NOT ((CategorySelection = "Parameters" AND MissingDefaultParameterRecipe) OR (CategorySelection = "Machine Configuration" AND MissingDefaultMachineRecipe))
 			</Operation>
 		</ExpressionType>
+		<ExpressionType name="myRecipePreviewVisible" datatype="BOOL">
+			<Operands>
+				<Operand name="RecipeFilesAvailable" datatype="BOOL" />
+				<Operand name="InvalidRecipe" datatype="BOOL" />
+			</Operands>
+			<Operation>
+				RecipeFilesAvailable AND NOT InvalidRecipe
+			</Operation>
+		</ExpressionType>
     </ExpressionTypes>
 </ExpressionTypeSet>
