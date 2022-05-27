@@ -73,12 +73,23 @@ PROGRAM _INIT
 	
 	// Load default Machine Settings recipe
 	HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
-	HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION;
+	HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION; 
+	brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(MACHINE_CONFIG_FILE_EXTENSION));
 	MpRecipe_0.Load := TRUE;
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
     END_WHILE
 	MachineSettings := MachineSettingsPreview;
+	HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
+	brsstrcat(ADR(HmiRecipe.Status.LastLoadedConfigRecipe),ADR(MACHINE_CONFIG_FILE_EXTENSION));
+	HmiRecipe.Status.ConfigRecipeLoaded := TRUE;
+	
+	// Check if the default machine settings recipe is missing 
+	IF MpRecipe_0.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
+		HmiRecipe.Status.MachineSettingsRecipeMissing := TRUE;
+		HmiRecipe.Status.LastLoadedConfigRecipe := '';
+		HmiRecipe.Status.ConfigRecipeLoaded := FALSE;
+	END_IF
 	
 	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
 	MpRecipe_0.Load := FALSE;
@@ -87,21 +98,31 @@ PROGRAM _INIT
 	// Load default Parameter recipe
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
 	HmiRecipe.Parameters.FileName := DEFAULT_PARAMETERS;
-	HmiRecipe.Status.PreviousRecipe := DEFAULT_PARAMETERS; 
+	brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(PARAMETERS_FILE_EXTENSION));
+	HmiRecipe.Status.PreviousRecipe := DEFAULT_PARAMETERS;
 	MpRecipe_0.Load := TRUE;
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE
 	Parameters := ParametersPreview;
-    
 	HmiRecipe.Status.LastLoadedProductRecipe := DEFAULT_PARAMETERS;
-	HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
+	brsstrcat(ADR(HmiRecipe.Status.LastLoadedProductRecipe),ADR(PARAMETERS_FILE_EXTENSION));
+	HmiRecipe.Status.ProductRecipeLoaded := TRUE;
+	
+	// Check if the default parameters recipe is missing 
+	IF MpRecipe_0.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
+		HmiRecipe.Status.ParameterRecipeMissing := TRUE;
+		HmiRecipe.Status.LastLoadedProductRecipe := '';
+		HmiRecipe.Status.ProductRecipeLoaded := FALSE;
+	END_IF
+    
+	
+	
 	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
 	MpRecipe_0.Load := FALSE;
 	MpRecipe_0();
 
     // Trigger update notification so that the initial parameters are copied to the process
-    // might not be necessary.*****
 	MpRecipe_0.UpdateNotification := TRUE;
 	
 	// Init Filemanager for exporting/importing files
@@ -130,7 +151,6 @@ PROGRAM _CYCLIC
 		MpRecipe_0.Load := FALSE;
 		MpRecipe_0.Save := FALSE;
 		// Set update notification for machine category
-	//	IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
 		IF ((brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
 			MpRecipe_0.UpdateNotification := TRUE;	
 		ELSE
@@ -138,7 +158,7 @@ PROGRAM _CYCLIC
 			HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
 			HmiRecipe.Parameters.FileName := 'Default.par';
 		END_IF
-		END_IF
+	END_IF
 	
     
 	// Error reset
@@ -163,7 +183,7 @@ PROGRAM _CYCLIC
 	MpFileManagerUI_0();
 	MpRecipeRegPar_PreviewPar();
 	MpRecipeRegPar_PreviewCfg();
-	
+
 END_PROGRAM
 
 PROGRAM _EXIT

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="AxisManual_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Widgets>
-    <Widget xsi:type="widgets.widgetlibrary_0.AxisManualControlWidget" id="AxisManualControlWidget1" top="58" left="80" width="301" zIndex="0" LabelText="$IAT/AppAxis_1/Info/Name" />
-  </Widgets>
+<Content id="AxisManual_content" height="600" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Widgets>
+        <Widget xsi:type="widgets.AxisControlWidgetLibrary.AxisManualControlWidget" id="AxisManualControlWidget1" top="58" left="80" width="301" zIndex="0" positionUnit="{'metric':'DD','imperial':'DD','imperial-us':'DD'}" velocityUnit="{'metric':'E96','imperial':'E96','imperial-us':'E96'}" LabelText="$IAT/AppAxis_1/Info/Name" permissionOperate="['Administrators', 'Operators', 'Service']" />
+    </Widgets>
 </Content>

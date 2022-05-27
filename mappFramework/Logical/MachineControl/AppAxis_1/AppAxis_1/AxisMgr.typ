@@ -25,6 +25,7 @@ TYPE
 		JogPositive : {REDUND_UNREPLICABLE} BOOL; (*Cmd jog positive*)
 		JogNegative : {REDUND_UNREPLICABLE} BOOL; (*Cmd jog negative*)
 		Start : {REDUND_UNREPLICABLE} BOOL; (*Cmd start motion*)
+		UpdateVelocity : {REDUND_UNREPLICABLE} BOOL; (*Cmd update velocity for automatic mode*)
 	END_STRUCT;
 	AxisControlParametersType : {REDUND_UNREPLICABLE} 	STRUCT 
 		HomePosition : {REDUND_UNREPLICABLE} LREAL := 0; (*[mm] Home Position*)
@@ -34,7 +35,7 @@ TYPE
 		Acceleration : {REDUND_UNREPLICABLE} REAL := 360; (*[mm/s2] Acceleration for absoluate and relative moves*)
 		Deceleration : {REDUND_UNREPLICABLE} REAL := 360; (*[mm/s2] Deceleration for absoluate and relative moves*)
 		JogVelocity : {REDUND_UNREPLICABLE} REAL := 100; (*[mm/s] Velocity used when jogging the axis*)
-		StopDeceleration : {REDUND_UNREPLICABLE} REAL := 720; (*[mm/s2] Deceleration for stopping*)
+		StopDeceleration : {REDUND_UNREPLICABLE} REAL := 0; (*[mm/s2] Deceleration for stopping*)
 		ProductNumber : {REDUND_UNREPLICABLE} INT := 0; (*Product Number*)
 		ProductLength : {REDUND_UNREPLICABLE} REAL := 70; (*Real Product Length*)
 	END_STRUCT;

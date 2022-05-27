@@ -1,7 +1,7 @@
 ACTION FormatDeviceDataProvider:
     
 	// Select CF device if USB device is not available
-    FOR i := 0 TO MAX_IDX_USB_DEV_LIST DO
+    FOR i := 0 TO ((SIZEOF(gUSBAvailable) / SIZEOF(gUSBAvailable[0])) - 1) DO
         IF gUSBAvailable[i] THEN
 			HmiBackup.Status.DeviceDataProvider[i + 1] := '{"value":"USB';
             brsitoa(i + 1, ADR(HmiBackup.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiBackup.Status.DeviceDataProvider[i + 1])));
@@ -18,7 +18,7 @@ ACTION FormatDeviceDataProvider:
 	
 	// Configure visible device list
 	HmiBackup.Status.TableConfig[0] := '{ "specRows": [{"from":';
-	FOR i := 0 TO 9 DO
+	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
 		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
 			DeviceCount := i + 1;
 		END_IF
@@ -27,10 +27,13 @@ ACTION FormatDeviceDataProvider:
     brsstrcat(ADR(HmiBackup.Status.TableConfig[0]),  ADR(',"to":9, "visible":false}]}'));
 	
 	// Configure visible file list
-	HmiBackup.Status.TableConfig[1] := '{ "specRows": [{"from":';
-    brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(HmiBackup.Status.TableConfig[1]) + brsstrlen(ADR(HmiBackup.Status.TableConfig[1])));
-    brsstrcat(ADR(HmiBackup.Status.TableConfig[1]),  ADR(',"to":49, "visible":false}]}'));
-    
+	ItemCount := MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount;
+	HmiBackup.Status.TableConfig[1] := '{ "specRows": [{"from":';	
+    brsitoa((ItemCount), ADR(HmiBackup.Status.TableConfig[1]) + brsstrlen(ADR(HmiBackup.Status.TableConfig[1])));
+    brsstrcat(ADR(HmiBackup.Status.TableConfig[1]),  ADR(',"to":50, "visible":false}]}'));
+	
+	HmiBackup.Status.FileOverMax := ItemCount > 50;
+
 END_ACTION
 
 ACTION SaveBackupConfiguration:

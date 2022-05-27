@@ -17,6 +17,25 @@
             <Operation>
                 (inA &gt; 0) AND (inA &lt; 100)
             </Operation>
-        </ExpressionType>
+		</ExpressionType>
+		<ExpressionType name="myCannotCancelNewRecipeExpr" datatype="BOOL">
+			<Operands>
+				<Operand name="MissingDefaultParameterRecipe" datatype="BOOL" />
+				<Operand name="MissingDefaultMachineRecipe" datatype="BOOL" />
+				<Operand name="CategorySelection" datatype="ANY_STRING" />
+			</Operands>
+			<Operation>
+				NOT ((CategorySelection = "Parameters" AND MissingDefaultParameterRecipe) OR (CategorySelection = "Machine Configuration" AND MissingDefaultMachineRecipe))
+			</Operation>
+		</ExpressionType>
+		<ExpressionType name="myRecipePreviewVisible" datatype="BOOL">
+			<Operands>
+				<Operand name="RecipeFilesAvailable" datatype="BOOL" />
+				<Operand name="InvalidRecipe" datatype="BOOL" />
+			</Operands>
+			<Operation>
+				RecipeFilesAvailable AND NOT InvalidRecipe
+			</Operation>
+		</ExpressionType>
     </ExpressionTypes>
 </ExpressionTypeSet>

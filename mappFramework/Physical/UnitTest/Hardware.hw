@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.6.30?>
+<Hardware xmlns="http://br-automation.co.at/AS/Hardware">
+  <Module Name="PC_any" Type="PC_any" Version="1.1.0.0" OrderNumber="PC">
+    <Parameter ID="ConfigurationID" Value="mappFramework_UnitTest" />
+    <Parameter ID="Cyclic1Duration" Value="10000" />
+    <Parameter ID="Cyclic4Duration" Value="10000" />
+    <Parameter ID="Cyclic8Duration" Value="10000" />
+    <Group ID="FileDevice1" />
+    <Parameter ID="FileDeviceName1" Value="UserPartition" />
+    <Parameter ID="FileDevicePath1" Value="..\..\..\..\Logical\UserPartition\" />
+    <Group ID="FileDevice2" />
+    <Parameter ID="FileDeviceName2" Value="mappAlarmXFiles" />
+    <Parameter ID="FileDevicePath2" Value="..\..\..\..\Logical\UserPartition\AlarmX" />
+    <Group ID="FileDevice3" />
+    <Parameter ID="FileDeviceName3" Value="mappBackupFiles" />
+    <Parameter ID="FileDevicePath3" Value="..\..\..\..\Logical\UserPartition\Backup" />
+    <Group ID="FileDevice4" />
+    <Parameter ID="FileDeviceName4" Value="mappRecipeFiles" />
+    <Parameter ID="FileDevicePath4" Value="..\..\..\..\Logical\UserPartition\Recipe" />
+    <Group ID="FileDevice5" />
+    <Parameter ID="FileDeviceName5" Value="mappUserXFiles" />
+    <Parameter ID="FileDevicePath5" Value="..\..\..\..\Logical\UserPartition\UserX" />
+  </Module>
+</Hardware>

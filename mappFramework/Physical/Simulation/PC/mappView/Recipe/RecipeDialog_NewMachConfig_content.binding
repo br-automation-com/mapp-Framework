@@ -22,5 +22,13 @@
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere5" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumericInputMachConfig5New" attribute="value" />
 		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.MachineSettingsRecipeMissing" attribute="value" />
+			<Target xsi:type="expression" refId="CannotCancelNewRecipe" attribute="MissingDefaultMachineRecipe" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="session" refId="SessionVarCannotEditRecipeName" attribute="value" />
+			<Target xsi:type="brease" widgetRefId="txtInNewRecipe" contentRefId="RecipeDialog_NewMachConfig_content" attribute="enable" />
+		</Binding>
 	</Bindings>
 </BindingsSet>

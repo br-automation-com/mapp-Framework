@@ -3,24 +3,24 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.TabControl" id="TabControlAxis" top="0" left="1" width="1119" height="660" zIndex="3">
       <Widgets>
-        <Widget xsi:type="widgets.brease.TabItem" id="TabItemAuto" left="0" width="200" height="45" zIndex="0" text="$IAT/Axis/Auto" textColor="rgba(124, 125, 127, 1)" fontSize="18px">
-          <Widgets>
-            <Widget xsi:type="widgets.brease.GroupBox" id="GroupBoxAuto" top="10" left="0" width="1120" height="600" zIndex="0" style="transparent">
-              <Widgets>
-                <Widget xsi:type="widgets.brease.ContentControl" id="cntctrlAxisAuto" top="0" left="0" zIndex="0" contentId="AxisAuto_content" />
-              </Widgets>
-            </Widget>
-          </Widgets>
-        </Widget>
-        <Widget xsi:type="widgets.brease.TabItem" id="TabItemManual" left="0" width="200" height="45" zIndex="1" text="$IAT/Axis/Manu" fontSize="18px">
-          <Widgets>
-            <Widget xsi:type="widgets.brease.GroupBox" id="GroupBoxManual" top="10" left="0" width="1120" height="600" zIndex="0" style="transparent">
-              <Widgets>
-                <Widget xsi:type="widgets.brease.ContentControl" id="cntctrlAxisManual" top="0" left="0" zIndex="0" contentId="AxisManual_content" />
-              </Widgets>
-            </Widget>
-          </Widgets>
-        </Widget>
+				<Widget xsi:type="widgets.brease.TabItem" id="TabItemManual" left="0" width="200" height="45" zIndex="0" text="$IAT/Axis/Manu" fontSize="18px">
+					<Widgets>
+						<Widget xsi:type="widgets.brease.GroupBox" id="GroupBoxManual" top="10" left="0" width="1120" height="600" zIndex="0" style="transparent">
+							<Widgets>
+								<Widget xsi:type="widgets.brease.ContentControl" id="cntctrlAxisManual" top="0" left="0" zIndex="0" contentId="AxisManual_content" />
+							</Widgets>
+						</Widget>
+					</Widgets>
+				</Widget>
+				<Widget xsi:type="widgets.brease.TabItem" id="TabItemAuto" left="0" width="200" height="45" zIndex="1" text="$IAT/Axis/Auto" textColor="rgba(124, 125, 127, 1)" fontSize="18px">
+					<Widgets>
+						<Widget xsi:type="widgets.brease.GroupBox" id="GroupBoxAuto" top="10" left="0" width="1120" height="600" zIndex="0" style="transparent">
+							<Widgets>
+								<Widget xsi:type="widgets.brease.ContentControl" id="cntctrlAxisAuto" top="0" left="0" zIndex="0" contentId="AxisAuto_content" />
+							</Widgets>
+						</Widget>
+					</Widgets>
+				</Widget>
       </Widgets>
     </Widget>
   </Widgets>

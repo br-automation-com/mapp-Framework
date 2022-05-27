@@ -19,5 +19,9 @@
             <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Command.Start" attribute="value" />
             <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="TBtnStartStop" attribute="value" />
         </Binding>
+        <Binding mode="twoWay">
+            <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Command.UpdateVelocity" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="PushButtonUpdate" attribute="value" />
+        </Binding>
     </Bindings>
 </BindingsSet>

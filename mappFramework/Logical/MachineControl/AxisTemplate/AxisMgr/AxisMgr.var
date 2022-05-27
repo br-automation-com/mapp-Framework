@@ -10,12 +10,11 @@ VAR
 END_VAR
 (*Function Blocks*)
 VAR
-	MC_BR_CheckRestorePositionData_0 : {REDUND_UNREPLICABLE} MC_BR_CheckRestorePositionData; (*Check restore postion data*)
-	RestorePosition : {REDUND_UNREPLICABLE} McAcpAxRestorePosType; (*Data structure for retsore position mode*)
+	RestorePosition : {REDUND_UNREPLICABLE} McPureVAxRestorePosType; (*Data structure for retsore position mode*)
 	MpRecipeRegPar_Cfg : {REDUND_UNREPLICABLE} MpRecipeRegPar; (*Register function block for configuration values*)
 	MpRecipeRegPar_Par : {REDUND_UNREPLICABLE} MpRecipeRegPar; (*Register function block for parameter values*)
 	MpAlarmXCore_0 : {REDUND_UNREPLICABLE} MpAlarmXCore; (*AlarmX Core function block*)
-	MpAxisParameters : {REDUND_UNREPLICABLE} MpAxisBasicParType := (Distance:=70,Velocity:=100,Acceleration:=5000,Deceleration:=5000,Jog:=(Velocity:=70,Acceleration:=5000,Deceleration:=5000),AutoTune:=(MaxCurrentPercent:=50,MaxDistance:=720,MaxPositionError:=5)); (*Standard MpAxis parameter structure *)
+	MpAxisParameters : {REDUND_UNREPLICABLE} MpAxisBasicParType := (Distance:=70,Velocity:=100,Acceleration:=5000,Deceleration:=5000,Homing:=(Mode:=mcHOMING_RESTORE_POSITION),Jog:=(Velocity:=70,Acceleration:=5000,Deceleration:=5000),AutoTune:=(MaxCurrentPercent:=50,MaxDistance:=720,MaxPositionError:=5)); (*Standard MpAxis parameter structure *)
 	MpAxisBasic_0 : {REDUND_UNREPLICABLE} MpAxisBasic; (*MpAxis main function block*)
 	MC_BR_ProcessConfig_AX : {REDUND_UNREPLICABLE} MC_BR_ProcessConfig; (*Function block to read and write the axis configuration*)
 	MC_BR_ProcessConfig_ACP : {REDUND_UNREPLICABLE} MC_BR_ProcessConfig; (*Function block to read and write the ACOPOS configuration*)

@@ -12,6 +12,7 @@ TYPE
 		CreateRecipe : BOOL; (*Create recipe*)
 		ImportFromUSB : BOOL; (*Import from USB device*)
 		ExportToUSB : BOOL; (*Export to USB device*)
+		ResetPreview : BOOL; (*Reset the preview to empty/zeros in the event of an invalid recipe*)
 	END_STRUCT;
 	RecipeParametersType : 	STRUCT  (*Structure to hold the parameters for the HMI*)
 		Category : STRING[30]; (*Current category*)
@@ -24,7 +25,9 @@ TYPE
 		HMIcommand : RecipeHmiStepEnum; (*State machine step for HMI commands*)
 		LastLoadedConfigRecipe : STRING[255]; (*Last loaded configuration recipe*)
 		LastLoadedProductRecipe : STRING[255]; (*Last loaded product recipe*)
-		ActiveRecipe : STRING[255]; (*The name of the active recipe*)
+		ProductRecipeLoaded : BOOL; (*Product recipe was loaded*)
+		ConfigRecipeLoaded : BOOL; (*Config recipe was loaded*)
+		SelectedRecipe : STRING[255]; (*The name of the selected recipe*)
 		LastMaxSelection : UINT; (*The previous maximum number of recipes*)
 		LastSelectedIndex : UINT; (*The previous selected index*)
 		LastStatus : MpRecipeUIStatusEnum; (*The previous UI status*)
@@ -35,6 +38,11 @@ TYPE
 		PreviousRecipe : STRING[80]; (*Name of the previous recipe*)
 		FileDuplicate : BOOL; (*Recipe file already exists, warn the user.*)
 		FilesAvailable : BOOL; (*Control access to widget when no files are available*)
+		InvalidRecipe : BOOL; (*The selected recipe cannot be previewed*)
+		LoadingRecipeList : BOOL; (*The recipe list is loading*)
+		MachineSettingsRecipeMissing : BOOL; (*Flag for if the default machine settings recipe is not present*)
+		ParameterRecipeMissing : BOOL; (*Flag for if the default parameters recipe is not present*)
+		LoadAllowed : BOOL; (*Flag for whether you can load a recipe. Recipe must exist and be valid. *)
 	END_STRUCT;
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)
 		AddParametersHere1 : BOOL; (*Add your parameteres here *)
@@ -67,6 +75,7 @@ TYPE
 		REC_HMI_WAIT, (*Wait*)
 		REC_HMI_LOAD, (*Load recipe*)
 		REC_HMI_SAVE, (*Save recipe*)
-		REC_HMI_CREATE (*Create recipe*)
+		REC_HMI_CREATE, (*Create recipe*)
+		REC_HMI_RESET_PREVIEW (*Reset the preview values to 0 / empty*)
 		);
 END_TYPE

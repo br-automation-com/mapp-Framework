@@ -15,7 +15,7 @@ ACTION FileCopyOperation:
                         
                         IF NOT MpFileManagerUIConnect.File.MultiSelect THEN
                             MpFileManagerUIConnect.File.MultiSelect := TRUE;
-                            FOR i := 0 TO 49 DO
+                            FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0])) - 1) DO
                                 MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
                             END_FOR
                         ELSIF (brsstrlen(ADR(MpFileManagerUIConnect.File.List.Items[i].Name)) = 0) THEN

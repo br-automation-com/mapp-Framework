@@ -32,7 +32,6 @@ TYPE
 		AutoDeleteSelected : USINT; (*Number of selected items*)
 		FolderSize : REAL; (*Size of currently selected folder*)
 		SelectedIndex : USINT; (*Selected index in the file list*)
-		CurrentPage : STRING[80]; (*Current page*)
 	END_STRUCT;
 	FileHmiParaFifoType : 	STRUCT  (*Parameters for the FIFO feature (first-in-first-out)*)
 		Enable : BOOL; (*FIFO enable*)
@@ -59,6 +58,8 @@ TYPE
 		FILE_SELECT_DEVICE, (*Switch file device to the configured one *)
 		FILE_SORT_BY_DATE, (*Sort by date so the oldest files are at the end*)
 		FILE_SORT_BY_DATE_WAIT, (*Wait step switching sorting mode*)
+		FILE_GO_TO_END, (*Pages down until at the end of the file list*)
+		FILE_GO_TO_END_1,
 		FILE_CHECK_FOR_FILTER, (*Check which delete filter is active*)
 		FILE_SELECT_OLDEST_FILES_0, (*Scan and select all file over the filter setting*)
 		FILE_CALC_FOLDER_SIZE, (*Calculate the overall file size in the open folder*)

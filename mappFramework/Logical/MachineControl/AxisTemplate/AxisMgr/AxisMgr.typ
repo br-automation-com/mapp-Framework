@@ -25,6 +25,7 @@ TYPE
 		JogPositive : {REDUND_UNREPLICABLE} BOOL; (*Cmd jog positive*)
 		JogNegative : {REDUND_UNREPLICABLE} BOOL; (*Cmd jog negative*)
 		Start : {REDUND_UNREPLICABLE} BOOL; (*Cmd start motion*)
+		UpdateVelocity : {REDUND_UNREPLICABLE} BOOL; (*Cmd update velocity for automatic mode*)
 	END_STRUCT;
 	AxisControlParametersType : {REDUND_UNREPLICABLE} 	STRUCT 
 		HomePosition : {REDUND_UNREPLICABLE} LREAL := 0; (*[mm] Home Position*)

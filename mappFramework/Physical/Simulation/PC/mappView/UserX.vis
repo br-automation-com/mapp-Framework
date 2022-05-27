@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<vdef:Visualization id="MyVisuUserX" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+	<StartPage pageRefId="Demo_page" />
+    <Pages>
+        <Page refId="Demo_page" />
+    </Pages>
+	<Navigations>
+		<!--<Navigation refId="" />-->
+	</Navigations>  
+	<BindingsSets>
+        <BindingsSet refId="UserX_content_binding" />
+        <BindingsSet refId="UserXDialog_Export_content_binding" />	
+        <BindingsSet refId="UserXDialog_Import_content_binding" />	
+		<BindingsSet refId="UserXDialog_Error_content_binding" />
+		<BindingsSet refId="UserX_Navigation_content_binding" />
+    </BindingsSets>
+    <EventBindingsSets> 
+        <EventBindingsSet refId="UserX_content_eventbinding" />
+        <EventBindingsSet refId="UserXDialog_Export_content_eventbinding" />
+		<EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
+		<EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Navigation_content_eventbinding" />
+    </EventBindingsSets>
+    <Dialogs>
+        <Dialog refId="UserXLogin_dialog" />
+		<Dialog refId="UserXError_dialog" />
+		<Dialog refId="UserXExport_dialog" />
+		<Dialog refId="UserXImport_dialog" />
+    </Dialogs>
+    <Contents > 
+        <Content refId="UserX_content" />
+		<Content refId="UserXDialog_Login_content" />
+        <Content refId="UserXDialog_Error_content" />
+		<Content refId="Help_content" />
+		<Content refId="Navigation_content" />
+    </Contents>	
+    <SnippetsSets>
+        <SnippetsSet refId="User_snippets" />
+    </SnippetsSets>
+    <ExpressionsSets>
+    </ExpressionsSets>
+    <VariablesSets>
+		<VariablesSet refId="UserX_svar" />
+    </VariablesSets>
+    <StartTheme themeRefId="BuRThemeFlat1" />
+	<Themes>
+		<Theme refId="BuRThemeFlat1"/>
+	</Themes>
+	<Configurations>
+    </Configurations>
+</vdef:Visualization>

@@ -86,5 +86,61 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="File_content.ButtonFilePageUp.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="File_content" widgetRefId="ButtonFilePageUp" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+                <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="0" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+                <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="0" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.List.PageUp">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="File_content.ButtonFilePageDown.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="File_content" widgetRefId="ButtonFilePageDown" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+                <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="49" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+                <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="49" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.List.PageDown">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
