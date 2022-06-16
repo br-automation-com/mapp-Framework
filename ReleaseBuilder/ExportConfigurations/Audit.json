@@ -1,0 +1,51 @@
+{
+    "libraries" :
+    [
+        "runtime",
+		"FileIO"
+    ],
+    "mapp" :
+    [
+        "MpBase",
+        "MpAudit"
+    ],
+    "files" :
+    [
+        "Logical\\Infrastructure\\LICENSE.txt",
+        "Logical\\Infrastructure\\Project.language",
+        "Logical\\Infrastructure\\mappFrameworkGlobal.var",
+        "Logical\\Infrastructure\\Audit",
+        "Physical\\Simulation\\PC\\AccessAndSecurity\\UserRoleSystem",
+        "Physical\\Simulation\\PC\\mappServices\\Audit"
+    ],
+    "mappViewfiles" :
+    [
+        "Logical\\Libraries\\MpServer",
+		"Logical\\mappView\\Layouts\\StandardPage.layout",
+        "Logical\\mappView\\Resources\\Texts\\mappFrameworkTexts\\AuditPageTexts.tmx",
+		"Logical\\mappView\\Resources\\Texts\\mappFrameworkTexts\\UserManualPageTexts.tmx",
+        "Logical\\mappView\\Resources\\Themes\\BuRThemeFlat1",
+        "Logical\\mappView\\Resources\\Media",
+        "Logical\\mappView\\Visualization\\Pages\\FrameworkPackage\\AuditContent",
+        "Logical\\mappView\\Visualization\\Pages\\DemoPage",
+        "Physical\\Simulation\\PC\\Connectivity\\OpcUA\\AuditMgr.uad",
+        "Physical\\Simulation\\PC\\mappView\\Config.mappviewcfg",
+        "Physical\\Simulation\\PC\\mappView\\Audit",
+		"Physical\\Simulation\\PC\\mappView\\DemoPage",
+        "Physical\\Simulation\\PC\\mappView\\Audit.vis"
+    ],
+    "physical":
+    {
+        "deployTasks" :
+        [
+            "Infrastructure.Recipe.AuditMgr.prg"
+        ],
+        "fileDevices" :
+        [
+            "UserPartition",
+            "mappAuditFiles"
+        ],
+        "enableOpcUa" : false,
+        "UserPartitionSize" : true
+    }
+}
