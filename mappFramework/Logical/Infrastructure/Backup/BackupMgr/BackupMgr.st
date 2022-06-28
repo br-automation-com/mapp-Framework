@@ -149,7 +149,7 @@ PROGRAM _CYCLIC
 		HmiBackup.Status.Error := FALSE;
     END_IF
     
-	HmiBackup.Status.RestoreAllowed := (MpFileManagerUIConnect.File.PathInfo.FolderCount > 0) AND NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress);
+	HmiBackup.Status.RestoreAllowed := (MpFileManagerUIConnect.File.PathInfo.FolderCount > 0) AND NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress) AND NOT HmiBackup.Status.SimulationActive;
 	
 	// Call all actions
     FileManager;
