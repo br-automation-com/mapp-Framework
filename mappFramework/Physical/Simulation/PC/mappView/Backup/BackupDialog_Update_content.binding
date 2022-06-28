@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="BackupDialog_Update_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.Update.Name" attribute="value" />
+<Target xsi:type="brease" contentRefId="BackupDialog_Update_content" widgetRefId="txtOutName" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.Update.ConfigurationVersion" attribute="value" />
+<Target xsi:type="brease" contentRefId="BackupDialog_Update_content" widgetRefId="txtOutVersion" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.Update.ConfigurationID" attribute="value" />
+<Target xsi:type="brease" contentRefId="BackupDialog_Update_content" widgetRefId="txtOutConfiguration" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>
