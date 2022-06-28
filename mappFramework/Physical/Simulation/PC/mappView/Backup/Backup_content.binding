@@ -9,10 +9,7 @@
 			<Source xsi:type="opcUa" refId="::BackupMgr:MpFileManagerUIConnect.DeviceList.DeviceNames" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="FileDeviceListItem" attribute="stringValue" />
 		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.Size" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="TableItem2" attribute="value" />
-		</Binding>
+		
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.TimeStamps" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="TableItemDateTime1" attribute="value" />
@@ -63,5 +60,9 @@
 			<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="ButtonBackupPageUp" attribute="visible" />
 		</Binding>
 
-	</Bindings>
+	<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.Size" attribute="node" />
+<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="TableItem2" attribute="node" />
+</Binding>
+</Bindings>
 </BindingsSet>
