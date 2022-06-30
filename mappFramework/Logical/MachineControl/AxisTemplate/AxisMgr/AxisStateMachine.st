@@ -93,6 +93,7 @@ ACTION AxisStateMachine:
             IF (InPositionEdgePos.Q  = TRUE) THEN
                 AxisControl.Status.Busy := FALSE;
                 MpAxisBasic_0.MoveAbsolute := FALSE;
+				MpAxisParameters.Direction := mcDIR_POSITIVE;				
                 State := STATE_READY;
             END_IF
             
@@ -171,6 +172,8 @@ ACTION AxisStateMachine:
                 AxisControl.Command.Reset := FALSE;
                 MpAxisBasic_0.ErrorReset := TRUE;
                 AxisReset;
+				ManualState := MANUAL_STATE_IDLE;
+				AutomaticState := AUTOMATIC_STATE_IDLE;
             ELSE
                 MpAxisBasic_0.ErrorReset := FALSE;
             END_IF
