@@ -18,6 +18,7 @@ TYPE
 		Reference : {REDUND_UNREPLICABLE} BOOL; (*Cmd home / reference*)
 		MoveAbsolute : {REDUND_UNREPLICABLE} BOOL; (*Cmd move absolute*)
 		MoveAdditive : {REDUND_UNREPLICABLE} BOOL; (*Cmd move additive*)
+		MoveVelocity : {REDUND_UNREPLICABLE} BOOL; (*Cmd move velocity*)
 		MoveToStart : {REDUND_UNREPLICABLE} BOOL; (*Cmd move the start position*)
 		Abort : {REDUND_UNREPLICABLE} BOOL; (*Cmd abort*)
 		Stop : {REDUND_UNREPLICABLE} BOOL; (*Cmd stop all movement*)

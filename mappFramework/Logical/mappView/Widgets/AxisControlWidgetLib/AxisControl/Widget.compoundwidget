@@ -1,26 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CompoundWidget id="AxisManualControlWidget" width="300" height="545" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CompoundWidget id="AxisManualControlWidget" width="310" height="555" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Widgets>
-        <Widget xsi:type="widgets.brease.TextOutput" id="LblAx"                     top="0"  left="0"   width="300" height="35"  zIndex="1" value="Axis" textAlign="center" fontSize="22px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LblSetPosition"                 top="40"  left="0"   width="150" height="35" zIndex="2" text="$IAT/Axis/SetPosition" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
-        <Widget xsi:type="widgets.brease.NumericInput" id="NumInSetPosition"        top="40"  left="140" width="160" height="35" zIndex="3" maxValue="3000" unitAlign="right" fontName="Arial Unicode" fontSize="18px" bold="false" style="InputLarge" />
-        <Widget xsi:type="widgets.brease.Label" id="LblSetDistance"                 top="80" left="0"   width="150" height="35"  zIndex="4" text="$IAT/Axis/SetDistance" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
-        <Widget xsi:type="widgets.brease.NumericInput" id="NumInSetDistance"        top="80" left="140" width="160" height="35"  zIndex="5" maxValue="3000" unitAlign="right" fontName="Arial Unicode" fontSize="18px" bold="false" style="InputLarge" />
-        <Widget xsi:type="widgets.brease.Label" id="LblSetSpeed"                    top="120" left="0"   width="150" height="35" zIndex="6" text="$IAT/Axis/SetSpeed" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
-        <Widget xsi:type="widgets.brease.NumericInput" id="NumInSetSpeed"           top="120" left="140" width="160" height="35" zIndex="7" maxValue="3000" unitAlign="right" fontName="Arial Unicode" fontSize="18px" bold="false" style="InputLarge" />
-        <Widget xsi:type="widgets.brease.Label" id="LblActPosition"                 top="160" left="0"   width="150" height="35" zIndex="8" text="$IAT/Axis/ActPosition" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutActPosition"      top="160" left="140" width="160" height="35" zIndex="9" unitAlign="right" borderStyle="dotted" fontName="Arial Unicode" fontSize="18px" bold="false" style="Output" />
-        <Widget xsi:type="widgets.brease.Label" id="LblActSpeed"                    top="200" left="0"   width="150" height="35" zIndex="10" text="$IAT/Axis/ActSpeed" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
-        <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutActSpeed"         top="200" left="140" width="160" height="35" zIndex="11" unitAlign="right" borderStyle="dotted" fontName="Arial Unicode" fontSize="18px" bold="false" style="Output" />
-        <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitchPower"       top="240" left="0"   width="300" height="50" zIndex="12" image="Media/SymbolLib/AxisControl/Off.svg" mouseDownImage="Media/SymbolLib/AxisControl/On.svg" mouseDownText="$IAT/Axis/On" text="$IAT/Axis/Power" imageWidth="50" borderWidth="2px 2px 2px 0px" cornerRadius="0px" mouseDownBackColor="rgba(0, 255, 0, 1)" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
-        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnJogNeg"       top="300" left="0"   width="140" height="50" zIndex="13" text="$IAT/Axis/JogNeg" borderWidth="0px 0px 0px 0px" cornerRadius="0px" disabledBackColor="rgba(246, 245, 249, 0.4)" backGroundGradient="linear-gradient(to bottom,#F7F7F7 0%,#C6C6C6 100%)" textColor="rgba(0, 0, 0, 1)" disabledTextColor="rgba(170, 172, 173, 0.4)" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
-        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnJogPos"       top="300" left="160" width="140" height="50" zIndex="14" text="$IAT/Axis/JogPos" borderWidth="0px 0px 0px 0px" cornerRadius="0px" disabledBackColor="rgba(246, 245, 249, 0.4)" backGroundGradient="linear-gradient(to bottom,#F7F7F7 0%,#C6C6C6 100%)" textColor="rgba(0, 0, 0, 1)" disabledTextColor="rgba(170, 172, 173, 0.4)" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
-        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnAdditiveMove" top="360" left="160" width="140" height="50" zIndex="15" text="$IAT/Axis/MoveAdditive" borderWidth="0px 0px 0px 0px" cornerRadius="0px" backGroundGradient="linear-gradient(to bottom,#F7F7F7 0%,#C6C6C6 100%)" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
-        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnMoveAbs"      top="360" left="0"   width="140" height="50" zIndex="16" text="$IAT/Axis/MoveAbsolute" borderWidth="0px 0px 0px 0px" cornerRadius="0px" backGroundGradient="linear-gradient(to bottom,#F7F7F7 0%,#C6C6C6 100%)" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
-        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnErrorReset"   top="420" left="160" width="140" height="50" zIndex="17" image="Media/SymbolLib/AxisControl/Reset.svg" text="Reset" borderWidth="0px 0px 0px 0px" cornerRadius="0px" backGroundGradient="linear-gradient(to bottom,#F7F7F7 0%,#C6C6C6 100%)" textColor="rgba(0, 0, 0, 1)" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
-        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnHome"         top="420" left="0"   width="140" height="50" zIndex="18" text="$IAT/Axis/Home" borderWidth="0px 0px 0px 0px" cornerRadius="0px" backGroundGradient="linear-gradient(to bottom,#F7F7F7 0%,#C6C6C6 100%)" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
-        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnStop"         top="480" left="0"   width="300" height="50" zIndex="19" image="Media/SymbolLib/AxisControl/Stop.svg" text="$IAT/Axis/Stop" borderWidth="0px 0px 0px 0px" cornerRadius="0px" backGroundGradient="linear-gradient(to bottom,#F7F7F7 0%,#C6C6C6 100%)" textColor="rgba(0, 0, 0, 1)" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
-    </Widgets>
+        <Widget xsi:type="widgets.brease.Rectangle" id="RecErrorActive" 			top="0"   left="0" 	width="310" height="555" zIndex="0" visible="false" borderWidth="5px" lineColor="rgba(255, 0, 0, 1)" />
+		<Widget xsi:type="widgets.brease.TextOutput" id="LblAx"                     top="5"   left="5"   width="300" height="35"  zIndex="1" value="Axis" textAlign="center" fontSize="22px" bold="true" />
+        <Widget xsi:type="widgets.brease.Label" id="LblSetPosition"                 top="45"  left="5"   width="150" height="35" zIndex="2" text="$IAT/AxisFaceplate/SetPosition" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
+        <Widget xsi:type="widgets.brease.NumericInput" id="NumInSetPosition"        top="45"  left="145" width="160" height="35" zIndex="3" maxValue="3000" unitAlign="right" fontName="Arial Unicode" fontSize="18px" bold="false" style="InputLarge" />
+        <Widget xsi:type="widgets.brease.Label" id="LblSetDistance"                 top="85"  left="5"   width="150" height="35"  zIndex="4" text="$IAT/AxisFaceplate/SetDistance" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
+        <Widget xsi:type="widgets.brease.NumericInput" id="NumInSetDistance"        top="85"  left="145" width="160" height="35"  zIndex="5" maxValue="3000" unitAlign="right" fontName="Arial Unicode" fontSize="18px" bold="false" style="InputLarge" />
+        <Widget xsi:type="widgets.brease.Label" id="LblSetSpeed"                    top="125" left="5"   width="150" height="35" zIndex="6" text="$IAT/AxisFaceplate/SetSpeed" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
+        <Widget xsi:type="widgets.brease.NumericInput" id="NumInSetSpeed"           top="125" left="145" width="160" height="35" zIndex="7" maxValue="3000" unitAlign="right" fontName="Arial Unicode" fontSize="18px" bold="false" style="InputLarge" />
+        <Widget xsi:type="widgets.brease.Label" id="LblActPosition"                 top="165" left="5"   width="150" height="35" zIndex="8" text="$IAT/AxisFaceplate/ActPosition" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
+        <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutActPosition"      top="165" left="145" width="160" height="35" zIndex="9" unitAlign="right" borderStyle="dotted" fontName="Arial Unicode" fontSize="18px" bold="false" style="Output" />
+        <Widget xsi:type="widgets.brease.Label" id="LblActSpeed"                    top="205" left="5"   width="150" height="35" zIndex="10" text="$IAT/AxisFaceplate/ActSpeed" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
+        <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutActSpeed"         top="205" left="145" width="160" height="35" zIndex="11" unitAlign="right" borderStyle="dotted" fontName="Arial Unicode" fontSize="18px" bold="false" style="Output" />
+        <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitchPower"       top="245" left="5"   width="300" height="50" zIndex="12" image="LocalMedia/AxisControl/Off.svg" mouseDownImage="LocalMedia/AxisControl/On.svg" mouseDownText="$IAT/AxisFaceplate/On" text="$IAT/AxisFaceplate/Power" imageWidth="50" borderWidth="2px 2px 2px 0px" cornerRadius="0px" mouseDownBackColor="rgba(0, 255, 0, 1)" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
+        
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnJogNeg"       top="305" left="5"   width="140" height="50" zIndex="13" text="$IAT/AxisFaceplate/JogNeg" 		textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Operate" />
+        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnMoveAbs"      top="365" left="5"   width="140" height="50" zIndex="16" text="$IAT/AxisFaceplate/MoveAbsolute" textAlign="left" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnAdditiveMove" top="425" left="5" width="140" height="50" zIndex="15" text="$IAT/AxisFaceplate/MoveAdditive" 	textAlign="left" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
+		<Widget xsi:type="widgets.brease.ToggleButton" id="TBtnMoveVelocity" 		top="485" left="5" width="140" height="50" zIndex="20" text="$IAT/AxisFaceplate/MoveVelocity" 	textAlign="left" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />        
+
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnJogPos" 		top="305" left="165" width="140" height="50" zIndex="14" text="$IAT/AxisFaceplate/JogPos" 											textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Operate" />
+    	<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnHome" 		top="365" left="165" width="140" height="50" zIndex="18" image="LocalMedia/AxisControl/NotHome.svg" text="$IAT/AxisFaceplate/Home" 	textAlign="left" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
+    	<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnErrorReset" 	top="425" left="165" width="140" height="50" zIndex="17" image="LocalMedia/AxisControl/Reset.svg" text="$IAT/AxisFaceplate/Reset" 	textAlign="left" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
+    	<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MBtnStop" 		top="485" left="165" width="140" height="50" zIndex="19" image="LocalMedia/AxisControl/Stop.svg" text="$IAT/AxisFaceplate/Stop" 	textAlign="left" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />	
+
+	<!-- INVISIBLE WIDGETS -->
+		<Widget xsi:type="widgets.brease.CheckBox"  	id="spInvCBHomed" 		zIndex="30" visible="false" width="0" height="0" borderStyle="none" borderWidth="0px" backColor="transparent" borderColor="transparent" />
+
+	</Widgets>
     <Properties>
         <!-- 
         Simple non bindable property:
@@ -96,6 +104,9 @@
                 <Mapping widget="MBtnErrorReset" type="Boolean" property="value" mode="twoWay" memberPath="Command.Reset" mapToNode="false"/>
                 <Mapping widget="MBtnHome" type="Boolean" property="value" mode="twoWay" memberPath="Command.Reference" mapToNode="false"/>
                 <Mapping widget="MBtnStop" type="Boolean" property="value" mode="twoWay" memberPath="Command.Stop" mapToNode="false"/>
+				<Mapping widget="TBtnMoveVelocity" type="Boolean" property="value" mode="twoWay" memberPath="Command.MoveVelocity" mapToNode="false"/>
+				<Mapping widget="spInvCBHomed" type="Boolean" property="visible" mode="oneWay" memberPath="Status.IsHomed" mapToNode="false"/>
+				<Mapping widget="RecErrorActive" type="Boolean" property="visible" mode="oneWay" memberPath="Status.ErrorActive" mapToNode="false"/>
             </Mappings>
         </Property>
     </Properties>
@@ -123,18 +134,29 @@
     </Actions>
 
     <EventBindings>
-        <!-- source and target can only be widgets within the compound widget.
-        <EventBinding id="">
-        <Source xsi:type="widget.Event" widgetRefId="" event="" />
-        <EventHandler condition="">
-        <Action>
-        <Target xsi:type="widget.Action" widgetRefId="">
-        <Method name="" value="" />
-        </Target>
-        </Action>
-        </EventHandler>
-        </EventBinding>
-        -->
+        <!-- source and target can only be widgets within the compound widget.-->
+		<EventBinding id="spInvCBHomed.ValueChanged">
+			<Source xsi:type="widget.Event" widgetRefId="spInvCBHomed" event="VisibleChanged" />
+			<EventHandler condition="value = true">
+				<Sequence>
+					<Step order="0">
+						<Action>
+							<Target xsi:type="widget.Action" widgetRefId="MBtnHome">
+								<Method name="RemoveImage" />
+							</Target>
+						</Action>
+					</Step>
+					<Step order="1">
+						<Action>
+							<Target xsi:type="widget.Action" widgetRefId="MBtnHome">
+								<Method name="SetImage" image="LocalMedia/AxisControl/Homed.svg" />
+							</Target>
+						</Action>
+					</Step>
+				</Sequence> 
+			</EventHandler>
+		</EventBinding>
+        
     </EventBindings>
 
 </CompoundWidget>

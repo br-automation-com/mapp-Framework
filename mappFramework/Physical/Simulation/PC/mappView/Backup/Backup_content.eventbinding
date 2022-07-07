@@ -146,5 +146,20 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="ContentLoaded.Backup_content.UpdateAvailable">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <Operand datatype="BOOL" name="NewUpdate">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::BackupMgr:HmiBackup.Status.Update.IsAvailable">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="contentId = &quot;Backup_content&quot; AND NewUpdate = true">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupUpdate_dialog" headerText="$IAT/Backup/Update" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

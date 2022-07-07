@@ -9,6 +9,7 @@ TYPE
 	BackupHmiCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
 		Create : BOOL; (*Create a backup*)
 		Restore : BOOL; (*Restore a backup*)
+		Update : BOOL; (*Install an update*)
 		Delete : BOOL; (*Delete a backup*)
 		SaveConfig : BOOL; (*Save automatic backup configuration settings*)
 		Reset : BOOL; (*Error reset*)
@@ -32,9 +33,10 @@ TYPE
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the list of available backups*)
 		SimulationActive : BOOL; (*Flag for if simulation is active*)
 		SelectedIndex : USINT; (*Index of the selected backup file*)
-		LastSelectedIndex : USINT; (*Index of the last selected backup file*)
+		LastSelectedIndex : USINT := 255; (*Index of the last selected backup file*)
 		LastSelectedDeviceIndex : UINT; (*Index of the last selected file device. Compared with MpFileManagerUIConnect.DeviceList.SelectedIndex*)
 		FileOverMax : BOOL; (*Active when more than 50 items detected*)
+		Update : MpBackupAutoUpdateInfoType;
 	END_STRUCT;
 	AutomaticBackupType : 	STRUCT  (*Automatic backup settings*)
 		Enable : BOOL; (*Enable automatic backup feature*)
@@ -69,6 +71,7 @@ TYPE
 		BACKUP_IDLE, (*Wait state*)
 		BACKUP_CREATING, (*Creating a backup*)
 		BACKUP_RESTORING, (*Restoring a backup*)
+		BACKUP_UPDATING, (*Installing a new version*)
 		BACKUP_DELETING, (*Deleting a backup*)
 		BACKUP_ERROR (*Error state*)
 		);

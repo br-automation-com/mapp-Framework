@@ -25,7 +25,6 @@ END_PROGRAM
 PROGRAM _CYCLIC
     
     MpAxisBasic_0.MpLink := ADR(gAxisTemplate);
-    MC_BR_CheckRestorePositionData_0.Axis := ADR(gAxisTemplate);
     
 	// Call all actions
     SimulationControl;

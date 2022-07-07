@@ -57,6 +57,14 @@ PROGRAM _CYCLIC
                 HmiBackup.Status.RestoreAllowed := FALSE;
                 MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
                 BackupState := BACKUP_RESTORING;
+			ELSIF (HmiBackup.Commands.Update = TRUE) THEN
+                HmiBackup.Commands.Update := FALSE;
+                MpBackupCore_0.Install := TRUE;
+                HmiBackup.Status.Busy := TRUE;
+                HmiBackup.Status.CreateAllowed := FALSE;
+                HmiBackup.Status.RestoreAllowed := FALSE;
+                MpBackupCore_0.Name := ADR(MpBackupCore_0.Info.Automatic.Update.Name);
+                BackupState := BACKUP_UPDATING;	
 			ELSIF (HmiBackup.Commands.Delete = TRUE) THEN
 				MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].IsSelected := TRUE;
 				HmiBackup.Commands.Delete := FALSE;
@@ -104,6 +112,19 @@ PROGRAM _CYCLIC
                 MpBackupCore_0.Install := FALSE;
                 MpBackupCore_0.RequestInfo := FALSE;
             END_IF
+		
+		BACKUP_UPDATING:
+            IF (MpBackupCore_0.CommandDone = TRUE) THEN
+                MpBackupCore_0.Create := FALSE;
+                MpBackupCore_0.Install := FALSE;
+                MpBackupCore_0.RequestInfo := FALSE;
+                BackupState := BACKUP_IDLE;
+            ELSIF (MpBackupCore_0.Error = TRUE) THEN
+                BackupState := BACKUP_ERROR;
+                MpBackupCore_0.Create := FALSE;
+                MpBackupCore_0.Install := FALSE;
+                MpBackupCore_0.RequestInfo := FALSE;
+            END_IF	
             
         BACKUP_DELETING:
             CASE (MpFileManagerUIConnect.MessageBox.Type) OF
@@ -149,7 +170,8 @@ PROGRAM _CYCLIC
 		HmiBackup.Status.Error := FALSE;
     END_IF
     
-	HmiBackup.Status.RestoreAllowed := (MpFileManagerUIConnect.File.PathInfo.FolderCount > 0) AND NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress);
+	HmiBackup.Status.RestoreAllowed := (MpFileManagerUIConnect.File.PathInfo.FolderCount > 0) AND NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress) AND NOT HmiBackup.Status.SimulationActive;
+	HmiBackup.Status.Update := MpBackupCore_0.Info.Automatic.Update;
 	
 	// Call all actions
     FileManager;

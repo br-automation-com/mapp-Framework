@@ -27,9 +27,10 @@ ACTION AxisManual:
         MANUAL_STATE_IDLE:
             IF ((AxisControl.Command.JogNegative = TRUE) OR (AxisControl.Command.JogPositive = TRUE)) THEN
                 ManualState := MANUAL_STATE_JOG;
-            ELSIF ((AxisControl.Command.MoveAbsolute = TRUE) OR (AxisControl.Command.MoveAdditive = TRUE)) THEN
+            ELSIF ((AxisControl.Command.MoveAbsolute = TRUE) OR (AxisControl.Command.MoveAdditive = TRUE) OR (AxisControl.Command.MoveVelocity = TRUE)) THEN
                 MpAxisBasic_0.MoveAbsolute := AxisControl.Command.MoveAbsolute;
                 MpAxisBasic_0.MoveAdditive := AxisControl.Command.MoveAdditive;
+				MpAxisBasic_0.MoveVelocity := AxisControl.Command.MoveVelocity;
                 AxisControl.Command.MoveAbsolute := FALSE;
                 AxisControl.Command.MoveAdditive := FALSE;
                 ManualState := MANUAL_STATE_MOVE;
@@ -61,6 +62,9 @@ ACTION AxisManual:
                 MpAxisBasic_0.MoveAdditive := FALSE;
                 ManualState := MANUAL_STATE_IDLE;
                 State := STATE_READY;
+			ELSIF (((AxisControl.Command.MoveVelocity = FALSE) AND (MpAxisBasic_0.MoveAbsolute = FALSE) AND (MpAxisBasic_0.MoveAdditive = FALSE)) OR AxisControl.Status.ErrorActive)  THEN
+                MpAxisBasic_0.MoveVelocity := FALSE;
+                ManualState := MANUAL_STATE_STOPPING;
             ELSIF ((AxisControl.Command.JogNegative = TRUE) OR (AxisControl.Command.JogPositive = TRUE)) THEN
                 MpAxisBasic_0.MoveAbsolute := FALSE;
                 MpAxisBasic_0.MoveAdditive := FALSE;
