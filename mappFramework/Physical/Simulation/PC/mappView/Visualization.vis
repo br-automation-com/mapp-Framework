@@ -41,7 +41,9 @@
     <BindingsSet refId="UserXDialog_Error_content_binding" />
     <BindingsSet refId="UserX_Navigation_content_binding" />
 	<BindingsSet refId="Audit_Navigation_content_binding" />
-	<BindingsSet refId="Audit_content_binding" />
+	<BindingsSet refId="AuditTrail_content_binding" />
+	<BindingsSet refId="CustomEvents_content_binding" />
+	<BindingsSet refId="AuditQuery_content_binding" />
   </BindingsSets>
   <EventBindingsSets>
     <!--<EventBindingsSet refId="" />-->
@@ -75,7 +77,8 @@
     <EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
     <EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
 	<EventBindingsSet refId="Audit_Navigation_content_eventbinding" />
-	<EventBindingsSet refId="Audit_content_eventbinding" />
+	<EventBindingsSet refId="AuditTrail_content_eventbinding" />
+	<EventBindingsSet refId="CustomEvents_content_eventbinding" />
   </EventBindingsSets>
   <Dialogs>
     <!--<Dialog refId="" />-->
@@ -117,6 +120,9 @@
     <Content refId="UserXDialog_Login_content" />
     <Content refId="UserXDialog_Error_content" />
 	<Content refId="Audit_content" />
+	<Content refId="AuditTrail_content" />
+	<Content refId="AuditQuery_content" />
+	<Content refId="CustomEvents_content" />
   </Contents>
   <SnippetsSets>
     <!--<SnippetsSet refId=""/>-->

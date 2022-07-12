@@ -6,17 +6,23 @@
 	</Pages>
   <Navigations />
   <BindingsSets>
-		<BindingsSet refId="Audit_content_binding" />
+		<BindingsSet refId="AuditTrail_content_binding" />
+		<BindingsSet refId="CustomEvents_content_binding" />
+		<BindingsSet refId="AuditQuery_content_binding" />
 		<BindingsSet refId="Audit_Navigation_content_binding" />
   </BindingsSets>
   <EventBindingsSets>
-		<EventBindingsSet refId="Audit_content_eventbinding" />
+		<EventBindingsSet refId="AuditTrail_content_eventbinding" />
+		<EventBindingsSet refId="CustomEvents_content_eventbinding" />
 		<EventBindingsSet refId="Audit_Navigation_content_eventbinding" />
 		<EventBindingsSet refId="Navigation_content_eventbinding" />
   </EventBindingsSets>
   <Dialogs />
 	<Contents > 
 		<Content refId="Audit_content" />
+		<Content refId="AuditTrail_content" />
+		<Content refId="AuditQuery_content" />
+		<Content refId="CustomEvents_content" />
 		<Content refId="Help_content" />
 		<Content refId="Navigation_content" />
 	</Contents>	

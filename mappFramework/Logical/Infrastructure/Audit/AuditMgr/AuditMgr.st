@@ -19,38 +19,49 @@ PROGRAM _INIT
 	MpAuditTrail_0.Enable := TRUE;
 	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrail_0();
-
-	MpAuditTrailUI_0.Enable := TRUE;
-	MpAuditTrailUI_0.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrailUI_0.UIConnect := ADR(MpAuditTrailUIConnect);	
-	MpAuditTrailUI_0.UISetup.ScrollWindow := 10;
-	MpAuditTrailUI_0.UISetup.EventListSize := 50;
-	MpAuditTrailUI_0();
 	
-	// Initialize additional PVs
-	HmiAudit;
+	// Initialize mapp function blocks
+	MpAuditTrail_CEvents.Enable := TRUE;
+	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
+	MpAuditTrail_CEvents();
 	
+	// Initialize custom events
+	CustomEvent[0].Type := "Custom Event Type";
+	CustomEvent[0].Msg := "Custom Event Message";
+	CustomEvent[0].Comment := "Custom Event Comment";	
+		
+	CustomEvent[1].Type := "Audit Test";
+	CustomEvent[1].Msg := "This is a custom event test msg";
+	CustomEvent[1].Comment := "If you see this it was a success!";	
+	
+	CustomEvent[2].Type := "Cmd Exe";
+	CustomEvent[2].Msg := "The run query command was pressed on the HMI";
+	CustomEvent[2].Comment := "Result can be seen in the Query tab";
+	
+	HmiAudit.Status.Query.Name := 'UserEvents';
+	HmiAudit.Status.Query.Option := 1;
 	 
 END_PROGRAM
 
 PROGRAM _CYCLIC
 	
+	// Call all cyclic actions
+	CustomEvents;
+	ExecuteQuery;
+    QueryTableConfig;
+
     // Error reset
     IF NOT MpAuditTrail_0.Error THEN
         MpAuditTrail_0.ErrorReset := FALSE;
     END_IF
-    IF NOT MpAuditTrailUI_0.Error THEN
-        MpAuditTrailUI_0.ErrorReset := FALSE;
-    END_IF
     
 	// Assign MpLinks & UIConnects
 	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrailUI_0.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrailUI_0.UIConnect := ADR(MpAuditTrailUIConnect);
+	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
 		
 	// Call function blocks
 	MpAuditTrail_0();
-	MpAuditTrailUI_0();
+	MpAuditTrail_CEvents();
 	 
 END_PROGRAM
 
@@ -58,11 +69,11 @@ PROGRAM _EXIT
 	
 	// Disable the function blocls to unlink the MpLinks
     MpAuditTrail_0.Enable := FALSE;
-    MpAuditTrailUI_0.Enable := FALSE;
+	MpAuditTrail_CEvents.Enable := FALSE;
 	
 	// Call function blocks
     MpAuditTrail_0();
-    MpAuditTrailUI_0();
+	MpAuditTrail_CEvents();
 	 
 END_PROGRAM
 

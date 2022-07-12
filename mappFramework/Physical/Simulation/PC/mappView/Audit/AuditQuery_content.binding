@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="AuditQuery_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.Query.Text" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="TableItem2" attribute="stringValue" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.Query.Op" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="TableItem1" attribute="stringValue" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Commands.RunQuery" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="PushButtonRunQuery" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.Query.EvTime" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="TableItemDateTime1" attribute="value" />
+		</Binding>
+	
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.TableConfig[0]" attribute="value" />
+<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="Table1" attribute="tableConfiguration" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.Query.Name" attribute="value" />
+<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="ddQuerySel" attribute="selectedValue" />
+</Binding>
+</Bindings>
+</BindingsSet>

@@ -1,17 +1,23 @@
 (*Function Blocks*)
 VAR
 	DirCreate_0 : DirCreate; (*DirCreate instance*)
-	MpAuditTrail_0 : MpAuditTrail;
-	MpAuditTrailUI_0 : MpAuditTrailUI;
+	MpAuditTrail_0 : MpAuditTrail; (*AuditTrail for regular mapp events*)
+	MpAuditTrail_CEvents : MpAuditTrail; (*AuditTrail for custom events*)
+	QueryUserEvents_0 : {REDUND_UNREPLICABLE} MpAuditQuery; (*MpAlarmXQuery instance*)
 END_VAR
 (*Constants*)
 VAR CONSTANT
 	MAX_QUERY_RESULTS : USINT := 19; (*Maximum number of query results (Value+1)*)
 	LOCAL_FOLDER : STRING[10] := 'Audit'; (*Folder name on the file device for UserX  files*)
+	MAX_CUSTOM_EVENTS : USINT := 9; (*Maximum number of custom events*)
 END_VAR
 (*Structure Types*)
 VAR
-	MpAuditTrailUIConnect : MpAuditTrailUIConnectType;
 	HmiAudit : AuditHmiInterfaceType; (*HMI interface structure*)
+	CustomEvent : ARRAY[0..MAX_CUSTOM_EVENTS] OF AuditCustomEventType := [(Type:="AuditTest",Msg:="This is a custom event test",Comment:="If you see this it was a success"),9(0)]; (*Custom events*)
+	AuditQuery : {REDUND_UNREPLICABLE} AuditQueryType; (*Query results and status*)
 END_VAR
 (*Variables*)
+VAR
+	i : USINT; (*Index for loops*)
+END_VAR

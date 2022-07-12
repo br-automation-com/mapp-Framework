@@ -1,16 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="Audit_content" height="620" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Content id="Audit_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.PushButton" id="PushButtonExport" top="70" left="905" width="200" height="50" zIndex="0" image="Media/SymbolLib/Edit/Export.svg" text="$IAT/Audit/Export" imageHeight="30" imageWidth="30" style="Command" />
-    <Widget xsi:type="widgets.brease.AuditList" id="AuditList1" top="40" left="30" width="850" height="560" zIndex="1" itemsPerPage="50" fontSize="16px">
+    <Widget xsi:type="widgets.brease.TabControl" id="TabCt" top="0" left="0" width="1120" height="660" zIndex="3">
       <Widgets>
-        <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItem1" width="324" zIndex="0" columnType="timestamp" text="$IAT/Audit/Timestamp" />
-        <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItem3" width="325" zIndex="1" text="$IAT/Audit/Message" />
-        <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItem2" zIndex="2" columnType="operator name" text="$IAT/Audit/Operator" />
+        <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItem" left="0" width="165" height="40" zIndex="1" text="$IAT/Audit/AuditTrail">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.ContentControl" id="ccAuditTrail" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AuditTrail_content" />
+          </Widgets>
+        </Widget>
+        <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItm" left="0" width="165" height="40" zIndex="2" text="$IAT/Audit/CustomEvents">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.ContentControl" id="ccCustomEvents" top="0" left="0" width="1120" height="620" zIndex="0" contentId="CustomEvents_content" />
+          </Widgets>
+        </Widget>
+        <Widget xsi:type="widgets.brease.TabItem" id="AlmTb2Itm" left="0" width="165" height="40" zIndex="3" text="$IAT/Audit/Query">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.ContentControl" id="ccAuditQuery" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AuditQuery_content" />
+          </Widgets>
+        </Widget>
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.PushButton" id="SortDialog" top="5" left="20" width="90" zIndex="2" image="Media/SymbolLib/Edit/sort.svg" text="$IAT/Audit/Sort" imageHeight="20" imageWidth="20" style="transparent" />
-    <Widget xsi:type="widgets.brease.PushButton" id="FilterDialog" top="5" left="120" width="90" zIndex="3" image="Media/SymbolLib/Edit/Filter.svg" text="$IAT/Audit/Filter" imageHeight="20" imageWidth="20" style="transparent" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushButtonExportArchive" top="150" left="905" width="200" height="50" zIndex="4" image="Media/SymbolLib/Edit/ExportArchive.svg" text="$IAT/Audit/ExportArchive" imageHeight="30" imageWidth="30" style="Command" />
   </Widgets>
 </Content>
