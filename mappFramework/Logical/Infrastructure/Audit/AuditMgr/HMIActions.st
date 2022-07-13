@@ -12,6 +12,19 @@ ACTION CustomEvents:
 
 END_ACTION
 
+ACTION ArchiveExport:
+
+	// sample code how custom event function can be triggered
+	MpAuditTrail_0.ExportArchive := HmiAudit.Commands.ExportAudits;
+	HmiAudit.Status.ArchiveAvailable := MpAuditTrail_0.ArchiveAvailable;
+	HmiAudit.Status.NumberOfArchives := MpAuditTrail_0.Info.NumberArchives;	
+
+	IF (HmiAudit.Commands.ExportAudits AND MpAuditTrail_0.CommandDone) THEN
+		HmiAudit.Commands.ExportAudits := FALSE;
+	END_IF	
+
+END_ACTION
+
 ACTION QueryTableConfig:
     
 	// Configure visible list

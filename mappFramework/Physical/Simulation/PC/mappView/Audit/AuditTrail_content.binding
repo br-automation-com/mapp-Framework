@@ -13,5 +13,25 @@
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.AuditSortCfg" attribute="value" />
 			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="AuditList1" attribute="sortConfiguration" />
 		</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.ArchiveAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="PushButtonExportArchive" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.ArchiveAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="NumOutArchives" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.ArchiveAvailable" attribute="value" />
+<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="lblNumOfArchives" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.NumberOfArchives" attribute="value" />
+<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="NumOutArchives" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Commands.ExportAudits" attribute="value" />
+<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="PushButtonExportArchive" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>

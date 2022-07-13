@@ -18,6 +18,8 @@ PROGRAM _INIT
 	// Initialize mapp function blocks
 	MpAuditTrail_0.Enable := TRUE;
 	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrail_0.Language := ADR('en');
+	MpAuditTrail_0.DeviceName := ADR('mappAuditFiles');
 	MpAuditTrail_0();
 	
 	// Initialize mapp function blocks
@@ -49,13 +51,14 @@ PROGRAM _CYCLIC
 	CustomEvents;
 	ExecuteQuery;
     QueryTableConfig;
+	ArchiveExport;
 
     // Error reset
     IF NOT MpAuditTrail_0.Error THEN
         MpAuditTrail_0.ErrorReset := FALSE;
     END_IF
     
-	// Assign MpLinks & UIConnects
+	// Assign MpLinks and HMI connections
 	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
 		

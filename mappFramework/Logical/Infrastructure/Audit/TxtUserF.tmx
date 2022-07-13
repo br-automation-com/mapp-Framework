@@ -2,111 +2,111 @@
 <tmx version="1.4">
   <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
     <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
-    <prop type="x-BR-TS:Namespace">IAT/Audit</prop>
+    <prop type="x-BR-TS:Namespace">MpAudit/SysF/User</prop>
   </header>
   <body>
-    <tu tuid="Timestamp">
+    <tu tuid="1">
       <tuv xml:lang="de">
-        <seg>Zeitstempel</seg>
+        <seg>Angemeldet</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Timestamp</seg>
+        <seg>logged in</seg>
       </tuv>
     </tu>
-    <tu tuid="CustomEvent">
+    <tu tuid="2">
       <tuv xml:lang="de">
-        <seg>Typ - Message - Komment</seg>
+        <seg>Abgemeldet</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Type - Message - Comment</seg>
+        <seg>logged out</seg>
       </tuv>
     </tu>
-    <tu tuid="Message">
+    <tu tuid="3">
       <tuv xml:lang="de">
-        <seg>Eintrag</seg>
+        <seg>Abgemeldet (Timeout)</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Message</seg>
+        <seg>was logged out (timeout)</seg>
       </tuv>
     </tu>
-    <tu tuid="Operator">
+    <tu tuid="4">
       <tuv xml:lang="de">
-        <seg>Anwender</seg>
+        <seg>Anwender {&amp;usr} zugefügt</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Operator</seg>
+        <seg>added user {&amp;usr}</seg>
       </tuv>
     </tu>
-    <tu tuid="Export">
+    <tu tuid="5">
       <tuv xml:lang="de">
-        <seg>Exportieren</seg>
+        <seg>Anwender {&amp;usr} gelöscht</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Export</seg>
+        <seg>deleted user {&amp;usr}</seg>
       </tuv>
     </tu>
-    <tu tuid="Sort">
+    <tu tuid="6">
       <tuv xml:lang="de">
-        <seg>Sortieren</seg>
+        <seg>Anwender {&amp;usr} gesperrt</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Sort</seg>
+        <seg>locked user {&amp;usr}</seg>
       </tuv>
     </tu>
-    <tu tuid="Filter">
+    <tu tuid="7">
       <tuv xml:lang="de">
-        <seg>Filtern</seg>
+        <seg>Anwender {&amp;usr} entsperrt</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Filter</seg>
+        <seg>unlocked user {&amp;usr}</seg>
       </tuv>
     </tu>
-    <tu tuid="ExportArchive">
+    <tu tuid="8">
       <tuv xml:lang="de">
-        <seg>Export Archiv</seg>
+        <seg>Gesperrt (inkorrektes Passwort)</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Export Archive</seg>
+        <seg>got locked (incorrect password)</seg>
       </tuv>
     </tu>
-    <tu tuid="AuditTrail">
+    <tu tuid="9">
       <tuv xml:lang="de">
-        <seg>Audit Trail</seg>
+        <seg>Passwort geändert</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Audit Trail</seg>
+        <seg>has changed password</seg>
       </tuv>
     </tu>
-    <tu tuid="CustomEvents">
+    <tu tuid="10">
       <tuv xml:lang="de">
-        <seg>Benutzerdefinierte Ereignisse</seg>
+        <seg>Falscher Name eingegeben</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Custom Events</seg>
+        <seg>Incorrect name was entered</seg>
       </tuv>
     </tu>
-    <tu tuid="Query">
+    <tu tuid="11">
       <tuv xml:lang="de">
-        <seg>Anfrage</seg>
+        <seg>Falsches Passwort eingegeben</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Query</seg>
+        <seg>Incorrect password was entered</seg>
       </tuv>
     </tu>
-    <tu tuid="RunQuery">
+    <tu tuid="12">
       <tuv xml:lang="de">
-        <seg>Anfrage starten</seg>
+        <seg>Neue Rolle {&amp;usr} zugefügt</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Run Query</seg>
+        <seg>added new role {&amp;usr}</seg>
       </tuv>
     </tu>
-    <tu tuid="ArchiveNum">
+    <tu tuid="13">
       <tuv xml:lang="de">
-        <seg>Archiv Anzahl</seg>
+        <seg>Rolle {&amp;usr} gelöscht</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Number of Archives</seg>
+        <seg>deleted role {&amp;usr}</seg>
       </tuv>
     </tu>
   </body>

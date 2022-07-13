@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio FileVersion="4.9"?>
+<?AutomationStudio Version=4.8.6.30 SP?>
 <Configuration>
   <Element ID="gMpLinkAuditTrail" Type="mpaudittrail">
     <Group ID="Audit">
@@ -13,9 +13,15 @@
       </Group>
       <Selector ID="TextSource" Value="TXT">
         <Property ID="Name" Value="" />
-        <Property ID="OutputFormat" Value="MpAudit/Event/Root" />
+        <Property ID="OutputFormat" Value="MpAudit/SysF/Event/Root" />
       </Selector>
-      <Selector ID="Archive" Value="On" />
+      <Selector ID="Archive" Value="On">
+        <Property ID="Time" Value="57600000" />
+        <Property ID="MaxSize" Value="1" />
+      </Selector>
+      <Group ID="Export">
+        <Property ID="PassPhrase" Value="0ranaeEihFyRp4CRSUasgYt76SSj3CjNnxWeF1Y8G4SY=" Description="Password (or passphrase) for file/archive encryption 123ABc" />
+      </Group>
     </Group>
     <Group ID="Queries">
       <Group ID="0">

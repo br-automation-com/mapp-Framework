@@ -40,6 +40,8 @@ TYPE
 		Query : AuditQueryHMIType; (*Structure which rearranges the query data from AuditQuery into a structure of arrays for easy connection to the Table widget*)
 		CustomEventSortCfg : STRING[1000]; (*Sort configuration for the AuditList Custom Events widget*)
 		CustomEventsFilterCfg : STRING[1000]; (*Filter configuration for the AuditList Custom Events widget*)
+		ArchiveAvailable : BOOL; (*At least 1 archive is available for export*)
+		NumberOfArchives : UINT; (*How many archives are available for export*)
 	END_STRUCT;
 	AuditType : 	STRUCT  (*Structure to hold the Audit data for the query results*)
 		EvTime : DATE_AND_TIME; (*ActiveAudits query, Event-Time column*)
