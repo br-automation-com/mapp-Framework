@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="AuditDialog_ArchiveSettings_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Button" id="SaveButton" top="235" left="15" width="150" height="50" zIndex="0" text="$IAT/Audit/Dialogs.Save" textColor="rgba(255, 255, 255, 1)" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="CancelButton" top="235" left="285" width="150" height="50" zIndex="1" text="$IAT/Audit/Dialogs.Cancel" borderWidth="0px" mouseDownBorderWidth="0px" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.CheckBox" id="CheckBoxEnable" top="10" left="15" width="420" zIndex="2" imageAlign="right" text="$IAT/Audit/Dialogs.Enable" borderStyle="solid" borderWidth="0px 0px 1px 0px" textAlign="left" fontSize="18px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelPrefix" top="70" left="15" width="160" zIndex="3" text="$IAT/Audit/Dialogs.MaxSize" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelInterval" top="120" left="15" width="160" zIndex="4" text="$IAT/Audit/Dialogs.Interval" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelTimeOfDay" top="160" left="15" width="160" zIndex="5" text="$IAT/Audit/Dialogs.TimeOfDay" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
+    <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownInterval" top="120" left="245" width="190" zIndex="6" dataProvider="[{'value':'0','text':'$IAT/Audit/Dialogs.Daily'},{'value':'1','text':'$IAT/Audit/Dialogs.MoFr'},{'value':'2','text':'$IAT/Audit/Dialogs.ByBatch'}]" selectedValue="0" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumInHour" top="160" left="245" width="75" zIndex="7" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" maxValue="23" showUnit="false" value="23" textAlign="center" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumInMinute" top="160" left="360" width="75" zIndex="8" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" maxValue="59" showUnit="false" value="59" textAlign="center" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelHour" top="160" left="323" width="35" zIndex="9" text="$IAT/Audit/Dialogs.Period" textColor="rgba(137, 137, 137, 1)" textAlign="center" fontSize="18px" bold="false" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumInMaxFileSize" top="70" left="245" width="190" zIndex="10" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" unit="{'metric':'KB','imperial':'KB','imperial-us':'KB'}" unitAlign="right" />
+  </Widgets>
+</Content>

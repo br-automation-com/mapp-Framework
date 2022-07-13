@@ -10,19 +10,19 @@
   <DefaultView>
     <Module Name="&lt;Default&gt;">
       <Task Name="AuditMgr">
+        <Variable Name="MpAuditTrail_0">
+          <Variable Name="Active" />
+        </Variable>
         <Variable Name="HmiAudit" AutomaticEnable="True">
           <Variable Name="Status">
+            <Variable Name="TableConfig" EnableArrayElements="True" />
             <Variable Name="Query">
+              <Variable Name="EvTime" EnableArrayElements="True" />
               <Variable Name="Text" EnableArrayElements="True" />
               <Variable Name="DText" EnableArrayElements="True" />
               <Variable Name="Op" EnableArrayElements="True" />
-              <Variable Name="EvTime" EnableArrayElements="True" />
-            </Variable>
-            <Variable Name="TableConfig" EnableArrayElements="True" />
           </Variable>
         </Variable>
-        <Variable Name="MpAuditTrail_0">
-          <Variable Name="Active" />
         </Variable>
       </Task>
     </Module>

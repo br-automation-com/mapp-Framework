@@ -31,7 +31,13 @@ TYPE
 	END_STRUCT;
 	AuditHmiInterfaceType : 	STRUCT  (*Structure to hold commands and status from the HMI*)
 		Commands : AuditCommandsType; (*HMI commands*)
+		Parameters : AuditParType; (*HMI parameters*)
 		Status : {REDUND_UNREPLICABLE} AuditStatusType; (*HMI status*)
+	END_STRUCT;
+	AuditCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
+		ExportAudits : BOOL; (*Triggers an Audit export of the Audit history. Connected to a button on the HMI. *)
+		RunQuery : BOOL; (*Triggers the query to run. Connected to a button on the HMI. *)
+		SaveConfig : BOOL; (*Starts the configuration for archives*)
 	END_STRUCT;
 	AuditStatusType : 	STRUCT  (*Structure to hold status information from the mapp View HMI. (This structure is not compatible/relevant if you are using a VC4 visualization)*)
 		AuditSortCfg : STRING[1000]; (*Sort configuration for the AuditList widget*)
@@ -43,6 +49,16 @@ TYPE
 		ArchiveAvailable : BOOL; (*At least 1 archive is available for export*)
 		NumberOfArchives : UINT; (*How many archives are available for export*)
 	END_STRUCT;
+	AuditParType : 	STRUCT 
+		ArchiveSettings : AuditArchiveParType; (*Parameter for archive configuration*)
+	END_STRUCT;
+	AuditArchiveParType : 	STRUCT  (*Automatic archive settings*)
+		Enable : BOOL; (*Enable automatic archive feature*)
+		MaxSize : UDINT; (*Name prefix for each automatic backup file*)
+		Mode : MpAuditArchiveModeEnum; (*Mode (daily, Mo-Fr or by batch)*)
+		Hour : USINT; (*Time (hour)*)
+		Minute : USINT; (*Time (minutes)*)
+	END_STRUCT;
 	AuditType : 	STRUCT  (*Structure to hold the Audit data for the query results*)
 		EvTime : DATE_AND_TIME; (*ActiveAudits query, Event-Time column*)
 		Text : WSTRING[100]; (*ActiveAudits query, Text column*)
@@ -52,10 +68,3 @@ TYPE
 END_TYPE
 
 (*Enumerations*)
-
-TYPE
-	AuditCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
-		ExportAudits : BOOL; (*Triggers an Audit export of the Audit history. Connected to a button on the HMI. *)
-		RunQuery : BOOL; (*Triggers the query to run. Connected to a button on the HMI. *)
-	END_STRUCT;
-END_TYPE

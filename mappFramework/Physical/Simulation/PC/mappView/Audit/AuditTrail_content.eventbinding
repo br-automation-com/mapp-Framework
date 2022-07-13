@@ -21,5 +21,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="AuditTrail_content.ButtonArchiveSettings.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="AuditTrail_content" widgetRefId="ButtonArchiveSettings" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="AuditArchiveSettings_dialog" headerText="$IAT/Audit/Dialogs.Settings" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

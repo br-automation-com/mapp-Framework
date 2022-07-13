@@ -7,5 +7,6 @@
     <File Description="Local variables" Private="true">AuditMgr.var</File>
     <File Description="Supporting code for the HMI interface">HMIActions.st</File>
     <File Description="Runs a query">ExecuteQuery.st</File>
+    <File Description="Modifies the archive configuration at runtime">ChangeConfiguration.st</File>
   </Files>
 </Program>

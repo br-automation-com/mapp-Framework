@@ -22,6 +22,12 @@ PROGRAM _INIT
 	MpAuditTrail_0.DeviceName := ADR('mappAuditFiles');
 	MpAuditTrail_0();
 	
+	MpAuditTrailConfig_0.Enable := TRUE;
+	MpAuditTrailConfig_0.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailConfig_0.Configuration := ADR(AuditTrailConfig);
+	MpAuditTrailConfig_0.Load := TRUE;
+	MpAuditTrailConfig_0();
+	
 	// Initialize mapp function blocks
 	MpAuditTrail_CEvents.Enable := TRUE;
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
@@ -52,6 +58,8 @@ PROGRAM _CYCLIC
 	ExecuteQuery;
     QueryTableConfig;
 	ArchiveExport;
+	ArchiveSettings;
+	ChangeConfiguration;
 
     // Error reset
     IF NOT MpAuditTrail_0.Error THEN
@@ -60,10 +68,12 @@ PROGRAM _CYCLIC
     
 	// Assign MpLinks and HMI connections
 	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailConfig_0.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
 		
 	// Call function blocks
 	MpAuditTrail_0();
+	MpAuditTrailConfig_0();
 	MpAuditTrail_CEvents();
 	 
 END_PROGRAM
@@ -72,10 +82,12 @@ PROGRAM _EXIT
 	
 	// Disable the function blocls to unlink the MpLinks
     MpAuditTrail_0.Enable := FALSE;
+	MpAuditTrailConfig_0.Enable := FALSE;
 	MpAuditTrail_CEvents.Enable := FALSE;
 	
 	// Call function blocks
     MpAuditTrail_0();
+	MpAuditTrailConfig_0();
 	MpAuditTrail_CEvents();
 	 
 END_PROGRAM
