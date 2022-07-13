@@ -107,8 +107,8 @@ pipeline {
                 VERSION =  Version().substring(1, Version().lastIndexOf('.'));
             }
             steps {
-                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\_Chinese Help.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Services\" --physical $PHYSICAL"
-                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\_Chinese Help.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Motion\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Documentation.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Services\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Documentation.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Motion\" --physical $PHYSICAL"
                 bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\AlarmX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Services\" --physical $PHYSICAL"
                 bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Axis.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Motion\" --physical $PHYSICAL"
                 bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Backup.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Services\" --physical $PHYSICAL"
