@@ -15,12 +15,12 @@ END_ACTION
 ACTION ArchiveExport:
 
 	// assigning variable to exchange with the HMI
-	MpAuditTrail_0.ExportArchive := HmiAudit.Commands.ExportAudits;
+	MpAuditTrail_0.ExportArchive := HmiAudit.Commands.ExportArchives;
 	HmiAudit.Status.ArchiveAvailable := MpAuditTrail_0.ArchiveAvailable;
 	HmiAudit.Status.NumberOfArchives := MpAuditTrail_0.Info.NumberArchives;	
 
-	IF (HmiAudit.Commands.ExportAudits AND MpAuditTrail_0.CommandDone) THEN
-		HmiAudit.Commands.ExportAudits := FALSE;
+	IF (HmiAudit.Commands.ExportArchives AND MpAuditTrail_0.CommandDone) THEN
+		HmiAudit.Commands.ExportArchives := FALSE;
 	END_IF	
 
 END_ACTION
@@ -33,7 +33,8 @@ ACTION ArchiveSettings:
 		SaveBackupConfiguration;
 		MpAuditTrailConfig_0.Save := TRUE;
 	END_IF
-
+	
+	// after the configuration has been changed the AuditTrail needs to be reset, this just re-enables the component
 	IF MpAuditTrail_0.Active = FALSE THEN
 		MpAuditTrail_0.Enable := TRUE;
 	END_IF	
@@ -42,62 +43,23 @@ END_ACTION
 
 ACTION SaveBackupConfiguration:
 
+	// assign current parameters from the HMI structure to AuditTrail configuration before saving it 
     AuditTrailConfig.Archive.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiAudit.Parameters.ArchiveSettings.Hour) * 60) + HmiAudit.Parameters.ArchiveSettings.Minute) * 60) * 1000);
 	AuditTrailConfig.Archive.Enable := HmiAudit.Parameters.ArchiveSettings.Enable;
 	AuditTrailConfig.Archive.MaxSize := HmiAudit.Parameters.ArchiveSettings.MaxSize;
-	AuditTrailConfig.Archive.Mode := HmiAudit.Parameters.ArchiveSettings.Mode;
-	
-//    MpBackupConfiguration.AutomaticBackup.Enabled := HmiBackup.Parameters.AutomaticBackup.Enable;
-//    MpBackupConfiguration.AutomaticBackup.NamePrefix := HmiBackup.Parameters.AutomaticBackup.Prefix;
-//    MpBackupConfiguration.AutomaticBackup.DeviceName := HmiBackup.Parameters.AutomaticBackup.Device;
-//    MpBackupConfiguration.AutomaticBackup.OverwriteOldest := HmiBackup.Parameters.AutomaticBackup.OverwriteOldest;
-//    MpBackupConfiguration.AutomaticBackup.Mode.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiBackup.Parameters.AutomaticBackup.Mode.Hour) * 60) + HmiBackup.Parameters.AutomaticBackup.Mode.Minute) * 60) * 1000);
-//    CASE HmiAudit.Status.ArchiveSettings.Mode OF
-//        ARCHIVE_EVERYDAY:
-//            MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_DAILY;
-//        ARCHIVE_MONDAY_FRIDAY:
-//            MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_WEEKLY;
-//            MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_MONDAY;
-//    END_CASE
-    
+	AuditTrailConfig.Archive.Mode := HmiAudit.Parameters.ArchiveSettings.Mode;   
     
  END_ACTION
 
 ACTION LoadBackupConfiguration:
 
+	// assign current parameters from the configuration to the HMI structure
 	HmiAudit.Parameters.ArchiveSettings.Hour := UDINT_TO_USINT(TOD_TO_UDINT(AuditTrailConfig.Archive.Time) / 1000 / 60 / 60);
     HmiAudit.Parameters.ArchiveSettings.Minute := UDINT_TO_USINT(TOD_TO_UDINT(AuditTrailConfig.Archive.Time) / 1000 / 60) - (HmiAudit.Parameters.ArchiveSettings.Hour * 60);
 	HmiAudit.Parameters.ArchiveSettings.Enable := AuditTrailConfig.Archive.Enable;
 	HmiAudit.Parameters.ArchiveSettings.MaxSize := AuditTrailConfig.Archive.MaxSize;
 	HmiAudit.Parameters.ArchiveSettings.Mode := AuditTrailConfig.Archive.Mode;
 
-//    HmiBackup.Parameters.AutomaticBackup.Enable := MpBackupConfiguration.AutomaticBackup.Enabled;
-//    HmiBackup.Parameters.AutomaticBackup.Prefix := MpBackupConfiguration.AutomaticBackup.NamePrefix;
-//    HmiBackup.Parameters.AutomaticBackup.Device := MpBackupConfiguration.AutomaticBackup.DeviceName;
-//    HmiBackup.Parameters.AutomaticBackup.OverwriteOldest := MpBackupConfiguration.AutomaticBackup.OverwriteOldest;
-//    HmiBackup.Parameters.AutomaticBackup.Mode.Hour := UDINT_TO_USINT(TOD_TO_UDINT(MpBackupConfiguration.AutomaticBackup.Mode.Time) / 1000 / 60 / 60);
-//    HmiBackup.Parameters.AutomaticBackup.Mode.Minute := UDINT_TO_USINT(TOD_TO_UDINT(MpBackupConfiguration.AutomaticBackup.Mode.Time) / 1000 / 60) - (HmiBackup.Parameters.AutomaticBackup.Mode.Hour * 60);
-//    CASE MpBackupConfiguration.AutomaticBackup.Mode.Interval OF
-//        mpBACKUP_INTERVAL_DAILY:
-//            HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_EVERYDAY;
-//        mpBACKUP_INTERVAL_WEEKLY:
-//            CASE MpBackupConfiguration.AutomaticBackup.Mode.Day OF
-//                mpBACKUP_DAY_MONDAY:
-//                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_MONDAY;
-//                mpBACKUP_DAY_TUESDAY:
-//                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_TUESDAY;
-//                mpBACKUP_DAY_WEDNESDAY:
-//                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_WEDNESDAY;
-//                mpBACKUP_DAY_THURSDAY:
-//                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_THURSDAY;
-//                mpBACKUP_DAY_FRIDAY:
-//                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_FRIDAY;
-//                mpBACKUP_DAY_SATURDAY:
-//                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_SATURDAY;
-//                mpBACKUP_DAY_SUNDAY:
-//                    HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_SUNDAY;
-//            END_CASE
-//    END_CASE
 END_ACTION
 
 ACTION QueryTableConfig:

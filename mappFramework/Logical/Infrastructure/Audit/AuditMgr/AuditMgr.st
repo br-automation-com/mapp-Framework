@@ -28,7 +28,6 @@ PROGRAM _INIT
 	MpAuditTrailConfig_0.Load := TRUE;
 	MpAuditTrailConfig_0();
 	
-	// Initialize mapp function blocks
 	MpAuditTrail_CEvents.Enable := TRUE;
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
 	MpAuditTrail_CEvents();

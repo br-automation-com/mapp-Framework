@@ -35,7 +35,7 @@ TYPE
 		Status : {REDUND_UNREPLICABLE} AuditStatusType; (*HMI status*)
 	END_STRUCT;
 	AuditCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
-		ExportAudits : BOOL; (*Triggers an Audit export of the Audit history. Connected to a button on the HMI. *)
+		ExportArchives : BOOL; (*Triggers an Audit export of the Audit history. Connected to a button on the HMI. *)
 		RunQuery : BOOL; (*Triggers the query to run. Connected to a button on the HMI. *)
 		SaveConfig : BOOL; (*Starts the configuration for archives*)
 	END_STRUCT;
