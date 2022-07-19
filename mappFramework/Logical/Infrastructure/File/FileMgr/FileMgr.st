@@ -22,6 +22,7 @@ PROGRAM _INIT
 	MpFileManagerUI_0();
 
 	// Initialize FIFO feature
+	HmiFile.Status.FifoConfigEnable := TRUE;
     HmiFile.Parameters.Fifo.DeviceName := 'mappDataFiles';
     // MaxFolderSize is in kB
 	HmiFile.Parameters.Fifo.MaxFolderSize := 1000;

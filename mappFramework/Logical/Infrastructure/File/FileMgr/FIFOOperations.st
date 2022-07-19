@@ -14,8 +14,10 @@ ACTION FIFOOperation:
         FILE_DELETE_WAIT:
             // Wait for check the correct device selection
             TON_ScanFolder.IN := TRUE;
+			HmiFile.Status.FifoConfigEnable := TRUE;
 			IF TON_ScanFolder.Q THEN
                 TON_ScanFolder.IN := FALSE;
+				HmiFile.Status.FifoConfigEnable := FALSE;
                 Fifo_Count := 0;
                 HmiFile.Status.DeleteStep := FILE_SCAN_FOLDER_WAIT;
             END_IF
