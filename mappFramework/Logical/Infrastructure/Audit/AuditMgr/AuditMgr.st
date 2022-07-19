@@ -59,6 +59,7 @@ PROGRAM _CYCLIC
 	ArchiveExport;
 	ArchiveSettings;
 	ChangeConfiguration;
+	VariableMonitorExample;
 
     // Error reset
     IF NOT MpAuditTrail_0.Error THEN

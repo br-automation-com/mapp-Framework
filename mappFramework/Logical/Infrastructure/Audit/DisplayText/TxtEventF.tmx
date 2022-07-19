@@ -2,15 +2,15 @@
 <tmx version="1.4">
   <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
     <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
-    <prop type="x-BR-TS:Namespace">MpAudit/SysF/Event</prop>
+    <prop type="x-BR-TS:Namespace">MpAudit/Display/SysF/Event</prop>
   </header>
   <body>
     <tu tuid="Root">
       <tuv xml:lang="de">
-        <seg>{&amp;evtime[TIME=%u%R]} {&amp;op} {=$MpAudit/SysF/Event/{&amp;ev}}</seg>
+        <seg>{&amp;op} {=$MpAudit/Display/SysF/Event/{&amp;ev}}</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>{&amp;evtime[TIME=%u%R]} {&amp;op} {=$MpAudit/SysF/Event/{&amp;ev}}</seg>
+        <seg>{&amp;op} {=$MpAudit/Display/SysF/Event/{&amp;ev}}</seg>
       </tuv>
     </tu>
     <tu tuid="2">
@@ -23,10 +23,10 @@
     </tu>
     <tu tuid="16">
       <tuv xml:lang="de">
-        <seg>hat Wert {&amp;dpid} von {&amp;old} auf {&amp;new} geändert</seg>
+        <seg>{=$MpAudit/Display/DP/{&amp;dpid}} Wert von {&amp;old|.2f}{&amp;old[UNIT=%s]} auf {&amp;new|.2f}{&amp;new[UNIT=%s]} geändert</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>changed value of {&amp;dpid} from {&amp;old} to {&amp;new}</seg>
+        <seg>{=$MpAudit/Display/DP/{&amp;dpid}} changed value from {&amp;old|.2f}{&amp;old[UNIT=%s]} to {&amp;new|.2f}{&amp;new[UNIT=%s]} </seg>
       </tuv>
     </tu>
     <tu tuid="17">
@@ -47,10 +47,10 @@
     </tu>
     <tu tuid="19">
       <tuv xml:lang="de">
-        <seg>hat Wert {=$MpAudit/DP/{&amp;dpid}} von {&amp;old} auf {&amp;new} geändert</seg>
+        <seg>hat Wert {=$MpAudit/DP/{&amp;dpid}} von {&amp;old|.2f}{&amp;old[UNIT=%s]} auf {&amp;new|.2f}{&amp;new[UNIT=%s]} geändert</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>changed value of {=$MpAudit/DP/{&amp;dpid}} from {&amp;old} to {&amp;new}</seg>
+        <seg>changed value of {=$MpAudit/DP/{&amp;dpid}} from {&amp;old|.2f}{&amp;old[UNIT=%s]} to {&amp;new|.2f}{&amp;new[UNIT=%s]} </seg>
       </tuv>
     </tu>
     <tu tuid="33">
@@ -58,7 +58,7 @@
         <seg>Alarm {&amp;name} Status geändert: {&amp;stold} -&gt; {&amp;stnew}</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>alarm {&amp;name} changed state: {&amp;stold} to {&amp;stnew}</seg>
+        <seg>Alarm {&amp;name} changed state: {&amp;stold} to {&amp;stnew}</seg>
       </tuv>
     </tu>
     <tu tuid="48">

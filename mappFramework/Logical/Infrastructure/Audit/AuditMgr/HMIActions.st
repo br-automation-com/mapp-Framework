@@ -12,6 +12,16 @@ ACTION CustomEvents:
 
 END_ACTION
 
+ACTION VariableMonitorExample:
+
+	// variable changes randomly to trigger a value change event
+	
+	IF HmiAudit.Parameters.SampleVariable = 0 THEN
+		HmiAudit.Parameters.SampleVariable := 10.5;
+	END_IF	
+
+END_ACTION
+
 ACTION ArchiveExport:
 
 	// assigning variable to exchange with the HMI
@@ -47,7 +57,8 @@ ACTION SaveBackupConfiguration:
     AuditTrailConfig.Archive.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiAudit.Parameters.ArchiveSettings.Hour) * 60) + HmiAudit.Parameters.ArchiveSettings.Minute) * 60) * 1000);
 	AuditTrailConfig.Archive.Enable := HmiAudit.Parameters.ArchiveSettings.Enable;
 	AuditTrailConfig.Archive.MaxSize := HmiAudit.Parameters.ArchiveSettings.MaxSize;
-	AuditTrailConfig.Archive.Mode := HmiAudit.Parameters.ArchiveSettings.Mode;   
+	AuditTrailConfig.Archive.Mode := HmiAudit.Parameters.ArchiveSettings.Mode;
+	AuditTrailConfig.Export.FileType := HmiAudit.Parameters.ArchiveSettings.FileType;   
     
  END_ACTION
 
@@ -59,6 +70,7 @@ ACTION LoadBackupConfiguration:
 	HmiAudit.Parameters.ArchiveSettings.Enable := AuditTrailConfig.Archive.Enable;
 	HmiAudit.Parameters.ArchiveSettings.MaxSize := AuditTrailConfig.Archive.MaxSize;
 	HmiAudit.Parameters.ArchiveSettings.Mode := AuditTrailConfig.Archive.Mode;
+	HmiAudit.Parameters.ArchiveSettings.FileType := AuditTrailConfig.Export.FileType;
 
 END_ACTION
 

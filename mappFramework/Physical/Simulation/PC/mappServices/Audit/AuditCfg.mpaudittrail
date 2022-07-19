@@ -14,13 +14,26 @@
       <Selector ID="TextSource" Value="TXT">
         <Property ID="Name" Value="" />
         <Property ID="OutputFormat" Value="MpAudit/SysF/Event/Root" />
+        <Selector ID="Display" Value="Ne">
+          <Property ID="Format" Value="MpAudit/Display/SysF/Event/Root" />
+        </Selector>
       </Selector>
       <Selector ID="Archive" Value="On">
         <Property ID="Time" Value="57600000" />
         <Property ID="MaxSize" Value="1" />
       </Selector>
       <Group ID="Export">
-        <Property ID="PassPhrase" Value="0ranaeEihFyRp4CRSUasgYt76SSj3CjNnxWeF1Y8G4SY=" Description="Password (or passphrase) for file/archive encryption 123ABc" />
+        <Property ID="FileType" Value="1" />
+        <Property ID="PassPhrase" Value="123ABc" Description="Password (or passphrase) for file/archive encryption 123ABc" />
+        <Group ID="PDF">
+          <Property ID="OwnerPassword" Value="123ABc" Description="Password needed to change file permissions 123ABc" />
+          <Property ID="UserPassword" Value="" Description="Password needed to view the file (optional) " />
+        </Group>
+      </Group>
+    </Group>
+    <Group ID="Monitor">
+      <Group ID="0">
+        <Property ID="pv" Value="::AuditMgr:HmiAudit.Parameters.SampleVariable" />
       </Group>
     </Group>
     <Group ID="Queries">

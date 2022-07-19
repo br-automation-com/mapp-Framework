@@ -5,7 +5,9 @@
     <ACLAliases />
     <EURangeViolationAliases />
     <EURangesAliases />
-    <EngineeringUnitAliases />
+    <EngineeringUnitAliases>
+      <EngineeringUnit Id="1" UnitId="4408652" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="degree Celsius" Symbol="°C" />
+    </EngineeringUnitAliases>
   </Aliases>
   <DefaultView>
     <Module Name="&lt;Default&gt;">
@@ -23,6 +25,9 @@
               <Variable Name="Op" EnableArrayElements="True" />
           </Variable>
         </Variable>
+          <Variable Name="Parameters">
+            <Variable AuditEvents="True" Name="SampleVariable" EngineeringUnitId="1" />
+          </Variable>
         </Variable>
       </Task>
     </Module>

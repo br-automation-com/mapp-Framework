@@ -51,6 +51,7 @@ TYPE
 	END_STRUCT;
 	AuditParType : 	STRUCT 
 		ArchiveSettings : AuditArchiveParType; (*Parameter for archive configuration*)
+		SampleVariable : REAL; (*Variable for value change event*)
 	END_STRUCT;
 	AuditArchiveParType : 	STRUCT  (*Automatic archive settings*)
 		Enable : BOOL; (*Enable automatic archive feature*)
@@ -58,6 +59,7 @@ TYPE
 		Mode : MpAuditArchiveModeEnum; (*Mode (daily, Mo-Fr or by batch)*)
 		Hour : USINT; (*Time (hour)*)
 		Minute : USINT; (*Time (minutes)*)
+		FileType : MpAuditFileTypeEnum := mpAUDIT_FILE_TYPE_XML;
 	END_STRUCT;
 	AuditType : 	STRUCT  (*Structure to hold the Audit data for the query results*)
 		EvTime : DATE_AND_TIME; (*ActiveAudits query, Event-Time column*)
