@@ -8,7 +8,7 @@
         <Widget xsi:type="widgets.brease.TableItem" id="TableItem2" zIndex="2" columnWidth="670" text="$IAT/Audit/Message" />
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.PushButton" id="PushButtonRunQuery" top="0" left="960" width="160" zIndex="1" text="$IAT/Audit/RunQuery" style="Operate" />
-    <Widget xsi:type="widgets.brease.DropDownBox" id="ddQuerySel" top="0" left="745" width="200" zIndex="2" dataProvider="[{'value':'UserEvents','text':'User Events Query'},{'value':'RecipeEvents','text':'Recipe Events Query'}]" listPosition="center" listWidth="200" selectedValue="UserEvents" style="ListBottom" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushButtonRunQuery" top="0" left="960" width="160" zIndex="1" text="$IAT/Audit/RunQuery" permissionOperate="['Administrators', 'Service']" style="Operate" />
+    <Widget xsi:type="widgets.brease.DropDownBox" id="ddQuerySel" top="0" left="745" width="200" zIndex="2" dataProvider="[{'value':'UserEvents','text':'User Events Query'},{'value':'RecipeEvents','text':'Recipe Events Query'}]" listPosition="center" listWidth="200" selectedValue="UserEvents" permissionOperate="['Administrators', 'Service']" style="ListBottom" />
   </Widgets>
 </Content>
