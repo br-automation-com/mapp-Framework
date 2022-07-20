@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="File_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Table" id="FileFolderTable" top="200" left="195" width="685" height="335" zIndex="0">
+    <Widget xsi:type="widgets.brease.Table" id="FileFolderTable" top="200" left="230" width="655" height="335" zIndex="0">
       <Widgets>
         <Widget xsi:type="widgets.brease.TableItemImageList" id="TableItemImageListType" zIndex="0" columnWidth="65" imageList="['Folder.svg', 'File.svg', 'FileSelected.svg']" imagePrefix="Media/SymbolLib/File/" />
-        <Widget xsi:type="widgets.brease.TableItem" id="ObjectNames" zIndex="1" columnWidth="330" text="$IAT/File/Files" />
+        <Widget xsi:type="widgets.brease.TableItem" id="ObjectNames" zIndex="1" columnWidth="300" text="$IAT/File/Files" />
         <Widget xsi:type="widgets.brease.TableItemDateTime" id="TableItemDateTime1" zIndex="2" columnWidth="170" format="$IAT/File/DateTimeFormat" text="$IAT/File/Timestamp" />
         <Widget xsi:type="widgets.brease.TableItem" id="FileSize" zIndex="3" columnWidth="120" showUnit="true" text="$IAT/File/Size" unit="{'metric':'2P','imperial':'2P','imperial-us':'2P'}" />
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.Table" id="FileDeviceTable" top="200" left="30" width="160" height="335" zIndex="1">
+    <Widget xsi:type="widgets.brease.Table" id="FileDeviceTable" top="200" left="30" width="195" height="335" zIndex="1">
       <Widgets>
         <Widget xsi:type="widgets.brease.TableItem" id="FileDeviceListItem" zIndex="0" columnWidth="160" text="$IAT/File/Devices" />
+        <Widget xsi:type="widgets.brease.TableItemImageList" id="FifoSelected" zIndex="1" columnWidth="35" imageList="['Empty.svg', 'FileScan.svg']" imagePrefix="Media/SymbolLib/File/" rowHeight="30" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.PushButton" id="ButtonRename" top="600" left="30" width="130" height="50" zIndex="2" text="$IAT/File/Rename" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
