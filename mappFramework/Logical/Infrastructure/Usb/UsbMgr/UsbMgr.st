@@ -19,16 +19,16 @@ PROGRAM _CYCLIC
 			Node := 1;
 			USB.Status := ERR_OK;
 			IF USB.Cmd.AutoScan = TRUE THEN
-				TON_10ms_01(IN:=1, PT:=USB.Par.RefreshInterval);
+				TON_01(IN:=1, PT:=USB.Par.RefreshInterval);
 				// Get new USB data
-				IF(TON_10ms_01.Q) THEN
-					TON_10ms_01(IN:=0);
+				IF(TON_01.Q) THEN
+					TON_01(IN:=0);
 					USB.Status := ERR_FUB_BUSY;
 					brsmemset(ADR(Usb_data), 0, SIZEOF(Usb_data));
 					StateMachine := USB_CREATE_NODE_ID_LIST;
 				END_IF
 			ELSE
-				TON_10ms_01(IN:=0);
+				TON_01(IN:=0);
 			END_IF
 			// Refresh USB data every X seconds when enabled
 			IF USB.Cmd.ErrorReset = TRUE THEN
