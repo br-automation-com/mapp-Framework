@@ -64,6 +64,7 @@ TYPE
 		FILE_CHECK_FOR_FILTER, (*Check which delete filter is active*)
 		FILE_SELECT_OLDEST_FILES_0, (*Scan and select all file over the filter setting*)
 		FILE_CALC_FOLDER_SIZE, (*Calculate the overall file size in the open folder*)
+		FILE_CALC_FOLDER_SCROLL,
 		FILE_SELECT_OLDEST_FILES_1, (*Scan and select all file over the filter setting*)
 		FILE_DELETE_FILES, (*Set command to delete the selected oldest files*)
 		FILE_CONFIRM_DELETE, (*Confirm the file delete*)

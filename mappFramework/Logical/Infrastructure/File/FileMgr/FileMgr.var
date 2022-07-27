@@ -6,6 +6,8 @@ VAR
 	R_TRIG_CheckStatus : R_TRIG; (*Trigger function block*)
 	TON_Wait : TON;
 	TON_ScanFolder : TON; (*Timer to scan for folder*)
+	CurrentIndex : UDINT;
+	DirRead_FolderSize : DirRead;
 END_VAR
 (*Constants*)
 VAR CONSTANT
@@ -16,6 +18,7 @@ VAR
 	MpFileManagerUIConnect : MpFileManagerUIConnectType; (*File manager connection to the HMI*)
 	MpFileManagerUIConnect_FIFO : MpFileManagerUIConnectType; (*File manager connection to the HMI*)
 	HmiFile : FileHmiInterfaceType; (*HMI interface structure*)
+	DirectoryData : fiDIR_READ_DATA;
 END_VAR
 (*Variables*)
 VAR
