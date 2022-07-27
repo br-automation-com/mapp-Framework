@@ -28,6 +28,7 @@ _SETUP_TEST(void)
     
     HmiFile_UT.Parameters.Fifo.Enable = false;
     HmiFile_UT.Parameters.Fifo.ScanInterval = 60;
+    strcpy(HmiFile_UT.Parameters.Fifo.DeviceName, "mappUserXFiles");
 
     switch (SetupState)
     {

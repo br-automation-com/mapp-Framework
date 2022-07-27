@@ -115,9 +115,7 @@ ACTION FIFOOperation:
                 // start from the first file to delete and select everything after
                 // e.g. if there are 100 files and we want to keep 60 files around then we'd start at 60 + 0 MOD 50 = 10 and go to index 49
                 FileNameArraySize := SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items)/SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items[0]);
-                IF (MpFileManagerUIConnect_FIFO.File.PathInfo.FileCount >= (HmiFile.Parameters.Fifo.MaxNumberOfFiles * 2)) THEN
-                    StartIndex := 0;
-                ELSIF (HmiFile.Parameters.Fifo.MaxNumberOfFiles >= FileNameArraySize) THEN
+                IF (HmiFile.Parameters.Fifo.MaxNumberOfFiles >= FileNameArraySize) THEN
                     StartIndex := FileNameArraySize - (UDINT_TO_USINT(MpFileManagerUIConnect_FIFO.File.PathInfo.FileCount - HmiFile.Parameters.Fifo.MaxNumberOfFiles + MpFileManagerUIConnect_FIFO.File.PathInfo.FolderCount) MOD FileNameArraySize);
                 ELSE
                     StartIndex := UDINT_TO_USINT(HmiFile.Parameters.Fifo.MaxNumberOfFiles + MpFileManagerUIConnect_FIFO.File.PathInfo.FolderCount) MOD FileNameArraySize;
@@ -126,8 +124,14 @@ ACTION FIFOOperation:
                     StartIndex := 0;
                 END_IF
                 
+                IF (StartIndex > 0) THEN
+                    FOR i := 0 TO (StartIndex - 1) DO
+                        MpFileManagerUIConnect_FIFO.File.List.Items[i].IsSelected := FALSE;
+                    END_FOR
+                END_IF
+                
                 FOR i := StartIndex TO (FileNameArraySize - 1) DO
-                    MpFileManagerUIConnect_FIFO.File.List.Items[0].IsSelected := FALSE;
+                    MpFileManagerUIConnect_FIFO.File.List.Items[i].IsSelected := FALSE;
                     IF (MpFileManagerUIConnect_FIFO.File.List.Items[i].ItemType <> mpFILE_ITEM_TYPE_NONE) AND NOT MpFileManagerUIConnect_FIFO.File.List.Items[i].IsFolder THEN
                         MpFileManagerUIConnect_FIFO.File.List.Items[i].IsSelected := TRUE;
                         HmiFile.Status.AutoDeleteSelected := HmiFile.Status.AutoDeleteSelected + 1;
