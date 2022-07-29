@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.6.30 SP?>
+<OpcUaSource FileVersion="7" ArVersion="B4.82">
+  <Aliases>
+    <ACLAliases />
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases>
+      <EngineeringUnit Id="1" UnitId="4408652" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="degree Celsius" Symbol="°C" />
+    </EngineeringUnitAliases>
+  </Aliases>
+  <DefaultView>
+    <Module Name="&lt;Default&gt;">
+      <Task Name="AuditMgr">
+        <Variable Name="MpAuditTrail_0">
+          <Variable Name="Active" />
+        </Variable>
+        <Variable Name="HmiAudit" AutomaticEnable="True">
+          <Variable Name="Status">
+            <Variable Name="TableConfig" EnableArrayElements="True" />
+            <Variable Name="Query">
+              <Variable Name="EvTime" EnableArrayElements="True" />
+              <Variable Name="Text" EnableArrayElements="True" />
+              <Variable Name="DText" EnableArrayElements="True" />
+              <Variable Name="Op" EnableArrayElements="True" />
+          </Variable>
+        </Variable>
+          <Variable Name="Parameters">
+            <Variable AuditEvents="True" Name="SampleVariable" EngineeringUnitId="1" />
+          </Variable>
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

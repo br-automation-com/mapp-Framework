@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.6.30 SP?>
+<Configuration>
+  <Element ID="gGroup" Type="mpcomunit">
+    <Group ID="Display">
+      <Group ID="Datapoints">
+        <Group ID="0">
+          <Property ID="Id" Value="::AuditMgr:HmiAudit.Parameters.SampleVariable" />
+          <Selector ID="DisplayUnits">
+            <Group ID="Metric">
+              <Property ID="Code" Value="CEL" />
+            </Group>
+            <Group ID="Imperial">
+              <Property ID="Code" Value="FAH" />
+            </Group>
+            <Group ID="ImperialUS">
+              <Property ID="Code" Value="FAH" />
+            </Group>
+          </Selector>
+        </Group>
+      </Group>
+      <Group ID="Units">
+        <Group ID="0">
+          <Group ID="EngineeringUnit">
+            <Property ID="Code" Value="CEL" />
+          </Group>
+          <Selector ID="DisplayUnits">
+            <Group ID="Metric">
+              <Property ID="Code" Value="CEL" />
+            </Group>
+            <Group ID="Imperial">
+              <Property ID="Code" Value="FAH" />
+            </Group>
+            <Group ID="ImperialUS">
+              <Property ID="Code" Value="FAH" />
+            </Group>
+          </Selector>
+        </Group>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

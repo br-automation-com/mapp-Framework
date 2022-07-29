@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">MpAudit/Event</prop>
+  </header>
+  <body>
+    <tu tuid="Root">
+      <tuv xml:lang="de">
+        <seg>[%[TIME=%u%R]] [%op] [%ev$[TEXT=MpAudit/Event]]</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>[%[TIME=%u%R]] [%op] [%ev$[TEXT=MpAudit/Event]]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="2">
+      <tuv xml:lang="de">
+        <seg>[%act$[TEXT=MpAudit/User]]</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>[%act$[TEXT=MpAudit/User]]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="16">
+      <tuv xml:lang="de">
+        <seg>hat Wert [%dpid$[TEXT=MpAudit/DP]] von [%old] auf [%new] geändert</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>changed value of [%dpid$[TEXT=MpAudit/DP]] from [%old] to [%new]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="17">
+      <tuv xml:lang="de">
+        <seg>hat Wert [%dpid$[TEXT=MpAudit/DP]] von [%old] auf [%new] [%unit] geändert</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>changed value of [%dpid$[TEXT=MpAudit/DP]] from [%old] to [%new] [%unit]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="18">
+      <tuv xml:lang="de">
+        <seg>[%typ$[TEXT=MpAudit/Custom]]</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>[%typ$[TEXT=MpAudit/Custom]]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="19">
+      <tuv xml:lang="de">
+        <seg>hat Wert [%dpid$[TEXT=MpAudit/DP]] von [%old] auf [%new] geändert</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>changed value of [%dpid$[TEXT=MpAudit/DP]] from [%old] to [%new]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="33">
+      <tuv xml:lang="de">
+        <seg>Der Alarm [%name] hat einen neuen Status: von [%stold] zu [%stnew]</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>alarm [%name] changed state: [%stold] to [%stnew]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="48">
+      <tuv xml:lang="de">
+        <seg>[%act$[TEXT=MpAudit/Recipe]]</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>[%act$[TEXT=MpAudit/Recipe]]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="64">
+      <tuv xml:lang="de">
+        <seg>PackML Zustandsänderung: von [%old] zu [%new]</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PackML State-Change: [%old] to [%new]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="65">
+      <tuv xml:lang="de">
+        <seg>PackML Modusänderung: von [%old] zu [%new]</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PackML Mode-Change: [%old] to [%new]</seg>
+      </tuv>
+    </tu>
+    <tu tuid="66">
+      <tuv xml:lang="de">
+        <seg>PackML Substatus-Änderung von [%old] zu [%new]</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>PackML Substate-Change: [%old] to [%new]</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

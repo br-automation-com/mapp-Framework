@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="AuditDialog_ArchiveSettings_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Parameters.ArchiveSettings.Hour" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditDialog_ArchiveSettings_content" widgetRefId="NumInHour" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Parameters.ArchiveSettings.Minute" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditDialog_ArchiveSettings_content" widgetRefId="NumInMinute" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Parameters.ArchiveSettings.Mode" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditDialog_ArchiveSettings_content" widgetRefId="DropDownInterval" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Parameters.ArchiveSettings.Enable" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditDialog_ArchiveSettings_content" widgetRefId="CheckBoxEnable" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Parameters.ArchiveSettings.MaxSize" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditDialog_ArchiveSettings_content" widgetRefId="NumInMaxFileSize" attribute="value" />
+		</Binding>
+	<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Parameters.ArchiveSettings.FileType" attribute="value" />
+<Target xsi:type="brease" contentRefId="AuditDialog_ArchiveSettings_content" widgetRefId="bbSelectExportFormat" attribute="selectedIndex" />
+</Binding>
+</Bindings>
+</BindingsSet>

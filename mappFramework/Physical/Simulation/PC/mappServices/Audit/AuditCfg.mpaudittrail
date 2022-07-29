@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.6.30 SP?>
+<Configuration>
+  <Element ID="gMpLinkAuditTrail" Type="mpaudittrail">
+    <Group ID="Audit">
+      <Group ID="Events">
+        <Property ID="[0]" Value="33" />
+        <Property ID="[1]" Value="2" />
+        <Property ID="[2]" Value="16" />
+        <Property ID="[3]" Value="113" />
+        <Property ID="[4]" Value="48" />
+        <Property ID="[5]" Value="149" />
+      </Group>
+      <Selector ID="TextSource" Value="TXT">
+        <Property ID="Name" Value="" />
+        <Property ID="OutputFormat" Value="MpAudit/SysF/Event/Root" />
+        <Selector ID="Display" Value="Ne">
+          <Property ID="Format" Value="MpAudit/Display/SysF/Event/Root" />
+        </Selector>
+      </Selector>
+      <Selector ID="Archive" Value="On">
+        <Property ID="Time" Value="57600000" />
+        <Property ID="MaxSize" Value="1" />
+      </Selector>
+      <Group ID="Export">
+        <Property ID="FileType" Value="1" />
+        <Property ID="PassPhrase" Value="123ABc" Description="Password (or passphrase) for file/archive encryption 123ABc" />
+        <Group ID="PDF">
+          <Property ID="OwnerPassword" Value="123ABc" Description="Password needed to change file permissions 123ABc" />
+          <Property ID="UserPassword" Value="" Description="Password needed to view the file (optional) " />
+        </Group>
+      </Group>
+    </Group>
+    <Group ID="Monitor">
+      <Group ID="0">
+        <Property ID="pv" Value="::AuditMgr:HmiAudit.Parameters.SampleVariable" />
+      </Group>
+    </Group>
+    <Group ID="Queries">
+      <Group ID="0">
+        <Property ID="Name" Value="RecipeEvents" />
+        <Property ID="Update" Value="::AuditMgr:AuditQuery.UpdateCountRecipe" />
+        <Group ID="SELECT">
+          <Group ID="0">
+            <Property ID="Column" Value="op" />
+            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].Op" />
+          </Group>
+          <Group ID="1">
+            <Property ID="Column" Value="evtime" />
+            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].EvTime" />
+          </Group>
+          <Group ID="2">
+            <Property ID="Column" Value="dtext" />
+            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].DText" />
+          </Group>
+          <Group ID="3">
+            <Property ID="Column" Value="text" />
+            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].Text" />
+          </Group>
+        </Group>
+        <Group ID="WHERE">
+          <Group ID="0">
+            <Property ID="Column" Value="ev" />
+            <Selector ID="CompareTo">
+              <Property ID="Value" Value="48" />
+            </Selector>
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="1">
+        <Property ID="Name" Value="UserEvents" />
+        <Property ID="Update" Value="::AuditMgr:AuditQuery.UpdateCount" />
+        <Group ID="SELECT">
+          <Group ID="0">
+            <Property ID="Column" Value="op" />
+            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].Op" />
+          </Group>
+          <Group ID="1">
+            <Property ID="Column" Value="evtime" />
+            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].EvTime" />
+          </Group>
+          <Group ID="2">
+            <Property ID="Column" Value="dtext" />
+            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].DText" />
+          </Group>
+          <Group ID="3">
+            <Property ID="Column" Value="text" />
+            <Property ID="PV" Value="::AuditMgr:AuditQuery.Audits[].Text" />
+          </Group>
+        </Group>
+        <Group ID="WHERE">
+          <Group ID="0">
+            <Property ID="Column" Value="ev" />
+            <Selector ID="CompareTo">
+              <Property ID="Value" Value="2" />
+            </Selector>
+          </Group>
+        </Group>
+      </Group>
+    </Group>
+    <Selector ID="Alarms" Value="MpAlarmX" />
+  </Element>
+  <Element ID="gMpLinkCustomEvents" Type="mpaudittrail">
+    <Group ID="Audit">
+      <Group ID="Events">
+        <Property ID="[0]" Value="18" />
+      </Group>
+      <Selector ID="TextSource">
+        <Property ID="OutputFormat" Value="{&amp;typ} - {&amp;msg} - {&amp;cmt}" />
+      </Selector>
+    </Group>
+    <Selector ID="Alarms" Value="MpAlarmX" />
+  </Element>
+</Configuration>

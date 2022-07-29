@@ -78,5 +78,15 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="FileDialog_FIFO_dialog_content.ButtonOK.EnableChanged">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="ButtonOK" event="EnableChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.Label.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="lblInProgressWarning">
+            <Method xsi:type="widgets.brease.Label.Action.SetVisible" value="=NOT value" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
