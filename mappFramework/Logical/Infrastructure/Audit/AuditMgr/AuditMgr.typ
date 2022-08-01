@@ -48,10 +48,12 @@ TYPE
 		CustomEventsFilterCfg : STRING[1000]; (*Filter configuration for the AuditList Custom Events widget*)
 		ArchiveAvailable : BOOL; (*At least 1 archive is available for export*)
 		NumberOfArchives : UINT; (*How many archives are available for export*)
+		DeviceDataProvider : ARRAY[0..1]OF STRING[100]; (*Data provider for the file device selector*)
 	END_STRUCT;
 	AuditParType : 	STRUCT 
 		ArchiveSettings : AuditArchiveParType; (*Parameter for archive configuration*)
 		SampleVariable : REAL; (*Variable for value change event*)
+		QuerySelection : ARRAY[0..MAX_QUERIES]OF STRING[10];
 	END_STRUCT;
 	AuditArchiveParType : 	STRUCT  (*Automatic archive settings*)
 		Enable : BOOL; (*Enable automatic archive feature*)

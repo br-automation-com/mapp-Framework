@@ -27,5 +27,9 @@
 <Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.Query.Name" attribute="value" />
 <Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="ddQuerySel" attribute="selectedValue" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.DeviceDataProvider" attribute="value" />
+<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="ddQuerySel" attribute="dataProvider" />
+</Binding>
 </Bindings>
 </BindingsSet>
