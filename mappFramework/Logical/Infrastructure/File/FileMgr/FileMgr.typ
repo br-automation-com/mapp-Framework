@@ -23,6 +23,7 @@ TYPE
 		Type : ARRAY[0..49]OF DINT; (*List of file types*)
 		Size : ARRAY[0..49]OF UDINT; (*List of file sizes*)
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for the file device selector*)
+		FifoSelect : ARRAY[0..MAX_IDX_FILE_DEV]OF DINT; (*Indicate FIFO selected file device*)
 		DeviceName : STRING[50]; (*File device name*)
 		FileName : STRING[255]; (*Fille name*)
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the file explorer (table widget) on the mapp View HMI*)

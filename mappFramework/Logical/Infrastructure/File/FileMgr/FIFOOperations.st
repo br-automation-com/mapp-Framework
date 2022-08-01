@@ -7,7 +7,16 @@ ACTION FIFOOperation:
 	IF R_TRIG_CheckStatus.Q OR TON_ScanFolder.Q THEN
 		HmiFile.Commands.CheckFolder := TRUE;
 	END_IF
-
+	
+	brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
+	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
+        IF (HmiFile.Parameters.Fifo.DeviceName = MpFileManagerUIConnect.DeviceList.DeviceNames[i]) AND HmiFile.Parameters.Fifo.Enable THEN
+            HmiFile.Status.FifoSelect[i] := 1;
+            EXIT;
+        END_IF
+    END_FOR
+	
+	
     // Autodelete oldest files based on scanning option
     CASE HmiFile.Status.DeleteStep OF
 	

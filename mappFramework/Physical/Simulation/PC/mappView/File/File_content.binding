@@ -105,9 +105,13 @@
 			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.TableConfig[1]" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FileFolderTable" attribute="tableConfiguration" />
 		</Binding>
-	<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.FifoConfigEnable" attribute="value" />
-<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonFIFOConfigure" attribute="enable" />
-</Binding>
-</Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.FifoConfigEnable" attribute="value" />
+			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonFIFOConfigure" attribute="enable" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.FifoSelect" attribute="value" />
+			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FifoSelected" attribute="selectedIndex" />
+		</Binding>
+	</Bindings>
 </BindingsSet>

@@ -17,7 +17,7 @@ TYPE
 	END_STRUCT;
 	UsbParType : 	STRUCT 
 		IgnoreDongle : BOOL := TRUE; (*Ignoe B&R license dongle*)
-		RefreshInterval : UINT := 300; (*Intervall timer for USB device refresh*)
+		RefreshInterval : TIME := T#3s; (*Intervall timer for USB device refresh*)
 		IsConnected : ARRAY[0..MAX_IDX_USB_DEV_LIST]OF BOOL; (*Shows if a USB stick is connected*)
 	END_STRUCT;
 	UsbErrType : 	STRUCT 
