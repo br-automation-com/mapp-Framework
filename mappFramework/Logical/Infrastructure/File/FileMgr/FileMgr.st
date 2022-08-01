@@ -64,6 +64,8 @@ PROGRAM _CYCLIC
 	FileManager;
 	IF HmiFile.Parameters.Fifo.Enable THEN
 		FIFOOperation;
+	ELSE
+		brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));	
 	END_IF
 	
 	// Error reset
