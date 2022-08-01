@@ -1,4 +1,4 @@
-def mailRecipients = "Brittany.Langston@br-automation.com;Marcel.Voigt@br-automation.com;Wesley.Buchanan@br-automation.com"
+def mailRecipients = "Brittany.Langston@br-automation.com;Marcel.Voigt@br-automation.com;Wesley.Buchanan@br-automation.com;Phillip.Brown@br-automation.com;Jake.Neal@br-automation.com"
 
 def Version() {
     echo "Version";
@@ -82,12 +82,30 @@ pipeline {
                 BRANCH = Branch();
             }
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: "$BRANCH"]], 
-                                            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'BaseProject']], 
-                                            userRemoteConfigs: [[credentialsId: 'br-automation-com-github', url: 'https://github.com/br-automation-com/mapp-Framework']]])
-                checkout([$class: 'GitSCM', branches: [[name: "$BRANCH"]], 
-                                            extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'ImportTool']], 
-                                            userRemoteConfigs: [[credentialsId: 'Jenkins-BR-NA', url: 'https://github.com/br-na-pm/mappFrameworkImportTool']]])
+                script
+                {
+                    try {
+                        checkout([$class: 'GitSCM', branches: [[name: "$BRANCH"]], 
+                                                    extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'BaseProject']], 
+                                                    userRemoteConfigs: [[credentialsId: 'br-automation-com-github', url: 'https://github.com/br-automation-com/mapp-Framework']]])
+                    }
+                    catch (Exception e) {
+                        checkout([$class: 'GitSCM', branches: [[name: "develop"]], 
+                                                    extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'BaseProject']], 
+                                                    userRemoteConfigs: [[credentialsId: 'br-automation-com-github', url: 'https://github.com/br-automation-com/mapp-Framework']]])
+                    }
+                    try {
+                        checkout([$class: 'GitSCM', branches: [[name: "$BRANCH"]], 
+                                                extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'ImportTool']], 
+                                                userRemoteConfigs: [[credentialsId: 'Jenkins-BR-NA', url: 'https://github.com/br-na-pm/mappFrameworkImportTool']]])
+                    }
+                    catch (Exception e) {
+                        checkout([$class: 'GitSCM', branches: [[name: "develop"]], 
+                                                extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'ImportTool']], 
+                                                userRemoteConfigs: [[credentialsId: 'Jenkins-BR-NA', url: 'https://github.com/br-na-pm/mappFrameworkImportTool']]])
+                    
+                    }
+                }
             }
         }
         stage('Build Help') {
@@ -107,13 +125,15 @@ pipeline {
                 VERSION =  Version().substring(1, Version().lastIndexOf('.'));
             }
             steps {
-                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\_Chinese Help.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
-                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\AlarmX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
-                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Axis.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
-                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Backup.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
-                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\File.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
-                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Recipe.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
-                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\UserX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Documentation.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Services\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Documentation.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Motion\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\AlarmX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Services\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Axis.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Motion\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Backup.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Services\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\File.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Services\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Recipe.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Services\" --physical $PHYSICAL"
+                bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\UserX.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Services\" --physical $PHYSICAL"
+				bat "python \"$ProjectBuilderScripts\\Export.py\" --project \"$PROJECT_DIR\" --config \"$EXPORT_DIR\\Audit.json\" --output \"$OUTPUT_DIR\\$VERSION\\Framework\\Services\" --physical $PHYSICAL"
             }
         }
         stage('Build Import Tool') {
