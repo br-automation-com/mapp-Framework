@@ -14,19 +14,19 @@
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="TableItemTimeStamp" attribute="stringValue" />
 		</Binding>
 		
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.TableConfig" attribute="value" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Tbl" attribute="tableConfiguration" />
-        </Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.TableConfig" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Tbl" attribute="tableConfiguration" />
+		</Binding>
 
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.Names" attribute="value" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="TblItmRecipeList" attribute="stringValue" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex" attribute="value" />
-            <Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Tbl" attribute="selectedRow" />
-        </Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.Names" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="TblItmRecipeList" attribute="stringValue" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Tbl" attribute="selectedRow" />
+		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="listElement">
 				<Selector xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex" attribute="value" />
@@ -62,13 +62,7 @@
 		<Binding mode="oneWay">
 			<Source xsi:type="text" refId="IAT/Recipe/LoadRecipe" attribute="value" />
 			<Target xsi:type="session" refId="SessionVarLoadRecipeText" attribute="value" />
-		</Binding>
-		
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.LastLoadedProductRecipe" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="txtOutRecipeName" attribute="value" />
-		</Binding>
-		
+		</Binding>		
 		<Binding mode="twoWay">
 			<Source xsi:type="listElement">
 				<Selector xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex" attribute="value" />
@@ -174,15 +168,15 @@
 		<Binding mode="oneWay">
 			<Source xsi:type="expression" refId="UsbAvailable" attribute="result" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="PushButtonExportToUSB" attribute="visible" />
-        </Binding>
+		</Binding>
 		
 		<Binding mode="twoWay">
-		<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
-		<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="BtnEdit" attribute="enable" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="BtnEdit" attribute="enable" />
 		</Binding>
 		<Binding mode="twoWay">
-		<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
-		<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="BtnDelete" attribute="enable" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="BtnDelete" attribute="enable" />
 		</Binding>
 		
 		<Binding mode="twoWay">
@@ -221,20 +215,37 @@
 		<Binding mode="oneWay">
 			<Source xsi:type="expression" refId="CannotCancelNewRecipe" attribute="result" />
 			<Target xsi:type="session" refId="SessionVarCannotEditRecipeName" attribute="value" />
+		</Binding>		
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.LoadingRecipeList" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Image1" attribute="visible" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown" attribute="value" samplingRate="fast" />
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" attribute="selectedValue" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.LoadAllowed" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="BtnLoad" attribute="enable" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.SelectedRecipe" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="txtOutSelectedRecipe" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.InvalidRecipe" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="LabelInvalidRecipe" attribute="visible" />
 		</Binding>
 
-		
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.LoadingRecipeList" attribute="value" />
-<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Image1" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown" attribute="value" samplingRate="fast" />
-<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" attribute="selectedValue" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.LoadAllowed" attribute="value" />
-<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="BtnLoad" attribute="enable" />
-</Binding>
-</Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" attribute="selectedIndex" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="0" refId="::RecipeMgr:HmiRecipe.Status.LastLoadedProductRecipe" />
+					<bt:Element index="1" refId="::RecipeMgr:HmiRecipe.Status.LastLoadedConfigRecipe" />					
+				</be:List>
+			</Source>
+			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="txtOutRecipeName" attribute="value" />
+		</Binding>
+	</Bindings>
 </BindingsSet>

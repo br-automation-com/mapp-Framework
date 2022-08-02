@@ -53,59 +53,29 @@
 		</Binding>
 
 		
-		<Binding mode="twoWay">
-<Source xsi:type="expression" refId="ParameterPreviewVisible" attribute="result" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar5Sel" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="expression" refId="ParameterPreviewVisible" attribute="result" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar4Sel" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="expression" refId="ParameterPreviewVisible" attribute="result" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar3Sel" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="expression" refId="ParameterPreviewVisible" attribute="result" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar1Sel" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="expression" refId="ParameterPreviewVisible" attribute="result" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="TextOutputPar2Sel" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.SelectedRecipe" attribute="value" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="txtOutSelectedRecipe" attribute="value" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.InvalidRecipe" attribute="value" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="LabelInvalidRecipe" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ProductRecipeLoaded" attribute="value" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar1Active" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ProductRecipeLoaded" attribute="value" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar4Active" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ProductRecipeLoaded" attribute="value" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar5Active" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ProductRecipeLoaded" attribute="value" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="NumericOutputPar3Active" attribute="visible" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ProductRecipeLoaded" attribute="value" />
-<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="TextOutputPar2Active" attribute="visible" />
-		</Binding>
+		
+
+
+
+
+
+
+
+
+
 		
 		
 		
 		
 		
 
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ProductRecipeLoaded" attribute="value" />
+<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="grbActive" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="expression" refId="ParameterPreviewVisible" attribute="result" />
+<Target xsi:type="brease" contentRefId="RecipePreviewPars_content" widgetRefId="grbSelected1" attribute="visible" />
+</Binding>
 </Bindings>
 </BindingsSet>

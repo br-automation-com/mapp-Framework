@@ -22,7 +22,12 @@
     <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownBoxRecipeCategory" top="50" left="400" width="220" height="40" zIndex="14" dataProvider="[{'value':'Parameters','text':'Parameters'},{'value':'Machine Configuration','text':'Machine Settings'}]" listWidth="220" selectedValue="Product" fontSize="18px" />
     <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="100" left="650" width="440" height="440" zIndex="33" text="$IAT/Recipe/Preview">
       <Widgets>
-        <Widget xsi:type="widgets.brease.ContentControl" id="ContentControlPreview" top="4" left="0" width="440" height="400" zIndex="0" contentId="RecipePreviewPars_content" />
+        <Widget xsi:type="widgets.brease.ContentControl" id="ContentControlPreview" top="80" left="0" width="440" height="325" zIndex="0" contentId="RecipePreviewPars_content" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelSelectedRecipe" top="10" left="130" width="150" height="40" zIndex="2" breakWord="true" multiLine="true" text="$IAT/Recipe/SelectedRecipe" fontSize="18px" bold="true" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelActiveRecipe" top="10" left="300" width="135" height="40" zIndex="1" breakWord="true" multiLine="true" text="$IAT/Recipe/ActiveRecipe" fontSize="18px" bold="true" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="txtOutRecipeName" top="50" left="300" width="140" height="35" zIndex="3" breakWord="true" multiLine="true" value="LoadedRecipeName" wordWrap="true" textAlign="left top" fontSize="12px" padding="5px" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="txtOutSelectedRecipe" top="50" left="130" width="140" height="40" zIndex="4" breakWord="true" multiLine="true" value="SelectedRecipeName" wordWrap="true" textAlign="left top" fontSize="12px" padding="5px" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelInvalidRecipe" top="5" left="130" width="100" height="10" zIndex="5" text="$IAT/Recipe/InvalidRecipe" style="Error" visible="false" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.Image" id="Image1" top="50" left="650" width="40" height="40" zIndex="34" image="Media/InProgressGray.gif" visible="false" />
