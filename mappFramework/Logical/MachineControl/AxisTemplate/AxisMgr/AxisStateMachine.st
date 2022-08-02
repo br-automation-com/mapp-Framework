@@ -199,6 +199,7 @@ ACTION AxisStateMachine:
     AxisControl.Status.ErrorActive := MpAxisBasic_0.Error;
     AxisControl.Status.IsHomed := MpAxisBasic_0.IsHomed;
     AxisControl.Status.IsPowered := MpAxisBasic_0.PowerOn;
+	AxisControl.Status.PLCopenState := MpAxisBasic_0.Info.PLCopenState;
     AxisControl.Status.Position := MpAxisBasic_0.Position;
     AxisControl.Status.Velocity := MpAxisBasic_0.Velocity;
 
