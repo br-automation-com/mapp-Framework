@@ -31,6 +31,7 @@ ACTION AxisManual:
                 MpAxisBasic_0.MoveAbsolute := AxisControl.Command.MoveAbsolute;
                 MpAxisBasic_0.MoveAdditive := AxisControl.Command.MoveAdditive;
 				MpAxisBasic_0.MoveVelocity := AxisControl.Command.MoveVelocity;
+				MpAlarmXControl_SpeedNotSet.Set := (MpAxisParameters.Velocity = 0);
                 AxisControl.Command.MoveAbsolute := FALSE;
                 AxisControl.Command.MoveAdditive := FALSE;
                 ManualState := MANUAL_STATE_MOVE;

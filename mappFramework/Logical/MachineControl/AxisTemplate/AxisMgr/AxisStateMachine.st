@@ -167,7 +167,7 @@ ACTION AxisStateMachine:
         // In this State the module attempts to clear any outstanding errors.  No hazardous motion should occur in this State.
         STATE_RESETTING:
             ResetAllAxisCommands;
-            IF (AxisControl.Command.Reset = TRUE) THEN
+            IF (AxisControl.Command.Reset = TRUE) OR ((MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') = FALSE) AND EDGEPOS(MpAlarmXCore_0.PendingAlarms = 0)) THEN
                 AxisControl.Status.Busy := TRUE;
                 AxisControl.Command.Reset := FALSE;
                 MpAxisBasic_0.ErrorReset := TRUE;
@@ -194,7 +194,7 @@ ACTION AxisStateMachine:
 	// Cyclic function block calls
     MpAxisBasic_0.Parameters := ADR(MpAxisParameters);
     MpAxisBasic_0();
-    
+	    
 	// Status assignments
     AxisControl.Status.ErrorActive := MpAxisBasic_0.Error;
     AxisControl.Status.IsHomed := MpAxisBasic_0.IsHomed;
