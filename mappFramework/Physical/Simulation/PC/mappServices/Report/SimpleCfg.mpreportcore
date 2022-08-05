@@ -1,0 +1,740 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <Element ID="gSimpleReport" Type="mpreportcore">
+    <Group ID="MpReport">
+      <Group ID="Settings">
+        <Property ID="ResourceDeviceName" Value="mappReportFiles" />
+        <Group ID="LanguageDependent">
+          <Group ID="[0]">
+            <Property ID="Language" Value="en" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="PageLayouts">
+        <Group ID="[0]">
+          <Property ID="Name" Value="Default" />
+        </Group>
+      </Group>
+      <Group ID="Styles">
+        <Group ID="Text">
+          <Group ID="[0]">
+            <Property ID="Name" Value="Default" />
+          </Group>
+          <Group ID="[1]">
+            <Property ID="Name" Value="Title" />
+            <Property ID="Size" Value="20" />
+          </Group>
+          <Group ID="[2]">
+            <Property ID="Name" Value="Description" />
+            <Property ID="Size" Value="8" />
+            <Property ID="Color" Value="FF9900" />
+          </Group>
+          <Group ID="[3]">
+            <Property ID="Name" Value="TableText" />
+            <Property ID="NumberOfDecimalPlaces" Value="2" />
+          </Group>
+          <Group ID="[4]">
+            <Property ID="Name" Value="ChartText" />
+            <Property ID="NumberOfDecimalPlaces" Value="0" />
+          </Group>
+        </Group>
+        <Group ID="Table">
+          <Group ID="[0]">
+            <Property ID="Name" Value="Default" />
+          </Group>
+          <Group ID="[1]">
+            <Property ID="Name" Value="ThickBorder_Blue_HighPadding" />
+            <Property ID="BorderWidth" Value="3" />
+            <Property ID="Color" Value="0000FF" />
+            <Property ID="Padding" Value="3" />
+          </Group>
+        </Group>
+        <Group ID="Line">
+          <Group ID="[0]">
+            <Property ID="Name" Value="Default" />
+          </Group>
+          <Group ID="[1]">
+            <Property ID="Name" Value="ThickOrangeLine" />
+            <Property ID="Width" Value="5" />
+            <Property ID="Color" Value="FF9900" />
+          </Group>
+        </Group>
+        <Group ID="Chart">
+          <Group ID="PieChart">
+            <Group ID="[0]">
+              <Property ID="Name" Value="Default" />
+            </Group>
+            <Group ID="[1]">
+              <Property ID="Name" Value="ColorPieChart" />
+              <Property ID="BackColor" Value="008080" />
+              <Property ID="BorderWidth" Value="3" />
+              <Property ID="BorderColor" Value="33CC00" />
+              <Property ID="Padding" Value="3" />
+            </Group>
+          </Group>
+          <Group ID="LineChart">
+            <Group ID="[0]">
+              <Property ID="Name" Value="Default" />
+            </Group>
+            <Group ID="[1]">
+              <Property ID="Name" Value="ColorLineChart" />
+              <Property ID="BackColor" Value="008080" />
+              <Property ID="BorderWidth" Value="3" />
+              <Property ID="BorderColor" Value="33CC00" />
+              <Property ID="Padding" Value="3" />
+              <Property ID="GraphBackColor" Value="C0C0C0" />
+              <Property ID="GraphBorderWidth" Value="3" />
+              <Property ID="GraphBorderColor" Value="808000" />
+              <Property ID="GridLineWidth" Value="3" />
+              <Property ID="GridLineColor" Value="7F7F7F" />
+            </Group>
+          </Group>
+          <Group ID="BarChart">
+            <Group ID="[0]">
+              <Property ID="Name" Value="Default" />
+            </Group>
+            <Group ID="[1]">
+              <Property ID="Name" Value="ColorBarChart" />
+              <Property ID="BackColor" Value="008080" />
+              <Property ID="BorderWidth" Value="3" />
+              <Property ID="BorderColor" Value="33CC00" />
+              <Property ID="Padding" Value="3" />
+              <Property ID="ItemGapWidth" Value="3" />
+              <Property ID="GraphBackColor" Value="C0C0C0" />
+              <Property ID="GraphBorderWidth" Value="3" />
+              <Property ID="GraphBorderColor" Value="808000" />
+              <Property ID="GridLineWidth" Value="3" />
+              <Property ID="GridLineColor" Value="7F7F7F" />
+            </Group>
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="Tables">
+        <Selector ID="[0]">
+          <Property ID="Name" Value="DailySummary" />
+          <Property ID="TableStyle" Value="Default" />
+          <Property ID="TextStyle" Value="TableText" />
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Run Time" />
+              <Property ID="Width" Value="20" />
+              <Property ID="HorizontalAlign" Value="1" />
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Up Time" />
+              <Property ID="Width" Value="20" />
+              <Property ID="HorizontalAlign" Value="1" />
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Down Time" />
+              <Property ID="Width" Value="20" />
+              <Property ID="HorizontalAlign" Value="1" />
+            </Selector>
+            <Selector ID="[3]" Value="TextId">
+              <Property ID="Source" Value="Parts Made" />
+              <Property ID="Width" Value="20" />
+              <Property ID="HorizontalAlign" Value="1" />
+            </Selector>
+            <Selector ID="[4]" Value="TextId">
+              <Property ID="Source" Value="PPM" />
+              <Property ID="Width" Value="10" />
+              <Property ID="HorizontalAlign" Value="1" />
+            </Selector>
+            <Selector ID="[5]" Value="TextId">
+              <Property ID="Source" Value="Number of Rejects" />
+              <Property ID="Width" Value="10" />
+              <Property ID="HorizontalAlign" Value="1" />
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].RunTime" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].UpTime" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].DownTime" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+            </Selector>
+            <Selector ID="[3]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].PartsMade" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+              <Property ID="HorizontalAlign" Value="2" />
+            </Selector>
+            <Selector ID="[4]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].PPM" />
+              </Selector>
+              <Property ID="Width" Value="10" />
+              <Property ID="HorizontalAlign" Value="2" />
+            </Selector>
+            <Selector ID="[5]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].NumRejects" />
+              </Selector>
+              <Property ID="Width" Value="10" />
+              <Property ID="HorizontalAlign" Value="2" />
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].RunTime" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].UpTime" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].DownTime" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+            </Selector>
+            <Selector ID="[3]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].PartsMade" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+              <Property ID="HorizontalAlign" Value="2" />
+            </Selector>
+            <Selector ID="[4]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].PPM" />
+              </Selector>
+              <Property ID="Width" Value="10" />
+              <Property ID="HorizontalAlign" Value="2" />
+            </Selector>
+            <Selector ID="[5]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].NumRejects" />
+              </Selector>
+              <Property ID="Width" Value="10" />
+              <Property ID="HorizontalAlign" Value="2" />
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].RunTime" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].UpTime" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].DownTime" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+            </Selector>
+            <Selector ID="[3]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].PartsMade" />
+              </Selector>
+              <Property ID="Width" Value="20" />
+              <Property ID="HorizontalAlign" Value="2" />
+            </Selector>
+            <Selector ID="[4]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].PPM" />
+              </Selector>
+              <Property ID="Width" Value="10" />
+              <Property ID="HorizontalAlign" Value="2" />
+            </Selector>
+            <Selector ID="[5]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].NumRejects" />
+              </Selector>
+              <Property ID="Width" Value="10" />
+              <Property ID="HorizontalAlign" Value="2" />
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="Charts">
+        <Selector ID="[0]" Value="LineChart">
+          <Property ID="Name" Value="TempLineChart" />
+          <Selector ID="Heading" Value="SingleText">
+            <Property ID="Text" Value="Temp Readings Throughout the Day" />
+            <Property ID="HorizontalAlign" Value="1" />
+            <Property ID="TextStyle" Value="Default" />
+          </Selector>
+          <Property ID="ChartStyle" Value="Default" />
+          <Property ID="TextStyle" Value="ChartText" />
+          <Group ID="Y[0]">
+            <Property ID="Name" Value="Temperature" />
+            <Property ID="Label" Value="Temp (F)" />
+            <Property ID="NumberOfGridLines" Value="9" />
+            <Selector ID="GraphMinValue">
+              <Property ID="Value" Value="10" />
+            </Selector>
+            <Selector ID="GraphMaxValue">
+              <Property ID="Value" Value="110" />
+            </Selector>
+          </Group>
+          <Selector ID="XAxis">
+            <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].TempSamples.TimeStamp" />
+          </Selector>
+          <Group ID="[0]">
+            <Property ID="YAxis" Value="Temperature" />
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].TempSamples.Temp" />
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Property ID="YAxis" Value="Temperature" />
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].TempSamples.Temp" />
+            </Selector>
+            <Property ID="LineColor" Value="33CC00" />
+          </Group>
+          <Group ID="[2]">
+            <Property ID="YAxis" Value="Temperature" />
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].TempSamples.Temp" />
+            </Selector>
+            <Property ID="LineColor" Value="0000FF" />
+          </Group>
+        </Selector>
+        <Selector ID="[1]" Value="BarChart">
+          <Property ID="Name" Value="ProductsBarChart" />
+          <Property ID="ChartStyle" Value="Default" />
+          <Property ID="TextStyle" Value="ChartText" />
+          <Property ID="ShowLegend" Value="4" />
+          <Group ID="YAxis">
+            <Property ID="Label" Value="Parts Made" />
+            <Property ID="NumberOfGridLines" Value="9" />
+            <Selector ID="ItemMaxValue">
+              <Property ID="Value" Value="100000" />
+            </Selector>
+          </Group>
+          <Group ID="[0]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].PartsMade" />
+            </Selector>
+            <Property ID="ItemColor" Value="0000FF" />
+            <Property ID="LegendText" Value="Line 1" />
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].PartsMade" />
+            </Selector>
+            <Property ID="ItemColor" Value="008080" />
+            <Property ID="LegendText" Value="Line 2" />
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].PartsMade" />
+            </Selector>
+            <Property ID="ItemColor" Value="33CC00" />
+            <Property ID="LegendText" Value="Line 3" />
+          </Group>
+        </Selector>
+        <Selector ID="[2]" Value="BarChart">
+          <Property ID="Name" Value="RejectsBarChart" />
+          <Property ID="ChartStyle" Value="Default" />
+          <Property ID="TextStyle" Value="ChartText" />
+          <Property ID="ShowLegend" Value="4" />
+          <Group ID="YAxis">
+            <Property ID="Label" Value="Rejects Found" />
+            <Property ID="NumberOfGridLines" Value="9" />
+            <Selector ID="ItemMaxValue">
+              <Property ID="Value" Value="1500" />
+            </Selector>
+          </Group>
+          <Group ID="[0]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].NumRejects" />
+            </Selector>
+            <Property ID="ItemColor" Value="0000FF" />
+            <Property ID="LegendText" Value="Line 1" />
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].NumRejects" />
+            </Selector>
+            <Property ID="ItemColor" Value="008080" />
+            <Property ID="LegendText" Value="Line 2" />
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].NumRejects" />
+            </Selector>
+            <Property ID="ItemColor" Value="33CC00" />
+            <Property ID="LegendText" Value="Line 3" />
+          </Group>
+        </Selector>
+        <Selector ID="[3]">
+          <Property ID="Name" Value="ProductsPieChart" />
+          <Property ID="ChartStyle" Value="Default" />
+          <Property ID="TextStyle" Value="ChartText" />
+          <Property ID="ShowLegend" Value="4" />
+          <Group ID="[0]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].PartsMade" />
+            </Selector>
+            <Property ID="ItemBackColor" Value="0000FF" />
+            <Property ID="LegendText" Value="Line 1 Products" />
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].NumRejects" />
+            </Selector>
+            <Property ID="ItemBackColor" Value="FF0000" />
+            <Property ID="LegendText" Value="Line 1 Rejects" />
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].PartsMade" />
+            </Selector>
+            <Property ID="ItemBackColor" Value="008080" />
+            <Property ID="LegendText" Value="Line 2 Products" />
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].NumRejects" />
+            </Selector>
+            <Property ID="ItemBackColor" Value="800000" />
+            <Property ID="LegendText" Value="Line 2 Rejects" />
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].PartsMade" />
+            </Selector>
+            <Property ID="ItemBackColor" Value="33CC00" />
+            <Property ID="LegendText" Value="Line 3 Products" />
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].NumRejects" />
+            </Selector>
+            <Property ID="ItemBackColor" Value="FF9900" />
+            <Property ID="LegendText" Value="Line 3 Rejects" />
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="Components">
+        <Selector ID="[0]">
+          <Property ID="AlarmHistoryLink" Value="gMpLinkAlarmXHistory" />
+          <Property ID="TableStyle" Value="Default" />
+          <Property ID="TextStyle" Value="TableText" />
+          <Group ID="SELECT">
+            <Group ID="[0]">
+              <Selector ID="Column" Value="TimeStamp" />
+              <Property ID="Width" Value="20" />
+              <Selector ID="Heading" Value="SingleText">
+                <Property ID="Text" Value="Time Stamp" />
+              </Selector>
+            </Group>
+            <Group ID="[1]">
+              <Selector ID="Column" Value="Code" />
+              <Property ID="Width" Value="10" />
+              <Selector ID="Heading" Value="SingleText">
+                <Property ID="Text" Value="Code" />
+              </Selector>
+            </Group>
+            <Group ID="[2]">
+              <Property ID="Width" Value="20" />
+              <Selector ID="Heading" Value="SingleText">
+                <Property ID="Text" Value="Name" />
+              </Selector>
+            </Group>
+            <Group ID="[3]">
+              <Selector ID="Column" Value="Message" />
+              <Property ID="Width" Value="50" />
+              <Selector ID="Heading" Value="SingleText">
+                <Property ID="Text" Value="Message" />
+              </Selector>
+            </Group>
+          </Group>
+          <Group ID="WHERE">
+            <Property ID="Connect" Value="" />
+          </Group>
+        </Selector>
+        <Selector ID="[1]" Value="AuditTrail">
+          <Property ID="AuditTrailLink" Value="gMpLinkAuditTrail" />
+          <Property ID="TableStyle" Value="Default" />
+          <Property ID="TextStyle" Value="TableText" />
+          <Group ID="SELECT">
+            <Group ID="[0]">
+              <Selector ID="Column" Value="evtime" />
+              <Property ID="Width" Value="20" />
+              <Selector ID="Heading" Value="SingleText">
+                <Property ID="Text" Value="Time Stamp" />
+              </Selector>
+            </Group>
+            <Group ID="[1]">
+              <Selector ID="Column" Value="dtext" />
+              <Property ID="Width" Value="60" />
+              <Selector ID="Heading" Value="SingleText">
+                <Property ID="Text" Value="Text" />
+              </Selector>
+            </Group>
+            <Group ID="[2]">
+              <Selector ID="Column" Value="old" />
+              <Property ID="Width" Value="10" />
+              <Selector ID="Heading" Value="SingleText">
+                <Property ID="Text" Value="Old Value" />
+              </Selector>
+            </Group>
+            <Group ID="[3]">
+              <Selector ID="Column" Value="new" />
+              <Property ID="Width" Value="10" />
+              <Selector ID="Heading" Value="SingleText">
+                <Property ID="Text" Value="New Value" />
+              </Selector>
+            </Group>
+          </Group>
+          <Group ID="WHERE">
+            <Property ID="Connect" Value="" />
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="Contents">
+        <Group ID="[0]">
+          <Property ID="Name" Value="Header" />
+          <Selector ID="[0]" Value="Image">
+            <Property ID="Image" Value="Images\LogoWithTag.jpg" />
+            <Property ID="HorizontalAlign" Value="2" />
+          </Selector>
+          <Selector ID="[1]">
+            <Property ID="Text" Value="Simple Report" />
+            <Property ID="HorizontalAlign" Value="1" />
+            <Property ID="NewLine" Value="FALSE" />
+            <Property ID="TextStyle" Value="Title" />
+          </Selector>
+          <Selector ID="[2]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Name" Value="Footer" />
+          <Selector ID="[0]" Value="PageNumber">
+            <Property ID="PageNumSnippet" Value="{$MpReport/Ex/FooterText}" />
+            <Property ID="HorizontalAlign" Value="2" />
+            <Property ID="NewLine" Value="FALSE" />
+            <Property ID="TextStyle" Value="Description" />
+          </Selector>
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Name" Value="Intro" />
+          <Selector ID="[0]">
+            <Property ID="Text" Value="{$MpReport/Ex/IntroText}" />
+            <Property ID="TextStyle" Value="Default" />
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+        </Group>
+        <Group ID="[3]">
+          <Property ID="Name" Value="DailySummary" />
+          <Selector ID="[0]" Value="Line">
+            <Property ID="LineStyle" Value="Default" />
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+          <Selector ID="[2]">
+            <Property ID="Text" Value="Production statistics from lines 1-3 of the WonderMachine 5000" />
+            <Property ID="HorizontalAlign" Value="1" />
+            <Property ID="TextStyle" Value="Description" />
+          </Selector>
+          <Selector ID="[3]" Value="Table">
+            <Property ID="Table" Value="DailySummary" />
+            <Property ID="HorizontalAlign" Value="1" />
+          </Selector>
+          <Selector ID="[4]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+        </Group>
+        <Group ID="[4]">
+          <Property ID="Name" Value="ProductsCharts" />
+          <Selector ID="[0]" Value="Line">
+            <Property ID="LineStyle" Value="Default" />
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+          <Selector ID="[2]">
+            <Property ID="Text" Value="Comparison of the number of products made across the three lines" />
+            <Property ID="HorizontalAlign" Value="1" />
+            <Property ID="TextStyle" Value="Description" />
+          </Selector>
+          <Selector ID="[3]" Value="Chart">
+            <Property ID="Chart" Value="ProductsBarChart" />
+            <Selector ID="Height" Value="UserDefined">
+              <Property ID="Scaling" Value="40" />
+            </Selector>
+            <Property ID="HorizontalAlign" Value="1" />
+          </Selector>
+          <Selector ID="[4]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+          <Selector ID="[5]">
+            <Property ID="Text" Value="Comparison of the number of rejects made across the three lines" />
+            <Property ID="HorizontalAlign" Value="1" />
+            <Property ID="TextStyle" Value="Description" />
+          </Selector>
+          <Selector ID="[6]" Value="Chart">
+            <Property ID="Chart" Value="RejectsBarChart" />
+            <Selector ID="Height" Value="UserDefined">
+              <Property ID="Scaling" Value="40" />
+            </Selector>
+            <Property ID="HorizontalAlign" Value="1" />
+          </Selector>
+        </Group>
+        <Group ID="[5]">
+          <Property ID="Name" Value="PieChart" />
+          <Selector ID="[0]">
+            <Property ID="Text" Value="Comparison of the number of products and rejects made across the three lines" />
+            <Property ID="HorizontalAlign" Value="1" />
+            <Property ID="TextStyle" Value="Description" />
+          </Selector>
+          <Selector ID="[1]" Value="Chart">
+            <Property ID="Chart" Value="ProductsPieChart" />
+            <Selector ID="Height" Value="UserDefined">
+              <Property ID="Scaling" Value="40" />
+            </Selector>
+            <Property ID="HorizontalAlign" Value="1" />
+          </Selector>
+        </Group>
+        <Group ID="[6]">
+          <Property ID="Name" Value="TemperatureChart" />
+          <Selector ID="[0]" Value="Line">
+            <Property ID="LineStyle" Value="Default" />
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+          <Selector ID="[2]">
+            <Property ID="Text" Value="Temperature samples from the machine taken every 15 minutes" />
+            <Property ID="HorizontalAlign" Value="1" />
+            <Property ID="TextStyle" Value="Description" />
+          </Selector>
+          <Selector ID="[3]" Value="Chart">
+            <Property ID="Chart" Value="TempLineChart" />
+            <Property ID="HorizontalAlign" Value="1" />
+          </Selector>
+        </Group>
+        <Group ID="[7]">
+          <Property ID="Name" Value="Alarms" />
+          <Selector ID="[0]" Value="Line">
+            <Property ID="LineStyle" Value="Default" />
+          </Selector>
+          <Selector ID="[1]" Value="Component">
+            <Property ID="Component" Value="AlarmHistory" />
+          </Selector>
+          <Selector ID="[2]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+        </Group>
+        <Group ID="[8]">
+          <Property ID="Name" Value="Audits" />
+          <Selector ID="[0]" Value="Line">
+            <Property ID="LineStyle" Value="Default" />
+          </Selector>
+          <Selector ID="[1]" Value="Component">
+            <Property ID="Component" Value="AuditTrail" />
+          </Selector>
+          <Selector ID="[2]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+        </Group>
+      </Group>
+      <Group ID="Reports">
+        <Group ID="[0]">
+          <Property ID="Name" Value="SimpleReport" />
+          <Property ID="PageLayout" Value="Default" />
+          <Property ID="Header" Value="Header" />
+          <Property ID="Footer" Value="Footer" />
+          <Group ID="[0]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="" />
+              <Property ID="HorizontalAlign" Value="1" />
+              <Property ID="TextStyle" Value="Default" />
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Intro" />
+            </Group>
+          </Group>
+          <Group ID="[1]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Daily Summary" />
+              <Property ID="TextStyle" Value="Default" />
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="DailySummary" />
+            </Group>
+          </Group>
+          <Group ID="[2]">
+            <Property ID="StartOnNewPage" Value="TRUE" />
+            <Group ID="Heading">
+              <Property ID="Text" Value="Product and Reject Statistics" />
+              <Property ID="TextStyle" Value="Default" />
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="ProductsCharts" />
+            </Group>
+          </Group>
+          <Group ID="[3]">
+            <Property ID="StartOnNewPage" Value="TRUE" />
+            <Group ID="[0]">
+              <Property ID="Content" Value="PieChart" />
+            </Group>
+          </Group>
+          <Group ID="[4]">
+            <Property ID="StartOnNewPage" Value="TRUE" />
+            <Group ID="Heading">
+              <Property ID="Text" Value="Temperature Samples" />
+              <Property ID="TextStyle" Value="Default" />
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="TemperatureChart" />
+            </Group>
+          </Group>
+          <Group ID="[5]">
+            <Property ID="StartOnNewPage" Value="TRUE" />
+            <Group ID="Heading">
+              <Property ID="Text" Value="Alarm History" />
+              <Property ID="TextStyle" Value="Default" />
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Alarms" />
+            </Group>
+          </Group>
+          <Group ID="[6]">
+            <Property ID="StartOnNewPage" Value="TRUE" />
+            <Group ID="Heading">
+              <Property ID="Text" Value="Audit Trail" />
+              <Property ID="TextStyle" Value="Default" />
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Audits" />
+            </Group>
+          </Group>
+        </Group>
+      </Group>
+    </Group>
+    <Selector ID="Alarms" Value="MpAlarmX" />
+  </Element>
+</Configuration>
