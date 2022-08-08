@@ -23,12 +23,24 @@ PROGRAM _INIT
 
 	// Initialize FIFO feature
 	HmiFile.Status.FifoConfigEnable := TRUE;
-    HmiFile.Parameters.Fifo.DeviceName := 'mappDataFiles';
-    // MaxFolderSize is in kB
-	HmiFile.Parameters.Fifo.MaxFolderSize := 1000;
-    HmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
-    // ScanInterval is in minutes
-	HmiFile.Parameters.Fifo.ScanInterval := 60;
+	IF HmiFile.Parameters.Fifo.DeviceName = '' THEN
+		HmiFile.Parameters.Fifo.DeviceName := 'mappDataFiles';
+	END_IF
+	
+	// MaxFolderSize is in kB
+	IF HmiFile.Parameters.Fifo.MaxFolderSize = 0 THEN
+		HmiFile.Parameters.Fifo.MaxFolderSize := 1000;
+	END_IF
+	
+	IF HmiFile.Parameters.Fifo.MaxNumberOfFiles = 0 THEN
+		HmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
+	END_IF
+	
+	// ScanInterval is in minutes
+	IF HmiFile.Parameters.Fifo.ScanInterval = 0 THEN
+		HmiFile.Parameters.Fifo.ScanInterval := 60;
+	END_IF
+	
 	
 	// Initialize which folders should exist
 	PathCheck.DeviceList := MpFileManagerUIConnect.DeviceList;

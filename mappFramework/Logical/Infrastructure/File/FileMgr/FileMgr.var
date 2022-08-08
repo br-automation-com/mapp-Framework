@@ -16,8 +16,12 @@ END_VAR
 (*Structure Types*)
 VAR
 	MpFileManagerUIConnect : MpFileManagerUIConnectType; (*File manager connection to the HMI*)
-	MpFileManagerUIConnect_FIFO : MpFileManagerUIConnectType; (*File manager connection to the HMI*)
+	MpFileManagerUIConnect_FIFO : {REDUND_UNREPLICABLE} MpFileManagerUIConnectType; (*File manager connection to the HMI*)
+END_VAR
+VAR RETAIN
 	HmiFile : FileHmiInterfaceType; (*HMI interface structure*)
+END_VAR
+VAR
 	DirectoryData : fiDIR_READ_DATA;
 END_VAR
 (*Variables*)
