@@ -29,12 +29,14 @@ PROGRAM _INIT
 	MpAlarmXHistory_0();
     
 	MpAlarmXListUI_0.Enable := TRUE;
+	MpAlarmXListUI_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUI_0.UISetup.AlarmListScrollWindow := 10;
 	MpAlarmXListUI_0.UISetup.AlarmListSize := 50;
 	MpAlarmXListUI_0.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
 	MpAlarmXListUI_0();
 	
 	MpAlarmXHistoryUI_0.Enable := TRUE;
+	MpAlarmXHistoryUI_0.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistoryUI_0.UISetup.AlarmListScrollWindow := 10;
 	MpAlarmXHistoryUI_0.UISetup.AlarmListSize := (SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID) / SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID[0]));
 	MpAlarmXHistoryUI_0.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
