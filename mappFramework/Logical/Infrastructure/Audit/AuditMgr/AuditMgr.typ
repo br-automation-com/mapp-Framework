@@ -52,7 +52,6 @@ TYPE
 	END_STRUCT;
 	AuditParType : 	STRUCT  (*Structure to hold parameter data for the HMI*)
 		ArchiveSettings : AuditArchiveParType; (*Parameter for archive configuration*)
-		SampleVariable : REAL; (*Variable for value change event*)
 		QuerySelection : ARRAY[0..MAX_QUERIES]OF STRING[10]; (*The selection in the query dropdown on the query tab of the Audit content*)
 	END_STRUCT;
 	AuditArchiveParType : 	STRUCT  (*Automatic archive settings*)

@@ -81,8 +81,8 @@ PROGRAM _CYCLIC
 	END_IF
 	
 	// Change sample variable randomly to trigger a value change event
-	IF HmiAudit.Parameters.SampleVariable = 0 THEN
-		HmiAudit.Parameters.SampleVariable := 10.5;
+	IF VariableMonitorExample = 0 THEN
+		VariableMonitorExample := 10.5;
 	END_IF	
 
     // Error reset
