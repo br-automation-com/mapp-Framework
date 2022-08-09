@@ -66,13 +66,24 @@ END_PROGRAM
 PROGRAM _CYCLIC
 	
 	// Call all cyclic actions
-	CustomEvents;
 	ExecuteQuery;
     QueryTableConfig;
 	ArchiveExport;
 	ArchiveSettings;
 	ChangeConfiguration;
-	VariableMonitorExample;
+		
+	// Sample code for how custom events can be triggered. Use custom events as needed around the application for debugging purposes. 
+	IF EDGEPOS(CustomEvent[0].Set) THEN
+		MpAuditCustomEvent(gMpLinkCustomEvents,CustomEvent[0].Type,CustomEvent[0].Msg,CustomEvent[0].Comment);
+	END_IF
+	IF EDGENEG(CustomEvent[1].Set) THEN
+		MpAuditCustomEvent(gMpLinkCustomEvents,CustomEvent[1].Type,CustomEvent[1].Msg,CustomEvent[1].Comment);
+	END_IF
+	
+	// Change sample variable randomly to trigger a value change event
+	IF HmiAudit.Parameters.SampleVariable = 0 THEN
+		HmiAudit.Parameters.SampleVariable := 10.5;
+	END_IF	
 
     // Error reset
     IF NOT MpAuditTrail_0.Error THEN

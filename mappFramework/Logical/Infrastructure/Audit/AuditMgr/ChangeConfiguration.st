@@ -5,7 +5,7 @@ ACTION ChangeConfiguration:
     
 	IF (MpAuditTrailConfig_0.Error = TRUE) THEN
         IF (MpAuditTrailConfig_0.StatusID = mpAUDIT_ERR_CONFIG_LOAD) THEN
-            LoadBackupConfiguration;
+            LoadAuditConfiguration;
         END_IF    
         MpAuditTrailConfig_0.Load := FALSE;
         MpAuditTrailConfig_0.Save := FALSE;
@@ -17,7 +17,7 @@ ACTION ChangeConfiguration:
 	
     IF (MpAuditTrailConfig_0.CommandDone = TRUE) THEN
         IF (MpAuditTrailConfig_0.Load = TRUE) THEN
-            LoadBackupConfiguration;
+            LoadAuditConfiguration;
         END_IF
 		// after save the AuditTrail needs to restart
 		IF (MpAuditTrailConfig_0.Save = TRUE) THEN
