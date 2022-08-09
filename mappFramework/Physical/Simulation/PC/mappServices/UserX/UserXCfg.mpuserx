@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="UserMgmtX" Type="mpuserx">
     <Group ID="Mgr">
       <Property ID="PasswordChangeInterval" Value="7776000" />
       <Property ID="PasswordExpirationNotification" Value="864000" />
       <Property ID="UserExpirationTime" Value="31536000" />
+      <Property ID="PasswordCase" Value="TRUE" />
       <Property ID="PasswordAlpha" Value="TRUE" />
       <Property ID="PasswordLength" Value="6" />
       <Property ID="UserNameLength" Value="3" />
+      <Property ID="PasswordHistory" Value="5" />
       <Property ID="LoginAttempts" Value="5" />
     </Group>
     <Group ID="ServerSettings">
