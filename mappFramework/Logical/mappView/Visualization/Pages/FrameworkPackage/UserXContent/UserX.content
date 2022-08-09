@@ -19,7 +19,7 @@
         <Widget xsi:type="widgets.brease.LanguageSelector" id="LanguageSelector" top="30" left="20" width="160" height="40" zIndex="1" listPosition="top" listWidth="240" borderColor="rgba(255, 133, 0, 1)" listBorderWidth="2px" fontSize="20px" />
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.Login" id="Login1" top="465" left="30" zIndex="7" />
-    <Widget xsi:type="widgets.brease.LogoutButton" id="LogoutButton1" top="595" left="225" zIndex="8" text="$IAT/UserMgmt/Logout" />
+    <Widget xsi:type="widgets.brease.Login" id="Login1" top="465" left="30" zIndex="7" autFailMessage="$IAT/UserMgmt/AuthizationFailed" buttonLabel="$IAT/UserMgmt/Login" passwordLabel="$IAT/UserMgmt/Password" setUserSuccessMessage="$IAT/UserMgmt/LoginSuccessful" userChangedMessage="$IAT/UserMgmt/UserChanged" userLabel="$IAT/UserMgmt/UserName" />
+    <Widget xsi:type="widgets.brease.LogoutButton" id="LogoutButton1" top="590" left="225" zIndex="8" text="$IAT/UserMgmt/Logout" />
   </Widgets>
 </Content>
