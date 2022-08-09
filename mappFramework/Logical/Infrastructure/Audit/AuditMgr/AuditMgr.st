@@ -66,13 +66,24 @@ END_PROGRAM
 PROGRAM _CYCLIC
 	
 	// Call all cyclic actions
-	CustomEvents;
 	ExecuteQuery;
     QueryTableConfig;
 	ArchiveExport;
 	ArchiveSettings;
 	ChangeConfiguration;
-	VariableMonitorExample;
+		
+	// Sample code for how custom events can be triggered. Use custom events as needed around the application for debugging purposes. 
+	IF EDGEPOS(CustomEvent[0].Set) THEN
+		MpAuditCustomEvent(gMpLinkCustomEvents,CustomEvent[0].Type,CustomEvent[0].Msg,CustomEvent[0].Comment);
+	END_IF
+	IF EDGENEG(CustomEvent[1].Set) THEN
+		MpAuditCustomEvent(gMpLinkCustomEvents,CustomEvent[1].Type,CustomEvent[1].Msg,CustomEvent[1].Comment);
+	END_IF
+	
+	// Change sample variable randomly to trigger a value change event
+	IF VariableMonitorExample = 0 THEN
+		VariableMonitorExample := 10.5;
+	END_IF	
 
     // Error reset
     IF NOT MpAuditTrail_0.Error THEN
@@ -93,7 +104,7 @@ END_PROGRAM
 
 PROGRAM _EXIT
 	
-	// Disable the function blocls to unlink the MpLinks
+	// Disable the function blocks to unlink the MpLinks
     MpAuditTrail_0.Enable := FALSE;
 	MpAuditTrailConfig_0.Enable := FALSE;
 	MpAuditTrail_CEvents.Enable := FALSE;

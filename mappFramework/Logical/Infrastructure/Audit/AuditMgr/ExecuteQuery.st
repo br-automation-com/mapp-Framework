@@ -63,7 +63,5 @@ ACTION ExecuteQuery:
 		HmiAudit.Status.Query.Text[i] := AuditQuery.Audits[i].Text;
 		HmiAudit.Status.Query.DText[i] := AuditQuery.Audits[i].DText;
 	END_FOR
-	
-	
 
 END_ACTION

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <Element ID="gMpLinkCustomEvents" Type="mpaudittrail">
+    <Group ID="Audit">
+      <Group ID="Events">
+        <Property ID="[0]" Value="18" />
+      </Group>
+      <Selector ID="TextSource">
+        <Property ID="OutputFormat" Value="{&amp;typ} - {&amp;msg} - {&amp;cmt}" />
+      </Selector>
+    </Group>
+    <Selector ID="Alarms" Value="MpAlarmX" />
+  </Element>
+</Configuration>

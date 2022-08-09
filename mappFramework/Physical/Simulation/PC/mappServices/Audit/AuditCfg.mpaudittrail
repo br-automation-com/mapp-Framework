@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.8.6.30 SP?>
 <Configuration>
   <Element ID="gMpLinkAuditTrail" Type="mpaudittrail">
     <Group ID="Audit">
@@ -33,7 +32,7 @@
     </Group>
     <Group ID="Monitor">
       <Group ID="0">
-        <Property ID="pv" Value="::AuditMgr:HmiAudit.Parameters.SampleVariable" />
+        <Property ID="pv" Value="::AuditMgr:VariableMonitorExample" />
       </Group>
     </Group>
     <Group ID="Queries">
@@ -97,17 +96,6 @@
           </Group>
         </Group>
       </Group>
-    </Group>
-    <Selector ID="Alarms" Value="MpAlarmX" />
-  </Element>
-  <Element ID="gMpLinkCustomEvents" Type="mpaudittrail">
-    <Group ID="Audit">
-      <Group ID="Events">
-        <Property ID="[0]" Value="18" />
-      </Group>
-      <Selector ID="TextSource">
-        <Property ID="OutputFormat" Value="{&amp;typ} - {&amp;msg} - {&amp;cmt}" />
-      </Selector>
     </Group>
     <Selector ID="Alarms" Value="MpAlarmX" />
   </Element>
