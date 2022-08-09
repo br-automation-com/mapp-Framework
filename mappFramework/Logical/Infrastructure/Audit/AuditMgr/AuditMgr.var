@@ -16,7 +16,7 @@ END_VAR
 (*Structure Types*)
 VAR
 	HmiAudit : AuditHmiInterfaceType; (*HMI interface structure*)
-	CustomEvent : ARRAY[0..MAX_CUSTOM_EVENTS] OF AuditCustomEventType := [(Type:="AuditTest",Msg:="This is a custom event test",Comment:="If you see this it was a success"),9(0)]; (*Custom events*)
+	CustomEvent : ARRAY[0..MAX_CUSTOM_EVENTS] OF AuditCustomEventType; (*Custom events*)
 	AuditQuery : {REDUND_UNREPLICABLE} AuditQueryType; (*Query results and status*)
 	AuditTrailConfig : MpAuditTrailConfigType; (*Configuration structure for changing archiving setup*)
 END_VAR

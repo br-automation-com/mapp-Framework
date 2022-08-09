@@ -7,7 +7,7 @@ TYPE
 		Op : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[100]; (*ActiveAudits query, Operator-Name column*)
 		QueryCount : USINT; (*Count of query results for building the query table configuration string*)
 		Name : STRING[80]; (*Name of the query to be executed*)
-		Option : USINT;
+		Option : USINT; (*Index value of the selected query type in the dropdown on the query tab*)
 	END_STRUCT;
 	ActiveAuditStateEnum : 
 		( (*Enumeration for the state for the query state machine*)
@@ -50,10 +50,10 @@ TYPE
 		NumberOfArchives : UINT; (*How many archives are available for export*)
 		DeviceDataProvider : ARRAY[0..1]OF STRING[100]; (*Data provider for the file device selector*)
 	END_STRUCT;
-	AuditParType : 	STRUCT 
+	AuditParType : 	STRUCT  (*Structure to hold parameter data for the HMI*)
 		ArchiveSettings : AuditArchiveParType; (*Parameter for archive configuration*)
 		SampleVariable : REAL; (*Variable for value change event*)
-		QuerySelection : ARRAY[0..MAX_QUERIES]OF STRING[10];
+		QuerySelection : ARRAY[0..MAX_QUERIES]OF STRING[10]; (*The selection in the query dropdown on the query tab of the Audit content*)
 	END_STRUCT;
 	AuditArchiveParType : 	STRUCT  (*Automatic archive settings*)
 		Enable : BOOL; (*Enable automatic archive feature*)
@@ -61,7 +61,7 @@ TYPE
 		Mode : MpAuditArchiveModeEnum; (*Mode (daily, Mo-Fr or by batch)*)
 		Hour : USINT; (*Time (hour)*)
 		Minute : USINT; (*Time (minutes)*)
-		FileType : MpAuditFileTypeEnum := mpAUDIT_FILE_TYPE_XML;
+		FileType : MpAuditFileTypeEnum := mpAUDIT_FILE_TYPE_XML; (*File type selection (XML, TXT, PDF)*)
 	END_STRUCT;
 	AuditType : 	STRUCT  (*Structure to hold the Audit data for the query results*)
 		EvTime : DATE_AND_TIME; (*ActiveAudits query, Event-Time column*)

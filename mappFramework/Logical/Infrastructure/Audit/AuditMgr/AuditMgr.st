@@ -104,7 +104,7 @@ END_PROGRAM
 
 PROGRAM _EXIT
 	
-	// Disable the function blocls to unlink the MpLinks
+	// Disable the function blocks to unlink the MpLinks
     MpAuditTrail_0.Enable := FALSE;
 	MpAuditTrailConfig_0.Enable := FALSE;
 	MpAuditTrail_CEvents.Enable := FALSE;
