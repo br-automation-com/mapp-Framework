@@ -137,25 +137,15 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="UserX_content.UserListManagement.ItemClick">
-      <Source xsi:type="widgets.brease.UserList.Event" contentRefId="UserX_content" widgetRefId="UserListManagement" event="ItemClick" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:SelectedUser">
-            <Method xsi:type="opcUa.NodeAction.SetValueString" value="=UserName" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
-    <EventBinding id="EventBinding_2">
-      <Source xsi:type="clientSystem.Event" event="PasswordChangeRequired" />
-      <EventHandler>
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenChangePasswordDialog" userName="=userName" showPolicy="true" />
-          </Target>
-        </Action>
-      </EventHandler>
+		<EventBinding id="EventBinding_2">
+			<Source xsi:type="clientSystem.Event" event="PasswordChangeRequired" />
+			<EventHandler>
+				<Action>
+					<Target xsi:type="clientSystem.Action">
+						<Method xsi:type="clientSystem.Action.OpenChangePasswordDialog" userName="=userName" showPolicy="true" />
+					</Target>
+				</Action>
+			</EventHandler>
     </EventBinding>
   </Bindings>
 </EventBindingSet>
