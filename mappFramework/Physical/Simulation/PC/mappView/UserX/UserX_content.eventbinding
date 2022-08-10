@@ -147,5 +147,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="EventBinding_2">
+      <Source xsi:type="clientSystem.Event" event="PasswordChangeRequired" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenChangePasswordDialog" userName="=userName" showPolicy="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
