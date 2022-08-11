@@ -144,7 +144,6 @@ PROGRAM _CYCLIC
 	FormatDeviceDataProvider;
 	LoadPreview;
 	RecipeHMIcommands;
-	FileCopyOperation;
 	
 	// Reset commands on MpRecipe FUB
 	IF MpRecipe_0.CommandDone THEN
