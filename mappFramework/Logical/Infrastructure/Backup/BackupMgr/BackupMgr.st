@@ -41,8 +41,10 @@ PROGRAM _CYCLIC
         BACKUP_IDLE:
             HmiBackup.Status.CreateAllowed := NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress);
             HmiBackup.Status.Busy := FALSE;
-            IF (HmiBackup.Commands.Create = TRUE) THEN
-                HmiBackup.Commands.Create := FALSE;
+			IF (MpBackupCore_0.Error = TRUE) THEN
+				BackupState := BACKUP_ERROR;				
+			ELSIF (HmiBackup.Commands.Create = TRUE) THEN
+				HmiBackup.Commands.Create := FALSE;
                 MpBackupCore_0.Create := TRUE;
                 HmiBackup.Status.Busy := TRUE;
                 HmiBackup.Status.CreateAllowed := FALSE;
@@ -93,10 +95,7 @@ PROGRAM _CYCLIC
                 MpFileManagerUIConnect.File.Refresh := TRUE;
                 BackupState := BACKUP_IDLE;
             ELSIF (MpBackupCore_0.Error = TRUE) THEN
-                BackupState := BACKUP_ERROR;				
-                MpBackupCore_0.Create := FALSE;
-                MpBackupCore_0.Install := FALSE;
-                MpBackupCore_0.RequestInfo := FALSE;
+                BackupState := BACKUP_ERROR;		
             END_IF
                
         BACKUP_RESTORING:
@@ -108,9 +107,6 @@ PROGRAM _CYCLIC
                 BackupState := BACKUP_IDLE;
             ELSIF (MpBackupCore_0.Error = TRUE) THEN
                 BackupState := BACKUP_ERROR;
-                MpBackupCore_0.Create := FALSE;
-                MpBackupCore_0.Install := FALSE;
-                MpBackupCore_0.RequestInfo := FALSE;
             END_IF
 		
 		BACKUP_UPDATING:
@@ -121,9 +117,6 @@ PROGRAM _CYCLIC
                 BackupState := BACKUP_IDLE;
             ELSIF (MpBackupCore_0.Error = TRUE) THEN
                 BackupState := BACKUP_ERROR;
-                MpBackupCore_0.Create := FALSE;
-                MpBackupCore_0.Install := FALSE;
-                MpBackupCore_0.RequestInfo := FALSE;
             END_IF	
             
         BACKUP_DELETING:
@@ -141,8 +134,11 @@ PROGRAM _CYCLIC
                     END_IF
 			END_CASE
         
-        BACKUP_ERROR:
-			IF MpBackupCore_0.Info.Diag.StatusID.ID = mpBACKUP_ERR_CREATE_FAILED THEN
+		BACKUP_ERROR:
+			MpBackupCore_0.Create := FALSE;
+			MpBackupCore_0.Install := FALSE;
+			MpBackupCore_0.RequestInfo := FALSE;
+			IF MpBackupCore_0.Info.Diag.StatusID.ID <> 0 THEN
 				HmiBackup.Status.Error := TRUE;
 			END_IF	
 			IF HmiBackup.Commands.Reset THEN
@@ -174,8 +170,11 @@ PROGRAM _CYCLIC
 	HmiBackup.Status.Update := MpBackupCore_0.Info.Automatic.Update;
 	
 	// Call all actions
-    FileManager;
-	ChangeConfiguration;
+	FileManager;
+	IF NOT DiagCpuIsARsim() THEN
+		ChangeConfiguration;
+	END_IF
+	
 	FormatDeviceDataProvider;
 	
 	// Assign MpLinks
