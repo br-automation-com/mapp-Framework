@@ -76,11 +76,13 @@ ACTION AxisManual:
             MpAxisBasic_0.JogNegative := FALSE;
             MpAxisBasic_0.JogPositive := FALSE;
             MpAxisBasic_0.MoveAbsolute := FALSE;
-            MpAxisBasic_0.MoveAdditive := FALSE;
+			MpAxisBasic_0.MoveAdditive := FALSE;
+			AxisControl.Command.MoveVelocity := FALSE;
 			MpAxisBasic_0.Stop := TRUE;
 
             IF (MpAxisBasic_0.MoveActive = FALSE) THEN
 				MpAxisBasic_0.Stop := FALSE;
+				MpAxisBasic_0.MoveVelocity := FALSE;
                 ManualState := MANUAL_STATE_IDLE;
                 State := STATE_READY;
             END_IF
