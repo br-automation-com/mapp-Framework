@@ -13,6 +13,8 @@
       <Group ID="PageLayouts">
         <Group ID="[0]">
           <Property ID="Name" Value="Default" />
+          <Property ID="Orientation" Value="2" />
+          <Property ID="Margins" Value="2" />
         </Group>
       </Group>
       <Group ID="Styles">
@@ -26,7 +28,6 @@
           </Group>
           <Group ID="[2]">
             <Property ID="Name" Value="Description" />
-            <Property ID="Size" Value="8" />
             <Property ID="Color" Value="FF9900" />
           </Group>
           <Group ID="[3]">
@@ -35,7 +36,7 @@
           </Group>
           <Group ID="[4]">
             <Property ID="Name" Value="ChartText" />
-            <Property ID="NumberOfDecimalPlaces" Value="0" />
+            <Property ID="NumberOfDecimalPlaces" Value="2" />
           </Group>
         </Group>
         <Group ID="Table">
@@ -281,6 +282,7 @@
           </Selector>
           <Property ID="ChartStyle" Value="Default" />
           <Property ID="TextStyle" Value="ChartText" />
+          <Property ID="ShowLegend" Value="4" />
           <Group ID="Y[0]">
             <Property ID="Name" Value="Temperature" />
             <Property ID="Label" Value="Temp (F)" />
@@ -322,7 +324,7 @@
           <Property ID="TextStyle" Value="ChartText" />
           <Property ID="ShowLegend" Value="4" />
           <Group ID="YAxis">
-            <Property ID="Label" Value="Parts Made" />
+            <Property ID="Label" Value="Products Made" />
             <Property ID="NumberOfGridLines" Value="9" />
             <Selector ID="ItemMaxValue">
               <Property ID="Value" Value="100000" />
@@ -385,7 +387,7 @@
           </Group>
         </Selector>
         <Selector ID="[3]">
-          <Property ID="Name" Value="ProductsPieChart" />
+          <Property ID="Name" Value="LineOnePie" />
           <Property ID="ChartStyle" Value="Default" />
           <Property ID="TextStyle" Value="ChartText" />
           <Property ID="ShowLegend" Value="4" />
@@ -393,42 +395,54 @@
             <Selector ID="Value">
               <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].PartsMade" />
             </Selector>
-            <Property ID="ItemBackColor" Value="0000FF" />
+            <Property ID="ItemBackColor" Value="FF9900" />
             <Property ID="LegendText" Value="Line 1 Products" />
           </Group>
           <Group ID="[1]">
             <Selector ID="Value">
               <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[0].NumRejects" />
             </Selector>
-            <Property ID="ItemBackColor" Value="FF0000" />
+            <Property ID="ItemBackColor" Value="7F7F7F" />
             <Property ID="LegendText" Value="Line 1 Rejects" />
           </Group>
-          <Group ID="[2]">
+        </Selector>
+        <Selector ID="[4]">
+          <Property ID="Name" Value="LineTwoPie" />
+          <Property ID="ChartStyle" Value="Default" />
+          <Property ID="TextStyle" Value="ChartText" />
+          <Property ID="ShowLegend" Value="4" />
+          <Group ID="[0]">
             <Selector ID="Value">
               <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].PartsMade" />
             </Selector>
-            <Property ID="ItemBackColor" Value="008080" />
+            <Property ID="ItemBackColor" Value="FF9900" />
             <Property ID="LegendText" Value="Line 2 Products" />
           </Group>
-          <Group ID="[3]">
+          <Group ID="[1]">
             <Selector ID="Value">
               <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[1].NumRejects" />
             </Selector>
-            <Property ID="ItemBackColor" Value="800000" />
+            <Property ID="ItemBackColor" Value="7F7F7F" />
             <Property ID="LegendText" Value="Line 2 Rejects" />
           </Group>
-          <Group ID="[4]">
+        </Selector>
+        <Selector ID="[5]">
+          <Property ID="Name" Value="LineThreePie" />
+          <Property ID="ChartStyle" Value="Default" />
+          <Property ID="TextStyle" Value="ChartText" />
+          <Property ID="ShowLegend" Value="4" />
+          <Group ID="[0]">
             <Selector ID="Value">
               <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].PartsMade" />
             </Selector>
-            <Property ID="ItemBackColor" Value="33CC00" />
+            <Property ID="ItemBackColor" Value="FF9900" />
             <Property ID="LegendText" Value="Line 3 Products" />
           </Group>
-          <Group ID="[5]">
+          <Group ID="[1]">
             <Selector ID="Value">
               <Property ID="ProcessVariable" Value="::ReportMgr:ReportExample.SimpleReport.Line_OEE[2].NumRejects" />
             </Selector>
-            <Property ID="ItemBackColor" Value="FF9900" />
+            <Property ID="ItemBackColor" Value="7F7F7F" />
             <Property ID="LegendText" Value="Line 3 Rejects" />
           </Group>
         </Selector>
@@ -555,20 +569,23 @@
             <Property ID="Size" Value="20" />
           </Selector>
           <Selector ID="[2]">
-            <Property ID="Text" Value="Production statistics from lines 1-3 of the WonderMachine 5000" />
+            <Property ID="Text" Value="Production statistics from lines 1-3 of the Machine 5000" />
             <Property ID="HorizontalAlign" Value="1" />
             <Property ID="TextStyle" Value="Description" />
           </Selector>
-          <Selector ID="[3]" Value="Table">
+          <Selector ID="[3]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+          <Selector ID="[4]" Value="Table">
             <Property ID="Table" Value="DailySummary" />
             <Property ID="HorizontalAlign" Value="1" />
           </Selector>
-          <Selector ID="[4]" Value="EmptyLine">
+          <Selector ID="[5]" Value="EmptyLine">
             <Property ID="Size" Value="20" />
           </Selector>
         </Group>
         <Group ID="[4]">
-          <Property ID="Name" Value="ProductsCharts" />
+          <Property ID="Name" Value="ProductsChart" />
           <Selector ID="[0]" Value="Line">
             <Property ID="LineStyle" Value="Default" />
           </Selector>
@@ -580,45 +597,98 @@
             <Property ID="HorizontalAlign" Value="1" />
             <Property ID="TextStyle" Value="Description" />
           </Selector>
-          <Selector ID="[3]" Value="Chart">
+          <Selector ID="[3]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+          <Selector ID="[4]" Value="Chart">
             <Property ID="Chart" Value="ProductsBarChart" />
+            <Property ID="Width" Value="60" />
             <Selector ID="Height" Value="UserDefined">
-              <Property ID="Scaling" Value="40" />
+              <Property ID="Scaling" Value="35" />
             </Selector>
             <Property ID="HorizontalAlign" Value="1" />
           </Selector>
-          <Selector ID="[4]" Value="EmptyLine">
+          <Selector ID="[5]" Value="EmptyLine">
             <Property ID="Size" Value="20" />
           </Selector>
-          <Selector ID="[5]">
+        </Group>
+        <Group ID="[5]">
+          <Property ID="Name" Value="RejectsChart" />
+          <Selector ID="[0]">
             <Property ID="Text" Value="Comparison of the number of rejects made across the three lines" />
             <Property ID="HorizontalAlign" Value="1" />
             <Property ID="TextStyle" Value="Description" />
           </Selector>
-          <Selector ID="[6]" Value="Chart">
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+          <Selector ID="[2]" Value="Chart">
             <Property ID="Chart" Value="RejectsBarChart" />
+            <Property ID="Width" Value="60" />
             <Selector ID="Height" Value="UserDefined">
-              <Property ID="Scaling" Value="40" />
+              <Property ID="Scaling" Value="35" />
             </Selector>
             <Property ID="HorizontalAlign" Value="1" />
           </Selector>
+          <Selector ID="[3]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
         </Group>
-        <Group ID="[5]">
-          <Property ID="Name" Value="PieChart" />
+        <Group ID="[6]">
+          <Property ID="Name" Value="LineOnePie" />
           <Selector ID="[0]">
-            <Property ID="Text" Value="Comparison of the number of products and rejects made across the three lines" />
+            <Property ID="Text" Value="Comparing products and rejects on line 1" />
             <Property ID="HorizontalAlign" Value="1" />
             <Property ID="TextStyle" Value="Description" />
           </Selector>
           <Selector ID="[1]" Value="Chart">
-            <Property ID="Chart" Value="ProductsPieChart" />
+            <Property ID="Chart" Value="LineOnePie" />
+            <Property ID="Width" Value="60" />
             <Selector ID="Height" Value="UserDefined">
-              <Property ID="Scaling" Value="40" />
+              <Property ID="Scaling" Value="28" />
+            </Selector>
+            <Property ID="HorizontalAlign" Value="1" />
+          </Selector>
+          <Selector ID="[2]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+        </Group>
+        <Group ID="[7]">
+          <Property ID="Name" Value="LineTwoPie" />
+          <Selector ID="[0]">
+            <Property ID="Text" Value="Comparing products and rejects on line 2" />
+            <Property ID="HorizontalAlign" Value="1" />
+            <Property ID="TextStyle" Value="Description" />
+          </Selector>
+          <Selector ID="[1]" Value="Chart">
+            <Property ID="Chart" Value="LineTwoPie" />
+            <Property ID="Width" Value="60" />
+            <Selector ID="Height" Value="UserDefined">
+              <Property ID="Scaling" Value="28" />
+            </Selector>
+            <Property ID="HorizontalAlign" Value="1" />
+          </Selector>
+          <Selector ID="[2]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+        </Group>
+        <Group ID="[8]">
+          <Property ID="Name" Value="LineThreePie" />
+          <Selector ID="[0]">
+            <Property ID="Text" Value="Comparing products and rejects on line 3" />
+            <Property ID="HorizontalAlign" Value="1" />
+            <Property ID="TextStyle" Value="Description" />
+          </Selector>
+          <Selector ID="[1]" Value="Chart">
+            <Property ID="Chart" Value="LineThreePie" />
+            <Property ID="Width" Value="60" />
+            <Selector ID="Height" Value="UserDefined">
+              <Property ID="Scaling" Value="28" />
             </Selector>
             <Property ID="HorizontalAlign" Value="1" />
           </Selector>
         </Group>
-        <Group ID="[6]">
+        <Group ID="[9]">
           <Property ID="Name" Value="TemperatureChart" />
           <Selector ID="[0]" Value="Line">
             <Property ID="LineStyle" Value="Default" />
@@ -631,12 +701,21 @@
             <Property ID="HorizontalAlign" Value="1" />
             <Property ID="TextStyle" Value="Description" />
           </Selector>
-          <Selector ID="[3]" Value="Chart">
+          <Selector ID="[3]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+          <Selector ID="[4]" Value="Chart">
             <Property ID="Chart" Value="TempLineChart" />
+            <Selector ID="Height" Value="UserDefined">
+              <Property ID="Scaling" Value="80" />
+            </Selector>
             <Property ID="HorizontalAlign" Value="1" />
           </Selector>
+          <Selector ID="[5]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
         </Group>
-        <Group ID="[7]">
+        <Group ID="[10]">
           <Property ID="Name" Value="Alarms" />
           <Selector ID="[0]" Value="Line">
             <Property ID="LineStyle" Value="Default" />
@@ -648,7 +727,7 @@
             <Property ID="Size" Value="20" />
           </Selector>
         </Group>
-        <Group ID="[8]">
+        <Group ID="[11]">
           <Property ID="Name" Value="Audits" />
           <Selector ID="[0]" Value="Line">
             <Property ID="LineStyle" Value="Default" />
@@ -693,16 +772,43 @@
               <Property ID="TextStyle" Value="Default" />
             </Group>
             <Group ID="[0]">
-              <Property ID="Content" Value="ProductsCharts" />
+              <Property ID="Content" Value="ProductsChart" />
             </Group>
           </Group>
           <Group ID="[3]">
-            <Property ID="StartOnNewPage" Value="TRUE" />
             <Group ID="[0]">
-              <Property ID="Content" Value="PieChart" />
+              <Property ID="Content" Value="RejectsChart" />
             </Group>
           </Group>
           <Group ID="[4]">
+            <Property ID="StartOnNewPage" Value="TRUE" />
+            <Group ID="Heading">
+              <Property ID="Text" Value="Product and Reject Statistics" />
+              <Property ID="TextStyle" Value="Default" />
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="LineOnePie" />
+            </Group>
+          </Group>
+          <Group ID="[5]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="" />
+              <Property ID="TextStyle" Value="Default" />
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="LineTwoPie" />
+            </Group>
+          </Group>
+          <Group ID="[6]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="" />
+              <Property ID="TextStyle" Value="Default" />
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="LineThreePie" />
+            </Group>
+          </Group>
+          <Group ID="[7]">
             <Property ID="StartOnNewPage" Value="TRUE" />
             <Group ID="Heading">
               <Property ID="Text" Value="Temperature Samples" />
@@ -712,7 +818,7 @@
               <Property ID="Content" Value="TemperatureChart" />
             </Group>
           </Group>
-          <Group ID="[5]">
+          <Group ID="[8]">
             <Property ID="StartOnNewPage" Value="TRUE" />
             <Group ID="Heading">
               <Property ID="Text" Value="Alarm History" />
@@ -722,7 +828,7 @@
               <Property ID="Content" Value="Alarms" />
             </Group>
           </Group>
-          <Group ID="[6]">
+          <Group ID="[9]">
             <Property ID="StartOnNewPage" Value="TRUE" />
             <Group ID="Heading">
               <Property ID="Text" Value="Audit Trail" />
