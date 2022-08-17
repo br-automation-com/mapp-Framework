@@ -13,11 +13,13 @@
         <BindingsSet refId="UserXDialog_Import_content_binding" />	
 		<BindingsSet refId="UserXDialog_Error_content_binding" />
 		<BindingsSet refId="UserX_Navigation_content_binding" />
+		<BindingsSet refId="UserXDialog_Duplicate_content_binding" />
     </BindingsSets>
     <EventBindingsSets> 
         <EventBindingsSet refId="UserX_content_eventbinding" />
         <EventBindingsSet refId="UserXDialog_Export_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
+		<EventBindingsSet refId="UserXDialog_Duplicate_content_eventbinding" />
 		<EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
 		<EventBindingsSet refId="Navigation_content_eventbinding" />
     </EventBindingsSets>
@@ -26,11 +28,13 @@
 		<Dialog refId="UserXError_dialog" />
 		<Dialog refId="UserXExport_dialog" />
 		<Dialog refId="UserXImport_dialog" />
+		<Dialog refId="UserXDuplicate_dialog" />
     </Dialogs>
     <Contents > 
         <Content refId="UserX_content" />
 		<Content refId="UserXDialog_Login_content" />
-        <Content refId="UserXDialog_Error_content" />
+		<Content refId="UserXDialog_Error_content" />
+		<Content refId="UserXDialog_Duplicate_content" />
 		<Content refId="Help_content" />
 		<Content refId="Navigation_content" />
     </Contents>	
