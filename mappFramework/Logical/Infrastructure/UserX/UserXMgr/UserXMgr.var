@@ -1,5 +1,7 @@
 (*Function Blocks*)
 VAR
+	UserXCheckState : enumCheckState;
+	temp : STRING[255];
 	MpUserXLogin_0 : MpUserXLogin; (*MpUserXLogin instance*)
 	MpUserXManagerUI_0 : MpUserXManagerUI := (UISetup:=(FileDevice:='mappUserXFiles')); (*MpUserXManagerUI instance*)
 	MpUserXLoginUI_0 : MpUserXLoginUI; (*MpUserXLoginUI instance*)
@@ -16,4 +18,6 @@ END_VAR
 VAR
 	UserXMgrUIConnect : MpUserXMgrUIConnectType; (*UserX manager connection to the HMI*)
 	UserXLoginUIConnect : MpUserXLoginUIConnectType; (*UserL login connection to the HMI*)
+	i : USINT;
+	HmiUserX : HMIUser_Typ;
 END_VAR
