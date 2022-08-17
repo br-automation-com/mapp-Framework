@@ -27,18 +27,17 @@ ACTION HMIAction:
 		USERX_NEW_EXPORT:
 			IF NOT UserXMgrUIConnect.Export.ShowDialog AND UserXMgrUIConnect.Status = mpUSERX_UI_STATUS_IDLE THEN
 				UserXCheckState := USERX_START;
-			END_IF
-			
+			END_IF			
 		USERX_FINISH:
 			
 	END_CASE				
-		
+	// If new updates are made via export execute a check
 	IF UserXMgrUIConnect.Export.ShowDialog THEN
 		UserXCheckState := USERX_NEW_EXPORT;
 	END_IF
 	
 	
-	
+	//Duplicate file checks
 	HmiUserX.FileDuplicate := FALSE;
 	FOR i := 0 TO ((SIZEOF(UserXMgrUIConnect.Import.Dialog.List.FileNames) / SIZEOF(UserXMgrUIConnect.Import.Dialog.List.FileNames[0])) - 1) DO
 		temp := UserXMgrUIConnect.Export.Dialog.FileName;
