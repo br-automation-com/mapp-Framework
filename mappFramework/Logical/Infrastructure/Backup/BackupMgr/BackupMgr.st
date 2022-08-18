@@ -90,15 +90,24 @@ PROGRAM _CYCLIC
     
         BACKUP_CREATING:
             IF (MpBackupCore_0.CommandDone = TRUE) THEN
-				HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;
-                MpBackupCore_0.Create := FALSE;
+				MpBackupCore_0.Create := FALSE;
                 MpBackupCore_0.Install := FALSE;
                 MpBackupCore_0.RequestInfo := FALSE;
                 MpFileManagerUIConnect.File.Refresh := TRUE;
-                BackupState := BACKUP_IDLE;
+                BackupState := BACKUP_REFRESHING_LIST;
             ELSIF (MpBackupCore_0.Error = TRUE) THEN
                 BackupState := BACKUP_ERROR;		
-            END_IF
+			END_IF
+			
+		BACKUP_REFRESHING_LIST:
+			IF MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH THEN
+				// Wait for the list to be refreshed with the newly created backup file
+			ELSIF MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE THEN
+				HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;
+				BackupState := BACKUP_IDLE;
+			ELSIF (MpBackupCore_0.Error = TRUE) THEN
+				BackupState := BACKUP_ERROR;	
+			END_IF	
                
         BACKUP_RESTORING:
             IF (MpBackupCore_0.CommandDone = TRUE) THEN

@@ -70,6 +70,7 @@ TYPE
 		( (*States for backup state machine*)
 		BACKUP_IDLE, (*Wait state*)
 		BACKUP_CREATING, (*Creating a backup*)
+		BACKUP_REFRESHING_LIST, (*Refreshing backup list*)
 		BACKUP_RESTORING, (*Restoring a backup*)
 		BACKUP_UPDATING, (*Installing a new version*)
 		BACKUP_DELETING, (*Deleting a backup*)
