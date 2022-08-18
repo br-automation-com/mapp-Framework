@@ -138,8 +138,9 @@ PROGRAM _CYCLIC
                     IF (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE) THEN
 						HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;
                         FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.File.List.Items[i])/SIZEOF(MpFileManagerUIConnect.File.List.Items[0])) - 1) DO
-                            MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
-                        END_FOR
+							MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
+						END_FOR
+						HmiBackup.Status.SelectedIndex := 0;
 						MpFileManagerUIConnect.MessageBox.Confirm := FALSE;
                         BackupState := BACKUP_IDLE;
                     END_IF
