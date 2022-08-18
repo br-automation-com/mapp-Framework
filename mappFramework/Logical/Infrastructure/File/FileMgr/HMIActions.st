@@ -116,9 +116,8 @@ ACTION FileManager:
 			END_IF
 		END_IF
     END_FOR
-    
-    
-    // Read currently selected device name for HMI
+       
+	// Read currently selected device name for HMI
     IF (MpFileManagerUIConnect.DeviceList.SelectedIndex >= (SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0]))) THEN
         MpFileManagerUIConnect.DeviceList.SelectedIndex := 0;
     END_IF
@@ -131,11 +130,16 @@ ACTION FileManager:
     HmiFile.Status.IsFolder := MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsFolder;
 	
 	// Control the folder structure when entering and leaving folders
-	IF (HmiFile.Commands.EnterFolder) AND MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsFolder THEN
-		HmiFile.Commands.EnterFolder := FALSE;
-		MpFileManagerUIConnect.File.EnterFolder := TRUE;
+	IF (HmiFile.Commands.EnterFolder) AND MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsFolder 
+		AND (MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsSelected) THEN		
+		TON_EnterFolder.IN := TRUE;
+		IF TON_EnterFolder.Q THEN
+			HmiFile.Commands.EnterFolder := FALSE;
+			MpFileManagerUIConnect.File.EnterFolder := TRUE;
+			TON_EnterFolder.IN := FALSE;
+		END_IF 
 		FolderDepthCount := FolderDepthCount + 1;
-	ELSE
+	ELSIF (TON_EnterFolder.IN = FALSE) THEN	
 		HmiFile.Commands.EnterFolder := FALSE;
 	END_IF
 	
@@ -146,5 +150,7 @@ ACTION FileManager:
 	END_IF
 	
 	HmiFile.Status.BackButton := (FolderDepthCount > 0);
+	TON_EnterFolder(PT := t#200ms);
+		
     
 END_ACTION
