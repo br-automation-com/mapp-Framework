@@ -77,9 +77,11 @@ PROGRAM _CYCLIC
                 SaveBackupConfiguration;
                 MpBackupCoreConfig_0.Save := TRUE;
 			ELSIF ((HmiBackup.Status.SelectedIndex <> HmiBackup.Status.LastSelectedIndex) AND (MpBackupCore_0.CommandBusy <> TRUE)) THEN
-                HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.SelectedIndex;
-                MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
-                MpBackupCore_0.RequestInfo := TRUE;
+				HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.SelectedIndex;
+				IF (brsstrlen(ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name)) > 0) THEN
+					MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
+					MpBackupCore_0.RequestInfo := TRUE;
+				END_IF
 			ELSIF DiagCpuIsARsim() OR DiagCpuIsSimulated() THEN
               	HmiBackup.Status.SimulationActive := TRUE;
                 HmiBackup.Status.CreateAllowed := FALSE;
@@ -153,10 +155,12 @@ PROGRAM _CYCLIC
         MpBackupCore_0.ErrorReset := TRUE;
         MpBackupCore_0.RequestInfo := FALSE;
         brsmemset(ADR(HmiBackup.Status.Info), 0, SIZEOF(HmiBackup.Status.Info));
-    END_IF
+	END_IF
+	
     MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
     MpBackupCore_0.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
-    MpBackupCore_0();
+	MpBackupCore_0();
+	
     IF (MpBackupCore_0.CommandDone = TRUE) AND (MpBackupCore_0.RequestInfo = TRUE) THEN
         MpBackupCore_0.RequestInfo := FALSE;
         HmiBackup.Status.Info := MpBackupCore_0.Info.Project.Requested;
