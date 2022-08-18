@@ -152,6 +152,7 @@
 			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="BtnDelete" attribute="enable" />
 		</Binding>		
+				
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.New.FileName" attribute="value" />
 			<Target xsi:type="snippet" refId="NewRecipeName" attribute="value" />
@@ -162,7 +163,16 @@
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="NewRecipeName" attribute="value" />
+			<Target xsi:type="text" refId="IAT/Recipe/MsgBox.Confirm.3" attribute="value" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="snippet" refId="NewRecipeName" attribute="value" />
 			<Target xsi:type="session" refId="SessionVarNewRecipeName" attribute="value" />
+		</Binding>
+		
+		<Binding mode="oneWay">
+			<Source xsi:type="text" refId="IAT/Recipe/MsgBox.Confirm.3" attribute="value" />
+			<Target xsi:type="session" refId="SessionVarMsgBoxText" attribute="value" />
 		</Binding>
 		
 		<Binding mode="twoWay">
