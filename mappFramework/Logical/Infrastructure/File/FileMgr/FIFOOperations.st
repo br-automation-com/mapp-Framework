@@ -8,6 +8,7 @@ ACTION FIFOOperation:
 		HmiFile.Commands.CheckFolder := TRUE;
 	END_IF
 	
+	brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
 	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
         IF (HmiFile.Parameters.Fifo.DeviceName = MpFileManagerUIConnect.DeviceList.DeviceNames[i]) AND HmiFile.Parameters.Fifo.Enable THEN
             HmiFile.Status.FifoSelect[i] := 1;
