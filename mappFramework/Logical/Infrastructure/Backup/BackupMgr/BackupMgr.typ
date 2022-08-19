@@ -25,6 +25,7 @@ TYPE
 		Error : BOOL; (*Error flag*)
 		CreateAllowed : BOOL; (*Bit to indicate it is allowable to create a backup right now*)
 		RestoreAllowed : BOOL; (*Bit to indicate it is allowable to restore a backup right now*)
+		BackupCtrlEnabled : BOOL; (*Disable control panel for Backup with in Sim*)
 		FileNames : ARRAY[0..49]OF STRING[80]; (*Existing backup file names*)
 		TimeStamps : ARRAY[0..49]OF DATE_AND_TIME; (*Time stamps for existing backups*)
 		Size : {REDUND_UNREPLICABLE} ARRAY[0..49]OF UDINT; (*Sizes of existing backup files*)

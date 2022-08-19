@@ -39,7 +39,7 @@ PROGRAM _CYCLIC
 
     CASE BackupState OF
         BACKUP_IDLE:
-            HmiBackup.Status.CreateAllowed := NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress);
+            HmiBackup.Status.CreateAllowed := NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress) AND NOT HmiBackup.Status.SimulationActive;
             HmiBackup.Status.Busy := FALSE;
 			IF (MpBackupCore_0.Error = TRUE) THEN
 				BackupState := BACKUP_ERROR;				
@@ -182,6 +182,7 @@ PROGRAM _CYCLIC
     
 	HmiBackup.Status.RestoreAllowed := (MpFileManagerUIConnect.File.PathInfo.FolderCount > 0) AND NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress) AND NOT HmiBackup.Status.SimulationActive;
 	HmiBackup.Status.Update := MpBackupCore_0.Info.Automatic.Update;
+ 	HmiBackup.Status.BackupCtrlEnabled := NOT HmiBackup.Status.SimulationActive;
 	
 	// Call all actions
 	FileManager;
