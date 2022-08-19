@@ -15,7 +15,7 @@
   <TaskClass Name="Cyclic#8">
     <Task Name="BackupMgr" Source="Infrastructure.Backup.BackupMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="FileMgr" Source="Infrastructure.File.FileMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="UsbMgr" Source="Infrastructure.Usb.UsbMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="UsbMgr" Source="Infrastructure.Usb.UsbMgr.prg" Memory="UserROM" Description="USB manager" Language="IEC" Debugging="true" />
     <Task Name="RecipeMgr" Source="Infrastructure.Recipe.RecipeMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="UserXMgr" Source="Infrastructure.UserX.UserXMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AuditMgr" Source="Infrastructure.Audit.AuditMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -61,6 +61,8 @@
     <BinaryObject Name="Axis1Grp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="BackupFile" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="AuditCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="UnitCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="CustomCfg" Source="" Memory="UserROM" Language="Binary" />
   </Binaries>
   <Libraries>
     <LibraryObject Name="runtime" Source="Libraries.runtime.lby" Memory="UserROM" Language="binary" Debugging="true" />
