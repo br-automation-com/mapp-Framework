@@ -175,7 +175,7 @@ PROGRAM _CYCLIC
         MpBackupCore_0.RequestInfo := FALSE;
         HmiBackup.Status.Info := MpBackupCore_0.Info.Project.Requested;
     END_IF
-    IF (MpBackupCore_0.Error = FALSE) THEN
+    IF EDGEPOS(MpBackupCore_0.Error = FALSE) THEN
         MpBackupCore_0.ErrorReset := FALSE;
 		HmiBackup.Status.Error := FALSE;
     END_IF
