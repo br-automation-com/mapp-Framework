@@ -26,21 +26,6 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="File_content.FileFolderTable.Click.2">
-      <Source xsi:type="widgets.brease.Table.Event" contentRefId="File_content" widgetRefId="FileFolderTable" event="Click" />
-      <Operand datatype="BOOL" name="IsFolder">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:HmiFile.Status.IsFolder">
-          <Method xsi:type="opcUa.NodeAction.GetValue" />
-        </ReadTarget>
-      </Operand>
-      <EventHandler condition="IsFolder = true">
-        <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:HmiFile.Commands.EnterFolder">
-            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-          </Target>
-        </Action>
-      </EventHandler>
-    </EventBinding>
     <EventBinding id="File_content.drpBoxSortOrder.SelectedIndexChanged">
       <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="File_content" widgetRefId="drpBoxSortOrder" event="SelectedIndexChanged" />
       <EventHandler>
