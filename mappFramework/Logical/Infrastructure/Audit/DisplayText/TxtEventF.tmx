@@ -9,12 +9,18 @@
       <tuv xml:lang="de">
         <seg>{&amp;op} {=$MpAudit/Display/SysF/Event/{&amp;ev}}</seg>
       </tuv>
+      <tuv xml:lang="zh">
+        <seg>{&amp;op} {=$MpAudit/Display/SysF/Event/{&amp;ev}}</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>{&amp;op} {=$MpAudit/Display/SysF/Event/{&amp;ev}}</seg>
       </tuv>
     </tu>
     <tu tuid="2">
       <tuv xml:lang="de">
+        <seg>{=$MpAudit/SysF/User/{&amp;act}}</seg>
+      </tuv>
+      <tuv xml:lang="zh">
         <seg>{=$MpAudit/SysF/User/{&amp;act}}</seg>
       </tuv>
       <tuv xml:lang="en">
@@ -25,6 +31,9 @@
       <tuv xml:lang="de">
         <seg>{=$MpAudit/Display/DP/{&amp;dpid}} Wert von {&amp;old|.2f}{&amp;old[UNIT=%s]} auf {&amp;new|.2f}{&amp;new[UNIT=%s]} geändert</seg>
       </tuv>
+      <tuv xml:lang="zh">
+        <seg>{=$MpAudit/Display/DP/{&amp;dpid}} 从改变值 {&amp;old|.2f}{&amp;old[UNIT=%s]} 至 {&amp;new|.2f}{&amp;new[UNIT=%s]} </seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>{=$MpAudit/Display/DP/{&amp;dpid}} changed value from {&amp;old|.2f}{&amp;old[UNIT=%s]} to {&amp;new|.2f}{&amp;new[UNIT=%s]} </seg>
       </tuv>
@@ -33,12 +42,18 @@
       <tuv xml:lang="de">
         <seg>hat Wert (UserID: {&amp;dpid}) von {&amp;old} auf {&amp;new} geändert</seg>
       </tuv>
+      <tuv xml:lang="zh">
+        <seg>从改变值 (UserID: {&amp;dpid}) 从 {&amp;old} 至 {&amp;new}</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>changed value of (UserID: {&amp;dpid}) from {&amp;old} to {&amp;new}</seg>
       </tuv>
     </tu>
     <tu tuid="18">
       <tuv xml:lang="de">
+        <seg>{=$MpAudit/Custom/{&amp;typ}}</seg>
+      </tuv>
+      <tuv xml:lang="zh">
         <seg>{=$MpAudit/Custom/{&amp;typ}}</seg>
       </tuv>
       <tuv xml:lang="en">
@@ -49,6 +64,9 @@
       <tuv xml:lang="de">
         <seg>hat Wert {=$MpAudit/DP/{&amp;dpid}} von {&amp;old|.2f}{&amp;old[UNIT=%s]} auf {&amp;new|.2f}{&amp;new[UNIT=%s]} geändert</seg>
       </tuv>
+      <tuv xml:lang="zh">
+        <seg>从改变值 {=$MpAudit/DP/{&amp;dpid}} 从 {&amp;old|.2f}{&amp;old[UNIT=%s]} 至 {&amp;new|.2f}{&amp;new[UNIT=%s]} </seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>changed value of {=$MpAudit/DP/{&amp;dpid}} from {&amp;old|.2f}{&amp;old[UNIT=%s]} to {&amp;new|.2f}{&amp;new[UNIT=%s]} </seg>
       </tuv>
@@ -57,12 +75,18 @@
       <tuv xml:lang="de">
         <seg>Alarm {&amp;name} Status geändert: {&amp;stold} -&gt; {&amp;stnew}</seg>
       </tuv>
+      <tuv xml:lang="zh">
+        <seg>警报 {&amp;name} 改变状态: {&amp;stold} 至 {&amp;stnew}</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>Alarm {&amp;name} changed state: {&amp;stold} to {&amp;stnew}</seg>
       </tuv>
     </tu>
     <tu tuid="48">
       <tuv xml:lang="de">
+        <seg>{=$MpAudit/SysF/Recipe/{&amp;act}}</seg>
+      </tuv>
+      <tuv xml:lang="zh">
         <seg>{=$MpAudit/SysF/Recipe/{&amp;act}}</seg>
       </tuv>
       <tuv xml:lang="en">
@@ -73,6 +97,9 @@
       <tuv xml:lang="de">
         <seg>PackML Zustandsänderung: von {&amp;old} zu {&amp;new}</seg>
       </tuv>
+      <tuv xml:lang="zh">
+        <seg>PackML 状态变化: {&amp;old} 至 {&amp;new}</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>PackML State-Change: {&amp;old} to {&amp;new}</seg>
       </tuv>
@@ -80,6 +107,9 @@
     <tu tuid="65">
       <tuv xml:lang="de">
         <seg>PackML Modusänderung: von {&amp;old} zu {&amp;new}</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>PackML 模式改变: {&amp;old} 至 {&amp;new}</seg>
       </tuv>
       <tuv xml:lang="en">
         <seg>PackML Mode-Change: {&amp;old} to {&amp;new}</seg>
@@ -89,6 +119,9 @@
       <tuv xml:lang="de">
         <seg>PackML Substatus-Änderung: von {&amp;old} zu {&amp;new}</seg>
       </tuv>
+      <tuv xml:lang="zh">
+        <seg>PackML 子状态变化: {&amp;old} 至 {&amp;new}</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>PackML Substate-Change: {&amp;old} to {&amp;new}</seg>
       </tuv>
@@ -97,6 +130,9 @@
       <tuv xml:lang="de">
         <seg>mapp File</seg>
       </tuv>
+      <tuv xml:lang="zh">
+        <seg>{=$MpAudit/SysF/File/{&amp;act}}</seg>
+      </tuv>
       <tuv xml:lang="en">
         <seg>{=$MpAudit/SysF/File/{&amp;act}}</seg>
       </tuv>
@@ -104,6 +140,9 @@
     <tu tuid="149">
       <tuv xml:lang="de">
         <seg>mapp Backup</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>{=$MpAudit/SysF/Backup/{&amp;act}}</seg>
       </tuv>
       <tuv xml:lang="en">
         <seg>{=$MpAudit/SysF/Backup/{&amp;act}}</seg>
