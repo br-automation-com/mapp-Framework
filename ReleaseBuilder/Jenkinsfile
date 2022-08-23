@@ -114,9 +114,11 @@ pipeline {
             }
             steps {
                 powershell(returnStdout: true, script: "& \"C:\\Program Files (x86)\\IBE Software\\HelpNDoc 6\\hnd6.exe\" \"$HELP_LOCATION\\${HELP_FILE}\" -s build -x=\"Build PDF documentation\" -t=\"Build PDF documentation:mappFramework\" -o=\"Build PDF documentation:${PROJECT_DIR}\\Logical\\mappView\\Resources\\Media\\Documents\\mappFrameworkEN.pdf\"");
+                sleep 5;
                 powershell(returnStdout: true, script: "& \"C:\\Program Files (x86)\\IBE Software\\HelpNDoc 6\\hnd6.exe\" \"$HELP_LOCATION\\${GERMAN_HELP_FILE}\" -s build -x=\"Build PDF documentation\" -t=\"Build PDF documentation:mappFramework\" -o=\"Build PDF documentation:${PROJECT_DIR}\\Logical\\mappView\\Resources\\Media\\Documents\\mappFrameworkDE.pdf\"");
                 sleep 5;
                 powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --file $HELP_FILE --name $HELP_NAME --output \"$HELP_OUTPUT\"");
+                sleep 5;
                 powershell(returnStdout: true, script: "python \"$ProjectBuilderScripts\\BuildHelp.py\" --project \"$HELP_LOCATION\" --file $GERMAN_HELP_FILE --name $HELP_NAME --output \"$HELP_OUTPUT\" --language de");
             }
         }
