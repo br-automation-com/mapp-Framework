@@ -169,7 +169,7 @@ ACTION FIFOOperation:
             DirRead_FolderSize.data_len := SIZEOF(DirectoryData);
             DirRead_FolderSize();
             IF ((DirRead_FolderSize.status = ERR_OK) OR (DirRead_FolderSize.status = fiERR_NO_MORE_ENTRIES)) THEN
-                HmiFile.Status.FolderSize := HmiFile.Status.FolderSize + DirectoryData.Filelength;
+                HmiFile.Status.FolderSize := HmiFile.Status.FolderSize + UDINT_TO_REAL(DirectoryData.Filelength);
                 CurrentIndex := CurrentIndex + 1;
                 IF (CurrentIndex >= MpFileManagerUIConnect_FIFO.File.PathInfo.FileCount) THEN
                     HmiFile.Status.DeleteStep := SEL(HmiFile.Status.FolderSize > HmiFile.Parameters.Fifo.MaxFolderSize*1024, FILE_RESET_SORT_BY, FILE_SELECT_OLDEST_FILES_1);
@@ -180,7 +180,7 @@ ACTION FIFOOperation:
             // Scan and select all file over the filter setting
             IF (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) THEN
                 MpFileManagerUIConnect_FIFO.File.List.Items[0].IsSelected := TRUE;
-                HmiFile.Status.FolderSize := HmiFile.Status.FolderSize - MpFileManagerUIConnect_FIFO.File.List.Items[0].Size;
+                HmiFile.Status.FolderSize := HmiFile.Status.FolderSize - UDINT_TO_REAL(MpFileManagerUIConnect_FIFO.File.List.Items[0].Size);
                 HmiFile.Status.DeleteStep := FILE_DELETE_FILES;
             END_IF
 	
