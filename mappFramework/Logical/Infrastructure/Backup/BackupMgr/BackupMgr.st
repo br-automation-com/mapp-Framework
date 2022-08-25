@@ -28,9 +28,9 @@ PROGRAM _INIT
     MpBackupCoreConfig_0.Enable := TRUE;
     MpBackupCoreConfig_0.MpLink := ADR(gMpLinkBackupCore);
 	MpBackupCoreConfig_0.Configuration := ADR(MpBackupConfiguration);
-	//IF NOT (DiagCpuIsARsim() OR DiagCpuIsSimulated()) THEN
-		MpBackupCoreConfig_0.Load :=NOT(DiagCpuIsARsim() OR DiagCpuIsSimulated()); //TRUE;
-	//END_IF
+
+	MpBackupCoreConfig_0.Load :=NOT(DiagCpuIsARsim() OR DiagCpuIsSimulated());
+
 	MpBackupCoreConfig_0();
     
 	HmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackupFiles","text":"CF/PLC"}';
@@ -43,11 +43,12 @@ PROGRAM _CYCLIC
 			HmiBackup.Status.CreateAllowed := NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress) AND NOT HmiBackup.Status.SimulationActive;
 			HmiBackup.Status.Busy := FALSE;
 			IF (MpBackupCore_0.Error = TRUE) THEN
+				MpBackupCore_0.ErrorReset := FALSE;
 				BackupState := BACKUP_ERROR;
 			ELSIF DiagCpuIsARsim() OR DiagCpuIsSimulated() THEN
-				HmiBackup.Status.SimulationActive := TRUE;
 				HmiBackup.Status.CreateAllowed := FALSE;
 				HmiBackup.Status.RestoreAllowed := FALSE;
+				BackupState := BACKUP_SIM;
 			ELSIF (HmiBackup.Commands.Create = TRUE) THEN
 				HmiBackup.Commands.Create := FALSE;
 				MpBackupCore_0.Create := TRUE;
@@ -146,23 +147,27 @@ PROGRAM _CYCLIC
 						BackupState := BACKUP_IDLE;
 					END_IF
 			END_CASE
+			
+		BACKUP_SIM:	
+			HmiBackup.Status.SimulationActive := TRUE;
         
 		BACKUP_ERROR:
 			MpBackupCore_0.Create := FALSE;
 			MpBackupCore_0.Install := FALSE;
-			MpBackupCore_0.RequestInfo := FALSE;
-			IF MpBackupCore_0.Info.Diag.StatusID.ID <> 0 THEN
+			IF MpBackupCore_0.Info.Diag.StatusID.ID <> 0 THEN //-1064159486
 				HmiBackup.Status.Error := TRUE;
 			END_IF	
-			IF HmiBackup.Commands.Reset THEN
+			IF HmiBackup.Commands.Reset OR (MpBackupCore_0.Info.Diag.StatusID.ID = -1064159486) THEN
 				HmiBackup.Commands.Reset := FALSE;
 				MpBackupCore_0.ErrorReset := TRUE;
+				BackupState := BACKUP_IDLE;
+			ELSIF ((MpBackupCore_0.Info.Diag.StatusID.ID = 0) AND (MpBackupCore_0.Error = FALSE)) THEN	
 				BackupState := BACKUP_IDLE;
 			END_IF	
 	END_CASE
 
 	// Reset any errors caused by requesting information
-	IF ((MpBackupCore_0.Error = TRUE) AND (MpBackupCore_0.RequestInfo = TRUE)) THEN
+	IF EDGEPOS((MpBackupCore_0.Error = TRUE) AND (MpBackupCore_0.RequestInfo = TRUE)) THEN
 		MpBackupCore_0.ErrorReset := TRUE;
 		MpBackupCore_0.RequestInfo := FALSE;
 		brsmemset(ADR(HmiBackup.Status.Info), 0, SIZEOF(HmiBackup.Status.Info));
@@ -183,7 +188,7 @@ PROGRAM _CYCLIC
     
 	HmiBackup.Status.RestoreAllowed := (MpFileManagerUIConnect.File.PathInfo.FolderCount > 0) AND NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress) AND NOT HmiBackup.Status.SimulationActive;
 	HmiBackup.Status.Update := MpBackupCore_0.Info.Automatic.Update;
-	HmiBackup.Status.BackupCtrlEnabled := NOT HmiBackup.Status.SimulationActive;
+	HmiBackup.Status.BackupCtrlEnabled := (NOT HmiBackup.Status.SimulationActive) AND (MpBackupCore_0.Info.Project.Requested.Name <> '');
 	
 	// Call all actions
 	FileManager;

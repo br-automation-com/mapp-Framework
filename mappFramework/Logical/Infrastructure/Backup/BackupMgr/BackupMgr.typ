@@ -75,6 +75,7 @@ TYPE
 		BACKUP_RESTORING, (*Restoring a backup*)
 		BACKUP_UPDATING, (*Installing a new version*)
 		BACKUP_DELETING, (*Deleting a backup*)
+		BACKUP_SIM, (*CPU in simulation mode, don't do anything*)
 		BACKUP_ERROR (*Error state*)
 		);
 END_TYPE
