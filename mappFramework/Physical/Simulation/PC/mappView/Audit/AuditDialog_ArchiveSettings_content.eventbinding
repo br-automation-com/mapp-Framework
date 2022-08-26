@@ -28,5 +28,22 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="AuditDialog_ArchiveSettings_content.DropDownInterval.SelectedIndexChanged">
+      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="AuditDialog_ArchiveSettings_content" widgetRefId="DropDownInterval" event="SelectedIndexChanged" />
+      <EventHandler condition="selectedIndex = 2">
+        <Action>
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="AuditDialog_ArchiveSettings_content" widgetRefId="grbTimeOfDay">
+            <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="selectedIndex &lt; 2">
+        <Action>
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="AuditDialog_ArchiveSettings_content" widgetRefId="grbTimeOfDay">
+            <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
