@@ -4,11 +4,11 @@ VAR
 	MpFileManagerUI_FIFO : MpFileManagerUI; (*MpFileManagerUI instance*)
 	DirInfo_0 : DirInfo; (*Directory info function block*)
 	R_TRIG_CheckStatus : R_TRIG; (*Trigger function block*)
-	TON_Wait : TON;
+	TON_Wait : TON; (*FIFO handling support*)
 	TON_ScanFolder : TON; (*Timer to scan for folder*)
-	TON_EnterFolder : TON;
-	CurrentIndex : UDINT;
-	DirRead_FolderSize : DirRead;
+	TON_EnterFolder : TON; (*Time to delay EnterFolder command so file list can refresh*)
+	CurrentIndex : UDINT; (*FIFO handling support deleting more then 50 files*)
+	DirRead_FolderSize : DirRead; (*FIFO handling support reading current folder size*)
 END_VAR
 (*Constants*)
 VAR CONSTANT
@@ -23,7 +23,7 @@ VAR RETAIN
 	HmiFile : FileHmiInterfaceType; (*HMI interface structure*)
 END_VAR
 VAR
-	DirectoryData : fiDIR_READ_DATA;
+	DirectoryData : fiDIR_READ_DATA; (*FIFO handling support reading current folder size*)
 END_VAR
 (*Variables*)
 VAR
@@ -35,8 +35,8 @@ VAR
 	PathCheck : FilePathCheckType; (*Parameter structure controlling the visible file device based on available folders*)
 	USBOffset : USINT := 0; (*Device list offset where to add USB device*)
 	MaxDeviceNameIndex : USINT; (*How many devices are configured*)
-	tempIdx : USINT;
-	FileNameArraySize : USINT;
-	StartIndex : USINT;
-	Fifo_Count : USINT;
+	tempIdx : USINT; (*FIFO handling support index variable*)
+	FileNameArraySize : USINT; (*FIFO handling support size of the array*)
+	StartIndex : USINT; (*FIFO handling support *)
+	Fifo_Count : USINT; (*FIFO handling support current file count*)
 END_VAR
