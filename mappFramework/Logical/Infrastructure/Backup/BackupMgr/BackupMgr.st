@@ -29,7 +29,7 @@ PROGRAM _INIT
     MpBackupCoreConfig_0.MpLink := ADR(gMpLinkBackupCore);
 	MpBackupCoreConfig_0.Configuration := ADR(MpBackupConfiguration);
 
-	MpBackupCoreConfig_0.Load :=NOT(DiagCpuIsARsim() OR DiagCpuIsSimulated());
+	MpBackupCoreConfig_0.Load := NOT(DiagCpuIsARsim() OR DiagCpuIsSimulated());
 
 	MpBackupCoreConfig_0();
     
@@ -72,7 +72,7 @@ PROGRAM _CYCLIC
 				HmiBackup.Status.CreateAllowed := FALSE;
 				HmiBackup.Status.RestoreAllowed := FALSE;
 				MpBackupCore_0.Name := ADR(MpBackupCore_0.Info.Automatic.Update.Name);
-				BackupState := BACKUP_UPDATING;	
+				BackupState := BACKUP_UPDATING;
 			ELSIF (HmiBackup.Commands.Delete = TRUE) THEN
 				MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].IsSelected := TRUE;
 				HmiBackup.Commands.Delete := FALSE;
@@ -98,7 +98,7 @@ PROGRAM _CYCLIC
 				MpFileManagerUIConnect.File.Refresh := TRUE;
 				BackupState := BACKUP_REFRESHING_LIST;
 			ELSIF (MpBackupCore_0.Error = TRUE) THEN
-				BackupState := BACKUP_ERROR;		
+				BackupState := BACKUP_ERROR;
 			END_IF
 			
 		BACKUP_REFRESHING_LIST:
@@ -108,7 +108,7 @@ PROGRAM _CYCLIC
 				HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;
 				BackupState := BACKUP_IDLE;
 			ELSIF (MpBackupCore_0.Error = TRUE) THEN
-				BackupState := BACKUP_ERROR;	
+				BackupState := BACKUP_ERROR;
 			END_IF	
                
 		BACKUP_RESTORING:

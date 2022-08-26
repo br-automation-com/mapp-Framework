@@ -21,7 +21,7 @@ ACTION ChangeConfiguration:
         END_IF
 		// after save the AuditTrail needs to restart
 		IF (MpAuditTrailConfig_0.Save = TRUE) THEN
-            MpAuditTrail_0.Enable := FALSE;;
+            MpAuditTrail_0.Enable := FALSE;
         END_IF		
         MpAuditTrailConfig_0.Load := FALSE;
         MpAuditTrailConfig_0.Save := FALSE;

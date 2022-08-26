@@ -73,7 +73,7 @@ PROGRAM _INIT
 	
 	// Load default Machine Settings recipe
 	HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
-	HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION; 
+	HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION;
 	brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(MACHINE_CONFIG_FILE_EXTENSION));
 	MpRecipe_0.Load := TRUE;
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
@@ -151,7 +151,7 @@ PROGRAM _CYCLIC
 		MpRecipe_0.Save := FALSE;
 		// Set update notification for machine category
 		IF ((brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
-			MpRecipe_0.UpdateNotification := TRUE;	
+			MpRecipe_0.UpdateNotification := TRUE;
 		ELSE
 			MpRecipe_0.UpdateNotification := FALSE;
 			HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;

@@ -28,11 +28,11 @@ ACTION FormatDeviceDataProvider:
 	
 	// Configure visible file list
 	ItemCount := MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount;
-	HmiBackup.Status.TableConfig[1] := '{ "specRows": [{"from":';	
+	HmiBackup.Status.TableConfig[1] := '{ "specRows": [{"from":';
     brsitoa((ItemCount), ADR(HmiBackup.Status.TableConfig[1]) + brsstrlen(ADR(HmiBackup.Status.TableConfig[1])));
     brsstrcat(ADR(HmiBackup.Status.TableConfig[1]),  ADR(',"to":50, "visible":false}]}'));
 	
-	HmiBackup.Status.FileOverMax := ItemCount > 50;
+	HmiBackup.Status.FileOverMax := ItemCount > (SIZEOF(MpFileManagerUIConnect.File.List.Items)/SIZEOF(MpFileManagerUIConnect.File.List.Items[0]));
 
 END_ACTION
 

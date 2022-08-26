@@ -35,11 +35,11 @@ PROGRAM _INIT
 	// Initialize custom events
 	CustomEvent[0].Type := "Custom Event Type";
 	CustomEvent[0].Msg := "Custom Event Message";
-	CustomEvent[0].Comment := "Custom Event Comment";	
+	CustomEvent[0].Comment := "Custom Event Comment";
 		
 	CustomEvent[1].Type := "Audit Test";
 	CustomEvent[1].Msg := "This is a custom event test msg";
-	CustomEvent[1].Comment := "If you see this it was a success!";	
+	CustomEvent[1].Comment := "If you see this it was a success!";
 	
 	CustomEvent[2].Type := "Cmd Exe";
 	CustomEvent[2].Msg := "The run query command was pressed on the HMI";
@@ -54,11 +54,11 @@ PROGRAM _INIT
 	
 	IF (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[0]), 0, ADR(ident)) = 0) AND (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[1]), 0, ADR(ident)) = 0) THEN
 		HmiAudit.Status.DeviceDataProvider[0] := '{"value":"UserEvents","text":"User Events Query"}';
-		HmiAudit.Status.DeviceDataProvider[1] := '{"value":"RecipeEvents","text":"Recipe Events Query"}'; 
+		HmiAudit.Status.DeviceDataProvider[1] := '{"value":"RecipeEvents","text":"Recipe Events Query"}';
 	ELSIF (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[0]), 0, ADR(ident)) <> 0) AND (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[1]), 0, ADR(ident)) = 0) THEN
-		HmiAudit.Status.DeviceDataProvider[0] := '{"value":"RecipeEvents","text":"Recipe Events Query"}'; 
+		HmiAudit.Status.DeviceDataProvider[0] := '{"value":"RecipeEvents","text":"Recipe Events Query"}';
 	ELSIF (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[0]), 0, ADR(ident)) = 0) AND (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[1]), 0, ADR(ident)) <> 0) THEN
-		HmiAudit.Status.DeviceDataProvider[0] := '{"value":"UserEvents","text":"User Events Query"}'; 
+		HmiAudit.Status.DeviceDataProvider[0] := '{"value":"UserEvents","text":"User Events Query"}';
 	END_IF
 	 
 END_PROGRAM

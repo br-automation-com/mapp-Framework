@@ -60,7 +60,7 @@ PROGRAM _CYCLIC
 	HMIAction;
 	
 	// Assign MpLinks
-	MpUserXManagerUI_0.MpLink := ADR(gMpLinkUserXLogin);	
+	MpUserXManagerUI_0.MpLink := ADR(gMpLinkUserXLogin);
 	MpUserXLoginUI_0.MpLink := ADR(gMpLinkUserXLogin);
 	MpUserXLogin_0.MpLink := ADR(gMpLinkUserXLogin);
 	

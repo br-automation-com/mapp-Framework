@@ -14,7 +14,7 @@ PROGRAM _INIT
 	MpFileManagerUIConnect.DeviceList.DeviceNames[3] := 'mappDataFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := 'mappBackupFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := 'mappAlarmXFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappUserXFiles';	
+	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappUserXFiles';
 	MpFileManagerUI_0.Enable := TRUE;
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
@@ -77,7 +77,7 @@ PROGRAM _CYCLIC
 	IF HmiFile.Parameters.Fifo.Enable THEN
 		FIFOOperation;
 	ELSE
-		brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));	
+		brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
 	END_IF
 	
 	// Error reset

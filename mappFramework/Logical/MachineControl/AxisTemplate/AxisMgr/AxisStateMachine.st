@@ -39,7 +39,7 @@ ACTION AxisStateMachine:
         
         // Power on the axis    
         STATE_POWER_ON:
-            AxisControl.Status.Status := 'Waiting for power on';		
+            AxisControl.Status.Status := 'Waiting for power on';
             IF (MpAxisBasic_0.Info.ReadyToPowerOn = TRUE) THEN
                 MpAxisBasic_0.Power := AxisControl.Command.Power;
             END_IF
@@ -93,7 +93,7 @@ ACTION AxisStateMachine:
             IF (InPositionEdgePos.Q  = TRUE) THEN
                 AxisControl.Status.Busy := FALSE;
                 MpAxisBasic_0.MoveAbsolute := FALSE;
-				MpAxisParameters.Direction := mcDIR_POSITIVE;				
+				MpAxisParameters.Direction := mcDIR_POSITIVE;
                 State := STATE_READY;
             END_IF
             

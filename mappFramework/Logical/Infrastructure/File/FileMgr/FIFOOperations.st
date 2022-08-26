@@ -223,7 +223,7 @@ ACTION FIFOOperation:
             IF (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_REFRESH) OR (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) THEN
                 HmiFile.Status.DeleteStep := FILE_DELETE_WAIT;
 				IF (MpFileManagerUIConnect_FIFO.MessageBox.Type = mpFILE_MSG_BUSY) THEN
-					MpFileManagerUIConnect_FIFO.MessageBox.Confirm := TRUE;					
+					MpFileManagerUIConnect_FIFO.MessageBox.Confirm := TRUE;
 				END_IF
             END_IF
 	END_CASE

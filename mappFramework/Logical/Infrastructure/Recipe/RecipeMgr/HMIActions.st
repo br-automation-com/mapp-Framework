@@ -188,7 +188,7 @@ ACTION RecipeHMIcommands:
 		
 	// Check if the file name has already been used
 	HmiRecipe.Status.FileDuplicate := FALSE;
-	FOR i:= 0 TO ((SIZEOF(MpRecipeUIConnect.Recipe.List.Names) / SIZEOF(MpRecipeUIConnect.Recipe.List.Names[0])) - 1) DO
+	FOR i:=0 TO ((SIZEOF(MpRecipeUIConnect.Recipe.List.Names) / SIZEOF(MpRecipeUIConnect.Recipe.List.Names[0])) - 1) DO
 		temp := MpRecipeUIConnect.New.FileName;
 		IF (brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(PARAMETERS_RECIPE)) = 0) THEN
 			brsstrcat(ADR(temp),ADR('.par'));

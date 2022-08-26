@@ -3,7 +3,7 @@ ACTION ArchiveExport:
 	// Assign variables to exchange with the HMI
 	MpAuditTrail_0.ExportArchive := HmiAudit.Commands.ExportArchives;
 	HmiAudit.Status.ArchiveAvailable := MpAuditTrail_0.ArchiveAvailable;
-	HmiAudit.Status.NumberOfArchives := MpAuditTrail_0.Info.NumberArchives;	
+	HmiAudit.Status.NumberOfArchives := MpAuditTrail_0.Info.NumberArchives;
 
 	IF (HmiAudit.Commands.ExportArchives AND MpAuditTrail_0.CommandDone) THEN
 		HmiAudit.Commands.ExportArchives := FALSE;
@@ -35,7 +35,7 @@ ACTION SaveAuditConfiguration:
 	AuditTrailConfig.Archive.Enable := HmiAudit.Parameters.ArchiveSettings.Enable;
 	AuditTrailConfig.Archive.MaxSize := HmiAudit.Parameters.ArchiveSettings.MaxSize;
 	AuditTrailConfig.Archive.Mode := HmiAudit.Parameters.ArchiveSettings.Mode;
-	AuditTrailConfig.Export.FileType := HmiAudit.Parameters.ArchiveSettings.FileType;   
+	AuditTrailConfig.Export.FileType := HmiAudit.Parameters.ArchiveSettings.FileType;
     
  END_ACTION
 

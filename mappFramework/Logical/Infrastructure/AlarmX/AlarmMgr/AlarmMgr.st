@@ -16,7 +16,7 @@ PROGRAM _INIT
 	END_IF
 
 	// Call action to intialize alarm samples
-	AlarmSampleInit; 
+	AlarmSampleInit;
 	
 	// Initialize mapp function blocks
 	MpAlarmXCore_0.Enable := TRUE;
@@ -55,7 +55,7 @@ PROGRAM _CYCLIC
 	END_IF
 
     // Call all cyclic actions 
-    AlarmHandling;  
+    AlarmHandling;
     GetBacktraceInformation;
     ExecuteQuery;
     QueryTableConfig;
