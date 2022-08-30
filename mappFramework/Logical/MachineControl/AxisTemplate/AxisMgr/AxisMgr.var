@@ -22,7 +22,7 @@ VAR
 	InPositionEdgePos : {REDUND_UNREPLICABLE} R_TRIG; (*Detecting rising edge for InPosition*)
 	ReferenceEdgePos : {REDUND_UNREPLICABLE} R_TRIG; (*Detecting rising edge for Referenced*)
 	MC_BR_ProcessParam_AX : {REDUND_UNREPLICABLE} MC_BR_ProcessParam; (*Function block to read and write the ACOPOS parameters*)
-	MpAlarmXControl_SpeedNotSet : MpAlarmXAlarmControl; (*AlarmX control function block*)
+	MpAlarmXControl_SpeedNotSet : {REDUND_UNREPLICABLE} MpAlarmXAlarmControl; (*AlarmX control function block*)
 END_VAR
 (*Recipe*)
 VAR
