@@ -248,22 +248,29 @@
                 <Method xsi:type="widgets.brease.DropDownBox.Action.SetSelectedIndex" index="0" />
               </Target>
             </Action>
-          </Step>
-          <Step order="2">
+			</Step>
+			<Step order="2">
+				<Action>
+					<Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
+						<Method xsi:type="widgets.brease.ContentControl.Action.UnloadContent" />
+					</Target>
+				</Action>
+			</Step>
+          <Step order="3">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
                 <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
               </Target>
             </Action>
           </Step>
-          <Step order="3">
+          <Step order="4">
             <Action>
               <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
           </Step>
-          <Step order="4">
+          <Step order="5">
             <Action>
               <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown">
                 <Method xsi:type="opcUa.NodeAction.SetValueString" value="Parameters" />
@@ -298,7 +305,7 @@
                 <Step order="2">
                   <Action>
                     <Target xsi:type="clientSystem.Action">
-                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" />
+                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" headerText="$IAT/Recipe/New" />
                     </Target>
                   </Action>
                 </Step>
@@ -333,7 +340,7 @@
                 <Step order="2">
                   <Action>
                     <Target xsi:type="clientSystem.Action">
-                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" />
+                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" headerText="$IAT/Recipe/New" />
                     </Target>
                   </Action>
                 </Step>

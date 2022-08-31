@@ -39,7 +39,7 @@ ACTION AxisStateMachine:
         
         // Power on the axis    
         STATE_POWER_ON:
-            AxisControl.Status.Status := 'Waiting for power on';		
+            AxisControl.Status.Status := 'Waiting for power on';
             IF (MpAxisBasic_0.Info.ReadyToPowerOn = TRUE) THEN
                 MpAxisBasic_0.Power := AxisControl.Command.Power;
             END_IF
@@ -93,6 +93,7 @@ ACTION AxisStateMachine:
             IF (InPositionEdgePos.Q  = TRUE) THEN
                 AxisControl.Status.Busy := FALSE;
                 MpAxisBasic_0.MoveAbsolute := FALSE;
+				MpAxisParameters.Direction := mcDIR_POSITIVE;
                 State := STATE_READY;
             END_IF
             
@@ -166,11 +167,13 @@ ACTION AxisStateMachine:
         // In this State the module attempts to clear any outstanding errors.  No hazardous motion should occur in this State.
         STATE_RESETTING:
             ResetAllAxisCommands;
-            IF (AxisControl.Command.Reset = TRUE) THEN
+            IF (AxisControl.Command.Reset = TRUE) OR ((MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') = FALSE) AND EDGEPOS(MpAlarmXCore_0.PendingAlarms = 0)) THEN
                 AxisControl.Status.Busy := TRUE;
                 AxisControl.Command.Reset := FALSE;
                 MpAxisBasic_0.ErrorReset := TRUE;
                 AxisReset;
+				ManualState := MANUAL_STATE_IDLE;
+				AutomaticState := AUTOMATIC_STATE_IDLE;
             ELSE
                 MpAxisBasic_0.ErrorReset := FALSE;
             END_IF
@@ -191,11 +194,12 @@ ACTION AxisStateMachine:
 	// Cyclic function block calls
     MpAxisBasic_0.Parameters := ADR(MpAxisParameters);
     MpAxisBasic_0();
-    
+	    
 	// Status assignments
-    AxisControl.Status.ErrorActive := MpAxisBasic_0.Error;
+    AxisControl.Status.ErrorActive := MpAxisBasic_0.Error OR (MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error'));
     AxisControl.Status.IsHomed := MpAxisBasic_0.IsHomed;
     AxisControl.Status.IsPowered := MpAxisBasic_0.PowerOn;
+	AxisControl.Status.PLCopenState := MpAxisBasic_0.Info.PLCopenState;
     AxisControl.Status.Position := MpAxisBasic_0.Position;
     AxisControl.Status.Velocity := MpAxisBasic_0.Velocity;
 

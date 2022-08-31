@@ -16,6 +16,12 @@ PROGRAM _INIT
 	ParameterInit;
 	AxisInit;
 	
+	// Call initialization variables
+	RestorePosition;
+	
+	// Initialize homing mode
+	MpAxisParameters.Homing.Mode := mcHOMING_DEFAULT;
+	
 	// Enable mapp function blocks
 	MpAlarmXCore_0.Enable := TRUE;
 	MpAxisBasic_0.Enable := TRUE;
@@ -25,7 +31,6 @@ END_PROGRAM
 PROGRAM _CYCLIC
     
     MpAxisBasic_0.MpLink := ADR(gAxisTemplate);
-    MC_BR_CheckRestorePositionData_0.Axis := ADR(gAxisTemplate);
     
 	// Call all actions
     SimulationControl;

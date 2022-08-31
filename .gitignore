@@ -1,36 +1,7 @@
 # Git Repository File Ignore Specifications
-# B&R Automation Studio project directory files
-
-*/AS/System/
-# Ignore Binaries/ directory (the entire folder)
-*/Binaries
-# Ignore everything INSIDE Diagnosis/ directory
-*/Diagnosis/**
-# Ignore Temp/ directory
-*/Temp
-
-# Ignore all .set and .isopen files
-*/*.set
-*/*.isopen
 
 # Ignore .zip files, for the moment
 *.zip
-
-# Exception for Diagnosis/ sub-directories -> these won't be committed anyways
-#   because there are no files inside that will be committed
-# Credit: Jim G. on Stack Overflow https://stackoverflow.com/a/25916709/11402416
-!**/Diagnosis/**/
-# Exception for specific files within Diagnosis/
-#!*.tc
-
-
-# ******************************************************************************
-# Project specific ignore paths
-# ******************************************************************************
-# Save watch windows and task trace configurations
-!**/Diagnosis/**/*.PVM
-!**/Diagnosis/**/*.tc
-
 
 # ignore temp files
 *~

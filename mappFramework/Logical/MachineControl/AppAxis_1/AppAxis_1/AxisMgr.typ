@@ -18,6 +18,7 @@ TYPE
 		Reference : {REDUND_UNREPLICABLE} BOOL; (*Cmd home / reference*)
 		MoveAbsolute : {REDUND_UNREPLICABLE} BOOL; (*Cmd move absolute*)
 		MoveAdditive : {REDUND_UNREPLICABLE} BOOL; (*Cmd move additive*)
+		MoveVelocity : {REDUND_UNREPLICABLE} BOOL; (*Cmd move velocity*)
 		MoveToStart : {REDUND_UNREPLICABLE} BOOL; (*Cmd move the start position*)
 		Abort : {REDUND_UNREPLICABLE} BOOL; (*Cmd abort*)
 		Stop : {REDUND_UNREPLICABLE} BOOL; (*Cmd stop all movement*)
@@ -55,6 +56,7 @@ TYPE
 		MotorTemperature : {REDUND_UNREPLICABLE} REAL; (*Motor temperature*)
 		IsHomed : {REDUND_UNREPLICABLE} BOOL; (*Axis is referenced*)
 		IsPowered : {REDUND_UNREPLICABLE} BOOL; (*Axis is powered*)
+		PLCopenState : McAxisPLCopenStateEnum; (*Axis PLCopenState*)
 	END_STRUCT;
 	AxisControlType : {REDUND_UNREPLICABLE} 	STRUCT 
 		Command : {REDUND_UNREPLICABLE} AxisControlCommandType; (*Cmd structure*)

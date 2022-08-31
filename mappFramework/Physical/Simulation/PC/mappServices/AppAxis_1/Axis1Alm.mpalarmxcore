@@ -3,6 +3,13 @@
 <Configuration>
   <Element ID="gMpLinkAlarmXCoreAppAxis_1" Type="mpalarmxcore">
     <Group ID="mapp.AlarmX.Core">
+      <Group ID="Mapping">
+        <Group ID="[0]">
+          <Property ID="Alarm" Value="gMpLinkAppAxis_1*" />
+          <Selector ID="[0]" Value="Escalate" />
+          <Selector ID="[1]" Value="Remain" />
+        </Group>
+      </Group>
       <Group ID="BySeverity">
         <Group ID="[0]">
           <Property ID="Severity" Value="1..9" />

@@ -11,7 +11,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_1">
+    <EventBinding id="AlarmMgr.MpAlarmXCore_0.PendingAlarms.ValueChanged">
       <Source xsi:type="opcUa.Event" refId="::AlarmMgr:MpAlarmXCore_0.PendingAlarms" event="ValueChanged" />
       <EventHandler condition="newValue &gt; 0">
         <Action>

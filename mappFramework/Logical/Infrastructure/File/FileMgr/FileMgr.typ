@@ -23,6 +23,7 @@ TYPE
 		Type : ARRAY[0..49]OF DINT; (*List of file types*)
 		Size : ARRAY[0..49]OF UDINT; (*List of file sizes*)
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for the file device selector*)
+		FifoSelect : ARRAY[0..MAX_IDX_FILE_DEV]OF DINT; (*Indicate FIFO selected file device*)
 		DeviceName : STRING[50]; (*File device name*)
 		FileName : STRING[255]; (*Fille name*)
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the file explorer (table widget) on the mapp View HMI*)
@@ -32,6 +33,7 @@ TYPE
 		AutoDeleteSelected : USINT; (*Number of selected items*)
 		FolderSize : REAL; (*Size of currently selected folder*)
 		SelectedIndex : USINT; (*Selected index in the file list*)
+		FifoConfigEnable : BOOL; (*Disable FIFO access or change confirmation when FIFO is active*)
 	END_STRUCT;
 	FileHmiParaFifoType : 	STRUCT  (*Parameters for the FIFO feature (first-in-first-out)*)
 		Enable : BOOL; (*FIFO enable*)
@@ -63,6 +65,7 @@ TYPE
 		FILE_CHECK_FOR_FILTER, (*Check which delete filter is active*)
 		FILE_SELECT_OLDEST_FILES_0, (*Scan and select all file over the filter setting*)
 		FILE_CALC_FOLDER_SIZE, (*Calculate the overall file size in the open folder*)
+		FILE_CALC_FOLDER_SCROLL,
 		FILE_SELECT_OLDEST_FILES_1, (*Scan and select all file over the filter setting*)
 		FILE_DELETE_FILES, (*Set command to delete the selected oldest files*)
 		FILE_CONFIRM_DELETE, (*Confirm the file delete*)

@@ -11,7 +11,11 @@
       </Selector>
       <Selector ID="AutomaticUpdate" Value="Notify">
         <Property ID="DeviceName" Value="mappBackupFiles" />
+        <Selector ID="Check">
+          <Property ID="Time" Value="57600000" />
+        </Selector>
       </Selector>
+      <Selector ID="Auditing" Value="MpAudit" />
     </Group>
     <Selector ID="Alarms" Value="MpAlarmX" />
   </Element>

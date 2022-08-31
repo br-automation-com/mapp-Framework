@@ -19,19 +19,19 @@ PROGRAM _INIT
 	UserXMgrUIConnect.User.Create.Lock := FALSE;
 	UserXMgrUIConnect.User.Lock := FALSE;
 	UserXMgrUIConnect.User.Edit.Lock := FALSE;
-    UserXMgrUIConnect.User.Create.Dialog.UserName := "";
-    UserXMgrUIConnect.User.Create.Dialog.NewPassword := "";
+	UserXMgrUIConnect.User.Create.Dialog.UserName := "";
+	UserXMgrUIConnect.User.Create.Dialog.NewPassword := "";
 	UserXMgrUIConnect.User.Create.Dialog.ConfirmPassword := "";
 	UserXMgrUIConnect.User.List.MaxSelection := USER_LIST_MAX_SELECTION;
 	UserXMgrUIConnect.User.List.RangeStart := USER_LIST_RANGE_START;
 	UserXMgrUIConnect.User.List.RangeEnd := USER_LIST_RANGE_END;
-    MpUserXManagerUI_0.MpLink := ADR(gMpLinkUserXLogin);
-    MpUserXManagerUI_0.Enable := TRUE;
-    MpUserXManagerUI_0.UIConnect := ADR(UserXMgrUIConnect);
+	MpUserXManagerUI_0.MpLink := ADR(gMpLinkUserXLogin);
+	MpUserXManagerUI_0.Enable := TRUE;
+	MpUserXManagerUI_0.UIConnect := ADR(UserXMgrUIConnect);
 	MpUserXManagerUI_0();
 	
 	MpUserXLoginUI_0.MpLink := ADR(gMpLinkUserXLogin);
-    MpUserXLoginUI_0.Enable := TRUE;
+	MpUserXLoginUI_0.Enable := TRUE;
 	MpUserXLoginUI_0.UIConnect := ADR(UserXLoginUIConnect);
 	MpUserXLoginUI_0();
 
@@ -39,6 +39,7 @@ PROGRAM _INIT
 	MpUserXLogin_0.Enable := TRUE;
 	MpUserXLogin_0();
 	
+
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -54,7 +55,9 @@ PROGRAM _CYCLIC
 	
 	IF NOT MpUserXLogin_0.Error THEN
 		MpUserXLogin_0.ErrorReset := FALSE;
-    END_IF
+	END_IF
+	
+	HMIAction;
 	
 	// Assign MpLinks
 	MpUserXManagerUI_0.MpLink := ADR(gMpLinkUserXLogin);
@@ -65,6 +68,7 @@ PROGRAM _CYCLIC
 	MpUserXManagerUI_0();
 	MpUserXLoginUI_0();
 	MpUserXLogin_0();
+
 	
 END_PROGRAM
 

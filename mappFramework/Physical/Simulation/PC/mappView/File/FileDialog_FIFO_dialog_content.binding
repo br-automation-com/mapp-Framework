@@ -30,5 +30,9 @@
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.Fifo.FifoType" attribute="value" />
 <Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="ddFifoOptions" attribute="selectedIndex" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.FifoConfigEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="ButtonOK" attribute="enable" />
+</Binding>
 </Bindings>
 </BindingsSet>

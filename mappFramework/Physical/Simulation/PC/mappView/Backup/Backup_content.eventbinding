@@ -146,5 +146,42 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="ContentLoaded.Backup_content.UpdateAvailable">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <Operand datatype="BOOL" name="NewUpdate">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::BackupMgr:HmiBackup.Status.Update.IsAvailable">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="contentId = &quot;Backup_content&quot; AND NewUpdate = true">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupUpdate_dialog" headerText="$IAT/Backup/Update" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::BackupMgr:MpFileManagerUIConnect.File.Refresh">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Backup_content.ButtonBackupSettings.DisabledClick">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupSettings" event="DisabledClick" />
+      <Operand datatype="BOOL" name="SimActive">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::BackupMgr:HmiBackup.Status.SimulationActive">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="SimActive = true">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Backup/MsgBox.Simulation" header="$IAT/Backup/MsgBox.Warning" icon="Exclamation" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

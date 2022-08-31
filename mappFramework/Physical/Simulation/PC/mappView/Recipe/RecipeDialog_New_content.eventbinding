@@ -25,6 +25,11 @@
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
+      <Operand datatype="ANY_STRING" name="Text">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarMsgBoxText">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
       <EventHandler condition="Duplicate = false">
         <Parallel>
           <Action>
@@ -42,7 +47,7 @@
       <EventHandler condition="Duplicate = true">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="$IAT/Recipe/MsgBox.Confirm.3" header="$IAT/Recipe/Create" icon="Warning" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="=Text" header="$IAT/Recipe/Create" icon="Warning" />
           </Target>
           <Result>
             <ResultHandler condition="result = 4">

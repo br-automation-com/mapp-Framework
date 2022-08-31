@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="AuditTrail_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="AuditTrail_content.SortDialog.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AuditTrail_content" widgetRefId="SortDialog" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AuditList.Action" contentRefId="AuditTrail_content" widgetRefId="AuditList1">
+            <Method xsi:type="widgets.brease.AuditList.Action.OpenConfiguration" type="Sorting" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="AuditTrail_content.FilterDialog.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AuditTrail_content" widgetRefId="FilterDialog" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AuditList.Action" contentRefId="AuditTrail_content" widgetRefId="AuditList1">
+            <Method xsi:type="widgets.brease.AuditList.Action.OpenConfiguration" type="Filtering" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="AuditTrail_content.ButtonArchiveSettings.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="AuditTrail_content" widgetRefId="ButtonArchiveSettings" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="AuditArchiveSettings_dialog" headerText="$IAT/Audit/Dialogs.Settings" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

@@ -1,36 +1,32 @@
-(*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*)
+(*Function Blocks*)
 VAR
-	USB : UsbMainType;
-END_VAR
-(*Local functions*)
-VAR
-	TON_10ms_01 : TON_10ms;
+	TON_01 : TON;
 	UsbNodeListGet_0 : UsbNodeListGet; (*Type of FUB UsbNodeListGet*)
 	UsbNodeGet_0 : UsbNodeGet; (*Type of FUB UsbNodeGet*)
 	DevLink_0 : DevLink; (*Type of FUB DevLink*)
 	DevUnlink_0 : DevUnlink; (*Type of FUB DevUnlink*)
 END_VAR
-(*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*)
-(*Local variables*)
+(*Constants*)
+VAR CONSTANT
+	BRvendorId : UINT := 1615; (*B&R vendor id*)
+	BRproductId : UINT := 1001; (*B&R dongle product id*)
+END_VAR
+(*Structure Types*)
 VAR
+	USB : UsbMainType;
 	StateMachine : UsbStateEnum; (*State machine*)
+	Usb_data : ARRAY[1..MAX_IDX_USB_DEV_LIST] OF usbNode_typ; (*Data of all available USB devices*)
+	Usb_data_old : ARRAY[1..MAX_IDX_USB_DEV_LIST] OF usbNode_typ; (*Old data of all available USB devices*)
+END_VAR
+(*Variables*)
+VAR
 	Device_param : STRING[80]; (*Connection path of USB device*)
 	Device_name : STRING[40]; (*Connection path of USB device*)
 	Link_handle : ARRAY[1..MAX_IDX_USB_DEV_LIST] OF UDINT; (*Link handle for USB device*)
-	Usb_data : ARRAY[1..MAX_IDX_USB_DEV_LIST] OF usbNode_typ; (*Data of all available USB devices*)
-	Usb_data_old : ARRAY[1..MAX_IDX_USB_DEV_LIST] OF usbNode_typ; (*Old data of all available USB devices*)
 	Node_id_buffer : ARRAY[1..MAX_IDX_USB_DEV_LIST] OF UDINT; (*Different nodeIDs saved in array-elements*)
 	Is_linked : BOOL; (*Helper variable that indicates that a USB stick is linked*)
 	Node : USINT; (*Node number*)
 	i : USINT;
 	tmpSTR : STRING[10];
-END_VAR
-(*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*)
-(*Local constants*)
-VAR CONSTANT
-	BRvendorId : UINT := 1615; (*B&R vendor id*)
-	BRproductId : UINT := 1001; (*B&R dongle product id*)
-END_VAR
-VAR
 	ERR_MAX_DEVICE : UINT := 50000; (*Maximum number of dongles reached*)
 END_VAR

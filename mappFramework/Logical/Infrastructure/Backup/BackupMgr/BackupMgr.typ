@@ -9,6 +9,7 @@ TYPE
 	BackupHmiCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
 		Create : BOOL; (*Create a backup*)
 		Restore : BOOL; (*Restore a backup*)
+		Update : BOOL; (*Install an update*)
 		Delete : BOOL; (*Delete a backup*)
 		SaveConfig : BOOL; (*Save automatic backup configuration settings*)
 		Reset : BOOL; (*Error reset*)
@@ -24,6 +25,7 @@ TYPE
 		Error : BOOL; (*Error flag*)
 		CreateAllowed : BOOL; (*Bit to indicate it is allowable to create a backup right now*)
 		RestoreAllowed : BOOL; (*Bit to indicate it is allowable to restore a backup right now*)
+		BackupCtrlEnabled : BOOL; (*Disable control panel for Backup with in Sim*)
 		FileNames : ARRAY[0..49]OF STRING[80]; (*Existing backup file names*)
 		TimeStamps : ARRAY[0..49]OF DATE_AND_TIME; (*Time stamps for existing backups*)
 		Size : {REDUND_UNREPLICABLE} ARRAY[0..49]OF UDINT; (*Sizes of existing backup files*)
@@ -32,9 +34,10 @@ TYPE
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the list of available backups*)
 		SimulationActive : BOOL; (*Flag for if simulation is active*)
 		SelectedIndex : USINT; (*Index of the selected backup file*)
-		LastSelectedIndex : USINT; (*Index of the last selected backup file*)
+		LastSelectedIndex : USINT := 255; (*Index of the last selected backup file*)
 		LastSelectedDeviceIndex : UINT; (*Index of the last selected file device. Compared with MpFileManagerUIConnect.DeviceList.SelectedIndex*)
 		FileOverMax : BOOL; (*Active when more than 50 items detected*)
+		Update : MpBackupAutoUpdateInfoType;
 	END_STRUCT;
 	AutomaticBackupType : 	STRUCT  (*Automatic backup settings*)
 		Enable : BOOL; (*Enable automatic backup feature*)
@@ -68,8 +71,11 @@ TYPE
 		( (*States for backup state machine*)
 		BACKUP_IDLE, (*Wait state*)
 		BACKUP_CREATING, (*Creating a backup*)
+		BACKUP_REFRESHING_LIST, (*Refreshing backup list*)
 		BACKUP_RESTORING, (*Restoring a backup*)
+		BACKUP_UPDATING, (*Installing a new version*)
 		BACKUP_DELETING, (*Deleting a backup*)
+		BACKUP_SIM, (*CPU in simulation mode, don't do anything*)
 		BACKUP_ERROR (*Error state*)
 		);
 END_TYPE

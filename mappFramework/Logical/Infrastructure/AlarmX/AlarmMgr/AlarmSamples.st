@@ -4,18 +4,18 @@ ACTION AlarmSampleInit:
 	
     // If AlarmExamples.LevelMonitoring gets less than 20 or more than 80, the LevelMonitoringExample alarm will trigger
 	// The Low limit is 20. The LowLow limit is 10. The High limit is 80. The HighHigh limit is 90. 
-    AlarmExamples.LevelMonitoring := 50; 
+    AlarmExamples.LevelMonitoring := 50;
 	
 	// If AlarmExamples.DeviationMonitoring deviates from the setpoint (AlarmExamples.DeviationMonitoringSetpoint) by more than 5
 	// units in either direction, the DeviationMonitoringExample alarm will trigger
-	AlarmExamples.DeviationMonitoring := 15; 
+	AlarmExamples.DeviationMonitoring := 15;
 	AlarmExamples.DeviationMonitoringSetpoint := 15;
 	
 	// If AlarmExamples.RateOfChange increases at a rate of more than 5 units per second, the RateOfChangeExample alarm will trigger
-	AlarmExamples.RateOfChange := 0;  
+	AlarmExamples.RateOfChange := 0;
 	
 	// If AlarmExamples.SnippetValue gets between 50 and 100, an alarm will trigger and the current value will be shown in the alarm text
-	AlarmExamples.SnippetValue := 10; 
+	AlarmExamples.SnippetValue := 10;
     
 END_ACTION
 

@@ -31,7 +31,6 @@ TYPE
 		LastMaxSelection : UINT; (*The previous maximum number of recipes*)
 		LastSelectedIndex : UINT; (*The previous selected index*)
 		LastStatus : MpRecipeUIStatusEnum; (*The previous UI status*)
-		CopyStep : RecipeCopyStepEnum; (*State machine step for copying a recipe to/from a USB drive*)
 		CategoryDropdown : STRING[50]; (*Category dropdown value*)
 		EditDialogOpened : BOOL; (*Flag that the edit dialog box was opened*)
 		CreateDialogOpened : BOOL; (*Flag that the create dialog box was opened*)
@@ -63,13 +62,6 @@ END_TYPE
 (*Enumerations*)
 
 TYPE
-	RecipeCopyStepEnum : 
-		( (*State machine step for copying a recipe to/from a USB drive*)
-		REC_COPY_WAIT := 0, (*Wait state*)
-		REC_COPY_TO_USB, (*Copy to USB*)
-		REC_COPY_FROM_USB, (*Copy from USB*)
-		REC_COPY_BUSY (*Busy*)
-		);
 	RecipeHmiStepEnum : 
 		( (*State machine step for HMI commands*)
 		REC_HMI_WAIT, (*Wait*)

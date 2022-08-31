@@ -137,12 +137,22 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="UserX_content.UserListManagement.ItemClick">
-      <Source xsi:type="widgets.brease.UserList.Event" contentRefId="UserX_content" widgetRefId="UserListManagement" event="ItemClick" />
+    <EventBinding id="clientSystem.Event.PasswordChangeRequired">
+      <Source xsi:type="clientSystem.Event" event="PasswordChangeRequired" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:SelectedUser">
-            <Method xsi:type="opcUa.NodeAction.SetValueString" value="=UserName" />
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenChangePasswordDialog" userName="=userName" showPolicy="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_2" comment="Displays warning about duplicate file">
+      <Source xsi:type="opcUa.Event" refId="::UserXMgr:HmiUserX.FileDuplicate" event="ValueChanged" />
+      <EventHandler condition="newValue = true">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXDuplicate_dialog" />
           </Target>
         </Action>
       </EventHandler>
