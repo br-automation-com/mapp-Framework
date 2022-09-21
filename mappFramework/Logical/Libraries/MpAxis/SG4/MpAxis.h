@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* MpAxis 5.18.0 */
+/* MpAxis 5.18.1 */
 
 #ifndef _MPAXIS_
 #define _MPAXIS_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _MpAxis_VERSION
-#define _MpAxis_VERSION 5.18.0
+#define _MpAxis_VERSION 5.18.1
 #endif
 
 #include <bur/plctypes.h>
