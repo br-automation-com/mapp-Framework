@@ -667,22 +667,21 @@ _TEST FIFO_MaxFolderSize_Keep120Files(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2022-04-25 15:09:32Z
+LastUpdated: 2022-09-22 11:55:24Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
 {
-    new_TestFixture("FIFO_20", FIFO_20), 
-    new_TestFixture("FIFO_60", FIFO_60),
-    new_TestFixture("FIFO_140", FIFO_140),
-    new_TestFixture("FIFO_MaxFiles60", FIFO_MaxFiles60), 
-    new_TestFixture("FIFO_MaxFiles120", FIFO_MaxFiles120), 
-    new_TestFixture("FIFO_MaxFolderSize_30Files", FIFO_MaxFolderSize_30Files), 
-    new_TestFixture("FIFO_MaxFolderSize_60Files", FIFO_MaxFolderSize_60Files), 
-    new_TestFixture("FIFO_MaxFolderSize_Keep60Files", FIFO_MaxFolderSize_Keep60Files), 
-    new_TestFixture("FIFO_MaxFolderSize_Keep120Files", FIFO_MaxFolderSize_Keep120Files), 
-
+	new_TestFixture("FIFO_20", FIFO_20), 
+	new_TestFixture("FIFO_60", FIFO_60), 
+	new_TestFixture("FIFO_140", FIFO_140), 
+	new_TestFixture("FIFO_MaxFiles60", FIFO_MaxFiles60), 
+	new_TestFixture("FIFO_MaxFiles120", FIFO_MaxFiles120), 
+	new_TestFixture("FIFO_MaxFolderSize_30Files", FIFO_MaxFolderSize_30Files), 
+	new_TestFixture("FIFO_MaxFolderSize_60Files", FIFO_MaxFolderSize_60Files), 
+	new_TestFixture("FIFO_MaxFolderSize_Keep60Files", FIFO_MaxFolderSize_Keep60Files), 
+	new_TestFixture("FIFO_MaxFolderSize_Keep120Files", FIFO_MaxFolderSize_Keep120Files), 
 };
 
-UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_SetupTeardown, "Set_SetupTeardown", setupTest, teardownTest, fixtures, setupSet, teardownSet, 0);
+UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_FileMgr, "Set_FileMgr", setupTest, teardownTest, fixtures, setupSet, teardownSet, 0);
 

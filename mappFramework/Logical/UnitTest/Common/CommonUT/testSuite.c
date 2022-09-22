@@ -22,9 +22,6 @@ void _INIT initTestSuite(void)
 {
     Testsuite.Enable = 1;
 	utInit(&Testsuite);
-    
-    CommonTestsuite.Enable = 1;
-    utInit(&CommonTestsuite);
 }
 
 

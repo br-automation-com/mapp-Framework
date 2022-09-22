@@ -25,6 +25,8 @@ void _INIT initTestSuite(void)
     
     CommonTestsuite.Enable = 1;
     utInit(&CommonTestsuite);
+    
+    strcpy((UDINT)&FileDeviceName, "mappAlarmXFiles");
 }
 
 
