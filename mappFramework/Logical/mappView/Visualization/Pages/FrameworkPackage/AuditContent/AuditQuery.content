@@ -3,12 +3,12 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.Table" id="Table1" top="40" left="0" width="1120" height="580" zIndex="0" cellAlign="left center">
       <Widgets>
-        <Widget xsi:type="widgets.brease.TableItemDateTime" id="TableItemDateTime1" zIndex="0" columnWidth="300" text="$IAT/Audit/Timestamp" />
-        <Widget xsi:type="widgets.brease.TableItem" id="TableItem1" zIndex="1" columnWidth="150" text="$IAT/Audit/Operator" />
-        <Widget xsi:type="widgets.brease.TableItem" id="TableItem2" zIndex="2" columnWidth="670" text="$IAT/Audit/Message" />
+        <Widget xsi:type="widgets.brease.TableItemDateTime" id="TableItemDateTime1" zIndex="0" columnWidth="300" text="$IAT/mappFramework/Audit/Timestamp" />
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItem1" zIndex="1" columnWidth="150" text="$IAT/mappFramework/Audit/Operator" />
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItem2" zIndex="2" columnWidth="670" text="$IAT/mappFramework/Audit/Message" />
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.PushButton" id="PushButtonRunQuery" top="0" left="960" width="160" zIndex="1" text="$IAT/Audit/RunQuery" permissionOperate="['Administrators', 'Service']" style="Operate" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushButtonRunQuery" top="0" left="960" width="160" zIndex="1" text="$IAT/mappFramework/Audit/RunQuery" permissionOperate="['Administrators', 'Service']" style="Operate" />
     <Widget xsi:type="widgets.brease.DropDownBox" id="ddQuerySel" top="0" left="745" width="200" zIndex="2" dataProvider="[{'value':'UserEvents','text':'User Events Query'},{'value':'RecipeEvents','text':'Recipe Events Query'}]" listPosition="center" listWidth="200" selectedValue="UserEvents" permissionOperate="['Administrators', 'Service']" style="ListBottom" />
   </Widgets>
 </Content>

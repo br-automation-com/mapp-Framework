@@ -49,18 +49,18 @@
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="RecipeName" attribute="value" />
-			<Target xsi:type="text" refId="IAT/Recipe/DeleteRecipe" attribute="value" />
+			<Target xsi:type="text" refId="IAT/mappFramework/Recipe/DeleteRecipe" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="RecipeName" attribute="value" />
-			<Target xsi:type="text" refId="IAT/Recipe/LoadRecipe" attribute="value" />
+			<Target xsi:type="text" refId="IAT/mappFramework/Recipe/LoadRecipe" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
-			<Source xsi:type="text" refId="IAT/Recipe/DeleteRecipe" attribute="value" />
+			<Source xsi:type="text" refId="IAT/mappFramework/Recipe/DeleteRecipe" attribute="value" />
 			<Target xsi:type="session" refId="SessionVarDeleteRecipeText" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
-			<Source xsi:type="text" refId="IAT/Recipe/LoadRecipe" attribute="value" />
+			<Source xsi:type="text" refId="IAT/mappFramework/Recipe/LoadRecipe" attribute="value" />
 			<Target xsi:type="session" refId="SessionVarLoadRecipeText" attribute="value" />
 		</Binding>		
 		<Binding mode="twoWay">
@@ -159,11 +159,11 @@
 		</Binding>		
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="NewRecipeName" attribute="value" />
-			<Target xsi:type="text" refId="IAT/Recipe/CreateNewRecipe" attribute="value" />
+			<Target xsi:type="text" refId="IAT/mappFramework/Recipe/CreateNewRecipe" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="NewRecipeName" attribute="value" />
-			<Target xsi:type="text" refId="IAT/Recipe/MsgBox.Confirm.3" attribute="value" />
+			<Target xsi:type="text" refId="IAT/mappFramework/Recipe/MsgBox.Confirm.3" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="NewRecipeName" attribute="value" />
@@ -171,7 +171,7 @@
 		</Binding>
 		
 		<Binding mode="oneWay">
-			<Source xsi:type="text" refId="IAT/Recipe/MsgBox.Confirm.3" attribute="value" />
+			<Source xsi:type="text" refId="IAT/mappFramework/Recipe/MsgBox.Confirm.3" attribute="value" />
 			<Target xsi:type="session" refId="SessionVarMsgBoxText" attribute="value" />
 		</Binding>
 		
@@ -181,7 +181,7 @@
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="IndexTextSnippetRecipeMsgBoxType" attribute="value" />
-			<Target xsi:type="text" refId="IAT/Recipe/MsgBoxType" attribute="value" />
+			<Target xsi:type="text" refId="IAT/mappFramework/Recipe/MsgBoxType" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="IndexTextSnippetRecipeMsgBoxType" attribute="value" />

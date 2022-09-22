@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="Recipe_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Button" id="BtnDelete" top="550" left="990" height="100" zIndex="0" image="Media/SymbolLib/Edit/Delete.svg" imageAlign="top" text="$IAT/Recipe/Delete" imageHeight="30" imageWidth="30" textAlign="center" fontSize="18px" permissionOperate="['Administrators', 'Service']" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="BtnCreate" top="550" left="650" height="100" zIndex="1" image="Media/SymbolLib/Edit/Save.svg" imageAlign="top" text="$IAT/Recipe/New" imageHeight="30" imageWidth="30" fontSize="18px" permissionOperate="['Administrators', 'Service']" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="BtnEdit" top="550" left="877" height="100" zIndex="2" image="Media/SymbolLib/Edit/Edit.svg" imageAlign="top" text="$IAT/Recipe/Edit" imageHeight="30" imageWidth="30" fontSize="18px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnDelete" top="550" left="990" height="100" zIndex="0" image="Media/SymbolLib/Edit/Delete.svg" imageAlign="top" text="$IAT/mappFramework/Recipe/Delete" imageHeight="30" imageWidth="30" textAlign="center" fontSize="18px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnCreate" top="550" left="650" height="100" zIndex="1" image="Media/SymbolLib/Edit/Save.svg" imageAlign="top" text="$IAT/mappFramework/Recipe/New" imageHeight="30" imageWidth="30" fontSize="18px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnEdit" top="550" left="877" height="100" zIndex="2" image="Media/SymbolLib/Edit/Edit.svg" imageAlign="top" text="$IAT/mappFramework/Recipe/Edit" imageHeight="30" imageWidth="30" fontSize="18px" permissionOperate="['Administrators', 'Service']" style="Command" />
     <Widget xsi:type="widgets.brease.Table" id="Tbl" top="100" left="30" width="600" height="440" zIndex="3" rowHeight="40" cornerRadius="0px 0px 0px 0px" fontSize="18px" headerFontSize="20px">
       <Widgets>
-        <Widget xsi:type="widgets.brease.TableItem" id="TblItmRecipeList" zIndex="0" columnWidth="360" rowHeight="40" text="$IAT/Recipe/RecipeList" />
-        <Widget xsi:type="widgets.brease.TableItem" id="TableItemTimeStamp" zIndex="1" columnWidth="240" text="$IAT/Recipe/TimeStamp" />
+        <Widget xsi:type="widgets.brease.TableItem" id="TblItmRecipeList" zIndex="0" columnWidth="360" rowHeight="40" text="$IAT/mappFramework/Recipe/RecipeList" />
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItemTimeStamp" zIndex="1" columnWidth="240" text="$IAT/mappFramework/Recipe/TimeStamp" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.NavigationButton" id="NavBtnWelcomePage" top="740" left="220" zIndex="4" pageId="Welcome_page" text="NavigationButton1" />
-    <Widget xsi:type="widgets.brease.Button" id="BtnLoad" top="550" left="763" height="100" zIndex="5" image="Media/SymbolLib/File/Recipe.svg" imageAlign="top" text="$IAT/Recipe/Load" imageHeight="30" imageWidth="30" fontSize="18px" permissionOperate="['Administrators', 'Operators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnLoad" top="550" left="763" height="100" zIndex="5" image="Media/SymbolLib/File/Recipe.svg" imageAlign="top" text="$IAT/mappFramework/Recipe/Load" imageHeight="30" imageWidth="30" fontSize="18px" permissionOperate="['Administrators', 'Operators', 'Service']" style="Command" />
     <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownBoxRecipeDevice" top="50" left="130" width="160" height="40" zIndex="7" dataProvider="[{'value':'mappRecipeFiles','text':'CF/PLC'},{'value':'USB1','text':'USB1'},{'value':'USB2','text':'USB2'}]" selectedValue="mappRecipeFiles" fontSize="18px" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelFileDev" top="50" left="30" width="100" height="40" zIndex="8" text="$IAT/Recipe/FileDevice" fontName="Arial Unicode" fontSize="16px" bold="true" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonRecipePageDown" top="605" left="480" width="150" height="45" zIndex="9" text="$IAT/Recipe/PageDown" fontSize="18px" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonRecipePageUp" top="550" left="480" width="150" height="45" zIndex="10" text="$IAT/Recipe/PageUp" fontSize="18px" style="Command" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelFileDev1" top="50" left="320" width="100" height="40" zIndex="11" text="$IAT/Recipe/Category" fontName="Arial Unicode" fontSize="16px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelFileDev" top="50" left="30" width="100" height="40" zIndex="8" text="$IAT/mappFramework/Recipe/FileDevice" fontName="Arial Unicode" fontSize="16px" bold="true" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonRecipePageDown" top="605" left="480" width="150" height="45" zIndex="9" text="$IAT/mappFramework/Recipe/PageDown" fontSize="18px" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="ButtonRecipePageUp" top="550" left="480" width="150" height="45" zIndex="10" text="$IAT/mappFramework/Recipe/PageUp" fontSize="18px" style="Command" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelFileDev1" top="50" left="320" width="100" height="40" zIndex="11" text="$IAT/mappFramework/Recipe/Category" fontName="Arial Unicode" fontSize="16px" bold="true" />
     <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownBoxRecipeCategory" top="50" left="400" width="220" height="40" zIndex="12" dataProvider="[{'value':'Parameters','text':'Parameters'},{'value':'Machine Configuration','text':'Machine Settings'}]" listWidth="220" selectedValue="Product" fontSize="18px" />
-    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="100" left="650" width="440" height="440" zIndex="31" text="$IAT/Recipe/Preview">
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBox1" top="100" left="650" width="440" height="440" zIndex="31" text="$IAT/mappFramework/Recipe/Preview">
       <Widgets>
         <Widget xsi:type="widgets.brease.ContentControl" id="ContentControlPreview" top="80" left="0" width="440" height="325" zIndex="0" contentId="RecipePreviewPars_content" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelSelectedRecipe" top="10" left="130" width="150" height="40" zIndex="2" breakWord="true" multiLine="true" text="$IAT/Recipe/SelectedRecipe" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelActiveRecipe" top="10" left="300" width="135" height="40" zIndex="1" breakWord="true" multiLine="true" text="$IAT/Recipe/ActiveRecipe" fontSize="18px" bold="true" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelSelectedRecipe" top="10" left="130" width="150" height="40" zIndex="2" breakWord="true" multiLine="true" text="$IAT/mappFramework/Recipe/SelectedRecipe" fontSize="18px" bold="true" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelActiveRecipe" top="10" left="300" width="135" height="40" zIndex="1" breakWord="true" multiLine="true" text="$IAT/mappFramework/Recipe/ActiveRecipe" fontSize="18px" bold="true" />
         <Widget xsi:type="widgets.brease.TextOutput" id="txtOutRecipeName" top="50" left="300" width="140" height="35" zIndex="3" breakWord="true" multiLine="true" value="LoadedRecipeName" wordWrap="true" textAlign="left top" fontSize="12px" padding="5px" />
         <Widget xsi:type="widgets.brease.TextOutput" id="txtOutSelectedRecipe" top="50" left="130" width="170" height="40" zIndex="4" breakWord="true" multiLine="true" value="SelectedRecipeName" wordWrap="true" textAlign="left top" fontSize="12px" padding="5px" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelInvalidRecipe" top="5" left="130" width="100" height="10" zIndex="5" text="$IAT/Recipe/InvalidRecipe" style="Error" visible="false" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelInvalidRecipe" top="5" left="130" width="100" height="10" zIndex="5" text="$IAT/mappFramework/Recipe/InvalidRecipe" style="Error" visible="false" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.Image" id="Image1" top="50" left="650" width="40" height="40" zIndex="32" image="Media/InProgressGray.gif" visible="false" />
