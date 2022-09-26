@@ -401,7 +401,7 @@ _TEST FIFO_MaxFolderSize_30Files(void)
             FileWrite_UT.enable = true;
             FileWrite_UT.ident = FileCreate_UT.ident;
             FileWrite_UT.offset = 0;
-            FileWrite_UT.pSrc = &testData;
+            FileWrite_UT.pSrc = (UDINT)&testData;
             FileWrite_UT.len = sizeof(testData);
             FileWrite(&FileWrite_UT);
             TEST_BUSY_CONDITION(FileWrite_UT.status == 65535);
@@ -472,7 +472,7 @@ _TEST FIFO_MaxFolderSize_60Files(void)
             FileWrite_UT.enable = true;
             FileWrite_UT.ident = FileCreate_UT.ident;
             FileWrite_UT.offset = 0;
-            FileWrite_UT.pSrc = &testData;
+            FileWrite_UT.pSrc = (UDINT)&testData;
             FileWrite_UT.len = sizeof(testData);
             FileWrite(&FileWrite_UT);
             TEST_BUSY_CONDITION(FileWrite_UT.status == 65535);
@@ -543,7 +543,7 @@ _TEST FIFO_MaxFolderSize_Keep60Files(void)
             FileWrite_UT.enable = true;
             FileWrite_UT.ident = FileCreate_UT.ident;
             FileWrite_UT.offset = 0;
-            FileWrite_UT.pSrc = &testData;
+            FileWrite_UT.pSrc = (UDINT)&testData;
             FileWrite_UT.len = sizeof(testData);
             FileWrite(&FileWrite_UT);
             TEST_BUSY_CONDITION(FileWrite_UT.status == 65535);
@@ -614,7 +614,7 @@ _TEST FIFO_MaxFolderSize_Keep120Files(void)
             FileWrite_UT.enable = true;
             FileWrite_UT.ident = FileCreate_UT.ident;
             FileWrite_UT.offset = 0;
-            FileWrite_UT.pSrc = &testData;
+            FileWrite_UT.pSrc = (UDINT)&testData;
             FileWrite_UT.len = sizeof(testData);
             FileWrite(&FileWrite_UT);
             TEST_BUSY_CONDITION(FileWrite_UT.status == 65535);

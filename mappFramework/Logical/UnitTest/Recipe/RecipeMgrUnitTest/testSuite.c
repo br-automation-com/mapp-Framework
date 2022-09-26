@@ -15,8 +15,7 @@
 #endif
 
 #include "UnitTest.h"
-
-
+#include <string.h>
 
 void _INIT initTestSuite(void)
 {
@@ -26,7 +25,10 @@ void _INIT initTestSuite(void)
     CommonTestsuite.Enable = 1;
     utInit(&CommonTestsuite);
     
-    strcpy((UDINT)&FileDeviceName, "mappRecipeFiles");
+    strcpy((char*)&FileDeviceName, "mappRecipeFiles");
+    strcpy((char*)&TextNameSpace, "Recipe/Alarms");
+    strcpy((char*)&TextID, "SaveFailed");
+
 }
 
 

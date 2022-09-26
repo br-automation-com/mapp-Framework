@@ -26,10 +26,9 @@ void _INIT initTestSuite(void)
     CommonTestsuite.Enable = 1;
     utInit(&CommonTestsuite);
     
-    strcpy((char*)&FileDeviceName, "mappBackupFiles");
-    strcpy((char*)&TextNameSpace, "Backup");
-    strcpy((char*)&TextID, "");
-
+    strcpy((char*)&FileDeviceName, "mappAuditFiles");
+    strcpy((char*)&TextNameSpace, "Audit/Alarms");
+    strcpy((char*)&TextID, "Samples.HELLO_WORLD");
 }
 
 

@@ -15,7 +15,7 @@
 #endif
 
 #include "UnitTest.h"
-
+#include <string.h>
 
 
 void _INIT initTestSuite(void)
@@ -26,7 +26,9 @@ void _INIT initTestSuite(void)
     CommonTestsuite.Enable = 1;
     utInit(&CommonTestsuite);
     
-    strcpy((UDINT)&FileDeviceName, "mappAlarmXFiles");
+    strcpy((char*)&FileDeviceName, "mappAlarmXFiles");
+    strcpy((char*)&TextNameSpace, "Alarms");
+    strcpy((char*)&TextID, "EmergencyStop.0");
 }
 
 
