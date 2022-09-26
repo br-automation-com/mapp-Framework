@@ -26,7 +26,7 @@ void _INIT initTestSuite(void)
     utInit(&CommonTestsuite);
     
     strcpy((char*)&FileDeviceName, "mappRecipeFiles");
-    strcpy((char*)&TextNameSpace, "Recipe/Alarms");
+    strcpy((char*)&TextNameSpace, "mappFramework/Recipe/Alarms");
     strcpy((char*)&TextID, "SaveFailed");
 
 }

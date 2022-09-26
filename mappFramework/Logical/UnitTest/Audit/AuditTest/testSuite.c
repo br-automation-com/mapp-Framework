@@ -27,8 +27,8 @@ void _INIT initTestSuite(void)
     utInit(&CommonTestsuite);
     
     strcpy((char*)&FileDeviceName, "mappAuditFiles");
-    strcpy((char*)&TextNameSpace, "Audit/Alarms");
-    strcpy((char*)&TextID, "Samples.HELLO_WORLD");
+    strcpy((char*)&TextNameSpace, "mappFramework/Audit/Alarms");
+    strcpy((char*)&TextID, "ArchiveAvailable");
 }
 
 

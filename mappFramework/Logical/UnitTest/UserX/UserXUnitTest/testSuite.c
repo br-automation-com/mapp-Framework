@@ -26,7 +26,7 @@ void _INIT initTestSuite(void)
     utInit(&CommonTestsuite);
     
     strcpy((char*)&FileDeviceName, "mappUserXFiles");
-    strcpy((char*)&TextNameSpace, "UserX/Alarms");
+    strcpy((char*)&TextNameSpace, "mappFramework/UserX/Alarms");
     strcpy((char*)&TextID, "UserLocked");
 
 }

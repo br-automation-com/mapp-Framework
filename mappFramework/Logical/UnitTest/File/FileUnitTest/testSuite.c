@@ -26,7 +26,7 @@ void _INIT initTestSuite(void)
     CommonTestsuite.Enable = 1;
     utInit(&CommonTestsuite);
     
-    strcpy((char*)&TextNameSpace, "File/Alarms");
+    strcpy((char*)&TextNameSpace, "mappFramework/File/Alarms");
     strcpy((char*)&TextID, "DeviceNotFound");
 }
 

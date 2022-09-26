@@ -27,8 +27,8 @@ void _INIT initTestSuite(void)
     utInit(&CommonTestsuite);
     
     strcpy((char*)&FileDeviceName, "mappBackupFiles");
-    strcpy((char*)&TextNameSpace, "Backup");
-    strcpy((char*)&TextID, "");
+    strcpy((char*)&TextNameSpace, "mappFramework/Backup/Alarms");
+    strcpy((char*)&TextID, "CreateFailed");
 
 }
 
