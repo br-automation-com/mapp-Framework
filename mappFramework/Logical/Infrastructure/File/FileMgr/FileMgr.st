@@ -53,7 +53,7 @@ PROGRAM _INIT
 	PathCheck.Folder[6] := 'UserX';
 	
 	HmiFile.Status.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"mappRecipeFiles"}';
-	HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappAuditFiles","text":"mappAuditFiles"}';
+    HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappAuditFiles","text":"mappAuditFiles"}';
 	HmiFile.Status.DeviceDataProvider[2] := '{"value":"mappReportFiles","text":"mappReportFiles"}';
 	HmiFile.Status.DeviceDataProvider[3] := '{"value":"mappDataFiles","text":"mappDataFiles"}';
 	HmiFile.Status.DeviceDataProvider[4] := '{"value":"mappBackupFiles","text":"mappBackupFiles"}';

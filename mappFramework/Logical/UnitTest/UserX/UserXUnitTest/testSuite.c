@@ -17,7 +17,6 @@
 
 #include "UnitTest.h"
 
-
 void _INIT initTestSuite(void)
 {
     Testsuite.Enable = 1;
@@ -26,8 +25,10 @@ void _INIT initTestSuite(void)
     CommonTestsuite.Enable = 1;
     utInit(&CommonTestsuite);
     
-    strcpy((char*)&TextNameSpace, "File/Alarms");
-    strcpy((char*)&TextID, "DeviceNotFound");
+    strcpy((char*)&FileDeviceName, "mappUserXFiles");
+    strcpy((char*)&TextNameSpace, "UserX/Alarms");
+    strcpy((char*)&TextID, "UserLocked");
+
 }
 
 

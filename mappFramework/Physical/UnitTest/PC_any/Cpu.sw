@@ -9,18 +9,27 @@
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
   <TaskClass Name="Cyclic#8">
-    <Task Name="FileMgr" Source="Infrastructure.File.FileMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AlarmMgr" Source="Infrastructure.AlarmX.AlarmMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AlarmXUnit" Source="UnitTest.AlarmX.AlarmXUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
+    <Task Name="AuditMgr" Source="Infrastructure.Audit.AuditMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AuditTest" Source="UnitTest.Audit.AuditTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
     <Task Name="BackupMgr" Source="Infrastructure.Backup.BackupMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="BackupUnit" Source="UnitTest.Backup.BackupUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
+    <Task Name="FileMgr" Source="Infrastructure.File.FileMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="FileTest" Source="UnitTest.File.FileUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
     <Task Name="UsbMgr" Source="Infrastructure.Usb.UsbMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="RecipeMgr" Source="Infrastructure.Recipe.RecipeMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="RecipeMgrU" Source="UnitTest.Recipe.RecipeMgrUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
     <Task Name="UserXMgr" Source="Infrastructure.UserX.UserXMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="FileTest" Source="UnitTest.File.FileUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
+    <Task Name="UserXUnitT" Source="UnitTest.UserX.UserXUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
   </TaskClass>
   <NcDataObjects>
     <NcDataObject Name="mcdrivelog" Source="" Memory="UserROM" Language="Binary" />
   </NcDataObjects>
   <Binaries>
+    <BinaryObject Name="asfw" Source="" Memory="SystemROM" Language="Binary" />
+    <BinaryObject Name="ashwd" Source="" Memory="SystemROM" Language="Binary" />
+    <BinaryObject Name="ashwac" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arsvcreg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TCData" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="TCLang" Source="" Memory="UserROM" Language="Binary" />
@@ -32,11 +41,8 @@
     <BinaryObject Name="mcprofgen" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="mcacpdrv" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="iomap" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="asfw" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="arconfig" Source="" Memory="SystemROM" Language="Binary" />
-    <BinaryObject Name="ashwd" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="sysconf" Source="" Memory="SystemROM" Language="Binary" />
-    <BinaryObject Name="ashwac" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="FileCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="RecipeFile" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Axis1Grp" Source="" Memory="UserROM" Language="Binary" />
@@ -72,7 +78,9 @@
     <LibraryObject Name="McAcpAx" Source="Libraries.McAcpAx.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="McAxis" Source="Libraries.McAxis.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="MpBase" Source="Libraries.MpBase.lby" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="standard" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="ArTextSys" Source="Libraries.ArTextSys.lby" Memory="UserROM" Language="binary" Debugging="true" />
+    <LibraryObject Name="standard" Source="Libraries.standard.lby" Memory="UserROM" Language="binary" Debugging="true" />
+    <LibraryObject Name="operator" Source="Libraries.operator.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="asusb" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="mpfile" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="fileio" Source="" Memory="UserROM" Language="Binary" Debugging="true" />

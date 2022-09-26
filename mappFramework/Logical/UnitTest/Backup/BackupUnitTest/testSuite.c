@@ -13,9 +13,9 @@
 #ifdef _DEFAULT_INCLUDES
 #include <AsDefault.h>
 #endif
-#include <string.h>
 
 #include "UnitTest.h"
+#include <string.h>
 
 
 void _INIT initTestSuite(void)
@@ -26,8 +26,10 @@ void _INIT initTestSuite(void)
     CommonTestsuite.Enable = 1;
     utInit(&CommonTestsuite);
     
-    strcpy((char*)&TextNameSpace, "File/Alarms");
-    strcpy((char*)&TextID, "DeviceNotFound");
+    strcpy((char*)&FileDeviceName, "mappBackupFiles");
+    strcpy((char*)&TextNameSpace, "Backup");
+    strcpy((char*)&TextID, "");
+
 }
 
 
