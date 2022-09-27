@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Configuration>
-  <Element ID="gSimpleReport" Type="mpreportcore">
+  <Element ID="gReport_21CFR1" Type="mpreportcore">
     <Group ID="MpReport">
       <Group ID="Settings">
         <Property ID="ResourceDeviceName" Value="mappReportFiles" />
@@ -490,6 +490,10 @@
           </Group>
           <Group ID="WHERE">
             <Property ID="Connect" Value="" />
+            <Group ID="[0]" />
+            <Group ID="[1]" />
+            <Group ID="[2]" />
+            <Group ID="[3]" />
           </Group>
         </Selector>
         <Selector ID="[1]" Value="AuditTrail">
@@ -529,6 +533,10 @@
           </Group>
           <Group ID="WHERE">
             <Property ID="Connect" Value="" />
+            <Group ID="[0]" />
+            <Group ID="[1]" />
+            <Group ID="[2]" />
+            <Group ID="[3]" />
           </Group>
         </Selector>
       </Group>
@@ -540,12 +548,16 @@
             <Property ID="HorizontalAlign" Value="2" />
           </Selector>
           <Selector ID="[1]">
-            <Property ID="Text" Value="{$MpReport/Ex/SimpleHeaderText}" />
+            <Property ID="Text" Value="{$MpReport/Ex/HeaderText_21CFR1}" />
             <Property ID="HorizontalAlign" Value="1" />
             <Property ID="NewLine" Value="FALSE" />
             <Property ID="TextStyle" Value="Title" />
           </Selector>
-          <Selector ID="[2]" Value="EmptyLine">
+          <Selector ID="[2]">
+            <Property ID="Text" Value="{$MpReport/Ex/BatchHeaderText}" />
+            <Property ID="TextStyle" Value="Default" />
+          </Selector>
+          <Selector ID="[3]" Value="EmptyLine">
             <Property ID="Size" Value="20" />
           </Selector>
         </Group>
@@ -747,10 +759,23 @@
             <Property ID="Size" Value="20" />
           </Selector>
         </Group>
+        <Group ID="[12]">
+          <Property ID="Name" Value="OperatorSignature" />
+          <Selector ID="[0]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="20" />
+          </Selector>
+          <Selector ID="[2]">
+            <Property ID="Text" Value="{$MpReport/Ex/OperatorSignature}" />
+            <Property ID="TextStyle" Value="Default" />
+          </Selector>
+        </Group>
       </Group>
       <Group ID="Reports">
         <Group ID="[0]">
-          <Property ID="Name" Value="SimpleReport" />
+          <Property ID="Name" Value="Report_21CFR1" />
           <Property ID="PageLayout" Value="Default" />
           <Property ID="Header" Value="Header" />
           <Property ID="Footer" Value="Footer" />
@@ -844,6 +869,12 @@
             </Group>
             <Group ID="[0]">
               <Property ID="Content" Value="Audits" />
+            </Group>
+          </Group>
+          <Group ID="[10]">
+            <Property ID="StartOnNewPage" Value="TRUE" />
+            <Group ID="[0]">
+              <Property ID="Content" Value="OperatorSignature" />
             </Group>
           </Group>
         </Group>
