@@ -35,6 +35,7 @@ PROGRAM _INIT
     
 	HmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackupFiles","text":"CF/PLC"}';
 	
+	// Restored the retained values to the backup settings
 	HmiBackup.Parameters.AutomaticBackup := AutomaticBackupRetain;
 	    
 END_PROGRAM

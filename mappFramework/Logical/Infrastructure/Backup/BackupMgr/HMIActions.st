@@ -37,8 +37,7 @@ ACTION FormatDeviceDataProvider:
 END_ACTION
 
 ACTION SaveBackupConfiguration:
-    
-	AutomaticBackupRetain := HmiBackup.Parameters.AutomaticBackup;
+    	
     MpBackupConfiguration.AutomaticBackup.Enabled := HmiBackup.Parameters.AutomaticBackup.Enable;
     MpBackupConfiguration.AutomaticBackup.NamePrefix := HmiBackup.Parameters.AutomaticBackup.Prefix;
     MpBackupConfiguration.AutomaticBackup.DeviceName := HmiBackup.Parameters.AutomaticBackup.Device;
@@ -70,6 +69,8 @@ ACTION SaveBackupConfiguration:
             MpBackupConfiguration.AutomaticBackup.Mode.Day := mpBACKUP_DAY_SUNDAY;
     END_CASE
     
+	// Save current backup setings to retain variable
+	AutomaticBackupRetain := HmiBackup.Parameters.AutomaticBackup;
     
  END_ACTION
 
