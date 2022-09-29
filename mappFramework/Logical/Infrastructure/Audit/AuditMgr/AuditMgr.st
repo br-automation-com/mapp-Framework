@@ -60,7 +60,10 @@ PROGRAM _INIT
 	ELSIF (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[0]), 0, ADR(ident)) = 0) AND (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[1]), 0, ADR(ident)) <> 0) THEN
 		HmiAudit.Status.DeviceDataProvider[0] := '{"value":"UserEvents","text":"User Events Query"}';
 	END_IF
-	 
+	
+	// Restored the retained values to the archive settings
+	HmiAudit.Parameters.ArchiveSettings := ArchiveSettingsRetain;
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC

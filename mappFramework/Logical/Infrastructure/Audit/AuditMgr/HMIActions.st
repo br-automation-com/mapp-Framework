@@ -36,6 +36,9 @@ ACTION SaveAuditConfiguration:
 	AuditTrailConfig.Archive.MaxSize := HmiAudit.Parameters.ArchiveSettings.MaxSize;
 	AuditTrailConfig.Archive.Mode := HmiAudit.Parameters.ArchiveSettings.Mode;
 	AuditTrailConfig.Export.FileType := HmiAudit.Parameters.ArchiveSettings.FileType;
+	
+	// Save current archive setings to retain variable
+	ArchiveSettingsRetain := HmiAudit.Parameters.ArchiveSettings;
     
  END_ACTION
 
