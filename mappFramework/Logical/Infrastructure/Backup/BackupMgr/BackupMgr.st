@@ -34,6 +34,8 @@ PROGRAM _INIT
 	MpBackupCoreConfig_0();
     
 	HmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackupFiles","text":"CF/PLC"}';
+	
+	HmiBackup.Parameters.AutomaticBackup := AutomaticBackupRetain;
 	    
 END_PROGRAM
 
@@ -188,7 +190,7 @@ PROGRAM _CYCLIC
     
 	HmiBackup.Status.RestoreAllowed := (MpFileManagerUIConnect.File.PathInfo.FolderCount > 0) AND NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress) AND NOT HmiBackup.Status.SimulationActive;
 	HmiBackup.Status.Update := MpBackupCore_0.Info.Automatic.Update;
-	HmiBackup.Status.BackupCtrlEnabled := (NOT HmiBackup.Status.SimulationActive) AND (MpBackupCore_0.Info.Project.Requested.Name <> '');
+	HmiBackup.Status.BackupCtrlEnabled := (NOT HmiBackup.Status.SimulationActive);
 	
 	// Call all actions
 	FileManager;

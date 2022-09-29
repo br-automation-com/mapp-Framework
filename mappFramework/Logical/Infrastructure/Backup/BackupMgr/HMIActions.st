@@ -38,6 +38,7 @@ END_ACTION
 
 ACTION SaveBackupConfiguration:
     
+	AutomaticBackupRetain := HmiBackup.Parameters.AutomaticBackup;
     MpBackupConfiguration.AutomaticBackup.Enabled := HmiBackup.Parameters.AutomaticBackup.Enable;
     MpBackupConfiguration.AutomaticBackup.NamePrefix := HmiBackup.Parameters.AutomaticBackup.Prefix;
     MpBackupConfiguration.AutomaticBackup.DeviceName := HmiBackup.Parameters.AutomaticBackup.Device;

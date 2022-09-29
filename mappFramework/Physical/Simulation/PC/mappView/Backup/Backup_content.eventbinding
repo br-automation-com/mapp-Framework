@@ -183,5 +183,27 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="HmiBackup.Status.Info.Name.ValueChange">
+      <Source xsi:type="opcUa.Event" refId="::BackupMgr:HmiBackup.Status.Info.Name" event="ValueChanged" />
+      <Operand datatype="BOOL" name="BackupCtrlEnabled">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::BackupMgr:HmiBackup.Status.BackupCtrlEnabled">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="BackupCtrlEnabled = true AND newValue &lt;&gt; &quot;&quot;">
+        <Action>
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="Backup_content" widgetRefId="grpBobDetails">
+            <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="BackupCtrlEnabled = false OR newValue = &quot;&quot;">
+        <Action>
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="Backup_content" widgetRefId="grpBobDetails">
+            <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
