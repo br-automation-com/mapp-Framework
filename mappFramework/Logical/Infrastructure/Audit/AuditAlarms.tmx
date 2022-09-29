@@ -2,18 +2,32 @@
 <tmx version="1.4">
   <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
     <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
-    <prop type="x-BR-TS:Namespace">Audit/Alarms</prop>
+    <prop type="x-BR-TS:Namespace">mappFramework/Audit/Alarms</prop>
   </header>
   <body>
-    <tu tuid="Samples.HELLO_WORLD">
+    <tu tuid="ArchiveAvailable">
       <tuv xml:lang="de">
-        <seg>Servus Welt!</seg>
+        <seg>Archiv zum Export bereit</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>存档准备导出</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Hello world!</seg>
+        <seg>Archive ready for export</seg>
       </tuv>
       <tuv xml:lang="fr">
         <seg>Bonjour tout le monde!</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MaxArchives">
+      <tuv xml:lang="de">
+        <seg>Die maximale Anzahl an Archiven wurde erreicht. Zusätzliche Archive sind nicht möglich.</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>已达到最大存档数。 无法进行其他存档。</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>The maximum number of archives has been reached. Additional archives are not possible.</seg>
       </tuv>
     </tu>
   </body>

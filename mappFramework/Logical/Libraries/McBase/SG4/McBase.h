@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McBase 5.18.0 */
+/* McBase 5.18.1 */
 
 #ifndef _MCBASE_
 #define _MCBASE_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McBase_VERSION
-#define _McBase_VERSION 5.18.0
+#define _McBase_VERSION 5.18.1
 #endif
 
 #include <bur/plctypes.h>

@@ -23,8 +23,8 @@ PROGRAM _INIT
 	MpAxisParameters.Homing.Mode := mcHOMING_DEFAULT;
 	
     // Enable mapp function blocks
-	MpAlarmXCore_0.Enable := TRUE;
-	MpAxisBasic_0.Enable := TRUE;
+    MpAxisBasic_0.Enable := TRUE;
+    MpAlarmXCore_0.Enable := TRUE;
 
 END_PROGRAM
 
@@ -32,16 +32,16 @@ PROGRAM _CYCLIC
 
     MpAxisBasic_0.MpLink := ADR(gMpLinkAppAxis_1);
 
-	// Call all actions
+    // Call all actions
     SimulationControl;
     AxisStateMachine;
     AxisCyclic;
     RecipeCyclic;
-    
-	// Assign MpLink
-	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
+
+    // Assign MpLink
+    MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
 	
-	// Call function block
+    // Call function block
     MpAlarmXCore_0();
 
 END_PROGRAM

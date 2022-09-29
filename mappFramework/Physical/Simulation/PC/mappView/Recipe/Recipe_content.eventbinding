@@ -11,7 +11,7 @@
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="=myDeleteRecipeText" header="$IAT/Recipe/Delete" icon="Question" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="=myDeleteRecipeText" header="$IAT/mappFramework/Recipe/Delete" icon="Question" />
           </Target>
           <Result>
             <ResultHandler condition="result = 1">
@@ -49,7 +49,7 @@
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="=myLoadRecipeText" header="$IAT/Recipe/Load" icon="Question" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="=myLoadRecipeText" header="$IAT/mappFramework/Recipe/Load" icon="Question" />
           </Target>
           <Result>
             <ResultHandler condition="result = 1">
@@ -290,7 +290,7 @@
       <EventHandler condition="contentId = &quot;RecipePreviewPars_content&quot; AND DefaultParametersMissing">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Recipe/MissingRecipeText" header="$IAT/Recipe/MissingRecipeHeader" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingRecipeText" header="$IAT/mappFramework/Recipe/MissingRecipeHeader" />
           </Target>
           <Result>
             <ResultHandler condition="result = 4">
@@ -305,7 +305,7 @@
                 <Step order="2">
                   <Action>
                     <Target xsi:type="clientSystem.Action">
-                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" headerText="$IAT/Recipe/New" />
+                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" headerText="$IAT/mappFramework/Recipe/New" />
                     </Target>
                   </Action>
                 </Step>
@@ -340,7 +340,7 @@
                 <Step order="2">
                   <Action>
                     <Target xsi:type="clientSystem.Action">
-                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" headerText="$IAT/Recipe/New" />
+                      <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" headerText="$IAT/mappFramework/Recipe/New" />
                     </Target>
                   </Action>
                 </Step>

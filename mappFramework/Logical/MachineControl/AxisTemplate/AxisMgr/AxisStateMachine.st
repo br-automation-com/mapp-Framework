@@ -196,7 +196,7 @@ ACTION AxisStateMachine:
     MpAxisBasic_0();
 	    
 	// Status assignments
-    AxisControl.Status.ErrorActive := MpAxisBasic_0.Error;
+    AxisControl.Status.ErrorActive := MpAxisBasic_0.Error OR (MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error'));
     AxisControl.Status.IsHomed := MpAxisBasic_0.IsHomed;
     AxisControl.Status.IsPowered := MpAxisBasic_0.PowerOn;
 	AxisControl.Status.PLCopenState := MpAxisBasic_0.Info.PLCopenState;

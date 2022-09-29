@@ -13,15 +13,21 @@
 #ifdef _DEFAULT_INCLUDES
 #include <AsDefault.h>
 #endif
+#include <string.h>
 
 #include "UnitTest.h"
-
 
 
 void _INIT initTestSuite(void)
 {
     Testsuite.Enable = 1;
 	utInit(&Testsuite);
+    
+    CommonTestsuite.Enable = 1;
+    utInit(&CommonTestsuite);
+    
+    strcpy((char*)&TextNameSpace, "mappFramework/File/Alarms");
+    strcpy((char*)&TextID, "DeviceNotFound");
 }
 
 

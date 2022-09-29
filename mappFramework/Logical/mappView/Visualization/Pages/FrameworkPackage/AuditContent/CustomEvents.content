@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="CustomEvents_content" height="620" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.PushButton" id="SortDialog" top="5" left="20" width="90" zIndex="2" image="Media/SymbolLib/Edit/sort.svg" text="$IAT/Audit/Sort" imageHeight="20" imageWidth="20" style="transparent" />
-    <Widget xsi:type="widgets.brease.PushButton" id="FilterDialog" top="5" left="120" width="90" zIndex="3" image="Media/SymbolLib/Edit/Filter.svg" text="$IAT/Audit/Filter" imageHeight="20" imageWidth="20" style="transparent" />
+    <Widget xsi:type="widgets.brease.PushButton" id="SortDialog" top="5" left="20" width="90" zIndex="2" image="Media/SymbolLib/Edit/sort.svg" text="$IAT/mappFramework/Audit/Sort" imageHeight="20" imageWidth="20" style="transparent" />
+    <Widget xsi:type="widgets.brease.PushButton" id="FilterDialog" top="5" left="120" width="90" zIndex="3" image="Media/SymbolLib/Edit/Filter.svg" text="$IAT/mappFramework/Audit/Filter" imageHeight="20" imageWidth="20" style="transparent" />
     <Widget xsi:type="widgets.brease.AuditList" id="AuditList1" top="40" left="30" width="1060" height="560" zIndex="5" itemsPerPage="50" fontSize="16px">
       <Widgets>
-        <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItem1" width="300" zIndex="0" columnType="timestamp" text="$IAT/Audit/Timestamp" />
-        <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItem2" width="760" zIndex="1" text="$IAT/Audit/CustomEvent" />
+        <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItem1" width="300" zIndex="0" columnType="timestamp" text="$IAT/mappFramework/Audit/Timestamp" />
+        <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItem2" width="760" zIndex="1" text="$IAT/mappFramework/Audit/CustomEvent" />
       </Widgets>
     </Widget>
   </Widgets>
