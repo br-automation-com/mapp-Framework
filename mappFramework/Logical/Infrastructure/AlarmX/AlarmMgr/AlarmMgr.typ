@@ -54,11 +54,11 @@ TYPE
 		AcknowledgeAlarms : BOOL; (*Reset button input signal*)
 	END_STRUCT;
 	AlarmExamplesType : 	STRUCT  (*Structure for alarm samples*)
-		LevelMonitoring : INT; (*Triggers LevelMonitoringExample alarm depending on the value set (<20 or >80)*)
-		DeviationMonitoring : INT; (*Triggers the DeviationMonitoringExample alarm if this differs from DevationMonitoringSetpoint (below) by more than 5 units*)
-		DeviationMonitoringSetpoint : INT; (*Setpoint for the DeviationMonitoringExample alarm. If DeviationMonitoring (above) differs from this value by more than 5 units, the alarm triggers*)
-		RateOfChange : INT; (*Triggers the RateOfChangeExample alarm if this value changes at a rate of more than 5 units per second*)
-		SnippetValue : INT; (*Process variable used in the SnippetExample alarm for the snippet*)
+		LevelMonitoring : INT := 50; (*Triggers LevelMonitoringExample alarm depending on the value set (<20 or >80)*)
+		DeviationMonitoring : INT := 15; (*Triggers the DeviationMonitoringExample alarm if this differs from DevationMonitoringSetpoint (below) by more than 5 units*)
+		DeviationMonitoringSetpoint : INT := 15; (*Setpoint for the DeviationMonitoringExample alarm. If DeviationMonitoring (above) differs from this value by more than 5 units, the alarm triggers*)
+		RateOfChange : INT := 0; (*Triggers the RateOfChangeExample alarm if this value changes at a rate of more than 5 units per second*)
+		SnippetValue : INT := 10; (*Process variable used in the SnippetExample alarm for the snippet*)
 		SetControlExample : BOOL; (*Boolean to trigger the example alarm which is triggerd by MpAlarmXControlExample_0*)
 	END_STRUCT;
 END_TYPE

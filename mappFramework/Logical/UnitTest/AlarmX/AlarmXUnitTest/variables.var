@@ -13,3 +13,9 @@ VAR
 	Testsuite : UtMgrTestSuite := (Name:='AlarmMgr',Description:='AlarmMgr Unit Tests',MetaInformation:='Meta');
 END_VAR
 (*Variables used in the tests*)
+VAR
+	MpAlarmXAcknowledgeAll_0 : MpAlarmXAcknowledgeAll;
+	StartingActiveAlarms : UDINT;
+	StartingPendingAlarms : UDINT;
+	cycleCount : USINT;
+END_VAR

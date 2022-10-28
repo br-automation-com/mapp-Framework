@@ -16,7 +16,7 @@
 
 #include "UnitTest.h"
 #include <string.h>
-
+#include <stdbool.h>
 
 void _INIT initTestSuite(void)
 {

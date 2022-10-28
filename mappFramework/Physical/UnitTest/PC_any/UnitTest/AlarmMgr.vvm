@@ -1,3 +1,4 @@
+(*Inputs to the unit test*)
 VAR_CONFIG
 	::AlarmMgr:MpAlarmXCore_0.StatusID AT %Q.::AlarmXUnit:MpBlockStatus[0]; (*Insert your comment here...*)
 	::AlarmMgr:MpAlarmXHistory_0.StatusID AT %Q.::AlarmXUnit:MpBlockStatus[1]; (*Insert your comment here...*)
@@ -5,4 +6,10 @@ VAR_CONFIG
 	::AlarmMgr:MpAlarmXControlExample_0.StatusID AT %Q.::AlarmXUnit:MpBlockStatus[3]; (*Insert your comment here...*)
 	::AlarmMgr:MpAlarmXListUI_0.StatusID AT %Q.::AlarmXUnit:MpBlockStatus[4]; (*Insert your comment here...*)
 	::AlarmMgr:QueryActiveAlarms_0.StatusID AT %Q.::AlarmXUnit:MpBlockStatus[5]; (*Insert your comment here...*)
+	::AlarmMgr:MpAlarmXCore_0 AT %Q.::AlarmXUnit:MpAlarmXCore_0; (*Insert your comment here...*)
+	::AlarmMgr:MpAlarmXListUIConnect AT %Q.::AlarmXUnit:MpAlarmXListUIConnect; (*Insert your comment here...*)
+END_VAR
+(*Outputs from the unit test*)
+VAR_CONFIG
+	::AlarmXUnit:AlarmExamples AT %Q.::AlarmMgr:AlarmExamples; (*Insert your comment here...*)
 END_VAR
