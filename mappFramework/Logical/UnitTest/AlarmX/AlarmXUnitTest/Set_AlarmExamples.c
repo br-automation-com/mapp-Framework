@@ -13,9 +13,9 @@
     MpAlarmXAcknowledgeAll_0.Execute = true;                                        \
     MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);                              \
     TEST_BUSY_CONDITION(MpAlarmXAcknowledgeAll_0.CommandDone == false);             \
+    MpAlarmXAcknowledgeAll_0.Execute = false;                                       \
     TEST_BUSY_CONDITION(MpAlarmXAcknowledgeAll_0.Info.UnacknowledgedAlarms != 0);   \
-    TEST_BUSY_CONDITION(cycleCount < 25);                                           \
-    MpAlarmXAcknowledgeAll_0.Execute = false;
+    TEST_BUSY_CONDITION(cycleCount < 25);
 
 _SETUP_SET(void)
 {
@@ -40,6 +40,7 @@ _CYCLIC_SET(void)
     MpAlarmXAcknowledgeAll_0.MpLink = &gMpLinkAlarmXCore;
     MpAlarmXAcknowledgeAll_0.Enable = true;
     MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);
+    
     cycleCount++;
     
     TEST_ABORT_CONDITION(cycleCount == 254);
