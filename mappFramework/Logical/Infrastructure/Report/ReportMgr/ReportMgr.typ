@@ -3,13 +3,36 @@
 TYPE
 	ReportHmiInterfaceType : 	STRUCT 
 		Commands : ReportCommandsType;
+		Parameters : ReportParametersType;
 		Status : ReportStatusType;
 	END_STRUCT;
 	ReportCommandsType : 	STRUCT 
 		Generate : BOOL;
+		Reset : BOOL;
+	END_STRUCT;
+	ReportParametersType : 	STRUCT 
+		Name : STRING[50];
+		FormatTo21CFR1 : BOOL;
+		PathOfReportToView : STRING[255];
 	END_STRUCT;
 	ReportStatusType : 	STRUCT 
-		PlaceHolder : BOOL;
+		FileNames : ARRAY[0..49]OF STRING[50]; (*Existing report file names*)
+		TempFilePath : ARRAY[0..49]OF STRING[255];
+		FilePath : ARRAY[0..49]OF STRING[255];
+		TimeStamps : ARRAY[0..49]OF DATE_AND_TIME; (*Time stamps for existing reports*)
+		Size : {REDUND_UNREPLICABLE} ARRAY[0..49]OF UDINT; (*Sizes of existing report files*)
+		SelectedIndex : USINT;
+		LastSelectedIndex : USINT := 255; (*Index of the last selected report file*)
+		LastSelectedDeviceIndex : UINT; (*Index of the last selected file device. Compared with MpFileManagerUIConnect.DeviceList.SelectedIndex*)
+		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the list of available reports*)
+		FileOverMax : BOOL; (*Active when more than 50 items detected*)
+		ViewAllowed : BOOL; (*Bit to indicate it is allowable to view a report right now*)
+		Info : MpBackupProjectInfoRequestType; (*Project information (name, configuration ID, configuration version)*)
+		Busy : BOOL; (*Report is busy executing an action*)
+		Error : BOOL; (*Error flag*)
+		DeleteAllowed : BOOL; (*Bit to indicate it is allowable to delete a report right now*)
+		CreateAllowed : BOOL; (*Bit to indicate it is allowable to create a report right now*)
+		FilterString : STRING[1000];
 	END_STRUCT;
 END_TYPE
 
@@ -38,4 +61,9 @@ TYPE
 		TimeStamp : ARRAY[0..95]OF INT;
 		Temp : ARRAY[0..95]OF REAL;
 	END_STRUCT;
+	ReportFormat_enum : 
+		(
+		FORMAT_SIMPLE,
+		FORMAT_21CFR1
+		);
 END_TYPE

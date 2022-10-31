@@ -1,168 +1,182 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <vdef:Visualization id="mappFrameworkVis" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
-  <!--<StartPage pageRefId="" />-->
-  <StartPage pageRefId="Demo_page" />
-  <Pages>
-    <!--<Page refId=""/>-->
-    <Page refId="Demo_page" />
-  </Pages>
-  <Navigations>
-    <!--<Navigation refId="" />-->
-  </Navigations>
-  <BindingsSets>
-    <!--<BindingsSet refId="" />-->
-    <BindingsSet refId="AlarmXCurrent_content_binding" />
-    <BindingsSet refId="AlarmXHistory_content_binding" />
-    <BindingsSet refId="AlarmXQuery_content_binding" />
-    <BindingsSet refId="AlarmX_Navigation_content_binding" />
-    <BindingsSet refId="AxisAuto_content_binding" />
-    <BindingsSet refId="AxisManual_content_binding" />
-    <BindingsSet refId="Axis_Navigation_content_binding" />
-    <BindingsSet refId="BackupDialog_Create_content_binding" />
-    <BindingsSet refId="Backup_content_binding" />
-    <BindingsSet refId="BackupDialog_AutoSettings_content_binding" />
-    <BindingsSet refId="Backup_Navigation_content_binding" />
-	<BindingsSet refId="BackupDialog_Update_content_binding" />
-    <BindingsSet refId="File_content_binding" />
-    <BindingsSet refId="FileDialog_Message_dialog_content_binding" />
-    <BindingsSet refId="FileDialog_FIFO_dialog_content_binding" />
-    <BindingsSet refId="File_Navigation_content_binding" />
-    <BindingsSet refId="Recipe_content_binding" />
-    <BindingsSet refId="RecipeDialog_EditPars_content_binding" />
-    <BindingsSet refId="RecipeDialog_EditMachConfig_content_binding" />
-    <BindingsSet refId="RecipeDialog_NewPars_content_binding" />
-    <BindingsSet refId="RecipeDialog_NewMachConfig_content_binding" />
-    <BindingsSet refId="RecipePreviewPars_content_binding" />
-    <BindingsSet refId="RecipePreviewMachConfig_content_binding" />
-    <BindingsSet refId="Recipe_Navigation_content_binding" />
-    <BindingsSet refId="UserX_content_binding" />
-    <BindingsSet refId="UserXDialog_Export_content_binding" />
-    <BindingsSet refId="UserXDialog_Import_content_binding" />
-    <BindingsSet refId="UserXDialog_Error_content_binding" />
-    <BindingsSet refId="UserX_Navigation_content_binding" />
-	<BindingsSet refId="Audit_Navigation_content_binding" />
-	<BindingsSet refId="AuditTrail_content_binding" />
-	<BindingsSet refId="CustomEvents_content_binding" />
-	<BindingsSet refId="AuditQuery_content_binding" />
-	<BindingsSet refId="AuditDialog_ArchiveSettings_content_binding" />
-	<BindingsSet refId="Report_Navigation_content_binding" />
-  </BindingsSets>
-  <EventBindingsSets>
-    <!--<EventBindingsSet refId="" />-->
-    <EventBindingsSet refId="AlarmXCurrent_content_eventbinding" />
-    <EventBindingsSet refId="AlarmXHistory_content_eventbinding" />
-    <EventBindingsSet refId="AlarmX_Navigation_content_eventbinding" />
-    <EventBindingsSet refId="Navigation_content_eventbinding" />
-    <EventBindingsSet refId="AxisAuto_content_eventbinding" />
-    <EventBindingsSet refId="AxisManual_content_eventbinding" />
-    <EventBindingsSet refId="AxisRecipe_content_eventbinding" />
-    <EventBindingsSet refId="AxisRecipeDialog_New_content_eventbinding" />
-    <EventBindingsSet refId="AxisRecipeDialog_Edit_content_eventbinding" />
-    <EventBindingsSet refId="Axis_Navigation_content_eventbinding" />
-    <EventBindingsSet refId="Backup_content_eventbinding" />
-    <EventBindingsSet refId="BackupDialog_Create_content_eventbinding" />
-    <EventBindingsSet refId="BackupDialog_Delete_content_eventbinding" />
-    <EventBindingsSet refId="BackupDialog_Restore_content_eventbinding" />
-    <EventBindingsSet refId="BackupDialog_AutoSettings_content_eventbinding" />
-	<EventBindingsSet refId="BackupDialog_Update_content_eventbinding" />
-    <EventBindingsSet refId="Backup_Navigation_content_eventbinding" />
-    <EventBindingsSet refId="File_content_eventbinding" />
-    <EventBindingsSet refId="FileDialog_Message_dialog_content_eventbinding" />
-    <EventBindingsSet refId="FileDialog_FIFO_dialog_content_eventbinding" />
-    <EventBindingsSet refId="File_Navigation_content_eventbinding" />
-    <EventBindingsSet refId="Recipe_content_eventbinding" />
-    <EventBindingsSet refId="RecipeDialog_New_content_eventbinding" />
-    <EventBindingsSet refId="RecipeDialog_Edit_content_eventbinding" />
-    <EventBindingsSet refId="Recipe_Navigation_content_eventbinding" />
-    <EventBindingsSet refId="UserX_content_eventbinding" />
-    <EventBindingsSet refId="UserXDialog_Export_content_eventbinding" />
-    <EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
-    <EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
-	<EventBindingsSet refId="Audit_Navigation_content_eventbinding" />
-	<EventBindingsSet refId="AuditTrail_content_eventbinding" />
-	<EventBindingsSet refId="CustomEvents_content_eventbinding" />
-	<EventBindingsSet refId="AuditDialog_ArchiveSettings_content_eventbinding" />
-	<EventBindingsSet refId="Report_Navigation_content_eventbinding" />
-  </EventBindingsSets>
-  <Dialogs>
-    <!--<Dialog refId="" />-->
-    <Dialog refId="BackupCreate_dialog" />
-    <Dialog refId="BackupDelete_dialog" />
-    <Dialog refId="BackupRestore_dialog" />
-    <Dialog refId="BackupAutoSettings_dialog" />
-	<Dialog refId="BackupUpdate_dialog" />
-    <Dialog refId="FileMessage_dialog" />
-    <Dialog refId="FileFIFO_dialog" />
-    <Dialog refId="NewRecipe_dialog" />
-    <Dialog refId="EditRecipe_dialog" />
-    <Dialog refId="UserXLogin_dialog" />
-    <Dialog refId="UserXError_dialog" />
-    <Dialog refId="UserXExport_dialog" />
-    <Dialog refId="UserXImport_dialog" />
-	<Dialog refId="AuditArchiveSettings_dialog" />
-  </Dialogs>
-  <Contents>
-    <!--<Content refId="" />-->
-    <Content refId="AlarmXCurrent_content" />
-    <Content refId="AlarmXHistory_content" />
-    <Content refId="AlarmXQuery_content" />
-    <Content refId="AlarmX_content" />
-    <Content refId="Help_content" />
-    <Content refId="Navigation_content" />
-    <Content refId="Axis_content" />
-    <Content refId="AxisAuto_content" />
-    <Content refId="AxisManual_content" />
-    <Content refId="Backup_content" />
-    <Content refId="File_content" />
-    <Content refId="RecipePreviewPars_content" />
-    <Content refId="RecipePreviewMachConfig_content" />
-    <Content refId="RecipeDialog_EditMachConfig_content" />
-    <Content refId="RecipeDialog_EditPars_content" />
-    <Content refId="RecipeDialog_NewMachConfig_content" />
-    <Content refId="RecipeDialog_NewPars_content" />
-    <Content refId="Recipe_content" />
-    <Content refId="UserX_content" />
-    <Content refId="UserXDialog_Login_content" />
-    <Content refId="UserXDialog_Error_content" />
-	<Content refId="Audit_content" />
-	<Content refId="AuditTrail_content" />
-	<Content refId="AuditQuery_content" />
-	<Content refId="CustomEvents_content" />
-	<Content refId="Report_content" />
-  </Contents>
-  <SnippetsSets>
-    <!--<SnippetsSet refId=""/>-->
-    <SnippetsSet refId="PLCopenState_snippets" />
-    <SnippetsSet refId="Recipe_snippets" />
-    <SnippetsSet refId="User_snippets" />
-  </SnippetsSets>
-  <ExpressionsSets>
-    <!--<ExpressionsSet refId=""/>-->
-    <ExpressionsSet refId="AxisExpressionSet" />
-    <ExpressionsSet refId="RecipeExpressionSet" />
-  </ExpressionsSets>
-  <VariablesSets>
-    <!--<VariablesSet refId="" />-->
-    <VariablesSet refId="Recipe_svar" />
-    <VariablesSet refId="UserX_svar" />
-  </VariablesSets>
-  <StartTheme themeRefId="BuRThemeFlat1" />
-  <Themes>
-    <Theme refId="BuRThemeFlat1" />
-  </Themes>
-  <!--<StartTheme themeRefId="" />
-  <Themes>
-    <Theme refId=""/>
-  </Themes>-->
-  <Configurations>
-    <Configuration key="activityCount" value="false" />
-    <Gestures>
-      <!--<SystemGesture1 touchPoints="2" />
-		  <SystemGesture2 touchPoints="2" />
-		  <SystemGesture3 touchPoints="2" />-->
-    </Gestures>
-    <VirtualKeyboards>
-      <!--<InputProcessing onKeyDown="true" />-->
-    </VirtualKeyboards>
-  </Configurations>
+	<!--<StartPage pageRefId="" />-->
+	<StartPage pageRefId="Demo_page" />
+	<Pages>
+		<!--<Page refId=""/>-->
+		<Page refId="Demo_page" />
+	</Pages>
+	<Navigations>
+		<!--<Navigation refId="" />-->
+	</Navigations>
+	<BindingsSets>
+		<!--<BindingsSet refId="" />-->
+		<BindingsSet refId="AlarmXCurrent_content_binding" />
+		<BindingsSet refId="AlarmXHistory_content_binding" />
+		<BindingsSet refId="AlarmXQuery_content_binding" />
+		<BindingsSet refId="AlarmX_Navigation_content_binding" />
+		<BindingsSet refId="AxisAuto_content_binding" />
+		<BindingsSet refId="AxisManual_content_binding" />
+		<BindingsSet refId="Axis_Navigation_content_binding" />
+		<BindingsSet refId="BackupDialog_Create_content_binding" />
+		<BindingsSet refId="Backup_content_binding" />
+		<BindingsSet refId="BackupDialog_AutoSettings_content_binding" />
+		<BindingsSet refId="Backup_Navigation_content_binding" />
+		<BindingsSet refId="BackupDialog_Update_content_binding" />
+		<BindingsSet refId="File_content_binding" />
+		<BindingsSet refId="FileDialog_Message_dialog_content_binding" />
+		<BindingsSet refId="FileDialog_FIFO_dialog_content_binding" />
+		<BindingsSet refId="File_Navigation_content_binding" />
+		<BindingsSet refId="Recipe_content_binding" />
+		<BindingsSet refId="RecipeDialog_EditPars_content_binding" />
+		<BindingsSet refId="RecipeDialog_EditMachConfig_content_binding" />
+		<BindingsSet refId="RecipeDialog_NewPars_content_binding" />
+		<BindingsSet refId="RecipeDialog_NewMachConfig_content_binding" />
+		<BindingsSet refId="RecipePreviewPars_content_binding" />
+		<BindingsSet refId="RecipePreviewMachConfig_content_binding" />
+		<BindingsSet refId="Recipe_Navigation_content_binding" />
+		<BindingsSet refId="UserX_content_binding" />
+		<BindingsSet refId="UserXDialog_Export_content_binding" />
+		<BindingsSet refId="UserXDialog_Import_content_binding" />
+		<BindingsSet refId="UserXDialog_Error_content_binding" />
+		<BindingsSet refId="UserX_Navigation_content_binding" />
+		<BindingsSet refId="Audit_Navigation_content_binding" />
+		<BindingsSet refId="AuditTrail_content_binding" />
+		<BindingsSet refId="CustomEvents_content_binding" />
+		<BindingsSet refId="AuditQuery_content_binding" />
+		<BindingsSet refId="AuditDialog_ArchiveSettings_content_binding" />
+		<BindingsSet refId="Report_Navigation_content_binding" />
+		<BindingsSet refId="Report_content_binding" />
+		<BindingsSet refId="ReportDialog_View_content_binding" />
+		<BindingsSet refId="ReportDialog_Create_content_binding" />
+	</BindingsSets>
+	<EventBindingsSets>
+		<!--<EventBindingsSet refId="" />-->
+		<EventBindingsSet refId="AlarmXCurrent_content_eventbinding" />
+		<EventBindingsSet refId="AlarmXHistory_content_eventbinding" />
+		<EventBindingsSet refId="AlarmX_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Navigation_content_eventbinding" />
+		<EventBindingsSet refId="AxisAuto_content_eventbinding" />
+		<EventBindingsSet refId="AxisManual_content_eventbinding" />
+		<EventBindingsSet refId="AxisRecipe_content_eventbinding" />
+		<EventBindingsSet refId="AxisRecipeDialog_New_content_eventbinding" />
+		<EventBindingsSet refId="AxisRecipeDialog_Edit_content_eventbinding" />
+		<EventBindingsSet refId="Axis_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Backup_content_eventbinding" />
+		<EventBindingsSet refId="BackupDialog_Create_content_eventbinding" />
+		<EventBindingsSet refId="BackupDialog_Delete_content_eventbinding" />
+		<EventBindingsSet refId="BackupDialog_Restore_content_eventbinding" />
+		<EventBindingsSet refId="BackupDialog_AutoSettings_content_eventbinding" />
+		<EventBindingsSet refId="BackupDialog_Update_content_eventbinding" />
+		<EventBindingsSet refId="Backup_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="File_content_eventbinding" />
+		<EventBindingsSet refId="FileDialog_Message_dialog_content_eventbinding" />
+		<EventBindingsSet refId="FileDialog_FIFO_dialog_content_eventbinding" />
+		<EventBindingsSet refId="File_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Recipe_content_eventbinding" />
+		<EventBindingsSet refId="RecipeDialog_New_content_eventbinding" />
+		<EventBindingsSet refId="RecipeDialog_Edit_content_eventbinding" />
+		<EventBindingsSet refId="Recipe_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="UserX_content_eventbinding" />
+		<EventBindingsSet refId="UserXDialog_Export_content_eventbinding" />
+		<EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
+		<EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="Audit_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="AuditTrail_content_eventbinding" />
+		<EventBindingsSet refId="CustomEvents_content_eventbinding" />
+		<EventBindingsSet refId="AuditDialog_ArchiveSettings_content_eventbinding" />
+		<EventBindingsSet refId="Report_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="ReportDialog_Create_content_eventbinding" />
+		<EventBindingsSet refId="ReportDialog_Delete_content_eventbinding" />
+		<EventBindingsSet refId="Report_content_eventbinding" />
+		<EventBindingsSet refId="ReportDialog_View_content_eventbinding" />
+	</EventBindingsSets>
+	<Dialogs>
+		<!--<Dialog refId="" />-->
+		<Dialog refId="BackupCreate_dialog" />
+		<Dialog refId="BackupDelete_dialog" />
+		<Dialog refId="BackupRestore_dialog" />
+		<Dialog refId="BackupAutoSettings_dialog" />
+		<Dialog refId="BackupUpdate_dialog" />
+		<Dialog refId="FileMessage_dialog" />
+		<Dialog refId="FileFIFO_dialog" />
+		<Dialog refId="NewRecipe_dialog" />
+		<Dialog refId="EditRecipe_dialog" />
+		<Dialog refId="UserXLogin_dialog" />
+		<Dialog refId="UserXError_dialog" />
+		<Dialog refId="UserXExport_dialog" />
+		<Dialog refId="UserXImport_dialog" />
+		<Dialog refId="AuditArchiveSettings_dialog" />
+		<Dialog refId="ReportCreate_dialog" />
+		<Dialog refId="ReportDelete_dialog" />
+		<Dialog refId="ReportView_dialog" />
+	</Dialogs>
+	<Contents>
+		<!--<Content refId="" />-->
+		<Content refId="AlarmXCurrent_content" />
+		<Content refId="AlarmXHistory_content" />
+		<Content refId="AlarmXQuery_content" />
+		<Content refId="AlarmX_content" />
+		<Content refId="Help_content" />
+		<Content refId="Navigation_content" />
+		<Content refId="Axis_content" />
+		<Content refId="AxisAuto_content" />
+		<Content refId="AxisManual_content" />
+		<Content refId="Backup_content" />
+		<Content refId="File_content" />
+		<Content refId="RecipePreviewPars_content" />
+		<Content refId="RecipePreviewMachConfig_content" />
+		<Content refId="RecipeDialog_EditMachConfig_content" />
+		<Content refId="RecipeDialog_EditPars_content" />
+		<Content refId="RecipeDialog_NewMachConfig_content" />
+		<Content refId="RecipeDialog_NewPars_content" />
+		<Content refId="Recipe_content" />
+		<Content refId="UserX_content" />
+		<Content refId="UserXDialog_Login_content" />
+		<Content refId="UserXDialog_Error_content" />
+		<Content refId="Audit_content" />
+		<Content refId="AuditTrail_content" />
+		<Content refId="AuditQuery_content" />
+		<Content refId="CustomEvents_content" />
+		<Content refId="Report_content" />
+		<Content refId="ReportDialog_Create_content" />
+		<Content refId="ReportDialog_Delete_content" />
+		<Content refId="ReportDialog_View_content" />
+	</Contents>
+	<SnippetsSets>
+		<!--<SnippetsSet refId=""/>-->
+		<SnippetsSet refId="PLCopenState_snippets" />
+		<SnippetsSet refId="Recipe_snippets" />
+		<SnippetsSet refId="User_snippets" />
+	</SnippetsSets>
+	<ExpressionsSets>
+		<!--<ExpressionsSet refId=""/>-->
+		<ExpressionsSet refId="AxisExpressionSet" />
+		<ExpressionsSet refId="RecipeExpressionSet" />
+	</ExpressionsSets>
+	<VariablesSets>
+		<!--<VariablesSet refId="" />-->
+		<VariablesSet refId="Recipe_svar" />
+		<VariablesSet refId="UserX_svar" />
+		<VariablesSet refId="Report_svar" />
+	</VariablesSets>
+	<StartTheme themeRefId="BuRThemeFlat1" />
+	<Themes>
+		<Theme refId="BuRThemeFlat1" />
+	</Themes>
+	<!--<StartTheme themeRefId="" />
+	<Themes>
+	<Theme refId=""/>
+	</Themes>-->
+	<Configurations>
+		<Configuration key="activityCount" value="false" />
+		<Gestures>
+			<!--<SystemGesture1 touchPoints="2" />
+			<SystemGesture2 touchPoints="2" />
+			<SystemGesture3 touchPoints="2" />-->
+		</Gestures>
+		<VirtualKeyboards>
+			<!--<InputProcessing onKeyDown="true" />-->
+		</VirtualKeyboards>
+	</Configurations>
 </vdef:Visualization>

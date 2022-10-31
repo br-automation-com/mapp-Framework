@@ -1,7 +1,7 @@
 (*Function Blocks*)
 VAR
 	MpReportCore_0 : MpReportCore;
-	MpReportCore_1 : MpReportCore;
+	MpFileManagerUI_0 : MpFileManagerUI; (*MpFileManagerUI instance*)
 END_VAR
 (*Constants*)
 VAR CONSTANT
@@ -11,9 +11,13 @@ END_VAR
 VAR
 	HmiReport : ReportHmiInterfaceType;
 	ReportExample : ReportExampleType;
+	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappReportFiles',9('')])); (*MpFile connection to the HMI*)
 END_VAR
 (*Variables*)
 VAR
-	i : INT;
+	i : USINT;
 	TimeIndex : INT;
+	DeviceCount : USINT; (*Counter for available file devices*)
+	ItemCount : UDINT;
+	CurrentFormat : ReportFormat_enum;
 END_VAR
