@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="ReportDialog_Create_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.GroupBox" id="ContentGroup" top="0" left="0" width="450" height="300" zIndex="0" backColor="rgba(255, 255, 255, 1)">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.Button" id="CreateButton" top="235" left="15" width="150" height="50" zIndex="0" text="$IAT/Report/Create" textColor="rgba(255, 255, 255, 1)" fontSize="20px" style="Command" />
+        <Widget xsi:type="widgets.brease.Button" id="CancelButton" top="235" left="285" width="150" height="50" zIndex="1" text="$IAT/Report/Cancel" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="20px" style="Command" />
+        <Widget xsi:type="widgets.brease.Label" id="LblConfirm" top="85" left="40" width="370" height="90" zIndex="2" multiLine="true" text="$IAT/Report/Option21CFR1" textAlign="left" padding="5px 5px 5px 50px" style="Information" />
+        <Widget xsi:type="widgets.brease.CheckBox" id="CheckBox1" top="115" left="50" width="30" zIndex="3" />
+      </Widgets>
+    </Widget>
+  </Widgets>
+</Content>

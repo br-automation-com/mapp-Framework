@@ -1,0 +1,25 @@
+(*Function Blocks*)
+VAR
+	MpReportCore_0 : MpReportCore; (*MpReport instance*)
+	MpFileManagerUI_0 : MpFileManagerUI; (*MpFileManagerUI instance*)
+	DirCreate_0 : DirCreate; (*DirCreate instance*)
+END_VAR
+(*Constants*)
+VAR CONSTANT
+	LOCAL_FOLDER : STRING[10] := 'Report'; (*Folder name on the file device for Recipe files*)
+	NUM_TEMP_SAMPLES : INT := 96; (*The number of temperature samples in the example data*)
+END_VAR
+(*Structure Types*)
+VAR
+	HmiReport : ReportHmiInterfaceType; (*HMI interface structure*)
+	ReportExample : ReportExampleType; (*Structure for the example data used by the two types of reports*)
+	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappReportFiles',9('')])); (*MpFile connection to the HMI*)
+END_VAR
+(*Variables*)
+VAR
+	i : USINT;
+	TimeIndex : INT; (*Index to loop through file devices*)
+	DeviceCount : USINT; (*Counter for available file devices*)
+	ItemCount : UDINT; (*Counter for available files*)
+	CurrentFormat : ReportFormatEnum; (*The selected format of the report*)
+END_VAR
