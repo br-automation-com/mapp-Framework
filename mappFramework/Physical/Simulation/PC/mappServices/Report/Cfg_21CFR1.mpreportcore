@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
 <Configuration>
-  <Element ID="gReport_21CFR1" Type="mpreportcore">
+  <Element ID="gMpLinkReport_21CFR1" Type="mpreportcore">
     <Group ID="MpReport">
       <Group ID="Settings">
         <Property ID="ResourceDeviceName" Value="mappReportFiles" />
@@ -880,6 +881,12 @@
         </Group>
       </Group>
     </Group>
-    <Selector ID="Alarms" Value="MpAlarmX" />
+    <Selector ID="Alarms" Value="MpAlarmX">
+      <Group ID="mapp.AlarmX.Core.Configuration">
+        <Group ID="[0]">
+          <Property ID="Message" Value="{$Report/Alarms/GenerateFailed}" />
+        </Group>
+      </Group>
+    </Selector>
   </Element>
 </Configuration>

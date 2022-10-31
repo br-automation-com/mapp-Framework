@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
 <OpcUaSource FileVersion="7" ArVersion="B4.82">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
-        <ACE RoleId="2" RoleName="Everyone" Access="0x005F" />
+        <ACE RoleName="Everyone" Access="0x005F" />
       </ACL>
       <ACL Id="2">
-        <ACE RoleId="2" RoleName="Everyone" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x01FF" />
       </ACL>
     </ACLAliases>
     <EURangeViolationAliases />
@@ -47,6 +48,7 @@
         </Variable>
         <Variable Name="MpReportCore_0">
           <Variable Name="Generate" />
+          <Variable Name="Active" />
         </Variable>
       </Task>
     </Module>
