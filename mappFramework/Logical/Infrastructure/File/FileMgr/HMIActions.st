@@ -31,11 +31,13 @@ ACTION FormatDeviceDataProvider:
 			END_FOR
 			Index := 0;
 			DeviceListCount := 0;
+		ELSE
+			// copy device name from source list into the actual device list 
+			MpFileManagerUIConnect.DeviceList.DeviceNames[Index] := PathCheck.DeviceList.DeviceNames[DeviceListCount];		
+			Index := Index + 1;
+	        DeviceListCount := DeviceListCount + 1;	
 		END_IF	
-		// copy device name from source list into the actual device list 
-		MpFileManagerUIConnect.DeviceList.DeviceNames[Index] := PathCheck.DeviceList.DeviceNames[DeviceListCount];
-		Index := Index + 1;
-        DeviceListCount := DeviceListCount + 1;
+
 		IF (DeviceListCount > ((SIZEOF(PathCheck.DeviceList.DeviceNames) / SIZEOF(PathCheck.DeviceList.DeviceNames[0])) - 1)) THEN
 			DeviceListCount := 0;
 		END_IF
@@ -49,7 +51,7 @@ ACTION FormatDeviceDataProvider:
 		END_IF
 	END_IF		
 	
-	DirInfo_0(enable := TRUE, pDevice := ADR('UserPartition'), pPath := ADR(PathCheck.Folder[DeviceListCount]));
+	DirInfo_0(enable:= TRUE, pDevice := ADR('UserPartition'), pPath := ADR(PathCheck.Folder[DeviceListCount]));
 		
 	// Configure visible device list
 	HmiFile.Status.TableConfig[0] := '{ "specRows": [{"from":';
@@ -69,10 +71,10 @@ ACTION FormatDeviceDataProvider:
 	// Create device data provider for FIFO drop down
     FOR i := 0 TO MaxDeviceNameIndex DO       	
 		IF (MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '') THEN
-			HmiFile.Status.DeviceDataProvider[i] := '{"value":"';
-			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i]));
+			HmiFile.Status.DeviceDataProvider[i] := '{"value":"';			
+			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i]));	           
 			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR('","text":"'));
-			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i]));
+			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i]));	
 	        brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR('"}'));
 		ELSE	
 			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[i]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[i]));
@@ -116,8 +118,9 @@ ACTION FileManager:
 			END_IF
 		END_IF
     END_FOR
-       
-	// Read currently selected device name for HMI
+    
+    
+    // Read currently selected device name for HMI
     IF (MpFileManagerUIConnect.DeviceList.SelectedIndex >= (SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0]))) THEN
         MpFileManagerUIConnect.DeviceList.SelectedIndex := 0;
     END_IF
@@ -130,16 +133,11 @@ ACTION FileManager:
     HmiFile.Status.IsFolder := MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsFolder;
 	
 	// Control the folder structure when entering and leaving folders
-	IF (HmiFile.Commands.EnterFolder) AND MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsFolder 
-		AND (MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsSelected) THEN		
-		TON_EnterFolder.IN := TRUE;
-		IF TON_EnterFolder.Q THEN
-			HmiFile.Commands.EnterFolder := FALSE;
-			MpFileManagerUIConnect.File.EnterFolder := TRUE;
-			TON_EnterFolder.IN := FALSE;
-		END_IF 
+	IF (HmiFile.Commands.EnterFolder) AND MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsFolder THEN
+		HmiFile.Commands.EnterFolder := FALSE;
+		MpFileManagerUIConnect.File.EnterFolder := TRUE;
 		FolderDepthCount := FolderDepthCount + 1;
-	ELSIF (TON_EnterFolder.IN = FALSE) THEN	
+	ELSE
 		HmiFile.Commands.EnterFolder := FALSE;
 	END_IF
 	
@@ -150,7 +148,5 @@ ACTION FileManager:
 	END_IF
 	
 	HmiFile.Status.BackButton := (FolderDepthCount > 0);
-	TON_EnterFolder(PT := t#200ms);
-		
     
 END_ACTION
