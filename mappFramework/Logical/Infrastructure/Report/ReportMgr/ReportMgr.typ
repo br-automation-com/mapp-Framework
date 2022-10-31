@@ -14,6 +14,7 @@ TYPE
 		Name : STRING[50]; (*Name of the report*)
 		FormatTo21CFR1 : BOOL; (*Whether or not the report should be in the 21CFR1 format*)
 		PathOfReportToView : STRING[255]; (*The file path of the selected report*)
+		SelectedLanguage : STRING[10] := 'en';
 	END_STRUCT;
 	ReportStatusType : 	STRUCT  (*Structure to hold the status information from the HMI*)
 		FileNames : ARRAY[0..49]OF STRING[50]; (*Existing report file names*)

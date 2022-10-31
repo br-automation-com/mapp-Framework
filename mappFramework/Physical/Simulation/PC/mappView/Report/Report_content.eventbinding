@@ -3,12 +3,28 @@
   <Bindings>
     <EventBinding id="Report_content.ButtonReportDialog_Create_content.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="ButtonReportDialog_Create_content" event="Click" />
+      <Operand datatype="ANY_STRING" name="SystemLanguage">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.languageId">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
       <EventHandler>
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ReportCreate_dialog" />
-          </Target>
-        </Action>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ReportCreate_dialog" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::ReportMgr:HmiReport.Parameters.SelectedLanguage">
+                <Method xsi:type="opcUa.NodeAction.SetValueString" value="=SystemLanguage" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Report_content.ButtonReportDialog_Delete_content.Click">

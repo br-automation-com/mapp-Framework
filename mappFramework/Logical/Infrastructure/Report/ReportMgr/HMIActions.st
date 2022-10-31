@@ -18,6 +18,7 @@ ACTION ReportManager:
 	//Connections between the HMI structure and the report function block
 	HmiReport.Status.Busy  := MpReportCore_0.CommandBusy;
 	HmiReport.Status.Error := MpReportCore_0.Error;
+	MpReportCore_0.Language   := ADR(HmiReport.Parameters.SelectedLanguage);
 	
 	//Set or reset bits based on when a report can be created, deleted, and/or viewed.
 	HmiReport.Status.CreateAllowed := NOT(MpReportCore_0.CommandBusy);
