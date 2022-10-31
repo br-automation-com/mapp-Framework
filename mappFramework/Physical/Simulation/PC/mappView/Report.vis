@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<vdef:Visualization id="MyVisuReport" autoUpdate="true" xmlns:vdef="http://www.br-automation.com/iat2015/visualizationDefinition/v2">
+  <StartPage pageRefId="Demo_page" />
+  <Pages>
+    <Page refId="Demo_page" />
+  </Pages>
+  <Navigations />
+  <BindingsSets>
+    <BindingsSet refId="Report_Navigation_content_binding" />
+    <BindingsSet refId="Report_content_binding" />
+    <BindingsSet refId="ReportDialog_View_content_binding" />
+    <BindingsSet refId="ReportDialog_Create_content_binding" />
+  </BindingsSets>
+  <EventBindingsSets>
+    <EventBindingsSet refId="Report_Navigation_content_eventbinding" />
+    <EventBindingsSet refId="ReportDialog_Create_content_eventbinding" />
+    <EventBindingsSet refId="ReportDialog_Delete_content_eventbinding" />
+    <EventBindingsSet refId="Report_content_eventbinding" />
+    <EventBindingsSet refId="ReportDialog_View_content_eventbinding" />
+  </EventBindingsSets>
+  <Dialogs>
+    <Dialog refId="ReportCreate_dialog" />
+    <Dialog refId="ReportDelete_dialog" />
+    <Dialog refId="ReportView_dialog" />
+  </Dialogs>
+  <Contents>
+    <Content refId="Report_content" />
+    <Content refId="ReportDialog_Create_content" />
+    <Content refId="ReportDialog_Delete_content" />
+    <Content refId="ReportDialog_View_content" />
+  </Contents>
+  <SnippetsSets />
+  <VariablesSets>
+    <VariablesSet refId="Report_svar" />
+  </VariablesSets>
+  <ExpressionsSets />
+  <Configurations>
+    <Configuration key="activityCount" value="false" />
+    <Gestures>
+      <!--<SystemGesture1 touchPoints="2" />
+		  <SystemGesture2 touchPoints="2" />
+		  <SystemGesture3 touchPoints="2" />-->
+    </Gestures>
+    <VirtualKeyboards>
+      <!--<InputProcessing onKeyDown="true" />-->
+    </VirtualKeyboards>
+  </Configurations>
+</vdef:Visualization>

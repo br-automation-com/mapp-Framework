@@ -46,6 +46,10 @@
 		<BindingsSet refId="CustomEvents_content_binding" />
 		<BindingsSet refId="AuditQuery_content_binding" />
 		<BindingsSet refId="AuditDialog_ArchiveSettings_content_binding" />
+		<BindingsSet refId="Report_Navigation_content_binding" />
+		<BindingsSet refId="Report_content_binding" />
+		<BindingsSet refId="ReportDialog_View_content_binding" />
+		<BindingsSet refId="ReportDialog_Create_content_binding" />
 	</BindingsSets>
 	<EventBindingsSets>
 		<!--<EventBindingsSet refId="" />-->
@@ -83,6 +87,11 @@
 		<EventBindingsSet refId="AuditTrail_content_eventbinding" />
 		<EventBindingsSet refId="CustomEvents_content_eventbinding" />
 		<EventBindingsSet refId="AuditDialog_ArchiveSettings_content_eventbinding" />
+		<EventBindingsSet refId="Report_Navigation_content_eventbinding" />
+		<EventBindingsSet refId="ReportDialog_Create_content_eventbinding" />
+		<EventBindingsSet refId="ReportDialog_Delete_content_eventbinding" />
+		<EventBindingsSet refId="Report_content_eventbinding" />
+		<EventBindingsSet refId="ReportDialog_View_content_eventbinding" />
 	</EventBindingsSets>
 	<Dialogs>
 		<!--<Dialog refId="" />-->
@@ -101,6 +110,9 @@
 		<Dialog refId="UserXImport_dialog" />
 		<Dialog refId="UserXDuplicate_dialog" />
 		<Dialog refId="AuditArchiveSettings_dialog" />
+		<Dialog refId="ReportCreate_dialog" />
+		<Dialog refId="ReportDelete_dialog" />
+		<Dialog refId="ReportView_dialog" />
 	</Dialogs>
 	<Contents>
 		<!--<Content refId="" />-->
@@ -132,6 +144,10 @@
 		<Content refId="AuditTrail_content" />
 		<Content refId="AuditQuery_content" />
 		<Content refId="CustomEvents_content" />
+		<Content refId="Report_content" />
+		<Content refId="ReportDialog_Create_content" />
+		<Content refId="ReportDialog_Delete_content" />
+		<Content refId="ReportDialog_View_content" />
 	</Contents>
 	<SnippetsSets>
 		<!--<SnippetsSet refId=""/>-->
@@ -148,6 +164,7 @@
 		<!--<VariablesSet refId="" />-->
 		<VariablesSet refId="Recipe_svar" />
 		<VariablesSet refId="UserX_svar" />
+		<VariablesSet refId="Report_svar" />
 	</VariablesSets>
 	<StartTheme themeRefId="BuRThemeFlat1" />
 	<Themes>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="B4.82">
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleName="Everyone" Access="0x005F" />
+      </ACL>
+      <ACL Id="2">
+        <ACE RoleName="Everyone" Access="0x01FF" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView AclId="2">
+    <Module Name="&lt;Default&gt;">
+      <Task Name="ReportMgr">
+        <Variable Name="ReportExample">
+          <Variable Name="Format_21CFR1">
+            <Variable Name="BatchNumber" />
+          </Variable>
+        </Variable>
+        <Variable Name="HmiReport" AutomaticEnable="True">
+          <Variable Name="Status">
+            <Variable Name="TableConfig" EnableArrayElements="True" />
+            <Variable Name="FileNames" EnableArrayElements="True" />
+            <Variable Name="TimeStamps" EnableArrayElements="True" />
+          </Variable>
+        </Variable>
+        <Variable Name="MpFileManagerUIConnect">
+          <Variable Name="DeviceList">
+            <Variable Name="DeviceNames" EnableArrayElements="True" />
+            <Variable Name="SelectedIndex" />
+          </Variable>
+          <Variable Name="File">
+            <Variable Name="Refresh" />
+            <Variable Name="Delete" />
+            <Variable Name="List">
+              <Variable Name="Items" EnableArrayElements="True" />
+            </Variable>
+          </Variable>
+          <Variable Name="MessageBox">
+            <Variable Name="Confirm" />
+            <Variable Name="Cancel" />
+          </Variable>
+        </Variable>
+        <Variable Name="MpReportCore_0">
+          <Variable Name="Generate" />
+          <Variable Name="Active" />
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

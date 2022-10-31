@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.10.4.38 FileVersion="4.9"?>
+<?AutomationStudio Version=4.10.2.37 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
   <Module Name="PC" Type="PC_any" Version="1.1.1.0" OrderNumber="PC">
     <Parameter ID="ConfigurationID" Value="mappFramework516_Simulation" />
     <Parameter ID="UserPartitionSize" Value="256" />
     <Parameter ID="Cyclic1Duration" Value="10000" />
     <Parameter ID="Cyclic5Duration" Value="10000" />
-    <Parameter ID="Cyclic8Duration" Value="10000" />
     <Group ID="FileDevice1" />
     <Parameter ID="FileDeviceName1" Value="UserPartition" />
     <Parameter ID="FileDevicePath1" Value="F:\" />
@@ -28,9 +27,10 @@
     <Group ID="FileDevice7" />
     <Parameter ID="FileDeviceName7" Value="mappDataFiles" />
     <Parameter ID="FileDevicePath7" Value="F:\Data" />
+    <Group ID="FileDevice8" />
+    <Parameter ID="FileDeviceName8" Value="mappReportFiles" />
+    <Parameter ID="FileDevicePath8" Value="F:\Report" />
     <Parameter ID="ActivateOpcUa" Value="1" />
-    <Parameter ID="OpcUaActivateAuditEvents" Value="1" />
-    <Parameter ID="OpcUa_Security_AdminRole" Value="Administrators" />
     <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
   </Module>
 </Hardware>
