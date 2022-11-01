@@ -40,7 +40,12 @@ void _INIT initTestSuite(void)
 void _CYCLIC cyclicWithTest(void)
 {
 	utCyclic(&Testsuite);
-
+    if (Testsuite.Informational.LastKnownPassedLocation.TestCaseName != 0)
+        strcpy((char*)&LastTestCase, (char*)Testsuite.Informational.LastKnownPassedLocation.TestCaseName);
+    if (Testsuite.Informational.LastKnownPassedLocation.TestSetName != 0)
+        strcpy((char*)&LastTestSet, (char*)Testsuite.Informational.LastKnownPassedLocation.TestSetName);
+    if (Testsuite.Informational.LastKnownPassedLocation.File != 0)
+        strcpy((char*)&LastTestFile, (char*)Testsuite.Informational.LastKnownPassedLocation.File);
 }
 
 
