@@ -3,13 +3,5 @@ VAR_CONFIG
 	::UserXMgr:MpUserXLogin_0.StatusID AT %Q.::UserXUnitT:MpBlockStatus[0]; (*Insert your comment here...*)
 	::UserXMgr:MpUserXLoginUI_0.StatusID AT %Q.::UserXUnitT:MpBlockStatus[1]; (*Insert your comment here...*)
 	::UserXMgr:MpUserXManagerUI_0.StatusID AT %Q.::UserXUnitT:MpBlockStatus[2]; (*Insert your comment here...*)
-	::RecipeMgr:MachineSettings AT %Q.::RecipeMgrU:MachineSettings; (*Insert your comment here...*)
-	::RecipeMgr:Parameters AT %Q.::RecipeMgrU:Parameters; (*Insert your comment here...*)
-	::RecipeMgr:HmiRecipe.Status AT %Q.::RecipeMgrU:HmiRecipe.Status; (*Insert your comment here...*)
-	::RecipeMgr:MpRecipe_0 AT %Q.::RecipeMgrU:MpRecipe_0; (*Insert your comment here...*)
 END_VAR
 (*Outputs from the unit test*)
-VAR_CONFIG
-	::RecipeMgrU:HmiRecipe.Commands AT %Q.::RecipeMgr:HmiRecipe.Commands; (*Insert your comment here...*)
-	::RecipeMgrU:HmiRecipe.Parameters AT %Q.::RecipeMgr:HmiRecipe.Parameters; (*Insert your comment here...*)
-END_VAR
