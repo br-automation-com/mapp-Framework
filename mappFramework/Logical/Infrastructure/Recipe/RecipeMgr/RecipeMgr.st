@@ -31,7 +31,7 @@ PROGRAM _INIT
 	MpRecipeUI_0();
 	
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
-	HmiRecipe.Parameters.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"CF/PLC"}';
+	HmiRecipe.Status.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"CF/PLC"}';
 	HmiRecipe.Parameters.DeviceName := 'mappRecipeFiles';
 	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipe_0.Enable := TRUE;
@@ -150,7 +150,7 @@ PROGRAM _CYCLIC
 		MpRecipe_0.Load := FALSE;
 		MpRecipe_0.Save := FALSE;
 		// Set update notification for machine category
-		IF ((brsstrcmp(ADR(HmiRecipe.Status.CategoryDropdown), ADR(MACHINE_CONFIGURATION_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
+		IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
 			MpRecipe_0.UpdateNotification := TRUE;
 		ELSE
 			MpRecipe_0.UpdateNotification := FALSE;

@@ -16,10 +16,8 @@ TYPE
 	END_STRUCT;
 	RecipeParametersType : 	STRUCT  (*Structure to hold the parameters for the HMI*)
 		Category : STRING[30]; (*Current category*)
-		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*File device data provider*)
 		DeviceName : STRING[50]; (*Selected file device name*)
 		FileName : STRING[255]; (*Recipe file name*)
-		TableConfig : STRING[120]; (*Table configuration *)
 	END_STRUCT;
 	RecipeStatusType : 	STRUCT  (*Structure to hold status information from the mapp View HMI*)
 		HMIcommand : RecipeHmiStepEnum; (*State machine step for HMI commands*)
@@ -27,11 +25,9 @@ TYPE
 		LastLoadedProductRecipe : STRING[255]; (*Last loaded product recipe*)
 		ProductRecipeLoaded : BOOL; (*Product recipe was loaded*)
 		ConfigRecipeLoaded : BOOL; (*Config recipe was loaded*)
-		SelectedRecipe : STRING[255]; (*The name of the selected recipe*)
 		LastMaxSelection : UINT; (*The previous maximum number of recipes*)
 		LastSelectedIndex : UINT; (*The previous selected index*)
 		LastStatus : MpRecipeUIStatusEnum; (*The previous UI status*)
-		CategoryDropdown : STRING[50]; (*Category dropdown value*)
 		EditDialogOpened : BOOL; (*Flag that the edit dialog box was opened*)
 		CreateDialogOpened : BOOL; (*Flag that the create dialog box was opened*)
 		PreviousRecipe : STRING[80]; (*Name of the previous recipe*)
@@ -42,6 +38,9 @@ TYPE
 		MachineSettingsRecipeMissing : BOOL; (*Flag for if the default machine settings recipe is not present*)
 		ParameterRecipeMissing : BOOL; (*Flag for if the default parameters recipe is not present*)
 		LoadAllowed : BOOL; (*Flag for whether you can load a recipe. Recipe must exist and be valid. *)
+		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*File device data provider*)
+		TableConfig : STRING[120]; (*Table configuration *)
+		SelectedRecipe : STRING[255]; (*The name of the selected recipe*)
 	END_STRUCT;
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)
 		AddParametersHere1 : BOOL; (*Add your parameteres here *)

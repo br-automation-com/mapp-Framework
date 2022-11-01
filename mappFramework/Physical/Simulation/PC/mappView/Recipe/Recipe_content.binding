@@ -120,7 +120,7 @@
 			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.DeviceDataProvider" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.DeviceDataProvider" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeDevice" attribute="dataProvider" />
 		</Binding>
 		<Binding mode="twoWay">
@@ -204,7 +204,7 @@
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Image1" attribute="visible" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown" attribute="value" samplingRate="fast" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.Category" attribute="value" samplingRate="fast" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" attribute="selectedValue" />
 		</Binding>
 		<Binding mode="twoWay">
