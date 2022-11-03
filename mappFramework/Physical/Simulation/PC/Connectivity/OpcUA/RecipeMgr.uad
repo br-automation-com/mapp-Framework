@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
 <OpcUaSource FileVersion="7" ArVersion="B4.82">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
-        <ACE RoleId="3" RoleName="Service" Access="0x015F" />
-        <ACE RoleId="1" RoleName="Administrators" Access="0x017F" />
-        <ACE RoleId="4" RoleName="Operators" Access="0x015F" />
-        <ACE RoleId="2" RoleName="Everyone" Access="0x015F" />
+        <ACE RoleName="Service" Access="0x015F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+        <ACE RoleName="Operators" Access="0x015F" />
+        <ACE RoleName="Everyone" Access="0x015F" />
       </ACL>
       <ACL Id="3">
-        <ACE RoleId="3" RoleName="Service" Access="0x01FF" />
-        <ACE RoleId="1" RoleName="Administrators" Access="0x01FF" />
-        <ACE RoleId="4" RoleName="Operators" Access="0x01FF" />
-        <ACE RoleId="2" RoleName="Everyone" Access="0x017F" />
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x017F" />
       </ACL>
     </ACLAliases>
     <EURangeViolationAliases />
@@ -75,7 +76,8 @@
         <Variable Name="MACHINE_CONFIGURATION_RECIPE" />
         <Variable Name="PARAMETERS_RECIPE" />
         <Variable Name="HmiRecipe" AutomaticEnable="True">
-          <Variable Name="Parameters">
+          <Variable Name="Parameters" />
+          <Variable Name="Status">
             <Variable Name="DeviceDataProvider" EnableArrayElements="True" />
           </Variable>
         </Variable>

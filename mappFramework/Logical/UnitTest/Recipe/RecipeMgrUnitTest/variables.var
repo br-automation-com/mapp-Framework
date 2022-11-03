@@ -13,3 +13,11 @@ VAR
 	Testsuite : UtMgrTestSuite := (Name:='RecipeMgr',Description:='RecipeMgr Unit Tests',MetaInformation:='Meta');
 END_VAR
 (*Variables used in the tests*)
+VAR
+	cycleCount : {REDUND_UNREPLICABLE} USINT;
+	pMachineSettings : REFERENCE TO MachineSettingsType;
+	MachineSettingsSize : {REDUND_UNREPLICABLE} UDINT;
+	pParameters : REFERENCE TO ParametersType;
+	ParameterSize : {REDUND_UNREPLICABLE} UDINT;
+	LastSelectedIndex : UDINT;
+END_VAR

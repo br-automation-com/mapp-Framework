@@ -1,20 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="Recipe_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<Bindings>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.New.FileName" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="txtInNewRecipe" attribute="value" />		
-		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.New.FileName" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="txtInNewRecipe" attribute="value" />		
-		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.LastModified" attribute="value" />
+    <Bindings>
+        <Binding mode="twoWay">
+            <Source xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.LastModified" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="TableItemTimeStamp" attribute="stringValue" />
 		</Binding>
-		
-		<Binding mode="twoWay">
+        <Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.TableConfig" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Tbl" attribute="tableConfiguration" />
 		</Binding>
@@ -120,7 +111,7 @@
 			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.DeviceDataProvider" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.DeviceDataProvider" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeDevice" attribute="dataProvider" />
 		</Binding>
 		<Binding mode="twoWay">
@@ -204,7 +195,7 @@
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="Image1" attribute="visible" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown" attribute="value" samplingRate="fast" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.Category" attribute="value" samplingRate="fast" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" attribute="selectedValue" />
 		</Binding>
 		<Binding mode="twoWay">
