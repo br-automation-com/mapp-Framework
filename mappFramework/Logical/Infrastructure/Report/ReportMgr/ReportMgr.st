@@ -8,16 +8,16 @@
 PROGRAM _INIT
 	
 	//Parameterize the report function block with the simple report
-	MpReportCore_0.Language   := ADR('en');
+	MpReportCore_0.Language := ADR('en');
 	MpReportCore_0.DeviceName := ADR('mappReportFiles');
-	MpReportCore_0.MpLink     := ADR(gMpLinkSimpleReport);     
-	MpReportCore_0.Name       := ADR('SimpleReport');   
-	CurrentFormat             := FORMAT_SIMPLE;          
+	MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);     
+	MpReportCore_0.Name := ADR('SimpleReport');   
+	CurrentFormat := FORMAT_SIMPLE;          
 	
 	//Parameterize the file mangement function block
-	MpFileManagerUI_0.MpLink    := ADR(gMpLinkFileManagerUIReport);
+	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
-	MpFileManagerUI_0.Enable    := TRUE;
+	MpFileManagerUI_0.Enable := TRUE;
 	
 	//Fill an array to create example data for the example report
 	TimeIndex := 0;
@@ -25,7 +25,7 @@ PROGRAM _INIT
 		ReportExample.SimpleReport.Line_OEE[0].TempSamples.TimeStamp[i] := TimeIndex;
 		ReportExample.SimpleReport.Line_OEE[1].TempSamples.TimeStamp[i] := TimeIndex;
 		ReportExample.SimpleReport.Line_OEE[2].TempSamples.TimeStamp[i] := TimeIndex;
-		TimeIndex                                                       := TimeIndex + 15;
+		TimeIndex := TimeIndex + 15;
 	END_FOR
 	// Ficticious number to serve as an example in the report
 	ReportExample.Format_21CFR1.BatchNumber := 325454685; 
@@ -58,7 +58,7 @@ END_PROGRAM
 
 PROGRAM _EXIT
 	
-	MpReportCore_0.Enable    := FALSE;
+	MpReportCore_0.Enable := FALSE;
 	MpFileManagerUI_0.Enable := FALSE;
 	
 END_PROGRAM
