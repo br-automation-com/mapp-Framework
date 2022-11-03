@@ -7,6 +7,21 @@
 #include "UnitTest.h"
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
+
+#define TIMEOUT_TEST_CASE                                   \
+    if (cycleCount >= 254)                                  \
+    {                                                       \
+        char abortMessage[80];                              \
+        char substate[10];                                  \
+        memset(abortMessage, 0, sizeof(abortMessage));      \
+        memset(substate, 0, sizeof(substate));              \
+        itoa(ActSubState, substate, 10);                    \
+        strcpy(abortMessage, "Timeout in ActSubState = ");  \
+        strcat(abortMessage, substate);                     \
+        TEST_FAIL(abortMessage);                            \
+        TEST_DONE;                                          \
+    }
 
 _SETUP_SET(void)
 {
@@ -17,6 +32,7 @@ _SETUP_SET(void)
     TEST_BUSY_CONDITION(!RecipeExists("Default.par"));
     TEST_BUSY_CONDITION(RecipeExists("Machine.mcfg"));
     TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT)
+    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE)
     MpRecipeUIConnect.Recipe.Refresh = false;
     TEST_ABORT_CONDITION(pParameters == NULL);
     TEST_DONE;
@@ -40,12 +56,8 @@ _SETUP_TEST(void)
 
 _TEARDOWN_TEST(void)
 {
-    TEST_ABORT_CONDITION(cycleCount == 254);
-    LastSelectedIndex++;
     memset(&HmiRecipe.Commands, 0, sizeof(HmiRecipe.Commands));
     MpRecipeUIConnect.Recipe.Load = false;
-    MpRecipeUIConnect.Recipe.List.PageUp = false;
-    MpRecipeUIConnect.Recipe.List.StepDown = false;
     TEST_BUSY_CONDITION(!SelectRecipe("Default.par"));
 
     if (MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_ERROR)
@@ -65,7 +77,7 @@ _CYCLIC_SET(void)
 
 _TEST DefaultValues(void)
 {
-    TEST_ABORT_CONDITION(cycleCount == 254);
+    TIMEOUT_TEST_CASE
     switch (TestState)
     {
         case TEST_ARRANGE:
@@ -82,17 +94,23 @@ _TEST DefaultValues(void)
             {
                 case 0:
                     MpRecipeUIConnect.Recipe.Load = true;
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_LOAD);
+                    MpRecipeUIConnect.Recipe.Load = false;
+                    ActSubState = 1;
+                    break;
+
+                case 1:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
                     HmiRecipe.Commands.LoadRecipe = true;
                     TEST_BUSY_CONDITION(HmiRecipe.Status.ProductRecipeLoaded == true);
                     TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand == REC_HMI_WAIT);
                     HmiRecipe.Commands.LoadRecipe = false;
-                    MpRecipeUIConnect.Recipe.Load = false;
-                    ActSubState = 1;
+                    ActSubState = 2;
                     break;
-                case 1:
+
+                case 2:
                     TEST_BUSY_CONDITION(HmiRecipe.Status.ProductRecipeLoaded == false);
                     TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
-                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_LOAD);
                     TestState = TEST_ASSERT;
                     break;
             }
@@ -112,7 +130,7 @@ _TEST DefaultValues(void)
 
 _TEST CreateNew(void)
 {
-    TEST_ABORT_CONDITION(cycleCount == 254);
+    TIMEOUT_TEST_CASE
     switch (TestState)
     {
         case TEST_ARRANGE:
@@ -148,10 +166,9 @@ _TEST CreateNew(void)
     TEST_BUSY;
 }
 
-
 _TEST CreateExisting(void)
 {
-    TEST_ABORT_CONDITION(cycleCount == 254);
+    TIMEOUT_TEST_CASE
     switch (TestState)
     {
         case TEST_ARRANGE:
@@ -178,7 +195,7 @@ _TEST CreateExisting(void)
 
 _TEST CreateNonExisting(void)
 {
-    TEST_ABORT_CONDITION(cycleCount == 254);
+    TIMEOUT_TEST_CASE
 
     switch (TestState)
     {
@@ -205,7 +222,7 @@ _TEST CreateNonExisting(void)
 
 _TEST CreateActive(void)
 {
-    TEST_ABORT_CONDITION(cycleCount == 254);
+    TIMEOUT_TEST_CASE
     switch (TestState)
     {
         case TEST_ARRANGE:
@@ -231,7 +248,7 @@ _TEST CreateActive(void)
 
 _TEST PreviewShouldNotAffectActive(void)
 {
-    TEST_ABORT_CONDITION(cycleCount == 254);
+    TIMEOUT_TEST_CASE
     switch (TestState)
     {
         case TEST_ARRANGE:
@@ -293,7 +310,8 @@ _TEST PreviewShouldNotAffectActive(void)
 
 _TEST Preview(void)
 {
-    TEST_ABORT_CONDITION(cycleCount == 254);
+    TIMEOUT_TEST_CASE
+
     switch (TestState)
     {
         case TEST_ARRANGE:
@@ -357,7 +375,7 @@ _TEST Preview(void)
 
 _TEST Delete(void)
 {
-    TEST_ABORT_CONDITION(cycleCount == 254);
+    TIMEOUT_TEST_CASE
     switch (TestState)
     {
         case TEST_ARRANGE:
@@ -401,7 +419,7 @@ _TEST Delete(void)
 
 _TEST Invalid(void)
 {
-    TEST_ABORT_CONDITION(cycleCount == 254);
+    TIMEOUT_TEST_CASE
     switch (TestState)
     {
         case TEST_ARRANGE:
@@ -416,14 +434,12 @@ _TEST Invalid(void)
             {
                 case 0:
                     MpRecipeUIConnect.Recipe.Load = true;
-                    TEST_BUSY_CONDITION(HmiRecipe.Status.ProductRecipeLoaded == false);
-                    TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
-                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_LOAD);
+                    MpRecipeUIConnect.Recipe.Load = false;
                     ActSubState = 1;
                     break;
+
                 case 1:
-                    MpRecipeUIConnect.Recipe.Load = false;
-                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_IDLE);
                     TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_LOAD);
                     TestState = TEST_ASSERT;
                     break;
@@ -440,7 +456,7 @@ _TEST Invalid(void)
 
 SKIP_TEST EditActive(void)
 {
-    TEST_ABORT_CONDITION(cycleCount == 254);
+    TIMEOUT_TEST_CASE
     switch (TestState)
     {
         case TEST_ARRANGE:
@@ -525,7 +541,7 @@ SKIP_TEST EditActive(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2022-11-02 20:15:38Z
+LastUpdated: 2022-11-03 14:28:41Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)

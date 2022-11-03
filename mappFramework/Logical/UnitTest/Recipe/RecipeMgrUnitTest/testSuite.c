@@ -67,30 +67,13 @@ bool RecipeExists(char* recipeName)
 
 bool SelectRecipe(char* wantedRecipe)
 {
-    MpRecipeUIConnect.Recipe.List.PageUp = false;
-    MpRecipeUIConnect.Recipe.List.StepDown = false;
-
     if ((MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE) && (MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_ERROR)) return false;
 
-    if (MpRecipeUIConnect.Recipe.List.SelectedIndex != LastSelectedIndex)
+    for (USINT i=0; i <= MpRecipeUIConnect.Recipe.List.MaxSelection; i++)
     {
-        LastSelectedIndex = MpRecipeUIConnect.Recipe.List.SelectedIndex;
-
-        if (strcmp(wantedRecipe, MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]) == 0)
-            return true;
-
-        if (MpRecipeUIConnect.Recipe.List.SelectedIndex == MpRecipeUIConnect.Recipe.List.MaxSelection)
-        {
-            MpRecipeUIConnect.Recipe.List.PageUp = true;
-            MpRecipeUIConnect.Recipe.List.StepDown = false;
-        }
-        else
-        {
-            MpRecipeUIConnect.Recipe.List.PageUp = false;
-            MpRecipeUIConnect.Recipe.List.StepDown = true;
-        }
-        return false;
+        if (strcmp(wantedRecipe, MpRecipeUIConnect.Recipe.List.Names[i]) == 0)
+            MpRecipeUIConnect.Recipe.List.SelectedIndex = i;
     }
 
-    return (strcmp(wantedRecipe, MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]) == 0);
+    return (strcmp(wantedRecipe, HmiRecipe.Status.SelectedRecipe) == 0);
 }
