@@ -16,7 +16,7 @@
 		<BindingsSet refId="UserXDialog_Duplicate_content_binding" />
     </BindingsSets>
     <EventBindingsSets> 
-        <EventBindingsSet refId="UserX_content_eventbinding" />
+		<EventBindingsSet refId="UserList_content_eventbinding" />
         <EventBindingsSet refId="UserXDialog_Export_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Duplicate_content_eventbinding" />
@@ -31,7 +31,8 @@
 		<Dialog refId="UserXDuplicate_dialog" />
     </Dialogs>
     <Contents > 
-        <Content refId="UserX_content" />
+		<Content refId="UserX_content" />
+		<Content refId="UserList_content" />
 		<Content refId="UserXDialog_Login_content" />
 		<Content refId="UserXDialog_Error_content" />  
 		<Content refId="UserXDialog_Export_content" />

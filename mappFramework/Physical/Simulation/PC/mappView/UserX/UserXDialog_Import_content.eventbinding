@@ -15,6 +15,13 @@
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="UserXDialog_Import_content" widgetRefId="PushButtonConfirm" event="Click" />
       <EventHandler>
         <Action>
+          <Target xsi:type="session.VariableAction" refId="UserXRefreshList">
+            <Method xsi:type="session.VariableAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler>
+        <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXImport_dialog" />
           </Target>
