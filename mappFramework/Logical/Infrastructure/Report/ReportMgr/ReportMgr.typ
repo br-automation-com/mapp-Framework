@@ -35,14 +35,6 @@ TYPE
 		CreateAllowed : BOOL; (*Bit to indicate it is allowable to create a report right now*)
 		FilterString : STRING[1000]; (*String used to filter out any file that is not a PDF*)
 	END_STRUCT;
-END_TYPE
-
-(**)
-(*Enumerations*)
-(**)
-(*Structure for example information in the reports*)
-
-TYPE
 	ReportExampleType : 	STRUCT  (*Structure for the example data used by the two types of reports*)
 		SimpleReport : ExampleDataType; (*Structure for the simple report's example data*)
 		Format_21CFR1 : ExampleDataType; (*Structure for the 21CFR1 formatted report's example data*)
@@ -64,6 +56,11 @@ TYPE
 		TimeStamp : ARRAY[0..95]OF INT; (*The time the temperature sample was taken*)
 		Temp : ARRAY[0..95]OF REAL; (*The actual temperature reading*)
 	END_STRUCT;
+END_TYPE
+
+(*Enumerations*)
+
+TYPE
 	ReportFormatEnum : 
 		( (*An enumeration of the format selected by the user for the report*)
 		FORMAT_SIMPLE, (*A simple report to showcase some features of MpReport*)
