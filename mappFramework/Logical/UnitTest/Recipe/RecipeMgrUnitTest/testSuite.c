@@ -34,8 +34,8 @@ void _INIT initTestSuite(void)
     PV_xgetadr("RecipeMgr:MachineSettings", &pMachineSettings, &MachineSettingsSize);
     PV_xgetadr("RecipeMgr:Parameters", &pParameters, &ParameterSize);
 
+    LastSelectedIndex++;
 }
-
 
 void _CYCLIC cyclicWithTest(void)
 {
@@ -47,7 +47,6 @@ void _CYCLIC cyclicWithTest(void)
     if (Testsuite.Informational.LastKnownPassedLocation.File != 0)
         strcpy((char*)&LastTestFile, (char*)Testsuite.Informational.LastKnownPassedLocation.File);
 }
-
 
 void _EXIT exitTestSuite(void)
 {
@@ -68,11 +67,17 @@ bool RecipeExists(char* recipeName)
 
 bool SelectRecipe(char* wantedRecipe)
 {
+    MpRecipeUIConnect.Recipe.List.PageUp = false;
+    MpRecipeUIConnect.Recipe.List.StepDown = false;
+
+    if ((MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE) && (MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_ERROR)) return false;
+
     if (MpRecipeUIConnect.Recipe.List.SelectedIndex != LastSelectedIndex)
     {
         LastSelectedIndex = MpRecipeUIConnect.Recipe.List.SelectedIndex;
 
-        if (strcmp(wantedRecipe, MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]) == 0) return true;
+        if (strcmp(wantedRecipe, MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]) == 0)
+            return true;
 
         if (MpRecipeUIConnect.Recipe.List.SelectedIndex == MpRecipeUIConnect.Recipe.List.MaxSelection)
         {
@@ -87,7 +92,5 @@ bool SelectRecipe(char* wantedRecipe)
         return false;
     }
 
-    MpRecipeUIConnect.Recipe.List.PageUp = false;
-    MpRecipeUIConnect.Recipe.List.StepDown = false;
-    return false;
+    return (strcmp(wantedRecipe, MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]) == 0);
 }
