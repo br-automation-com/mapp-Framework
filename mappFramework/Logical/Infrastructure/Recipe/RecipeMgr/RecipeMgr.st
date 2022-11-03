@@ -154,8 +154,6 @@ PROGRAM _CYCLIC
 			MpRecipe_0.UpdateNotification := TRUE;
 		ELSE
 			MpRecipe_0.UpdateNotification := FALSE;
-			HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
-			HmiRecipe.Parameters.FileName := 'Default.par';
 		END_IF
 	END_IF
 	

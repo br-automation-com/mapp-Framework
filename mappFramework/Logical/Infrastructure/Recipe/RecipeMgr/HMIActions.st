@@ -183,16 +183,16 @@ ACTION RecipeHMIcommands:
 		IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
 			ParametersEdit := ParametersPreview;
 			IF HmiRecipe.Status.ParameterRecipeMissing THEN
-				MpRecipeUIConnect.New.FileName := DEFAULT_PARAMETERS;
+				HmiRecipe.Parameters.FileName := DEFAULT_PARAMETERS;
 			ELSE
-				MpRecipeUIConnect.New.FileName := 'newParameters';
+				HmiRecipe.Parameters.FileName:= 'newParameters';
 			END_IF
 		ELSIF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 			MachineSettingsEdit := MachineSettingsPreview;
 			IF HmiRecipe.Status.MachineSettingsRecipeMissing THEN
-				MpRecipeUIConnect.New.FileName := DEFAULT_MACHINE_CONFIGURATION;
+				HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION;
 			ELSE
-				MpRecipeUIConnect.New.FileName := 'newMachineConfig';
+				HmiRecipe.Parameters.FileName := 'newMachineConfig';
 			END_IF
 		END_IF
 	
