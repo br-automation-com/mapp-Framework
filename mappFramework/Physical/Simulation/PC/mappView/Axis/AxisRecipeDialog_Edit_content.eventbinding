@@ -14,12 +14,12 @@
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="ActiveRecipe">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.SelectedRecipe">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Parameters.SelectedRecipe">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
       <Operand datatype="ANY_STRING" name="RecipeCategory">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.CategoryDropdown">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Parameters.CategoryDropdown">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>

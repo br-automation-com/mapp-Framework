@@ -27,4 +27,4 @@ echo errorLevel: %errorLevel%
 
 
 :End
-pause
+rem pause
