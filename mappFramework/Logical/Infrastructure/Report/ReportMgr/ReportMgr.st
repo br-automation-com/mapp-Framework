@@ -2,22 +2,22 @@
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
 // Created: Dec 1, 2022
-// Description: Tasks for generating reports. 
+// Description: Task for generating reports. 
 //***********************************************************************
 
 PROGRAM _INIT
 	
-	//Parameterize the report function block
-	MpReportCore_0.Language   := ADR('en');
+	//Parameterize the report function block with the simple report
+	MpReportCore_0.Language := ADR('en');
 	MpReportCore_0.DeviceName := ADR('mappReportFiles');
-	MpReportCore_0.MpLink     := ADR(gMpLinkSimpleReport);     //Initialize to the simple report
-	MpReportCore_0.Name       := ADR('SimpleReport');    //Initialize to the simple report
-	CurrentFormat             := FORMAT_SIMPLE;          //Initialize to the simple report
+	MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);     
+	MpReportCore_0.Name := ADR('SimpleReport');   
+	CurrentFormat := FORMAT_SIMPLE;          
 	
 	//Parameterize the file mangement function block
-	MpFileManagerUI_0.MpLink    := ADR(gMpLinkFileManagerUIReport);
+	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
-	MpFileManagerUI_0.Enable    := TRUE;
+	MpFileManagerUI_0.Enable := TRUE;
 	
 	//Fill an array to create example data for the example report
 	TimeIndex := 0;
@@ -25,9 +25,10 @@ PROGRAM _INIT
 		ReportExample.SimpleReport.Line_OEE[0].TempSamples.TimeStamp[i] := TimeIndex;
 		ReportExample.SimpleReport.Line_OEE[1].TempSamples.TimeStamp[i] := TimeIndex;
 		ReportExample.SimpleReport.Line_OEE[2].TempSamples.TimeStamp[i] := TimeIndex;
-		TimeIndex                                                       := TimeIndex + 15;
+		TimeIndex := TimeIndex + 15;
 	END_FOR
-	ReportExample.Format_21CFR1.BatchNumber := 325454685; //ficticious number to serve as an example in the report
+	// Ficticious number to serve as an example in the report
+	ReportExample.Format_21CFR1.BatchNumber := 325454685; 
 	
 	// Create folder for this component on the user file device
 	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
@@ -40,15 +41,15 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 	
-	//Once a report has been generated, clear the generate command
+	// Once a report has been generated, clear the generate command
 	IF MpReportCore_0.CommandDone THEN
 		MpReportCore_0.Generate := FALSE;
 	END_IF
 	
-	//Call Actions
+	// Call all cyclic actions
 	ReportManager;
 	
-	//Call FUBs
+	// Call function blocks
 	MpReportCore_0();
 	MpFileManagerUI_0();
 	DirCreate_0();
@@ -57,7 +58,7 @@ END_PROGRAM
 
 PROGRAM _EXIT
 	
-	MpReportCore_0.Enable    := FALSE;
+	MpReportCore_0.Enable := FALSE;
 	MpFileManagerUI_0.Enable := FALSE;
 	
 END_PROGRAM

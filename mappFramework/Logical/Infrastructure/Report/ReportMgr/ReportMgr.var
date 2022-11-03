@@ -14,6 +14,7 @@ VAR
 	HmiReport : ReportHmiInterfaceType; (*HMI interface structure*)
 	ReportExample : ReportExampleType; (*Structure for the example data used by the two types of reports*)
 	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappReportFiles',9('')])); (*MpFile connection to the HMI*)
+	CurrentFormat : ReportFormatEnum; (*The selected format of the report*)
 END_VAR
 (*Variables*)
 VAR
@@ -21,5 +22,4 @@ VAR
 	TimeIndex : INT; (*Index to loop through file devices*)
 	DeviceCount : USINT; (*Counter for available file devices*)
 	ItemCount : UDINT; (*Counter for available files*)
-	CurrentFormat : ReportFormatEnum; (*The selected format of the report*)
 END_VAR
