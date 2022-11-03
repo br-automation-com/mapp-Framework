@@ -88,6 +88,11 @@ _TEST DefaultValues(void)
             break;
 
         case TEST_ACT:
+            if (MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_ERROR)
+            {
+                TEST_FAIL("MpRecipeUIConnect in error state");
+                TEST_DONE;
+            }
             switch (ActSubState)
             {
                 case 0:
@@ -135,16 +140,32 @@ _TEST CreateNew(void)
             break;
 
         case TEST_ACT:
+            if (MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_ERROR)
+            {
+                TEST_FAIL("MpRecipeUIConnect in error state");
+                TEST_DONE;
+            }
             switch (ActSubState)
             {
                 case 0:
                     HmiRecipe.Commands.CreateRecipe = true;
-                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_IDLE);
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_CREATE);
                     HmiRecipe.Commands.CreateRecipe = false;
                     ActSubState = 1;
                     break;
 
                 case 1:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+                    TEST_BUSY_CONDITION(HmiRecipe.Status.ProductRecipeLoaded == false);
+                    ActSubState = 2;
+                    break;
+
+                case 2:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_REFRESH);
+                    ActSubState = 3;
+                    break;
+
+                case 3:
                     TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
                     TestState = TEST_ASSERT;
                     break;
@@ -256,26 +277,48 @@ _TEST Preview(void)
             break;
 
         case TEST_ACT:
-            switch (ActSubState) {
+            if (MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_ERROR)
+            {
+                TEST_FAIL("MpRecipeUIConnect in error state");
+                TEST_DONE;
+            }
+            switch (ActSubState)
+            {
                 case 0:
                     HmiRecipe.Commands.CreateRecipe = true;
-                    TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand == REC_HMI_WAIT);
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_CREATE);
                     HmiRecipe.Commands.CreateRecipe = false;
                     ActSubState = 1;
-                    break;
+                break;
 
                 case 1:
-                    MpRecipeUIConnect.Recipe.List.StepDown = (MpRecipeUIConnect.Recipe.List.SelectedIndex != 0);
-                    TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+                    TEST_BUSY_CONDITION(HmiRecipe.Status.ProductRecipeLoaded == false);
                     ActSubState = 2;
-                    break;
+                break;
 
                 case 2:
-                    TEST_ABORT_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_ERROR);
-                    TEST_BUSY_CONDITION(HmiRecipe.Status.ProductRecipeLoaded == false);
-                    TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_REFRESH);
+                    ActSubState = 3;
+                break;
+
+                case 3:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+                    TEST_BUSY_CONDITION(!SelectRecipe("preview.mcfg"));
+                    ActSubState = 4;
+                break;
+
+                case 4:
+                    MpRecipeUIConnect.Recipe.Load = true;
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_LOAD);
+                    MpRecipeUIConnect.Recipe.Load = false;
+                    ActSubState = 5;
+                break;
+
+                case 5:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
                     TestState = TEST_ASSERT;
-                    break;
+                break;
             }
             break;
 
@@ -304,7 +347,13 @@ _TEST Delete(void)
             break;
 
         case TEST_ACT:
-            switch (ActSubState) {
+            if (MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_ERROR)
+            {
+                TEST_FAIL("MpRecipeUIConnect in error state");
+                TEST_DONE;
+            }
+            switch (ActSubState)
+            {
                 case 0:
                     MpRecipeUIConnect.Recipe.Delete = true;
                     TEST_BUSY_CONDITION(MpRecipeUIConnect.MessageBox.LayerStatus != 0);
@@ -321,6 +370,16 @@ _TEST Delete(void)
                     break;
 
                 case 2:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+                    ActSubState = 3;
+                    break;
+
+                case 3:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_REFRESH);
+                    ActSubState = 4;
+                    break;
+
+                case 4:
                     TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
                     TestState = TEST_ASSERT;
                     break;
