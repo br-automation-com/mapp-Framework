@@ -75,8 +75,8 @@ _TEST Act_LevelMonitoringLow(void)
 
 _TEST Assert_LevelMonitoringLow(void)
 {
-    TEST_ASSERT_EQUAL_INT(StartingPendingAlarms + 1, MpAlarmXCore_0.PendingAlarms);
-    TEST_ASSERT_EQUAL_INT(StartingActiveAlarms + 1, MpAlarmXCore_0.ActiveAlarms);
+    TEST_ASSERT_MESSAGE(MpAlarmXCore_0.PendingAlarms > StartingPendingAlarms, "Pending Alarms did not increase");
+    TEST_ASSERT_MESSAGE(MpAlarmXCore_0.ActiveAlarms > StartingActiveAlarms, "Active Alarms did not increase");
     TEST_ASSERT(AlarmIsActive("LevelMonitoringExample"));
     TEST_DONE;
 }
@@ -98,9 +98,8 @@ _TEST Act_LevelMonitoringLowLow(void)
 
 _TEST Assert_LevelMonitoringLowLow(void)
 {
-    // pending alarms will go up by 2, 1 for low level and 1 for low low
-    TEST_ASSERT_EQUAL_INT(StartingPendingAlarms + 2, MpAlarmXCore_0.PendingAlarms);
-    TEST_ASSERT_EQUAL_INT(StartingActiveAlarms + 1, MpAlarmXCore_0.ActiveAlarms);
+    TEST_ASSERT_MESSAGE(MpAlarmXCore_0.PendingAlarms > StartingPendingAlarms, "Pending Alarms did not increase");
+    TEST_ASSERT_MESSAGE(MpAlarmXCore_0.ActiveAlarms > StartingActiveAlarms, "Active Alarms did not increase");
     TEST_ASSERT(AlarmIsActive("LevelMonitoringExample"));
     TEST_DONE;
 }
@@ -122,8 +121,8 @@ _TEST Act_LevelMonitoringHigh(void)
 
 _TEST Assert_LevelMonitoringHigh(void)
 {
-    TEST_ASSERT_EQUAL_INT(StartingPendingAlarms + 1, MpAlarmXCore_0.PendingAlarms);
-    TEST_ASSERT_EQUAL_INT(StartingActiveAlarms + 1, MpAlarmXCore_0.ActiveAlarms);
+    TEST_ASSERT_MESSAGE(MpAlarmXCore_0.PendingAlarms > StartingPendingAlarms, "Pending Alarms did not increase");
+    TEST_ASSERT_MESSAGE(MpAlarmXCore_0.ActiveAlarms > StartingActiveAlarms, "Active Alarms did not increase");
     TEST_ASSERT(AlarmIsActive("LevelMonitoringExample"));
     TEST_DONE;
 }
@@ -145,9 +144,8 @@ _TEST Act_LevelMonitoringHighHigh(void)
 
 _TEST Assert_LevelMonitoringHighHigh(void)
 {
-    // pending alarms will go up by 2, 1 for High level and 1 for High High
-    TEST_ASSERT_EQUAL_INT(StartingPendingAlarms + 2, MpAlarmXCore_0.PendingAlarms);
-    TEST_ASSERT_EQUAL_INT(StartingActiveAlarms + 1, MpAlarmXCore_0.ActiveAlarms);
+    TEST_ASSERT_MESSAGE(MpAlarmXCore_0.PendingAlarms > StartingPendingAlarms, "Pending Alarms did not increase");
+    TEST_ASSERT_MESSAGE(MpAlarmXCore_0.ActiveAlarms > StartingActiveAlarms, "Active Alarms did not increase");
     TEST_ASSERT(AlarmIsActive("LevelMonitoringExample"));
     TEST_DONE;
 }
@@ -157,7 +155,7 @@ _TEST Assert_LevelMonitoringHighHigh(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2022-10-28 14:04:25Z
+LastUpdated: 2022-11-03 17:18:35Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
@@ -176,5 +174,5 @@ UNITTEST_FIXTURES(fixtures)
 	new_TestFixture("Assert_LevelMonitoringHighHigh", Assert_LevelMonitoringHighHigh), 
 };
 
-UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_Examples, "Set_Examples", setupTest, 0, fixtures, setupSet, teardownSet, cyclicSetCaller);
+UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_AlarmExamples, "Set_AlarmExamples", setupTest, 0, fixtures, setupSet, teardownSet, cyclicSetCaller);
 
