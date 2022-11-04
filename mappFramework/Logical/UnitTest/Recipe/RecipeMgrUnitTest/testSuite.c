@@ -67,7 +67,8 @@ bool RecipeExists(char* recipeName)
 
 bool SelectRecipe(char* wantedRecipe)
 {
-    if ((MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE) && (MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_ERROR)) return false;
+    if (((MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE) && (MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_ERROR)) &&
+        (strcmp(wantedRecipe, HmiRecipe.Status.SelectedRecipe) != 0)) return false;
 
     for (USINT i=0; i <= MpRecipeUIConnect.Recipe.List.MaxSelection; i++)
     {

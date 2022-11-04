@@ -20,4 +20,12 @@ VAR
 	pParameters : REFERENCE TO ParametersType;
 	ParameterSize : {REDUND_UNREPLICABLE} UDINT;
 	LastSelectedIndex : UDINT;
+	SetupState : USINT;
+	FileName : STRING[24];
+	NumberOfFiles : UINT;
+	CurrentFile : UINT;
+	fileInfo : fiDIR_READ_DATA;
+	DirInfo_UT : DirInfo;
+	DirRead_UT : DirRead;
+	FileDelete_UT : FileDelete;
 END_VAR
