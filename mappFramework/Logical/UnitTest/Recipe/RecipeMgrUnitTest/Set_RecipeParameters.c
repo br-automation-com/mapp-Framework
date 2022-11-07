@@ -25,70 +25,7 @@
 
 _SETUP_SET(void)
 {
-    switch (SetupState)
-    {
-        case 0:
-            DirInfo_UT.enable = true;
-            DirInfo_UT.pDevice = (UDINT)&"mappRecipeFiles";
-            DirInfo_UT.pPath = (UDINT)&"";
-            DirInfo(&DirInfo_UT);
-            TEST_BUSY_CONDITION(DirInfo_UT.status == 65535);
-            TEST_ABORT_CONDITION(DirInfo_UT.status != 0);
-            NumberOfFiles = DirInfo_UT.filenum;
-            CurrentFile = 0;
-            SetupState = (NumberOfFiles == 0) ? 100 : 1;
-            break;
-
-        case 1:
-            DirRead_UT.enable = true;
-            DirRead_UT.pDevice = DirInfo_UT.pDevice;
-            DirRead_UT.entry = CurrentFile;
-            DirRead_UT.option = fiFILE;
-            DirRead_UT.pData = (UDINT)&fileInfo;
-            DirRead_UT.data_len = sizeof(fileInfo);
-            DirRead(&DirRead_UT);
-            TEST_BUSY_CONDITION(DirRead_UT.status == 65535);
-            TEST_ABORT_CONDITION(DirRead_UT.status != 0);
-            SetupState = 2;
-            break;
-
-        case 2:
-            if ((strcmp("Default.par", &fileInfo.Filename) == 0) || (strcmp("Invalid.par", &fileInfo.Filename) == 0) ||
-                (strcmp("Machine.mcfg", &fileInfo.Filename) == 0) || (strcmp("MachineInvalid.mcfg", &fileInfo.Filename) == 0))
-            {
-                CurrentFile++;
-                SetupState = (CurrentFile >= NumberOfFiles) ? 10 : 1;
-                break;
-            }
-            FileDelete_UT.enable = true;
-            FileDelete_UT.pDevice = DirInfo_UT.pDevice;
-            FileDelete_UT.pName = (UDINT)&fileInfo.Filename;
-            FileDelete(&FileDelete_UT);
-            TEST_BUSY_CONDITION(FileDelete_UT.status == 65535);
-            TEST_ABORT_CONDITION(FileDelete_UT.status != 0);
-
-            NumberOfFiles--;
-            SetupState = (CurrentFile >= NumberOfFiles) ? 10 : 1;
-            break;
-
-        case 10:
-            strcpy((char*)&HmiRecipe.Parameters.DeviceName, "mappRecipeFiles");
-            strcpy((char*)&MpRecipeUIConnect.Recipe.Filter, "*.par");
-            MpRecipeUIConnect.Recipe.Refresh = true;
-            strcpy((char*)&HmiRecipe.Parameters.Category, PARAMETERS_CATEGORY);
-            TEST_BUSY_CONDITION(!RecipeExists("Default.par"));
-            TEST_BUSY_CONDITION(RecipeExists("Machine.mcfg"));
-            TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT)
-            TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE)
-            MpRecipeUIConnect.Recipe.Refresh = false;
-            TEST_ABORT_CONDITION(pParameters == NULL);
-            SetupState = 100;
-            break;
-
-        case 100:
-            TEST_DONE;
-    }
-    TEST_BUSY;
+    return RemoveNonDefaultFiles("*.par", "Default.par", PARAMETERS_CATEGORY);
 }
 
 _TEARDOWN_SET(void)
@@ -99,13 +36,7 @@ _TEARDOWN_SET(void)
 
 _SETUP_TEST(void)
 {
-    LastSelectedIndex++;
-    cycleCount = 0;
-    TestState = TEST_ARRANGE;
-    ArrangeSubState = 0;
-    ActSubState = 0;
-    AssertSubState = 0;
-    TEST_DONE;
+    return RemoveNonDefaultFiles("*.par", "Default.par", PARAMETERS_CATEGORY);
 }
 
 _TEARDOWN_TEST(void)
@@ -241,7 +172,7 @@ _TEST CreateExisting(void)
     switch (TestState)
     {
         case TEST_ARRANGE:
-            strcpy(&HmiRecipe.Parameters.FileName, "test");
+            strcpy(&HmiRecipe.Parameters.FileName, "Default");
             TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
             TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
             TestState = TEST_ACT;
@@ -254,7 +185,7 @@ _TEST CreateExisting(void)
         case TEST_ASSERT:
             HmiRecipe.Commands.CreateRecipe = false;
             TEST_ASSERT(HmiRecipe.Status.FileDuplicate);
-            TEST_ASSERT(RecipeExists("test.par"));
+            TEST_ASSERT(RecipeExists("Default.par"));
             TEST_DONE;
             break;
     }
@@ -480,10 +411,45 @@ _TEST Delete(void)
     switch (TestState)
     {
         case TEST_ARRANGE:
-            TEST_BUSY_CONDITION(!SelectRecipe("test.par"));
-            TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
-            TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
-            TestState = TEST_ACT;
+            switch (ArrangeSubState)
+            {
+                case 0:
+                    strcpy(&HmiRecipe.Parameters.FileName, "test");
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+                    TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
+                    ArrangeSubState = 1;
+                    break;
+
+                case 1:
+                    HmiRecipe.Commands.CreateRecipe = true;
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_CREATE);
+                    HmiRecipe.Commands.CreateRecipe = false;
+                    ArrangeSubState = 2;
+                    break;
+
+                case 2:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+                    TEST_BUSY_CONDITION(HmiRecipe.Status.ProductRecipeLoaded == false);
+                    ArrangeSubState = 3;
+                    break;
+
+                case 3:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_REFRESH);
+                    ArrangeSubState = 4;
+                    break;
+
+                case 4:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+                    ArrangeSubState = 5;
+                    break;
+
+                case 5:
+                    TEST_BUSY_CONDITION(!SelectRecipe("test.par"));
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+                    TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
+                    TestState = TEST_ACT;
+                    break;
+            }
             break;
 
         case TEST_ACT:
@@ -673,7 +639,7 @@ SKIP_TEST EditActive(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2022-11-03 14:28:41Z
+LastUpdated: 2022-11-07 13:02:54Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
