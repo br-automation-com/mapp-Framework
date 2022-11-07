@@ -31,8 +31,8 @@ void _INIT initTestSuite(void)
     strcpy((char*)&TextID, "SaveFailed");
     strcpy((char*)&HmiRecipe.Parameters.DeviceName, "mappRecipeFiles");
 
-    PV_xgetadr("RecipeMgr:MachineSettings", &pMachineSettings, &MachineSettingsSize);
-    PV_xgetadr("RecipeMgr:Parameters", &pParameters, &ParameterSize);
+    PV_xgetadr("RecipeMgr:MachineSettings", (void*)&pMachineSettings, &MachineSettingsSize);
+    PV_xgetadr("RecipeMgr:Parameters", (void*)&pParameters, &ParameterSize);
 
     LastSelectedIndex++;
 }
@@ -79,7 +79,7 @@ bool SelectRecipe(char* wantedRecipe)
     return (strcmp(wantedRecipe, HmiRecipe.Status.SelectedRecipe) == 0);
 }
 
-testStatusEnum RemoveNonDefaultFiles(char* filter, char* selectFile, char* category)
+testStatusEnum RemoveNonDefaultFiles(char* filter, char* selectFile, const char* category)
 {
     switch (SetupState)
     {
@@ -109,8 +109,8 @@ testStatusEnum RemoveNonDefaultFiles(char* filter, char* selectFile, char* categ
             break;
 
         case 2:
-            if ((strcmp("Default.par", &fileInfo.Filename) == 0) || (strcmp("Invalid.par", &fileInfo.Filename) == 0) ||
-                (strcmp("Machine.mcfg", &fileInfo.Filename) == 0) || (strcmp("MachineInvalid.mcfg", &fileInfo.Filename) == 0))
+            if ((strcmp("Default.par", (char*)fileInfo.Filename) == 0) || (strcmp("Invalid.par", (char*)fileInfo.Filename) == 0) ||
+                (strcmp("Machine.mcfg", (char*)fileInfo.Filename) == 0) || (strcmp("MachineInvalid.mcfg", (char*)fileInfo.Filename) == 0))
             {
                 CurrentFile++;
                 SetupState = (CurrentFile >= NumberOfFiles) ? 10 : 1;

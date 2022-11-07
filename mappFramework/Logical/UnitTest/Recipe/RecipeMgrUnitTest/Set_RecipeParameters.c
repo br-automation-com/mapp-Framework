@@ -8,6 +8,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
+#include "testSuite.h"
 
 #define TIMEOUT_TEST_CASE                                   \
     if (cycleCount >= 254)                                  \
@@ -119,7 +120,7 @@ _TEST CreateNew(void)
     switch (TestState)
     {
         case TEST_ARRANGE:
-            strcpy(&HmiRecipe.Parameters.FileName, "test");
+            strcpy(HmiRecipe.Parameters.FileName, "test");
             TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
             TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
             TestState = TEST_ACT;
@@ -172,7 +173,7 @@ _TEST CreateExisting(void)
     switch (TestState)
     {
         case TEST_ARRANGE:
-            strcpy(&HmiRecipe.Parameters.FileName, "Default");
+            strcpy(HmiRecipe.Parameters.FileName, "Default");
             TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
             TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
             TestState = TEST_ACT;
@@ -200,7 +201,7 @@ _TEST CreateNonExisting(void)
     switch (TestState)
     {
         case TEST_ARRANGE:
-            strcpy(&HmiRecipe.Parameters.FileName, "test2");
+            strcpy(HmiRecipe.Parameters.FileName, "test2");
             TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
             TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
             TestState = TEST_ACT;
@@ -226,7 +227,7 @@ _TEST CreateActive(void)
     switch (TestState)
     {
         case TEST_ARRANGE:
-            strcpy(&HmiRecipe.Parameters.FileName, strtok(HmiRecipe.Status.LastLoadedProductRecipe, "."));
+            strcpy(HmiRecipe.Parameters.FileName, strtok(HmiRecipe.Status.LastLoadedProductRecipe, "."));
             TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
             TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
             TestState = TEST_ACT;
@@ -257,7 +258,7 @@ _TEST PreviewShouldNotAffectActive(void)
             ParametersEdit.AddParametersHere3 = 12.56;
             ParametersEdit.AddParametersHere4 = 134.876;
             ParametersEdit.AddParametersHere5 = 87.4567;
-            strcpy(&HmiRecipe.Parameters.FileName, "preview");
+            strcpy(HmiRecipe.Parameters.FileName, "preview");
             HmiRecipe.Commands.CreateRecipe = true;
             TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand == REC_HMI_WAIT);
             HmiRecipe.Commands.CreateRecipe = false;
@@ -341,7 +342,7 @@ _TEST Preview(void)
             ParametersEdit.AddParametersHere3 = 12.56;
             ParametersEdit.AddParametersHere4 = 134.876;
             ParametersEdit.AddParametersHere5 = 87.4567;
-            strcpy(&HmiRecipe.Parameters.FileName, "preview");
+            strcpy(HmiRecipe.Parameters.FileName, "preview");
             TestState = TEST_ACT;
             break;
 
@@ -414,7 +415,7 @@ _TEST Delete(void)
             switch (ArrangeSubState)
             {
                 case 0:
-                    strcpy(&HmiRecipe.Parameters.FileName, "test");
+                    strcpy(HmiRecipe.Parameters.FileName, "test");
                     TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
                     TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
                     ArrangeSubState = 1;
@@ -552,7 +553,7 @@ SKIP_TEST EditActive(void)
             ParametersEdit.AddParametersHere3 = 12.56;
             ParametersEdit.AddParametersHere4 = 134.876;
             ParametersEdit.AddParametersHere5 = 87.4567;
-            strcpy(&HmiRecipe.Parameters.FileName, "editActive");
+            strcpy(HmiRecipe.Parameters.FileName, "editActive");
             TestState = TEST_ACT;
             break;
 
