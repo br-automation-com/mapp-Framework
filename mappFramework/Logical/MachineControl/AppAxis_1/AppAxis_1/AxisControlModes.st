@@ -14,7 +14,7 @@ END_ACTION
 
 ACTION AxisManual:
     // Action handling manual axis control
-    MpAxisParameters.Jog.Velocity := AxisControl.Parameters.Velocity;
+    MpAxisParameters.Jog.Velocity := AxisControl.Parameters.JogVelocity;
 	MpAxisParameters.Velocity := AxisControl.Parameters.Velocity;
     MpAxisParameters.Position := AxisControl.Parameters.Position;
     MpAxisParameters.Distance := AxisControl.Parameters.Distance;
@@ -35,8 +35,10 @@ ACTION AxisManual:
                 AxisControl.Command.MoveAbsolute := FALSE;
                 AxisControl.Command.MoveAdditive := FALSE;
                 ManualState := MANUAL_STATE_MOVE;
+            ELSE
+                State := STATE_READY;
             END_IF
-        // Jog state    
+        // Jog state
         MANUAL_STATE_JOG:
             MpAxisBasic_0.JogNegative := AxisControl.Command.JogNegative;
             MpAxisBasic_0.JogPositive := AxisControl.Command.JogPositive;
@@ -50,7 +52,7 @@ ACTION AxisManual:
                 MpAxisBasic_0.JogNegative := FALSE;
                 ManualState := MANUAL_STATE_STOPPING;
             END_IF
-       // Direct move state     
+        // Direct move state
         MANUAL_STATE_MOVE:
             IF (AxisControl.Command.Stop = TRUE) THEN
                 MpAxisBasic_0.MoveAbsolute := FALSE;
@@ -95,7 +97,7 @@ ACTION AxisAutomatic:
     CASE AutomaticState OF
         AUTOMATIC_STATE_IDLE:
             IF (AxisControl.Command.Start = TRUE) THEN
-                MpAlarmXControl_SpeedNotSet.Set := (MpAxisParameters.Velocity = 0);
+                MpAlarmXControl_SpeedNotSet.Set := (AxisControl.Parameters.Velocity = 0);
                 AutomaticState := AUTOMATIC_STATE_RUNNING;
             END_IF
             
