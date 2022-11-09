@@ -176,6 +176,7 @@ _TEST USERX_LOGOUT(void){
 			TestStep = 2;
 			break;
 		case 2:
+			TestStep = 0;
 			TEST_DONE;
 			break;
 	}
