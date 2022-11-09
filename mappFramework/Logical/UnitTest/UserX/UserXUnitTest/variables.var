@@ -15,12 +15,12 @@ VAR
 END_VAR
 (*Variables used in the tests*)
 VAR
-	UT_Password : WSTRING[80] := "123ABc"; (*Unit test password login request*)
+	UT_Password : WSTRING[80] := "Password 123ABc"; (*Unit test password login request*)
 	UT_Username : WSTRING[80] := "Admin"; (*Unit test username login request *)
 	UT_Compare : DINT; (*Unit test string compare PV holder*)
 	UT_Message : STRING[80]; (*Unit test message variable*)
 	UT_j : USINT; (*index for FOR loops*)
 	UT_i : USINT; (*index for FOR loops*)
-	UT_RoleList : ARRAY[0..4] OF UINT := [1,4,3,2(0)]; (*Unit test role list for checking against user list*)
+	UT_RoleList : ARRAY[0..4] OF WSTRING[50] := ["Administrators","Operators","Service",2("")]; (*Unit test role list for checking against user list*)
 	UT_UserList : ARRAY[0..4] OF WSTRING[50] := ["Admin","Operator","Service_Tech",2("")]; (*Unit test user list for checking against user list*)
 END_VAR
