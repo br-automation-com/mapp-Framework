@@ -73,10 +73,112 @@ _TEST USERX_ROLES_CHECK(void)
 			TestStep = 1;
 			break;
 		case 1:
+			TestStep = 0;
 			TEST_DONE;
 			break;
 	}
 	TEST_BUSY;
+}
+
+_TEST USERX_USER_CHECK(void)
+{
+	
+	switch (TestStep){
+		case 0: // Ensure Admin has Admin Role
+			UT_Compare = brwcscmp((UDINT)&MpUserXLogin_0.CurrentUser, (UDINT)&UT_Username);
+			TEST_ABORT_CONDITION(UT_Compare != 0);
+			TEST_ABORT_CONDITION(MpUserXLogin_0.MpLink == 0);
+			TestStep = 1;
+			break;
+		case 1:
+			TEST_ABORT_CONDITION(MpUserXLogin_0.MpLink == 0);
+			brwcscpy((UDINT)&UT_Username, (UDINT)&UT_UserList[1]);
+			MpUserXLogin_0.Enable = 1;
+			MpUserXLogin_0.UserName = (UDINT)&UT_Username;
+			MpUserXLogin_0.Password = (UDINT)&UT_Password;
+			MpUserXLogin_0.Login = 1;
+			MpUserXLogin(&MpUserXLogin_0);
+			while (MpUserXLogin_0.CommandBusy == 1){
+				MpUserXLogin(&MpUserXLogin_0);
+			}
+			UT_Compare = brwcscmp((UDINT)&MpUserXLogin_0.CurrentUser, (UDINT)&UT_Username);
+			TEST_ASSERT(UT_Compare == 0);
+			if (UT_Compare == 0){
+				MpUserXLogin_0.Login = 0;
+				//	TODO: UIConnect does not update on user change this may require that the password be reset as required by the configuration	
+				//UT_Compare = brwcscmp((UDINT)&UT_RoleList[1], (UDINT)&UserXMgrUIConnect.Role.Info.Name);
+				//TEST_ASSERT(UT_Compare == 0);
+				TestStep = 2;
+			}	
+			break;
+		
+		case 2:	
+			TEST_ABORT_CONDITION(MpUserXLogin_0.MpLink == 0);
+			brwcscpy((UDINT)&UT_Username, (UDINT)&UT_UserList[2]);
+			MpUserXLogin_0.Enable = 1;
+			MpUserXLogin_0.UserName = (UDINT)&UT_Username;
+			MpUserXLogin_0.Password = (UDINT)&UT_Password;
+			MpUserXLogin_0.Login = 1;
+			MpUserXLogin(&MpUserXLogin_0);
+			while (MpUserXLogin_0.CommandBusy == 1){
+				MpUserXLogin(&MpUserXLogin_0);
+			}
+			UT_Compare = brwcscmp((UDINT)&MpUserXLogin_0.CurrentUser, (UDINT)&UT_Username);
+			TEST_ASSERT(UT_Compare == 0);
+			if (UT_Compare == 0){
+				MpUserXLogin_0.Login = 0;
+//				TODO: UIConnect does not update on user change this may require that the password be reset as required by the configuration			
+//				UT_Compare = brwcscmp((UDINT)&UT_RoleList[2], (UDINT)&UserXMgrUIConnect.Role.Info.Name);
+//				TEST_ASSERT(UT_Compare == 0);
+				TestStep = 3;
+			}	
+			break;
+		case 3:
+			TEST_ABORT_CONDITION(MpUserXLogin_0.MpLink == 0);
+			brwcscpy((UDINT)&UT_Username, (UDINT)&UT_UserList[0]);
+			MpUserXLogin_0.Enable = 1;
+			MpUserXLogin_0.UserName = (UDINT)&UT_Username;
+			MpUserXLogin_0.Password = (UDINT)&UT_Password;
+			MpUserXLogin_0.Login = 1;
+			MpUserXLogin(&MpUserXLogin_0);
+			while (MpUserXLogin_0.CommandBusy == 1){
+				MpUserXLogin(&MpUserXLogin_0);
+			}
+			UT_Compare = brwcscmp((UDINT)&MpUserXLogin_0.CurrentUser, (UDINT)&UT_Username);
+			TEST_ASSERT(UT_Compare == 0);
+			if (UT_Compare == 0){
+				MpUserXLogin_0.Login = 0;
+				TestStep = 4;
+			}	
+			break;
+		case 4:
+			TestStep = 0;
+			TEST_DONE;
+			break;
+	}
+	TEST_BUSY;
+}
+
+_TEST USERX_LOGOUT(void){
+	switch (TestStep){
+		case 0:
+			TEST_ABORT_CONDITION(MpUserXLogin_0.MpLink == 0);
+			MpUserXLogin_0.Enable = 1;
+			MpUserXLogin_0.Logout = 1;
+			MpUserXLogin(&MpUserXLogin_0);
+			while (MpUserXLogin_0.CommandBusy == 1){
+				MpUserXLogin(&MpUserXLogin_0);
+			}
+			TestStep = 1;
+			break;
+		case 1:
+			TEST_ASSERT(MpUserXLogin_0.CurrentLevel != 0);
+			TestStep = 2;
+			break;
+		case 2:
+			TEST_DONE;
+			break;
+	}
 }
 _TEARDOWN_TEST(void)
 {
