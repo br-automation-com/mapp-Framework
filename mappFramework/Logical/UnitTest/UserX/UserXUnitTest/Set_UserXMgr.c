@@ -54,18 +54,18 @@ _TEST USERX_ROLES_CHECK(void)
 		case 0:
 			UT_Compare = brwcscmp((UDINT)&MpUserXLogin_0.CurrentUser, (UDINT)&UT_Username);
 			TEST_ABORT_CONDITION(UT_Compare != 0); // Check to make sure role is admin so all users / roles can be seen
-			for (UT_i = 0; UT_i < (sizeof(UT_UserList) / sizeof(UT_UserList[0]) - 1); UT_i++)
+			for (UT_i = 0; UT_i < (sizeof(UT_RoleList) / sizeof(UT_RoleList[0]) - 1); UT_i++)
 			{
-				for (UT_j = 0; UT_j < (sizeof(UserXMgrUIConnect.User.List.UserNames) / sizeof(UserXMgrUIConnect.User.List.UserNames[0]) - 1); UT_j++)
+				for (UT_j = 0; UT_j < (sizeof(UserXMgrUIConnect.Role.List.Names) / sizeof(UserXMgrUIConnect.Role.List.Names[0]) - 1); UT_j++)
 				{
-					UT_Compare = brwcscmp((UDINT)&UserXMgrUIConnect.User.List.UserNames[UT_j], (UDINT)&UT_UserList[UT_i]);
+					UT_Compare = brwcscmp((UDINT)&UserXMgrUIConnect.Role.List.Names[UT_j], (UDINT)&UT_RoleList[UT_i]);
 					if (UT_Compare == 0) 
 					{
 						
 						break;
 					}
 				}
-				if (UT_UserList[UT_i] != "")
+				if (UT_RoleList[UT_i] != "")
 				{
 					TEST_ASSERT(UT_Compare == 0);
 				}				
