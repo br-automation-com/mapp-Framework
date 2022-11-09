@@ -30,7 +30,7 @@ _SETUP_TEST(void)
 			MpUserXLogin_0.Password = (UDINT)&UT_Password;
 			MpUserXLogin_0.Login = 1;
 			MpUserXLogin(&MpUserXLogin_0);
-		    UT_Compare = brwcscmp((UDINT)&MpUserXLogin_0.CurrentUser, (UDINT)&UT_Username);
+			UT_Compare = brwcscmp((UDINT)&MpUserXLogin_0.CurrentUser, (UDINT)&UT_Username);
 			TEST_BUSY_CONDITION(UT_Compare != 0);
 			if (UT_Compare == 0){
 				TEST_ABORT_CONDITION(UserXLoginUIConnect.Status == mpUSERX_UI_STATUS_ERROR);
