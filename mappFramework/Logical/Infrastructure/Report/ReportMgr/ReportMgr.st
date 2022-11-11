@@ -43,14 +43,14 @@ PROGRAM _CYCLIC
 	
 	// Once a report has been generated, clear the generate command
 	IF MpReportCore_0.CommandDone THEN
-		MpReportCore_0.Generate := FALSE;
+		HmiReport.Commands.Generate := FALSE;
 	END_IF
 	
 	// Call all cyclic actions
 	ReportManager;
 	
 	// Call function blocks
-	MpReportCore_0();
+	MpReportCore_0(Generate := HmiReport.Commands.Generate);
 	MpFileManagerUI_0();
 	DirCreate_0();
 	
