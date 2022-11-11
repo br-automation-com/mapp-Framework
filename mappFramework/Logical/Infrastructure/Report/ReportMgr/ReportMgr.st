@@ -28,7 +28,7 @@ PROGRAM _INIT
 		TimeIndex := TimeIndex + 15;
 	END_FOR
 	// Ficticious number to serve as an example in the report
-	ReportExample.Format_21CFR1.BatchNumber := 325454685; 
+	ReportExample.AdvancedReport.BatchNumber := 325454685; 
 	
 	// Create folder for this component on the user file device
 	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));

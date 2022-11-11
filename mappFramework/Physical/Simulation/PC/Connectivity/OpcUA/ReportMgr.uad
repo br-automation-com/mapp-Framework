@@ -4,10 +4,16 @@
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
+        <ACE RoleName="Administrators" Access="0x017F" />
+        <ACE RoleName="Operators" Access="0x005F" />
+        <ACE RoleName="Service" Access="0x005F" />
         <ACE RoleName="Everyone" Access="0x005F" />
       </ACL>
       <ACL Id="2">
-        <ACE RoleName="Everyone" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x017F" />
       </ACL>
     </ACLAliases>
     <EURangeViolationAliases />
@@ -18,8 +24,8 @@
     <Module Name="&lt;Default&gt;">
       <Task Name="ReportMgr">
         <Variable Name="ReportExample">
-          <Variable Name="Format_21CFR1">
-            <Variable Name="BatchNumber" />
+          <Variable Name="AdvancedReport" AutomaticEnable="True">
+            <Variable Name="Line_OEE" EnableArrayElements="True" />
           </Variable>
         </Variable>
         <Variable Name="HmiReport" AutomaticEnable="True">
