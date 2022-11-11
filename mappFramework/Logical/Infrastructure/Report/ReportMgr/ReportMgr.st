@@ -12,7 +12,7 @@ PROGRAM _INIT
 	MpReportCore_0.DeviceName := ADR('mappReportFiles');
 	MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);     
 	MpReportCore_0.Name := ADR('SimpleReport');   
-	CurrentFormat := FORMAT_SIMPLE;          
+	HmiReport.Parameters.CurrentFormat := FORMAT_SIMPLE;          
 	
 	//Parameterize the file mangement function block
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
@@ -21,12 +21,16 @@ PROGRAM _INIT
 	
 	//Fill an array to create example data for the example report
 	TimeIndex := 0;
-	FOR i:=0 TO NUM_TEMP_SAMPLES-1 DO
-		ReportExample.SimpleReport.Line_OEE[0].TempSamples.TimeStamp[i] := TimeIndex;
-		ReportExample.SimpleReport.Line_OEE[1].TempSamples.TimeStamp[i] := TimeIndex;
-		ReportExample.SimpleReport.Line_OEE[2].TempSamples.TimeStamp[i] := TimeIndex;
+	FOR i:=0 TO ((SIZEOF(ReportExample.SimpleReport.OeeLine[0].TemperatureSample.TimeStamp)/SIZEOF(ReportExample.SimpleReport.OeeLine[0].TemperatureSample.TimeStamp[0])) - 1) DO
+		ReportExample.SimpleReport.OeeLine[0].TemperatureSample.TimeStamp[i] := TimeIndex;
+		ReportExample.SimpleReport.OeeLine[1].TemperatureSample.TimeStamp[i] := TimeIndex;
+		ReportExample.SimpleReport.OeeLine[2].TemperatureSample.TimeStamp[i] := TimeIndex;
+		ReportExample.AdvancedReport.OeeLine[0].TemperatureSample.TimeStamp[i] := TimeIndex;
+		ReportExample.AdvancedReport.OeeLine[1].TemperatureSample.TimeStamp[i] := TimeIndex;
+		ReportExample.AdvancedReport.OeeLine[2].TemperatureSample.TimeStamp[i] := TimeIndex;
 		TimeIndex := TimeIndex + 15;
 	END_FOR
+
 	// Ficticious number to serve as an example in the report
 	ReportExample.AdvancedReport.BatchNumber := 325454685; 
 	
@@ -37,6 +41,7 @@ PROGRAM _INIT
 	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreate_0(enable := FALSE);
 	END_IF
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -52,7 +57,6 @@ PROGRAM _CYCLIC
 	// Call function blocks
 	MpReportCore_0(Generate := HmiReport.Commands.Generate);
 	MpFileManagerUI_0();
-	DirCreate_0();
 	
 END_PROGRAM
 

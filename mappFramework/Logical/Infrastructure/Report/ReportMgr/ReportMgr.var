@@ -7,14 +7,14 @@ END_VAR
 (*Constants*)
 VAR CONSTANT
 	LOCAL_FOLDER : STRING[10] := 'Report'; (*Folder name on the file device for Recipe files*)
-	NUM_TEMP_SAMPLES : INT := 96; (*The number of temperature samples in the example data*)
+	NUM_LINES : INT := 2; (*The number lines on the machine*)
+	NUM_TEMP_SAMPLES : INT := 95; (*The number of temperature samples in the example data*)
 END_VAR
 (*Structure Types*)
 VAR
 	HmiReport : ReportHmiInterfaceType; (*HMI interface structure*)
 	ReportExample : ReportExampleType; (*Structure for the example data used by the two types of reports*)
 	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappReportFiles',9('')])); (*MpFile connection to the HMI*)
-	CurrentFormat : ReportFormatEnum; (*The selected format of the report*)
 END_VAR
 (*Variables*)
 VAR

@@ -1,16 +1,16 @@
 ACTION ReportManager:
     
 	// If the current format and the selected format do not match, disable the function block for a cycle and make the change
-	IF HmiReport.Parameters.UseAdvancedFormat AND (CurrentFormat = FORMAT_SIMPLE) THEN
+	IF HmiReport.Parameters.UseAdvancedFormat AND (HmiReport.Parameters.CurrentFormat = FORMAT_SIMPLE) THEN
 		MpReportCore_0.Enable := FALSE;
 		MpReportCore_0.MpLink := ADR(gMpLinkAdvancedReport);
 		MpReportCore_0.Name := ADR('AdvancedReport');
-		CurrentFormat := FORMAT_ADVANCED;
-	ELSIF NOT HmiReport.Parameters.UseAdvancedFormat AND (CurrentFormat = FORMAT_ADVANCED) THEN
+		HmiReport.Parameters.CurrentFormat := FORMAT_ADVANCED;
+	ELSIF NOT HmiReport.Parameters.UseAdvancedFormat AND (HmiReport.Parameters.CurrentFormat = FORMAT_ADVANCED) THEN
 		MpReportCore_0.Enable := FALSE;
 		MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);
 		MpReportCore_0.Name := ADR('SimpleReport');
-		CurrentFormat := FORMAT_SIMPLE;
+		HmiReport.Parameters.CurrentFormat := FORMAT_SIMPLE;
 	ELSE
 		MpReportCore_0.Enable := TRUE;		
 	END_IF
