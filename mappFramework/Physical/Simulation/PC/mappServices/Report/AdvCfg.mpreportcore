@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
-  <Element ID="gMpLinkReport_21CFR1" Type="mpreportcore">
+  <Element ID="gMpLinkAdvancedReport" Type="mpreportcore">
     <Group ID="MpReport">
       <Group ID="Settings">
         <Property ID="ResourceDeviceName" Value="mappReportFiles" />
@@ -549,7 +549,7 @@
             <Property ID="HorizontalAlign" Value="2" />
           </Selector>
           <Selector ID="[1]">
-            <Property ID="Text" Value="{$MpReport/Ex/HeaderText_21CFR1}" />
+            <Property ID="Text" Value="{$MpReport/Ex/AdvancedHeaderText}" />
             <Property ID="HorizontalAlign" Value="1" />
             <Property ID="NewLine" Value="FALSE" />
             <Property ID="TextStyle" Value="Title" />
@@ -776,7 +776,7 @@
       </Group>
       <Group ID="Reports">
         <Group ID="[0]">
-          <Property ID="Name" Value="Report_21CFR1" />
+          <Property ID="Name" Value="AdvancedReport" />
           <Property ID="PageLayout" Value="Default" />
           <Property ID="Header" Value="Header" />
           <Property ID="Footer" Value="Footer" />
