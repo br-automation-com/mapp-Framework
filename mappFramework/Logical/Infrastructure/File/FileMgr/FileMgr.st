@@ -19,7 +19,9 @@ PROGRAM _INIT
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
-	MpFileManagerUI_0();
+    MpFileManagerUI_0();
+
+    HmiFile.Status.DeleteStep := FILE_DISABLED;
 
 	// Initialize FIFO feature
 	HmiFile.Status.FifoConfigEnable := TRUE;
@@ -74,13 +76,9 @@ PROGRAM _CYCLIC
 	// Call all actions
 	FormatDeviceDataProvider;
 	FileManager;
-	IF HmiFile.Parameters.Fifo.Enable THEN
-		FIFOOperation;
-	ELSE
-		brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
-	END_IF
+    FIFOOperation;
 	
-	// Error reset
+    // Error reset
     IF NOT MpFileManagerUI_0.Error THEN
         MpFileManagerUI_0.ErrorReset := FALSE;
     END_IF

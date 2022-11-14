@@ -5,7 +5,7 @@ ACTION FIFOOperation:
 		(MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CREATE));
 	
 	IF R_TRIG_CheckStatus.Q OR TON_ScanFolder.Q THEN
-		HmiFile.Commands.CheckFolder := TRUE;
+		HmiFile.Commands.CheckFolder := HmiFile.Parameters.Fifo.Enable;
 	END_IF
 	
 	brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
@@ -19,18 +19,29 @@ ACTION FIFOOperation:
 	
     // Autodelete oldest files based on scanning option
     CASE HmiFile.Status.DeleteStep OF
-	
-        FILE_DELETE_WAIT:
-            // Wait for check the correct device selection
-            TON_ScanFolder.IN := TRUE;
-			HmiFile.Status.FifoConfigEnable := TRUE;
-			IF TON_ScanFolder.Q THEN
-                TON_ScanFolder.IN := FALSE;
-				HmiFile.Status.FifoConfigEnable := FALSE;
-                Fifo_Count := 0;
-                HmiFile.Status.DeleteStep := FILE_SCAN_FOLDER_WAIT;
+        FILE_DISABLED:
+            IF (HmiFile.Parameters.Fifo.Enable = TRUE) THEN
+                MpFileManagerUI_FIFO.Enable := TRUE;
+                HmiFile.Status.DeleteStep := FILE_DELETE_WAIT;
+            ELSE
+                brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
             END_IF
-	
+
+        FILE_DELETE_WAIT:
+            IF (HmiFile.Parameters.Fifo.Enable = TRUE) THEN
+                // Wait for check the correct device selection
+                TON_ScanFolder.IN := TRUE;
+    			HmiFile.Status.FifoConfigEnable := TRUE;
+    			IF TON_ScanFolder.Q THEN
+                    TON_ScanFolder.IN := FALSE;
+    				HmiFile.Status.FifoConfigEnable := FALSE;
+                    Fifo_Count := 0;
+                    HmiFile.Status.DeleteStep := FILE_SCAN_FOLDER_WAIT;
+                END_IF
+            ELSE
+                HmiFile.Status.DeleteStep := FILE_DISABLED;
+            END_IF
+
         FILE_SCAN_FOLDER_WAIT:
 			// Wait for check for old files command
             IF (HmiFile.Commands.CheckFolder = TRUE) AND ((MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) OR (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_ERROR)) THEN
@@ -51,9 +62,15 @@ ACTION FIFOOperation:
                 // file device not found
                 HmiFile.Status.DeleteStep := FILE_DELETE_WAIT;
             ELSIF (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) THEN
+                MpFileManagerUIConnect_FIFO.File.Refresh := TRUE;
+                HmiFile.Status.DeleteStep := FILE_REFRESH;
+            END_IF
+
+        FILE_REFRESH:
+            IF ((MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) AND (MpFileManagerUIConnect_FIFO.File.Refresh = FALSE)) THEN
                 HmiFile.Status.DeleteStep := FILE_SORT_BY_DATE;
             END_IF
-    	
+
         FILE_SORT_BY_DATE:
             // Sort by date so the oldest files are at the end
             IF (MpFileManagerUIConnect_FIFO.File.SortOrder <> mpFILE_SORT_BY_MOD_TIME_DESC) THEN
@@ -179,14 +196,24 @@ ACTION FIFOOperation:
         FILE_SELECT_OLDEST_FILES_1:
             // Scan and select all file over the filter setting
             IF (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) THEN
-                MpFileManagerUIConnect_FIFO.File.List.Items[0].IsSelected := TRUE;
-                HmiFile.Status.FolderSize := HmiFile.Status.FolderSize - UDINT_TO_REAL(MpFileManagerUIConnect_FIFO.File.List.Items[0].Size);
+                FOR i:=0 TO ((SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items)/SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items[0])) - 1) DO
+                    MpFileManagerUIConnect_FIFO.File.List.Items[i].IsSelected := FALSE;
+                END_FOR
+                FOR i:=0 TO ((SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items)/SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items[0])) - 1) DO
+                    IF ((MpFileManagerUIConnect_FIFO.File.List.Items[i].Size = 0) OR
+                        ((HmiFile.Parameters.Fifo.MaxFolderSize*1024) > (HmiFile.Status.FolderSize - UDINT_TO_REAL(MpFileManagerUIConnect_FIFO.File.List.Items[i].Size)))) THEN
+                        EXIT;
+                    END_IF
+                    MpFileManagerUIConnect_FIFO.File.List.Items[i].IsSelected := TRUE;
+                    HmiFile.Status.FolderSize := HmiFile.Status.FolderSize - UDINT_TO_REAL(MpFileManagerUIConnect_FIFO.File.List.Items[i].Size);
+                END_FOR
+                MpFileManagerUIConnect_FIFO.File.MultiSelect := (i > 1);
                 HmiFile.Status.DeleteStep := FILE_DELETE_FILES;
             END_IF
 	
-		FILE_DELETE_FILES:
-			// Set command to delete the selected oldest files
-			IF  (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) THEN
+        FILE_DELETE_FILES:
+            // Set command to delete the selected oldest files
+            IF  (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) THEN
 				MpFileManagerUIConnect_FIFO.File.Delete := TRUE;
 			END_IF
 	
@@ -199,16 +226,20 @@ ACTION FIFOOperation:
             IF (MpFileManagerUIConnect_FIFO.MessageBox.Type = mpFILE_MSG_CONFIRM_DELETE) THEN
                 MpFileManagerUIConnect_FIFO.MessageBox.Confirm := TRUE;
             ELSIF (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) AND (MpFileManagerUIConnect_FIFO.MessageBox.LayerStatus = 1) THEN
+                HmiFile.Status.DeleteStep := FILE_CONFIRM_DELETE_WAIT;
+            END_IF
+
+        FILE_CONFIRM_DELETE_WAIT:
+            IF ((MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_REFRESH) OR (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE)) THEN
                 IF (HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_SIZE_OF_FOLDER) THEN
-                    HmiFile.Status.DeleteStep := SEL(HmiFile.Status.FolderSize > HmiFile.Parameters.Fifo.MaxFolderSize*1024, FILE_RESET_SORT_BY, FILE_SELECT_OLDEST_FILES_1);
-                    //HmiFile.Status.DeleteStep := FILE_SELECT_OLDEST_FILES_1;
+                    HmiFile.Status.DeleteStep := SEL(HmiFile.Status.FolderSize > (HmiFile.Parameters.Fifo.MaxFolderSize*1024), FILE_RESET_SORT_BY, FILE_SELECT_OLDEST_FILES_1);
                 ELSE
                     MpFileManagerUIConnect_FIFO.File.MultiSelect := FALSE;
                     // if more files need to be deleted then go back to select the oldest files
                     HmiFile.Status.DeleteStep := SEL((MpFileManagerUIConnect_FIFO.File.PathInfo.FileCount > HmiFile.Parameters.Fifo.MaxNumberOfFiles), FILE_RESET_SORT_BY, FILE_GO_TO_END);
                 END_IF
             END_IF
-	
+
 		FILE_RESET_SORT_BY:
 			// Restore old sort order
             IF (MpFileManagerUIConnect_FIFO.File.SortOrder <> HmiFile.Parameters.OldSortOrder) THEN
@@ -236,10 +267,8 @@ ACTION FIFOOperation:
     // Assign MpLink
     MpFileManagerUI_FIFO.MpLink := ADR(gMpLinkFileManagerUIFile_FIFO);
 	
-    MpFileManagerUI_FIFO.Enable := TRUE;
     MpFileManagerUI_FIFO.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items) / SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items[0]);
     // Call function block
     MpFileManagerUI_FIFO();
-
     
 END_ACTION
