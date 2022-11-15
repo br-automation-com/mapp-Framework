@@ -25,6 +25,8 @@
     <Task Name="FileMgr" Source="Infrastructure.File.FileMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="FileTest" Source="UnitTest.File.FileUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
     <Task Name="AppAxisUni" Source="UnitTest.AppAxis_1.AppAxisUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
+    <Task Name="ReportUnit" Source="UnitTest.Report.ReportUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
+    <Task Name="ReportMgr" Source="Infrastructure.Report.ReportMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <NcDataObjects>
     <NcDataObject Name="mcdrivelog" Source="" Memory="UserROM" Language="Binary" />
@@ -88,6 +90,7 @@
     <LibraryObject Name="ArTextSys" Source="Libraries.ArTextSys.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="standard" Source="Libraries.standard.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="operator" Source="Libraries.operator.lby" Memory="UserROM" Language="binary" Debugging="true" />
+    <LibraryObject Name="AsBrWStr" Source="Libraries.AsBrWStr.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="asusb" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="mpfile" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="fileio" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
@@ -107,6 +110,5 @@
     <LibraryObject Name="powerlnk" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="brsystem" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="mpaudit" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="AsBrWStr" Source="Libraries.AsBrWStr.lby" Memory="UserROM" Language="binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>
