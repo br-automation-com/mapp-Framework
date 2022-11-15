@@ -44,14 +44,14 @@
 			<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Status.FileOverMax" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="ButtonReportPageUp" attribute="visible" />
 		</Binding>
-	<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Status.ViewAllowed" attribute="value" />
-<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="ButtonReportDialog_View_content" attribute="enable" />
-</Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Status.DeleteAllowed" attribute="value" />
-<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="ButtonReportDialog_Delete_content" attribute="enable" />
-</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Status.ViewAllowed" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="ButtonReportDialog_View_content" attribute="enable" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Status.DeleteAllowed" attribute="value" />
+			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="ButtonReportDialog_Delete_content" attribute="enable" />
+		</Binding>
 
-</Bindings>
+	</Bindings>
 </BindingsSet>

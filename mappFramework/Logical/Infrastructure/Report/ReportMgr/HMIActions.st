@@ -4,12 +4,12 @@ ACTION ReportManager:
 	IF HmiReport.Parameters.UseAdvancedFormat AND (HmiReport.Parameters.CurrentFormat = FORMAT_SIMPLE) THEN
 		MpReportCore_0.Enable := FALSE;
 		MpReportCore_0.MpLink := ADR(gMpLinkAdvancedReport);
-		MpReportCore_0.Name := ADR('AdvancedReport');
+		HmiReport.Parameters.Name := 'AdvancedReport';
 		HmiReport.Parameters.CurrentFormat := FORMAT_ADVANCED;
 	ELSIF NOT HmiReport.Parameters.UseAdvancedFormat AND (HmiReport.Parameters.CurrentFormat = FORMAT_ADVANCED) THEN
 		MpReportCore_0.Enable := FALSE;
 		MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);
-		MpReportCore_0.Name := ADR('SimpleReport');
+		HmiReport.Parameters.Name := 'SimpleReport';		
 		HmiReport.Parameters.CurrentFormat := FORMAT_SIMPLE;
 	ELSE
 		MpReportCore_0.Enable := TRUE;		

@@ -117,7 +117,7 @@
     </tu>
     <tu tuid="Msg.BoxErrorText">
       <tuv xml:lang="de">
-        <seg>Fehler in Berichtskern, bitte überprüfen Sie die folgenden Ursachen
+        <seg>Fehler in Report Core bitte überprüfen Sie die folgenden Ursachen
 
 
 
@@ -191,15 +191,26 @@ Error on Report Core, please check the following causes
         <seg>Backup Warning</seg>
       </tuv>
     </tu>
-    <tu tuid="OptionAdvanced">
+    <tu tuid="OptionSimple">
       <tuv xml:lang="de">
-        <seg>Den Bericht mit erweiterten Optionen formatieren?</seg>
+        <seg>Einfacher Bericht</seg>
       </tuv>
       <tuv xml:lang="zh">
         <seg>使用高级选项格式化报告？</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Format the report with advanced options?</seg>
+        <seg>Simple Report</seg>
+      </tuv>
+    </tu>
+    <tu tuid="OptionAdvanced">
+      <tuv xml:lang="de">
+        <seg>Erweiterter Bericht</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>使用高级选项格式化报告？</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Advanced Report</seg>
       </tuv>
     </tu>
     <tu tuid="PageDown">
@@ -259,13 +270,46 @@ Error on Report Core, please check the following causes
     </tu>
     <tu tuid="View">
       <tuv xml:lang="de">
-        <seg>Aussicht</seg>
+        <seg>Anzeigen</seg>
       </tuv>
       <tuv xml:lang="zh">
         <seg>看法</seg>
       </tuv>
       <tuv xml:lang="en">
         <seg>View</seg>
+      </tuv>
+    </tu>
+    <tu tuid="FilenameDetails">
+      <tuv xml:lang="de">
+        <seg>Datum und Uhrzeit werden automatisch hinzugefügt (_YYYY_MM_DD_HH_mm_ss)</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Date and time are automatically appended (_YYYY_MM_DD_HH_mm_ss)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="FilenameLabel">
+      <tuv xml:lang="de">
+        <seg>Reportname:</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Report name:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="OptionDetailsAdv">
+      <tuv xml:lang="de">
+        <seg>Einfacher Bericht + Audit Bericht, Batch Informationen
+</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Simple report + Audit report, Batch information</seg>
+      </tuv>
+    </tu>
+    <tu tuid="OptionDetailsSimple">
+      <tuv xml:lang="de">
+        <seg>Oee Überblick, Temperaturproben, Alarm Historie</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Oee summary, Temperature samples, Alarm history</seg>
       </tuv>
     </tu>
   </body>

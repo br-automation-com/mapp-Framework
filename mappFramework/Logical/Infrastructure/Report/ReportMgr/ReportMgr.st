@@ -10,9 +10,10 @@ PROGRAM _INIT
 	//Parameterize the report function block with the simple report
 	MpReportCore_0.Language := ADR('en');
 	MpReportCore_0.DeviceName := ADR('mappReportFiles');
-	MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);     
-	MpReportCore_0.Name := ADR('SimpleReport');   
-	HmiReport.Parameters.CurrentFormat := FORMAT_SIMPLE;          
+	MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);    
+	MpReportCore_0.Name := ADR(HmiReport.Parameters.Name); 
+	HmiReport.Parameters.CurrentFormat := FORMAT_SIMPLE;  
+	HmiReport.Parameters.Name := 'SimpleReport';         
 	
 	//Parameterize the file mangement function block
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
