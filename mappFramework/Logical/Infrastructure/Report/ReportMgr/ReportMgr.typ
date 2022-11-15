@@ -15,7 +15,6 @@ TYPE
 		UseAdvancedFormat : BOOL; (*Whether or not the report should use the advanced format*)
 		PathOfReportToView : STRING[255]; (*The file path of the selected report*)
 		SelectedLanguage : STRING[10] := 'en';
-		CurrentFormat : ReportFormatEnum;
 	END_STRUCT;
 	ReportStatusType : 	STRUCT  (*Structure to hold the status information from the HMI*)
 		ViewAllowed : BOOL; (*Bit to indicate it is allowable to view a report right now*)
@@ -23,6 +22,7 @@ TYPE
 		CreateAllowed : BOOL; (*Bit to indicate it is allowable to create a report right now*)
 		Busy : BOOL; (*Report is busy executing an action*)
 		Error : BOOL; (*Error flag*)
+		CurrentFormat : ReportFormatEnum;
 		FileOverMax : BOOL; (*Active when more than 50 items detected*)
 		FileNames : ARRAY[0..49]OF STRING[50]; (*Existing report file names*)
 		TempFilePath : ARRAY[0..49]OF STRING[255]; (*A temporary variable used to concatonate and build the full file path of the selected file*)

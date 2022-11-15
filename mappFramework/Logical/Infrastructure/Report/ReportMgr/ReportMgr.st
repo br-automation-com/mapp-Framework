@@ -12,7 +12,6 @@ PROGRAM _INIT
 	MpReportCore_0.DeviceName := ADR('mappReportFiles');
 	MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);    
 	MpReportCore_0.Name := ADR(HmiReport.Parameters.Name); 
-	HmiReport.Parameters.CurrentFormat := FORMAT_SIMPLE;  
 	HmiReport.Parameters.Name := 'SimpleReport';         
 	
 	//Parameterize the file mangement function block
@@ -56,7 +55,7 @@ PROGRAM _CYCLIC
 	ReportManager;
 	
 	// Call function blocks
-	MpReportCore_0(Generate := HmiReport.Commands.Generate);
+	MpReportCore_0(Generate := HmiReport.Commands.Generate, Name := ADR(HmiReport.Parameters.Name));
 	MpFileManagerUI_0();
 	
 END_PROGRAM
@@ -65,6 +64,8 @@ PROGRAM _EXIT
 	
 	MpReportCore_0.Enable := FALSE;
 	MpFileManagerUI_0.Enable := FALSE;
+	MpReportCore_0();
+	MpFileManagerUI_0();
 	
 END_PROGRAM
 
