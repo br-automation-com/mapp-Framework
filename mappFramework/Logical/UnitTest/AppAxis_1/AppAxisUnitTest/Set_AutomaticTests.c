@@ -7,6 +7,8 @@
 #include "UnitTest.h"
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
+#include <stdlib.h>
 
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 
@@ -23,6 +25,7 @@
         TEST_FAIL(abortMessage);                            \
         TEST_DONE;                                          \
     }
+
 
 _SETUP_SET(void)
 {
@@ -76,6 +79,7 @@ _TEARDOWN_TEST(void)
     TEST_BUSY_CONDITION(abs(AxisControl.Status.Velocity > 0.01));
     TEST_BUSY_CONDITION(AxisControl.Status.Busy);
     AxisControl.Command.Stop = false;
+
     TEST_DONE;
 }
 

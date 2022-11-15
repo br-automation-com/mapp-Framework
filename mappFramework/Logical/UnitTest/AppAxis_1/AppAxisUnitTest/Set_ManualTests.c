@@ -7,6 +7,8 @@
 #include "UnitTest.h"
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
+#include <stdlib.h>
 
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 
@@ -43,6 +45,7 @@ _SETUP_TEST(void)
     TestState = TEST_ARRANGE;
 
     maxVelocity = 0.0;
+
     TEST_DONE;
 }
 
@@ -76,16 +79,28 @@ _TEARDOWN_TEST(void)
     TEST_BUSY_CONDITION(abs(AxisControl.Status.Velocity > 0.01));
     TEST_BUSY_CONDITION(AxisControl.Status.Busy);
     AxisControl.Command.Stop = false;
+
     TEST_DONE;
 }
 
 _CYCLIC_SET(void)
 {
     cycleCount++;
+
+    MpAlarmXListUI_0.Enable = true;
+    MpAlarmXListUI_0.UIConnect = &MpAlarmXListUIConnect;
+    MpAlarmXListUI_0.MpLink = &gMpLinkAlarmXCoreAppAxis_1;
+    MpAlarmXListUI_0.UISetup.AlarmListScrollWindow = 10;
+    MpAlarmXListUI_0.UISetup.AlarmListSize = 50;
+    strcpy(MpAlarmXListUI_0.UISetup.TimeStampPattern, "%Y %m %d %H:%M:%S");
+    MpAlarmXListUI(&MpAlarmXListUI_0);
+
     MpAlarmXAcknowledgeAll_0.MpLink = &gMpLinkAlarmXCoreAppAxis_1;
     MpAlarmXAcknowledgeAll_0.Enable = true;
     MpAlarmXAcknowledgeAll(&MpAlarmXAcknowledgeAll_0);
+    TEST_BUSY_CONDITION(MpAlarmXAcknowledgeAll_0.CommandBusy);
     MpAlarmXAcknowledgeAll_0.Execute = false;
+
 }
 
 _TEST PowerOn(void)
@@ -579,6 +594,7 @@ _TEST ResetAlarm(void)
     {
         case TEST_ARRANGE:
             AxisControl.Parameters.Velocity = 10001;
+            StartingPendingAlarms = MpAlarmXCore_0.PendingAlarms;
             TestState = TEST_ACT;
             break;
 
@@ -593,16 +609,19 @@ _TEST ResetAlarm(void)
                     break;
                 case 1:
                     TEST_BUSY_CONDITION(!AxisControl.Status.ErrorActive);
-                    TEST_BUSY_CONDITION(MpAlarmXCore_0.PendingAlarms == 0);
+                    TEST_BUSY_CONDITION(MpAlarmXCore_0.PendingAlarms == StartingPendingAlarms);
                     AxisControl.Command.MoveVelocity = false;
                     ActSubState = 2;
                     break;
                 case 2:
+                    // wait until the command is received by the axis task
+                    TEST_BUSY_CONDITION(State != STATE_RESETTING);
                     AxisControl.Command.Reset = true;
                     MpAlarmXAcknowledgeAll_0.Execute = true;
                     ActSubState = 3;
                     break;
                 case 3:
+                    TEST_BUSY_CONDITION(AxisControl.Status.Busy);
                     TestState = TEST_ASSERT;
                     break;
             }
@@ -663,7 +682,7 @@ _TEST UpdateVelocity(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2022-11-08 14:18:46Z
+LastUpdated: 2022-11-15 16:02:39Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
@@ -678,7 +697,7 @@ UNITTEST_FIXTURES(fixtures)
 	new_TestFixture("MoveJogPositiveStop", MoveJogPositiveStop),
 	new_TestFixture("MoveJogNegativeStop", MoveJogNegativeStop),
 	new_TestFixture("MoveAbsoluteStop", MoveAbsoluteStop),
-	new_TestFixture("MoveAdditiveStop", MoveAdditiveStop),
+    new_TestFixture("MoveAdditiveStop", MoveAdditiveStop),
 	new_TestFixture("MoveVelocityStop", MoveVelocityStop),
 	new_TestFixture("TriggerAlarm", TriggerAlarm),
 	new_TestFixture("ResetAlarm", ResetAlarm),

@@ -14,6 +14,8 @@ VAR
 END_VAR
 (*Variables used in the tests*)
 VAR
+	MpAlarmXListUIConnect : MpAlarmXListUIConnectType := (0); (*AlarmX list connection to the UI*)
+	MpAlarmXListUI_0 : MpAlarmXListUI; (*MpAlarmXList instance*)
 	MpAlarmXAcknowledgeAll_0 : MpAlarmXAcknowledgeAll;
 	StartingActiveAlarms : UDINT;
 	StartingPendingAlarms : UDINT;

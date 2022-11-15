@@ -34,6 +34,7 @@ void _INIT initTestSuite(void)
 void _CYCLIC cyclicWithTest(void)
 {
     utCyclic(&Testsuite);
+
     if (Testsuite.Informational.LastKnownPassedLocation.TestCaseName != 0)
         strcpy((char*)&LastTestCase, (char*)Testsuite.Informational.LastKnownPassedLocation.TestCaseName);
     if (Testsuite.Informational.LastKnownPassedLocation.TestSetName != 0)
