@@ -6,11 +6,11 @@ ACTION ExecuteQuery:
 	QueryUserEvents_0.Name := ADR(HmiAudit.Status.Query.Name);
 	QueryUserEvents_0.Language := ADR('en');
 	QueryUserEvents_0();
-    
+
 	CASE (AuditQuery.State) OF
 		ACTIVE_AUDIT_WAIT:
-			// Wait until the RunQuery command is triggered from the HMI. 
-			// If you prefer that the query runs anytime new data is available, then uncomment line 15 and comment out line 16 and delete 
+			// Wait until the RunQuery command is triggered from the HMI.
+			// If you prefer that the query runs anytime new data is available, then uncomment line 15 and comment out line 16 and delete
 			// the "Run query" button from the HMI.
 			//IF (AuditQuery.LastUpdateCount <> AuditQuery.UpdateCount) THEN
 			IF (HmiAudit.Commands.RunQuery = TRUE) THEN
@@ -20,15 +20,15 @@ ACTION ExecuteQuery:
 				AuditQuery.LastUpdateCount := AuditQuery.UpdateCount;
 				QueryUserEvents_0.Execute := TRUE;
 				HmiAudit.Commands.RunQuery := FALSE;
-				IF (HmiAudit.Status.Query.Name = 'UserEvents') THEN 
-			    	HmiAudit.Status.Query.Option := 0;
+				IF (HmiAudit.Status.Query.Name = 'UserEvents') THEN
+					HmiAudit.Status.Query.Option := 0;
 				ELSIF (HmiAudit.Status.Query.Name = 'RecipeEvents') THEN
 					HmiAudit.Status.Query.Option := 1;
-				END_IF 
-				
+				END_IF
+
 				AuditQuery.State := ACTIVE_AUDIT_QUERY;
-			END_IF 
-            
+			END_IF
+
 		ACTIVE_AUDIT_QUERY:
 			// If the number of query results is less than MAX_QUERY_RESULTS, return to the wait state
 			IF ((QueryUserEvents_0.CommandDone = TRUE) AND (QueryUserEvents_0.Info.HasMoreRows = FALSE)) THEN
@@ -37,12 +37,12 @@ ACTION ExecuteQuery:
 				QueryUserEvents_0.Execute := FALSE;
 				QueryUserEvents_0.Next := FALSE;
 				AuditQuery.State := ACTIVE_AUDIT_WAIT;
-				// If the number of query results is more than MAX_QUERY_RESULTS, then query the next set of results 
+				// If the number of query results is more than MAX_QUERY_RESULTS, then query the next set of results
 			ELSIF ((QueryUserEvents_0.CommandDone = TRUE) AND (QueryUserEvents_0.Info.HasMoreRows = TRUE)) THEN
 				QueryUserEvents_0.Next := FALSE;
 				AuditQuery.State := ACTIVE_AUDIT_NEXT;
 			END_IF
-            
+
 		ACTIVE_AUDIT_NEXT:
 			IF (AuditQuery.Next = TRUE) THEN
 				// By default, AuditQuery.Alarms has 20 elements, so it can hold 20 query results at a time (MAX_QUERY_RESULTS = 19).
@@ -55,7 +55,7 @@ ACTION ExecuteQuery:
 				AuditQuery.State := ACTIVE_AUDIT_QUERY;
 			END_IF
 	END_CASE
-	
+
 	// Convert the query results into arrays that can easily be bound to the Table widget in mapp View
 	FOR i := 0 TO MAX_QUERY_RESULTS DO
 		HmiAudit.Status.Query.EvTime[i] := AuditQuery.Audits[i].EvTime;

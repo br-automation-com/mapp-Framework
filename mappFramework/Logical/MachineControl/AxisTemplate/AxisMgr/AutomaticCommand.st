@@ -1,6 +1,6 @@
 // Returns True if an automatic command is active
 FUNCTION AutomaticCommand
 
-    AutomaticCommand := Commands.Start;
+	AutomaticCommand := Commands.Start;
 
 END_FUNCTION
