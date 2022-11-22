@@ -229,15 +229,15 @@ ACTION FIFOOperation:
 			END_IF
 
 		FILE_CONFIRM_DELETE_WAIT:
-			IF ((MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_REFRESH) OR (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE)) THEN
-				IF (HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_SIZE_OF_FOLDER) THEN
-					HmiFile.Status.DeleteStep := SEL(HmiFile.Status.FolderSize > (HmiFile.Parameters.Fifo.MaxFolderSize*1024), FILE_RESET_SORT_BY, FILE_SELECT_OLDEST_FILES_1);
-				ELSE
-					MpFileManagerUIConnect_FIFO.File.MultiSelect := FALSE;
-					// if more files need to be deleted then go back to select the oldest files
-					HmiFile.Status.DeleteStep := SEL((MpFileManagerUIConnect_FIFO.File.PathInfo.FileCount > HmiFile.Parameters.Fifo.MaxNumberOfFiles), FILE_RESET_SORT_BY, FILE_GO_TO_END);
-				END_IF
-			END_IF
+            IF ((MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_REFRESH) OR (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE)) THEN
+                MpFileManagerUIConnect_FIFO.File.MultiSelect := FALSE;
+                IF (HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_SIZE_OF_FOLDER) THEN
+                    HmiFile.Status.DeleteStep := SEL((HmiFile.Status.FolderSize > (HmiFile.Parameters.Fifo.MaxFolderSize*1024)), FILE_RESET_SORT_BY, FILE_GO_TO_END);
+                ELSE
+                    // if more files need to be deleted then go back to select the oldest files
+                    HmiFile.Status.DeleteStep := SEL((MpFileManagerUIConnect_FIFO.File.PathInfo.FileCount > HmiFile.Parameters.Fifo.MaxNumberOfFiles), FILE_RESET_SORT_BY, FILE_GO_TO_END);
+                END_IF
+            END_IF
 
 		FILE_RESET_SORT_BY:
 			// Restore old sort order
