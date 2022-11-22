@@ -8,8 +8,24 @@
 #include <stdbool.h>
 #include <string.h>
 
+#define TIMEOUT_TEST_CASE									\
+    if (cycleCount >= 254)									\
+    {														\
+        char abortMessage[80];								\
+        char substate[10];                                  \
+        memset(abortMessage, 0, sizeof(abortMessage));	    \
+        memset(substate, 0, sizeof(substate));				\
+        itoa(ActSubState, substate, 10);					\
+        strcpy(abortMessage, "Timeout in ActSubState = ");	\
+        strcat(abortMessage, substate);						\
+        TEST_FAIL(abortMessage);							\
+        TEST_DONE;											\
+    }
+
 _SETUP_SET(void)
 {
+    TestStep = 0;
+    cycleCount = 0;
 	TEST_DONE;
 }
 
@@ -21,6 +37,7 @@ _TEARDOWN_SET(void)
 
 _SETUP_TEST(void)
 {
+    TIMEOUT_TEST_CASE
 	switch (TestStep)
 	{
 		case 0:
@@ -49,8 +66,20 @@ _SETUP_TEST(void)
 	TEST_BUSY;
 }
 
+_TEARDOWN_TEST(void) {
+    TestStep = 0;
+    cycleCount = 0;
+    TEST_DONE;
+}
+
+_CYCLIC_SET(void)
+{
+    cycleCount++;
+}
+
 _TEST USERX_ROLES_CHECK(void)
 {
+    TIMEOUT_TEST_CASE
 	switch (TestStep){
 		case 0:
 			UT_Compare = brwcscmp((UDINT)&MpUserXLogin_0.CurrentUser, (UDINT)&UT_Username);
@@ -83,7 +112,7 @@ _TEST USERX_ROLES_CHECK(void)
 
 _TEST USERX_USER_CHECK(void)
 {
-	
+	TIMEOUT_TEST_CASE
 	switch (TestStep){
 		case 0: // Ensure Admin has Admin Role
 			UT_Compare = brwcscmp((UDINT)&MpUserXLogin_0.CurrentUser, (UDINT)&UT_Username);
@@ -161,6 +190,7 @@ _TEST USERX_USER_CHECK(void)
 }
 
 _TEST USERX_LOGOUT(void){
+    TIMEOUT_TEST_CASE
 	switch (TestStep){
 		case 0:
 			TEST_ABORT_CONDITION(MpUserXLogin_0.MpLink == 0);
@@ -182,16 +212,12 @@ _TEST USERX_LOGOUT(void){
 			break;
 	}
 }
-_TEARDOWN_TEST(void)
-{
-	TEST_DONE;
-}
 
 /*
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2022-11-09 20:10:20Z
+LastUpdated: 2022-11-22 20:44:08Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
@@ -201,5 +227,5 @@ UNITTEST_FIXTURES(fixtures)
 	new_TestFixture("USERX_LOGOUT", USERX_LOGOUT), 
 };
 
-UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_UserXMgr, "Set_UserXMgr", setupTest, teardownTest, fixtures, setupSet, teardownSet, 0);
+UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_UserXMgr, "Set_UserXMgr", setupTest, teardownTest, fixtures, setupSet, teardownSet, cyclicSetCaller);
 
