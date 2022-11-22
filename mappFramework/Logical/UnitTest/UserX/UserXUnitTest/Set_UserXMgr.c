@@ -26,6 +26,7 @@ _SETUP_TEST(void)
 		case 0:
 			TEST_ABORT_CONDITION(MpUserXLogin_0.MpLink == 0);
 			MpUserXLogin_0.Enable = 1;
+			brwcscpy((UDINT)&UT_Username, (UDINT)&UT_UserList[0]); 
 			MpUserXLogin_0.UserName = (UDINT)&UT_Username;
 			MpUserXLogin_0.Password = (UDINT)&UT_Password;
 			MpUserXLogin_0.Login = 1;
