@@ -32,11 +32,14 @@ _SETUP_SET(void)
 _TEARDOWN_SET(void)
 {
     SetupState = 0;
-	TEST_DONE;
+    TEST_DONE;
 }
 
 _SETUP_TEST(void)
 {
+    ArrangeSubState = 0;
+    ActSubState = 0;
+    AssertSubState = 0;
     return RemoveNonDefaultFiles("*.mcfg", "Machine.mcfg", MACHINE_CONFIGURATION_CATEGORY);
 }
 
@@ -424,10 +427,40 @@ _TEST Invalid(void)
     switch (TestState)
     {
         case TEST_ARRANGE:
-            TEST_BUSY_CONDITION(!SelectRecipe("MachineInvalid.mcfg"));
-            TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
-            TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
-            TestState = TEST_ACT;
+            switch (ArrangeSubState) {
+                case 0:
+                    FileCopy_UT.enable = true;
+                    FileCopy_UT.pSrcDev = "mappRecipeFiles";
+                    FileCopy_UT.pSrc = "CSVformat\\Machine.mcfg";
+                    FileCopy_UT.pDestDev = "mappRecipeFiles";
+                    FileCopy_UT.pDest = "MachineInvalid.mcfg";
+                    FileCopy_UT.option= fiOVERWRITE;
+                    FileCopy(&FileCopy_UT);
+                    TEST_BUSY_CONDITION(FileCopy_UT.status == 65535);
+                    FileCopy_UT.enable = false;
+                    FileCopy(&FileCopy_UT);
+                    ArrangeSubState = 1;
+                    break;
+
+                case 1:
+                    MpRecipeUIConnect.Recipe.Refresh = true;
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_IDLE);
+                    MpRecipeUIConnect.Recipe.Refresh = false;
+                    ArrangeSubState = 2;
+                    break;
+
+                case 2:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_REFRESH);
+                    ArrangeSubState = 3;
+                    break;
+
+                case 3:
+                    TEST_BUSY_CONDITION(!SelectRecipe("MachineInvalid.mcfg"));
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+                    TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
+                    TestState = TEST_ACT;
+                    break;
+            }
             break;
 
         case TEST_ACT:
@@ -464,14 +497,14 @@ By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
 {
-	new_TestFixture("DefaultValues", DefaultValues),
-	new_TestFixture("CreateNew", CreateNew),
-	new_TestFixture("CreateExisting", CreateExisting),
-	new_TestFixture("CreateNonExisting", CreateNonExisting),
-	new_TestFixture("CreateActive", CreateActive),
-	new_TestFixture("Preview", Preview),
-	new_TestFixture("Delete", Delete),
-	new_TestFixture("Invalid", Invalid),
+    new_TestFixture("DefaultValues", DefaultValues),
+    new_TestFixture("CreateNew", CreateNew),
+    new_TestFixture("CreateExisting", CreateExisting),
+    new_TestFixture("CreateNonExisting", CreateNonExisting),
+    new_TestFixture("CreateActive", CreateActive),
+    new_TestFixture("Preview", Preview),
+    new_TestFixture("Delete", Delete),
+    new_TestFixture("Invalid", Invalid),
 };
 
 UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_RecipeMachineSettings, "Set_RecipeMachineSettings", setupTest, teardownTest, fixtures, setupSet, teardownSet, cyclicSetCaller);

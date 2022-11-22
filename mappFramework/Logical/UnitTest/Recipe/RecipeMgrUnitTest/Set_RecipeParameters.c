@@ -37,6 +37,9 @@ _TEARDOWN_SET(void)
 
 _SETUP_TEST(void)
 {
+    ArrangeSubState = 0;
+    ActSubState = 0;
+    AssertSubState = 0;
     return RemoveNonDefaultFiles("*.par", "Default.par", PARAMETERS_CATEGORY);
 }
 
@@ -53,7 +56,7 @@ _TEARDOWN_TEST(void)
     TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE)
     MpRecipeUIConnect.Recipe.Refresh = false;
 
-	TEST_DONE;
+    TEST_DONE;
 }
 
 _CYCLIC_SET(void)
@@ -259,9 +262,8 @@ _TEST PreviewShouldNotAffectActive(void)
             ParametersEdit.AddParametersHere4 = 134.876;
             ParametersEdit.AddParametersHere5 = 87.4567;
             strcpy(HmiRecipe.Parameters.FileName, "preview");
-            HmiRecipe.Commands.CreateRecipe = true;
-            TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand == REC_HMI_WAIT);
-            HmiRecipe.Commands.CreateRecipe = false;
+            TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+            TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
             TestState = TEST_ACT;
             break;
 
@@ -332,17 +334,14 @@ _TEST Preview(void)
     switch (TestState)
     {
         case TEST_ARRANGE:
-            TEST_BUSY_CONDITION(!SelectRecipe("Default.par"));
-            LastSelectedIndex++;
-            TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
-            TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
-
             ParametersEdit.AddParametersHere1 = false;
             strcpy(ParametersEdit.AddParametersHere2, "testing preview");
             ParametersEdit.AddParametersHere3 = 12.56;
             ParametersEdit.AddParametersHere4 = 134.876;
             ParametersEdit.AddParametersHere5 = 87.4567;
             strcpy(HmiRecipe.Parameters.FileName, "preview");
+            TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+            TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
             TestState = TEST_ACT;
             break;
 
@@ -506,10 +505,40 @@ _TEST Invalid(void)
     switch (TestState)
     {
         case TEST_ARRANGE:
-            TEST_BUSY_CONDITION(!SelectRecipe("Invalid.par"));
-            TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
-            TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
-            TestState = TEST_ACT;
+            switch (ArrangeSubState) {
+                case 0:
+                    FileCopy_UT.enable = true;
+                    FileCopy_UT.pSrcDev = "mappRecipeFiles";
+                    FileCopy_UT.pSrc = "CSVformat\\Default.par";
+                    FileCopy_UT.pDestDev = "mappRecipeFiles";
+                    FileCopy_UT.pDest = "Invalid.par";
+                    FileCopy_UT.option= fiOVERWRITE;
+                    FileCopy(&FileCopy_UT);
+                    TEST_BUSY_CONDITION(FileCopy_UT.status == 65535);
+                    FileCopy_UT.enable = false;
+                    FileCopy(&FileCopy_UT);
+                    ArrangeSubState = 1;
+                    break;
+
+                case 1:
+                    MpRecipeUIConnect.Recipe.Refresh = true;
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_IDLE);
+                    MpRecipeUIConnect.Recipe.Refresh = false;
+                    ArrangeSubState = 2;
+                    break;
+
+                case 2:
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_REFRESH);
+                    ArrangeSubState = 3;
+                    break;
+
+                case 3:
+                    TEST_BUSY_CONDITION(!SelectRecipe("Invalid.par"));
+                    TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+                    TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
+                    TestState = TEST_ACT;
+                    break;
+            }
             break;
 
         case TEST_ACT:
@@ -645,16 +674,16 @@ By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
 {
-	new_TestFixture("DefaultValues", DefaultValues),
-	new_TestFixture("CreateNew", CreateNew),
-	new_TestFixture("CreateExisting", CreateExisting),
-	new_TestFixture("CreateNonExisting", CreateNonExisting),
-	new_TestFixture("CreateActive", CreateActive),
-	new_TestFixture("PreviewShouldNotAffectActive", PreviewShouldNotAffectActive),
-	new_TestFixture("Preview", Preview),
-	new_TestFixture("Delete", Delete),
-	new_TestFixture("Invalid", Invalid),
-	skipTestFixture("EditActive", EditActive),
+    new_TestFixture("DefaultValues", DefaultValues),
+    new_TestFixture("CreateNew", CreateNew),
+    new_TestFixture("CreateExisting", CreateExisting),
+    new_TestFixture("CreateNonExisting", CreateNonExisting),
+    new_TestFixture("CreateActive", CreateActive),
+    new_TestFixture("PreviewShouldNotAffectActive", PreviewShouldNotAffectActive),
+    new_TestFixture("Preview", Preview),
+    new_TestFixture("Delete", Delete),
+    new_TestFixture("Invalid", Invalid),
+    skipTestFixture("EditActive", EditActive),
 };
 
 UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_RecipeParameters, "Set_RecipeParameters", setupTest, teardownTest, fixtures, setupSet, teardownSet, cyclicSetCaller);

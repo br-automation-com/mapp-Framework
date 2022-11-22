@@ -21,7 +21,7 @@
 void _INIT initTestSuite(void)
 {
     Testsuite.Enable = 1;
-	utInit(&Testsuite);
+    utInit(&Testsuite);
     
     CommonTestsuite.Enable = 1;
     utInit(&CommonTestsuite);
@@ -39,7 +39,7 @@ void _INIT initTestSuite(void)
 
 void _CYCLIC cyclicWithTest(void)
 {
-	utCyclic(&Testsuite);
+    utCyclic(&Testsuite);
     if (Testsuite.Informational.LastKnownPassedLocation.TestCaseName != 0)
         strcpy((char*)&LastTestCase, (char*)Testsuite.Informational.LastKnownPassedLocation.TestCaseName);
     if (Testsuite.Informational.LastKnownPassedLocation.TestSetName != 0)
@@ -50,7 +50,7 @@ void _CYCLIC cyclicWithTest(void)
 
 void _EXIT exitTestSuite(void)
 {
-	utExit(&Testsuite);
+    utExit(&Testsuite);
 }
 
 bool RecipeExists(char* recipeName)
@@ -109,8 +109,8 @@ testStatusEnum RemoveNonDefaultFiles(char* filter, char* selectFile, const char*
             break;
 
         case 2:
-            if ((strcmp("Default.par", (char*)fileInfo.Filename) == 0) || (strcmp("Invalid.par", (char*)fileInfo.Filename) == 0) ||
-                (strcmp("Machine.mcfg", (char*)fileInfo.Filename) == 0) || (strcmp("MachineInvalid.mcfg", (char*)fileInfo.Filename) == 0))
+            if ((strcmp("Default.par", (char*)fileInfo.Filename) == 0) ||
+                (strcmp("Machine.mcfg", (char*)fileInfo.Filename) == 0))
             {
                 CurrentFile++;
                 SetupState = (CurrentFile >= NumberOfFiles) ? 10 : 1;
@@ -148,9 +148,6 @@ testStatusEnum RemoveNonDefaultFiles(char* filter, char* selectFile, const char*
         case 100:
             cycleCount = 0;
             TestState = TEST_ARRANGE;
-            ArrangeSubState = 0;
-            ActSubState = 0;
-            AssertSubState = 0;
             SetupState = 0;
             TEST_DONE;
     }
