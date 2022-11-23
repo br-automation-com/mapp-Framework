@@ -8,8 +8,24 @@
 #include <stdbool.h>
 #include <string.h>
 
+#define TIMEOUT_TEST_CASE									\
+	if (cycleCount >= 254)									\
+	{														\
+		char abortMessage[80];								\
+		char substate[10];									\
+		memset(abortMessage, 0, sizeof(abortMessage));		\
+		memset(substate, 0, sizeof(substate));				\
+		itoa(ActSubState, substate, 10);					\
+		strcpy(abortMessage, "Timeout in ActSubState = ");	\
+		strcat(abortMessage, substate);						\
+		TEST_FAIL(abortMessage);							\
+		TEST_DONE;											\
+	}
+
 _SETUP_SET(void)
 {
+	TestStep = 0;
+	cycleCount = 0;
 	TEST_DONE;
 }
 
@@ -209,5 +225,5 @@ UNITTEST_FIXTURES(fixtures)
 	new_TestFixture("USERX_LOGOUT", USERX_LOGOUT), 
 };
 
-UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_UserXMgr, "Set_UserXMgr", setupTest, teardownTest, fixtures, setupSet, teardownSet, 0);
+UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_UserXMgr, "Set_UserXMgr", setupTest, teardownTest, fixtures, setupSet, teardownSet, cyclicSetCaller);
 

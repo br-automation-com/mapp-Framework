@@ -1,4 +1,4 @@
-ACTION ReportManager:
+ACTION ReportFormat:
 
 	// If the current format and the selected format do not match, disable the function block for a cycle and make the change
 	IF HmiReport.Parameters.UseAdvancedFormat AND (HmiReport.Status.CurrentFormat = FORMAT_SIMPLE) THEN
@@ -14,7 +14,11 @@ ACTION ReportManager:
 	ELSE
 		MpReportCore_0.Enable := TRUE;
 	END_IF
+	
+END_ACTION
 
+ACTION ReportFileExplorer:
+	
 	// Connections between the HMI structure and the report function block
 	HmiReport.Status.Busy := MpReportCore_0.CommandBusy;
 	HmiReport.Status.Error := MpReportCore_0.Error;
