@@ -9,23 +9,23 @@
 #include <string.h>
 
 #define TIMEOUT_TEST_CASE									\
-    if (cycleCount >= 254)									\
-    {														\
-        char abortMessage[80];								\
-        char substate[10];                                  \
-        memset(abortMessage, 0, sizeof(abortMessage));	    \
-        memset(substate, 0, sizeof(substate));				\
-        itoa(ActSubState, substate, 10);					\
-        strcpy(abortMessage, "Timeout in ActSubState = ");	\
-        strcat(abortMessage, substate);						\
-        TEST_FAIL(abortMessage);							\
-        TEST_DONE;											\
-    }
+	if (cycleCount >= 254)									\
+	{														\
+		char abortMessage[80];								\
+		char substate[10];									\
+		memset(abortMessage, 0, sizeof(abortMessage));		\
+		memset(substate, 0, sizeof(substate));				\
+		itoa(ActSubState, substate, 10);					\
+		strcpy(abortMessage, "Timeout in ActSubState = ");	\
+		strcat(abortMessage, substate);						\
+		TEST_FAIL(abortMessage);							\
+		TEST_DONE;											\
+	}
 
 _SETUP_SET(void)
 {
-    TestStep = 0;
-    cycleCount = 0;
+	TestStep = 0;
+	cycleCount = 0;
 	TEST_DONE;
 }
 
@@ -37,7 +37,7 @@ _TEARDOWN_SET(void)
 
 _SETUP_TEST(void)
 {
-    TIMEOUT_TEST_CASE
+	TIMEOUT_TEST_CASE
 	switch (TestStep)
 	{
 		case 0:
@@ -67,19 +67,19 @@ _SETUP_TEST(void)
 }
 
 _TEARDOWN_TEST(void) {
-    TestStep = 0;
-    cycleCount = 0;
-    TEST_DONE;
+	TestStep = 0;
+	cycleCount = 0;
+	TEST_DONE;
 }
 
 _CYCLIC_SET(void)
 {
-    cycleCount++;
+	cycleCount++;
 }
 
 _TEST USERX_ROLES_CHECK(void)
 {
-    TIMEOUT_TEST_CASE
+	TIMEOUT_TEST_CASE
 	switch (TestStep){
 		case 0:
 			UT_Compare = brwcscmp((UDINT)&MpUserXLogin_0.CurrentUser, (UDINT)&UT_Username);
@@ -190,7 +190,7 @@ _TEST USERX_USER_CHECK(void)
 }
 
 _TEST USERX_LOGOUT(void){
-    TIMEOUT_TEST_CASE
+	TIMEOUT_TEST_CASE
 	switch (TestStep){
 		case 0:
 			TEST_ABORT_CONDITION(MpUserXLogin_0.MpLink == 0);
