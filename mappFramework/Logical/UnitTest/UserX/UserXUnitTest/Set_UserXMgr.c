@@ -215,7 +215,7 @@ _TEARDOWN_TEST(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2022-11-09 20:10:20Z
+LastUpdated: 2022-11-23 14:37:57Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
@@ -225,5 +225,5 @@ UNITTEST_FIXTURES(fixtures)
 	new_TestFixture("USERX_LOGOUT", USERX_LOGOUT), 
 };
 
-UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_UserXMgr, "Set_UserXMgr", setupTest, teardownTest, fixtures, setupSet, teardownSet, cyclicSetCaller);
+UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_UserXMgr, "Set_UserXMgr", setupTest, teardownTest, fixtures, setupSet, teardownSet, 0);
 
