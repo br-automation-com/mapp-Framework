@@ -17,6 +17,7 @@ PROGRAM _INIT
 	//Parameterize the file mangement function block
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	MpFileManagerUI_0.Enable := TRUE;
 
 	//Fill an array to create example data for the example report
@@ -48,6 +49,7 @@ PROGRAM _CYCLIC
 
 	// Once a report has been generated, clear the generate command
 	IF MpReportCore_0.CommandDone THEN
+		MpFileManagerUIConnect.File.Refresh := TRUE;
 		HmiReport.Commands.Generate := FALSE;
 	END_IF
 
