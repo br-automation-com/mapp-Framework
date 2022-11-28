@@ -1,4 +1,4 @@
-ACTION ReportManager:
+ACTION ReportFormat:
 
 	// If the current format and the selected format do not match, disable the function block for a cycle and make the change
 	IF HmiReport.Parameters.UseAdvancedFormat AND (HmiReport.Status.CurrentFormat = FORMAT_SIMPLE) THEN
@@ -9,12 +9,16 @@ ACTION ReportManager:
 	ELSIF NOT HmiReport.Parameters.UseAdvancedFormat AND (HmiReport.Status.CurrentFormat = FORMAT_ADVANCED) THEN
 		MpReportCore_0.Enable := FALSE;
 		MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);
-		HmiReport.Parameters.Name := 'SimpleReport';
+		HmiReport.Parameters.Name := 'SimpleReport';		
 		HmiReport.Status.CurrentFormat := FORMAT_SIMPLE;
 	ELSE
 		MpReportCore_0.Enable := TRUE;
 	END_IF
+	
+END_ACTION
 
+ACTION ReportFileExplorer:
+	
 	// Connections between the HMI structure and the report function block
 	HmiReport.Status.Busy := MpReportCore_0.CommandBusy;
 	HmiReport.Status.Error := MpReportCore_0.Error;
@@ -47,13 +51,24 @@ ACTION ReportManager:
 
 	// Create a file path to be linked to the pdf viewer
 	HmiReport.Parameters.PathOfReportToView := HmiReport.Status.FilePath[HmiReport.Status.SelectedIndex];
-
+	
+	// Add USB devices if available
+	FOR i := 0 TO IDX_USB_DEV_LIST DO	 
+		tempDeviceIndex := i + 1;
+		IF gUSBAvailable[i] THEN			
+			MpFileManagerUIConnect.DeviceList.DeviceNames[tempDeviceIndex] := 'USB';
+			brsitoa(i + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[tempDeviceIndex]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[tempDeviceIndex])));
+		ELSE
+			MpFileManagerUIConnect.DeviceList.DeviceNames[tempDeviceIndex] := '';
+		END_IF
+	END_FOR	
+	
 	// Create array for the file device table
 	IF ((MpFileManagerUIConnect.DeviceList.SelectedIndex <> HmiReport.Status.LastSelectedDeviceIndex) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE)) THEN
 		HmiReport.Status.LastSelectedDeviceIndex := MpFileManagerUIConnect.DeviceList.SelectedIndex;
 		HmiReport.Status.LastSelectedIndex := HmiReport.Status.LastSelectedIndex + 1;
 	END_IF
-
+	
 	// Configure device list so that only the rows with entries will show
 	HmiReport.Status.TableConfig[0] := '{ "specRows": [{"from":';
 	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
@@ -72,4 +87,7 @@ ACTION ReportManager:
 
 	// If more than 50 items exist, set the File OverMax flag (used for page up/down buttons)
 	HmiReport.Status.FileOverMax := ItemCount > 50;
+	
+	// Set file device to selected
+	MpReportCore_0.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
 END_ACTION

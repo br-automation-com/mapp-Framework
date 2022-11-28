@@ -160,6 +160,13 @@
           </Target>
         </Action>
       </EventHandler>
+      <EventHandler condition="contentId = &quot;Backup_content&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::BackupMgr:HmiBackup.Status.LastSelectedIndex">
+            <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="255" />
+          </Target>
+        </Action>
+      </EventHandler>
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::BackupMgr:MpFileManagerUIConnect.File.Refresh">
