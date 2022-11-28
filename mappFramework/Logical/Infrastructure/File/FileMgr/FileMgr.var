@@ -2,7 +2,6 @@
 VAR
 	MpFileManagerUI_0 : MpFileManagerUI; (*MpFileManagerUI instance*)
 	MpFileManagerUI_FIFO : MpFileManagerUI; (*MpFileManagerUI instance*)
-	DirInfo_0 : DirInfo; (*Directory info function block*)
 	R_TRIG_CheckStatus : R_TRIG; (*Trigger function block*)
 	TON_Wait : TON; (*FIFO handling support*)
 	TON_ScanFolder : TON; (*Timer to scan for folder*)
@@ -27,6 +26,8 @@ VAR
 	i : USINT; (*Index for FOR loops*)
 	DeviceListCount : USINT; (*Counter for accessible file devices*)
 	DeviceCount : USINT; (*Counter for available file devices*)
+	Ident : UDINT; (*Ident of a program on target*)
+	IdentStatus : UINT; (*Status variable if a program exists on target*)
 	Index : USINT; (*Index for avaliable devices*)
 	FolderDepthCount : USINT; (*Keeps track of the folder depth location to determine whether or not the back button should be shown*)
 	USBOffset : USINT := 0; (*Device list offset where to add USB device*)

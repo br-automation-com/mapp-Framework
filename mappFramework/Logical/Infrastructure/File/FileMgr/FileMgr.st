@@ -46,6 +46,15 @@ PROGRAM _INIT
 
 	// Initialize which folders should exist
 	PathCheck.DeviceList := MpFileManagerUIConnect.DeviceList;
+			
+	PathCheck.PrgName[0] := 'RecipeMgr';
+	PathCheck.PrgName[1] := 'AuditMgr';
+	PathCheck.PrgName[2] := 'ReportMgr';
+	PathCheck.PrgName[3] := 'DataMgr';
+	PathCheck.PrgName[4] := 'BackupMgr';
+	PathCheck.PrgName[5] := 'AlarmMgr';
+	PathCheck.PrgName[6] := 'UserXMgr';
+
 	PathCheck.Folder[0] := 'Recipe';
 	PathCheck.Folder[1] := 'Audit';
 	PathCheck.Folder[2] := 'Report';
