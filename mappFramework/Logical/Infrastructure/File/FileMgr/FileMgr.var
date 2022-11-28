@@ -18,11 +18,7 @@ END_VAR
 VAR
 	MpFileManagerUIConnect : MpFileManagerUIConnectType; (*File manager connection to the HMI*)
 	MpFileManagerUIConnect_FIFO : {REDUND_UNREPLICABLE} MpFileManagerUIConnectType; (*File manager connection to the HMI*)
-END_VAR
-VAR RETAIN
 	HmiFile : FileHmiInterfaceType; (*HMI interface structure*)
-END_VAR
-VAR
 	PathCheck : FilePathCheckType; (*Parameter structure controlling the visible file device based on available folders*)
 	DirectoryData : fiDIR_READ_DATA; (*FIFO handling support reading current folder size*)
 END_VAR
@@ -39,4 +35,7 @@ VAR
 	FileNameArraySize : USINT; (*FIFO handling support size of the array*)
 	StartIndex : USINT; (*FIFO handling support *)
 	Fifo_Count : USINT; (*FIFO handling support current file count*)
+END_VAR
+VAR RETAIN
+	FifoSettingsRetain : {REDUND_UNREPLICABLE} FileHmiParaFifoType; (*Store FIFO settings in retain memory to be applied after boot*)
 END_VAR

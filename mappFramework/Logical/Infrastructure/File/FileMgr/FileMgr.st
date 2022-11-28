@@ -68,6 +68,9 @@ PROGRAM _INIT
 			USBOffset := USBOffset + 1;
 		END_IF
 	END_FOR
+	
+	// Restored the retained values to the FIFO settings
+	HmiFile.Parameters.Fifo := FifoSettingsRetain;
 
 END_PROGRAM
 

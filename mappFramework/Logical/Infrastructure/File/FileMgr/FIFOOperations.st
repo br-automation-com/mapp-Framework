@@ -25,7 +25,7 @@ ACTION FIFOOperation:
 			ELSE
 				brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
 			END_IF
-
+			
 		FILE_DELETE_WAIT:
 			IF (HmiFile.Parameters.Fifo.Enable = TRUE) THEN
 				// Wait for check the correct device selection
@@ -229,15 +229,15 @@ ACTION FIFOOperation:
 			END_IF
 
 		FILE_CONFIRM_DELETE_WAIT:
-            IF ((MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_REFRESH) OR (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE)) THEN
-                MpFileManagerUIConnect_FIFO.File.MultiSelect := FALSE;
-                IF (HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_SIZE_OF_FOLDER) THEN
-                    HmiFile.Status.DeleteStep := SEL((HmiFile.Status.FolderSize > (HmiFile.Parameters.Fifo.MaxFolderSize*1024)), FILE_RESET_SORT_BY, FILE_GO_TO_END);
-                ELSE
-                    // if more files need to be deleted then go back to select the oldest files
-                    HmiFile.Status.DeleteStep := SEL((MpFileManagerUIConnect_FIFO.File.PathInfo.FileCount > HmiFile.Parameters.Fifo.MaxNumberOfFiles), FILE_RESET_SORT_BY, FILE_GO_TO_END);
-                END_IF
-            END_IF
+			IF ((MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_REFRESH) OR (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE)) THEN
+				MpFileManagerUIConnect_FIFO.File.MultiSelect := FALSE;
+				IF (HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_SIZE_OF_FOLDER) THEN
+					HmiFile.Status.DeleteStep := SEL((HmiFile.Status.FolderSize > (HmiFile.Parameters.Fifo.MaxFolderSize*1024)), FILE_RESET_SORT_BY, FILE_GO_TO_END);
+				ELSE
+					// if more files need to be deleted then go back to select the oldest files
+					HmiFile.Status.DeleteStep := SEL((MpFileManagerUIConnect_FIFO.File.PathInfo.FileCount > HmiFile.Parameters.Fifo.MaxNumberOfFiles), FILE_RESET_SORT_BY, FILE_GO_TO_END);
+				END_IF
+			END_IF
 
 		FILE_RESET_SORT_BY:
 			// Restore old sort order
@@ -258,6 +258,9 @@ ACTION FIFOOperation:
 			END_IF
 	END_CASE
 
+	// Save current archive setings to retain variable
+	FifoSettingsRetain := HmiFile.Parameters.Fifo;
+	
 	// Timer to scan file device in intervals
 	TON_ScanFolder(PT := DINT_TO_TIME(HmiFile.Parameters.Fifo.ScanInterval * 60000));
 
