@@ -54,6 +54,8 @@ PROGRAM _INIT
 	PathCheck.PrgName[4] := 'BackupMgr';
 	PathCheck.PrgName[5] := 'AlarmMgr';
 	PathCheck.PrgName[6] := 'UserXMgr';
+	PathCheck.PrgName[7] := 'UsbMgr';
+	PathCheck.PrgName[8] := 'UsbMgr';
 
 	PathCheck.Folder[0] := 'Recipe';
 	PathCheck.Folder[1] := 'Audit';
