@@ -127,5 +127,15 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="ContentLoaded.Backup_content.RefreshList">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <EventHandler condition="contentId = &quot;File_content&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
