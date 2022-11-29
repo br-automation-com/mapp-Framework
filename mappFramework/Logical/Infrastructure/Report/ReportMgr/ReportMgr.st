@@ -21,12 +21,14 @@ PROGRAM _INIT
 	MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);
 	MpReportCore_0.Name := ADR(HmiReport.Parameters.Name);
 	HmiReport.Parameters.Name := 'SimpleReport';
+	MpReportCore_0();
 
 	//Parameterize the file mangement function block
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	MpFileManagerUI_0.Enable := TRUE;
+	MpFileManagerUI_0();
 
 	//Fill an array to create example data for the example report
 	TimeIndex := 0;
@@ -56,9 +58,13 @@ PROGRAM _CYCLIC
 	// Call all cyclic actions
 	ReportFormat;
 	ReportFileExplorer;
+	
+	// Generate command
+	MpReportCore_0.Generate := HmiReport.Commands.Generate;
+	MpReportCore_0.Name := ADR(HmiReport.Parameters.Name);
 
 	// Call function blocks
-	MpReportCore_0(Generate := HmiReport.Commands.Generate, Name := ADR(HmiReport.Parameters.Name));
+	MpReportCore_0();
 	MpFileManagerUI_0();
 
 END_PROGRAM
