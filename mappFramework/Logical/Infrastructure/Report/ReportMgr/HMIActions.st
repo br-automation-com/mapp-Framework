@@ -44,7 +44,9 @@ ACTION ReportFileExplorer:
 		HmiReport.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
 		HmiReport.Status.Size[i] := MpFileManagerUIConnect.File.List.Items[i].Size;
 		// Concatonate strings to form the file path
-		HmiReport.Status.TempFilePath[i] := '/FileDevice:mappReportFiles/';
+		HmiReport.Status.TempFilePath[i] := '/FileDevice:';
+		brsstrcat(ADR(HmiReport.Status.TempFilePath[i]),ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]));
+		brsstrcat(ADR(HmiReport.Status.TempFilePath[i]),ADR('/'));
 		brsstrcat(ADR(HmiReport.Status.TempFilePath[i]),ADR(HmiReport.Status.FileNames[i]));
 		HmiReport.Status.FilePath[i] := HmiReport.Status.TempFilePath[i];
 	END_FOR
