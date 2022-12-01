@@ -19,15 +19,15 @@
 
 void _INIT initTestSuite(void)
 {
-    Testsuite.Enable = 1;
+	Testsuite.Enable = 1;
 	utInit(&Testsuite);
-    
-    CommonTestsuite.Enable = 1;
-    utInit(&CommonTestsuite);
-    
-    strcpy((char*)&FileDeviceName, "mappUserXFiles");
-    strcpy((char*)&TextNameSpace, "mappFramework/UserX/Alarms");
-    strcpy((char*)&TextID, "UserLocked");
+	
+	CommonTestsuite.Enable = 1;
+	utInit(&CommonTestsuite);
+	
+	strcpy((char*)&FileDeviceName, "mappUserXFiles");
+	strcpy((char*)&TextNameSpace, "mappFramework/UserX/Alarms");
+	strcpy((char*)&TextID, "UserLocked");
 
 }
 
