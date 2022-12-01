@@ -7,18 +7,28 @@
 
 PROGRAM _INIT
 
+	// Create folder for this component on the user file device
+	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
+
+	// Check if folder already exist and if so disabled the function block call
+	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
+		DirCreate_0(enable := FALSE);
+	END_IF
+	
 	//Parameterize the report function block with the simple report
 	MpReportCore_0.Language := ADR('en');
 	MpReportCore_0.DeviceName := ADR('mappReportFiles');
 	MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);
 	MpReportCore_0.Name := ADR(HmiReport.Parameters.Name);
 	HmiReport.Parameters.Name := 'SimpleReport';
+	MpReportCore_0();
 
 	//Parameterize the file mangement function block
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	MpFileManagerUI_0.Enable := TRUE;
+	MpFileManagerUI_0();
 
 	//Fill an array to create example data for the example report
 	TimeIndex := 0;
@@ -35,14 +45,6 @@ PROGRAM _INIT
 	// Ficticious number to serve as an example in the report
 	ReportExample.AdvancedReport.BatchNumber := 325454685;
 
-	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
-
-	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
-		DirCreate_0(enable := FALSE);
-	END_IF
-
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -54,10 +56,15 @@ PROGRAM _CYCLIC
 	END_IF
 
 	// Call all cyclic actions
-	ReportManager;
+	ReportFormat;
+	ReportFileExplorer;
+	
+	// Generate command
+	MpReportCore_0.Generate := HmiReport.Commands.Generate;
+	MpReportCore_0.Name := ADR(HmiReport.Parameters.Name);
 
 	// Call function blocks
-	MpReportCore_0(Generate := HmiReport.Commands.Generate, Name := ADR(HmiReport.Parameters.Name));
+	MpReportCore_0();
 	MpFileManagerUI_0();
 
 END_PROGRAM

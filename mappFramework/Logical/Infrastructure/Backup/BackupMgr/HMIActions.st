@@ -118,7 +118,7 @@ ACTION FileManager:
 
 	IF ((MpFileManagerUIConnect.DeviceList.SelectedIndex <> HmiBackup.Status.LastSelectedDeviceIndex) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE)) THEN
 		HmiBackup.Status.LastSelectedDeviceIndex := MpFileManagerUIConnect.DeviceList.SelectedIndex;
-		IF HmiBackup.Status.LastSelectedIndex > MpFileManagerUIConnect.File.PathInfo.FolderCount THEN
+		IF HmiBackup.Status.LastSelectedIndex >= MpFileManagerUIConnect.File.PathInfo.FolderCount THEN
 			HmiBackup.Status.SelectedIndex := 0;
 		ELSE
 			HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;

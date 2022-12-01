@@ -25,7 +25,7 @@ ACTION FIFOOperation:
 			ELSE
 				brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
 			END_IF
-
+			
 		FILE_DELETE_WAIT:
 			IF (HmiFile.Parameters.Fifo.Enable = TRUE) THEN
 				// Wait for check the correct device selection
@@ -258,6 +258,9 @@ ACTION FIFOOperation:
 			END_IF
 	END_CASE
 
+	// Save current archive setings to retain variable
+	FifoSettingsRetain := HmiFile.Parameters.Fifo;
+	
 	// Timer to scan file device in intervals
 	TON_ScanFolder(PT := DINT_TO_TIME(HmiFile.Parameters.Fifo.ScanInterval * 60000));
 

@@ -23,20 +23,11 @@ ACTION FormatDeviceDataProvider:
 
 	MaxDeviceNameIndex := ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1);
 	//Check initilized folder for existance and remove any from the device list that don't exist
-	IF DirInfo_0.status = ERR_OK	THEN
-		IF PathCheck.DeviceList.DeviceNames[DeviceListCount] = '' THEN
-			//Delete entries past the actual number of devices found
-			FOR i:=Index TO MaxDeviceNameIndex DO
-				MpFileManagerUIConnect.DeviceList.DeviceNames[i] := '';
-			END_FOR
-			Index := 0;
-			DeviceListCount := 0;
-		ELSE
-			// copy device name from source list into the actual device list
-			MpFileManagerUIConnect.DeviceList.DeviceNames[Index] := PathCheck.DeviceList.DeviceNames[DeviceListCount];
-			Index := Index + 1;
-			DeviceListCount := DeviceListCount + 1;
-		END_IF
+	IF (IdentStatus = 0) THEN
+		// copy device name from source list into the actual device list
+		MpFileManagerUIConnect.DeviceList.DeviceNames[Index] := PathCheck.DeviceList.DeviceNames[DeviceListCount];
+		Index := Index + 1;
+		DeviceListCount := DeviceListCount + 1;
 
 		IF (DeviceListCount > ((SIZEOF(PathCheck.DeviceList.DeviceNames) / SIZEOF(PathCheck.DeviceList.DeviceNames[0])) - 1)) THEN
 			DeviceListCount := 0;
@@ -44,14 +35,19 @@ ACTION FormatDeviceDataProvider:
 		IF (Index > MaxDeviceNameIndex) THEN
 			Index := 0;
 		END_IF
-	ELSIF DirInfo_0.status = fiERR_DIR_NOT_EXIST	 THEN
+	ELSIF (IdentStatus = 3324) THEN
 		DeviceListCount := DeviceListCount + 1;
 		IF DeviceListCount > ((SIZEOF(PathCheck.DeviceList.DeviceNames) / SIZEOF(PathCheck.DeviceList.DeviceNames[0])) - 1) THEN
+			 //Delete entries past the actual number of devices found
+			FOR i:=Index TO MaxDeviceNameIndex DO
+				MpFileManagerUIConnect.DeviceList.DeviceNames[i] := '';
+			END_FOR
 			DeviceListCount := 0;
+			Index := 0;
 		END_IF
 	END_IF
 
-	DirInfo_0(enable:= TRUE, pDevice := ADR('UserPartition'), pPath := ADR(PathCheck.Folder[DeviceListCount]));
+	IdentStatus := ST_ident(ADR(PathCheck.PrgName[DeviceListCount]),0,ADR(Ident));
 
 	// Configure visible device list
 	HmiFile.Status.TableConfig[0] := '{ "specRows": [{"from":';

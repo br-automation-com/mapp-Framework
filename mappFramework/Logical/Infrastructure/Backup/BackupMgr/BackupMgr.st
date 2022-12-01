@@ -87,10 +87,8 @@ PROGRAM _CYCLIC
 				MpBackupCoreConfig_0.Save := TRUE;
 			ELSIF ((HmiBackup.Status.SelectedIndex <> HmiBackup.Status.LastSelectedIndex) AND (MpBackupCore_0.CommandBusy <> TRUE)) THEN
 				HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.SelectedIndex;
-				IF (brsstrlen(ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name)) > 0) THEN
-					MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
-					MpBackupCore_0.RequestInfo := TRUE;
-				END_IF
+				MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
+				MpBackupCore_0.RequestInfo := TRUE;
 			END_IF
 
 		BACKUP_CREATING:

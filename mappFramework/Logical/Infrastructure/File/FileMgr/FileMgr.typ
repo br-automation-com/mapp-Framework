@@ -46,6 +46,7 @@ TYPE
 	END_STRUCT;
 	FilePathCheckType : 	STRUCT  (*Setup for checking available folders / file devices for FIleManager*)
 		Folder : ARRAY[0..9]OF STRING[20]; (*Folder name in user partition*)
+		PrgName : ARRAY[0..9]OF STRING[12]; (*Program name for mapp framework components*)
 		DeviceList : MpFileManagerUIDeviceListType; (*Device name*)
 	END_STRUCT;
 END_TYPE
