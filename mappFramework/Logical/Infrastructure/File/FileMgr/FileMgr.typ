@@ -46,6 +46,7 @@ TYPE
 	END_STRUCT;
 	FilePathCheckType : 	STRUCT  (*Setup for checking available folders / file devices for FIleManager*)
 		Folder : ARRAY[0..9]OF STRING[20]; (*Folder name in user partition*)
+		PrgName : ARRAY[0..9]OF STRING[12]; (*Program name for mapp framework components*)
 		DeviceList : MpFileManagerUIDeviceListType; (*Device name*)
 	END_STRUCT;
 END_TYPE
@@ -55,9 +56,11 @@ END_TYPE
 TYPE
 	FileDeleteStepEnum : 
 		( (*Enumeration for file deletion steps*)
-		FILE_DELETE_WAIT := 0, (*Wait state*)
+		FILE_DISABLED, (*Disabled*)
+		FILE_DELETE_WAIT, (*Wait state*)
 		FILE_SCAN_FOLDER_WAIT, (*Wait for check for old files command*)
 		FILE_SELECT_DEVICE, (*Switch file device to the configured one *)
+		FILE_REFRESH, (*Refreshing the data*)
 		FILE_SORT_BY_DATE, (*Sort by date so the oldest files are at the end*)
 		FILE_SORT_BY_DATE_WAIT, (*Wait step switching sorting mode*)
 		FILE_GO_TO_END, (*Pages down until at the end of the file list*)
@@ -69,6 +72,7 @@ TYPE
 		FILE_SELECT_OLDEST_FILES_1, (*Scan and select all file over the filter setting*)
 		FILE_DELETE_FILES, (*Set command to delete the selected oldest files*)
 		FILE_CONFIRM_DELETE, (*Confirm the file delete*)
+		FILE_CONFIRM_DELETE_WAIT, (*Wait for the automatic refresh after file deletion*)
 		FILE_RESET_SORT_BY, (*Restore old sort order*)
 		FILE_RESET_SORT_BY_WAIT (*Waiting for restore previous sort order*)
 		);

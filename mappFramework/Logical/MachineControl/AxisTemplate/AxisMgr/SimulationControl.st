@@ -1,12 +1,12 @@
 ACTION SimulationControl:
 
 	// Automatic settings when project is in simulation
-    IF NOT (DiagCpuIsARsim() OR DiagCpuIsSimulated()) THEN
-        RETURN;
-    END_IF
-    
-    IF ((MpAxisBasic_0.IsHomed = FALSE) AND (MpAxisBasic_0.Home = FALSE)) THEN
-        AxisControl.Command.Reference := TRUE;
-    END_IF
-    
+	IF NOT (DiagCpuIsARsim() OR DiagCpuIsSimulated()) THEN
+		RETURN;
+	END_IF
+
+	IF ((MpAxisBasic_0.IsHomed = FALSE) AND (MpAxisBasic_0.Home = FALSE)) THEN
+		AxisControl.Command.Reference := TRUE;
+	END_IF
+
 END_ACTION

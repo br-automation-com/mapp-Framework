@@ -51,7 +51,7 @@
       <EventHandler condition="SimActive = true">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Backup/MsgBox.Simulation" header="$IAT/Backup/MsgBox.Warning" icon="Exclamation" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Backup/MsgBox.Simulation" header="$IAT/mappFramework/Backup/MsgBox.Warning" icon="Exclamation" />
           </Target>
         </Action>
       </EventHandler>
@@ -66,7 +66,7 @@
       <EventHandler condition="SimActive = true">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Backup/MsgBox.Simulation" header="$IAT/Backup/MsgBox.Warning" icon="Exclamation" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Backup/MsgBox.Simulation" header="$IAT/mappFramework/Backup/MsgBox.Warning" icon="Exclamation" />
           </Target>
         </Action>
       </EventHandler>
@@ -76,7 +76,7 @@
       <EventHandler condition="(newValue = true)">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Backup/Msg.BoxErrorText" header="$IAT/Backup/MsgBox.Error" icon="Error" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Backup/Msg.BoxErrorText" header="$IAT/mappFramework/Backup/MsgBox.Error" icon="Error" />
           </Target>
           <Result>
             <ResultHandler condition="result = 4">
@@ -156,7 +156,14 @@
       <EventHandler condition="contentId = &quot;Backup_content&quot; AND NewUpdate = true">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupUpdate_dialog" headerText="$IAT/Backup/Update" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="BackupUpdate_dialog" headerText="$IAT/mappFramework/Backup/Update" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="contentId = &quot;Backup_content&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::BackupMgr:HmiBackup.Status.LastSelectedIndex">
+            <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="255" />
           </Target>
         </Action>
       </EventHandler>
@@ -178,7 +185,29 @@
       <EventHandler condition="SimActive = true">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Backup/MsgBox.Simulation" header="$IAT/Backup/MsgBox.Warning" icon="Exclamation" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Backup/MsgBox.Simulation" header="$IAT/mappFramework/Backup/MsgBox.Warning" icon="Exclamation" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="HmiBackup.Status.Info.Name.ValueChange">
+      <Source xsi:type="opcUa.Event" refId="::BackupMgr:HmiBackup.Status.Info.Name" event="ValueChanged" />
+      <Operand datatype="BOOL" name="BackupCtrlEnabled">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::BackupMgr:HmiBackup.Status.BackupCtrlEnabled">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="BackupCtrlEnabled = true AND newValue &lt;&gt; &quot;&quot;">
+        <Action>
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="Backup_content" widgetRefId="grpBobDetails">
+            <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="BackupCtrlEnabled = false OR newValue = &quot;&quot;">
+        <Action>
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="Backup_content" widgetRefId="grpBobDetails">
+            <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="false" />
           </Target>
         </Action>
       </EventHandler>

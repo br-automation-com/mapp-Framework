@@ -6,35 +6,38 @@
 //***********************************************************************
 
 PROGRAM _INIT
-    
+
 	// Create folder for this component on the user file device
 	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
-	
+
 	// Check if folder already exist and if so disabled the function block call
 	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreate_0(enable := FALSE);
 	END_IF
 
 	// Initialize mapp function blocks
-    MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
+	MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
 	MpBackupCore_0.Enable := TRUE;
 	MpBackupCore_0();
-	    
-    MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
-    MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
+
+	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
+	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.Enable := TRUE;
 	MpFileManagerUI_0();
-    
-    MpBackupCoreConfig_0.Enable := TRUE;
-    MpBackupCoreConfig_0.MpLink := ADR(gMpLinkBackupCore);
+
+	MpBackupCoreConfig_0.Enable := TRUE;
+	MpBackupCoreConfig_0.MpLink := ADR(gMpLinkBackupCore);
 	MpBackupCoreConfig_0.Configuration := ADR(MpBackupConfiguration);
 
 	MpBackupCoreConfig_0.Load := NOT(DiagCpuIsARsim() OR DiagCpuIsSimulated());
 
 	MpBackupCoreConfig_0();
-    
+
 	HmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackupFiles","text":"CF/PLC"}';
-	    
+
+	// Restored the retained values to the backup settings
+	HmiBackup.Parameters.AutomaticBackup := AutomaticBackupRetain;
+
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -84,12 +87,10 @@ PROGRAM _CYCLIC
 				MpBackupCoreConfig_0.Save := TRUE;
 			ELSIF ((HmiBackup.Status.SelectedIndex <> HmiBackup.Status.LastSelectedIndex) AND (MpBackupCore_0.CommandBusy <> TRUE)) THEN
 				HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.SelectedIndex;
-				IF (brsstrlen(ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name)) > 0) THEN
-					MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
-					MpBackupCore_0.RequestInfo := TRUE;
-				END_IF
+				MpBackupCore_0.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
+				MpBackupCore_0.RequestInfo := TRUE;
 			END_IF
-    
+
 		BACKUP_CREATING:
 			IF (MpBackupCore_0.CommandDone = TRUE) THEN
 				MpBackupCore_0.Create := FALSE;
@@ -100,7 +101,7 @@ PROGRAM _CYCLIC
 			ELSIF (MpBackupCore_0.Error = TRUE) THEN
 				BackupState := BACKUP_ERROR;
 			END_IF
-			
+
 		BACKUP_REFRESHING_LIST:
 			IF MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH THEN
 				// Wait for the list to be refreshed with the newly created backup file
@@ -109,8 +110,8 @@ PROGRAM _CYCLIC
 				BackupState := BACKUP_IDLE;
 			ELSIF (MpBackupCore_0.Error = TRUE) THEN
 				BackupState := BACKUP_ERROR;
-			END_IF	
-               
+			END_IF
+
 		BACKUP_RESTORING:
 			IF (MpBackupCore_0.CommandDone = TRUE) THEN
 				MpBackupCore_0.Create := FALSE;
@@ -121,7 +122,7 @@ PROGRAM _CYCLIC
 			ELSIF (MpBackupCore_0.Error = TRUE) THEN
 				BackupState := BACKUP_ERROR;
 			END_IF
-		
+
 		BACKUP_UPDATING:
 			IF (MpBackupCore_0.CommandDone = TRUE) THEN
 				MpBackupCore_0.Create := FALSE;
@@ -130,8 +131,8 @@ PROGRAM _CYCLIC
 				BackupState := BACKUP_IDLE;
 			ELSIF (MpBackupCore_0.Error = TRUE) THEN
 				BackupState := BACKUP_ERROR;
-			END_IF	
-            
+			END_IF
+
 		BACKUP_DELETING:
 			CASE (MpFileManagerUIConnect.MessageBox.Type) OF
 				mpFILE_MSG_CONFIRM_DELETE:
@@ -147,23 +148,23 @@ PROGRAM _CYCLIC
 						BackupState := BACKUP_IDLE;
 					END_IF
 			END_CASE
-			
-		BACKUP_SIM:	
+
+		BACKUP_SIM:
 			HmiBackup.Status.SimulationActive := TRUE;
-        
+
 		BACKUP_ERROR:
 			MpBackupCore_0.Create := FALSE;
 			MpBackupCore_0.Install := FALSE;
 			IF MpBackupCore_0.Info.Diag.StatusID.ID <> 0 THEN //-1064159486
 				HmiBackup.Status.Error := TRUE;
-			END_IF	
+			END_IF
 			IF HmiBackup.Commands.Reset OR (MpBackupCore_0.Info.Diag.StatusID.ID = -1064159486) THEN
 				HmiBackup.Commands.Reset := FALSE;
 				MpBackupCore_0.ErrorReset := TRUE;
 				BackupState := BACKUP_IDLE;
-			ELSIF ((MpBackupCore_0.Info.Diag.StatusID.ID = 0) AND (MpBackupCore_0.Error = FALSE)) THEN	
+			ELSIF ((MpBackupCore_0.Info.Diag.StatusID.ID = 0) AND (MpBackupCore_0.Error = FALSE)) THEN
 				BackupState := BACKUP_IDLE;
-			END_IF	
+			END_IF
 	END_CASE
 
 	// Reset any errors caused by requesting information
@@ -172,11 +173,11 @@ PROGRAM _CYCLIC
 		MpBackupCore_0.RequestInfo := FALSE;
 		brsmemset(ADR(HmiBackup.Status.Info), 0, SIZEOF(HmiBackup.Status.Info));
 	END_IF
-	
+
 	MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
 	MpBackupCore_0.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
 	MpBackupCore_0();
-	
+
 	IF (MpBackupCore_0.CommandDone = TRUE) AND (MpBackupCore_0.RequestInfo = TRUE) THEN
 		MpBackupCore_0.RequestInfo := FALSE;
 		HmiBackup.Status.Info := MpBackupCore_0.Info.Project.Requested;
@@ -185,24 +186,24 @@ PROGRAM _CYCLIC
 		MpBackupCore_0.ErrorReset := FALSE;
 		HmiBackup.Status.Error := FALSE;
 	END_IF
-    
+
 	HmiBackup.Status.RestoreAllowed := (MpFileManagerUIConnect.File.PathInfo.FolderCount > 0) AND NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress) AND NOT HmiBackup.Status.SimulationActive;
 	HmiBackup.Status.Update := MpBackupCore_0.Info.Automatic.Update;
-	HmiBackup.Status.BackupCtrlEnabled := (NOT HmiBackup.Status.SimulationActive) AND (MpBackupCore_0.Info.Project.Requested.Name <> '');
-	
+	HmiBackup.Status.BackupCtrlEnabled := (NOT HmiBackup.Status.SimulationActive);
+
 	// Call all actions
 	FileManager;
 	IF NOT DiagCpuIsARsim() THEN
 		ChangeConfiguration;
 	END_IF
-	
+
 	FormatDeviceDataProvider;
-	
+
 	// Assign MpLinks
 	MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
 	MpBackupCoreConfig_0.MpLink := ADR(gMpLinkBackupCore);
-	
+
 	// Call function blocks
 	MpBackupCore_0();
 	MpFileManagerUI_0();
@@ -210,12 +211,12 @@ PROGRAM _CYCLIC
 END_PROGRAM
 
 PROGRAM _EXIT
-    
+
 	// Disable the function blocks to unlink the MpLinks
-    MpBackupCore_0.Enable := FALSE;
+	MpBackupCore_0.Enable := FALSE;
 	MpFileManagerUI_0.Enable := FALSE;
 	MpBackupCoreConfig_0.Enable := FALSE;
-	
+
 	// Call function blocks
 	MpBackupCore_0();
 	MpFileManagerUI_0();

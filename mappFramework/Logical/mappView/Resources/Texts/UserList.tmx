@@ -1,0 +1,740 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT/Widgets/UserList</prop>
+  </header>
+  <body>
+    <tu tuid="adduser.CONFIRM_PASSWORD">
+      <tuv xml:lang="de">
+        <seg>Bestätigen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Confirm</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Confirmer</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Upprepa</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.ERROR_HEADER">
+      <tuv xml:lang="de">
+        <seg>Benutzerkonto Anforderungen:</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>User account requirements:</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Conditions necessaires:</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Lösenordet kräver alfanumeriska tecken</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.FULLNAME">
+      <tuv xml:lang="de">
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Nom</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Namn</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.PASSWORD">
+      <tuv xml:lang="de">
+        <seg>Passwort</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Mot de passe</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Lösenord</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.PASSWORD_PASSWORD_EMPTY">
+      <tuv xml:lang="de">
+        <seg>Passwort darf nicht leer sein</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Password cannot be empty</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Mot de passe doit être renseigné</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Lösenordet får ej lämnas blankt</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.PASSWORD_PASSWORDS_DIFFERENT">
+      <tuv xml:lang="de">
+        <seg>Passwortwiederholung stimmt nicht dem neuen Passwort überein</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Confirm password does not match</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Mot de passe ne correspond pas</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Lösenordet matchar inte det upprepade</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.PASSWORD_USERNAME_EMPTY">
+      <tuv xml:lang="de">
+        <seg>Benutzername darf nicht leer sein</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Username must not be empty</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Nom d'utilisateur doit être renseigné</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Användarnamnet får ej lämnas blankt</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.PLH_CONFIRM_PASSWORD">
+      <tuv xml:lang="de">
+        <seg>Passwort bestätigen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Confirm password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Confirmer le mot de passe</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Upprepa lösenord</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.PLH_FULLNAME">
+      <tuv xml:lang="de">
+        <seg>Vollständiger Name</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Full name</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Nom complet</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Fullständigt namn</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.PLH_PASSWORD">
+      <tuv xml:lang="de">
+        <seg>Passwort</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Mot de passe</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Lösenord</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.PLH_USERNAME">
+      <tuv xml:lang="de">
+        <seg>Benutzername</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Username</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Nom de l'utilisateur</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Användarnamn</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.POLICY_DESC_ALPHANUMERIC">
+      <tuv xml:lang="de">
+        <seg>Alphanumerische Zeichen sind im Passwort erforderlich</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Alphanumerical characters are necessary in the password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Des caractères alphanumériques doivent être utilisés dans le mot de passe</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Alfanumeriska tecken krävs i Lösenordet</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.POLICY_DESC_MINLENGTH">
+      <tuv xml:lang="de">
+        <seg>{1} oder mehr Zeichen sind im Passwort erforderlich</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{1} or more characters required in the password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>{1} ou plusieurs caractères doivent être renseignés dans le mot de passe</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>{1} eller fler tecken krävs i Lösenordet</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.POLICY_DESC_MIXEDCASE">
+      <tuv xml:lang="de">
+        <seg>Groß- und Kleinbuchstaben sind im Passwort erforderlich</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Upper- and lowercase letters required in the password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Des lettres majuscules et minuscules doivent être utilisés dans le mot de passe</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Versaler och gemener krävs i Lösenordet</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.POLICY_DESC_SPECIALCHAR">
+      <tuv xml:lang="de">
+        <seg>Mindestens ein Sonderzeichen (z.B. %$ö) ist erforderlich</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>At least one special character (e.g. $£]) required in the password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Au moins un caractère spécial (!%]) doit être utilisé dans le mot de passe
+</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Åtminstone ett specialtecken (t.ex. $£]) krävs i Lösenordet</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.ROLES_HEADER">
+      <tuv xml:lang="de">
+        <seg>Verfügbare Rollen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Available roles</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Rôles disponibles</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Tillgängliga användargrupper</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.TITLE">
+      <tuv xml:lang="de">
+        <seg>Benutzer hinzufügen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Add a user</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Ajout d'un utilisateur</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Lägg till användare</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.USERNAME">
+      <tuv xml:lang="de">
+        <seg>Benutzer</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>User</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Utilisateur</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Användare</seg>
+      </tuv>
+    </tu>
+    <tu tuid="adduser.USERNAME_DESC_MINLENGTH">
+      <tuv xml:lang="de">
+        <seg>{1} oder mehr Zeichen sind im Benutzernamen erforderlich</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{1} or more characters required in the username</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>{1} ou plusieurs caractères doivent être renseignés dans le nom de l'utilisateur</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>{1} eller fler tecken krävs i användarnamnet</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.1">
+      <tuv xml:lang="de">
+        <seg>Erfolg</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Success</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Succès</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Success</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.-1">
+      <tuv xml:lang="de">
+        <seg>interner Fehler in MpUserX</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Internal error in MpUserX</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Erreur interne à MpUserX</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Internt fel i MpUserX</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.102">
+      <tuv xml:lang="de">
+        <seg>Nicht autorisierter Benutzer</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Non authorized user</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Utilisateur non autorisé</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Ogiltig användare</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.104">
+      <tuv xml:lang="de">
+        <seg>Session nicht gültig</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Session not valid</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Session invalide</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Session ej giltig</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.106">
+      <tuv xml:lang="de">
+        <seg>Passwort-Richtlinien nicht erfüllt</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Password policies not met</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Règles pour le mot de passe non respectées</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Lösenordkrav ej uppfyllda</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.200">
+      <tuv xml:lang="de">
+        <seg>Benutzer existiert nicht</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>User doesn’t exist</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L'utilisateur n'existe pas</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Användaren existerar ej</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.201">
+      <tuv xml:lang="de">
+        <seg>Benutzer existiert bereits</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>User already exists</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>L'utilisateur existe déjà</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Användaren existerar redan</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.202">
+      <tuv xml:lang="de">
+        <seg>Ungenügende Rechte</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Insufficient rights </seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Droits non suffisants</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Otillräckliga användarrättigheter</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.203">
+      <tuv xml:lang="de">
+        <seg>Rolle existiert nicht</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Role doesn’t exist </seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Rôle n'existe pas</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Användarroll existerar ej</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.204">
+      <tuv xml:lang="de">
+        <seg>Zu viele Rollen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Too many roles</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Trop de rôles</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>För många användarroller</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.205">
+      <tuv xml:lang="de">
+        <seg>Benutzername leer</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Username empty </seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Nom d'utilisateur vide</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Användarnamn är tomt</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.206">
+      <tuv xml:lang="de">
+        <seg>Aktion nicht erlaubt (bei Aufruf im zentralen Modus/bei zentralen Benutzern)</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Action not allowed (when called in central mode/on central users)</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Action non autorisée (quand appelé depuis mode central/ central utilisateur)</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Action ej tillåtet (system inställt på central mode/användare)</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.207">
+      <tuv xml:lang="de">
+        <seg>Derzeit angemeldeter Benutzer</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>User currently logged in</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Utilisateur déjà connecté</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Användaren är inloggad</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.208">
+      <tuv xml:lang="de">
+        <seg>Passwort leer</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Password empty</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Mot de passe vide</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Lösenord tomt</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.209">
+      <tuv xml:lang="de">
+        <seg>Benutzername ist zu kurz</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Username is too short</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Le nom d'utilisateur est trop court</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Användarnamnet är för kort</seg>
+      </tuv>
+    </tu>
+    <tu tuid="error.STATUS.-3">
+      <tuv xml:lang="de">
+        <seg>Anonymous kann nicht gelöscht werden</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Anonymous cannot be deleted</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Anonymous ne peut être supprimé</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Anonymous kan inte tas bort</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.BTN_CHANGE_PASSWORD">
+      <tuv xml:lang="de">
+        <seg>Passwort zurücksetzen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Reset password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Réinitialiser le mot de passe</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Återställ lösenord</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.BTN_RESET_LOCK">
+      <tuv xml:lang="de">
+        <seg>Benutzer gesperrt</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>User locked</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Utilisateur verrouillé</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Användare låst</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.CONFIRM_PASSWORD">
+      <tuv xml:lang="de">
+        <seg>Bestätigen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Confirm</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Confirmer</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Upprepa</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.ERROR_HEADER">
+      <tuv xml:lang="de">
+        <seg>Benutzerkonto Anforderungen:</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>User account requirements:</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Conditions necessaires :</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Du saknar följande:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.FULLNAME">
+      <tuv xml:lang="de">
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Name</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Nom</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Namn</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.PASSWORD">
+      <tuv xml:lang="de">
+        <seg>Passwort</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Mot de passe</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Lösenord</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.PASSWORD_PASSWORDS_DIFFERENT">
+      <tuv xml:lang="de">
+        <seg>Passwortwiederholung stimmt nicht dem neuen Passwort überein</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Confirm password does not match</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Mot de passe ne correspond pas</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Lösenordet matchar inte det upprepade</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.PLH_CONFIRM_PASSWORD">
+      <tuv xml:lang="de">
+        <seg>Passwort bestätigen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Confirm password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Confirmer le mot de passe</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Upprepa lösenord</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.PLH_FULLNAME">
+      <tuv xml:lang="de">
+        <seg>Vollständiger Name</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Full name</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Nom complet</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Fullständigt namn</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.PLH_PASSWORD">
+      <tuv xml:lang="de">
+        <seg>Passwort ändern</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Change password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Changer mot de passe</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Ändra lösenord</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.POLICY_DESC_ALPHANUMERIC">
+      <tuv xml:lang="de">
+        <seg>Alphanumerische Zeichen sind im Passwort erforderlich</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Alphanumerical characters are necessary in the password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Caractères alphanumériques nécessaires</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Lösenordet kräver alfanumeriska tecken
+</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.POLICY_DESC_MINLENGTH">
+      <tuv xml:lang="de">
+        <seg>{1} oder mehr Zeichen sind im Passwort erforderlich</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>{1} or more characters required in the password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>{1} ou plusieurs caractères nécessaires</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>{1} eller fler tecken krävs</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.POLICY_DESC_MIXEDCASE">
+      <tuv xml:lang="de">
+        <seg>Groß- und Kleinbuchstaben sind im Passwort erforderlich</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Upper- and lowercase letters required in the password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Majuscules et minuscules nécessaires</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Versaler och gemener krävs</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.POLICY_DESC_SPECIALCHAR">
+      <tuv xml:lang="de">
+        <seg>Mindestens ein Sonderzeichen (z.B. %$ö) ist erforderlich</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>At least one special character (e.g. $£]) required in the password</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Au moins un caractère spécial (!%]) nécessaire
+</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Åtminstone ett specialtecken krävs (t.ex. $£])</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.ROLES_HEADER">
+      <tuv xml:lang="de">
+        <seg>Verfügbare Rollen</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Available roles</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Rôles disponibles</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Tillgängliga användargrupper</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.TITLE">
+      <tuv xml:lang="de">
+        <seg>Einen Benutzer ändern</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Modify a user</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Modifier un utilisateur</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Ändra en användare</seg>
+      </tuv>
+    </tu>
+    <tu tuid="modifyuser.USERNAME">
+      <tuv xml:lang="de">
+        <seg>Benutzer</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>User</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Utilisateur</seg>
+      </tuv>
+      <tuv xml:lang="sv">
+        <seg>Användare</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

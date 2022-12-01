@@ -1,34 +1,34 @@
 ACTION RecipeInit:
 
-    // Register the variables with the recipe system
-    AxisControl.Status.ProductSettingsName := AxisControl.Status.TaskName;
-    brsstrcat(ADR(AxisControl.Status.ProductSettingsName), ADR(':ParametersPreview'));
-    MpRecipeRegPar_Par.MpLink := ADR(gMpLinkRecipeXml);
-    MpRecipeRegPar_Par.Enable := TRUE;
-    MpRecipeRegPar_Par.PVName := ADR(AxisControl.Status.ProductSettingsName);
-    MpRecipeRegPar_Par.Category := ADR(PARAMETERS_CATEGORY);
-    MpRecipeRegPar_Par();
-    ParametersPreview;
-    ParametersEdit;
-    
-    AxisControl.Status.MachineSettingsName := AxisControl.Status.TaskName;
-    brsstrcat(ADR(AxisControl.Status.MachineSettingsName), ADR(':MachineSettingsPreview'));
-    MpRecipeRegPar_Cfg.MpLink := ADR(gMpLinkRecipeXml);
-    MpRecipeRegPar_Cfg.Enable := TRUE;
-    MpRecipeRegPar_Cfg.PVName := ADR(AxisControl.Status.MachineSettingsName);
-    MpRecipeRegPar_Cfg.Category := ADR(MACHINE_CONFIGURATION_CATEGORY);
-    MpRecipeRegPar_Cfg();
-    MachineSettingsPreview;
-    MachineSettingsEdit;
+	// Register the variables with the recipe system
+	AxisControl.Status.ProductSettingsName := AxisControl.Status.TaskName;
+	brsstrcat(ADR(AxisControl.Status.ProductSettingsName), ADR(':ParametersPreview'));
+	MpRecipeRegPar_Par.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeRegPar_Par.Enable := TRUE;
+	MpRecipeRegPar_Par.PVName := ADR(AxisControl.Status.ProductSettingsName);
+	MpRecipeRegPar_Par.Category := ADR(PARAMETERS_CATEGORY);
+	MpRecipeRegPar_Par();
+	ParametersPreview;
+	ParametersEdit;
 
-    // Activate RegPar FUBs
-    WHILE NOT(MpRecipeRegPar_Par.Active OR MpRecipeRegPar_Par.Error) DO
-        MpRecipeRegPar_Par();
-    END_WHILE
-    WHILE NOT(MpRecipeRegPar_Cfg.Active OR MpRecipeRegPar_Cfg.Error) DO
-        MpRecipeRegPar_Cfg();
-    END_WHILE
-    
+	AxisControl.Status.MachineSettingsName := AxisControl.Status.TaskName;
+	brsstrcat(ADR(AxisControl.Status.MachineSettingsName), ADR(':MachineSettingsPreview'));
+	MpRecipeRegPar_Cfg.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeRegPar_Cfg.Enable := TRUE;
+	MpRecipeRegPar_Cfg.PVName := ADR(AxisControl.Status.MachineSettingsName);
+	MpRecipeRegPar_Cfg.Category := ADR(MACHINE_CONFIGURATION_CATEGORY);
+	MpRecipeRegPar_Cfg();
+	MachineSettingsPreview;
+	MachineSettingsEdit;
+
+	// Activate RegPar FUBs
+	WHILE NOT(MpRecipeRegPar_Par.Active OR MpRecipeRegPar_Par.Error) DO
+		MpRecipeRegPar_Par();
+	END_WHILE
+	WHILE NOT(MpRecipeRegPar_Cfg.Active OR MpRecipeRegPar_Cfg.Error) DO
+		MpRecipeRegPar_Cfg();
+	END_WHILE
+
 END_ACTION
 
 ACTION RecipeCyclic:
@@ -43,7 +43,7 @@ ACTION RecipeCyclic:
 		AxisRecipe.EditDialogOpened := FALSE;
 		AxisRecipe.CreateDialogOpened := FALSE;
 	END_IF
-	
+
 	CASE AxisRecipe.State OF
 		// Wait state
 		REC_AXIS_WAIT:
@@ -81,7 +81,7 @@ ACTION RecipeCyclic:
 				MachineSettingsPreview := MachineSettingsEdit;
 			END_IF
 			AxisRecipe.State := REC_AXIS_WAIT;
-	
+
 	END_CASE;
 
 	// Cyclic function block calls
@@ -90,5 +90,5 @@ ACTION RecipeCyclic:
 
 	MpRecipeRegPar_Cfg.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_Cfg();
-    
+
 END_ACTION

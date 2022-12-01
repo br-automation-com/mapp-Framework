@@ -47,7 +47,7 @@
       <EventHandler condition="Duplicate = true">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="=Text" header="$IAT/Recipe/Create" icon="Warning" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="=Text" header="$IAT/mappFramework/Recipe/Create" icon="Warning" />
           </Target>
           <Result>
             <ResultHandler condition="result = 4">

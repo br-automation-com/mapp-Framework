@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="Report_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="Report_content.ButtonReportDialog_Create_content.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="ButtonReportDialog_Create_content" event="Click" />
+      <Operand datatype="ANY_STRING" name="SystemLanguage">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.languageId">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ReportCreate_dialog" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::ReportMgr:HmiReport.Parameters.SelectedLanguage">
+                <Method xsi:type="opcUa.NodeAction.SetValueString" value="=SystemLanguage" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Report_content.ButtonReportDialog_Delete_content.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="ButtonReportDialog_Delete_content" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::ReportMgr:MpFileManagerUIConnect.File.Delete">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ReportDelete_dialog" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Report_content.ButtonReportDialog_View_content.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="ButtonReportDialog_View_content" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="ReportView_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="ReportCore.Status.Error">
+      <Source xsi:type="opcUa.Event" refId="::ReportMgr:HmiReport.Status.Error" event="ValueChanged" />
+      <EventHandler condition="(newValue = true)">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Report/Msg.BoxErrorText" header="$IAT/Report/MsgBox.Error" icon="Error" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 4">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::ReportMgr:HmiReport.Commands.Reset">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Report_content.ButtonReportPageDown.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="ButtonReportPageDown" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report_content" widgetRefId="Table1">
+                <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="49" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report_content" widgetRefId="Table1">
+                <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="49" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::ReportMgr:MpFileManagerUIConnect.File.List.PageDown">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Report_content.ButtonReportPageUp.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Report_content" widgetRefId="ButtonReportPageUp" event="Click" />
+      <EventHandler>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report_content" widgetRefId="Table1">
+                <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="0" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Report_content" widgetRefId="Table1">
+                <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="0" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::ReportMgr:MpFileManagerUIConnect.File.List.PageUp">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+	<EventBinding id="ContentLoaded.Report_content.RefreshList">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <EventHandler condition="contentId = &quot;Report_content&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::ReportMgr:MpFileManagerUIConnect.File.Refresh">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>

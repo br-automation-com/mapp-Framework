@@ -63,9 +63,6 @@
 			<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.BackupCtrlEnabled" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="grpButtonControl" attribute="enable" />
 		</Binding>
-		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.BackupCtrlEnabled" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="grpBobDetails" attribute="visible" />
-		</Binding>
+		
 	</Bindings>
 </BindingsSet>

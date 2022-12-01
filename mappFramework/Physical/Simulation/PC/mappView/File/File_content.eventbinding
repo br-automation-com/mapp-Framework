@@ -46,7 +46,7 @@
       <EventHandler condition="newValue = 0 AND MsgType = 1">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="FileMessage_dialog" headerText="$IAT/File/FileManagerInfo" />
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="FileMessage_dialog" headerText="$IAT/mappFramework/File/FileManagerInfo" />
           </Target>
         </Action>
       </EventHandler>
@@ -125,6 +125,16 @@
             </Action>
           </Step>
         </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="ContentLoaded.Backup_content.RefreshList">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <EventHandler condition="contentId = &quot;File_content&quot;">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
       </EventHandler>
     </EventBinding>
   </Bindings>

@@ -1,25 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="UserX_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.UserList" id="UserListManagement" top="50" left="30" width="780" height="395" zIndex="0" itemsPerPage="15" borderStyle="solid" borderColor="rgba(0, 0, 0, 1)" permissionOperate="['Administrators']">
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBoxUserList" top="0" left="0" width="1120" height="660" zIndex="0" backColor="rgba(255, 255, 255, 1)" headerBackColor="rgba(255, 255, 255, 1)" borderStyle="none">
       <Widgets>
-        <Widget xsi:type="widgets.brease.UserListItem" id="UserListItemName" width="180" zIndex="0" text="$IAT/UserMgmt/UserName" />
-        <Widget xsi:type="widgets.brease.UserListItem" id="UserListItemRoles" zIndex="1" columnType="Roles" text="$IAT/UserMgmt/Role" />
-        <Widget xsi:type="widgets.brease.UserListItem" id="UserListItemLastLogin" width="360" zIndex="2" columnType="LastLogin" text="$IAT/UserMgmt/LastLogin" />
+        <Widget xsi:type="widgets.brease.ContentControl" id="ContentControlUserList" top="0" left="0" zIndex="0" contentId="UserList_content" />
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.Button" id="ButtonEditUser" top="50" left="860" width="200" height="60" zIndex="1" breakWord="true" image="Media/SymbolLib/User/EditUser.svg" multiLine="true" text="$IAT/UserMgmt/EditUser" imageHeight="40" imageWidth="40" textAlign="center" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonAddUser" top="131" left="859" width="200" height="60" zIndex="2" breakWord="true" image="Media/SymbolLib/User/AddUser.svg" multiLine="true" text="$IAT/UserMgmt/AddUser" imageHeight="40" imageWidth="40" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonDeleteUser" top="212" left="859" width="200" height="60" zIndex="3" breakWord="true" image="Media/SymbolLib/User/DeleteUser.svg" multiLine="true" text="$IAT/UserMgmt/DeleteUser" imageHeight="40" imageWidth="40" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonExportUser" top="293" left="859" width="200" height="60" zIndex="4" breakWord="true" image="Media/SymbolLib/User/UserExport.svg" multiLine="true" text="$IAT/UserMgmt/ExportUsers" imageHeight="40" imageWidth="40" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonImportUser" top="374" left="859" width="200" height="60" zIndex="5" breakWord="true" image="Media/SymbolLib/User/UserImport.svg" multiLine="true" text="$IAT/UserMgmt/ImportUsers" imageHeight="40" imageWidth="40" fontSize="20px" permissionOperate="['Administrators']" style="Command" />
-    <Widget xsi:type="widgets.brease.GroupBox" id="GrpBoxLanguageAndMeas" top="455" left="859" height="190" zIndex="6" image="Media/SymbolLib/Symbols/Settings.svg" text="$IAT/UserMgmt/LanguageUnitSettings" fontSize="20px" style="GroupBox1">
-      <Widgets>
-        <Widget xsi:type="widgets.brease.MeasurementSystemSelector" id="MeasurementSystemSelector" top="90" left="20" width="160" height="40" zIndex="0" listPosition="top" listWidth="240" borderColor="rgba(255, 133, 0, 1)" listBorderWidth="2px" fontSize="20px" />
-        <Widget xsi:type="widgets.brease.LanguageSelector" id="LanguageSelector" top="30" left="20" width="160" height="40" zIndex="1" listPosition="top" listWidth="240" borderColor="rgba(255, 133, 0, 1)" listBorderWidth="2px" fontSize="20px" />
-      </Widgets>
-    </Widget>
-    <Widget xsi:type="widgets.brease.Login" id="Login1" top="465" left="30" zIndex="7" autFailMessage="$IAT/UserMgmt/AuthorizationFailed" buttonLabel="$IAT/UserMgmt/Login" buttonStyle="Operate1" passwordLabel="$IAT/UserMgmt/Password" setUserSuccessMessage="$IAT/UserMgmt/LoginSuccessful" userChangedMessage="$IAT/UserMgmt/UserChanged" userLabel="$IAT/UserMgmt/UserName" />
-    <Widget xsi:type="widgets.brease.LogoutButton" id="LogoutButton1" top="550" left="35" zIndex="8" text="$IAT/UserMgmt/Logout" style="Operate1" />
   </Widgets>
 </Content>

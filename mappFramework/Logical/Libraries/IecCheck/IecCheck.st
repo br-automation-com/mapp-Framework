@@ -152,12 +152,12 @@ END_FUNCTION
 
 (* Makes an entry (log book entry) in the error log book *)
 FUNCTION MakeEntry
-    status_name := ST_name(0, ADR(taskname), ADR(group));
-    brsstrcpy(ADR(out_text), ADR(text));
-    brsstrcat(ADR(out_text), ADR(' > in task > '));
-    brsstrcat(ADR(out_text), ADR(taskname));
-    MakeEntry := ADR(out_text);
-    ERRxwarning(number, index, ADR(out_text));
-    // force page fault to get back trace
-    brsmemcpy(0, 0, 1);
+	status_name := ST_name(0, ADR(taskname), ADR(group));
+	brsstrcpy(ADR(out_text), ADR(text));
+	brsstrcat(ADR(out_text), ADR(' > in task > '));
+	brsstrcat(ADR(out_text), ADR(taskname));
+	MakeEntry := ADR(out_text);
+	ERRxwarning(number, index, ADR(out_text));
+	// force page fault to get back trace
+	brsmemcpy(0, 0, 1);
 END_FUNCTION
