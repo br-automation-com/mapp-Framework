@@ -91,14 +91,14 @@
             </Mappings>
         </Property>
         
-        <Property xsi:type="BindableProperty" name="LabelText" type="String" defaultValue="Label" readOnly="false" category="Data" localizable="true" >
+        <Property xsi:type="BindableProperty" name="labelText" type="String" defaultValue="Label" readOnly="false" category="Appearance" localizable="true" >
             <Description>Label Text</Description>
             <Mappings>
                 <Mapping widget="LblAx" property="value" mode="oneWay"/>
             </Mappings>
         </Property>
         
-        <Property xsi:type="StructureBindableProperty" name="AxisControl" type="AxisControlType" readOnly="false" >
+        <Property xsi:type="StructureBindableProperty" name="axisControl" type="AxisControlType" readOnly="false" category="Data">
             <Description>Axis Control</Description>
             <Mappings>
                 <Mapping widget="NumInSetPosition" type="Number" property="node" mode="twoWay" memberPath="Parameters.Position" mapToNode="true"/>
