@@ -20,15 +20,15 @@
 
 void _INIT initTestSuite(void)
 {
-    Testsuite.Enable = 1;
+	Testsuite.Enable = 1;
 	utInit(&Testsuite);
-    
-    CommonTestsuite.Enable = 1;
-    utInit(&CommonTestsuite);
-    
-    strcpy((char*)&FileDeviceName, "mappReportFiles");
-    strcpy((char*)&TextNameSpace, "mappFramework/Report/Alarms");
-    strcpy((char*)&TextID, "GenerateFailed");
+	
+	CommonTestsuite.Enable = 1;
+	utInit(&CommonTestsuite);
+	
+	strcpy((char*)&FileDeviceName, "mappReportFiles");
+	strcpy((char*)&TextNameSpace, "mappFramework/Report/Alarms");
+	strcpy((char*)&TextID, "GenerateFailed");
 
 }
 
