@@ -32,6 +32,13 @@ PROGRAM _INIT
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
 	MpAuditTrail_CEvents();
 
+	MpAuditTrailUI_0.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailUI_0.UIConnect := ADR(MpAuditTrailUIConnect);
+	MpAuditTrailUI_0.UISetup.EventListSize := SIZEOF(MpAuditTrailUIConnect.Output.EventID) / SIZEOF(MpAuditTrailUIConnect.Output.EventID[0]);
+	MpAuditTrailUI_0.UISetup.ScrollWindow := 1;
+	MpAuditTrailUI_0.Enable := TRUE;
+	MpAuditTrailUI_0();
+	
 	// Initialize custom events
 	CustomEvent[0].Type := "Custom Event Type";
 	CustomEvent[0].Msg := "Custom Event Message";
@@ -97,11 +104,13 @@ PROGRAM _CYCLIC
 	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrailConfig_0.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
+	MpAuditTrailUI_0.MpLink := ADR(gMpLinkAuditTrail);
 
 	// Call function blocks
 	MpAuditTrail_0();
 	MpAuditTrailConfig_0();
 	MpAuditTrail_CEvents();
+	MpAuditTrailUI_0();
 
 END_PROGRAM
 
@@ -111,11 +120,13 @@ PROGRAM _EXIT
 	MpAuditTrail_0.Enable := FALSE;
 	MpAuditTrailConfig_0.Enable := FALSE;
 	MpAuditTrail_CEvents.Enable := FALSE;
+	MpAuditTrailUI_0.Enable := FALSE;
 
 	// Call function blocks
 	MpAuditTrail_0();
 	MpAuditTrailConfig_0();
 	MpAuditTrail_CEvents();
+	MpAuditTrailUI_0();
 
 END_PROGRAM
 
