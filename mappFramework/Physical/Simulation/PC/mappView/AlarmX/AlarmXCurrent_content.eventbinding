@@ -25,7 +25,7 @@
       <Source xsi:type="widgets.brease.AlarmList.Event" contentRefId="AlarmXCurrent_content" widgetRefId="AlmLstCurrentAlarms" event="ItemClick" />
       <EventHandler>
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgr:HmiAlarmX.Status.InstanceID">
+          <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgr:HmiAlarmX.Parameters.InstanceID">
             <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="=instanceID" />
           </Target>
         </Action>

@@ -5,11 +5,11 @@ ACTION GetBacktraceInformation:
 	FOR i := 0 TO MaxIndex DO
 		IF (MpAlarmXCore_0.PendingAlarms = 0) THEN
 			// No pending alarms, reset instance id
-			HmiAlarmX.Status.InstanceID := 0;
+			HmiAlarmX.Parameters.InstanceID := 0;
 			EXIT;
 		END_IF
 
-		IF (MpAlarmXListUIConnect.AlarmList.InstanceID[i] = HmiAlarmX.Status.InstanceID) THEN
+		IF (MpAlarmXListUIConnect.AlarmList.InstanceID[i] = HmiAlarmX.Parameters.InstanceID) THEN
 			// Found an alarm
 			MpAlarmXListUIConnect.AlarmList.SelectedIndex := i;
 			EXIT;
