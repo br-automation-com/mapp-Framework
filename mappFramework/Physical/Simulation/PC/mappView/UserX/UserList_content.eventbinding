@@ -24,11 +24,24 @@
     <EventBinding id="UserList_content.ButtonDeleteUser.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="ButtonDeleteUser" event="Click" />
       <EventHandler>
-        <Action>
-          <Target xsi:type="widgets.brease.UserList.Action" contentRefId="UserList_content" widgetRefId="UserListManagement">
-            <Method xsi:type="widgets.brease.UserList.Action.DeleteUser" />
-          </Target>
-        </Action>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="$IAT/Widgets/UserList/deleteuser.CONFIRM_DELETE" header="$IAT/Widgets/UserList/deleteuser.TITLE" />
+              </Target>
+              <Result>
+                <ResultHandler condition="result = 4">
+                  <Action>
+                    <Target xsi:type="widgets.brease.UserList.Action" contentRefId="UserList_content" widgetRefId="UserListManagement">
+                      <Method xsi:type="widgets.brease.UserList.Action.DeleteUser" />
+                    </Target>
+                  </Action>
+                </ResultHandler>
+              </Result>
+            </Action>
+          </Step>
+        </Sequence>
       </EventHandler>
     </EventBinding>
     <EventBinding id="UserList_content.ButtonExportUser.Click">
