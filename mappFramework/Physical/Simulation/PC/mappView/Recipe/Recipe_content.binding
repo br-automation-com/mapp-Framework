@@ -221,5 +221,9 @@
 			</Source>
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="txtOutRecipeName" attribute="value" />
 		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.DefaultRecipeSelected" attribute="value" /> 
+			<Target xsi:type="session" refId="SessionVarDefaultRecipeSelected" attribute="value" />
+		</Binding>
 	</Bindings>
 </BindingsSet>

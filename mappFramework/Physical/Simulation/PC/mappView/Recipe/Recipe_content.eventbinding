@@ -8,13 +8,25 @@
           <Method xsi:type="session.VariableAction.GetValue" />
         </ReadTarget>
       </Operand>
+      <Operand datatype="BOOL" name="myDefaultRecipeSelected">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDefaultRecipeSelected">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="=myDeleteRecipeText" header="$IAT/mappFramework/Recipe/Delete" icon="Question" />
           </Target>
           <Result>
-            <ResultHandler condition="result = 1">
+            <ResultHandler condition="result = 1 AND myDefaultRecipeSelected = TRUE">
+              <Action>
+                <Target xsi:type="clientSystem.Action">
+                  <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/DefaultFiles" header="$IAT/mappFramework/Recipe/Delete" icon="Error" />
+                </Target>
+              </Action>
+            </ResultHandler>
+            <ResultHandler condition="result = 1 AND myDefaultRecipeSelected = FALSE">
               <Parallel>
                 <Action>
                   <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
@@ -182,13 +194,13 @@
     </EventBinding>
     <EventBinding id="Recipe_content.DropDownBoxRecipeCategory.SelectedIndexChanged">
       <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" event="SelectedIndexChanged" />
-			<EventHandler>
-				<Action>
-					<Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
-						<Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-					</Target>
-				</Action>
-			</EventHandler>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
       <EventHandler condition="selectedIndex = 0">
         <Sequence>
           <Step order="0">
@@ -225,7 +237,7 @@
           </Step>
         </Sequence>
       </EventHandler>
-		</EventBinding>
+    </EventBinding>
     <EventBinding id="Recipe_content.loaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="ANY_STRING" name="CategoryDropdownValue">
@@ -248,14 +260,14 @@
                 <Method xsi:type="widgets.brease.DropDownBox.Action.SetSelectedIndex" index="0" />
               </Target>
             </Action>
-			</Step>
-			<Step order="2">
-				<Action>
-					<Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
-						<Method xsi:type="widgets.brease.ContentControl.Action.UnloadContent" />
-					</Target>
-				</Action>
-			</Step>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
+                <Method xsi:type="widgets.brease.ContentControl.Action.UnloadContent" />
+              </Target>
+            </Action>
+          </Step>
           <Step order="3">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">

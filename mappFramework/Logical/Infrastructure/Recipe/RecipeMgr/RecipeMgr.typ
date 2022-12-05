@@ -41,6 +41,7 @@ TYPE
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*File device data provider*)
 		TableConfig : STRING[120]; (*Table configuration *)
 		SelectedRecipe : STRING[255]; (*The name of the selected recipe*)
+		DefaultRecipeSelected : BOOL; (*The default recipe is selected*)
 	END_STRUCT;
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)
 		AddParametersHere1 : BOOL; (*Add your parameteres here *)
