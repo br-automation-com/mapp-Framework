@@ -2,6 +2,11 @@
 <?AutomationStudio Version=4.10.2.37 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
   <Module Name="PC" Type="PC_any" Version="1.1.1.0" OrderNumber="PC">
+    <Connector Name="IF3">
+      <Group ID="Vnc1" />
+      <Parameter ID="VncVcObjectName1" Value="Visu" />
+      <Parameter ID="VncKeyMappingFile1" Value="VC\PS2-Keyboard.dis" />
+    </Connector>
     <Parameter ID="ConfigurationID" Value="mappFramework516_Simulation" />
     <Parameter ID="UserPartitionSize" Value="256" />
     <Parameter ID="Cyclic1Duration" Value="10000" />
