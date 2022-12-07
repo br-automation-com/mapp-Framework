@@ -142,5 +142,8 @@ ACTION FileManager:
 	END_IF
 
 	HmiFile.Status.BackButton := (FolderDepthCount > 0);
+	HmiFile.Status.DefaultFileSelected := ((MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].Name = 'Default.par') OR 
+																				(MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].Name = 'Machine.mcfg')) AND
+																				MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
 
 END_ACTION

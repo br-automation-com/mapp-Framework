@@ -38,10 +38,6 @@
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonCreateDir" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.Delete" attribute="value" />
-			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonDelete" attribute="value" />
-		</Binding>
-		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.File.Paste" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="ButtonPaste" attribute="value" />
 		</Binding>
@@ -112,6 +108,14 @@
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.FifoSelect" attribute="value" />
 			<Target xsi:type="brease" contentRefId="File_content" widgetRefId="FifoSelected" attribute="selectedIndex" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.DefaultFileSelected" attribute="value" /> 
+			<Target xsi:type="session" refId="SessionVarDefaultFileSelected" attribute="value" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="text" refId="IAT/mappFramework/File/DeleteRecipe" attribute="value" />
+			<Target xsi:type="session" refId="SessionVarDeleteFileText" attribute="value" />
 		</Binding>
 	</Bindings>
 </BindingsSet>

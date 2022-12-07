@@ -13,32 +13,36 @@
           <Method xsi:type="session.VariableAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler>
+      <EventHandler condition="myDefaultRecipeSelected = TRUE">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/DefaultFiles" header="$IAT/mappFramework/Recipe/Delete" icon="Error" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="myDefaultRecipeSelected = FALSE">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="=myDeleteRecipeText" header="$IAT/mappFramework/Recipe/Delete" icon="Question" />
           </Target>
           <Result>
-            <ResultHandler condition="result = 1 AND myDefaultRecipeSelected = TRUE">
-              <Action>
-                <Target xsi:type="clientSystem.Action">
-                  <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/DefaultFiles" header="$IAT/mappFramework/Recipe/Delete" icon="Error" />
-                </Target>
-              </Action>
-            </ResultHandler>
-            <ResultHandler condition="result = 1 AND myDefaultRecipeSelected = FALSE">
-              <Parallel>
-                <Action>
-                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
-                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                  </Target>
-                </Action>
-                <Action>
-                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Delete">
-                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                  </Target>
-                </Action>
-              </Parallel>
+            <ResultHandler condition="result = 1">
+              <Sequence>
+                <Step order="0">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
+                      <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+                <Step order="1">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Delete">
+                      <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+              </Sequence>
             </ResultHandler>
             <ResultHandler condition="result = 2">
               <Action>

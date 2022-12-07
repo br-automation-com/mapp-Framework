@@ -137,5 +137,32 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="EventBinding_3">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="File_content" widgetRefId="ButtonDelete" event="Click" />
+      <Operand datatype="ANY_STRING" name="myDeleteFileText">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDeleteFileText">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="BOOL" name="myDefaultFileSelected">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDefaultFileSelected">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="myDefaultFileSelected = TRUE">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/DefaultFiles" header="$IAT/mappFramework/Recipe/Delete" icon="Error" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="myDefaultFileSelected = FALSE">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Delete">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
