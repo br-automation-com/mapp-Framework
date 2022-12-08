@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<UnitGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="Pressure">
+  <Property Name="DefaultDisplayUnit" Value="Source[embedded].Unit[Pascal]"/>
+  <Property Name="DefaultLimit" Value="None"/>
+  <Property Name="DefaultPLCUnit" Value="Source[embedded].Unit[PLCUnit]"/>
+  <Property Name="Description" Value="Unit group for pressure"/>
+  <Property Name="InternalUnitTextIndex" Value="0"/>
+  <Property Name="RuntimeUnitChange" Value="None"/>
+  <Property Name="RuntimeUnitCurrentDatapoint" Value="None"/>
+  <TextGroup Name="TextGroup_1">
+    <Property Name="Description" Value=""/>
+    <Property Name="Index" Value="65535"/>
+    <TextSnippets/>
+    <TextLayer LanguageId="en">
+      <Text ID="263" Value="bar"/>
+      <Text ID="264" Value="bar"/>
+      <Text ID="7585" Value=""/>
+      <Text ID="7586" Value=""/>
+      <Text ID="8535" Value="millibar"/>
+      <Text ID="8536" Value="mbar"/>
+      <Text ID="8537" Value="microbar"/>
+      <Text ID="8538" Value="µbar"/>
+      <Text ID="86422" Value="pascal"/>
+      <Text ID="86423" Value="Pa"/>
+      <Text ID="86728" Value="kilopascal"/>
+      <Text ID="86729" Value="kPa"/>
+      <Text ID="86730" Value="megapascal"/>
+      <Text ID="86731" Value="MPa"/>
+      <Text ID="87058" Value="pascal"/>
+    </TextLayer>
+    <TextLayer LanguageId="de">
+      <Text ID="263" Value="Bar"/>
+      <Text ID="264" Value="bar"/>
+      <Text ID="7585" Value=""/>
+      <Text ID="7586" Value=""/>
+      <Text ID="8535" Value="Millibar"/>
+      <Text ID="8536" Value="mbar"/>
+      <Text ID="8537" Value="Mikrobar"/>
+      <Text ID="8538" Value="µbar"/>
+      <Text ID="86422" Value="Pascal"/>
+      <Text ID="86423" Value="Pa"/>
+      <Text ID="86728" Value="Kilopascal"/>
+      <Text ID="86729" Value="kPa"/>
+      <Text ID="86730" Value="Megapascal"/>
+      <Text ID="86731" Value="MPa"/>
+      <Text ID="87058" Value="Pascal"/>
+    </TextLayer>
+    <IndexMap>
+      <Index ID="263" Value="1"/>
+      <Index ID="264" Value="2"/>
+      <Index ID="7585" Value="3"/>
+      <Index ID="7586" Value="4"/>
+      <Index ID="8535" Value="5"/>
+      <Index ID="8536" Value="6"/>
+      <Index ID="8537" Value="7"/>
+      <Index ID="8538" Value="8"/>
+      <Index ID="86422" Value="9"/>
+      <Index ID="86423" Value="10"/>
+      <Index ID="86728" Value="11"/>
+      <Index ID="86729" Value="12"/>
+      <Index ID="86730" Value="13"/>
+      <Index ID="86731" Value="14"/>
+      <Index ID="87058" Value="0"/>
+    </IndexMap>
+  </TextGroup>
+  <Units>
+    <Unit ClassId="0x00000602" Name="Bar">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="0.00001"/>
+      <Property Name="Index" Value="4"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="2"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="1"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="6"/>
+    </Unit>
+    <Unit ClassId="0x00000603" Name="PLCUnit">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Index" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="4"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="3"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="2"/>
+      <Property Name="Value[0].Internal" Value="0"/>
+      <Property Name="Value[0].Scaled" Value="0"/>
+      <Property Name="Value[1].Internal" Value="1"/>
+      <Property Name="Value[1].Scaled" Value="1"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Millibar">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="0.01"/>
+      <Property Name="Index" Value="5"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="6"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="5"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="4"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Microbar">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="10"/>
+      <Property Name="Index" Value="6"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="8"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="7"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="2"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Pascal">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="1"/>
+      <Property Name="Index" Value="1"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="10"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="9"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="2"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="KiloPascal">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="0.001"/>
+      <Property Name="Index" Value="2"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="12"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="11"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="5"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="MegaPascal">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="0.000001"/>
+      <Property Name="Index" Value="3"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="14"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="13"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="7"/>
+    </Unit>
+  </Units>
+  <Limits/>
+</UnitGroup>

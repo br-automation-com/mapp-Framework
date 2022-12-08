@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<UnitGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="Temperatures">
+  <Property Name="DefaultDisplayUnit" Value="Source[embedded].Unit[Celsius]"/>
+  <Property Name="DefaultLimit" Value="None"/>
+  <Property Name="DefaultPLCUnit" Value="Source[embedded].Unit[PLCUnit]"/>
+  <Property Name="Description" Value="Unit group for temperature"/>
+  <Property Name="InternalUnitTextIndex" Value="0"/>
+  <Property Name="RuntimeUnitChange" Value="None"/>
+  <Property Name="RuntimeUnitCurrentDatapoint" Value="None"/>
+  <TextGroup Name="TextGroup_1">
+    <Property Name="Description" Value=""/>
+    <Property Name="Index" Value="65535"/>
+    <TextSnippets/>
+    <TextLayer LanguageId="en">
+      <Text ID="255" Value="fahrenheit"/>
+      <Text ID="256" Value="°F"/>
+      <Text ID="257" Value="celsius"/>
+      <Text ID="258" Value="°C"/>
+      <Text ID="87067" Value="celsius"/>
+      <Text ID="94096" Value=""/>
+      <Text ID="94097" Value=""/>
+      <Text ID="94889" Value=""/>
+      <Text ID="94890" Value=""/>
+    </TextLayer>
+    <TextLayer LanguageId="de">
+      <Text ID="255" Value="Fahrenheit"/>
+      <Text ID="256" Value="°F"/>
+      <Text ID="257" Value="Celsius"/>
+      <Text ID="258" Value="°C"/>
+      <Text ID="87067" Value="Celsius"/>
+      <Text ID="94096" Value=""/>
+      <Text ID="94097" Value=""/>
+      <Text ID="94889" Value=""/>
+      <Text ID="94890" Value=""/>
+    </TextLayer>
+    <IndexMap>
+      <Index ID="255" Value="1"/>
+      <Index ID="256" Value="2"/>
+      <Index ID="257" Value="3"/>
+      <Index ID="258" Value="4"/>
+      <Index ID="87067" Value="0"/>
+      <Index ID="94096" Value="5"/>
+      <Index ID="94097" Value="6"/>
+      <Index ID="94889" Value="7"/>
+      <Index ID="94890" Value="8"/>
+    </IndexMap>
+  </TextGroup>
+  <Units>
+    <Unit ClassId="0x00000603" Name="Fahrenheit">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Index" Value="1"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="2"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="1"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="1"/>
+      <Property Name="Value[0].Internal" Value="0"/>
+      <Property Name="Value[0].Scaled" Value="32"/>
+      <Property Name="Value[1].Internal" Value="1000"/>
+      <Property Name="Value[1].Scaled" Value="1832"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Celsius">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="1"/>
+      <Property Name="Index" Value="2"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="4"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="3"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="1"/>
+    </Unit>
+    <Unit ClassId="0x00000603" Name="PLCUnit">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Index" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="6"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="5"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="1"/>
+      <Property Name="Value[0].Internal" Value="0"/>
+      <Property Name="Value[0].Scaled" Value="0"/>
+      <Property Name="Value[1].Internal" Value="1"/>
+      <Property Name="Value[1].Scaled" Value="1"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Celsius_AT_Module">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value="Temperature Modules which measure in 1/10 degree"/>
+      <Property Name="Factor" Value="10"/>
+      <Property Name="Index" Value="3"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="7"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="8"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="1"/>
+    </Unit>
+  </Units>
+  <Limits/>
+</UnitGroup>
