@@ -28,7 +28,7 @@
           <Step order="0">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="$IAT/Widgets/UserList/deleteuser.CONFIRM_DELETE" header="$IAT/Widgets/UserList/deleteuser.TITLE" />
+                <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="$IAT/Widgets/UserList/deleteuser.CONFIRM_DELETE" header="$IAT/Widgets/UserList/deleteuser.TITLE" icon="Question" />
               </Target>
               <Result>
                 <ResultHandler condition="result = 4">
@@ -36,50 +36,50 @@
                     <Target xsi:type="widgets.brease.UserList.Action" contentRefId="UserList_content" widgetRefId="UserListManagement">
                       <Method xsi:type="widgets.brease.UserList.Action.DeleteUser" />
                     </Target>
-										<Result>											
-											<ResultHandler condition="result = 1">
-												<Action>
-													<Target xsi:type="clientSystem.Action">
-														<Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.SUCCESS" header="$IAT/Widgets/UserList/deleteuser.TITLE" />
-													</Target>
-												</Action>
-											</ResultHandler>										
-											<ResultHandler condition="result = 104">
-												<Action>
-													<Target xsi:type="clientSystem.Action">
-														<Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.SESSION_NOT_VALID" header="$IAT/Widgets/UserList/deleteuser.TITLE" />
-													</Target>
-												</Action>
-											</ResultHandler>																				
-											<ResultHandler condition="result = 200">
-												<Action>
-													<Target xsi:type="clientSystem.Action">
-														<Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.USER_DOES_NOT_EXIST" header="$IAT/Widgets/UserList/deleteuser.TITLE" />
-													</Target>
-												</Action>
-											</ResultHandler>									
-											<ResultHandler condition="result = 202">
-												<Action>
-													<Target xsi:type="clientSystem.Action">
-														<Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.INSUFFICIENT_RIGHTS" header="$IAT/Widgets/UserList/deleteuser.TITLE" />
-													</Target>
-												</Action>
-											</ResultHandler>											
-											<ResultHandler condition="result = 207">
-												<Action>
-													<Target xsi:type="clientSystem.Action">
-														<Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.CURRENTLY_LOGGED_IN" header="$IAT/Widgets/UserList/deleteuser.TITLE" />
-													</Target>
-												</Action>
-											</ResultHandler>																					
-											<ResultHandler condition="result = -3">
+                    <Result>
+                      <ResultHandler condition="result = 1">
                         <Action>
                           <Target xsi:type="clientSystem.Action">
-                            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.CANNOT_DELETE_ANONYMOUS" header="$IAT/Widgets/UserList/deleteuser.TITLE" />
+                            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.SUCCESS" header="$IAT/Widgets/UserList/deleteuser.TITLE" icon="Information" />
                           </Target>
                         </Action>
-											</ResultHandler>				
-										</Result>
+                      </ResultHandler>
+                      <ResultHandler condition="result = 104">
+                        <Action>
+                          <Target xsi:type="clientSystem.Action">
+                            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.SESSION_NOT_VALID" header="$IAT/Widgets/UserList/deleteuser.TITLE" icon="Error" />
+                          </Target>
+                        </Action>
+                      </ResultHandler>
+                      <ResultHandler condition="result = 200">
+                        <Action>
+                          <Target xsi:type="clientSystem.Action">
+                            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.USER_DOES_NOT_EXIST" header="$IAT/Widgets/UserList/deleteuser.TITLE" icon="Error" />
+                          </Target>
+                        </Action>
+                      </ResultHandler>
+                      <ResultHandler condition="result = 202">
+                        <Action>
+                          <Target xsi:type="clientSystem.Action">
+                            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.INSUFFICIENT_RIGHTS" header="$IAT/Widgets/UserList/deleteuser.TITLE" icon="Error" />
+                          </Target>
+                        </Action>
+                      </ResultHandler>
+                      <ResultHandler condition="result = 207">
+                        <Action>
+                          <Target xsi:type="clientSystem.Action">
+                            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.CURRENTLY_LOGGED_IN" header="$IAT/Widgets/UserList/deleteuser.TITLE" icon="Error" />
+                          </Target>
+                        </Action>
+                      </ResultHandler>
+                      <ResultHandler condition="result = -3">
+                        <Action>
+                          <Target xsi:type="clientSystem.Action">
+                            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/Widgets/UserList/deleteuser.CANNOT_DELETE_ANONYMOUS" header="$IAT/Widgets/UserList/deleteuser.TITLE" icon="Error" />
+                          </Target>
+                        </Action>
+                      </ResultHandler>
+                    </Result>
                   </Action>
                 </ResultHandler>
               </Result>
