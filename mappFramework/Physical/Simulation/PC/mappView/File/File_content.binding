@@ -113,9 +113,5 @@
 			<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.DefaultFileSelected" attribute="value" /> 
 			<Target xsi:type="session" refId="SessionVarDefaultFileSelected" attribute="value" />
 		</Binding>
-		<Binding mode="oneWay">
-			<Source xsi:type="text" refId="IAT/mappFramework/File/DeleteRecipe" attribute="value" />
-			<Target xsi:type="session" refId="SessionVarDeleteFileText" attribute="value" />
-		</Binding>
 	</Bindings>
 </BindingsSet>

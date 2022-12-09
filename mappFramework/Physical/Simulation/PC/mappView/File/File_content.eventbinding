@@ -139,11 +139,6 @@
     </EventBinding>
     <EventBinding id="File_content.ButtonDelete.Click">
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="File_content" widgetRefId="ButtonDelete" event="Click" />
-      <Operand datatype="ANY_STRING" name="myDeleteFileText">
-        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDeleteFileText">
-          <Method xsi:type="session.VariableAction.GetValue" />
-        </ReadTarget>
-      </Operand>
       <Operand datatype="BOOL" name="myDefaultFileSelected">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDefaultFileSelected">
           <Method xsi:type="session.VariableAction.GetValue" />
