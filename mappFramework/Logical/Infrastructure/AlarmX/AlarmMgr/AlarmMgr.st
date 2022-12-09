@@ -56,10 +56,12 @@ PROGRAM _CYCLIC
 
 	// Call all cyclic actions
 	AlarmHandling;
-	GetBacktraceInformation;
 	ExecuteQuery;
 	QueryTableConfig;
 	AlarmSampleFub;
+	HistoryExportLayer;
+	FirstInCycle;
+
 
 	// Check if any reactions are active.
 	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application.
@@ -105,7 +107,7 @@ PROGRAM _CYCLIC
 	MpAlarmXListUI_0();
 	MpAlarmXHistory_0();
 	MpAlarmXHistoryUI_0();
-
+	
 END_PROGRAM
 
 PROGRAM _EXIT

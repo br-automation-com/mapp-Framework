@@ -14,6 +14,8 @@ VAR CONSTANT
 	MAX_SAFETY_DOOR : UINT := 5; (*Maximum number of safety doors (Value+1)*)
 	MAX_ESTOP : UINT := 2; (*Maximum number of emergency stops (Value+1)*)
 	LOCAL_FOLDER : STRING[10] := 'AlarmX'; (*Folder name on the file device for AlarmX files*)
+	DISPLAY : USINT := 0;
+	HIDE : USINT := 1;
 END_VAR
 (*Structure Types*)
 VAR
@@ -30,4 +32,6 @@ VAR
 	CommissioningModeActive : {REDUND_UNREPLICABLE} BOOL; (*Boolean value to enable commissioning mode. By default, this inhibits the Alarms[0] alarm*)
 	i : USINT; (*Index for loops*)
 	MaxIndex : USINT; (*Maximum index for the alarm list*)
+	isFirstInCycle : BOOL := TRUE;
 END_VAR
+(**)

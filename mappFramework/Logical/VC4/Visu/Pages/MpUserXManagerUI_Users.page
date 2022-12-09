@@ -96,7 +96,7 @@
           <Property Name="SimulationValue" Value="USER IDENT"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
           <Property Name="Top" Value="92"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Info.UserName]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Info.UserName]"/>
           <Property Name="Width" Value="160"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtUserNameLabel">
@@ -122,7 +122,7 @@
           <Property Name="SimulationValue" Value="USER FULL NAME"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
           <Property Name="Top" Value="126"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Info.FullName]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Info.FullName]"/>
           <Property Name="Width" Value="190"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtUserGroupLabel">
@@ -147,7 +147,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="21"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Info.Locked]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Info.Locked]"/>
           <Property Name="Left" Value="762"/>
           <Property Name="SimulationValue" Value="1"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -228,7 +228,7 @@
           <Property Name="TextIndex" Value="45"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="289"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Info.Creation]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Info.Creation]"/>
           <Property Name="Width" Value="190"/>
         </Control>
         <Control ClassId="0x0000100A" Name="dtUserFirstLogin">
@@ -244,7 +244,7 @@
           <Property Name="TextIndex" Value="46"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="326"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Info.FirstLogin]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Info.FirstLogin]"/>
           <Property Name="Width" Value="190"/>
         </Control>
         <Control ClassId="0x0000100A" Name="dtUserLastLogin">
@@ -260,7 +260,7 @@
           <Property Name="TextIndex" Value="47"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="363"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Info.LastLogin]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Info.LastLogin]"/>
           <Property Name="Width" Value="190"/>
         </Control>
         <Control ClassId="0x00001005" Name="bmpUserLoginExpired">
@@ -271,7 +271,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="19"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Info.Expired]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Info.Expired]"/>
           <Property Name="Left" Value="714"/>
           <Property Name="SimulationValue" Value="1"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -308,7 +308,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpOutputFrameless]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="395"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Info.RemainingAttempts]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Info.RemainingAttempts]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="131"/>
         </Control>
@@ -425,22 +425,22 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="228"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.List.SelectedIndex]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.List.SelectedIndex]"/>
           <Property Name="Left" Value="5"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.List.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.List.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.List.UserOptions]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.List.UserOptions]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="USER IDENT"/>
           <Property Name="SliderBackColor" Value="15"/>
           <Property Name="SpacingVertical" Value="9"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.List.UserNames]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.List.UserNames]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="153"/>
@@ -450,7 +450,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpUserIcons]"/>
           <Property Name="BitmapIndex" Value="0"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Lock]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Lock]"/>
           <Property Name="BitmapSimulationValue" Value="0"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
@@ -461,7 +461,7 @@
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="245"/>
           <Property Name="Locking" Value="Datapoint &gt;= Level"/>
-          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Lock]"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Lock]"/>
           <Property Name="LockingLevel" Value="1"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
@@ -478,7 +478,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpUserIcons]"/>
           <Property Name="BitmapIndex" Value="10"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Lock]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Lock]"/>
           <Property Name="BitmapSimulationValue" Value="0"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
@@ -489,7 +489,7 @@
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="245"/>
           <Property Name="Locking" Value="Datapoint &gt;= Level"/>
-          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Lock]"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Lock]"/>
           <Property Name="LockingLevel" Value="1"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
@@ -506,7 +506,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpUserIcons]"/>
           <Property Name="BitmapIndex" Value="30"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Lock]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Lock]"/>
           <Property Name="BitmapSimulationValue" Value="0"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
@@ -517,7 +517,7 @@
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="245"/>
           <Property Name="Locking" Value="Datapoint &gt;= Level"/>
-          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Lock]"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Lock]"/>
           <Property Name="LockingLevel" Value="1"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
@@ -534,7 +534,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpUserIcons]"/>
           <Property Name="BitmapIndex" Value="20"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Lock]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Lock]"/>
           <Property Name="BitmapSimulationValue" Value="0"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
@@ -545,7 +545,7 @@
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="245"/>
           <Property Name="Locking" Value="Datapoint &gt;= Level"/>
-          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Lock]"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Lock]"/>
           <Property Name="LockingLevel" Value="1"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
@@ -574,7 +574,7 @@
           <Property Name="AlignmentHorizontal" Value="Right"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpUserIcons]"/>
           <Property Name="BitmapIndex" Value="40"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.LoggedIn]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.LoggedIn]"/>
           <Property Name="BitmapSimulationValue" Value="1"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
@@ -585,7 +585,7 @@
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="102"/>
           <Property Name="Locking" Value="Datapoint &lt; Level"/>
-          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.LoggedIn]"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.LoggedIn]"/>
           <Property Name="LockingLevel" Value="1"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
@@ -604,7 +604,7 @@
           <Property Name="AlignmentHorizontal" Value="Right"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpUserIcons]"/>
           <Property Name="BitmapIndex" Value="50"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.LoggedIn]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.LoggedIn]"/>
           <Property Name="BitmapSimulationValue" Value="1"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
@@ -615,7 +615,7 @@
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="5"/>
           <Property Name="Locking" Value="Datapoint &lt; Level"/>
-          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.LoggedIn]"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.LoggedIn]"/>
           <Property Name="LockingLevel" Value="1"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
@@ -636,12 +636,12 @@
           <Property Name="Description" Value=""/>
           <Property Name="ForeColor" Value="255"/>
           <Property Name="Height" Value="20"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Info.Roles[0]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Info.Roles[0]]"/>
           <Property Name="Left" Value="592"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.List.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.List.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="161"/>
@@ -701,10 +701,10 @@
           <Property Name="MinorPitchLines" Value="1"/>
           <Property Name="Orientation" Value="Left"/>
           <Property Name="RangeColor" Value="253"/>
-          <Property Name="RangeEndDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.List.RangeEnd]"/>
+          <Property Name="RangeEndDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.List.RangeEnd]"/>
           <Property Name="RangeEndValue" Value="90"/>
           <Property Name="RangeSpacing" Value="0"/>
-          <Property Name="RangeStartDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.List.RangeStart]"/>
+          <Property Name="RangeStartDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.List.RangeStart]"/>
           <Property Name="RangeStartValue" Value="30"/>
           <Property Name="RangeWidth" Value="32"/>
           <Property Name="Spacing" Value="0"/>
@@ -765,7 +765,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.ShowDialog]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.ShowDialog]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -780,7 +780,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Remove]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Remove]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -795,7 +795,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.ShowDialog]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.ShowDialog]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -810,7 +810,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Lock]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Lock]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -825,7 +825,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.ShowDialog]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.ShowDialog]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -853,7 +853,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Export.ShowDialog]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Export.ShowDialog]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -868,7 +868,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.List.PageUp]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.List.PageUp]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -883,7 +883,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.List.PageDown]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.List.PageDown]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -898,7 +898,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.List.StepUp]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.List.StepUp]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -913,7 +913,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.List.StepDown]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.List.StepDown]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -929,7 +929,7 @@
       <Property Name="OutlineDisplayControl" Value="False"/>
       <Property Name="OutlineDisplayName" Value="True"/>
       <Property Name="OutlineHatched" Value="False"/>
-      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.LayerStatus]"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.LayerStatus]"/>
       <Property Name="Top" Value="0"/>
       <Property Name="VisibilityMode" Value="Hidden"/>
       <Property Name="Width" Value="800"/>
@@ -1027,7 +1027,7 @@
           <Property Name="SimulationValue" Value="XXX"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="230"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.NewPassword]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.NewPassword]"/>
           <Property Name="Width" Value="160"/>
         </Control>
         <Control ClassId="0x0000100B" Name="txtPasswordConfirm">
@@ -1041,7 +1041,7 @@
           <Property Name="SimulationValue" Value="XXX"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="310"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.ConfirmPassword]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.ConfirmPassword]"/>
           <Property Name="Width" Value="160"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtUserNameLabel">
@@ -1068,7 +1068,7 @@
           <Property Name="SimulationValue" Value="FULL NAME"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="125"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.FullName]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.FullName]"/>
           <Property Name="Width" Value="200"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtLanguageLabel">
@@ -1110,7 +1110,7 @@
           <Property Name="SimulationValue" Value="USER"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
           <Property Name="Top" Value="90"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.UserName]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.UserName]"/>
           <Property Name="Width" Value="200"/>
         </Control>
         <Control ClassId="0x00001002" Name="cmdCancel">
@@ -1165,7 +1165,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="ForeColor" Value="51"/>
           <Property Name="Height" Value="40"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.CriteriaNotMet]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.CriteriaNotMet]"/>
           <Property Name="Left" Value="268"/>
           <Property Name="Multiline" Value="Automatic"/>
           <Property Name="SimulationIndex" Value="2"/>
@@ -1202,7 +1202,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.NewPasswordOk]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.NewPasswordOk]"/>
           <Property Name="Left" Value="433"/>
           <Property Name="SimulationValue" Value="1"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -1219,7 +1219,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.ConfirmPasswordOk]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.ConfirmPasswordOk]"/>
           <Property Name="Left" Value="433"/>
           <Property Name="SimulationValue" Value="1"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -1236,7 +1236,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.NewPasswordOk]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.NewPasswordOk]"/>
           <Property Name="Left" Value="433"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -1252,7 +1252,7 @@
           <Property Name="SimulationValue" Value="English"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="160"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.Language]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.Language]"/>
           <Property Name="Width" Value="200"/>
         </Control>
         <Control ClassId="0x0000100B" Name="txtUserName2">
@@ -1264,7 +1264,7 @@
           <Property Name="SimulationValue" Value="SI"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="195"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.DisplayUnit]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.DisplayUnit]"/>
           <Property Name="Width" Value="200"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtRoleLabel0">
@@ -1291,21 +1291,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.Roles[0]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.Roles[0]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="90"/>
@@ -1335,21 +1335,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.Roles[1]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.Roles[1]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="125"/>
@@ -1379,21 +1379,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.Roles[2]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.Roles[2]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="160"/>
@@ -1423,21 +1423,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.Roles[3]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.Roles[3]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="195"/>
@@ -1467,21 +1467,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.Roles[4]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.Roles[4]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="230"/>
@@ -1511,21 +1511,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.Roles[5]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.Roles[5]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="265"/>
@@ -1555,21 +1555,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.Roles[6]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.Roles[6]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="300"/>
@@ -1588,7 +1588,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.Cancel]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.Cancel]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1603,7 +1603,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Edit.Dialog.Confirm]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Edit.Dialog.Confirm]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1619,7 +1619,7 @@
       <Property Name="OutlineDisplayControl" Value="False"/>
       <Property Name="OutlineDisplayName" Value="True"/>
       <Property Name="OutlineHatched" Value="False"/>
-      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.LayerStatus]"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.LayerStatus]"/>
       <Property Name="Top" Value="0"/>
       <Property Name="VisibilityMode" Value="Hidden"/>
       <Property Name="Width" Value="800"/>
@@ -1716,7 +1716,7 @@
           <Property Name="SimulationValue" Value="USER"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="90"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.UserName]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.UserName]"/>
           <Property Name="Width" Value="160"/>
         </Control>
         <Control ClassId="0x0000100B" Name="txtPassword">
@@ -1730,7 +1730,7 @@
           <Property Name="SimulationValue" Value="XXX"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="230"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.NewPassword]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.NewPassword]"/>
           <Property Name="Width" Value="160"/>
         </Control>
         <Control ClassId="0x0000100B" Name="txtPasswordConfirm">
@@ -1744,7 +1744,7 @@
           <Property Name="SimulationValue" Value="XXX"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="310"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.ConfirmPassword]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.ConfirmPassword]"/>
           <Property Name="Width" Value="160"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtUserNameLabel">
@@ -1771,7 +1771,7 @@
           <Property Name="SimulationValue" Value="FULL NAME"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="125"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.FullName]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.FullName]"/>
           <Property Name="Width" Value="200"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtRoleLabel0">
@@ -1798,21 +1798,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.Roles[0]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.Roles[0]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="90"/>
@@ -1900,7 +1900,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="ForeColor" Value="51"/>
           <Property Name="Height" Value="40"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.CriteriaNotMet]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.CriteriaNotMet]"/>
           <Property Name="Left" Value="268"/>
           <Property Name="Multiline" Value="Automatic"/>
           <Property Name="SimulationIndex" Value="2"/>
@@ -1937,7 +1937,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.NewPasswordOk]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.NewPasswordOk]"/>
           <Property Name="Left" Value="433"/>
           <Property Name="SimulationValue" Value="1"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -1954,7 +1954,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.ConfirmPasswordOk]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.ConfirmPasswordOk]"/>
           <Property Name="Left" Value="433"/>
           <Property Name="SimulationValue" Value="1"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -1971,7 +1971,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.NewPasswordOk]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.NewPasswordOk]"/>
           <Property Name="Left" Value="433"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -1988,7 +1988,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.UserNameOk]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.UserNameOk]"/>
           <Property Name="Left" Value="434"/>
           <Property Name="SimulationValue" Value="1"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -2004,7 +2004,7 @@
           <Property Name="SimulationValue" Value="English"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="160"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.Language]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.Language]"/>
           <Property Name="Width" Value="200"/>
         </Control>
         <Control ClassId="0x0000100B" Name="txtUserName2">
@@ -2016,7 +2016,7 @@
           <Property Name="SimulationValue" Value="SI"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="195"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.DisplayUnit]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.DisplayUnit]"/>
           <Property Name="Width" Value="200"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtRoleLabel1">
@@ -2043,21 +2043,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.Roles[1]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.Roles[1]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="125"/>
@@ -2087,21 +2087,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.Roles[2]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.Roles[2]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="160"/>
@@ -2131,21 +2131,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.Roles[3]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.Roles[3]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="195"/>
@@ -2175,21 +2175,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.Roles[4]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.Roles[4]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="230"/>
@@ -2219,21 +2219,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.Roles[5]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.Roles[5]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="265"/>
@@ -2263,21 +2263,21 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.Roles[6]]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.Roles[6]]"/>
           <Property Name="Left" Value="552"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
-          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.RoleOption]"/>
+          <Property Name="OptionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.RoleOption]"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="SpacingVertical" Value="10"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Role.SelectList.Names]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Role.SelectList.Names]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="300"/>
@@ -2296,7 +2296,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.Cancel]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.Cancel]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -2311,7 +2311,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.User.Create.Dialog.Confirm]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.User.Create.Dialog.Confirm]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -2327,7 +2327,7 @@
       <Property Name="OutlineDisplayControl" Value="False"/>
       <Property Name="OutlineDisplayName" Value="True"/>
       <Property Name="OutlineHatched" Value="False"/>
-      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.Dialog.LayerStatus]"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.Dialog.LayerStatus]"/>
       <Property Name="Top" Value="0"/>
       <Property Name="VisibilityMode" Value="Hidden"/>
       <Property Name="Width" Value="800"/>
@@ -2391,7 +2391,7 @@
           <Property Name="SimulationValue" Value="FileNameImport"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="265"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.Dialog.FileName]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.Dialog.FileName]"/>
           <Property Name="Width" Value="200"/>
         </Control>
         <Control ClassId="0x00001008" Name="lbxFileList">
@@ -2404,11 +2404,11 @@
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpInput]"/>
           <Property Name="Height" Value="128"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.Dialog.List.SelectedIndex]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.Dialog.List.SelectedIndex]"/>
           <Property Name="Left" Value="375"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
-          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.Dialog.List.MaxSelection]"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.Dialog.List.MaxSelection]"/>
           <Property Name="MaxIndex" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
           <Property Name="MinIndex" Value="None"/>
@@ -2418,7 +2418,7 @@
           <Property Name="SimulationValue" Value="FileName.ext"/>
           <Property Name="SpacingVertical" Value="9"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.Dialog.List.FileNames]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.Dialog.List.FileNames]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
           <Property Name="Top" Value="130"/>
@@ -2576,7 +2576,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.Dialog.Cancel]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.Dialog.Cancel]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -2591,7 +2591,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.Dialog.Confirm]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.Dialog.Confirm]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -2607,7 +2607,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.Dialog.Roles]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.Dialog.Roles]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -2623,7 +2623,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.Dialog.Users]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.Dialog.Users]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -2652,7 +2652,7 @@
       <Property Name="OutlineDisplayControl" Value="False"/>
       <Property Name="OutlineDisplayName" Value="True"/>
       <Property Name="OutlineHatched" Value="False"/>
-      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.ConfirmDialog.LayerStatus]"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.ConfirmDialog.LayerStatus]"/>
       <Property Name="Top" Value="0"/>
       <Property Name="VisibilityMode" Value="Hidden"/>
       <Property Name="Width" Value="800"/>
@@ -2682,7 +2682,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="380"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.ConfirmDialog.Type]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.ConfirmDialog.Type]"/>
           <Property Name="Left" Value="222"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value="Change Password"/>
@@ -2763,7 +2763,7 @@
           <Property Name="SimulationValue" Value="NAME OF USER/ROLE"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
           <Property Name="Top" Value="130"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.ConfirmDialog.Name]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.ConfirmDialog.Name]"/>
           <Property Name="Width" Value="200"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtNumberOfConflictsLabel">
@@ -2796,7 +2796,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="265"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.ConfirmDialog.NumberOfConflicts]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.ConfirmDialog.NumberOfConflicts]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="201"/>
         </Control>
@@ -2867,7 +2867,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.ConfirmDialog.Cancel]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.ConfirmDialog.Cancel]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -2882,7 +2882,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.ConfirmDialog.Confirm]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.ConfirmDialog.Confirm]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -2898,7 +2898,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Import.ConfirmDialog.ApplyForAll]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Import.ConfirmDialog.ApplyForAll]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -2914,7 +2914,7 @@
       <Property Name="OutlineDisplayControl" Value="False"/>
       <Property Name="OutlineDisplayName" Value="True"/>
       <Property Name="OutlineHatched" Value="False"/>
-      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Export.Dialog.LayerStatus]"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Export.Dialog.LayerStatus]"/>
       <Property Name="Top" Value="0"/>
       <Property Name="VisibilityMode" Value="Hidden"/>
       <Property Name="Width" Value="800"/>
@@ -2978,7 +2978,7 @@
           <Property Name="SimulationValue" Value="UserRoleExport"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="232"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Export.Dialog.FileName]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Export.Dialog.FileName]"/>
           <Property Name="Width" Value="200"/>
         </Control>
         <Control ClassId="0x00001002" Name="cmdCancel">
@@ -3040,7 +3040,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Export.Dialog.Cancel]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Export.Dialog.Cancel]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -3055,7 +3055,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.Export.Dialog.Confirm]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.Export.Dialog.Confirm]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -3071,7 +3071,7 @@
       <Property Name="OutlineDisplayControl" Value="False"/>
       <Property Name="OutlineDisplayName" Value="True"/>
       <Property Name="OutlineHatched" Value="False"/>
-      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.MessageBox.LayerStatus]"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.MessageBox.LayerStatus]"/>
       <Property Name="Top" Value="0"/>
       <Property Name="VisibilityMode" Value="Hidden"/>
       <Property Name="Width" Value="800"/>
@@ -3101,7 +3101,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="224"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.MessageBox.Type]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.MessageBox.Type]"/>
           <Property Name="Left" Value="220"/>
           <Property Name="SimulationIndex" Value="1"/>
           <Property Name="SimulationValue" Value="MsgBox Header"/>
@@ -3118,7 +3118,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="127"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.MessageBox.Type]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.MessageBox.Type]"/>
           <Property Name="Left" Value="226"/>
           <Property Name="Multiline" Value="Automatic"/>
           <Property Name="SimulationIndex" Value="1"/>
@@ -3189,7 +3189,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.MessageBox.Cancel]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.MessageBox.Cancel]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -3204,7 +3204,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXManagerUIConnect.MessageBox.Confirm]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXMgrUIConnect.MessageBox.Confirm]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>

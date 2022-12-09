@@ -113,12 +113,12 @@
           <Property Name="SimulationValue" Value="ABC"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="141"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.Login.UserName]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.Login.UserName]"/>
           <Property Name="Width" Value="160"/>
         </Control>
         <Control ClassId="0x0000100B" Name="txtUserPassword">
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
-          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.Login.Login]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.Login.Login]"/>
           <Property Name="CompletionValue" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -129,7 +129,7 @@
           <Property Name="SimulationValue" Value="XXX"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="174"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.Login.Password]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.Login.Password]"/>
           <Property Name="Width" Value="160"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtHeaderCurrentUser">
@@ -157,14 +157,14 @@
           <Property Name="SimulationValue" Value="ABC"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
           <Property Name="Top" Value="141"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.CurrentUser]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.CurrentUser]"/>
           <Property Name="Width" Value="284"/>
         </Control>
         <Control ClassId="0x00001002" Name="cmdLogout">
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpUserIcons]"/>
           <Property Name="BitmapIndex" Value="4"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.LoggedIn]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.LoggedIn]"/>
           <Property Name="BitmapSimulationValue" Value="0"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
@@ -176,7 +176,7 @@
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="563"/>
           <Property Name="Locking" Value="Datapoint &lt; Level"/>
-          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.LoggedIn]"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.LoggedIn]"/>
           <Property Name="LockingLevel" Value="1"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
@@ -195,7 +195,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpUserIcons]"/>
           <Property Name="BitmapIndex" Value="2"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.LoggedIn]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.LoggedIn]"/>
           <Property Name="BitmapSimulationValue" Value="0"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
@@ -207,7 +207,7 @@
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="412"/>
           <Property Name="Locking" Value="Datapoint &lt; Level"/>
-          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.LoggedIn]"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.LoggedIn]"/>
           <Property Name="LockingLevel" Value="1"/>
           <Property Name="Multiline" Value="Automatic"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
@@ -338,7 +338,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.Login.Logout]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.Login.Logout]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -353,7 +353,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.ChangePassword.ShowDialog]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.ChangePassword.ShowDialog]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -369,7 +369,7 @@
       <Property Name="OutlineDisplayControl" Value="False"/>
       <Property Name="OutlineDisplayName" Value="True"/>
       <Property Name="OutlineHatched" Value="False"/>
-      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.ChangePassword.Dialog.LayerStatus]"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.ChangePassword.Dialog.LayerStatus]"/>
       <Property Name="Top" Value="0"/>
       <Property Name="VisibilityMode" Value="Hidden"/>
       <Property Name="Width" Value="800"/>
@@ -467,7 +467,7 @@
           <Property Name="SimulationValue" Value="XXX"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="92"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.ChangePassword.Dialog.OldPassword]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.ChangePassword.Dialog.OldPassword]"/>
           <Property Name="Width" Value="160"/>
         </Control>
         <Control ClassId="0x0000100B" Name="txtNewPassword">
@@ -481,7 +481,7 @@
           <Property Name="SimulationValue" Value="XXX"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="127"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.ChangePassword.Dialog.NewPassword]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.ChangePassword.Dialog.NewPassword]"/>
           <Property Name="Width" Value="160"/>
         </Control>
         <Control ClassId="0x0000100B" Name="txtNewPasswordConfirm">
@@ -495,7 +495,7 @@
           <Property Name="SimulationValue" Value="XXX"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="207"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.ChangePassword.Dialog.ConfirmPassword]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.ChangePassword.Dialog.ConfirmPassword]"/>
           <Property Name="Width" Value="160"/>
         </Control>
         <Control ClassId="0x00001002" Name="cmdCancel">
@@ -550,7 +550,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="ForeColor" Value="51"/>
           <Property Name="Height" Value="40"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.ChangePassword.Dialog.CriteriaNotMet]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.ChangePassword.Dialog.CriteriaNotMet]"/>
           <Property Name="Left" Value="375"/>
           <Property Name="Multiline" Value="Automatic"/>
           <Property Name="SimulationIndex" Value="3"/>
@@ -587,7 +587,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.ChangePassword.Dialog.NewPasswordOk]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.ChangePassword.Dialog.NewPasswordOk]"/>
           <Property Name="Left" Value="540"/>
           <Property Name="SimulationValue" Value="1"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -604,7 +604,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.ChangePassword.Dialog.ConfirmPasswordOk]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.ChangePassword.Dialog.ConfirmPasswordOk]"/>
           <Property Name="Left" Value="540"/>
           <Property Name="SimulationValue" Value="1"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -621,7 +621,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="FillStyle" Value="Transparent"/>
           <Property Name="Height" Value="30"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.ChangePassword.Dialog.NewPasswordOk]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.ChangePassword.Dialog.NewPasswordOk]"/>
           <Property Name="Left" Value="540"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -641,7 +641,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.ChangePassword.Dialog.Cancel]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.ChangePassword.Dialog.Cancel]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -656,7 +656,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.ChangePassword.Dialog.Confirm]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.ChangePassword.Dialog.Confirm]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -685,7 +685,7 @@
       <Property Name="OutlineDisplayControl" Value="False"/>
       <Property Name="OutlineDisplayName" Value="True"/>
       <Property Name="OutlineHatched" Value="False"/>
-      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.MessageBox.LayerStatus]"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.MessageBox.LayerStatus]"/>
       <Property Name="Top" Value="0"/>
       <Property Name="VisibilityMode" Value="Hidden"/>
       <Property Name="Width" Value="800"/>
@@ -715,7 +715,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="224"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.MessageBox.Type]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.MessageBox.Type]"/>
           <Property Name="Left" Value="220"/>
           <Property Name="SimulationIndex" Value="1"/>
           <Property Name="SimulationValue" Value="MsgBox Header"/>
@@ -732,7 +732,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="127"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.MessageBox.LayerStatus]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.MessageBox.LayerStatus]"/>
           <Property Name="Left" Value="226"/>
           <Property Name="Multiline" Value="Automatic"/>
           <Property Name="SimulationIndex" Value="0"/>
@@ -803,7 +803,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.MessageBox.Cancel]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.MessageBox.Cancel]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -818,7 +818,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXLoginUIConnect.MessageBox.Confirm]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.UserXLoginUIConnect.MessageBox.Confirm]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>

@@ -20,6 +20,7 @@ TYPE
 		AlarmFilterCfg : STRING[1000]; (*Filter configuration for the AlarmList widget*)
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the alarm query Table*)
 		Query : AlarmQueryHMIType; (*Structure which rearranges the query data from AlarmQuery into a structure of arrays for easy connection to the Table widget*)
+		HistoryExportLayer : USINT;
 	END_STRUCT;
 	AlarmQueryType : 	STRUCT  (*Structure for query results and status*)
 		State : ActiveAlarmStateEnum; (*State variable for the query state machine*)
@@ -35,7 +36,7 @@ TYPE
 		Name : ARRAY[0..MAX_QUERY_RESULTS]OF STRING[80]; (*Name array*)
 		Message : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[255]; (*Message array*)
 		AdditionalInfo : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[255]; (*AdditionalInformation1 array*)
-		TimeStamp : ARRAY[0..MAX_QUERY_RESULTS]OF DATE_AND_TIME; (*TimeStamp array*)
+		TimeStamp : ARRAY[0..MAX_QUERY_RESULTS]OF STRING[80]; (*TimeStamp array*)
 		Code : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT; (*Code array*)
 		Severity : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT; (*Severity array*)
 		QueryCount : USINT; (*Count of query results for building the query table configuration string*)
