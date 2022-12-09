@@ -23,12 +23,17 @@
     </EventBinding>
     <EventBinding id="UserList_content.ButtonDeleteUser.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="ButtonDeleteUser" event="Click" />
+      <Operand datatype="ANY_STRING" name="mySelectedUser">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="SelectedUserNameMsg">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
               <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="$IAT/Widgets/UserList/deleteuser.CONFIRM_DELETE" header="$IAT/Widgets/UserList/deleteuser.TITLE" icon="Question" />
+                <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OKCancel" message="=mySelectedUser" header="$IAT/Widgets/UserList/deleteuser.TITLE" icon="Question" />
               </Target>
               <Result>
                 <ResultHandler condition="result = 4">
@@ -240,6 +245,16 @@
             </Action>
           </Step>
         </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="UserList_content.UserListManagement.ItemClick">
+      <Source xsi:type="widgets.brease.UserList.Event" contentRefId="UserList_content" widgetRefId="UserListManagement" event="ItemClick" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="session.VariableAction" refId="SelectedUserName">
+            <Method xsi:type="session.VariableAction.SetValueString" value="=UserName" />
+          </Target>
+        </Action>
       </EventHandler>
     </EventBinding>
   </Bindings>
