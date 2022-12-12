@@ -57,7 +57,6 @@ PROGRAM _CYCLIC
 	// Call all cyclic actions
 	AlarmHandling;
 	ExecuteQuery;
-	QueryTableConfig;
 	AlarmSampleFub;
 	HistoryExportLayer;
 	FirstInCycle;
