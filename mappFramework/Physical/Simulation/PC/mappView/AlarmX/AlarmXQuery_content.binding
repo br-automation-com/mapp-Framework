@@ -8,20 +8,20 @@
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Status.Query.TimeStamp" attribute="value" />
-<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableItemDateTime1" attribute="value" />
+<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableItemTimeStamp" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Status.Query.Message" attribute="value" />
-<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableItem1" attribute="stringValue" />
+<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableItemMessage" attribute="stringValue" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Status.Query.AdditionalInfo" attribute="value" />
-<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableItem2" attribute="stringValue" />
+<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableItemAdditionalInfo" attribute="stringValue" />
 </Binding>
 
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Status.TableConfig[0]" attribute="value" />
-<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="Table1" attribute="tableConfiguration" />
+<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableAlarmQuery" attribute="tableConfiguration" />
 </Binding>
 </Bindings>
 </BindingsSet>

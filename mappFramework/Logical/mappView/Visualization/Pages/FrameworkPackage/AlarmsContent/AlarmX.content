@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="AlarmX_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.TabControl" id="TabCt" top="0" left="0" width="1120" height="660" zIndex="3">
+    <Widget xsi:type="widgets.brease.TabControl" id="TabCtrlAlarmX" top="0" left="0" width="1120" height="660" zIndex="3">
       <Widgets>
         <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItem" left="0" width="165" height="40" zIndex="1" text="$IAT/mappFramework/Alarm/CurrentAlarm">
           <Widgets>
-            <Widget xsi:type="widgets.brease.ContentControl" id="ccAlarmCurrent" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AlarmXCurrent_content" />
+            <Widget xsi:type="widgets.brease.ContentControl" id="ContentCtrlCurrentAlarms" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AlarmXCurrent_content" />
           </Widgets>
         </Widget>
         <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItm" left="0" width="165" height="40" zIndex="2" text="$IAT/mappFramework/Alarm/AlarmHistory">
           <Widgets>
-            <Widget xsi:type="widgets.brease.ContentControl" id="ccAlarmHistory" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AlarmXHistory_content" />
+            <Widget xsi:type="widgets.brease.ContentControl" id="ContentCtrlAlarmHistory" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AlarmXHistory_content" />
           </Widgets>
-				</Widget>
-				<Widget xsi:type="widgets.brease.TabItem" id="AlmTb2Itm" left="0" width="165" height="40" zIndex="3" text="$IAT/mappFramework/Alarm/Query">
-					<Widgets>
-						<Widget xsi:type="widgets.brease.ContentControl" id="ccAlarmQuery" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AlarmXQuery_content" />
-					</Widgets>
-				</Widget>
+        </Widget>
+        <Widget xsi:type="widgets.brease.TabItem" id="AlmTb2Itm" left="0" width="165" height="40" zIndex="3" text="$IAT/mappFramework/Alarm/Query">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.ContentControl" id="ContentCtrlAlarmQuery" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AlarmXQuery_content" />
+          </Widgets>
+        </Widget>
       </Widgets>
     </Widget>
   </Widgets>
