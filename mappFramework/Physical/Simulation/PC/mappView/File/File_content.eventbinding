@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="File_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="File_content.txtInSearchKeyword.ValueChanged">
-      <Source xsi:type="widgets.brease.TextInput.Event" contentRefId="File_content" widgetRefId="txtInSearchKeyword" event="ValueChanged" />
+    <EventBinding id="File_content.TextInSearchKeyword.ValueChanged">
+      <Source xsi:type="widgets.brease.TextInput.Event" contentRefId="File_content" widgetRefId="TextInSearchKeyword" event="ValueChanged" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
@@ -11,8 +11,8 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="File_content.FileFolderTable.Click">
-      <Source xsi:type="widgets.brease.Table.Event" contentRefId="File_content" widgetRefId="FileFolderTable" event="Click" />
+    <EventBinding id="File_content.TableFileFolder.Click">
+      <Source xsi:type="widgets.brease.Table.Event" contentRefId="File_content" widgetRefId="TableFileFolder" event="Click" />
       <Operand datatype="BOOL" name="MultiSelect">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:MpFileManagerUIConnect.File.MultiSelect">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -27,7 +27,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="File_content.drpBoxSortOrder.SelectedIndexChanged">
-      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="File_content" widgetRefId="drpBoxSortOrder" event="SelectedIndexChanged" />
+      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="File_content" widgetRefId="DropDownSortOrder" event="SelectedIndexChanged" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
@@ -52,7 +52,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="File_content.ButtonFIFOConfigure.Click">
-      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="File_content" widgetRefId="ButtonFIFOConfigure" event="Click" />
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="File_content" widgetRefId="BtnFIFOConfigure" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -65,26 +65,26 @@
       <Source xsi:type="clientSystem.Event" event="DialogClosed" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="File_content" widgetRefId="ButtonFIFOConfigure">
+          <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="File_content" widgetRefId="BtnFIFOConfigure">
             <Method xsi:type="widgets.brease.ToggleButton.Action.SetValueBool" value="false" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="File_content.ButtonFilePageUp.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="File_content" widgetRefId="ButtonFilePageUp" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="File_content" widgetRefId="BtnFilePageUp" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="TableFileFolder">
                 <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="0" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="TableFileFolder">
                 <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="0" />
               </Target>
             </Action>
@@ -100,19 +100,19 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="File_content.ButtonFilePageDown.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="File_content" widgetRefId="ButtonFilePageDown" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="File_content" widgetRefId="BtnFilePageDown" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="TableFileFolder">
                 <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="49" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="TableFileFolder">
                 <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="49" />
               </Target>
             </Action>
@@ -138,7 +138,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="File_content.ButtonDelete.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="File_content" widgetRefId="ButtonDelete" event="Click" />
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="File_content" widgetRefId="BtnDelete" event="Click" />
       <Operand datatype="BOOL" name="myDefaultFileSelected">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDefaultFileSelected">
           <Method xsi:type="session.VariableAction.GetValue" />

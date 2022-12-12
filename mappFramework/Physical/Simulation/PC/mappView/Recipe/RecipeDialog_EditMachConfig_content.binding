@@ -3,23 +3,23 @@
   <Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere1" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumericInputMachConfig1Edit" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumInMachConfig1Edit" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere2" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumericInputMachConfig2Edit" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumInMachConfig2Edit" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere3" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="DropDownBoxMachConfig3Edit" attribute="selectedIndex" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="DropDownMachConfig3Edit" attribute="selectedIndex" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere4" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumericInputMachConfig4Edit" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumInMachConfig4Edit" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere5" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumericInputMachConfig5Edit" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditMachConfig_content" widgetRefId="NumInMachConfig5Edit" attribute="value" />
 		</Binding>
 	</Bindings>
 </BindingsSet>

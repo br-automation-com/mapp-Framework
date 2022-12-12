@@ -3,23 +3,23 @@
   <Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere1" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="DropDownBoxPar1EditEdit" attribute="selectedIndex" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="DropDownPar1Edit" attribute="selectedIndex" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere2" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="TextInputPar2Edit" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="TextInPar2Edit" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere5" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="NumericInputPar5Edit" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="NumInPar5Edit" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere4" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="NumericInputPar4Edit" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="NumInPar4Edit" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere3" attribute="value" />
-			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="NumericInputPar3Edit" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeDialog_EditPars_content" widgetRefId="NumInPar3Edit" attribute="value" />
 		</Binding>
 	</Bindings>
 </BindingsSet>

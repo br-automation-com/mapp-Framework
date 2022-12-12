@@ -3,23 +3,23 @@
     <Bindings>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere1" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="DropDownBoxPar1New" attribute="selectedIndex" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="DropDownPar1New" attribute="selectedIndex" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere2" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="TextInputPar2New" attribute="value" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="TextInPar2New" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere3" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="NumericInputPar3New" attribute="value" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="NumInPar3New" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere4" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="NumericInputPar4New" attribute="value" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="NumInPar4New" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:ParametersEdit.AddParametersHere5" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="NumericInputPar5New" attribute="value" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="NumInPar5New" attribute="value" />
         </Binding>
         <Binding mode="oneWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ParameterRecipeMissing" attribute="value" />
@@ -27,15 +27,15 @@
         </Binding>
         <Binding mode="oneWay">
             <Source xsi:type="expression" refId="CannotCancelNewRecipe" attribute="result" />
-            <Target xsi:type="brease" widgetRefId="CancelButton" contentRefId="RecipeDialog_NewButtons_content" attribute="enable" />
-        </Binding>
+			<Target xsi:type="brease" widgetRefId="BtnCancel" contentRefId="RecipeDialog_NewButtons_content" attribute="enable" />
+		</Binding>
         <Binding mode="oneWay">
             <Source xsi:type="session" refId="SessionVarCannotEditRecipeName" attribute="value" />
-            <Target xsi:type="brease" widgetRefId="txtInNewRecipe" contentRefId="RecipeDialog_NewPars_content" attribute="enable" />
+            <Target xsi:type="brease" widgetRefId="TextInNewRecipe" contentRefId="RecipeDialog_NewPars_content" attribute="enable" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.FileName" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="txtInNewRecipe" attribute="value" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewPars_content" widgetRefId="TextInNewRecipe" attribute="value" />
         </Binding>
     </Bindings>
 </BindingsSet>

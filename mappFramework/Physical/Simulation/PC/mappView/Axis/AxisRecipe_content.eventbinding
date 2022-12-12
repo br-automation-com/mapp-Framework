@@ -43,7 +43,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_CategoryDropdownAxis">
-      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" event="SelectedIndexChanged" />
+      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory" event="SelectedIndexChanged" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::AppAxis_1:AxisRecipe.CategoryDropdown">
