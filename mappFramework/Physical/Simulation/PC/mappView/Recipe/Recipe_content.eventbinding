@@ -341,7 +341,7 @@
       <EventHandler condition="contentId = &quot;RecipePreviewMachConfig_content&quot; AND  DefaultMachineSettingsMissing">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="The default recipe is missing. Please create one now. " header="Missing Default Recipe" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingRecipeText" header="$IAT/mappFramework/Recipe/MissingRecipeHeader" />
           </Target>
           <Result>
             <ResultHandler condition="result = 4">
