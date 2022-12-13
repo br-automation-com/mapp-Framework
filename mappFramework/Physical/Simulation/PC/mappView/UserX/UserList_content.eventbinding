@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="UserList_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="UserList_content.ButtonEditUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="ButtonEditUser" event="Click" />
+    <EventBinding id="UserList_content.BtnEditUser.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnEditUser" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="widgets.brease.UserList.Action" contentRefId="UserList_content" widgetRefId="UserListManagement">
@@ -11,8 +11,8 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="UserList_content.ButtonAddUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="ButtonAddUser" event="Click" />
+    <EventBinding id="UserList_content.BtnAddUser.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnAddUser" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="widgets.brease.UserList.Action" contentRefId="UserList_content" widgetRefId="UserListManagement">
@@ -21,8 +21,8 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="UserList_content.ButtonDeleteUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="ButtonDeleteUser" event="Click" />
+    <EventBinding id="UserList_content.BtnDeleteUser.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnDeleteUser" event="Click" />
       <Operand datatype="ANY_STRING" name="mySelectedUser">
         <ReadTarget xsi:type="session.VariableAction.Read" refId="SelectedUserNameMsg">
           <Method xsi:type="session.VariableAction.GetValue" />
@@ -93,8 +93,8 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="UserList_content.ButtonExportUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="ButtonExportUser" event="Click" />
+    <EventBinding id="UserList_content.BtnExportUser.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnExportUser" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:UserXMgrUIConnect.Export.ShowDialog">
@@ -110,8 +110,8 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="UserList_content.ButtonImportUser.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="ButtonImportUser" event="Click" />
+    <EventBinding id="UserList_content.BtnImportUser.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnImportUser" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:UserXMgrUIConnect.Import.ShowDialog">
