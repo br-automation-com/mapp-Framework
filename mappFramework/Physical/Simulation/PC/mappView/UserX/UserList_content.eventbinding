@@ -232,14 +232,14 @@
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="UserX_content" widgetRefId="ContentControlUserList">
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="UserX_content" widgetRefId="ContentCtrlUserList">
                 <Method xsi:type="widgets.brease.ContentControl.Action.UnloadContent" />
               </Target>
             </Action>
           </Step>
           <Step order="2">
             <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="UserX_content" widgetRefId="ContentControlUserList">
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="UserX_content" widgetRefId="ContentCtrlUserList">
                 <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="UserList_content" />
               </Target>
             </Action>
