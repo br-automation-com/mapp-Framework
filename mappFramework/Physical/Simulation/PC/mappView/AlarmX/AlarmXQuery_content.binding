@@ -4,7 +4,7 @@
 
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Commands.RunQuery" attribute="value" />
-<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="PushButtonRunQuery" attribute="value" />
+<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="PushBtnRunAlarmQuery" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Status.Query.TimeStamp" attribute="value" />

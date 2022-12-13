@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="AuditDialog_ArchiveSettings_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Button" id="SaveButton" top="235" left="15" width="150" height="50" zIndex="0" text="$IAT/mappFramework/Audit/Dialogs.Save" textColor="rgba(255, 255, 255, 1)" fontSize="20px" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="CancelButton" top="235" left="285" width="150" height="50" zIndex="1" text="$IAT/mappFramework/Audit/Dialogs.Cancel" borderWidth="0px" mouseDownBorderWidth="0px" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnSaveAuditExport" top="235" left="15" width="150" height="50" zIndex="0" text="$IAT/mappFramework/Audit/Dialogs.Save" textColor="rgba(255, 255, 255, 1)" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnCancelAuditExport" top="235" left="285" width="150" height="50" zIndex="1" text="$IAT/mappFramework/Audit/Dialogs.Cancel" borderWidth="0px" mouseDownBorderWidth="0px" fontSize="20px" style="Command" />
     <Widget xsi:type="widgets.brease.CheckBox" id="CheckBoxEnable" top="10" left="15" width="420" zIndex="2" imageAlign="right" text="$IAT/mappFramework/Audit/Dialogs.Enable" borderStyle="solid" borderWidth="0px 0px 1px 0px" textAlign="left" fontSize="18px" bold="true" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPrefix" top="97" left="15" width="160" zIndex="3" text="$IAT/mappFramework/Audit/Dialogs.MaxSize" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelMaxFileSize" top="97" left="15" width="160" zIndex="3" text="$IAT/mappFramework/Audit/Dialogs.MaxSize" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
     <Widget xsi:type="widgets.brease.Label" id="LabelInterval" top="143" left="15" width="160" zIndex="4" text="$IAT/mappFramework/Audit/Dialogs.Interval" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
     <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownInterval" top="143" left="245" width="190" zIndex="5" dataProvider="[{'value':'0','text':'$IAT/mappFramework/Audit/Dialogs.Daily'},{'value':'1','text':'$IAT/mappFramework/Audit/Dialogs.MoFr'},{'value':'2','text':'$IAT/mappFramework/Audit/Dialogs.ByBatch'}]" selectedValue="0" />
     <Widget xsi:type="widgets.brease.NumericInput" id="NumInMaxFileSize" top="97" left="245" width="190" zIndex="6" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" unit="{'metric':'KB','imperial':'KB','imperial-us':'KB'}" unitAlign="right" />
-    <Widget xsi:type="widgets.brease.Label" id="lblFormat" top="50" left="15" width="160" zIndex="7" text="$IAT/mappFramework/Audit/Dialogs.ExportFormat" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
-    <Widget xsi:type="widgets.brease.ButtonBar" id="bbSelectExportFormat" top="50" left="245" width="190" zIndex="8" childPositioning="relative" selectedIndex="1">
+    <Widget xsi:type="widgets.brease.Label" id="LabelFormat" top="50" left="15" width="160" zIndex="7" text="$IAT/mappFramework/Audit/Dialogs.ExportFormat" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
+    <Widget xsi:type="widgets.brease.ButtonBar" id="BtnBarSelectExportFormat" top="50" left="245" width="190" zIndex="8" childPositioning="relative" selectedIndex="1">
       <Widgets>
-        <Widget xsi:type="widgets.brease.ToggleButton" id="tbTxtExport" top="0" left="0" width="60" zIndex="0" image="Media/SymbolLib/File/TXT.svg" checkedImageColor="rgba(255, 136, 0, 1)" style="transparent" />
-        <Widget xsi:type="widgets.brease.ToggleButton" id="tbXmlExport" top="0" left="0" width="60" zIndex="1" image="Media/SymbolLib/File/XML.svg" value="true" checkedImageColor="rgba(255, 136, 0, 1)" style="transparent" />
-        <Widget xsi:type="widgets.brease.ToggleButton" id="tbPdfExport" top="0" left="0" width="60" zIndex="2" image="Media/SymbolLib/File/PDF.svg" checkedImageColor="rgba(255, 136, 0, 1)" style="transparent" />
+        <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleBtnTxtExport" top="0" left="0" width="60" zIndex="0" image="Media/SymbolLib/File/TXT.svg" checkedImageColor="rgba(255, 136, 0, 1)" style="transparent" />
+        <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleBtnXmlExport" top="0" left="0" width="60" zIndex="1" image="Media/SymbolLib/File/XML.svg" value="true" checkedImageColor="rgba(255, 136, 0, 1)" style="transparent" />
+        <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleBtnPdfExport" top="0" left="0" width="60" zIndex="2" image="Media/SymbolLib/File/PDF.svg" checkedImageColor="rgba(255, 136, 0, 1)" style="transparent" />
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.GroupBox" id="grbTimeOfDay" top="175" left="0" width="450" height="60" zIndex="9" style="transparent">
+    <Widget xsi:type="widgets.brease.GroupBox" id="GroupBoxTimeOfDay" top="175" left="0" width="450" height="60" zIndex="9" style="transparent">
       <Widgets>
         <Widget xsi:type="widgets.brease.Label" id="LabelTimeOfDay" top="15" left="15" width="160" zIndex="0" text="$IAT/mappFramework/Audit/Dialogs.TimeOfDay" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
         <Widget xsi:type="widgets.brease.NumericInput" id="NumInHour" top="15" left="245" width="75" zIndex="1" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':2},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':2},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':2}}" maxValue="23" showUnit="false" value="23" textAlign="center" fontSize="16px" />
         <Widget xsi:type="widgets.brease.NumericInput" id="NumInMinute" top="15" left="360" width="75" zIndex="2" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':2},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':2},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':2}}" maxValue="59" showUnit="false" value="59" textAlign="center" fontSize="16px" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelHour" top="15" left="320" width="35" zIndex="3" text="$IAT/mappFramework/Audit/Dialogs.Period" textColor="rgba(137, 137, 137, 1)" textAlign="center" fontSize="18px" bold="false" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelColon" top="15" left="320" width="35" zIndex="3" text="$IAT/mappFramework/Audit/Dialogs.Period" textColor="rgba(137, 137, 137, 1)" textAlign="center" fontSize="18px" bold="false" />
       </Widgets>
     </Widget>
   </Widgets>

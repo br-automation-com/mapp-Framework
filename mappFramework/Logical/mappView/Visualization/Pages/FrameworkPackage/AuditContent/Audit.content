@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="Audit_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.TabControl" id="TabCtrlAlarmX" top="0" left="0" width="1120" height="660" zIndex="3">
+    <Widget xsi:type="widgets.brease.TabControl" id="TabCtrlAudit" top="0" left="0" width="1120" height="660" zIndex="3">
       <Widgets>
         <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItem" left="0" width="165" height="40" zIndex="1" text="$IAT/mappFramework/Audit/AuditTrail">
           <Widgets>
-            <Widget xsi:type="widgets.brease.ContentControl" id="ccAuditTrail" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AuditTrail_content" />
+            <Widget xsi:type="widgets.brease.ContentControl" id="ContentCtrlAuditTrail" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AuditTrail_content" />
           </Widgets>
         </Widget>
         <Widget xsi:type="widgets.brease.TabItem" id="AlmTblItm" left="0" width="165" height="40" zIndex="2" text="$IAT/mappFramework/Audit/CustomEvents">
           <Widgets>
-            <Widget xsi:type="widgets.brease.ContentControl" id="ccCustomEvents" top="0" left="0" width="1120" height="620" zIndex="0" contentId="CustomEvents_content" />
+            <Widget xsi:type="widgets.brease.ContentControl" id="ContentCtrlCustomEvents" top="0" left="0" width="1120" height="620" zIndex="0" contentId="CustomEvents_content" />
           </Widgets>
         </Widget>
         <Widget xsi:type="widgets.brease.TabItem" id="AlmTb2Itm" left="0" width="165" height="40" zIndex="3" text="$IAT/mappFramework/Audit/Query">
           <Widgets>
-            <Widget xsi:type="widgets.brease.ContentControl" id="ccAuditQuery" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AuditQuery_content" />
+            <Widget xsi:type="widgets.brease.ContentControl" id="ContentCtrlAuditQuery" top="0" left="0" width="1120" height="620" zIndex="0" contentId="AuditQuery_content" />
           </Widgets>
         </Widget>
       </Widgets>
