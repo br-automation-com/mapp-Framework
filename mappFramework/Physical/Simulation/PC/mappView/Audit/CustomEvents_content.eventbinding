@@ -5,7 +5,7 @@
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="CustomEvents_content" widgetRefId="SortDialog" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.AuditList.Action" contentRefId="CustomEvents_content" widgetRefId="AuditList1">
+          <Target xsi:type="widgets.brease.AuditList.Action" contentRefId="CustomEvents_content" widgetRefId="AuditListCustomEvents">
             <Method xsi:type="widgets.brease.AuditList.Action.OpenConfiguration" type="Sorting" />
           </Target>
         </Action>
@@ -15,7 +15,7 @@
       <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="CustomEvents_content" widgetRefId="FilterDialog" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.AuditList.Action" contentRefId="CustomEvents_content" widgetRefId="AuditList1">
+          <Target xsi:type="widgets.brease.AuditList.Action" contentRefId="CustomEvents_content" widgetRefId="AuditListCustomEvents">
             <Method xsi:type="widgets.brease.AuditList.Action.OpenConfiguration" type="Filtering" />
           </Target>
         </Action>
