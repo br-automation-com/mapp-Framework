@@ -4,15 +4,15 @@
 		
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.Export.Dialog.Cancel" attribute="value" />
-			<Target xsi:type="brease" contentRefId="UserXDialog_Export_content" widgetRefId="PushButtonCancel" attribute="value" />
+			<Target xsi:type="brease" contentRefId="UserXDialog_Export_content" widgetRefId="PushBtnCancelExport" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.Export.Dialog.FileName" attribute="value" />
-			<Target xsi:type="brease" contentRefId="UserXDialog_Export_content" widgetRefId="txtInExportFileName" attribute="value" />
+			<Target xsi:type="brease" contentRefId="UserXDialog_Export_content" widgetRefId="TextInExportFileName" attribute="value" />
 		</Binding>
 	<Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::UserXMgr:HmiUserX.Export" attribute="value" />
-<Target xsi:type="brease" contentRefId="UserXDialog_Export_content" widgetRefId="PushButtonConfirm" attribute="value" />
+<Target xsi:type="brease" contentRefId="UserXDialog_Export_content" widgetRefId="PushBtnConfirmExport" attribute="value" />
 </Binding>
 </Bindings>
 </BindingsSet>

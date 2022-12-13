@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="UserXDialog_Export_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="UserXDialog_Export_content.PushButtonCancel.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="UserXDialog_Export_content" widgetRefId="PushButtonCancel" event="Click" />
+    <EventBinding id="UserXDialog_Export_content.PushBtnCancelExport.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="UserXDialog_Export_content" widgetRefId="PushBtnCancelExport" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -11,8 +11,8 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="UserXDialog_Export_content.PushButtonConfirm.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="UserXDialog_Export_content" widgetRefId="PushButtonConfirm" event="Click" />
+    <EventBinding id="UserXDialog_Export_content.PushBtnConfirmExport.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="UserXDialog_Export_content" widgetRefId="PushBtnConfirmExport" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
