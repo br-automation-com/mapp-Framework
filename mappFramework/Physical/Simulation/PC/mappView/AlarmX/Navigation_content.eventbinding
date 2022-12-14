@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="AlarmX_Navigation_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="Navigation_content.AlarmContent.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Navigation_content" widgetRefId="AlarmContent" event="Click" />
+    <EventBinding id="Navigation_content.LoadAlarmContent.Click">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="Navigation_content" widgetRefId="LoadAlarmContent" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -15,15 +15,15 @@
       <Source xsi:type="opcUa.Event" refId="::AlarmMgr:MpAlarmXCore_0.PendingAlarms" event="ValueChanged" />
       <EventHandler condition="newValue &gt; 0">
         <Action>
-          <Target xsi:type="widgets.brease.Button.Action" contentRefId="Navigation_content" widgetRefId="AlarmContent">
-            <Method xsi:type="widgets.brease.Button.Action.SetImage" image="Media/SymbolLib/Alarm/AlarmActive.svg" />
+          <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="Navigation_content" widgetRefId="LoadAlarmContent">
+            <Method xsi:type="widgets.brease.ToggleButton.Action.SetImage" image="Media/SymbolLib/Alarm/AlarmActive.svg" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="newValue = 0">
         <Action>
-          <Target xsi:type="widgets.brease.Button.Action" contentRefId="Navigation_content" widgetRefId="AlarmContent">
-            <Method xsi:type="widgets.brease.Button.Action.SetImage" image="Media/SymbolLib/Alarm/Alarm.svg" />
+          <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="Navigation_content" widgetRefId="LoadAlarmContent">
+            <Method xsi:type="widgets.brease.ToggleButton.Action.SetImage" image="Media/SymbolLib/Alarm/Alarm.svg" />
           </Target>
         </Action>
       </EventHandler>
