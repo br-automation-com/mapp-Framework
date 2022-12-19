@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="AxisAuto_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Bindings>
   
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Parameters.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumericInputFeederSetVel" attribute="node" />
+            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumInFeederSetVel" attribute="node" />
         </Binding>
 
         <Binding mode="twoWay">
@@ -17,11 +17,11 @@
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Command.Start" attribute="value" />
-            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="TBtnStartStop" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="ToggleBtnStartStop" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Command.UpdateVelocity" attribute="value" />
-            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="PushButtonUpdate" attribute="value" />
+            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="PushBtnUpdate" attribute="value" />
         </Binding>
     </Bindings>
 </BindingsSet>
