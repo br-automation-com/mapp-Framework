@@ -58,8 +58,7 @@ PROGRAM _CYCLIC
 	AlarmHandling;
 	ExecuteQuery;
 	AlarmSampleFub;
-	HistoryExportLayer;
-	FirstInCycle;
+	HMIActions;
 
 
 	// Check if any reactions are active.

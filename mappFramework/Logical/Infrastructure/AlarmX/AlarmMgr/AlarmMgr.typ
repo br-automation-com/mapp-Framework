@@ -4,21 +4,12 @@ TYPE
 	AlarmHmiInterfaceType : 	STRUCT  (*Structure to hold commands and status from the HMI*)
 		Commands : AlarmCommandsType; (*HMI commands*)
 		Status : {REDUND_UNREPLICABLE} AlarmStatusType; (*HMI status*)
-		Parameters : AlarmParametersType; (*HMI parameters*)
 	END_STRUCT;
 	AlarmCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
 		ExportAlarms : BOOL; (*Triggers an alarm export of the alarm history. Connected to a button on the HMI. *)
 		RunQuery : BOOL; (*Triggers the query to run. Connected to a button on the HMI. *)
 	END_STRUCT;
-	AlarmParametersType : 	STRUCT  (*Structure to hold the parameters from the HMI*)
-		InstanceID : UINT; (*The instanceID of the alarm that was most recently clicked in the AlarmList. Set by an eventbinding in mapp View*)
-	END_STRUCT;
 	AlarmStatusType : 	STRUCT  (*Structure to hold status information to the mapp View HMI. (This structure is not compatible/relevant if you are using a VC4 visualization)*)
-		AlarmHistSortCfg : STRING[1000]; (*Sort configuration property for the AlarmHistory widget *)
-		AlarmHistFilterCfg : STRING[1000]; (*Filter configuration property for the AlarmHistory widget*)
-		AlarmSortCfg : STRING[1000]; (*Sort configuration for the AlarmList widget*)
-		AlarmFilterCfg : STRING[1000]; (*Filter configuration for the AlarmList widget*)
-		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the alarm query Table*)
 		Query : AlarmQueryHMIType; (*Structure which rearranges the query data from AlarmQuery into a structure of arrays for easy connection to the Table widget*)
 		HistoryExportLayer : USINT;
 	END_STRUCT;

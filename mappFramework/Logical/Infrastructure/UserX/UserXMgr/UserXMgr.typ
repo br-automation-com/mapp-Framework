@@ -13,6 +13,8 @@ TYPE
 		NewFileName : STRING[255];
 		Export : BOOL;
 		ConfirmOverwrite : BOOL;
+		CancelOverwrite : BOOL;
 		FileDuplicate : BOOL;
+		FileDuplicateLayerStatus : USINT;
 	END_STRUCT;
 END_TYPE

@@ -36,6 +36,9 @@ ACTION HMIAction:
 		UserXCheckState := USERX_NEW_EXPORT;
 	END_IF
 
+	// Check Export Req.
+	HmiUserX.Export := UserXMgrUIConnect.Export.Dialog.Confirm;
+	
 	//Duplicate file checks
 	HmiUserX.FileDuplicate := FALSE;
 	FOR i := 0 TO ((SIZEOF(UserXMgrUIConnect.Import.Dialog.List.FileNames) / SIZEOF(UserXMgrUIConnect.Import.Dialog.List.FileNames[0])) - 1) DO
@@ -49,10 +52,66 @@ ACTION HMIAction:
 	IF HmiUserX.FileDuplicate AND (HmiUserX.ConfirmOverwrite) THEN
 		UserXMgrUIConnect.Export.Dialog.Confirm := TRUE;
 		HmiUserX.Export := FALSE;
-		HmiUserX.ConfirmOverwrite := FALSE;
+		
+	ELSIF HmiUserX.FileDuplicate AND (HmiUserX.CancelOverwrite) THEN  
+		UserXMgrUIConnect.Export.Dialog.Cancel := TRUE;
+		HmiUserX.Export := FALSE;
+		
 	ELSIF NOT HmiUserX.FileDuplicate AND HmiUserX.Export THEN
 		UserXMgrUIConnect.Export.Dialog.Confirm := TRUE;
 		HmiUserX.Export := FALSE;
 	END_IF
 
+	
+	// Manage Export Layer
+	(*Close*)
+	IF UserXMgrUIConnect.Export.Dialog.Cancel OR UserXMgrUIConnect.Export.Dialog.Confirm THEN
+		UserXMgrUIConnect.Export.Dialog.LayerStatus := HIDE;
+	END_IF	
+	
+	// Manage FileDupliacte Layer
+	(*Close*)
+	IF HmiUserX.CancelOverwrite OR HmiUserX.ConfirmOverwrite THEN
+		HmiUserX.FileDuplicateLayerStatus := HIDE;	  
+	END_IF
+	(*Open*)
+	IF EDGEPOS(HmiUserX.FileDuplicate) THEN
+		HmiUserX.FileDuplicateLayerStatus := DISPLAY;
+	END_IF;
+	
+
+	// if the system has been opened just now
+	IF isFirstInCycle THEN
+		FirstInCycle;	  
+	END_IF;
+	
 END_ACTION
+
+ACTION FirstInCycle:
+	
+	isFirstInCycle := FALSE;		
+	HmiUserX.FileDuplicateLayerStatus := HIDE;
+
+END_ACTION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15842,7 +15842,7 @@
                   <Property Name="UserID" Value="None"/>
                   <Property Name="VCType" Value="STRING"/>
                 </DataPoint>
-                <DataPoint Name="Confirm">
+                <DataPoint Name="Cancel">
                   <Property Name="ConnectedBySharedResource" Value="False"/>
                   <Property Name="ConnectingVisus" Value="VC4\Visu"/>
                   <Property Name="Description" Value=""/>
@@ -15851,7 +15851,7 @@
                   <Property Name="UserID" Value="None"/>
                   <Property Name="VCType" Value="BOOL"/>
                 </DataPoint>
-                <DataPoint Name="Cancel">
+                <DataPoint Name="Confirm">
                   <Property Name="ConnectedBySharedResource" Value="False"/>
                   <Property Name="ConnectingVisus" Value="VC4\Visu"/>
                   <Property Name="Description" Value=""/>
@@ -16034,6 +16034,37 @@
                 </DataPoint>
               </Folder>
             </Folder>
+          </Folder>
+          <Folder Name="HmiUserX">
+            <Property Name="Description" Value=""/>
+            <Property Name="FolderType" Value="Struct"/>
+            <DataPoint Name="ConfirmOverwrite">
+              <Property Name="ConnectedBySharedResource" Value="False"/>
+              <Property Name="ConnectingVisus" Value="VC4\Visu"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="PLCType" Value="BOOL"/>
+              <Property Name="UpdateTime" Value="Default"/>
+              <Property Name="UserID" Value="None"/>
+              <Property Name="VCType" Value="BOOL"/>
+            </DataPoint>
+            <DataPoint Name="CancelOverwrite">
+              <Property Name="ConnectedBySharedResource" Value="False"/>
+              <Property Name="ConnectingVisus" Value="VC4\Visu"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="PLCType" Value="BOOL"/>
+              <Property Name="UpdateTime" Value="Default"/>
+              <Property Name="UserID" Value="None"/>
+              <Property Name="VCType" Value="BOOL"/>
+            </DataPoint>
+            <DataPoint Name="FileDuplicateLayerStatus">
+              <Property Name="ConnectedBySharedResource" Value="False"/>
+              <Property Name="ConnectingVisus" Value="VC4\Visu"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="PLCType" Value="USINT"/>
+              <Property Name="UpdateTime" Value="Default"/>
+              <Property Name="UserID" Value="None"/>
+              <Property Name="VCType" Value="INTEGER"/>
+            </DataPoint>
           </Folder>
         </Folder>
       </Folder>
