@@ -22,11 +22,9 @@ VAR
 	HmiUserX : HMIUser_Typ;
 END_VAR
 (*Enumerations*)
-VAR
-	UserXCheckState : enumCheckState; (*Used by the HMI Action to check for duplicate files*)
-END_VAR
 (*Variables*)
 VAR
+	UserXCheckState : enumCheckState;
 	temp : STRING[255]; (*Temporary string holder for checking file names*)
 	isFirstInCycle : BOOL := TRUE;
 END_VAR

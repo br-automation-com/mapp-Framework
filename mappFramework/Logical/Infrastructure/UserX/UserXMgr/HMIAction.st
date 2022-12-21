@@ -1,6 +1,6 @@
 
 ACTION HMIAction:
-	// Check if the file name has already been used
+
 	CASE UserXCheckState OF
 		USERX_START:
 			IF NOT UserXMgrUIConnect.Import.ShowDialog THEN
@@ -35,9 +35,10 @@ ACTION HMIAction:
 	IF UserXMgrUIConnect.Export.ShowDialog THEN
 		UserXCheckState := USERX_NEW_EXPORT;
 	END_IF
-
-	// Check Export Req.
-	HmiUserX.Export := UserXMgrUIConnect.Export.Dialog.Confirm;
+	
+	
+	
+	
 	
 	//Duplicate file checks
 	HmiUserX.FileDuplicate := FALSE;
@@ -52,30 +53,40 @@ ACTION HMIAction:
 	IF HmiUserX.FileDuplicate AND (HmiUserX.ConfirmOverwrite) THEN
 		UserXMgrUIConnect.Export.Dialog.Confirm := TRUE;
 		HmiUserX.Export := FALSE;
+		HmiUserX.FileDuplicate := FALSE;
 		
 	ELSIF HmiUserX.FileDuplicate AND (HmiUserX.CancelOverwrite) THEN  
 		UserXMgrUIConnect.Export.Dialog.Cancel := TRUE;
 		HmiUserX.Export := FALSE;
+		HmiUserX.FileDuplicate := FALSE;
 		
 	ELSIF NOT HmiUserX.FileDuplicate AND HmiUserX.Export THEN
 		UserXMgrUIConnect.Export.Dialog.Confirm := TRUE;
 		HmiUserX.Export := FALSE;
+		
+	ELSIF NOT HmiUserX.FileDuplicate AND UserXMgrUIConnect.Export.Dialog.Cancel THEN
+		UserXMgrUIConnect.Export.Dialog.Cancel := TRUE;
+		HmiUserX.Export := FALSE;
 	END_IF
-
 	
-	// Manage Export Layer
+	
+	
+	// Manage FileExport Layer
 	(*Close*)
-	IF UserXMgrUIConnect.Export.Dialog.Cancel OR UserXMgrUIConnect.Export.Dialog.Confirm THEN
+	IF UserXMgrUIConnect.Export.Dialog.Cancel OR HmiUserX.Export THEN
 		UserXMgrUIConnect.Export.Dialog.LayerStatus := HIDE;
-	END_IF	
+	END_IF
+	
 	
 	// Manage FileDupliacte Layer
 	(*Close*)
 	IF HmiUserX.CancelOverwrite OR HmiUserX.ConfirmOverwrite THEN
+		HmiUserX.CancelOverwrite := FALSE;		
+		HmiUserX.ConfirmOverwrite := FALSE;
 		HmiUserX.FileDuplicateLayerStatus := HIDE;	  
 	END_IF
 	(*Open*)
-	IF EDGEPOS(HmiUserX.FileDuplicate) THEN
+	IF HmiUserX.Export AND HmiUserX.FileDuplicate THEN
 		HmiUserX.FileDuplicateLayerStatus := DISPLAY;
 	END_IF;
 	
