@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="AlarmXCurrent_content" height="620" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.AlarmList" id="AlarmListCurrentAlarms" top="40" left="0" width="1120" height="380" zIndex="0" format="yyyy-MM-dd hh:mm" imagePrefix="Media/mappFrameworkSymbols/Alarm/" itemsPerPage="6" searchBox="false" borderStyle="solid" borderWidth="2px" borderColor="rgba(100, 100, 100, 1)" headerBackColor="rgba(255, 255, 255, 1)" headerTextColor="rgba(0, 0, 0, 1)" backColorOddRow="rgba(240, 240, 240, 1)" textColor="rgba(0, 0, 0, 1)" fontSize="16px" textAlign="left">
+    <Widget xsi:type="widgets.brease.AlarmList" id="AlarmListCurrentAlarms" top="40" left="0" width="1120" height="380" zIndex="0" format="yyyy-MM-dd hh:mm" itemsPerPage="6" searchBox="false" borderStyle="solid" borderWidth="2px" borderColor="rgba(100, 100, 100, 1)" headerBackColor="rgba(255, 255, 255, 1)" headerTextColor="rgba(0, 0, 0, 1)" backColorOddRow="rgba(240, 240, 240, 1)" textColor="rgba(0, 0, 0, 1)" fontSize="16px" textAlign="left">
       <Widgets>
         <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItemTimeStamp" width="160" zIndex="0" columnType="timestamp" text="$IAT/mappFramework/Alarm/TimeStamp" />
         <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItemAlarmMessage" width="585" zIndex="1" text="$IAT/mappFramework/Alarm/AlarmMessage" />
