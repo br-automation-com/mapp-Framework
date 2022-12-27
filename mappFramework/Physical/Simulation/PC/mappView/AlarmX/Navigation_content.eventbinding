@@ -16,14 +16,14 @@
       <EventHandler condition="newValue &gt; 0">
         <Action>
           <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="Navigation_content" widgetRefId="LoadAlarmContent">
-            <Method xsi:type="widgets.brease.ToggleButton.Action.SetImage" image="Media/SymbolLib/Alarm/AlarmActive.svg" />
+            <Method xsi:type="widgets.brease.ToggleButton.Action.SetImage" image="Media/mappFrameworkSymbols/Alarm/AlarmActive.svg" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="newValue = 0">
         <Action>
           <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="Navigation_content" widgetRefId="LoadAlarmContent">
-            <Method xsi:type="widgets.brease.ToggleButton.Action.SetImage" image="Media/SymbolLib/Alarm/Alarm.svg" />
+            <Method xsi:type="widgets.brease.ToggleButton.Action.SetImage" image="Media/mappFrameworkSymbols/Alarm/Alarm.svg" />
           </Target>
         </Action>
       </EventHandler>

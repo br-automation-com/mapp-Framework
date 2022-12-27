@@ -3,7 +3,7 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.Table" id="TableFileFolder" top="200" left="230" width="655" height="335" zIndex="0">
       <Widgets>
-        <Widget xsi:type="widgets.brease.TableItemImageList" id="TableItemImageListType" zIndex="0" columnWidth="65" imageList="['Folder.svg', 'File.svg', 'FileSelected.svg']" imagePrefix="Media/SymbolLib/File/" />
+        <Widget xsi:type="widgets.brease.TableItemImageList" id="TableItemImageListType" zIndex="0" columnWidth="65" imageList="['Folder.svg', 'File.svg', 'FileSelected.svg']" imagePrefix="Media/mappFrameworkSymbols/File/" />
         <Widget xsi:type="widgets.brease.TableItem" id="TableItemObjectNames" zIndex="1" columnWidth="300" text="$IAT/mappFramework/File/Files" />
         <Widget xsi:type="widgets.brease.TableItemDateTime" id="TableItemDateTime1" zIndex="2" columnWidth="170" format="$IAT/mappFramework/File/DateTimeFormat" text="$IAT/mappFramework/File/Timestamp" />
         <Widget xsi:type="widgets.brease.TableItem" id="TableItemFileSize" zIndex="3" columnWidth="120" showUnit="true" text="$IAT/mappFramework/File/Size" unit="{'metric':'2P','imperial':'2P','imperial-us':'2P'}" />
@@ -12,7 +12,7 @@
     <Widget xsi:type="widgets.brease.Table" id="TableFileDevice" top="200" left="30" width="195" height="335" zIndex="1">
       <Widgets>
         <Widget xsi:type="widgets.brease.TableItem" id="TableItemFileDeviceList" zIndex="0" columnWidth="160" text="$IAT/mappFramework/File/Devices" />
-        <Widget xsi:type="widgets.brease.TableItemImageList" id="TableItemFifoSelected" zIndex="1" columnWidth="35" imageList="['Empty.svg', 'FileScan.svg']" imagePrefix="Media/SymbolLib/File/" rowHeight="30" />
+        <Widget xsi:type="widgets.brease.TableItemImageList" id="TableItemFifoSelected" zIndex="1" columnWidth="35" imageList="['Empty.svg', 'FileScan.svg']" imagePrefix="Media/mappFrameworkSymbols/File/" rowHeight="30" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.PushButton" id="BtnRename" top="600" left="30" width="130" height="50" zIndex="2" text="$IAT/mappFramework/File/Rename" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
@@ -28,13 +28,13 @@
     <Widget xsi:type="widgets.brease.Label" id="LabelPath" top="50" left="30" width="150" height="50" zIndex="12" text="$IAT/mappFramework/File/Path" borderWidth="2px" borderStyle="none" fontName="Arial Unicode" fontSize="16px" bold="true" />
     <Widget xsi:type="widgets.brease.TextInput" id="TextInSearchKeyword" top="113" left="190" width="425" height="35" zIndex="13" style="Input" />
     <Widget xsi:type="widgets.brease.TextOutput" id="TextOutCurrentPath" top="50" left="535" width="285" height="50" zIndex="14" value="Current Path" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnBack" top="50" left="205" width="70" height="50" zIndex="15" image="Media/SymbolLib/Arrow/ArrowLeft.svg" imageAlign="top" text="Back" disabledImageColor="rgba(192, 192, 192, 1)" borderWidth="0px 2px 0px 0px" disabledBackColor="rgba(255, 255, 255, 0)" fontSize="10px" enable="false" style="transparent" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnForward" top="50" left="275" width="70" height="50" zIndex="16" image="Media/SymbolLib/Arrow/ArrowRight.svg" imageAlign="top" text="Forward" disabledImageColor="rgba(192, 192, 192, 1)" disabledBackColor="rgba(255, 255, 255, 0)" textAlign="center" fontSize="10px" enable="false" style="transparent" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnBack" top="50" left="205" width="70" height="50" zIndex="15" image="Media/mappFrameworkSymbols/Arrow/ArrowLeft.svg" imageAlign="top" text="Back" disabledImageColor="rgba(192, 192, 192, 1)" borderWidth="0px 2px 0px 0px" disabledBackColor="rgba(255, 255, 255, 0)" fontSize="10px" enable="false" style="transparent" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnForward" top="50" left="275" width="70" height="50" zIndex="16" image="Media/mappFrameworkSymbols/Arrow/ArrowRight.svg" imageAlign="top" text="Forward" disabledImageColor="rgba(192, 192, 192, 1)" disabledBackColor="rgba(255, 255, 255, 0)" textAlign="center" fontSize="10px" enable="false" style="transparent" />
     <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownSortOrder" top="155" left="190" width="425" height="35" zIndex="17" dataProvider="[{'value':'mpFILE_SORT_BY_NAME_ASC','text':'$IAT/mappFramework/File/Sort.NameAsc'},{'value':'mpFILE_SORT_BY_NAME_DESC','text':'$IAT/mappFramework/File/Sort.NameDesc'},{'value':'mpFILE_SORT_BY_SIZE_ASC','text':'$IAT/mappFramework/File/Sort.SizeAsc'},{'value':'mpFILE_SORT_BY_SIZE_DES','text':'$IAT/mappFramework/File/Sort.SizeDesc'},{'value':'mpFILE_SORT_BY_MOD_TIME_ASC','text':'$IAT/mappFramework/File/Sort.TimeAsc'},{'value':'mpFILE_SORT_BY_MOD_TIME_DESC','text':'$IAT/mappFramework/File/Sort.TimeDesc'}]" listPosition="bottom" listWidth="425" selectedValue="mpFILE_SORT_BY_NAME_ASC" style="ListBottom" />
     <Widget xsi:type="widgets.brease.Label" id="LabelRename" top="550" left="30" width="285" height="35" zIndex="18" text="$IAT/mappFramework/File/NewName" borderWidth="2px" borderStyle="none" fontName="Arial Unicode" fontSize="16px" bold="true" />
     <Widget xsi:type="widgets.brease.TextInput" id="TextInNewName" top="550" left="355" width="325" height="35" zIndex="19" value="New Name Folder / File" style="Input" />
     <Widget xsi:type="widgets.brease.TextOutput" id="TextOutCurrentDevice" top="50" left="375" width="160" height="50" zIndex="20" value="Current Device" borderWidth="0px 2px 0px 0px" borderStyle="solid" />
-    <Widget xsi:type="widgets.brease.ToggleButton" id="BtnFIFOConfigure" top="200" left="900" width="200" height="50" zIndex="21" breakWord="true" image="Media/SymbolLib/File/FileScan.svg" multiLine="true" text="$IAT/mappFramework/File/FIFO.Configure" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="BtnFIFOConfigure" top="200" left="900" width="200" height="50" zIndex="21" breakWord="true" image="Media/mappFrameworkSymbols/File/FileScan.svg" multiLine="true" text="$IAT/mappFramework/File/FIFO.Configure" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
     <Widget xsi:type="widgets.brease.Button" id="BtnFilePageUp" top="415" left="900" width="200" height="50" zIndex="22" text="$IAT/mappFramework/File/PageUp" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
     <Widget xsi:type="widgets.brease.Button" id="BtnFilePageDown" top="485" left="900" width="200" height="50" zIndex="23" text="$IAT/mappFramework/File/PageDown" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
   </Widgets>
