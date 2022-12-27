@@ -4,16 +4,16 @@
   
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Parameters.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumInFeederSetVel" attribute="node" />
+            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumInSetSpeed" attribute="node" />
         </Binding>
 
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Status.Position" attribute="node" />
-            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumOutFeedPos" attribute="node" />
+            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumOutActPosition" attribute="node" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Status.Velocity" attribute="node" />
-            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumOutFeederActSpeed" attribute="node" />
+            <Target xsi:type="brease" contentRefId="AxisAuto_content" widgetRefId="NumOutActSpeed" attribute="node" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::AppAxis_1:AxisControl.Command.Start" attribute="value" />
