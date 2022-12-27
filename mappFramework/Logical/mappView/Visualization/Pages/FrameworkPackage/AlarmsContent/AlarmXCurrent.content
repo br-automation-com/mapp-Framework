@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="AlarmXCurrent_content" height="620" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.AlarmList" id="AlarmListCurrentAlarms" top="40" left="0" width="1120" height="380" zIndex="0" format="yyyy-MM-dd hh:mm" imagePrefix="Media/SymbolLib/Alarm/" itemsPerPage="6" searchBox="false" borderStyle="solid" borderWidth="2px" borderColor="rgba(100, 100, 100, 1)" headerBackColor="rgba(255, 255, 255, 1)" headerTextColor="rgba(0, 0, 0, 1)" backColorOddRow="rgba(240, 240, 240, 1)" textColor="rgba(0, 0, 0, 1)" fontSize="16px" textAlign="left">
+    <Widget xsi:type="widgets.brease.AlarmList" id="AlarmListCurrentAlarms" top="40" left="0" width="1120" height="380" zIndex="0" format="yyyy-MM-dd hh:mm" imagePrefix="Media/mappFrameworkSymbols/Alarm/" itemsPerPage="6" searchBox="false" borderStyle="solid" borderWidth="2px" borderColor="rgba(100, 100, 100, 1)" headerBackColor="rgba(255, 255, 255, 1)" headerTextColor="rgba(0, 0, 0, 1)" backColorOddRow="rgba(240, 240, 240, 1)" textColor="rgba(0, 0, 0, 1)" fontSize="16px" textAlign="left">
       <Widgets>
         <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItemTimeStamp" width="160" zIndex="0" columnType="timestamp" text="$IAT/mappFramework/Alarm/TimeStamp" />
         <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItemAlarmMessage" width="585" zIndex="1" text="$IAT/mappFramework/Alarm/AlarmMessage" />
@@ -9,8 +9,8 @@
         <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItemAdditionalInformation" width="250" zIndex="3" columnType="additionalInfo1" text="$IAT/mappFramework/Alarm/AdditionalInformation" />
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnAcknowledgeAlarm" top="5" left="679" width="170" zIndex="1" image="Media/SymbolLib/Alarm/Acknowledge.svg" text="$IAT/mappFramework/Alarm/Acknowledge" style="transparent" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnAcknowledgeAllAlarms" top="5" left="900" width="200" zIndex="2" image="Media/SymbolLib/Alarm/Acknowledge.svg" text="$IAT/mappFramework/Alarm/AcknowledgeAll" textAlign="left" style="transparent" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnAcknowledgeAlarm" top="5" left="679" width="170" zIndex="1" image="Media/mappFrameworkSymbols/Alarm/Acknowledge.svg" text="$IAT/mappFramework/Alarm/Acknowledge" style="transparent" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnAcknowledgeAllAlarms" top="5" left="900" width="200" zIndex="2" image="Media/mappFrameworkSymbols/Alarm/Acknowledge.svg" text="$IAT/mappFramework/Alarm/AcknowledgeAll" textAlign="left" style="transparent" />
     <Widget xsi:type="widgets.brease.Line" id="Line1" zIndex="3" x1="0" x2="0" y1="0" y2="60" lineWidth="5px" />
     <Widget xsi:type="widgets.brease.GroupBox" id="GrpBoxBacktrace" top="425" left="0" width="1120" height="190" zIndex="4" text="$IAT/mappFramework/Alarm/Backtrace" backColor="rgba(255, 255, 255, 1)" textAlign="left">
       <Widgets>
@@ -26,7 +26,7 @@
         <Widget xsi:type="widgets.brease.TextOutput" id="TextOutBacktrace5" top="124" left="170" width="920" zIndex="4" textColor="rgba(255, 0, 0, 1)" visible="false" />
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnActiveAlarmSort" top="5" left="0" width="120" zIndex="5" image="Media/SymbolLib/Edit/Sort.svg" text="$IAT/mappFramework/Alarm/Sort" imageHeight="20" imageWidth="20" style="transparent" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnActiveAlarmFilter" top="5" left="140" width="120" zIndex="6" image="Media/SymbolLib/Edit/Filter.svg" text="$IAT/mappFramework/Alarm/Filter" imageHeight="20" imageWidth="20" style="transparent" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnActiveAlarmSort" top="5" left="0" width="120" zIndex="5" image="Media/mappFrameworkSymbols/Edit/Sort.svg" text="$IAT/mappFramework/Alarm/Sort" imageHeight="20" imageWidth="20" style="transparent" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnActiveAlarmFilter" top="5" left="140" width="120" zIndex="6" image="Media/mappFrameworkSymbols/Edit/Filter.svg" text="$IAT/mappFramework/Alarm/Filter" imageHeight="20" imageWidth="20" style="transparent" />
   </Widgets>
 </Content>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="AlarmXHistory_content" height="620" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.AlarmHistory" id="AlarmHist" top="40" left="0" width="1120" height="580" zIndex="0" format="yyyy-MM-dd hh:mm" imagePrefix="Media/SymbolLib/Alarm/" itemsPerPage="9" searchBox="false" fontSize="16px">
+    <Widget xsi:type="widgets.brease.AlarmHistory" id="AlarmHist" top="40" left="0" width="1120" height="580" zIndex="0" format="yyyy-MM-dd hh:mm" imagePrefix="Media/mappFrameworkSymbols/Alarm/" itemsPerPage="9" searchBox="false" fontSize="16px">
       <Widgets>
         <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistItemTimeStamp" width="160" zIndex="0" columnType="timestamp" text="$IAT/mappFramework/Alarm/TimeStamp" />
         <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistItemAlarmMessage" width="810" zIndex="1" text="$IAT/mappFramework/Alarm/AlarmMessage" />
@@ -9,8 +9,8 @@
         <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistItemNewState" width="75" zIndex="3" columnType="new state" text="$IAT/mappFramework/Alarm/NewState" />
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnExport" top="5" left="940" width="170" zIndex="1" image="Media/SymbolLib/Icons/Export.svg" text="$IAT/mappFramework/Alarm/Export" imageHeight="50" imageWidth="50" style="transparent" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnHistoryAlarmSort" top="5" left="0" width="120" zIndex="2" image="Media/SymbolLib/Edit/Sort.svg" text="$IAT/mappFramework/Alarm/Sort" imageHeight="20" imageWidth="20" style="transparent" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnHistoryAlarmFilter" top="5" left="140" width="120" zIndex="3" image="Media/SymbolLib/Edit/Filter.svg" text="$IAT/mappFramework/Alarm/Filter" imageHeight="20" imageWidth="20" style="transparent" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnExport" top="5" left="940" width="170" zIndex="1" image="Media/mappFrameworkSymbols/Icons/Export.svg" text="$IAT/mappFramework/Alarm/Export" imageHeight="50" imageWidth="50" style="transparent" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnHistoryAlarmSort" top="5" left="0" width="120" zIndex="2" image="Media/mappFrameworkSymbols/Edit/Sort.svg" text="$IAT/mappFramework/Alarm/Sort" imageHeight="20" imageWidth="20" style="transparent" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnHistoryAlarmFilter" top="5" left="140" width="120" zIndex="3" image="Media/mappFrameworkSymbols/Edit/Filter.svg" text="$IAT/mappFramework/Alarm/Filter" imageHeight="20" imageWidth="20" style="transparent" />
   </Widgets>
 </Content>
