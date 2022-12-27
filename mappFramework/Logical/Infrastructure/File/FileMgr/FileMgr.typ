@@ -30,7 +30,7 @@ TYPE
 		IsFolder : BOOL; (*Flag for whether the item is a folder (versus a file)*)
 		BackButton : BOOL; (*Flag for whether the back button should be shown*)
 		DeleteStep : FileDeleteStepEnum; (*Enumeration for automatic file deletion steps*)
-		AutoDeleteSelected : USINT; (*Number of selected items*)
+		AutoDeleteSelected : USINT; (*Index for automatic file deletion*)
 		FolderSize : REAL; (*Size of currently selected folder*)
 		SelectedIndex : USINT; (*Selected index in the file list*)
 		FifoConfigEnable : BOOL; (*Disable FIFO access or change confirmation when FIFO is active*)

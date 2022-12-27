@@ -210,7 +210,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_2" comment="Displays warning about duplicate file">
-      <Source xsi:type="opcUa.Event" refId="::UserXMgr:HmiUserX.FileDuplicate" event="ValueChanged" />
+			<Source xsi:type="opcUa.Event" refId="::UserXMgr:HmiUserX.Status.FileDuplicate" event="ValueChanged" />
       <EventHandler condition="newValue = true">
         <Action>
           <Target xsi:type="clientSystem.Action">

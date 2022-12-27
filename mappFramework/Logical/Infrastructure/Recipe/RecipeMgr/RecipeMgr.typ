@@ -10,8 +10,6 @@ TYPE
 		LoadRecipe : BOOL; (*Load recipe*)
 		SaveSelectedRecipe : BOOL; (*Save the selected recipe (which is not necessarily the active recipe)*)
 		CreateRecipe : BOOL; (*Create recipe*)
-		ImportFromUSB : BOOL; (*Import from USB device*)
-		ExportToUSB : BOOL; (*Export to USB device*)
 		ResetPreview : BOOL; (*Reset the preview to empty/zeros in the event of an invalid recipe*)
 	END_STRUCT;
 	RecipeParametersType : 	STRUCT  (*Structure to hold the parameters for the HMI*)
