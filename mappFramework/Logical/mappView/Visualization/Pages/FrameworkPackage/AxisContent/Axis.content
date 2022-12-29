@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="Axis_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.TabControl" id="TabCtrlAxis" top="0" left="0" width="1120" height="660" zIndex="3" borderWidth="0px 0px 0px 0px">
+    <Widget xsi:type="widgets.brease.TabControl" id="TabCtrlAxis" top="0" left="0" width="1120" height="658" zIndex="3" borderWidth="0px 0px 0px 0px">
       <Widgets>
         <Widget xsi:type="widgets.brease.TabItem" id="TabItemManual" left="0" width="200" height="45" zIndex="0" text="$IAT/mappFramework/Axis/Manu" fontSize="18px">
           <Widgets>
@@ -15,5 +15,6 @@
         </Widget>
       </Widgets>
     </Widget>
+    <Widget xsi:type="widgets.brease.Label" id="LabelPage" top="10" left="950" width="150" zIndex="4" text="$IAT/mappFramework/Axis/Axis" textAlign="right" fontSize="24px" bold="true" />
   </Widgets>
 </Content>
