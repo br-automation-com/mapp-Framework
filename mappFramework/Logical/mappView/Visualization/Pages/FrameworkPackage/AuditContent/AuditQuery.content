@@ -4,8 +4,8 @@
     <Widget xsi:type="widgets.brease.Table" id="TableAuditQuery" top="40" left="0" width="1120" height="580" zIndex="0" cellAlign="left center">
       <Widgets>
         <Widget xsi:type="widgets.brease.TableItemDateTime" id="TableItemAuditQueryDateTime" zIndex="0" columnWidth="300" text="$IAT/mappFramework/Audit/Timestamp" />
-        <Widget xsi:type="widgets.brease.TableItem" id="TableItemAuditQueryOperator" zIndex="1" columnWidth="150" text="$IAT/mappFramework/Audit/Operator" />
-        <Widget xsi:type="widgets.brease.TableItem" id="TableItemAuditQueryMessage" zIndex="2" columnWidth="670" text="$IAT/mappFramework/Audit/Message" />
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItemAuditQueryMessage" zIndex="1" columnWidth="660" text="$IAT/mappFramework/Audit/Message" />
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItemAuditQueryOperator" zIndex="2" columnWidth="160" text="$IAT/mappFramework/Audit/Operator" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.PushButton" id="PushBtnRunAuditQuery" top="0" left="960" width="160" zIndex="1" text="$IAT/mappFramework/Audit/RunQuery" permissionOperate="['Administrators', 'Service']" style="Operate" />

@@ -53,7 +53,7 @@ PROGRAM _INIT
 	CustomEvent[2].Comment := "Result can be seen in the Query tab";
 
 	HmiAudit.Status.Query.Name := 'UserEvents';
-	HmiAudit.Status.Query.Option := 1;
+	HmiAudit.Status.Query.Option := 0;
 
 	// Configuring the query selection, reading the available components
 	HmiAudit.Parameters.QuerySelection[0] := 'UserXMgr';
