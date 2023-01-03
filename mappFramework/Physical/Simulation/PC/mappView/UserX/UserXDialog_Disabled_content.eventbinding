@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="UserXDialog_Disabled_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="EventBinding_3">
+      <Source xsi:type="clientSystem.Event" event="DisabledClick" />
+      <EventHandler condition="hasPermission = FALSE">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="UserXDisabled_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_4">
+      <Source xsi:type="widgets.brease.MomentaryPushButton.Event" contentRefId="UserXDialog_Disabled_content" widgetRefId="MPushBtnCancelDisabled" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="UserXDisabled_dialog" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+  </Bindings>
+</EventBindingSet>
