@@ -38,6 +38,7 @@ TYPE
 		TimeStamp : ARRAY[0..MAX_QUERY_RESULTS]OF DATE_AND_TIME; (*TimeStamp array*)
 		Code : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT; (*Code array*)
 		Severity : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT; (*Severity array*)
+		State : ARRAY[0..MAX_QUERY_RESULTS]OF CurrentAlarmStateEnum; (*State message array*)
 		QueryCount : USINT; (*Count of query results for building the query table configuration string*)
 	END_STRUCT;
 	AlarmType : 	STRUCT  (*Structure to hold the alarm data for the query results*)
@@ -50,6 +51,7 @@ TYPE
 		TimeStamp : DATE_AND_TIME; (*ActiveAlarms query, TimeStamp column*)
 		Code : UDINT; (*ActiveAlarms query, Code column*)
 		Severity : UDINT; (*ActiveAlarms query, Severity column*)
+		State : CurrentAlarmStateEnum; (*ActiveAlarms query, State column*)
 	END_STRUCT;
 	MachineDigitalInputsType : 	STRUCT  (*Safety related digital inputs *)
 		EmergencyStop : ARRAY[0..MAX_ESTOP]OF BOOL; (*Emergency stop input signals*)
@@ -74,5 +76,12 @@ TYPE
 		ACTIVE_ALARM_WAIT, (*Wait state*)
 		ACTIVE_ALARM_QUERY, (*State to query the alarm data*)
 		ACTIVE_ALARM_NEXT (*State to check if more alarms meet the query criteria and need to be queried*)
+		);
+	CurrentAlarmStateEnum : 
+		( (*Enumeration for the state of a particular alarm*)
+		INACTIVE_NOT_ACKNOWLEDGED := 0, (*Alarm inactive and not acknowledged*)
+		ACTIVE_NOT_ACKNOWLEDGED := 1, (*Alarm active and not acknowledged*)
+		ACTIVE_ACKNOWLEDGED := 2, (*Alarm active and acknowledged*)
+		INACTIVE_ACKNOWLEDGED := 3 (*Alarm inactive and acknowledged*)
 		);
 END_TYPE
