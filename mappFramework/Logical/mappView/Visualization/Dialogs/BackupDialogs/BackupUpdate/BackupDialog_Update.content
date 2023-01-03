@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Content id="BackupDialog_Update_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
     <Widget xsi:type="widgets.brease.Image" id="BusyImage" top="120" left="165" width="120" height="130" zIndex="1" image="Media/mappFrameworkSymbols/Gifs/InProgress.gif" useSVGStyling="false" backColor="rgba(255, 255, 255, 1)" opacity="1" margin="0px" />
     <Widget xsi:type="widgets.brease.GroupBox" id="ContentGroup" top="0" left="0" width="450" height="300" zIndex="2" backColor="rgba(255, 255, 255, 1)">
       <Widgets>
-        <Widget xsi:type="widgets.brease.Button" id="CreateButton" top="235" left="15" width="150" height="50" zIndex="0" text="$IAT/mappFramework/Backup/Apply" textColor="rgba(255, 255, 255, 1)" fontSize="20px" style="Command" />
-        <Widget xsi:type="widgets.brease.Button" id="CancelButton" top="235" left="285" width="150" height="50" zIndex="1" text="$IAT/mappFramework/Backup/Cancel" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="20px" style="Command" />
+        <Widget xsi:type="widgets.brease.Button" id="BtnCreate" top="235" left="15" width="150" height="50" zIndex="0" text="$IAT/mappFramework/Backup/Apply" textColor="rgba(255, 255, 255, 1)" fontSize="20px" style="Command" />
+        <Widget xsi:type="widgets.brease.Button" id="BtnCancel" top="235" left="285" width="150" height="50" zIndex="1" text="$IAT/mappFramework/Backup/Cancel" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="20px" style="Command" />
         <Widget xsi:type="widgets.brease.TextOutput" id="txtOutVersionLbl" top="105" left="15" width="170" zIndex="2" value="$IAT/mappFramework/Backup/Version" fontSize="18px" bold="true" />
         <Widget xsi:type="widgets.brease.TextOutput" id="txtOutName" top="50" left="175" width="140" zIndex="3" fontSize="18px" />
         <Widget xsi:type="widgets.brease.TextOutput" id="txtOutNameLbl" top="50" left="15" width="170" zIndex="4" value="$IAT/mappFramework/Backup/Name" fontSize="18px" bold="true" />

@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Content id="BackupDialog_Create_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
     <Widget xsi:type="widgets.brease.Image" id="BusyImage" top="120" left="165" width="120" height="130" zIndex="1" image="Media/mappFrameworkSymbols/Gifs/InProgress.gif" useSVGStyling="false" backColor="rgba(255, 255, 255, 1)" opacity="1" margin="0px" />
     <Widget xsi:type="widgets.brease.GroupBox" id="ContentGroup" top="0" left="0" width="450" height="300" zIndex="2" backColor="rgba(255, 255, 255, 1)">
       <Widgets>
-        <Widget xsi:type="widgets.brease.Button" id="CreateButton" top="235" left="15" width="150" height="50" zIndex="0" text="$IAT/mappFramework/Backup/Create" textColor="rgba(255, 255, 255, 1)" fontSize="20px" style="Command" />
-        <Widget xsi:type="widgets.brease.Button" id="CancelButton" top="235" left="285" width="150" height="50" zIndex="2" text="$IAT/mappFramework/Backup/Cancel" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="20px" style="Command" />
+        <Widget xsi:type="widgets.brease.Button" id="BtnCreate" top="235" left="15" width="150" height="50" zIndex="0" text="$IAT/mappFramework/Backup/Create" textColor="rgba(255, 255, 255, 1)" fontSize="20px" style="Command" />
+        <Widget xsi:type="widgets.brease.Button" id="BtnCancel" top="235" left="285" width="150" height="50" zIndex="2" text="$IAT/mappFramework/Backup/Cancel" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="20px" style="Command" />
         <Widget xsi:type="widgets.brease.Label" id="LblNewRecipeName" top="123" left="39" width="180" zIndex="1" text="$IAT/mappFramework/Backup/Name" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
         <Widget xsi:type="widgets.brease.TextInput" id="txtInNewBackup" top="119" left="239" width="160" height="40" zIndex="3" borderWidth="0px 0px 0px 6px" backColor="rgba(175, 175, 175, 1)" borderColor="rgba(255, 136, 0, 1)" />
       </Widgets>
