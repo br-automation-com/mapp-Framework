@@ -23,5 +23,10 @@
 <Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Status.TableConfig[0]" attribute="value" />
 <Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableAlarmQuery" attribute="tableConfiguration" />
 </Binding>
+
+	<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Status.Query.State" attribute="value" />
+<Target xsi:type="brease" contentRefId="AlarmXQuery_content" widgetRefId="TableItemState" attribute="selectedIndex" />
+</Binding>
 </Bindings>
 </BindingsSet>

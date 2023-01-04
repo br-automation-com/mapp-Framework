@@ -9,14 +9,13 @@
     </Widget>
     <Widget xsi:type="widgets.brease.Table" id="FileDeviceTable" top="50" left="25" width="160" height="460" zIndex="1">
       <Widgets>
-        <Widget xsi:type="widgets.brease.TableItem" id="FileDeviceListItem" zIndex="0" columnWidth="160" text="$IAT/Report/Devices" />
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItemFileDeviceList" zIndex="0" columnWidth="160" text="$IAT/Report/Devices" />
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.Button" id="ButtonReportDialog_Create_content" top="50" left="905" width="200" height="50" zIndex="2" text="$IAT/Report/Create" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonReportDialog_Delete_content" top="132" left="905" width="200" height="50" zIndex="3" text="$IAT/Report/Delete" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonReportDialog_View_content" top="214" left="905" width="200" height="50" zIndex="4" text="$IAT/Report/View" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonReportPageUp" top="378" left="905" width="200" height="50" zIndex="5" text="$IAT/Report/PageUp" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators']" style="Command" visible="false" />
-    <Widget xsi:type="widgets.brease.Button" id="ButtonReportPageDown" top="460" left="905" width="200" height="50" zIndex="6" text="$IAT/Report/PageDown" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators']" style="Command" visible="false" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPage" top="10" left="960" width="150" zIndex="7" text="$IAT/Report/Report" textAlign="right" fontSize="24px" bold="true" />
-  </Widgets>
+	<Widget xsi:type="widgets.brease.Button" id="BtnReportDialog_Create_content" top="50" left="905" width="200" height="50" zIndex="2" text="$IAT/Report/Create" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnReportDialog_Delete_content" top="132" left="905" width="200" height="50" zIndex="3" text="$IAT/Report/Delete" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnReportDialog_View_content" top="214" left="905" width="200" height="50" zIndex="4" text="$IAT/Report/View" imageHeight="25" imageWidth="25" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnReportPageUp" top="378" left="905" width="200" height="50" zIndex="5" text="$IAT/Report/PageUp" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators']" style="Command" visible="false" />
+    <Widget xsi:type="widgets.brease.Button" id="BtnReportPageDown" top="460" left="905" width="200" height="50" zIndex="6" text="$IAT/Report/PageDown" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators']" style="Command" visible="false" />
+	</Widgets>
 </Content>

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="BackupDialog_Update_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="BackupDialog_Update_content.CreateButton.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="BackupDialog_Update_content" widgetRefId="CreateButton" event="Click" />
+    <EventBinding id="BackupDialog_Update_content.BtnBackupDialogCreate.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="BackupDialog_Update_content" widgetRefId="BtnBackupDialogCreate" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::BackupMgr:HmiBackup.Commands.Update">
@@ -11,8 +11,8 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="BackupDialog_Update_content.CancelButton.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="BackupDialog_Update_content" widgetRefId="CancelButton" event="Click" />
+    <EventBinding id="BackupDialog_Update_content.BtnBackupDialogCancel.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="BackupDialog_Update_content" widgetRefId="BtnBackupDialogCancel" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
