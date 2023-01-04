@@ -210,7 +210,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="EventBinding_2" comment="Displays warning about duplicate file">
-			<Source xsi:type="opcUa.Event" refId="::UserXMgr:HmiUserX.Status.FileDuplicate" event="ValueChanged" />
+      <Source xsi:type="opcUa.Event" refId="::UserXMgr:HmiUserX.Status.FileDuplicate" event="ValueChanged" />
       <EventHandler condition="newValue = true">
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -253,6 +253,16 @@
         <Action>
           <Target xsi:type="session.VariableAction" refId="SelectedUserName">
             <Method xsi:type="session.VariableAction.SetValueString" value="=UserName" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="clientSystem.Event.LoggedOut">
+      <Source xsi:type="clientSystem.Event" event="LoggedOut" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/UserX/LogoutAuto" header="$IAT/mappFramework/UserX/Logout" />
           </Target>
         </Action>
       </EventHandler>
