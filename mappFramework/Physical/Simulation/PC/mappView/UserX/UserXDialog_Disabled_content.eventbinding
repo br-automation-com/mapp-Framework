@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="UserXDialog_Disabled_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="EventBinding_3">
+    <EventBinding id="clientSystem.DisabledClick">
       <Source xsi:type="clientSystem.Event" event="DisabledClick" />
       <EventHandler condition="hasPermission = FALSE">
         <Action>
@@ -11,7 +11,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_4">
+    <EventBinding id="UserXDialog_Disabled_content.MPushBtnCancelDisabled.Click">
       <Source xsi:type="widgets.brease.MomentaryPushButton.Event" contentRefId="UserXDialog_Disabled_content" widgetRefId="MPushBtnCancelDisabled" event="Click" />
       <EventHandler>
         <Action>
