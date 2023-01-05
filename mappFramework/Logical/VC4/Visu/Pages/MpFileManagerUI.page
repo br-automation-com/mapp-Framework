@@ -195,7 +195,7 @@
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
-          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.PathInfo.CurrentDir]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.PathInfo.CurrentDir]"/>
           <Property Name="TextSource" Value="SingleString"/>
           <Property Name="Top" Value="83"/>
           <Property Name="Width" Value="294"/>
@@ -295,7 +295,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
           <Property Name="BitmapIndex" Value="0"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[0].ItemType]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[0].ItemType]"/>
           <Property Name="BitmapSimulationValue" Value="1"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorderInactive]"/>
@@ -326,7 +326,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
           <Property Name="BitmapIndex" Value="0"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[1].ItemType]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[1].ItemType]"/>
           <Property Name="BitmapSimulationValue" Value="2"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorderInactive]"/>
@@ -357,7 +357,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
           <Property Name="BitmapIndex" Value="0"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[2].ItemType]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[2].ItemType]"/>
           <Property Name="BitmapSimulationValue" Value="2"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorderInactive]"/>
@@ -388,7 +388,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
           <Property Name="BitmapIndex" Value="0"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[3].ItemType]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[3].ItemType]"/>
           <Property Name="BitmapSimulationValue" Value="2"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorderInactive]"/>
@@ -419,7 +419,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
           <Property Name="BitmapIndex" Value="0"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[4].ItemType]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[4].ItemType]"/>
           <Property Name="BitmapSimulationValue" Value="2"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorderInactive]"/>
@@ -479,7 +479,7 @@
         </Control>
         <Control ClassId="0x0000100B" Name="txtSearchFilter">
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
-          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.Refresh]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.Refresh]"/>
           <Property Name="CompletionValue" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -488,7 +488,7 @@
           <Property Name="SimulationValue" Value="Mp"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="114"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.Filter]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.Filter]"/>
           <Property Name="Width" Value="209"/>
         </Control>
         <Control ClassId="0x00001002" Name="cmdCreateDir">
@@ -562,7 +562,7 @@
           <Property Name="SimulationValue" Value="Folder / File"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="339"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.NewName]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.NewName]"/>
           <Property Name="Width" Value="233"/>
         </Control>
         <Control ClassId="0x00001012" Name="sclScrollBar">
@@ -581,10 +581,10 @@
           <Property Name="MinorPitchLines" Value="1"/>
           <Property Name="Orientation" Value="Left"/>
           <Property Name="RangeColor" Value="253"/>
-          <Property Name="RangeEndDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.RangeEnd]"/>
+          <Property Name="RangeEndDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.RangeEnd]"/>
           <Property Name="RangeEndValue" Value="90"/>
           <Property Name="RangeSpacing" Value="0"/>
-          <Property Name="RangeStartDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.RangeStart]"/>
+          <Property Name="RangeStartDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.RangeStart]"/>
           <Property Name="RangeStartValue" Value="30"/>
           <Property Name="RangeWidth" Value="32"/>
           <Property Name="Spacing" Value="0"/>
@@ -789,7 +789,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="ForeColor" Value="254"/>
           <Property Name="Height" Value="26"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.Status]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.Status]"/>
           <Property Name="Left" Value="643"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
@@ -805,7 +805,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
           <Property Name="BitmapIndex" Value="0"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[5].ItemType]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[5].ItemType]"/>
           <Property Name="BitmapSimulationValue" Value="2"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorderInactive]"/>
@@ -836,7 +836,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
           <Property Name="BitmapIndex" Value="0"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[6].ItemType]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[6].ItemType]"/>
           <Property Name="BitmapSimulationValue" Value="2"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorderInactive]"/>
@@ -867,7 +867,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
           <Property Name="BitmapIndex" Value="0"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[7].ItemType]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[7].ItemType]"/>
           <Property Name="BitmapSimulationValue" Value="2"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorderInactive]"/>
@@ -898,7 +898,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
           <Property Name="BitmapIndex" Value="0"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[8].ItemType]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[8].ItemType]"/>
           <Property Name="BitmapSimulationValue" Value="2"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorderInactive]"/>
@@ -929,7 +929,7 @@
           <Property Name="BitmapAlignmentHorizontal" Value="Left of Text"/>
           <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
           <Property Name="BitmapIndex" Value="0"/>
-          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[9].ItemType]"/>
+          <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[9].ItemType]"/>
           <Property Name="BitmapSimulationValue" Value="2"/>
           <Property Name="BitmapSource" Value="MultipleBitmaps"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorderInactive]"/>
@@ -1294,7 +1294,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.Delete]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.Delete]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1309,7 +1309,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.Paste]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.Paste]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1324,7 +1324,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.Copy]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.Copy]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1339,7 +1339,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.StepUp]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.StepUp]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1354,7 +1354,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.Refresh]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.Refresh]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1369,7 +1369,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.StepDown]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.StepDown]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1384,7 +1384,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.EnterFolder]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.EnterFolder]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1399,7 +1399,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.FolderUp]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.FolderUp]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1414,7 +1414,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.Cut]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.Cut]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1430,7 +1430,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[0].IsSelected]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[0].IsSelected]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1446,7 +1446,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[1].IsSelected]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[1].IsSelected]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1462,7 +1462,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[2].IsSelected]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[2].IsSelected]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1478,7 +1478,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[3].IsSelected]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[3].IsSelected]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1494,7 +1494,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[4].IsSelected]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[4].IsSelected]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1509,7 +1509,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.CreateFolder]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.CreateFolder]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1524,7 +1524,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.Rename]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.Rename]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1540,7 +1540,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1556,7 +1556,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="2"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1572,7 +1572,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="3"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1588,7 +1588,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="4"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1604,7 +1604,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="5"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1620,7 +1620,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="6"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1636,7 +1636,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="7"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1652,7 +1652,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="8"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1668,7 +1668,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="9"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1684,7 +1684,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="10"/>
               <Property Name="SetValue" Value="0"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1699,7 +1699,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.PageUp]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.PageUp]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1714,7 +1714,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.PageDown]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.PageDown]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1730,7 +1730,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.SortOrder]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.SortOrder]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1746,7 +1746,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.MultiSelect]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.MultiSelect]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1762,7 +1762,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="4"/>
               <Property Name="SetValue" Value="5"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.SortOrder]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.SortOrder]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1778,7 +1778,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="2"/>
               <Property Name="SetValue" Value="3"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.SortOrder]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.SortOrder]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1794,7 +1794,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[5].IsSelected]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[5].IsSelected]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1810,7 +1810,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[6].IsSelected]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[6].IsSelected]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1826,7 +1826,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[7].IsSelected]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[7].IsSelected]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1842,7 +1842,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[8].IsSelected]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[8].IsSelected]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1858,7 +1858,7 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.File.List.Items[9].IsSelected]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.File.List.Items[9].IsSelected]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1887,7 +1887,7 @@
       <Property Name="OutlineDisplayControl" Value="False"/>
       <Property Name="OutlineDisplayName" Value="True"/>
       <Property Name="OutlineHatched" Value="False"/>
-      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.MessageBox.LayerStatus]"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.MessageBox.LayerStatus]"/>
       <Property Name="Top" Value="0"/>
       <Property Name="VisibilityMode" Value="Hidden"/>
       <Property Name="Width" Value="800"/>
@@ -1933,7 +1933,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="127"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.MessageBox.Type]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.MessageBox.Type]"/>
           <Property Name="Left" Value="226"/>
           <Property Name="Multiline" Value="Automatic"/>
           <Property Name="SimulationIndex" Value="1"/>
@@ -2004,7 +2004,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.MessageBox.Cancel]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.MessageBox.Cancel]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -2019,7 +2019,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpFileManagerUIConnect.MessageBox.Confirm]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.MpFileManagerUIConnect.MessageBox.Confirm]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
