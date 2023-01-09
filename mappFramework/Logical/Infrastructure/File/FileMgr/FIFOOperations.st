@@ -257,6 +257,18 @@ ACTION FIFOOperation:
 				END_IF
 			END_IF
 	END_CASE
+	
+	
+	// declare devName
+//	HmiFile.Status.DeviceDataProvider[0] := 'mappRecipeFiles';
+//	HmiFile.Status.DeviceDataProvider[1] := 'mappAuditFiles';
+//	HmiFile.Status.DeviceDataProvider[2] := 'mappReportFiles';
+//	HmiFile.Status.DeviceDataProvider[3] := 'mappDataFiles';
+//	HmiFile.Status.DeviceDataProvider[4] := 'mappBackupFiles';
+//	HmiFile.Status.DeviceDataProvider[5] := 'mappAlarmXFiles';
+//	HmiFile.Status.DeviceDataProvider[6] := 'mappUserXFiles';
+//	HmiFile.Parameters.Fifo.DeviceName := HmiFile.Status.DeviceDataProvider[HmiFile.Status.DeviceDataProviderSelectedIndex];
+//	
 
 	// Save current archive setings to retain variable
 	FifoSettingsRetain := HmiFile.Parameters.Fifo;

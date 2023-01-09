@@ -15,6 +15,9 @@ PROGRAM _INIT
 		DirCreate_0(enable := FALSE);
 	END_IF
 
+	// if the system has been opened just now
+	HMIAction_Init;
+	
 	// Initialize mapp function blocks
 	UserXMgrUIConnect.User.Create.Lock := FALSE;
 	UserXMgrUIConnect.User.Lock := FALSE;

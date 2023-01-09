@@ -73,6 +73,7 @@ PROGRAM _INIT
 	HmiFile.Status.DeviceDataProvider[5] := '{"value":"mappAlarmXFiles","text":"mappAlarmXFiles"}';
 	HmiFile.Status.DeviceDataProvider[6] := '{"value":"mappUserXFiles","text":"mappUserXFiles"}';
 
+
 	// Calculate offset for potential additional USB devices
 	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
 		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
@@ -83,6 +84,9 @@ PROGRAM _INIT
 	// Restored the retained values to the FIFO settings
 	HmiFile.Parameters.Fifo := FifoSettingsRetain;
 
+	// if the system has been opened just now
+	HMIActions_Init;
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC

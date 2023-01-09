@@ -1,3 +1,10 @@
+ACTION HMIAction_Init:
+	
+	HmiUserX.FileDuplicateLayerStatus := HIDE;
+	UserXLoginUIConnect.ChangePassword.Dialog.LayerStatus := HIDE;
+	
+END_ACTION
+
 
 ACTION HMIAction:
 
@@ -90,20 +97,19 @@ ACTION HMIAction:
 		HmiUserX.FileDuplicateLayerStatus := DISPLAY;
 	END_IF;
 	
-
-	// if the system has been opened just now
-	IF isFirstInCycle THEN
-		FirstInCycle;	  
-	END_IF;
+	//Password change require manage
+	IF EDGENEG(UserXLoginUIConnect.MessageBox.ErrorNumber = 28690) THEN
+		IF UserXLoginUIConnect.MessageBox.Confirm THEN
+	  
+			UserXLoginUIConnect.ChangePassword.Dialog.LayerStatus := DISPLAY;
+			UserXLoginUIConnect.ChangePassword.ShowDialog := TRUE;
+		END_IF
+	END_IF
 	
 END_ACTION
 
-ACTION FirstInCycle:
-	
-	isFirstInCycle := FALSE;		
-	HmiUserX.FileDuplicateLayerStatus := HIDE;
 
-END_ACTION
+
 
 
 

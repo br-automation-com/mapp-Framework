@@ -10,19 +10,33 @@ TYPE
 		Delete : BOOL; (*Delete file*)
 		FolderUp : BOOL; (*Move back/up a folder*)
 		EnterFolder : BOOL; (*Move forward/down a folder*)
-		MultiSelect : BOOL; (*Enables the ability to select multiple files*)
 		CheckFolder : BOOL; (*Run the FIFO check to determine if old files should be deleted*)
+		FileList : FileHmiCommandsFileListType;
 	END_STRUCT;
+	FileHmiCommandsFileListType : 	STRUCT 
+		PageDown : BOOL;
+		PageUp : BOOL;
+		StepDown : BOOL;
+		StepUp : BOOL;
+		Clicked : BOOL;
+	END_STRUCT;
+END_TYPE
+
+(**)
+
+TYPE
 	FileHmiParametersType : 	STRUCT  (*Structure to hold parameters for the mapp View HMI*)
 		OldSortOrder : MpFileManagerUISortOrderEnum; (*Previous sord order*)
 		Fifo : FileHmiParaFifoType; (*Parameters for the FIFO feature (first-in-first-out)*)
 	END_STRUCT;
 	FileHmiStatusType : 	STRUCT  (*Structure to hold status information from the mapp View HMI*)
 		FileNames : ARRAY[0..49]OF STRING[80]; (*List of file names*)
-		TimeStamps : ARRAY[0..49]OF DATE_AND_TIME; (*List of time stamps for file names*)
+		TimeStamps : ARRAY[0..49]OF STRING[80]; (*List of time stamps for file names*)
+		InfoFile : FileHmiStatusInfoFileType;
 		Type : ARRAY[0..49]OF DINT; (*List of file types*)
-		Size : ARRAY[0..49]OF UDINT; (*List of file sizes*)
+		Size : ARRAY[0..49]OF STRING[80]; (*List of file sizes*)
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for the file device selector*)
+		DeviceDataProviderSelectedIndex : USINT;
 		FifoSelect : ARRAY[0..MAX_IDX_FILE_DEV]OF DINT; (*Indicate FIFO selected file device*)
 		DeviceName : STRING[50]; (*File device name*)
 		FileName : STRING[255]; (*Fille name*)
@@ -34,6 +48,11 @@ TYPE
 		FolderSize : REAL; (*Size of currently selected folder*)
 		SelectedIndex : USINT; (*Selected index in the file list*)
 		FifoConfigEnable : BOOL; (*Disable FIFO access or change confirmation when FIFO is active*)
+		FIFOLayerStatus : USINT;
+	END_STRUCT;
+	FileHmiStatusInfoFileType : 	STRUCT 
+		isSelected : ARRAY[0..49]OF STRING[1];
+		Type : ARRAY[0..49]OF STRING[80];
 	END_STRUCT;
 	FileHmiParaFifoType : 	STRUCT  (*Parameters for the FIFO feature (first-in-first-out)*)
 		Enable : BOOL; (*FIFO enable*)

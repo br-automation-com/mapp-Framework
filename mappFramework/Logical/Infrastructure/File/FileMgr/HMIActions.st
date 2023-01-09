@@ -1,3 +1,9 @@
+ACTION HMIActions_Init:
+	HmiFile.Status.FIFOLayerStatus := HIDE;
+END_ACTION
+
+
+
 ACTION FormatDeviceDataProvider:
 
 	// Select CF device if USB device is not available
@@ -38,7 +44,7 @@ ACTION FormatDeviceDataProvider:
 	ELSIF (IdentStatus = 3324) THEN
 		DeviceListCount := DeviceListCount + 1;
 		IF DeviceListCount > ((SIZEOF(PathCheck.DeviceList.DeviceNames) / SIZEOF(PathCheck.DeviceList.DeviceNames[0])) - 1) THEN
-			 //Delete entries past the actual number of devices found
+			//Delete entries past the actual number of devices found
 			FOR i:=Index TO MaxDeviceNameIndex DO
 				MpFileManagerUIConnect.DeviceList.DeviceNames[i] := '';
 			END_FOR
@@ -77,6 +83,7 @@ ACTION FormatDeviceDataProvider:
 		END_IF
 	END_FOR
 
+
 END_ACTION
 
 ACTION FileManager:
@@ -87,8 +94,14 @@ ACTION FileManager:
 
 	FOR i := 0 TO ((SIZEOF(HmiFile.Status.FileNames)/SIZEOF(HmiFile.Status.FileNames[0])) - 1) DO
 		HmiFile.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
-		HmiFile.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
-		HmiFile.Status.Size[i] := REAL_TO_UDINT(UDINT_TO_REAL(MpFileManagerUIConnect.File.List.Items[i].Size) * 0.001);
+		
+		// Time Stamp
+		HmiFile.Status.TimeStamps[i] := DT_TO_STRING(MpFileManagerUIConnect.File.List.Items[i].LastModified);			
+		HmiFile.Status.TimeStamps[i] := RIGHT(HmiFile.Status.TimeStamps[i], 19);
+
+		
+		// file size
+		HmiFile.Status.Size[i] := REAL_TO_STRING(UDINT_TO_REAL(MpFileManagerUIConnect.File.List.Items[i].Size) * 0.001);
 
 		// Set image array based on item type
 		IF MpFileManagerUIConnect.File.List.Items[i].IsFolder THEN
@@ -98,21 +111,42 @@ ACTION FileManager:
 		ELSE
 			HmiFile.Status.Type[i] := FILE;
 		END_IF
-
-		// Set file selected when the table is clicked Single and MultiSelect
-		IF (MpFileManagerUIConnect.File.MultiSelect = FALSE) THEN
-			MpFileManagerUIConnect.File.List.Items[i].IsSelected := (i = HmiFile.Status.SelectedIndex);
-		ELSIF (MpFileManagerUIConnect.File.MultiSelect = TRUE) AND (HmiFile.Commands.MultiSelect = TRUE) THEN
-			IF (i = HmiFile.Status.SelectedIndex) AND NOT MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
-				MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
-				HmiFile.Commands.MultiSelect := FALSE;
-			ELSIF (i = HmiFile.Status.SelectedIndex) AND MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
-				MpFileManagerUIConnect.File.List.Items[i].IsSelected := FALSE;
-				HmiFile.Commands.MultiSelect := FALSE;
-			END_IF
+	
+		
+		
+		// Fill file info string arrays
+		IF MpFileManagerUIConnect.File.List.Items[i].IsFolder THEN			
+			HmiFile.Status.InfoFile.Type[i] := 'FOLDER'; 
+		ELSE (* file *)
+			HmiFile.Status.InfoFile.Type[i] := 'FILE';
+		END_IF		
+		IF MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN			
+			HmiFile.Status.InfoFile.isSelected[i] := '+';
+		ELSE				
+			HmiFile.Status.InfoFile.isSelected[i] := '-';
 		END_IF
+		
+	
+		// if file not exist clear objects
+		IF HmiFile.Status.FileNames[i] = '' THEN
+			HmiFile.Status.TimeStamps[i] := '';
+			HmiFile.Status.Size[i] := '';
+			HmiFile.Status.InfoFile.isSelected[i] := '';
+			HmiFile.Status.InfoFile.Type[i] := '';
+		END_IF;	
+		
+		
 	END_FOR
 
+	
+	// Mutli selection
+	IF (MpFileManagerUIConnect.File.MultiSelect = FALSE) THEN
+		MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsSelected := TRUE;	
+	ELSIF (MpFileManagerUIConnect.File.MultiSelect = TRUE) AND HmiFile.Commands.FileList.Clicked THEN
+		MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsSelected := NOT MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsSelected;
+	END_IF
+	HmiFile.Commands.FileList.Clicked := FALSE;
+	
 
 	// Read currently selected device name for HMI
 	IF (MpFileManagerUIConnect.DeviceList.SelectedIndex >= (SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0]))) THEN
@@ -142,5 +176,30 @@ ACTION FileManager:
 	END_IF
 
 	HmiFile.Status.BackButton := (FolderDepthCount > 0);
+	
+	
+	// File SelectedIndex manager
+	IF HmiFile.Commands.FileList.PageUp THEN 
+		HmiFile.Commands.FileList.PageUp := FALSE;	
+		HmiFile.Status.SelectedIndex := 0;	
+		
+	ELSIF HmiFile.Commands.FileList.PageDown THEN
+		HmiFile.Commands.FileList.PageDown := FALSE;
+		HmiFile.Status.SelectedIndex := ((SIZEOF(HmiFile.Status.FileNames)/SIZEOF(HmiFile.Status.FileNames[0])) - 1);
+		
+	ELSIF HmiFile.Commands.FileList.StepUp THEN
+		HmiFile.Commands.FileList.StepUp := FALSE;
+		IF HmiFile.Status.SelectedIndex <> 0 THEN
+			HmiFile.Status.SelectedIndex := HmiFile.Status.SelectedIndex - 1;
+		END_IF		
+		
+	ELSIF HmiFile.Commands.FileList.StepDown THEN
+		HmiFile.Commands.FileList.StepDown := FALSE;		
+		IF HmiFile.Status.SelectedIndex <> ((SIZEOF(HmiFile.Status.FileNames)/SIZEOF(HmiFile.Status.FileNames[0])) - 1) THEN
+			HmiFile.Status.SelectedIndex := HmiFile.Status.SelectedIndex + 1;
+		END_IF		
+	END_IF
 
+	
+	
 END_ACTION

@@ -15,6 +15,10 @@ PROGRAM _INIT
 		DirCreate_0(enable := FALSE);
 	END_IF
 
+	
+	// if the system has been opened just now
+	HMIAction_Init;
+	
 	// Call action to intialize alarm samples
 	AlarmSampleInit;
 
