@@ -140,7 +140,7 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 
-    // Call actions
+    // Call all cyclic actions
     FormatDeviceDataProvider;
     LoadPreview;
 	RecipeHMIcommands;

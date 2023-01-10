@@ -15,7 +15,7 @@ PROGRAM _INIT
 		DirCreate_0(enable := FALSE);
 	END_IF
 	
-	//Parameterize the report function block with the simple report
+	// Initialize mapp function blocks
 	MpReportCore_0.Language := ADR('en');
 	MpReportCore_0.DeviceName := ADR('mappReportFiles');
 	MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);
@@ -23,14 +23,13 @@ PROGRAM _INIT
 	HmiReport.Parameters.Name := 'SimpleReport';
 	MpReportCore_0();
 
-	//Parameterize the file mangement function block
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	MpFileManagerUI_0.Enable := TRUE;
 	MpFileManagerUI_0();
 
-	//Fill an array to create example data for the example report
+	// Fill an array to create example data for the example report
 	TimeIndex := 0;
 	FOR i:=0 TO ((SIZEOF(ReportExample.SimpleReport.OeeLine[0].TemperatureSample.TimeStamp)/SIZEOF(ReportExample.SimpleReport.OeeLine[0].TemperatureSample.TimeStamp[0])) - 1) DO
 		ReportExample.SimpleReport.OeeLine[0].TemperatureSample.TimeStamp[i] := TimeIndex;
@@ -71,8 +70,11 @@ END_PROGRAM
 
 PROGRAM _EXIT
 
+	// Disable the function blocks to unlink the MpLinks
 	MpReportCore_0.Enable := FALSE;
 	MpFileManagerUI_0.Enable := FALSE;
+	
+	// Call function blocks
 	MpReportCore_0();
 	MpFileManagerUI_0();
 

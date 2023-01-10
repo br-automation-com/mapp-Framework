@@ -57,6 +57,7 @@ PROGRAM _CYCLIC
 		MpUserXLogin_0.ErrorReset := FALSE;
 	END_IF
 
+	// Call all cyclic actions
 	HMIAction;
 
 	// Assign MpLinks

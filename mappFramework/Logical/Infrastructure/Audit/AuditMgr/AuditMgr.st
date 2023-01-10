@@ -100,7 +100,7 @@ PROGRAM _CYCLIC
 		MpAuditTrail_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks and HMI connections
+	// Assign MpLinks 
 	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrailConfig_0.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);

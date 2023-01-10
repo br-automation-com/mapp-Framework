@@ -41,6 +41,14 @@ PROGRAM _INIT
 END_PROGRAM
 
 PROGRAM _CYCLIC
+	
+	// Call all cyclic actions
+	FileManager;
+	IF NOT DiagCpuIsARsim() THEN
+		ChangeConfiguration;
+	END_IF
+	FormatDeviceDataProvider;
+	
 	CASE BackupState OF
 		BACKUP_IDLE:
 			HmiBackup.Status.CreateAllowed := NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress) AND NOT HmiBackup.Status.SimulationActive;
@@ -206,14 +214,6 @@ PROGRAM _CYCLIC
 	HmiBackup.Status.Update := MpBackupCore_0.Info.Automatic.Update;
 	HmiBackup.Status.BackupCtrlEnabled := (NOT HmiBackup.Status.SimulationActive);
 
-	// Call all actions
-	FileManager;
-	IF NOT DiagCpuIsARsim() THEN
-		ChangeConfiguration;
-	END_IF
-
-	FormatDeviceDataProvider;
-
 	// Assign MpLinks
 	MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
@@ -223,6 +223,7 @@ PROGRAM _CYCLIC
 	MpBackupCore_0();
 	MpFileManagerUI_0();
 	MpBackupCoreConfig_0();
+	
 END_PROGRAM
 
 PROGRAM _EXIT
