@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Content id="FileDialog_FIFO_dialog_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.ToggleButton" id="BtnFIFOEnable" top="5" left="130" width="190" height="50" zIndex="0" breakWord="true" mouseDownImage="Media/mappFrameworkSymbols/File/FileScan.svg" multiLine="true" text="$IAT/mappFramework/File/FIFO.Enable" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="BtnFIFOEnable" top="5" left="130" width="190" height="50" zIndex="0" breakWord="true" mouseDownImage="Media/mappFrameworkSymbols/File/Checkmark.svg" multiLine="true" text="$IAT/mappFramework/File/FIFO.Enable" imageHeight="25" imageWidth="25" fontSize="20px" permissionOperate="['Administrators', 'Service']" style="Command" />
     <Widget xsi:type="widgets.brease.Label" id="LabelDevice" top="70" left="20" width="155" zIndex="1" text="$IAT/mappFramework/File/FIFO.Device" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
     <Widget xsi:type="widgets.brease.Label" id="LabelInterval" top="194" left="20" width="215" zIndex="2" text="$IAT/mappFramework/File/FIFO.Interval" textColor="rgba(137, 137, 137, 1)" fontSize="18px" bold="false" />
     <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownDevice" top="70" left="190" width="240" zIndex="3" dataProvider="[{'value':'mappDataFiles','text':'mappDataFiles'}]" listWidth="180" selectedValue="mappDataFiles" />
