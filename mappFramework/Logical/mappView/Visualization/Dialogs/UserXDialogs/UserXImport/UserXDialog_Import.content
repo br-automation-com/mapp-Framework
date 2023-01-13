@@ -2,8 +2,8 @@
 <Content id="UserXDialog_Import_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
     <Widget xsi:type="widgets.brease.Label" id="LabelImportFileName" top="185" left="12" width="148" height="45" zIndex="0" text="$IAT/mappFramework/UserX/ImportFileName" fontSize="20px" padding="15px" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnConfirmImport" top="240" left="60" width="150" height="50" zIndex="1" text="$IAT/mappFramework/UserX/Confirm" fontSize="20px" style="Command" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnCancelImport" top="240" left="260" width="150" height="50" zIndex="2" text="$IAT/mappFramework/UserX/Cancel" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnConfirmImport" top="240" left="60" width="150" height="50" zIndex="1" image="Media/mappFrameworkSymbols/File/Checkmark.svg" text="$IAT/mappFramework/UserX/Confirm" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushBtnCancelImport" top="240" left="260" width="150" height="50" zIndex="2" image="Media/mappFrameworkSymbols/Edit/Cancel.svg" text="$IAT/mappFramework/UserX/Cancel" fontSize="20px" style="Command" />
     <Widget xsi:type="widgets.brease.CheckBox" id="CheckBoxUsers" top="60" left="275" width="220" zIndex="3" text="$IAT/mappFramework/UserX/ImportUsers" fontSize="15px" />
     <Widget xsi:type="widgets.brease.CheckBox" id="CheckBoxUserRoles" top="20" left="275" width="220" zIndex="4" text="$IAT/mappFramework/UserX/ImportRole" fontSize="15px" />
     <Widget xsi:type="widgets.brease.Table" id="TableUserXImport" top="20" left="20" width="250" height="149" zIndex="5">
