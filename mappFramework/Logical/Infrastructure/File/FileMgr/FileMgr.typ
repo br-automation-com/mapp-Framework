@@ -36,7 +36,6 @@ TYPE
 		Type : ARRAY[0..49]OF DINT; (*List of file types*)
 		Size : ARRAY[0..49]OF STRING[80]; (*List of file sizes*)
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for the file device selector*)
-		DeviceDataProviderSelectedIndex : USINT;
 		FifoSelect : ARRAY[0..MAX_IDX_FILE_DEV]OF DINT; (*Indicate FIFO selected file device*)
 		DeviceName : STRING[50]; (*File device name*)
 		FileName : STRING[255]; (*Fille name*)
@@ -49,6 +48,11 @@ TYPE
 		SelectedIndex : USINT; (*Selected index in the file list*)
 		FifoConfigEnable : BOOL; (*Disable FIFO access or change confirmation when FIFO is active*)
 		FIFOLayerStatus : USINT;
+		FIFOLayerObjects : FileHmiStatusFIFOLayerObjType;
+	END_STRUCT;
+	FileHmiStatusFIFOLayerObjType : 	STRUCT 
+		MaxNumberOfFilesVisiblity : USINT;
+		MaxFolderSizeVisiblity : USINT;
 	END_STRUCT;
 	FileHmiStatusInfoFileType : 	STRUCT 
 		isSelected : ARRAY[0..49]OF STRING[1];
@@ -62,6 +66,7 @@ TYPE
 		MaxFileAge : UINT := 365; (*[days] Files older than 1 year will be deleted*)
 		MaxFolderSize : REAL := 1000; (*[kB] - Max size of files inside the active folder*)
 		MaxNumberOfFiles : UINT := 20; (*Max number of files inside active folder*)
+		SelectedDevice : USINT;
 	END_STRUCT;
 	FilePathCheckType : 	STRUCT  (*Setup for checking available folders / file devices for FIleManager*)
 		Folder : ARRAY[0..9]OF STRING[20]; (*Folder name in user partition*)

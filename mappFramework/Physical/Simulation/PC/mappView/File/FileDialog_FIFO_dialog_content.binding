@@ -13,10 +13,7 @@
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.DeviceDataProvider" attribute="value" />
 <Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownBoxDevice" attribute="dataProvider" />
 </Binding>
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.Fifo.DeviceName" attribute="value" />
-<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownBoxDevice" attribute="selectedValue" />
-</Binding>
+
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.Fifo.MaxFolderSize" attribute="value" />
 <Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="numInMaxFolderSize" attribute="value" />

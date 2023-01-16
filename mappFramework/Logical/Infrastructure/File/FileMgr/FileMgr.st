@@ -65,14 +65,13 @@ PROGRAM _INIT
 	PathCheck.Folder[5] := 'AlarmX';
 	PathCheck.Folder[6] := 'UserX';
 
-	HmiFile.Status.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"mappRecipeFiles"}';
-	HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappAuditFiles","text":"mappAuditFiles"}';
-	HmiFile.Status.DeviceDataProvider[2] := '{"value":"mappReportFiles","text":"mappReportFiles"}';
-	HmiFile.Status.DeviceDataProvider[3] := '{"value":"mappDataFiles","text":"mappDataFiles"}';
-	HmiFile.Status.DeviceDataProvider[4] := '{"value":"mappBackupFiles","text":"mappBackupFiles"}';
-	HmiFile.Status.DeviceDataProvider[5] := '{"value":"mappAlarmXFiles","text":"mappAlarmXFiles"}';
-	HmiFile.Status.DeviceDataProvider[6] := '{"value":"mappUserXFiles","text":"mappUserXFiles"}';
-
+	HmiFile.Status.DeviceDataProvider[0] := 'mappRecipeFiles';
+	HmiFile.Status.DeviceDataProvider[1] := 'mappAuditFiles';
+	HmiFile.Status.DeviceDataProvider[2] := 'mappReportFiles';
+	HmiFile.Status.DeviceDataProvider[3] := 'mappDataFiles';
+	HmiFile.Status.DeviceDataProvider[4] := 'mappBackupFiles';
+	HmiFile.Status.DeviceDataProvider[5] := 'mappAlarmXFiles';
+	HmiFile.Status.DeviceDataProvider[6] := 'mappUserXFiles';
 
 	// Calculate offset for potential additional USB devices
 	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
@@ -83,7 +82,7 @@ PROGRAM _INIT
 	
 	// Restored the retained values to the FIFO settings
 	HmiFile.Parameters.Fifo := FifoSettingsRetain;
-
+	
 	// if the system has been opened just now
 	HMIActions_Init;
 	
@@ -106,6 +105,7 @@ PROGRAM _CYCLIC
 
 	// Call function block
 	MpFileManagerUI_0();
+	MpFileManagerUI_FIFO();
 
 
 END_PROGRAM

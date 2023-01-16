@@ -11,14 +11,6 @@ ACTION FormatDeviceDataProvider:
 		tempIdx := (i + USBOffset);
 
 		IF gUSBAvailable[i] THEN
-
-			HmiFile.Status.DeviceDataProvider[tempIdx] := '{"value":"USB';
-			brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[tempIdx]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[tempIdx])));
-
-			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[tempIdx]), ADR('","text":"USB'));
-			brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[tempIdx]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[tempIdx])));
-			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[tempIdx]), ADR('"}'));
-
 			PathCheck.DeviceList.DeviceNames[tempIdx] := 'USB';
 			brsitoa(i + 1, ADR(PathCheck.DeviceList.DeviceNames[tempIdx]) + brsstrlen(ADR(PathCheck.DeviceList.DeviceNames[tempIdx])));
 		ELSE
@@ -70,20 +62,16 @@ ACTION FormatDeviceDataProvider:
 	brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(HmiFile.Status.TableConfig[1]) + brsstrlen(ADR(HmiFile.Status.TableConfig[1])));
 	brsstrcat(ADR(HmiFile.Status.TableConfig[1]), ADR(',"to":49, "visible":false}]}'));
 
+	
 	// Create device data provider for FIFO drop down
 	FOR i := 0 TO MaxDeviceNameIndex DO
 		IF (MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '') THEN
-			HmiFile.Status.DeviceDataProvider[i] := '{"value":"';
-			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i]));
-			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR('","text":"'));
-			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i]));
-			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR('"}'));
+			HmiFile.Status.DeviceDataProvider[i] := MpFileManagerUIConnect.DeviceList.DeviceNames[i];
 		ELSE
 			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[i]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[i]));
 		END_IF
-	END_FOR
-
-
+	END_FOR	
+	
 END_ACTION
 
 ACTION FileManager:
@@ -99,7 +87,6 @@ ACTION FileManager:
 		HmiFile.Status.TimeStamps[i] := DT_TO_STRING(MpFileManagerUIConnect.File.List.Items[i].LastModified);			
 		HmiFile.Status.TimeStamps[i] := RIGHT(HmiFile.Status.TimeStamps[i], 19);
 
-		
 		// file size
 		HmiFile.Status.Size[i] := REAL_TO_STRING(UDINT_TO_REAL(MpFileManagerUIConnect.File.List.Items[i].Size) * 0.001);
 

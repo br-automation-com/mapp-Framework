@@ -1,12 +1,15 @@
 ACTION FIFOOperation:
 
 	R_TRIG_CheckStatus(CLK := (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CHANGE_DIR) OR
-							  (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CHANGE_DEVICE) OR
-							  (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CREATE));
+	(MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CHANGE_DEVICE) OR
+	(MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CREATE));
 
 	IF R_TRIG_CheckStatus.Q OR TON_ScanFolder.Q THEN
 		HmiFile.Commands.CheckFolder := HmiFile.Parameters.Fifo.Enable;
 	END_IF
+
+	//device name declare
+	HmiFile.Parameters.Fifo.DeviceName := HmiFile.Status.DeviceDataProvider[HmiFile.Parameters.Fifo.SelectedDevice];
 
 	brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
 	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
@@ -259,19 +262,24 @@ ACTION FIFOOperation:
 	END_CASE
 	
 	
-	// declare devName
-//	HmiFile.Status.DeviceDataProvider[0] := 'mappRecipeFiles';
-//	HmiFile.Status.DeviceDataProvider[1] := 'mappAuditFiles';
-//	HmiFile.Status.DeviceDataProvider[2] := 'mappReportFiles';
-//	HmiFile.Status.DeviceDataProvider[3] := 'mappDataFiles';
-//	HmiFile.Status.DeviceDataProvider[4] := 'mappBackupFiles';
-//	HmiFile.Status.DeviceDataProvider[5] := 'mappAlarmXFiles';
-//	HmiFile.Status.DeviceDataProvider[6] := 'mappUserXFiles';
-//	HmiFile.Parameters.Fifo.DeviceName := HmiFile.Status.DeviceDataProvider[HmiFile.Status.DeviceDataProviderSelectedIndex];
-//	
+	
+	// FIFO objects manage
+	IF HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_NUM_OF_FILES THEN
+		HmiFile.Status.FIFOLayerObjects.MaxFolderSizeVisiblity := HIDE;
+		HmiFile.Status.FIFOLayerObjects.MaxNumberOfFilesVisiblity := DISPLAY;
+		
+	ELSIF HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_SIZE_OF_FOLDER THEN
+		HmiFile.Status.FIFOLayerObjects.MaxFolderSizeVisiblity := DISPLAY;
+		HmiFile.Status.FIFOLayerObjects.MaxNumberOfFilesVisiblity := HIDE;
+		
+	ELSE
+		HmiFile.Status.FIFOLayerObjects.MaxFolderSizeVisiblity := HIDE;
+		HmiFile.Status.FIFOLayerObjects.MaxNumberOfFilesVisiblity := HIDE;
+	END_IF
+	
 
 	// Save current archive setings to retain variable
-	FifoSettingsRetain := HmiFile.Parameters.Fifo;
+	FifoSettingsRetain := HmiFile.Parameters.Fifo;	
 	
 	// Timer to scan file device in intervals
 	TON_ScanFolder(PT := DINT_TO_TIME(HmiFile.Parameters.Fifo.ScanInterval * 60000));
