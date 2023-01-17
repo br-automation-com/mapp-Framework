@@ -21,6 +21,7 @@ PROGRAM _INIT
 	MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);
 	MpReportCore_0.Name := ADR(HmiReport.Parameters.Name);
 	HmiReport.Parameters.Name := 'SimpleReport';
+	HmiReport.Parameters.SortType := 'NameAsc';
 	MpReportCore_0();
 
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
