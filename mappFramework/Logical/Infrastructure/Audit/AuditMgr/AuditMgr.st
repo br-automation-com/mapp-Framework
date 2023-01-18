@@ -8,7 +8,7 @@
 PROGRAM _INIT
 
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
+	DirCreate_0(enable := TRUE, pDevice := ADR('mappAuditFiles'), pName := ADR('/'));
 
 	// Check if folder already exist and if so disabled the function block call
 	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
@@ -100,7 +100,7 @@ PROGRAM _CYCLIC
 		MpAuditTrail_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks and HMI connections
+	// Assign MpLinks 
 	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrailConfig_0.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);

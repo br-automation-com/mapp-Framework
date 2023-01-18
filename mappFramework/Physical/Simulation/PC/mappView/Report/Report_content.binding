@@ -53,5 +53,10 @@
 			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="BtnReportDialog_Delete_content" attribute="enable" />
 		</Binding>
 
-	</Bindings>
+	
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Parameters.SortType" attribute="value" />
+<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="DropDownReportSort" attribute="selectedValue" />
+</Binding>
+</Bindings>
 </BindingsSet>

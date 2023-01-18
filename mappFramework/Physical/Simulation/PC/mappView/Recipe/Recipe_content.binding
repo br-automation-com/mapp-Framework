@@ -6,7 +6,7 @@
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="TableItemTimeStamp" attribute="stringValue" />
 		</Binding>
         <Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.TableConfig" attribute="value" />
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.TableConfig" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Recipe_content" widgetRefId="TableRecipe" attribute="tableConfiguration" />
 		</Binding>
 

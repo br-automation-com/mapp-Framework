@@ -87,7 +87,7 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 
-	// Call all actions
+	// Call all cyclic actions
 	FormatDeviceDataProvider;
 	FileManager;
 	FIFOOperation;
@@ -97,22 +97,23 @@ PROGRAM _CYCLIC
 		MpFileManagerUI_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLink
+	// Assign MpLinks
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
+	MpFileManagerUI_FIFO.MpLink := ADR(gMpLinkFileManagerUIFile_FIFO);
 
-	// Call function block
+	// Call function blocks
 	MpFileManagerUI_0();
-
+	MpFileManagerUI_FIFO();
 
 END_PROGRAM
 
 PROGRAM _EXIT
 
-	// Disable the function blocls to unlink the MpLink
+	// Disable the function blocks to unlink the MpLink
 	MpFileManagerUI_0.Enable := FALSE;
 	MpFileManagerUI_FIFO.Enable := FALSE;
 
-	// Call function block
+	// Call function blocks
 	MpFileManagerUI_0();
 	MpFileManagerUI_FIFO();
 
