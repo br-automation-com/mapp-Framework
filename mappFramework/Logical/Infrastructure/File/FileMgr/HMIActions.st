@@ -1,11 +1,16 @@
-ACTION HMIActions_Init:
+ACTION HMIActions_Init:	
+	
+	brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));	
+	IF HmiFile.Parameters.Fifo.Enable THEN
+		HmiFile.Status.FifoSelect[HmiFile.Parameters.Fifo.SelectedDevice] := 1;
+	END_IF;
+	
 	HmiFile.Status.FIFOLayerStatus := HIDE;
 END_ACTION
 
 
-
 ACTION FormatDeviceDataProvider:
-
+	
 	// Select CF device if USB device is not available
 	FOR i := 0 TO IDX_USB_DEV_LIST DO
 		tempIdx := (i + USBOffset);

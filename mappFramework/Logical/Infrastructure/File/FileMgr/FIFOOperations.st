@@ -8,16 +8,25 @@ ACTION FIFOOperation:
 		HmiFile.Commands.CheckFolder := HmiFile.Parameters.Fifo.Enable;
 	END_IF
 
-	//device name declare
+	// FIFO dropdown device should be same selected device
+	IF EDGEPOS(HmiFile.Status.FIFOLayerStatus = DISPLAY) THEN
+		HmiFile.Parameters.Fifo.SelectedDevice := MpFileManagerUIConnect.DeviceList.SelectedIndex;		
+	END_IF;
+	
+	//device name declare	
 	HmiFile.Parameters.Fifo.DeviceName := HmiFile.Status.DeviceDataProvider[HmiFile.Parameters.Fifo.SelectedDevice];
 
-	brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
-	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
-		IF (HmiFile.Parameters.Fifo.DeviceName = MpFileManagerUIConnect.DeviceList.DeviceNames[i]) AND HmiFile.Parameters.Fifo.Enable THEN
-			HmiFile.Status.FifoSelect[i] := 1;
-			EXIT;
-		END_IF
-	END_FOR
+	
+	IF HmiFile.Status.FIFOLayerStatus = DISPLAY THEN
+		brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
+		FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
+			IF (HmiFile.Parameters.Fifo.DeviceName = MpFileManagerUIConnect.DeviceList.DeviceNames[i]) AND HmiFile.Parameters.Fifo.Enable THEN
+				HmiFile.Status.FifoSelect[i] := 1;
+				EXIT;
+			END_IF
+		END_FOR
+	END_IF
+
 
 	// Autodelete oldest files based on scanning option
 	CASE HmiFile.Status.DeleteStep OF

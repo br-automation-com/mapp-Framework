@@ -66,7 +66,7 @@ TYPE
 		MaxFileAge : UINT := 365; (*[days] Files older than 1 year will be deleted*)
 		MaxFolderSize : REAL := 1000; (*[kB] - Max size of files inside the active folder*)
 		MaxNumberOfFiles : UINT := 20; (*Max number of files inside active folder*)
-		SelectedDevice : USINT;
+		SelectedDevice : UINT;
 	END_STRUCT;
 	FilePathCheckType : 	STRUCT  (*Setup for checking available folders / file devices for FIleManager*)
 		Folder : ARRAY[0..9]OF STRING[20]; (*Folder name in user partition*)
