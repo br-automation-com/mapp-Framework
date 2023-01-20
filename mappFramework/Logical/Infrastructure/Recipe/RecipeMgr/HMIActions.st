@@ -30,7 +30,7 @@ ACTION LoadStatus:
 
 	HmiRecipe.Status.FilesAvailable := (MpRecipeUIConnect.Recipe.List.Names[0] <> '');
 	HmiRecipe.Status.LoadAllowed := HmiRecipe.Status.FilesAvailable AND NOT HmiRecipe.Status.InvalidRecipe;
-	HmiRecipe.Status.DeviceValid := (MpFileManagerUI_0.Info.Diag.StatusID.Code <> 8197);
+	HmiRecipe.Status.DeviceValid := (MpFileManagerUI_0.StatusID <> mpFILE_ERR_INVALID_FILE_DEV);
 
 END_ACTION
 
