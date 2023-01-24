@@ -56,6 +56,7 @@ TYPE
 	RecipeStatusCteateRecLayerType : 	STRUCT 
 		ParsStatus : USINT;
 		MachConfigStatus : USINT;
+		FileNameInputActive : USINT;
 	END_STRUCT;
 	RecipeStatusPreviewRecLayerType : 	STRUCT 
 		ParsStatus : USINT;

@@ -1,12 +1,13 @@
 ACTION HMIActions_Init:	
 	
-	HmiRecipe.Status.CreateRecipeLayer.ParsStatus 	    := HIDE;
-	HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus := HIDE;
-	HmiRecipe.Status.DefaultRecipeLayer.Status 		    := HIDE;
-	HmiRecipe.Status.RecipeLoadLayer.Status 		    := HIDE;
-	HmiRecipe.Status.EditRecipeLayer.ParsStatus		    := HIDE;
-	HmiRecipe.Status.EditRecipeLayer.MachConfigStatus   := HIDE;
-	HmiRecipe.Status.DuplicateLayer 					:= HIDE;
+	HmiRecipe.Status.CreateRecipeLayer.ParsStatus 	    	:= HIDE;
+	HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus 	:= HIDE;
+	HmiRecipe.Status.DefaultRecipeLayer.Status 		    	:= HIDE;
+	HmiRecipe.Status.RecipeLoadLayer.Status 		    	:= HIDE;
+	HmiRecipe.Status.EditRecipeLayer.ParsStatus		    	:= HIDE;
+	HmiRecipe.Status.EditRecipeLayer.MachConfigStatus   	:= HIDE;
+	HmiRecipe.Status.DuplicateLayer 					    := HIDE;
+	HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= UNLOCK;
 	
 END_ACTION
 
@@ -90,6 +91,20 @@ ACTION LoadPreview:
 			HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus := HIDE;
 		END_IF;
 	END_IF;
+	
+	// Lock File name input in create layer
+	IF HmiRecipe.Status.CreateRecipeLayer.ParsStatus = DISPLAY AND
+		HmiRecipe.Status.ParameterRecipeMissing THEN		
+		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= LOCK;		
+	ELSIF HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus = DISPLAY AND
+		HmiRecipe.Status.MachineSettingsRecipeMissing THEN	  
+		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= LOCK;
+	ELSE		
+		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= UNLOCK;
+	END_IF;
+	
+	
+	
 	
 	// File Duplicate manager
 	IF HmiRecipe.Commands.CreateRecipe AND

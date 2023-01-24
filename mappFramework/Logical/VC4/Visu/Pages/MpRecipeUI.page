@@ -2404,6 +2404,8 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="Left" Value="389"/>
+          <Property Name="Locking" Value="Datapoint = 0"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Recipe.RecipeMgr.HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive]"/>
           <Property Name="SimulationValue" Value="ABC"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="322"/>
@@ -3102,6 +3104,8 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="Left" Value="389"/>
+          <Property Name="Locking" Value="Datapoint = 0"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Recipe.RecipeMgr.HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive]"/>
           <Property Name="SimulationValue" Value="ABC"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
           <Property Name="Top" Value="326"/>
@@ -3213,7 +3217,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="134"/>
-          <Property Name="Left" Value="222"/>
+          <Property Name="Left" Value="223"/>
           <Property Name="Multiline" Value="Manual"/>
           <Property Name="SimulationIndex" Value="1"/>
           <Property Name="SimulationValue" Value="Example Alarm Text"/>
@@ -3221,7 +3225,7 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[MpRecipeUIMessageBox]"/>
           <Property Name="TextIndexOffset" Value="6"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="164"/>
+          <Property Name="Top" Value="165"/>
           <Property Name="Width" Value="356"/>
         </Control>
         <Control ClassId="0x00001002" Name="cmdCancel">
@@ -3269,6 +3273,18 @@
           <Property Name="Top" Value="300"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_72]"/>
           <Property Name="Width" Value="150"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="String_2">
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="326"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="180"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Recipe.RecipeMgr.HmiRecipe.Parameters.FileName]"/>
+          <Property Name="Width" Value="139"/>
         </Control>
       </Controls>
       <KeyMapping>
@@ -3644,5 +3660,6 @@
     <TabSeqItem Index="41" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_2]"/>
     <TabSeqItem Index="42" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_3]"/>
     <TabSeqItem Index="43" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_4]"/>
+    <TabSeqItem Index="44" Value="Source[embedded].Layer[MpMsgRecipeDupliacte].Control[String_2]"/>
   </TabSequence>
 </Page>
