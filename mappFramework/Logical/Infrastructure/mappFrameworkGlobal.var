@@ -1,6 +1,8 @@
 VAR CONSTANT
 	PARAMETERS_CATEGORY : STRING[10] := 'Parameters'; (*Recipe category for runtime parameters*)
 	MACHINE_CONFIGURATION_CATEGORY : STRING[30] := 'Machine Configuration'; (*Recipe category for machine configuration settings*)
+	PARAMETERS_CATEGORY_INDEX : USINT := 0; (*Recipe category for runtime parameters*)
+	MACH_CONFIG_CATEGORY_INDEX : USINT := 1; (*Recipe category for runtime parameters*)
 	MAX_IDX_USB_DEV_LIST : USINT := 2; (*Maximum number of USB storage devices. Value 2 = 2 USB devices (index 0 and 1)*)
 	IDX_USB_DEV_LIST : USINT := MAX_IDX_USB_DEV_LIST - 1; (*Maximum number of USB storage devices.*)
 END_VAR

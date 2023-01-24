@@ -16,6 +16,7 @@ TYPE
 	END_STRUCT;
 	RecipeParametersType : 	STRUCT  (*Structure to hold the parameters for the HMI*)
 		Category : STRING[30]; (*Current category*)
+		CategoryIndex : USINT; (*Current category*)
 		DeviceName : STRING[50]; (*Selected file device name*)
 		FileName : STRING[255]; (*Recipe file name*)
 	END_STRUCT;
@@ -41,7 +42,38 @@ TYPE
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*File device data provider*)
 		TableConfig : STRING[120]; (*Table configuration *)
 		SelectedRecipe : STRING[255]; (*The name of the selected recipe*)
+		ActiveRecipe : STRING[255];
+		DefaultRecipeLayer : RecipeStatusDefRecLayerType;
+		CreateRecipeLayer : RecipeStatusCteateRecLayerType;
+		PreviewRecipeLayer : RecipeStatusPreviewRecLayerType;
+		RecipeLoadLayer : RecipeStatusRecipeLoadLayerType;
+		EditRecipeLayer : RecipeStatusEditRecLayerType;
+		DuplicateLayer : USINT;
 	END_STRUCT;
+	RecipeStatusDefRecLayerType : 	STRUCT 
+		Status : USINT;
+	END_STRUCT;
+	RecipeStatusCteateRecLayerType : 	STRUCT 
+		ParsStatus : USINT;
+		MachConfigStatus : USINT;
+	END_STRUCT;
+	RecipeStatusPreviewRecLayerType : 	STRUCT 
+		ParsStatus : USINT;
+		MachConfigStatus : USINT;
+	END_STRUCT;
+	RecipeStatusRecipeLoadLayerType : 	STRUCT 
+		Status : USINT;
+	END_STRUCT;
+	RecipeStatusEditRecLayerType : 	STRUCT 
+		ParsStatus : USINT;
+		MachConfigStatus : USINT;
+		Save : BOOL;
+	END_STRUCT;
+END_TYPE
+
+(**)
+
+TYPE
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)
 		AddParametersHere1 : BOOL; (*Add your parameteres here *)
 		AddParametersHere2 : STRING[80]; (*Add your parameteres here *)

@@ -42,3 +42,9 @@ VAR
 	i : USINT; (*Index to loop through file devices*)
 	temp : STRING[260]; (*Temporary recipe name, used to check for duplicates when creating a new recipe*)
 END_VAR
+(**)
+VAR CONSTANT
+	DISPLAY : USINT := 0;
+	HIDE : USINT := 1;
+END_VAR
+(**)
