@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CompoundWidget id="AxisManualControlWidget" width="350" height="555" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CompoundWidget id="AxisAutoControlWidget" width="350" height="555" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Widgets>
 		<Widget xsi:type="widgets.brease.TextOutput" id="TextOutAx"                     top="5"   left="10"   width="180" height="35"  zIndex="1" value="Axis" textAlign="left" fontSize="22px" bold="true" padding="0px"/>
 		<Widget xsi:type="widgets.brease.Rectangle" id="RectangleStatusBar"             		top="5"   left="185" width="160" height="35" zIndex="0" visible="true" borderWidth="0px" backColor="#646464" />
@@ -19,24 +19,15 @@
         <Widget xsi:type="widgets.brease.Label" id="LabelActSpeed"                    	top="85" left="5"   width="220" height="35" zIndex="10" text="$IAT/mappFramework/AxisFaceplate/ActSpeed" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
         <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutActSpeed"         	top="85" left="205" width="140" height="35" zIndex="11" unitAlign="right" borderStyle="dotted" fontName="Arial Unicode" fontSize="18px" bold="false" style="Output" />
 		
-        <Widget xsi:type="widgets.brease.Label" id="LabelSetPosition"                 	top="125"  left="5"   width="180" height="35" zIndex="2" text="$IAT/mappFramework/AxisFaceplate/SetPosition" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
-        <Widget xsi:type="widgets.brease.NumericInput" id="NumInSetPosition"        	top="125"  left="185" width="160" height="35" zIndex="3" maxValue="3000" unitAlign="right" fontName="Arial Unicode" fontSize="18px" bold="false" style="InputLarge" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelSetDistance"                 	top="165"  left="5"   width="180" height="35"  zIndex="4" text="$IAT/mappFramework/AxisFaceplate/SetDistance" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
-        <Widget xsi:type="widgets.brease.NumericInput" id="NumInSetDistance"        	top="165"  left="185" width="160" height="35"  zIndex="5" maxValue="3000" unitAlign="right" fontName="Arial Unicode" fontSize="18px" bold="false" style="InputLarge" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelSetSpeed"                    	top="205" left="5"   width="180" height="35" zIndex="6" text="$IAT/mappFramework/AxisFaceplate/SetSpeed" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
-        <Widget xsi:type="widgets.brease.NumericInput" id="NumInSetSpeed"           	top="205" left="185" width="160" height="35" zIndex="7" maxValue="3000" unitAlign="right" fontName="Arial Unicode" fontSize="18px" bold="false" style="InputLarge" />
-       
-        <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitchPower"       	top="245" left="5"   width="340" height="50" zIndex="12" image="LocalMedia/AxisControl/Off.svg" mouseDownImage="LocalMedia/AxisControl/On.svg" mouseDownText="$IAT/mappFramework/AxisFaceplate/On" text="$IAT/mappFramework/AxisFaceplate/Power" imageWidth="50" borderWidth="2px 2px 2px 0px" cornerRadius="0px" mouseDownBackColor="rgba(0, 255, 0, 1)" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelSetSpeed"                    	top="125" left="5"   width="180" height="35" zIndex="6" text="$IAT/mappFramework/AxisFaceplate/SetSpeed" textAlign="left" fontName="Arial Unicode" fontSize="18px" bold="false" />
+        <Widget xsi:type="widgets.brease.NumericInput" id="NumInSetSpeed"           	top="125" left="185" width="160" height="35" zIndex="7" maxValue="3000" unitAlign="right" fontName="Arial Unicode" fontSize="18px" bold="false" style="InputLarge" />
         
-		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnJogNeg"       top="305" left="5"   width="160" height="50" zIndex="13" text="$IAT/mappFramework/AxisFaceplate/JogNeg" 		textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Operate" />
-        <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnMoveAbs"      top="365" left="5"   width="160" height="50" zIndex="16" text="$IAT/mappFramework/AxisFaceplate/MoveAbsolute" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" multiLine="true" wordWrap="true"/>
-		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnAdditiveMove" top="425" left="5" width="160" height="50" zIndex="15" text="$IAT/mappFramework/AxisFaceplate/MoveAdditive" 	textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" multiLine="true" wordWrap="true"/>
-		<Widget xsi:type="widgets.brease.ToggleButton" id="ToggleBtnMoveVelocity" 		top="485" left="5" width="160" height="50" zIndex="20" text="$IAT/mappFramework/AxisFaceplate/MoveVelocity" 	textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" multiLine="true" wordWrap="true"/>        
-
-		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnJogPos" 		top="305" left="185" width="160" height="50" zIndex="14" text="$IAT/mappFramework/AxisFaceplate/JogPos" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Operate" />
-    	<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnHome" 		top="365" left="185" width="160" height="50" zIndex="18" text="$IAT/mappFramework/AxisFaceplate/Home" 	textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
-    	<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnErrorReset" 	top="425" left="185" width="160" height="50" zIndex="17" image="LocalMedia/AxisControl/Reset.svg" text="$IAT/mappFramework/AxisFaceplate/Reset" 	textAlign="left" fontSize="17px" fontName="Arial Unicode" bold="false" style="Command" />
-    	<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnStop" 		top="485" left="185" width="160" height="50" zIndex="19" image="LocalMedia/AxisControl/Stop.svg" text="$IAT/mappFramework/AxisFaceplate/Stop" 	textAlign="left" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />	
+        <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitchPower"       	top="165" left="5"   width="340" height="50" zIndex="12" image="LocalMedia/AxisControl/Off.svg" mouseDownImage="LocalMedia/AxisControl/On.svg" mouseDownText="$IAT/mappFramework/AxisFaceplate/On" text="$IAT/mappFramework/AxisFaceplate/Power" imageWidth="50" borderWidth="2px 2px 2px 0px" cornerRadius="0px" mouseDownBackColor="rgba(0, 255, 0, 1)" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
+        
+		<Widget xsi:type="widgets.brease.ToggleButton" id="ToggleBtnStartStop" 			top="225" left="5" width="340" height="50" zIndex="20" text="$IAT/mappFramework/AxisFaceplate/Start" mouseDownText="$IAT/mappFramework/AxisFaceplate/Stop" image="LocalMedia/AxisControl/Start.svg" mouseDownImage="LocalMedia/AxisControl/Stop.svg" imageColor="rgba(255, 255, 255, 1)" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" multiLine="true" wordWrap="true"/>        
+		
+		<Widget xsi:type="widgets.brease.PushButton" id="PushBtnUpdate" 				top="285" left="5" width="160" height="50" zIndex="18" enable="false" text="$IAT/mappFramework/AxisFaceplate/Update" image="LocalMedia/AxisControl/Update.svg" imageColor="rgba(255, 255, 255, 1)" disabledImageColor="rgba(255, 255, 255, 1)"	textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" multiLine="true" wordWrap="true"/>
+    	<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnErrorReset" 	top="285" left="185" width="160" height="50" zIndex="17" image="LocalMedia/AxisControl/Reset.svg" text="$IAT/mappFramework/AxisFaceplate/Reset" 	textAlign="left" fontSize="17px" fontName="Arial Unicode" bold="false" style="Command" multiLine="true" wordWrap="true"/>
 
 	<!-- INVISIBLE WIDGETS -->
 		
@@ -79,8 +70,6 @@
         <Property xsi:type="BindableProperty" name="positionUnit" type="MeasurementSystemUnit" category="Appearance" defaultValue="{'metric':'MMT','imperial':'INH','imperial-us':'INH'}" readOnly="false" >
             <Description>PositionUnit</Description>
             <Mappings>
-                <Mapping widget="NumInSetPosition" property="unit" mode="oneWay"/>
-                <Mapping widget="NumInSetDistance" property="unit" mode="oneWay"/>
                 <Mapping widget="NumOutActPosition" property="unit" mode="oneWay"/>
             </Mappings>
         </Property>
@@ -103,20 +92,13 @@
         <Property xsi:type="StructureBindableProperty" name="axisControl" type="AxisControlType" readOnly="false" category="Data">
             <Description>Axis Control</Description>
             <Mappings>
-                <Mapping widget="NumInSetPosition" type="Number" property="node" mode="twoWay" memberPath="Parameters.Position" mapToNode="true"/>
-                <Mapping widget="NumInSetDistance" type="Number" property="node" mode="twoWay" memberPath="Parameters.Distance" mapToNode="true"/>
                 <Mapping widget="NumInSetSpeed" type="Number" property="node" mode="twoWay" memberPath="Parameters.Velocity" mapToNode="true"/>
                 <Mapping widget="NumOutActPosition" type="Number" property="node" mode="oneWay" memberPath="Status.Position" mapToNode="true"/>
                 <Mapping widget="NumOutActSpeed" type="Number" property="node" mode="oneWay" memberPath="Status.Velocity" mapToNode="true"/>
                 <Mapping widget="ToggleSwitchPower" type="Boolean" property="value" mode="twoWay" memberPath="Command.Power" mapToNode="false"/>
-                <Mapping widget="MPushBtnAdditiveMove" type="Boolean" property="value" mode="twoWay" memberPath="Command.MoveAdditive" mapToNode="false"/>
-                <Mapping widget="MPushBtnMoveAbs" type="Boolean" property="value" mode="twoWay" memberPath="Command.MoveAbsolute" mapToNode="false"/>
-                <Mapping widget="MPushBtnJogNeg" type="Boolean" property="value" mode="twoWay" memberPath="Command.JogNegative" mapToNode="false"/>
-                <Mapping widget="MPushBtnJogPos" type="Boolean" property="value" mode="twoWay" memberPath="Command.JogPositive" mapToNode="false"/>
                 <Mapping widget="MPushBtnErrorReset" type="Boolean" property="value" mode="twoWay" memberPath="Command.Reset" mapToNode="false"/>
-                <Mapping widget="MPushBtnHome" type="Boolean" property="value" mode="twoWay" memberPath="Command.Reference" mapToNode="false"/>
-                <Mapping widget="MPushBtnStop" type="Boolean" property="value" mode="twoWay" memberPath="Command.Stop" mapToNode="false"/>
-				<Mapping widget="ToggleBtnMoveVelocity" type="Boolean" property="value" mode="twoWay" memberPath="Command.MoveVelocity" mapToNode="false"/>
+				<Mapping widget="PushBtnUpdate" type="Boolean" property="value" mode="twoWay" memberPath="Command.UpdateVelocity" mapToNode="false"/>			
+				<Mapping widget="ToggleBtnStartStop" type="Boolean" property="value" mode="twoWay" memberPath="Command.Start" mapToNode="false"/>
 				<Mapping widget="ImageError" type="Boolean" property="visible" mode="oneWay" memberPath="Status.ErrorActive" mapToNode="false"/>
 				<Mapping widget="ImageListHome" type="Number" property="selectedIndex" mode="oneWay" memberPath="Status.IsHomed" mapToNode="false"/>
 				<Mapping widget="ImageListPower" type="Number" property="selectedIndex" mode="oneWay" memberPath="Status.IsPowered" mapToNode="false"/>
@@ -189,6 +171,27 @@
 				</Sequence> 
 			</EventHandler>
 		</EventBinding>-->
+		
+		<EventBinding id="AxisAuto_content.NumericInput1.ValueChanged">
+			<Source xsi:type="widget.Event" widgetRefId="NumInSetSpeed" event="ValueChanged" />
+			<EventHandler>
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="PushBtnUpdate">
+						<Method name="SetEnable" value="true" />
+					</Target>
+				</Action>
+			</EventHandler>
+		</EventBinding>
+		<EventBinding id="AxisAuto_content.PushBtnUpdate.MouseUp">
+			<Source xsi:type="widget.Event" widgetRefId="PushBtnUpdate" event="MouseUp" />
+			<EventHandler>
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="PushBtnUpdate">
+						<Method name="SetEnable" value="false" />
+					</Target>
+				</Action>
+			</EventHandler>
+		</EventBinding>
         
     </EventBindings>
 
