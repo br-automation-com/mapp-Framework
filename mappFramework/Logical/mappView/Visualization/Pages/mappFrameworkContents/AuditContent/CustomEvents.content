@@ -6,7 +6,8 @@
     <Widget xsi:type="widgets.brease.AuditList" id="AuditListCustomEvents" top="30" left="30" width="1060" height="560" zIndex="5" itemsPerPage="50" fontSize="16px">
       <Widgets>
         <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItemCustomEventsTimeStamp" width="300" zIndex="0" columnType="timestamp" text="$IAT/mappFramework/Audit/Timestamp" />
-        <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItemCustomEventsMessage" width="760" zIndex="1" text="$IAT/mappFramework/Audit/CustomEvent" />
+        <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItemCustomEventsMessage" width="610" zIndex="1" text="$IAT/mappFramework/Audit/CustomEvent" />
+        <Widget xsi:type="widgets.brease.AuditListItem" id="AuditListItem1" width="150" zIndex="2" columnType="operator name" text="$IAT/mappFramework/Audit/Operator" />
       </Widgets>
     </Widget>
   </Widgets>
