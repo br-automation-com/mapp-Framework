@@ -36,41 +36,58 @@ END_ACTION
 
 ACTION LoadPreview:
 
-    // Load preview when a recipe is selected
-    IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR (HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection) THEN
-        // Check selected recipe name is not empty
-        IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
-            MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
-            MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
-            MpRecipe_0.Load := TRUE;
-            HmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
-            HmiRecipe.Status.LastMaxSelection := MpRecipeUIConnect.Recipe.List.MaxSelection;
-            HmiRecipe.Status.InvalidRecipe := FALSE;
-        END_IF
-    END_IF
+	
+	CASE HmiRecipe.Status.PreviewCase OF
+		PREVIEW_WAIT:
+			// Load preview when a recipe is selected
+			IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR (HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection)
+				OR (HmiRecipe.Status.PreviousRangeStart <> MpRecipeUIConnect.Recipe.List.RangeStart) OR (HmiRecipe.Status.PreviousRangeStart <> MpRecipeUIConnect.Recipe.List.RangeStart) THEN
+				HmiRecipe.Status.PreviewCase := PREVIEW_LOAD;
+			END_IF
+			
+		PREVIEW_LOAD:
+			// Check selected recipe name is not empty
+			IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
+				MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
+				MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
+				MpRecipe_0.Load := TRUE;
+				HmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
+				HmiRecipe.Status.LastMaxSelection := MpRecipeUIConnect.Recipe.List.MaxSelection;
+				HmiRecipe.Status.PreviousRangeStart := MpRecipeUIConnect.Recipe.List.RangeStart;
+				HmiRecipe.Status.PreviousRangeEnd := MpRecipeUIConnect.Recipe.List.RangeEnd;
+				HmiRecipe.Status.InvalidRecipe := FALSE;
+				HmiRecipe.Status.PreviewCase := PREVIEW_CHANGE;
+			END_IF
+			
+		PREVIEW_CHANGE:
+			//Load a second time to ensure correct preview on page up/page down
+			MpRecipe_0.Load := TRUE;	
+			HmiRecipe.Status.PreviewCase := PREVIEW_WAIT;
 
-    // Reset load command on MpRecipe_0 FUB
-    IF MpRecipe_0.StatusID <> 0 THEN
-        HmiRecipe.Status.InvalidRecipe := TRUE;
-        HmiRecipe.Commands.ResetPreview := TRUE;
-    END_IF;
+	END_CASE;
 
-    IF ((MpRecipe_0.CommandDone = TRUE) OR (MpRecipe_0.Error = TRUE)) THEN
-        MpRecipe_0.Load := FALSE;
-    END_IF
+	// Reset load command on MpRecipe_0 FUB
+	IF MpRecipe_0.StatusID <> 0 THEN
+		HmiRecipe.Status.InvalidRecipe := TRUE;
+		HmiRecipe.Commands.ResetPreview := TRUE;
+	END_IF;
+
+	IF ((MpRecipe_0.CommandDone = TRUE) OR (MpRecipe_0.Error = TRUE)) THEN
+		MpRecipe_0.Load := FALSE;
+	END_IF
 
 END_ACTION
 
 ACTION RecipeHMIcommands:
 
-    CASE HmiRecipe.Status.HMIcommand OF
-        REC_HMI_WAIT:
-            // The following commands are triggered directly from the HMI. If you imported the mapp View front end of
-            // the Framework, then this is already taken care of. If you did not, then your visualization must
-            // trigger each one of these command variables (CreateRecipe, SaveSelectedRecipe, LoadRecipe).
-            IF (MpRecipeUIConnect.Status <> mpRECIPE_UI_STATUS_IDLE) THEN
-                // MpRecipe is active so don't issue a new command
-            ELSIF HmiRecipe.Commands.CreateRecipe THEN
+	CASE HmiRecipe.Status.HMIcommand OF
+		REC_HMI_WAIT:
+			// The following commands are triggered directly from the HMI. If you imported the mapp View front end of
+			// the Framework, then this is already taken care of. If you did not, then your visualization must
+			// trigger each one of these command variables (CreateRecipe, SaveSelectedRecipe, LoadRecipe).
+			IF (MpRecipeUIConnect.Status <> mpRECIPE_UI_STATUS_IDLE) THEN
+				// MpRecipe is active so don't issue a new command
+			ELSIF HmiRecipe.Commands.CreateRecipe THEN
                 HmiRecipe.Status.HMIcommand := REC_HMI_CREATE;
                 HmiRecipe.Commands.CreateRecipe := FALSE;
             ELSIF HmiRecipe.Commands.SaveSelectedRecipe THEN

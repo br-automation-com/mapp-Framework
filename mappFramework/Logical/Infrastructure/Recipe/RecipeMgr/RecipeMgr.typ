@@ -18,11 +18,14 @@ TYPE
 		FileName : STRING[255]; (*Recipe file name*)
 	END_STRUCT;
 	RecipeStatusType : 	STRUCT  (*Structure to hold status information from the mapp View HMI*)
+		PreviewCase : PreviewCaseEnum; (*State machine step for loading previews*)
 		HMIcommand : RecipeHmiStepEnum; (*State machine step for HMI commands*)
 		LastLoadedConfigRecipe : STRING[255]; (*Last loaded configuration recipe*)
 		LastLoadedProductRecipe : STRING[255]; (*Last loaded product recipe*)
 		ProductRecipeLoaded : BOOL; (*Product recipe was loaded*)
 		ConfigRecipeLoaded : BOOL; (*Config recipe was loaded*)
+		PreviousRangeStart : REAL;
+		PreviousRangeEnd : REAL;
 		LastMaxSelection : UINT; (*The previous maximum number of recipes*)
 		LastSelectedIndex : UINT; (*The previous selected index*)
 		LastStatus : MpRecipeUIStatusEnum; (*The previous UI status*)
@@ -68,5 +71,11 @@ TYPE
 		REC_HMI_SAVE, (*Save recipe*)
 		REC_HMI_CREATE, (*Create recipe*)
 		REC_HMI_RESET_PREVIEW (*Reset the preview values to 0 / empty*)
+		);
+	PreviewCaseEnum : 
+		( (*State machine step for loading Preview*)
+		PREVIEW_WAIT, (*Wait*)
+		PREVIEW_LOAD, (*Load recipe*)
+		PREVIEW_CHANGE (*Show new preview*)
 		);
 END_TYPE
