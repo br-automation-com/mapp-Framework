@@ -92,4 +92,20 @@ ACTION ReportFileExplorer:
 	
 	// Set file device to selected
 	MpReportCore_0.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
+	
+	// Sort reports for next cycle
+	IF HmiReport.Parameters.SortType = 'NameAsc' THEN
+		MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_NAME_ASC;
+	ELSIF HmiReport.Parameters.SortType = 'NameDesc' THEN
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_NAME_DESC;
+	ELSIF HmiReport.Parameters.SortType = 'DateAsc' THEN
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_MOD_TIME_ASC;
+	ELSIF HmiReport.Parameters.SortType = 'DateDesc' THEN
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_MOD_TIME_DESC;
+	ELSIF HmiReport.Parameters.SortType = 'SizeAsc' THEN
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_SIZE_ASC;
+	ELSIF HmiReport.Parameters.SortType = 'SizeDesc' THEN
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_SIZE_DES;
+	END_IF
+	
 END_ACTION

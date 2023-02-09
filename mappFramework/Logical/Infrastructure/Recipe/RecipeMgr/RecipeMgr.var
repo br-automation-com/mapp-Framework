@@ -23,6 +23,11 @@ END_VAR
 (*Structure Types*)
 VAR
 	HmiRecipe : RecipeHmiInterfaceType; (*HMI interface structure*)
+END_VAR
+VAR RETAIN
+	HmiRecipeRetain : RecipeRetainType;
+END_VAR
+VAR
 	Parameters : ParametersType; (*Machine parameters. Used by the machine at runtime*)
 	ParametersEdit : {REDUND_UNREPLICABLE} ParametersType; (*Machine parameters edit structure. Enables you to edit a recipe that is not currently active*)
 	ParametersPreview : ParametersType; (*Machine parameters preview structure. Registered to the recipe. Enables you to preview a recipe that is not currently active.*)

@@ -44,6 +44,11 @@ TYPE
 		TableConfig : STRING[120]; (*Table configuration *)
 		SelectedRecipe : STRING[255]; (*The name of the selected recipe*)
 		DefaultRecipeSelected : BOOL; (*The default recipe is selected*)
+		RecipeContentLoaded : BOOL; (*Recipe content is loading and previous selection is restored*)
+	END_STRUCT;
+	RecipeRetainType : 	STRUCT  (*Structure to hold parameters for retain after restart *)
+		LastLoadedConfigRecipe : STRING[255]; (*Last loaded configuration recipe*)
+		LastLoadedProductRecipe : STRING[255]; (*Last loaded product recipe*)
 	END_STRUCT;
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)
 		AddParametersHere1 : BOOL; (*Add your parameteres here *)
