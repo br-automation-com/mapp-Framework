@@ -180,6 +180,8 @@ def prettyPrintLevel(level: Level) -> list:
 	return [level.limit, level.text]
 
 def levelToElement(parent: et.Element, name: str, level: Level) -> et.Element:
+	if (level.limit == ''):
+		return None
 	if (level.limit.startswith(':')):
 		limitEnable = et.SubElement(parent, 'Selector', {'ID': f'{name}LimitEnable', 'Value': 'Dynamic'})
 		et.SubElement(limitEnable, 'Property', {'ID': 'LimitPV', 'Value': level.limit})
@@ -396,8 +398,14 @@ def main() -> None:
 	args = parser.parse_args()
 	
 	if (args.export):
+		if (not os.path.isfile(args.alarmXCore)):
+			print('MpAlarmXCore file not found')
+			return
 		exportAlarmXCore(args.csvFile, args.alarmXCore)
 	else:
+		if (not os.path.isfile(args.csvFile)):
+			print('CSV file not found')
+			return
 		alarmList = readCsvFile(args.csvFile)
 		updateAlarmXCore(args.alarmXCore, alarmList)
 
