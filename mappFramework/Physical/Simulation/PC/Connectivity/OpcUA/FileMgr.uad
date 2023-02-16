@@ -9,12 +9,18 @@
         <ACE RoleName="Operators" Access="0x005F" />
         <ACE RoleName="Everyone" Access="0x005F" />
       </ACL>
+      <ACL Id="2">
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x017F" />
+      </ACL>
     </ACLAliases>
     <EURangeViolationAliases />
     <EURangesAliases />
     <EngineeringUnitAliases />
   </Aliases>
-  <DefaultView AclId="1">
+  <DefaultView AclId="2">
     <Module Name="&lt;Default&gt;">
       <Task Name="FileMgr">
         <Variable Name="HmiFile" AutomaticEnable="True">
