@@ -13,3 +13,11 @@ VAR
 	Testsuite : UtMgrTestSuite := (Name:='AuditMgr',Description:='AuditMgr Unit Tests',MetaInformation:='Meta');
 END_VAR
 (*Variables used in the tests*)
+VAR
+	cycleCount : {REDUND_UNREPLICABLE} USINT;
+	HMIAuditInterfaceCtrl : HMIAuditInterface_type := (Commands:=(ExportArchives:=FALSE));
+	UnitTestState : TestStateEnum;
+	SampleTemperature : REAL;
+	DirInfo_0 : DirInfo;
+	NumberOfFiles : USINT;
+END_VAR
