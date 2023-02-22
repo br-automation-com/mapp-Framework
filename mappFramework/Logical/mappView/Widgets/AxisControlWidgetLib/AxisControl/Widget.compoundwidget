@@ -31,7 +31,7 @@
 		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnJogNeg"       top="305" left="5"   width="160" height="50" zIndex="13" text="$IAT/mappFramework/AxisFaceplate/JogNeg" 		textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Operate" />
         <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnMoveAbs"      top="365" left="5"   width="160" height="50" zIndex="16" text="$IAT/mappFramework/AxisFaceplate/MoveAbsolute" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" multiLine="true" wordWrap="true"/>
 		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnAdditiveMove" top="425" left="5" width="160" height="50" zIndex="15" text="$IAT/mappFramework/AxisFaceplate/MoveAdditive" 	textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" multiLine="true" wordWrap="true"/>
-		<Widget xsi:type="widgets.brease.ToggleButton" id="ToggleBtnMoveVelocity" 		top="485" left="5" width="160" height="50" zIndex="20" text="$IAT/mappFramework/AxisFaceplate/MoveVelocity" 	textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" multiLine="true" wordWrap="true"/>        
+		<Widget xsi:type="widgets.brease.ToggleButton" 		  id="ToggleBtnMoveVelocity" 		top="485" left="5" width="160" height="50" zIndex="20" text="$IAT/mappFramework/AxisFaceplate/MoveVelocity" 	textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" multiLine="true" wordWrap="true"/>        
 
 		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnJogPos" 		top="305" left="185" width="160" height="50" zIndex="14" text="$IAT/mappFramework/AxisFaceplate/JogPos" textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Operate" />
     	<Widget xsi:type="widgets.brease.MomentaryPushButton" id="MPushBtnHome" 		top="365" left="185" width="160" height="50" zIndex="18" text="$IAT/mappFramework/AxisFaceplate/Home" 	textAlign="center" fontSize="18px" fontName="Arial Unicode" bold="false" style="Command" />
@@ -97,6 +97,18 @@
             <Description>Label Text</Description>
             <Mappings>
                 <Mapping widget="TextOutAx" property="value" mode="oneWay"/>
+            </Mappings>
+        </Property>
+		
+		<Property xsi:type="BindableProperty" name="manualControl" type="Boolean" defaultValue="true" readOnly="false" category="Appearance">
+            <Description>Deactivate Manual Control</Description>
+            <Mappings>
+                <Mapping widget="MPushBtnJogNeg" property="enable" mode="twoWay"/>
+				<Mapping widget="MPushBtnMoveAbs" property="enable" mode="twoWay"/>
+				<Mapping widget="MPushBtnAdditiveMove" property="enable" mode="twoWay"/>
+				<Mapping widget="ToggleBtnMoveVelocity" property="enable" mode="twoWay"/>
+				<Mapping widget="MPushBtnJogPos" property="enable" mode="twoWay"/>
+				<Mapping widget="MPushBtnHome" property="enable" mode="twoWay"/>
             </Mappings>
         </Property>
         
