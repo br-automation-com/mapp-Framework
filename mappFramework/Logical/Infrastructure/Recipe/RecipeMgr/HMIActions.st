@@ -235,23 +235,6 @@ ACTION RecipeHMIcommands:
 			HmiRecipe.Status.FileDuplicate := TRUE;
 		END_IF
 	END_FOR
-	
-	// Find loaded recipe index
-	IF (HmiRecipe.Status.RecipeContentLoaded AND (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE)) THEN
-		HmiRecipe.Status.RecipeContentLoaded := FALSE;
-		FOR i:=0 TO ((SIZEOF(MpRecipeUIConnect.Recipe.List.Names) / SIZEOF(MpRecipeUIConnect.Recipe.List.Names[0])) - 1) DO
-			temp := HmiRecipe.Status.LastLoadedProductRecipe;		
-			IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
-				IF HmiRecipe.Status.LastLoadedProductRecipe = MpRecipeUIConnect.Recipe.List.Names[i] THEN
-					MpRecipeUIConnect.Recipe.List.SelectedIndex := i;
-				END_IF
-			ELSIF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
-				IF HmiRecipe.Status.LastLoadedConfigRecipe = MpRecipeUIConnect.Recipe.List.Names[i] THEN
-					MpRecipeUIConnect.Recipe.List.SelectedIndex := i;
-				END_IF
-			END_IF		 
-		END_FOR
-	END_IF	
 
 	// Set whether the loading .gif should be shown on the HMI
 	HmiRecipe.Status.LoadingRecipeList := (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_REFRESH);
