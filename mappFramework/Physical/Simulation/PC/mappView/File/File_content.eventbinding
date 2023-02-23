@@ -130,9 +130,27 @@
     <EventBinding id="ContentLoaded.File_content.RefreshList">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <EventHandler condition="contentId = &quot;File_content&quot;">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="SessionVarFileContentActive">
+                <Method xsi:type="session.VariableAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+      <EventHandler condition="contentId &lt;&gt; &quot;File_content&quot;">
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
-            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          <Target xsi:type="session.VariableAction" refId="SessionVarFileContentActive">
+            <Method xsi:type="session.VariableAction.SetValueBool" value="false" />
           </Target>
         </Action>
       </EventHandler>
@@ -166,7 +184,12 @@
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="CodeType = 8192">
+      <Operand datatype="BOOL" name="FileContentActive">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarFileContentActive">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="CodeType = 8192 AND FileContentActive">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.MissingValue" header="$IAT/mappFramework/File/File" icon="Error" />
@@ -182,7 +205,7 @@
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="CodeType = 8193">
+      <EventHandler condition="CodeType = 8193 AND FileContentActive">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.CommandNotAllowed" header="$IAT/mappFramework/File/File" icon="Error" />
@@ -198,14 +221,14 @@
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="CodeType = 8194">
+      <EventHandler condition="CodeType = 8194 AND FileContentActive">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.NoElementToPaste" header="$IAT/mappFramework/File/File" icon="Error" />
           </Target>
         </Action>
       </EventHandler>
-      <EventHandler condition="CodeType = 8195">
+      <EventHandler condition="CodeType = 8195 AND FileContentActive">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.NothingSelected" header="$IAT/mappFramework/File/File" icon="Error" />
@@ -221,7 +244,7 @@
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="CodeType = 8196">
+      <EventHandler condition="CodeType = 8196 AND FileContentActive">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.FolderAlreadyExists" header="$IAT/mappFramework/File/File" icon="Error" />
@@ -237,7 +260,7 @@
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="CodeType = 8197">
+      <EventHandler condition="CodeType = 8197 AND FileContentActive">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.InvalidFileDevice" header="$IAT/mappFramework/File/File" icon="Error" />
@@ -253,7 +276,7 @@
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="CodeType = 8198">
+      <EventHandler condition="CodeType = 8198 AND FileContentActive">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.NewNameNotEntered" header="$IAT/mappFramework/File/File" icon="Error" />
@@ -269,7 +292,7 @@
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="CodeType = 8199">
+      <EventHandler condition="CodeType = 8199 AND FileContentActive">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.InvalidName" header="$IAT/mappFramework/File/File" icon="Error" />
@@ -285,7 +308,7 @@
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="CodeType = 8200">
+      <EventHandler condition="CodeType = 8200 AND FileContentActive">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.PasteNotAllowed" header="$IAT/mappFramework/File/File" icon="Error" />
@@ -301,7 +324,7 @@
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="CodeType = 8201">
+      <EventHandler condition="CodeType = 8201 AND FileContentActive">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.GeneralError" header="$IAT/mappFramework/File/File" icon="Error" />

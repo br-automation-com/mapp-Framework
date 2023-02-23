@@ -88,23 +88,23 @@ ACTION RecipeHMIcommands:
 			IF (MpRecipeUIConnect.Status <> mpRECIPE_UI_STATUS_IDLE) THEN
 				// MpRecipe is active so don't issue a new command
 			ELSIF HmiRecipe.Commands.CreateRecipe THEN
-                HmiRecipe.Status.HMIcommand := REC_HMI_CREATE;
-                HmiRecipe.Commands.CreateRecipe := FALSE;
-            ELSIF HmiRecipe.Commands.SaveSelectedRecipe THEN
-                HmiRecipe.Status.HMIcommand := REC_HMI_SAVE;
-                HmiRecipe.Commands.SaveSelectedRecipe := FALSE;
-            ELSIF HmiRecipe.Commands.LoadRecipe THEN
-                HmiRecipe.Status.HMIcommand := REC_HMI_LOAD;
-                HmiRecipe.Commands.LoadRecipe := FALSE;
-                IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
-                    HmiRecipe.Status.ProductRecipeLoaded := FALSE;
-                ELSE
-                    HmiRecipe.Status.ConfigRecipeLoaded := FALSE;
-                END_IF
-            ELSIF HmiRecipe.Commands.ResetPreview THEN
-                HmiRecipe.Status.HMIcommand := REC_HMI_RESET_PREVIEW;
-                HmiRecipe.Commands.ResetPreview := FALSE;
-            END_IF
+				HmiRecipe.Status.HMIcommand := REC_HMI_CREATE;
+				HmiRecipe.Commands.CreateRecipe := FALSE;
+			ELSIF HmiRecipe.Commands.SaveSelectedRecipe THEN
+				HmiRecipe.Status.HMIcommand := REC_HMI_SAVE;
+				HmiRecipe.Commands.SaveSelectedRecipe := FALSE;
+			ELSIF HmiRecipe.Commands.LoadRecipe THEN
+				HmiRecipe.Status.HMIcommand := REC_HMI_LOAD;
+				HmiRecipe.Commands.LoadRecipe := FALSE;
+				IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
+					HmiRecipe.Status.ProductRecipeLoaded := FALSE;
+				ELSE
+					HmiRecipe.Status.ConfigRecipeLoaded := FALSE;
+				END_IF
+			ELSIF HmiRecipe.Commands.ResetPreview THEN
+				HmiRecipe.Status.HMIcommand := REC_HMI_RESET_PREVIEW;
+				HmiRecipe.Commands.ResetPreview := FALSE;
+			END_IF
 
 		REC_HMI_CREATE:
 			IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
@@ -237,7 +237,7 @@ ACTION RecipeHMIcommands:
 	END_FOR
 	
 	// Find loaded recipe index
-	IF (HmiRecipe.Status.RecipeContentLoaded AND (HmiRecipe.Status.LoadingRecipeList = FALSE)) THEN
+	IF (HmiRecipe.Status.RecipeContentLoaded AND (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE)) THEN
 		HmiRecipe.Status.RecipeContentLoaded := FALSE;
 		FOR i:=0 TO ((SIZEOF(MpRecipeUIConnect.Recipe.List.Names) / SIZEOF(MpRecipeUIConnect.Recipe.List.Names[0])) - 1) DO
 			temp := HmiRecipe.Status.LastLoadedProductRecipe;		
