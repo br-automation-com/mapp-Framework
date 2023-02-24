@@ -267,5 +267,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="UserList_content.BtnRefreshUser.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="UserList_content" widgetRefId="BtnRefreshUser" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="session.VariableAction" refId="UserXRefreshList">
+            <Method xsi:type="session.VariableAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>
