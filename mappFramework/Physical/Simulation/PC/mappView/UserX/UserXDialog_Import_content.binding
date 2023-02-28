@@ -3,33 +3,33 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.Confirm" attribute="value" />
-			<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="PushButtonConfirm" attribute="value" />
+			<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="PushBtnConfirmImport" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.Cancel" attribute="value" />
-			<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="PushButtonCancel" attribute="value" />
+			<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="PushBtnCancelImport" attribute="value" />
 		</Binding>
 
 	<Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.List.FileNames" attribute="value" />
-<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="TableItem1" attribute="stringValue" />
+<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="TableItemFileList" attribute="stringValue" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.Users" attribute="value" />
-<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="chkBxUser" attribute="value" />
+<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="CheckBoxUsers" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.Roles" attribute="value" />
-<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="chkBxUser1" attribute="value" />
+<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="CheckBoxUserRoles" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.List.SelectedIndex" attribute="value" />
-<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="Table1" attribute="selectedRow" />
+<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="TableUserXImport" attribute="selectedRow" />
 </Binding>
 		<Binding mode="oneWay">
-			<Source xsi:type="listElement" >
-				<Selector xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.List.SelectedIndex" attribute="value"  />
-				<be:List xsi:type="be:opcUa" attribute="value" >
+			<Source xsi:type="listElement">
+				<Selector xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.List.SelectedIndex" attribute="value" />
+				<be:List xsi:type="be:opcUa" attribute="value">
 					<bt:Element index="0" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.List.FileNames[0]" />
 					<bt:Element index="1" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.List.FileNames[1]" />
 					<bt:Element index="2" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.List.FileNames[2]" />
@@ -37,7 +37,7 @@
 					<bt:Element index="4" refId="::UserXMgr:UserXMgrUIConnect.Import.Dialog.List.FileNames[4]" />
 				</be:List>
 			</Source>
-			<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="TxtOutImportFileName" attribute="value" />
+			<Target xsi:type="brease" contentRefId="UserXDialog_Import_content" widgetRefId="TextOutImportFileName" attribute="value" />
 		</Binding>
 
 </Bindings>

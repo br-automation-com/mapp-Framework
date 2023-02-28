@@ -3,17 +3,17 @@
 	<Bindings>  
 		<Binding mode="twoWay">
 			<Source xsi:type="mapp" refId="gMpLinkCustomEvents" attribute="link" />
-			<Target xsi:type="brease" contentRefId="CustomEvents_content" widgetRefId="AuditList1" attribute="mpLink" />
+			<Target xsi:type="brease" contentRefId="CustomEvents_content" widgetRefId="AuditListCustomEvents" attribute="mpLink" />
 		</Binding>
 		
 		
 	<Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.CustomEventSortCfg" attribute="value" />
-<Target xsi:type="brease" contentRefId="CustomEvents_content" widgetRefId="AuditList1" attribute="sortConfiguration" />
+<Target xsi:type="brease" contentRefId="CustomEvents_content" widgetRefId="AuditListCustomEvents" attribute="sortConfiguration" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.CustomEventsFilterCfg" attribute="value" />
-<Target xsi:type="brease" contentRefId="CustomEvents_content" widgetRefId="AuditList1" attribute="filterConfiguration" />
+<Target xsi:type="brease" contentRefId="CustomEvents_content" widgetRefId="AuditListCustomEvents" attribute="filterConfiguration" />
 </Binding>
 </Bindings>
 </BindingsSet>

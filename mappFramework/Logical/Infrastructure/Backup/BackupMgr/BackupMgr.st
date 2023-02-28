@@ -8,7 +8,7 @@
 PROGRAM _INIT
 
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
+	DirCreate_0(enable := TRUE, pDevice := ADR('mappBackupFiles'), pName := ADR('/'));
 
 	// Check if folder already exist and if so disabled the function block call
 	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
@@ -41,6 +41,14 @@ PROGRAM _INIT
 END_PROGRAM
 
 PROGRAM _CYCLIC
+	
+	// Call all cyclic actions
+	FileManager;
+	IF NOT DiagCpuIsARsim() THEN
+		ChangeConfiguration;
+	END_IF
+	FormatDeviceDataProvider;
+	
 	CASE BackupState OF
 		BACKUP_IDLE:
 			HmiBackup.Status.CreateAllowed := NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress) AND NOT HmiBackup.Status.SimulationActive;
@@ -60,6 +68,11 @@ PROGRAM _CYCLIC
 				HmiBackup.Status.RestoreAllowed := FALSE;
 				MpBackupCore_0.Name := ADR(HmiBackup.Parameters.Name);
 				BackupState := BACKUP_CREATING;
+			ELSIF MpBackupCore_0.Info.Automatic.Backup.InProgress THEN
+				HmiBackup.Status.Busy := TRUE;
+				HmiBackup.Status.CreateAllowed := FALSE;
+				HmiBackup.Status.RestoreAllowed := FALSE;
+				BackupState := BACKUP_AUTOCREATE;	
 			ELSIF (HmiBackup.Commands.Restore = TRUE) THEN
 				HmiBackup.Commands.Restore := FALSE;
 				MpBackupCore_0.Install := TRUE;
@@ -101,6 +114,16 @@ PROGRAM _CYCLIC
 			ELSIF (MpBackupCore_0.Error = TRUE) THEN
 				BackupState := BACKUP_ERROR;
 			END_IF
+			
+		BACKUP_AUTOCREATE:
+			IF ( MpBackupCore_0.Info.Automatic.Backup.InProgress = FALSE) THEN
+				MpBackupCore_0.Install := FALSE;
+				MpBackupCore_0.RequestInfo := FALSE;
+				MpFileManagerUIConnect.File.Refresh := TRUE;
+				BackupState := BACKUP_REFRESHING_LIST;
+			ELSIF (MpBackupCore_0.Error = TRUE) THEN
+				BackupState := BACKUP_ERROR;
+			END_IF	
 
 		BACKUP_REFRESHING_LIST:
 			IF MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH THEN
@@ -191,14 +214,6 @@ PROGRAM _CYCLIC
 	HmiBackup.Status.Update := MpBackupCore_0.Info.Automatic.Update;
 	HmiBackup.Status.BackupCtrlEnabled := (NOT HmiBackup.Status.SimulationActive);
 
-	// Call all actions
-	FileManager;
-	IF NOT DiagCpuIsARsim() THEN
-		ChangeConfiguration;
-	END_IF
-
-	FormatDeviceDataProvider;
-
 	// Assign MpLinks
 	MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
@@ -208,6 +223,7 @@ PROGRAM _CYCLIC
 	MpBackupCore_0();
 	MpFileManagerUI_0();
 	MpBackupCoreConfig_0();
+	
 END_PROGRAM
 
 PROGRAM _EXIT

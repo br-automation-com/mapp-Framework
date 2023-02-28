@@ -21,7 +21,7 @@ _TEARDOWN_SET(void)
 
 _SETUP_TEST(void)
 {
-    TEST_DONE;
+	TEST_DONE;
 }
 
 _TEARDOWN_TEST(void)
@@ -31,60 +31,60 @@ _TEARDOWN_TEST(void)
 
 _TEST CreateAdvReport(void)
 {
-    switch (TestState)
-    {
-        case TEST_ARRANGE:
-         	HmiReport_UT.Parameters.UseAdvancedFormat = true;
+	switch (TestState)
+	{
+		case TEST_ARRANGE:
+			HmiReport_UT.Parameters.UseAdvancedFormat = true;
 			TEST_BUSY_CONDITION(CoreInfoActive == true);
-            TEST_ABORT_CONDITION(HmiReport_UT.Status.Error == true);
-            TestState = TEST_ACT;
-            break;
+			TEST_ABORT_CONDITION(HmiReport_UT.Status.Error == true);
+			TestState = TEST_ACT;
+			break;
 
-        case TEST_ACT:
+		case TEST_ACT:
 			TEST_BUSY_CONDITION(CoreInfoActive == false);
 			HmiReport_UT.Commands.Generate = true;
 			TEST_BUSY_CONDITION(HmiReport_UT.Status.Busy == false);
-            TestState = TEST_ASSERT;
-            break;
+			TestState = TEST_ASSERT;
+			break;
 
-        case TEST_ASSERT:
-            HmiReport_UT.Commands.Generate = false;	
+		case TEST_ASSERT:
+			HmiReport_UT.Commands.Generate = false;	
 			TEST_BUSY_CONDITION(HmiReport_UT.Status.Busy == true);	
-            TEST_ASSERT(HmiReport_UT.Status.Error == false);
-			TEST_ASSERT_EQUAL_INT(1, CoreInfo_UT.NumberOfReports);            
-            TEST_DONE;
-            break;
-    }
-    TEST_BUSY;
+			TEST_ASSERT(HmiReport_UT.Status.Error == false);
+			TEST_ASSERT_EQUAL_INT(1, CoreInfo_UT.NumberOfReports);			  
+			TEST_DONE;
+			break;
+	}
+	TEST_BUSY;
 }
 
 _TEST CreateSimpleReport(void)
 {
-    switch (TestState)
-    {
-        case TEST_ARRANGE:
-         	HmiReport_UT.Parameters.UseAdvancedFormat = false;
+	switch (TestState)
+	{
+		case TEST_ARRANGE:
+			HmiReport_UT.Parameters.UseAdvancedFormat = false;
 			TEST_BUSY_CONDITION(CoreInfoActive == true);
-            TEST_ABORT_CONDITION(HmiReport_UT.Status.Error == true);
-            TestState = TEST_ACT;
-            break;
+			TEST_ABORT_CONDITION(HmiReport_UT.Status.Error == true);
+			TestState = TEST_ACT;
+			break;
 
-        case TEST_ACT:
+		case TEST_ACT:
 			TEST_BUSY_CONDITION(CoreInfoActive == false);
 			HmiReport_UT.Commands.Generate = true;
 			TEST_BUSY_CONDITION(HmiReport_UT.Status.Busy == false);
-            TestState = TEST_ASSERT;
-            break;
+			TestState = TEST_ASSERT;
+			break;
 
-        case TEST_ASSERT:
-            HmiReport_UT.Commands.Generate = false;	
+		case TEST_ASSERT:
+			HmiReport_UT.Commands.Generate = false;	
 			TEST_BUSY_CONDITION(HmiReport_UT.Status.Busy == true);	
-            TEST_ASSERT(HmiReport_UT.Status.Error == false);
-			TEST_ASSERT_EQUAL_INT(1, CoreInfo_UT.NumberOfReports);            
-            TEST_DONE;
-            break;
-    }
-    TEST_BUSY;
+			TEST_ASSERT(HmiReport_UT.Status.Error == false);
+			TEST_ASSERT_EQUAL_INT(1, CoreInfo_UT.NumberOfReports);			  
+			TEST_DONE;
+			break;
+	}
+	TEST_BUSY;
 }
 
 

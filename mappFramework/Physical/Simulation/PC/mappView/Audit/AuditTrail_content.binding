@@ -3,19 +3,19 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="mapp" refId="gMpLinkAuditTrail" attribute="link" />
-			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="AuditList1" attribute="mpLink" />
+			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="AuditList" attribute="mpLink" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.AuditFilterCfg" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="AuditList1" attribute="filterConfiguration" />
+			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="AuditList" attribute="filterConfiguration" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.AuditSortCfg" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="AuditList1" attribute="sortConfiguration" />
+			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="AuditList" attribute="sortConfiguration" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.ArchiveAvailable" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="PushButtonExportArchive" attribute="visible" />
+			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="PushBtnExportArchive" attribute="visible" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.ArchiveAvailable" attribute="value" />
@@ -23,7 +23,7 @@
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.ArchiveAvailable" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="lblNumOfArchives" attribute="visible" />
+			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="LabelNumberOfArchives" attribute="visible" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.NumberOfArchives" attribute="value" />
@@ -31,7 +31,7 @@
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Commands.ExportArchives" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="PushButtonExportArchive" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditTrail_content" widgetRefId="PushBtnExportArchive" attribute="value" />
 		</Binding>
 	</Bindings>
 </BindingsSet>

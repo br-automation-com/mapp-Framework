@@ -2,7 +2,7 @@
 <tmx version="1.4">
   <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
     <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
-    <prop type="x-BR-TS:Namespace">IAT/Report</prop>
+    <prop type="x-BR-TS:Namespace">IAT/mappFramework/Report</prop>
   </header>
   <body>
     <tu tuid="Cancel">
@@ -292,7 +292,7 @@ Error on Report Core, please check the following causes
     </tu>
     <tu tuid="FilenameLabel">
       <tuv xml:lang="de">
-        <seg>Reportname:</seg>
+        <seg>Berichtsname:</seg>
       </tuv>
       <tuv xml:lang="zh">
         <seg>报告名称：</seg>
@@ -322,6 +322,83 @@ Error on Report Core, please check the following causes
       </tuv>
       <tuv xml:lang="en">
         <seg>Oee summary, Temperature samples, Alarm history</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Sort.NameAsc">
+      <tuv xml:lang="de">
+        <seg>aufsteigender (alphabetischer) Reihenfolge</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>(字母)升序排列</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>ascending (alphabetic) order</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Sort.NameDesc">
+      <tuv xml:lang="de">
+        <seg>absteigende (alphabetische) Reihenfolge</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>(字母)降序排列</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>descending (alphabetic) order</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Sort.DateAsc">
+      <tuv xml:lang="de">
+        <seg>aufsteigend sortiert nach Datum der letzten Änderung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>按最后修改时间升序排列</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>ascending order by date last modified</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Sort.DateDesc">
+      <tuv xml:lang="de">
+        <seg>absteigend sortiert nach Datum der letzten Änderung</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>按最后修改时间降序排列</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>descending order by date last modified</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Sort.SizeAsc">
+      <tuv xml:lang="de">
+        <seg>aufsteigende Reihenfolge nach Dateigröße</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>按文件大小升序排列</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>ascending order by file size</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Sort.SizeDesc">
+      <tuv xml:lang="de">
+        <seg>absteigende Reihenfolge nach Dateigröße</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>按文件大小降序排列</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>descending order by file size</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Sort">
+      <tuv xml:lang="de">
+        <seg>Sortiere nach</seg>
+      </tuv>
+      <tuv xml:lang="zh">
+        <seg>排序方式</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Sort by</seg>
       </tuv>
     </tu>
   </body>

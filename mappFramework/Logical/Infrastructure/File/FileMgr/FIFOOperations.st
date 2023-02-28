@@ -266,11 +266,7 @@ ACTION FIFOOperation:
 
 	MpFileManagerUIConnect_FIFO.DeviceList.DeviceNames[0] := HmiFile.Parameters.Fifo.DeviceName;
 	MpFileManagerUI_FIFO.UIConnect := ADR(MpFileManagerUIConnect_FIFO);
-	// Assign MpLink
-	MpFileManagerUI_FIFO.MpLink := ADR(gMpLinkFileManagerUIFile_FIFO);
-
 	MpFileManagerUI_FIFO.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items) / SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items[0]);
-	// Call function block
-	MpFileManagerUI_FIFO();
+
 
 END_ACTION

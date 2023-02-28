@@ -3,33 +3,33 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.Query.Text" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="TableItem2" attribute="stringValue" />
+			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="TableItemAuditQueryMessage" attribute="stringValue" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.Query.Op" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="TableItem1" attribute="stringValue" />
+			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="TableItemAuditQueryOperator" attribute="stringValue" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Commands.RunQuery" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="PushButtonRunQuery" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="PushBtnRunAuditQuery" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.Query.EvTime" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="TableItemDateTime1" attribute="value" />
+			<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="TableItemAuditQueryDateTime" attribute="value" />
 		</Binding>
 	
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.TableConfig[0]" attribute="value" />
-<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="Table1" attribute="tableConfiguration" />
+<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="TableAuditQuery" attribute="tableConfiguration" />
 </Binding>
 
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.Query.Name" attribute="value" />
-<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="ddQuerySel" attribute="selectedValue" />
+<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="DropDownAuditQuerySelect" attribute="selectedValue" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::AuditMgr:HmiAudit.Status.DeviceDataProvider" attribute="value" />
-<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="ddQuerySel" attribute="dataProvider" />
+<Target xsi:type="brease" contentRefId="AuditQuery_content" widgetRefId="DropDownAuditQuerySelect" attribute="dataProvider" />
 </Binding>
 </Bindings>
 </BindingsSet>

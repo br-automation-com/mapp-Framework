@@ -7,7 +7,7 @@
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="snippet" refId="IndexTextSnippetUserXMessage" attribute="value" />
-			<Target xsi:type="brease" contentRefId="UserXDialog_Error_content" widgetRefId="TextOutputUserError" attribute="value" />
+			<Target xsi:type="brease" contentRefId="UserXDialog_Error_content" widgetRefId="TextOutUserError" attribute="value" />
 		</Binding>
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.MessageBox.Type" attribute="value" />
@@ -16,6 +16,18 @@
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="::UserXMgr:UserXMgrUIConnect.MessageBox.ErrorNumber" attribute="value" />
 			<Target xsi:type="snippet" refId="IndexTextSnippetUserXManagerError" attribute="value" />
-		</Binding>		
+		</Binding>
+		<Binding mode="oneWay"> 
+			<Source xsi:type="session" refId="SelectedUserName" attribute="value" />
+		   <Target xsi:type="snippet" refId="SnippetSelectedUsername" attribute="value" /> 
+		</Binding>
+		<Binding mode="oneWay"> 
+		   <Source xsi:type="snippet" refId="SnippetSelectedUsername" attribute="value" /> 
+		   <Target xsi:type="text" refId="IAT/Widgets/UserList/deleteuser.CONFIRM_DELETE" attribute="value" /> 
+		</Binding>
+		<Binding mode="oneWay"> 
+			<Source xsi:type="text" refId="IAT/Widgets/UserList/deleteuser.CONFIRM_DELETE" attribute="value" /> 
+			<Target xsi:type="session" refId="SelectedUserNameMsg" attribute="value" />
+		</Binding>
 	</Bindings>
 </BindingsSet>

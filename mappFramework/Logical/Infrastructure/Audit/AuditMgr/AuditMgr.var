@@ -5,11 +5,11 @@ VAR
 	MpAuditTrailConfig_0 : MpAuditTrailConfig; (*AuditTrail configuration*)
 	MpAuditTrail_CEvents : MpAuditTrail; (*AuditTrail for custom events*)
 	QueryUserEvents_0 : {REDUND_UNREPLICABLE} MpAuditQuery; (*MpAlarmXQuery instance*)
+	MpAuditTrailUI_0 : MpAuditTrailUI; (*AuditTrail UI interface*)
 END_VAR
 (*Constants*)
 VAR CONSTANT
 	MAX_QUERY_RESULTS : USINT := 19; (*Maximum number of query results (Value+1)*)
-	LOCAL_FOLDER : STRING[10] := 'Audit'; (*Folder name on the file device for UserX  files*)
 	MAX_CUSTOM_EVENTS : USINT := 9; (*Maximum number of custom events*)
 	MAX_QUERIES : USINT := 2; (*Maximum number of configured queries*)
 END_VAR
@@ -19,6 +19,7 @@ VAR
 	CustomEvent : ARRAY[0..MAX_CUSTOM_EVENTS] OF AuditCustomEventType; (*Custom events*)
 	AuditQuery : {REDUND_UNREPLICABLE} AuditQueryType; (*Query results and status*)
 	AuditTrailConfig : MpAuditTrailConfigType; (*Configuration structure for changing archiving setup*)
+	MpAuditTrailUIConnect : MpAuditTrailUIConnectType; (*MpAuditUI connection to the HMI*)
 END_VAR
 (*Variables*)
 VAR

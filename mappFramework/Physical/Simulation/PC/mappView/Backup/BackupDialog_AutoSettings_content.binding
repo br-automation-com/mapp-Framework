@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="BackupDialog_AutoSettings_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Bindings>
         
@@ -16,11 +16,11 @@
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="CheckBoxEnable" attribute="value" />
-            <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="DropDownBoxDevice" attribute="visible" />
+            <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="DropDownDevice" attribute="visible" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="CheckBoxEnable" attribute="value" />
-            <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumericInputOverwrite" attribute="visible" />
+            <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumInOverwrite" attribute="visible" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="CheckBoxEnable" attribute="value" />
@@ -40,16 +40,16 @@
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="CheckBoxEnable" attribute="value" />
-            <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="TextInputPrefix" attribute="visible" />
+            <Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="TextInPrefix" attribute="visible" />
         </Binding>
         
     <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Status.DeviceDataProvider" attribute="value" />
-<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="DropDownBoxDevice" attribute="dataProvider" />
+<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="DropDownDevice" attribute="dataProvider" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="CheckBoxOverwriteOldest" attribute="value" />
-<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumericInputOverwrite" attribute="enable" />
+<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumInOverwrite" attribute="enable" />
 </Binding>
 
 
@@ -65,11 +65,11 @@
 
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.Device" attribute="value" />
-<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="DropDownBoxDevice" attribute="selectedValue" />
+<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="DropDownDevice" attribute="selectedValue" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.Prefix" attribute="value" />
-<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="TextInputPrefix" attribute="value" />
+<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="TextInPrefix" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.Mode.Interval" attribute="value" />
@@ -94,7 +94,7 @@
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::BackupMgr:HmiBackup.Parameters.AutomaticBackup.OverwriteOldest.MaximumNumberOfBackups" attribute="value" />
-<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumericInputOverwrite" attribute="value" />
+<Target xsi:type="brease" contentRefId="BackupDialog_AutoSettings_content" widgetRefId="NumInOverwrite" attribute="value" />
 </Binding>
 </Bindings>
 </BindingsSet>

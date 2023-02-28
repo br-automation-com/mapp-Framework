@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="File_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="File_content.txtInSearchKeyword.ValueChanged">
-      <Source xsi:type="widgets.brease.TextInput.Event" contentRefId="File_content" widgetRefId="txtInSearchKeyword" event="ValueChanged" />
+    <EventBinding id="File_content.TextInSearchKeyword.ValueChanged">
+      <Source xsi:type="widgets.brease.TextInput.Event" contentRefId="File_content" widgetRefId="TextInSearchKeyword" event="ValueChanged" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
@@ -11,8 +11,8 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="File_content.FileFolderTable.Click">
-      <Source xsi:type="widgets.brease.Table.Event" contentRefId="File_content" widgetRefId="FileFolderTable" event="Click" />
+    <EventBinding id="File_content.TableFileFolder.Click">
+      <Source xsi:type="widgets.brease.Table.Event" contentRefId="File_content" widgetRefId="TableFileFolder" event="Click" />
       <Operand datatype="BOOL" name="MultiSelect">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:MpFileManagerUIConnect.File.MultiSelect">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -27,7 +27,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="File_content.drpBoxSortOrder.SelectedIndexChanged">
-      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="File_content" widgetRefId="drpBoxSortOrder" event="SelectedIndexChanged" />
+      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="File_content" widgetRefId="DropDownSortOrder" event="SelectedIndexChanged" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
@@ -52,7 +52,7 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="File_content.ButtonFIFOConfigure.Click">
-      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="File_content" widgetRefId="ButtonFIFOConfigure" event="Click" />
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="File_content" widgetRefId="BtnFIFOConfigure" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -65,26 +65,26 @@
       <Source xsi:type="clientSystem.Event" event="DialogClosed" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="File_content" widgetRefId="ButtonFIFOConfigure">
+          <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="File_content" widgetRefId="BtnFIFOConfigure">
             <Method xsi:type="widgets.brease.ToggleButton.Action.SetValueBool" value="false" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="File_content.ButtonFilePageUp.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="File_content" widgetRefId="ButtonFilePageUp" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="File_content" widgetRefId="BtnFilePageUp" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="TableFileFolder">
                 <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="0" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="TableFileFolder">
                 <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="0" />
               </Target>
             </Action>
@@ -100,19 +100,19 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="File_content.ButtonFilePageDown.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="File_content" widgetRefId="ButtonFilePageDown" event="Click" />
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="File_content" widgetRefId="BtnFilePageDown" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="TableFileFolder">
                 <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="49" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="FileFolderTable">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="File_content" widgetRefId="TableFileFolder">
                 <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="49" />
               </Target>
             </Action>
@@ -127,13 +127,217 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="ContentLoaded.Backup_content.RefreshList">
+    <EventBinding id="ContentLoaded.File_content.RefreshList">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <EventHandler condition="contentId = &quot;File_content&quot;">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="SessionVarFileContentActive">
+                <Method xsi:type="session.VariableAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+      <EventHandler condition="contentId &lt;&gt; &quot;File_content&quot;">
         <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+          <Target xsi:type="session.VariableAction" refId="SessionVarFileContentActive">
+            <Method xsi:type="session.VariableAction.SetValueBool" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="File_content.ButtonDelete.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="File_content" widgetRefId="BtnDelete" event="Click" />
+      <Operand datatype="BOOL" name="myDefaultFileSelected">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDefaultFileSelected">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="myDefaultFileSelected = TRUE">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/DefaultFiles" header="$IAT/mappFramework/Recipe/Delete" icon="Error" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="myDefaultFileSelected = FALSE">
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Delete">
             <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="MpFileManagerUI_0.Info.Diag.StatusID.Code.ValueChanged">
+      <Source xsi:type="opcUa.Event" refId="::FileMgr:MpFileManagerUI_0.Info.Diag.StatusID.Code" event="ValueChanged" />
+      <Operand datatype="ANY_INT" name="CodeType">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:MpFileManagerUI_0.Info.Diag.StatusID.Code">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="BOOL" name="FileContentActive">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarFileContentActive">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="CodeType = 8192 AND FileContentActive">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.MissingValue" header="$IAT/mappFramework/File/File" icon="Error" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 4">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="CodeType = 8193 AND FileContentActive">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.CommandNotAllowed" header="$IAT/mappFramework/File/File" icon="Error" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 4">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="CodeType = 8194 AND FileContentActive">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.NoElementToPaste" header="$IAT/mappFramework/File/File" icon="Error" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="CodeType = 8195 AND FileContentActive">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.NothingSelected" header="$IAT/mappFramework/File/File" icon="Error" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 4">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="CodeType = 8196 AND FileContentActive">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.FolderAlreadyExists" header="$IAT/mappFramework/File/File" icon="Error" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 4">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="CodeType = 8197 AND FileContentActive">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.InvalidFileDevice" header="$IAT/mappFramework/File/File" icon="Error" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 4">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="CodeType = 8198 AND FileContentActive">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.NewNameNotEntered" header="$IAT/mappFramework/File/File" icon="Error" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 4">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="CodeType = 8199 AND FileContentActive">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.InvalidName" header="$IAT/mappFramework/File/File" icon="Error" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 4">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="CodeType = 8200 AND FileContentActive">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.PasteNotAllowed" header="$IAT/mappFramework/File/File" icon="Error" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 4">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="CodeType = 8201 AND FileContentActive">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/File/Status.GeneralError" header="$IAT/mappFramework/File/File" icon="Error" />
+          </Target>
+          <Result>
+            <ResultHandler condition="result = 4">
+              <Action>
+                <Target xsi:type="opcUa.NodeAction" refId="::FileMgr:MpFileManagerUIConnect.File.Refresh">
+                  <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
         </Action>
       </EventHandler>
     </EventBinding>

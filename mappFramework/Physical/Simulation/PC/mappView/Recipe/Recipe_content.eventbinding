@@ -8,25 +8,41 @@
           <Method xsi:type="session.VariableAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler>
+      <Operand datatype="BOOL" name="myDefaultRecipeSelected">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="SessionVarDefaultRecipeSelected">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="myDefaultRecipeSelected = TRUE">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/DefaultFiles" header="$IAT/mappFramework/Recipe/Delete" icon="Error" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="myDefaultRecipeSelected = FALSE">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="YesNo" message="=myDeleteRecipeText" header="$IAT/mappFramework/Recipe/Delete" icon="Question" />
           </Target>
           <Result>
             <ResultHandler condition="result = 1">
-              <Parallel>
-                <Action>
-                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
-                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                  </Target>
-                </Action>
-                <Action>
-                  <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Delete">
-                    <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-                  </Target>
-                </Action>
-              </Parallel>
+              <Sequence>
+                <Step order="0">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Confirm">
+                      <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+                <Step order="1">
+                  <Action>
+                    <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Delete">
+                      <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+                    </Target>
+                  </Action>
+                </Step>
+              </Sequence>
             </ResultHandler>
             <ResultHandler condition="result = 2">
               <Action>
@@ -119,7 +135,7 @@
     <EventBinding id="EditRecipe_dialog.opened">
       <Source xsi:type="clientSystem.Event" event="DialogOpened" />
       <Operand datatype="ANY_INT" name="CategoryDropdown">
-        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
+        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory">
           <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
         </ReadTarget>
       </Operand>
@@ -138,57 +154,49 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.ButtonRecipePageDown.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="ButtonRecipePageDown" event="Click" />
+    <EventBinding id="Recipe_content.BtnRecipePageDown.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnRecipePageDown" event="Click" />
       <EventHandler>
-        <Sequence>
-          <Step order="0">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex">
-                <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="9" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.PageDown">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-              </Target>
-            </Action>
-          </Step>
-        </Sequence>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.PageDown">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex">
+            <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="9" />
+          </Target>
+        </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.ButtonRecipePageUp.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="ButtonRecipePageUp" event="Click" />
+    <EventBinding id="Recipe_content.BtnRecipePageUp.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Recipe_content" widgetRefId="BtnRecipePageUp" event="Click" />
       <EventHandler>
-        <Sequence>
-          <Step order="0">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex">
-                <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="0" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.PageUp">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-              </Target>
-            </Action>
-          </Step>
-        </Sequence>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.PageUp">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex">
+            <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="0" />
+          </Target>
+        </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Recipe_content.DropDownBoxRecipeCategory.SelectedIndexChanged">
-      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory" event="SelectedIndexChanged" />
-			<EventHandler>
-				<Action>
-					<Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
-						<Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-					</Target>
-				</Action>
-			</EventHandler>
+    <EventBinding id="Recipe_content.DropDownRecipeCategory.SelectedIndexChanged">
+      <Source xsi:type="widgets.brease.DropDownBox.Event" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory" event="SelectedIndexChanged" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
       <EventHandler condition="selectedIndex = 0">
         <Sequence>
           <Step order="0">
@@ -200,7 +208,7 @@
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
                 <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
               </Target>
             </Action>
@@ -218,18 +226,18 @@
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
                 <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewMachConfig_content" />
               </Target>
             </Action>
           </Step>
         </Sequence>
       </EventHandler>
-		</EventBinding>
+    </EventBinding>
     <EventBinding id="Recipe_content.loaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="ANY_STRING" name="CategoryDropdownValue">
-        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
+        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory">
           <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedValue" />
         </ReadTarget>
       </Operand>
@@ -244,29 +252,29 @@
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.DropDownBox.Action" contentRefId="Recipe_content" widgetRefId="DropDownBoxRecipeCategory">
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="2">
+            <Action>
+              <Target xsi:type="widgets.brease.DropDownBox.Action" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory">
                 <Method xsi:type="widgets.brease.DropDownBox.Action.SetSelectedIndex" index="0" />
               </Target>
             </Action>
-			</Step>
-			<Step order="2">
-				<Action>
-					<Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
-						<Method xsi:type="widgets.brease.ContentControl.Action.UnloadContent" />
-					</Target>
-				</Action>
-			</Step>
+          </Step>
           <Step order="3">
             <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentControlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
+                <Method xsi:type="widgets.brease.ContentControl.Action.UnloadContent" />
               </Target>
             </Action>
           </Step>
           <Step order="4">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
               </Target>
             </Action>
           </Step>
@@ -274,6 +282,13 @@
             <Action>
               <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Parameters.Category">
                 <Method xsi:type="opcUa.NodeAction.SetValueString" value="Parameters" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="6">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.RecipeContentLoaded">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
           </Step>
@@ -287,7 +302,12 @@
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="contentId = &quot;RecipePreviewPars_content&quot; AND DefaultParametersMissing">
+      <Operand datatype="BOOL" name="DeviceValid">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.DeviceValid">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="contentId = &quot;RecipePreviewPars_content&quot; AND DefaultParametersMissing AND DeviceValid">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingRecipeText" header="$IAT/mappFramework/Recipe/MissingRecipeHeader" />
@@ -322,10 +342,15 @@
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="contentId = &quot;RecipePreviewMachConfig_content&quot; AND  DefaultMachineSettingsMissing">
+      <Operand datatype="BOOL" name="DeviceValid">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.DeviceValid">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="contentId = &quot;RecipePreviewMachConfig_content&quot; AND  DefaultMachineSettingsMissing AND DeviceValid">
         <Action>
           <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="The default recipe is missing. Please create one now. " header="Missing Default Recipe" />
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingRecipeText" header="$IAT/mappFramework/Recipe/MissingRecipeHeader" />
           </Target>
           <Result>
             <ResultHandler condition="result = 4">

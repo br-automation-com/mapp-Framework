@@ -8,7 +8,7 @@
 PROGRAM _INIT
 
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
+	DirCreate_0(enable := TRUE, pDevice := ADR('mappAuditFiles'), pName := ADR('/'));
 
 	// Check if folder already exist and if so disabled the function block call
 	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
@@ -32,6 +32,13 @@ PROGRAM _INIT
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
 	MpAuditTrail_CEvents();
 
+	MpAuditTrailUI_0.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailUI_0.UIConnect := ADR(MpAuditTrailUIConnect);
+	MpAuditTrailUI_0.UISetup.EventListSize := SIZEOF(MpAuditTrailUIConnect.Output.EventID) / SIZEOF(MpAuditTrailUIConnect.Output.EventID[0]);
+	MpAuditTrailUI_0.UISetup.ScrollWindow := 1;
+	MpAuditTrailUI_0.Enable := TRUE;
+	MpAuditTrailUI_0();
+	
 	// Initialize custom events
 	CustomEvent[0].Type := "Custom Event Type";
 	CustomEvent[0].Msg := "Custom Event Message";
@@ -46,7 +53,7 @@ PROGRAM _INIT
 	CustomEvent[2].Comment := "Result can be seen in the Query tab";
 
 	HmiAudit.Status.Query.Name := 'UserEvents';
-	HmiAudit.Status.Query.Option := 1;
+	HmiAudit.Status.Query.Option := 0;
 
 	// Configuring the query selection, reading the available components
 	HmiAudit.Parameters.QuerySelection[0] := 'UserXMgr';
@@ -93,15 +100,17 @@ PROGRAM _CYCLIC
 		MpAuditTrail_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks and HMI connections
+	// Assign MpLinks 
 	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrailConfig_0.MpLink := ADR(gMpLinkAuditTrail);
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
+	MpAuditTrailUI_0.MpLink := ADR(gMpLinkAuditTrail);
 
 	// Call function blocks
 	MpAuditTrail_0();
 	MpAuditTrailConfig_0();
 	MpAuditTrail_CEvents();
+	MpAuditTrailUI_0();
 
 END_PROGRAM
 
@@ -111,11 +120,13 @@ PROGRAM _EXIT
 	MpAuditTrail_0.Enable := FALSE;
 	MpAuditTrailConfig_0.Enable := FALSE;
 	MpAuditTrail_CEvents.Enable := FALSE;
+	MpAuditTrailUI_0.Enable := FALSE;
 
 	// Call function blocks
 	MpAuditTrail_0();
 	MpAuditTrailConfig_0();
 	MpAuditTrail_CEvents();
+	MpAuditTrailUI_0();
 
 END_PROGRAM
 

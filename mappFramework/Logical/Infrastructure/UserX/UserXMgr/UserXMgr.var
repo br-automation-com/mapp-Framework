@@ -10,20 +10,16 @@ VAR CONSTANT
 	USER_LIST_MAX_SELECTION : USINT := 20; (*Maxiumum selections on the User List *)
 	USER_LIST_RANGE_START : USINT := 0; (*Range start (used for UserXMgrUIConnect)*)
 	USER_LIST_RANGE_END : USINT := 20; (*Range end (used for UserXMgrUIConnect)*)
-	LOCAL_FOLDER : STRING[10] := 'UserX'; (*Folder name on the file device for UserX  files*)
 END_VAR
 (*Structure Types*)
 VAR
 	UserXMgrUIConnect : MpUserXMgrUIConnectType; (*UserX manager connection to the HMI*)
 	UserXLoginUIConnect : MpUserXLoginUIConnectType; (*UserL login connection to the HMI*)
-	i : USINT;
-	HmiUserX : HMIUser_Typ;
-END_VAR
-(*Enumerations*)
-VAR
-	UserXCheckState : enumCheckState; (*Used by the HMI Action to check for duplicate files*)
+	HmiUserX : UserXHmiInterfaceType; (*HMI interface structure *)
 END_VAR
 (*Variables*)
 VAR
 	temp : STRING[255]; (*Temporary string holder for checking file names*)
+	i : USINT; (*Index*)
 END_VAR
+(*Enumerations*)

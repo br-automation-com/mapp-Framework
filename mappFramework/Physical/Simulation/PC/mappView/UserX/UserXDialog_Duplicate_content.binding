@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="UserXDialog_Duplicate_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
 <Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::UserXMgr:HmiUserX.ConfirmOverwrite" attribute="value" />
-<Target xsi:type="brease" contentRefId="UserXDialog_Duplicate_content" widgetRefId="BtnConfirmErroMessageBox" attribute="value" />
+<Source xsi:type="opcUa" refId="::UserXMgr:HmiUserX.Commands.ConfirmOverwrite" attribute="value" />
+<Target xsi:type="brease" contentRefId="UserXDialog_Duplicate_content" widgetRefId="MPushBtnConfirmDuplicate" attribute="value" />
 </Binding>
 </Bindings>
 </BindingsSet>

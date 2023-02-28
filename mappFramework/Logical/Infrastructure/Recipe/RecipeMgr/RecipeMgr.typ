@@ -10,8 +10,6 @@ TYPE
 		LoadRecipe : BOOL; (*Load recipe*)
 		SaveSelectedRecipe : BOOL; (*Save the selected recipe (which is not necessarily the active recipe)*)
 		CreateRecipe : BOOL; (*Create recipe*)
-		ImportFromUSB : BOOL; (*Import from USB device*)
-		ExportToUSB : BOOL; (*Export to USB device*)
 		ResetPreview : BOOL; (*Reset the preview to empty/zeros in the event of an invalid recipe*)
 	END_STRUCT;
 	RecipeParametersType : 	STRUCT  (*Structure to hold the parameters for the HMI*)
@@ -20,11 +18,14 @@ TYPE
 		FileName : STRING[255]; (*Recipe file name*)
 	END_STRUCT;
 	RecipeStatusType : 	STRUCT  (*Structure to hold status information from the mapp View HMI*)
+		PreviewCase : PreviewCaseEnum; (*State machine step for loading previews*)
 		HMIcommand : RecipeHmiStepEnum; (*State machine step for HMI commands*)
 		LastLoadedConfigRecipe : STRING[255]; (*Last loaded configuration recipe*)
 		LastLoadedProductRecipe : STRING[255]; (*Last loaded product recipe*)
 		ProductRecipeLoaded : BOOL; (*Product recipe was loaded*)
 		ConfigRecipeLoaded : BOOL; (*Config recipe was loaded*)
+		PreviousRangeStart : REAL;
+		PreviousRangeEnd : REAL;
 		LastMaxSelection : UINT; (*The previous maximum number of recipes*)
 		LastSelectedIndex : UINT; (*The previous selected index*)
 		LastStatus : MpRecipeUIStatusEnum; (*The previous UI status*)
@@ -37,10 +38,17 @@ TYPE
 		LoadingRecipeList : BOOL; (*The recipe list is loading*)
 		MachineSettingsRecipeMissing : BOOL; (*Flag for if the default machine settings recipe is not present*)
 		ParameterRecipeMissing : BOOL; (*Flag for if the default parameters recipe is not present*)
+		DeviceValid : BOOL; (*Flag for whether FileDevice is valid. Prevents user from being prompted to load default recipe.*)
 		LoadAllowed : BOOL; (*Flag for whether you can load a recipe. Recipe must exist and be valid. *)
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*File device data provider*)
 		TableConfig : STRING[120]; (*Table configuration *)
 		SelectedRecipe : STRING[255]; (*The name of the selected recipe*)
+		DefaultRecipeSelected : BOOL; (*The default recipe is selected*)
+		RecipeContentLoaded : BOOL; (*Recipe content is loading and previous selection is restored*)
+	END_STRUCT;
+	RecipeRetainType : 	STRUCT  (*Structure to hold parameters for retain after restart *)
+		LastLoadedConfigRecipe : STRING[255]; (*Last loaded configuration recipe*)
+		LastLoadedProductRecipe : STRING[255]; (*Last loaded product recipe*)
 	END_STRUCT;
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)
 		AddParametersHere1 : BOOL; (*Add your parameteres here *)
@@ -68,5 +76,11 @@ TYPE
 		REC_HMI_SAVE, (*Save recipe*)
 		REC_HMI_CREATE, (*Create recipe*)
 		REC_HMI_RESET_PREVIEW (*Reset the preview values to 0 / empty*)
+		);
+	PreviewCaseEnum : 
+		( (*State machine step for loading Preview*)
+		PREVIEW_WAIT, (*Wait*)
+		PREVIEW_LOAD, (*Load recipe*)
+		PREVIEW_CHANGE (*Show new preview*)
 		);
 END_TYPE

@@ -3,11 +3,11 @@
 	<Bindings>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.MessageBox.Confirm" attribute="value" />
-			<Target xsi:type="brease" contentRefId="FileDialog_Message_dialog_content" widgetRefId="ConfirmButton" attribute="value" />
+			<Target xsi:type="brease" contentRefId="FileDialog_Message_dialog_content" widgetRefId="BtnConfirm" attribute="value" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUIConnect.MessageBox.Cancel" attribute="value" />
-			<Target xsi:type="brease" contentRefId="FileDialog_Message_dialog_content" widgetRefId="CancelButton" attribute="value" />
+			<Target xsi:type="brease" contentRefId="FileDialog_Message_dialog_content" widgetRefId="BtnCancel" attribute="value" />
 		</Binding>
 	</Bindings>
 </BindingsSet>

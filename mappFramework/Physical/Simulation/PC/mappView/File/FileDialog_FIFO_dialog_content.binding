@@ -3,23 +3,23 @@
   <Bindings>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.Fifo.Enable" attribute="value" />
-<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="ButtonFIFOEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="BtnFIFOEnable" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.Fifo.MaxNumberOfFiles" attribute="value" />
-<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="numInMaxNumFiles" attribute="value" />
+<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="NumInMaxNumFiles" attribute="value" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.DeviceDataProvider" attribute="value" />
-<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownBoxDevice" attribute="dataProvider" />
+<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownDevice" attribute="dataProvider" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.Fifo.DeviceName" attribute="value" />
-<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownBoxDevice" attribute="selectedValue" />
+<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownDevice" attribute="selectedValue" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.Fifo.MaxFolderSize" attribute="value" />
-<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="numInMaxFolderSize" attribute="value" />
+<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="NumInMaxFolderSize" attribute="value" />
 </Binding>
 
 <Binding mode="twoWay">
@@ -28,11 +28,11 @@
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Parameters.Fifo.FifoType" attribute="value" />
-<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="ddFifoOptions" attribute="selectedIndex" />
+<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownFifoOptions" attribute="selectedIndex" />
 </Binding>
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.FifoConfigEnable" attribute="value" />
-<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="ButtonOK" attribute="enable" />
+<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="BtnOK" attribute="enable" />
 </Binding>
 </Bindings>
 </BindingsSet>

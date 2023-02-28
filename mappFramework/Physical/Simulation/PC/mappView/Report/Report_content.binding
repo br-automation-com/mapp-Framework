@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="Report_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Bindings>
 		<Binding mode="twoWay">
@@ -7,7 +7,7 @@
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::ReportMgr:MpFileManagerUIConnect.DeviceList.DeviceNames" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="FileDeviceListItem" attribute="stringValue" />
+			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="TableItemFileDeviceList" attribute="stringValue" />
 		</Binding>
 		
 		<Binding mode="twoWay">
@@ -25,7 +25,7 @@
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Status.CreateAllowed" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="ButtonReportDialog_Create_content" attribute="enable" />
+			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="BtnReportDialog_Create_content" attribute="enable" />
 		</Binding>
 		
 		<Binding mode="twoWay">
@@ -38,20 +38,25 @@
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Status.FileOverMax" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="ButtonReportPageDown" attribute="visible" />
+			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="BtnReportPageDown" attribute="visible" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Status.FileOverMax" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="ButtonReportPageUp" attribute="visible" />
+			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="BtnReportPageUp" attribute="visible" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Status.ViewAllowed" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="ButtonReportDialog_View_content" attribute="enable" />
+			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="BtnReportDialog_View_content" attribute="enable" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Status.DeleteAllowed" attribute="value" />
-			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="ButtonReportDialog_Delete_content" attribute="enable" />
+			<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="BtnReportDialog_Delete_content" attribute="enable" />
 		</Binding>
 
-	</Bindings>
+	
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::ReportMgr:HmiReport.Parameters.SortType" attribute="value" />
+<Target xsi:type="brease" contentRefId="Report_content" widgetRefId="DropDownReportSort" attribute="selectedValue" />
+</Binding>
+</Bindings>
 </BindingsSet>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="Backup_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Table" id="TableBackups" top="50" left="200" width="685" height="410" zIndex="0">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItemBackup" zIndex="0" columnWidth="445" text="$IAT/mappFramework/Backup/Backups" />
+        <Widget xsi:type="widgets.brease.TableItemDateTime" id="TableItemDateTime1" zIndex="1" columnWidth="240" format="$IAT/mappFramework/Backup/DateTimeFormat" text="$IAT/mappFramework/Backup/Timestamp" />
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.Table" id="TableFileDevice" top="50" left="30" width="160" height="410" zIndex="1">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItemFileDeviceList" zIndex="0" columnWidth="160" text="$IAT/mappFramework/Backup/Devices" />
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.GroupBox" id="GrpBoxButtonControl" top="20" left="885" width="230" height="515" zIndex="2" enable="false" style="transparent">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.Button" id="BtnBackupContentCreate" top="30" left="15" width="200" height="50" zIndex="0" image="Media/mappFrameworkSymbols/Backup/CreateBackup.svg" text="$IAT/mappFramework/Backup/Create" imageHeight="25" imageWidth="25" textAlign="left" fontSize="18px" style="Command" />
+        <Widget xsi:type="widgets.brease.Button" id="BtnBackupContentDelete" top="105" left="15" width="200" height="50" zIndex="1" image="Media/mappFrameworkSymbols/Edit/Delete.svg" text="$IAT/mappFramework/Backup/Delete" imageHeight="25" imageWidth="25" textAlign="left" fontSize="18px" permissionOperate="['Administrators', 'Service']" style="Command" />
+        <Widget xsi:type="widgets.brease.Button" id="BtnBackupContentRestore" top="180" left="15" width="200" height="50" zIndex="2" image="Media/mappFrameworkSymbols/Backup/RestoreBackup.svg" text="$IAT/mappFramework/Backup/Restore" imageHeight="25" imageWidth="25" textAlign="left" fontSize="18px" permissionOperate="['Administrators']" style="Command" />
+        <Widget xsi:type="widgets.brease.Button" id="BtnBackupSettings" top="255" left="15" width="200" height="50" zIndex="3" image="Media/mappFrameworkSymbols/Symbols/Settings.svg" text="$IAT/mappFramework/Backup/AutomaticSettings" imageHeight="25" imageWidth="25" textAlign="left" fontSize="18px" permissionOperate="['Administrators']" style="Command" />
+        <Widget xsi:type="widgets.brease.Button" id="BtnBackupPageUp" top="365" left="15" width="200" height="50" zIndex="4" image="Media/mappFrameworkSymbols/Navigation/PageUp.svg" text="$IAT/mappFramework/Backup/PageUp" imageHeight="25" imageWidth="25" textAlign="left" fontSize="18px" permissionOperate="['Administrators']" style="Command" visible="false" />
+        <Widget xsi:type="widgets.brease.Button" id="BtnBackupPageDown" top="440" left="15" width="200" height="50" zIndex="5" image="Media/mappFrameworkSymbols/Navigation/PageDown.svg" text="$IAT/mappFramework/Backup/PageDown" imageHeight="25" imageWidth="25" textAlign="left" fontSize="18px" permissionOperate="['Administrators']" style="Command" visible="false" />
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.GroupBox" id="GrpBoxDetails" top="475" left="25" width="860" height="180" zIndex="3" text="$IAT/mappFramework/Backup/SelectedDetails" textAlign="left" style="GroupBox1" visible="false">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutVersionLabel" top="57" left="15" width="170" zIndex="0" value="$IAT/mappFramework/Backup/Version" fontSize="18px" bold="true" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutName" top="14" left="190" width="410" zIndex="1" fontSize="18px" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutNameLbl" top="14" left="15" width="170" zIndex="2" value="$IAT/mappFramework/Backup/Name" fontSize="18px" bold="true" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutVersion" top="57" left="190" width="410" zIndex="3" fontSize="18px" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutConfigurationLabel" top="99" left="15" width="170" zIndex="4" value="$IAT/mappFramework/Backup/Configuration" fontSize="18px" bold="true" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutConfiguration" top="99" left="190" width="410" zIndex="5" fontSize="18px" />
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.Label" id="LabelBackupInProgress" top="545" left="940" width="160" zIndex="4" multiLine="true" text="$IAT/mappFramework/Backup/CreateInProgress" wordWrap="true" visible="false" />
+    <Widget xsi:type="widgets.brease.Image" id="ImageBackupInProgress" top="540" left="900" width="40" height="40" zIndex="5" image="Media/mappFrameworkSymbols/Gifs/InProgressGray.gif" visible="false" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelPage" top="10" left="950" width="150" zIndex="6" text="$IAT/mappFramework/Backup/Backup" textAlign="right" fontSize="24px" bold="true" />
+  </Widgets>
+</Content>

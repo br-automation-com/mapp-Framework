@@ -57,8 +57,6 @@
 		<EventBindingsSet refId="AlarmXHistory_content_eventbinding" />
 		<EventBindingsSet refId="AlarmX_Navigation_content_eventbinding" />
 		<EventBindingsSet refId="Navigation_content_eventbinding" />
-		<EventBindingsSet refId="AxisAuto_content_eventbinding" />
-		<EventBindingsSet refId="AxisManual_content_eventbinding" />
 		<EventBindingsSet refId="AxisRecipe_content_eventbinding" />
 		<EventBindingsSet refId="AxisRecipeDialog_New_content_eventbinding" />
 		<EventBindingsSet refId="AxisRecipeDialog_Edit_content_eventbinding" />
@@ -82,6 +80,7 @@
 		<EventBindingsSet refId="UserXDialog_Export_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Duplicate_content_eventbinding" />
+		<EventBindingsSet refId="UserXDialog_Disabled_content_eventbinding" />
 		<EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
 		<EventBindingsSet refId="Audit_Navigation_content_eventbinding" />
 		<EventBindingsSet refId="AuditTrail_content_eventbinding" />
@@ -109,6 +108,7 @@
 		<Dialog refId="UserXExport_dialog" />
 		<Dialog refId="UserXImport_dialog" />
 		<Dialog refId="UserXDuplicate_dialog" />
+		<Dialog refId="UserXDisabled_dialog" />
 		<Dialog refId="AuditArchiveSettings_dialog" />
 		<Dialog refId="ReportCreate_dialog" />
 		<Dialog refId="ReportDelete_dialog" />
@@ -139,6 +139,7 @@
 		<Content refId="UserXDialog_Login_content" />
 		<Content refId="UserXDialog_Error_content" />
 		<Content refId="UserXDialog_Duplicate_content" />
+		<Content refId="UserXDialog_Disabled_content" />
 		<Content refId="UserXDialog_Export_content" />
 		<Content refId="UserXDialog_Import_content" />
 		<Content refId="Audit_content" />
@@ -177,9 +178,9 @@
 	</Themes>-->
 	<Configurations>
 		<Configuration key="activityCount" value="false" />
-		<Configuration key="bootLogo" value="Media/BnR_Logo.svg"/>
+		<Configuration key="bootLogo" value="Media/mappFrameworkSymbols/Logos/BnR_Logo.svg"/>
 		<Configuration key="bootColor" value ="rgba(255, 255, 255, 1)"/> 
-		<Configuration key="favicon" value="Media\BnR_Logo.ico" />
+		<Configuration key="favicon" value="Media/mappFrameworkSymbols/Logos/BnR_Logo.ico" />
 		<Configuration key="bootProgressBar" value="true" />
 		<Configuration key="zoom" value="true" />
 		<Gestures>

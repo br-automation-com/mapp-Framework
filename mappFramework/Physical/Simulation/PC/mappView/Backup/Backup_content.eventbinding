@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="Backup_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="Backup_content.ButtonBackupDialog_Create_content.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Create_content" event="Click" />
+    <EventBinding id="Backup_content.BtnBackupContentCreate.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="BtnBackupContentCreate" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -11,8 +11,8 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Backup_content.ButtonBackupDialog_Delete_content.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Delete_content" event="Click" />
+    <EventBinding id="Backup_content.BtnBackupContentDelete.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="BtnBackupContentDelete" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -21,8 +21,8 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Backup_content.ButtonBackupDialog_Restore_content.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Restore_content" event="Click" />
+    <EventBinding id="Backup_content.BtnBackupContentRestore.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="BtnBackupContentRestore" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -31,8 +31,8 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Backup_content.ButtonBackupSettings.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupSettings" event="Click" />
+    <EventBinding id="Backup_content.BtnBackupSettings.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="BtnBackupSettings" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="clientSystem.Action">
@@ -41,10 +41,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Backup_content.ButtonBackupDialog_Create_content.DisabledClick">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Create_content" event="DisabledClick" />
+    <EventBinding id="Backup_content.BtnBackupContentCreate.DisabledClick">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="BtnBackupContentCreate" event="DisabledClick" />
       <Operand datatype="BOOL" name="SimActive">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::BackupMgr:HmiBackup.Status.SimulationActive">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="BOOL" name="BackupActive">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::BackupMgr:MpBackupCore_0.Info.Automatic.Backup.InProgress">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
@@ -55,11 +60,23 @@
           </Target>
         </Action>
       </EventHandler>
+      <EventHandler condition="BackupActive = true">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Backup/CreateInProgress" header="$IAT/mappFramework/Backup/MsgBox.Warning" icon="Exclamation" />
+          </Target>
+        </Action>
+      </EventHandler>
     </EventBinding>
-    <EventBinding id="Backup_content.ButtonBackupDialog_Restore_content.DisabledClick">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupDialog_Restore_content" event="DisabledClick" />
+    <EventBinding id="Backup_content.BtnBackupContentRestore.DisabledClick">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="BtnBackupContentRestore" event="DisabledClick" />
       <Operand datatype="BOOL" name="SimActive">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::BackupMgr:HmiBackup.Status.SimulationActive">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="BOOL" name="BackupActive">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::BackupMgr:MpBackupCore_0.Info.Automatic.Backup.InProgress">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
@@ -67,6 +84,13 @@
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Backup/MsgBox.Simulation" header="$IAT/mappFramework/Backup/MsgBox.Warning" icon="Exclamation" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="BackupActive = true">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Backup/CreateInProgress" header="$IAT/mappFramework/Backup/MsgBox.Warning" icon="Exclamation" />
           </Target>
         </Action>
       </EventHandler>
@@ -90,20 +114,20 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Backup_content.ButtonBackupPageDown.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupPageDown" event="Click" />
+    <EventBinding id="Backup_content.BtnBackupPageDown.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="BtnBackupPageDown" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="Table1">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="TableBackups">
                 <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="49" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="Table1">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="TableBackups">
                 <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="49" />
               </Target>
             </Action>
@@ -118,20 +142,20 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Backup_content.ButtonBackupPageUp.Click">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupPageUp" event="Click" />
+    <EventBinding id="Backup_content.BtnBackupPageUp.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="BtnBackupPageUp" event="Click" />
       <EventHandler>
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="Table1">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="TableBackups">
                 <Method xsi:type="widgets.brease.Table.Action.ScrollToVertical" value="0" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="Table1">
+              <Target xsi:type="widgets.brease.Table.Action" contentRefId="Backup_content" widgetRefId="TableBackups">
                 <Method xsi:type="widgets.brease.Table.Action.SetSelectedRow" value="0" />
               </Target>
             </Action>
@@ -175,10 +199,15 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="Backup_content.ButtonBackupSettings.DisabledClick">
-      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="ButtonBackupSettings" event="DisabledClick" />
+    <EventBinding id="Backup_content.BtnBackupSettings.DisabledClick">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="Backup_content" widgetRefId="BtnBackupSettings" event="DisabledClick" />
       <Operand datatype="BOOL" name="SimActive">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::BackupMgr:HmiBackup.Status.SimulationActive">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="BOOL" name="BackupActive">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::BackupMgr:MpBackupCore_0.Info.Automatic.Backup.InProgress">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
@@ -186,6 +215,13 @@
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Backup/MsgBox.Simulation" header="$IAT/mappFramework/Backup/MsgBox.Warning" icon="Exclamation" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="BackupActive = true">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Backup/CreateInProgress" header="$IAT/mappFramework/Backup/MsgBox.Warning" icon="Exclamation" />
           </Target>
         </Action>
       </EventHandler>
@@ -199,14 +235,14 @@
       </Operand>
       <EventHandler condition="BackupCtrlEnabled = true AND newValue &lt;&gt; &quot;&quot;">
         <Action>
-          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="Backup_content" widgetRefId="grpBobDetails">
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="Backup_content" widgetRefId="GrpBoxDetails">
             <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="BackupCtrlEnabled = false OR newValue = &quot;&quot;">
         <Action>
-          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="Backup_content" widgetRefId="grpBobDetails">
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="Backup_content" widgetRefId="GrpBoxDetails">
             <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="false" />
           </Target>
         </Action>

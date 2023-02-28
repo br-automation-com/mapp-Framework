@@ -8,18 +8,23 @@
 PROGRAM _INIT
 
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
+	DirCreate_0(enable := TRUE, pDevice := ADR('mappRecipeFiles'), pName := ADR('/'));
 
+	// Wait for DirCreate_0 to complete.
+	WHILE (DirCreate_0.status = ERR_FUB_BUSY) DO
+		DirCreate_0();
+	END_WHILE
+	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
+	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST OR (DirCreate_0.status = ERR_OK) THEN
 		DirCreate_0(enable := FALSE);
 	END_IF
-
+	
 	// Initialize mapp function blocks
 	// By default, the Framework sets up an XML recipe system. To swtich to the CSV format, refer to the "Change Recipe Format"
 	// page in the AS Help (GUID 2052b3a5-f59b-45f9-9fcd-3289c93401af)
 	MpRecipeUISetup.Confirmation.RecipeDelete := TRUE;
-	MpRecipeUISetup.RecipeListSize := 10;
+	MpRecipeUISetup.RecipeListSize := 9;
 	MpRecipeUISetup.RecipeListScrollWindow := 0;
 	MpRecipeUISetup.AutoLoadHeader := TRUE;
 	MpRecipeUIConnect.New.FileName := 'newRecipe';
@@ -73,15 +78,24 @@ PROGRAM _INIT
 
 	// Load default Machine Settings recipe
 	HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
-	HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION;
-	brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(MACHINE_CONFIG_FILE_EXTENSION));
+	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedConfigRecipe), ADR('')) <> 0) THEN
+		HmiRecipe.Parameters.FileName := HmiRecipeRetain.LastLoadedConfigRecipe;
+	ELSE
+		HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION;
+		brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(MACHINE_CONFIG_FILE_EXTENSION));
+	END_IF		
 	MpRecipe_0.Load := TRUE;
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE
 	MachineSettings := MachineSettingsPreview;
-	HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
-	brsstrcat(ADR(HmiRecipe.Status.LastLoadedConfigRecipe),ADR(MACHINE_CONFIG_FILE_EXTENSION));
+	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedConfigRecipe), ADR('')) <> 0) THEN
+		HmiRecipe.Status.LastLoadedConfigRecipe := HmiRecipeRetain.LastLoadedConfigRecipe;
+	ELSE
+		HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
+		brsstrcat(ADR(HmiRecipe.Status.LastLoadedConfigRecipe),ADR(MACHINE_CONFIG_FILE_EXTENSION));
+		HmiRecipeRetain.LastLoadedConfigRecipe := HmiRecipe.Status.LastLoadedConfigRecipe;
+	END_IF		
 	HmiRecipe.Status.ConfigRecipeLoaded := TRUE;
 
 	// Check if the default machine settings recipe is missing
@@ -97,16 +111,25 @@ PROGRAM _INIT
 
 	// Load default Parameter recipe
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
-	HmiRecipe.Parameters.FileName := DEFAULT_PARAMETERS;
-	brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(PARAMETERS_FILE_EXTENSION));
+	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedProductRecipe), ADR('')) <> 0) THEN
+		HmiRecipe.Parameters.FileName := HmiRecipeRetain.LastLoadedProductRecipe;
+	ELSE
+		HmiRecipe.Parameters.FileName := DEFAULT_PARAMETERS;
+		brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(PARAMETERS_FILE_EXTENSION));
+	END_IF	   
 	HmiRecipe.Status.PreviousRecipe := DEFAULT_PARAMETERS;
 	MpRecipe_0.Load := TRUE;
 	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
 		MpRecipe_0();
 	END_WHILE
 	Parameters := ParametersPreview;
-	HmiRecipe.Status.LastLoadedProductRecipe := DEFAULT_PARAMETERS;
-	brsstrcat(ADR(HmiRecipe.Status.LastLoadedProductRecipe),ADR(PARAMETERS_FILE_EXTENSION));
+	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedProductRecipe), ADR('')) <> 0) THEN
+		HmiRecipe.Status.LastLoadedProductRecipe := HmiRecipeRetain.LastLoadedProductRecipe;
+	ELSE
+		HmiRecipe.Status.LastLoadedProductRecipe := DEFAULT_PARAMETERS;
+		brsstrcat(ADR(HmiRecipe.Status.LastLoadedProductRecipe),ADR(PARAMETERS_FILE_EXTENSION));
+		HmiRecipeRetain.LastLoadedProductRecipe := HmiRecipe.Status.LastLoadedProductRecipe;
+	END_IF	 
 	HmiRecipe.Status.ProductRecipeLoaded := TRUE;
 
 	// Check if the default parameters recipe is missing
@@ -140,10 +163,11 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 
-	// Call actions
+	// Call all cyclic actions
 	FormatDeviceDataProvider;
 	LoadPreview;
 	RecipeHMIcommands;
+	LoadStatus;
 
 	// Reset commands on MpRecipe FUB
 	IF MpRecipe_0.CommandDone THEN

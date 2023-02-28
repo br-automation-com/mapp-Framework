@@ -14,21 +14,23 @@
 		<BindingsSet refId="UserXDialog_Error_content_binding" />
 		<BindingsSet refId="UserX_Navigation_content_binding" />
 		<BindingsSet refId="UserXDialog_Duplicate_content_binding" />
-    </BindingsSets>
+	</BindingsSets>
     <EventBindingsSets> 
 		<EventBindingsSet refId="UserList_content_eventbinding" />
         <EventBindingsSet refId="UserXDialog_Export_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Import_content_eventbinding" />
 		<EventBindingsSet refId="UserXDialog_Duplicate_content_eventbinding" />
+		<EventBindingsSet refId="UserXDialog_Disabled_content_eventbinding" />
 		<EventBindingsSet refId="UserX_Navigation_content_eventbinding" />
 		<EventBindingsSet refId="Navigation_content_eventbinding" />
-    </EventBindingsSets>
+	</EventBindingsSets>
     <Dialogs>
         <Dialog refId="UserXLogin_dialog" />
 		<Dialog refId="UserXError_dialog" />
 		<Dialog refId="UserXExport_dialog" />
 		<Dialog refId="UserXImport_dialog" />
 		<Dialog refId="UserXDuplicate_dialog" />
+		<Dialog refId="UserXDisabled_dialog" />
     </Dialogs>
     <Contents > 
 		<Content refId="UserX_content" />
@@ -38,11 +40,12 @@
 		<Content refId="UserXDialog_Export_content" />
 		<Content refId="UserXDialog_Import_content" />
 		<Content refId="UserXDialog_Duplicate_content" />
+		<Content refId="UserXDialog_Disabled_content" />
 		<Content refId="Help_content" />
 		<Content refId="Navigation_content" />
     </Contents>	
     <SnippetsSets>
-        <SnippetsSet refId="User_snippets" />
+		<SnippetsSet refId="User_snippets" />
     </SnippetsSets>
     <ExpressionsSets>
     </ExpressionsSets>

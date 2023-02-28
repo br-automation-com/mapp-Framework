@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="ReportDialog_Create_content" height="300" width="450" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.GroupBox" id="ContentGroup" top="0" left="0" width="450" height="300" zIndex="0" backColor="rgba(255, 255, 255, 1)">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.Button" id="BtnCreate" top="235" left="15" width="150" height="50" zIndex="0" image="Media/mappFrameworkSymbols/Report/NewReport.svg" text="$IAT/mappFramework/Report/Create" textColor="rgba(255, 255, 255, 1)" fontSize="20px" style="Command" />
+        <Widget xsi:type="widgets.brease.Button" id="BtnCancel" top="235" left="285" width="150" height="50" zIndex="1" image="Media/mappFrameworkSymbols/Edit/Cancel.svg" text="$IAT/mappFramework/Report/Cancel" mouseDownTextColor="rgba(137, 137, 137, 1)" fontSize="20px" style="Command" />
+        <Widget xsi:type="widgets.brease.Label" id="LblConfirm" top="170" left="150" width="280" zIndex="2" breakWord="true" multiLine="true" text="$IAT/mappFramework/Report/FilenameDetails" borderWidth="0px" textAlign="left" padding="0px 15px 0px 15px" />
+        <Widget xsi:type="widgets.brease.ButtonBar" id="BtnBar1" top="20" left="15" width="420" height="90" zIndex="3" childPositioning="relative">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.CheckBox" id="CheckBoxSimpleReport" top="0" left="0" width="200" zIndex="0" text="$IAT/mappFramework/Report/OptionSimple" value="true" margin="10px" />
+            <Widget xsi:type="widgets.brease.CheckBox" id="CheckBoxAdvOption" top="0" left="0" width="180" zIndex="1" text="$IAT/mappFramework/Report/OptionAdvanced" margin="10px" />
+          </Widgets>
+        </Widget>
+        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutFileName" top="135" left="150" width="280" zIndex="4" value="SimpleReport" bold="true" />
+        <Widget xsi:type="widgets.brease.Label" id="LblReportName" top="135" left="15" width="115" zIndex="5" text="$IAT/mappFramework/Report/FilenameLabel" fontSize="16px" />
+        <Widget xsi:type="widgets.brease.Label" id="LblSimpleReportDetails" top="70" left="25" width="200" zIndex="6" breakWord="true" multiLine="true" text="$IAT/mappFramework/Report/OptionDetailsSimple" borderWidth="0px" textAlign="left" padding="5px" />
+        <Widget xsi:type="widgets.brease.Label" id="LblAdvReportDetails" top="70" left="245" width="185" zIndex="7" breakWord="true" multiLine="true" text="$IAT/mappFramework/Report/OptionDetailsAdv" borderWidth="0px" textAlign="left" padding="5px" />
+      </Widgets>
+    </Widget>
+  </Widgets>
+</Content>

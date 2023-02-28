@@ -3,15 +3,15 @@
     <Bindings>
         <Binding mode="twoWay">
             <Source xsi:type="mapp" refId="gMpLinkAlarmXHistory" attribute="link" />
-            <Target xsi:type="brease" contentRefId="AlarmXHistory_content" widgetRefId="AlmHist" attribute="mpLink" />
+            <Target xsi:type="brease" contentRefId="AlarmXHistory_content" widgetRefId="AlarmHist" attribute="mpLink" />
         </Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Status.AlarmHistFilterCfg" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AlarmXHistory_content" widgetRefId="AlmHist" attribute="filterConfiguration" />
+			<Target xsi:type="brease" contentRefId="AlarmXHistory_content" widgetRefId="AlarmHist" attribute="filterConfiguration" />
 		</Binding>
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::AlarmMgr:HmiAlarmX.Status.AlarmHistSortCfg" attribute="value" />
-			<Target xsi:type="brease" contentRefId="AlarmXHistory_content" widgetRefId="AlmHist" attribute="sortConfiguration" />
+			<Target xsi:type="brease" contentRefId="AlarmXHistory_content" widgetRefId="AlarmHist" attribute="sortConfiguration" />
 		</Binding>
 </Bindings>
 </BindingsSet>

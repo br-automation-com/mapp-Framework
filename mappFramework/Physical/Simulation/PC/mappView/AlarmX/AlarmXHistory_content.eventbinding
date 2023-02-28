@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="AlarmXHistory_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="AlarmXHistory_content.PBtnExport.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXHistory_content" widgetRefId="PBtnExport" event="Click" />
+    <EventBinding id="AlarmXHistory_content.PushBtnExport.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXHistory_content" widgetRefId="PushBtnExport" event="Click" />
       <EventHandler>
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgr:HmiAlarmX.Commands.ExportAlarms">
@@ -11,21 +11,21 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="AlarmXHistory_content.PBtnHistoryAlarmSort.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXHistory_content" widgetRefId="PBtnHistoryAlarmSort" event="Click" />
+    <EventBinding id="AlarmXHistory_content.PushBtnHistoryAlarmSort.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXHistory_content" widgetRefId="PushBtnHistoryAlarmSort" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.AlarmHistory.Action" contentRefId="AlarmXHistory_content" widgetRefId="AlmHist">
+          <Target xsi:type="widgets.brease.AlarmHistory.Action" contentRefId="AlarmXHistory_content" widgetRefId="AlarmHist">
             <Method xsi:type="widgets.brease.AlarmHistory.Action.OpenConfiguration" type="Sorting" />
           </Target>
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="AlarmXHistory_content.PBtnHistoryAlarmFilter.Click">
-      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXHistory_content" widgetRefId="PBtnHistoryAlarmFilter" event="Click" />
+    <EventBinding id="AlarmXHistory_content.PushBtnHistoryAlarmFilter.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="AlarmXHistory_content" widgetRefId="PushBtnHistoryAlarmFilter" event="Click" />
       <EventHandler>
         <Action>
-          <Target xsi:type="widgets.brease.AlarmHistory.Action" contentRefId="AlarmXHistory_content" widgetRefId="AlmHist">
+          <Target xsi:type="widgets.brease.AlarmHistory.Action" contentRefId="AlarmXHistory_content" widgetRefId="AlarmHist">
             <Method xsi:type="widgets.brease.AlarmHistory.Action.OpenConfiguration" type="Filtering" />
           </Target>
         </Action>

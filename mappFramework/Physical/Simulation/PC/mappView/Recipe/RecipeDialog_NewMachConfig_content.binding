@@ -3,24 +3,24 @@
     <Bindings>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere1" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumericInputMachConfig1New" attribute="value" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumInMachConfig1New" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere2" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumericInputMachConfig2New" attribute="value" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumInMachConfig2New" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere3" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="DropDownBoxMachConfig3New" attribute="selectedIndex" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="DropDownMachConfig3New" attribute="selectedIndex" />
         </Binding>
 		
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere4" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumericInputMachConfig4New" attribute="value" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumInMachConfig4New" attribute="value" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere5" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumericInputMachConfig5New" attribute="value" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumInMachConfig5New" attribute="value" />
         </Binding>
         <Binding mode="oneWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.MachineSettingsRecipeMissing" attribute="value" />
@@ -28,11 +28,11 @@
         </Binding>
         <Binding mode="oneWay">
             <Source xsi:type="session" refId="SessionVarCannotEditRecipeName" attribute="value" />
-            <Target xsi:type="brease" widgetRefId="txtInNewRecipe" contentRefId="RecipeDialog_NewMachConfig_content" attribute="enable" />
+            <Target xsi:type="brease" widgetRefId="TextInNewRecipe" contentRefId="RecipeDialog_NewMachConfig_content" attribute="enable" />
         </Binding>
         <Binding mode="twoWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Parameters.FileName" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="txtInNewRecipe" attribute="value" />
+            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="TextInNewRecipe" attribute="value" />
         </Binding>
     </Bindings>
 </BindingsSet>

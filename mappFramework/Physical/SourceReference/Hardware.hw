@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.10.4.38 FileVersion="4.9"?>
+<Hardware xmlns="http://br-automation.co.at/AS/Hardware">
+  <Module Name="PC" Type="PC_any" Version="1.1.1.0" OrderNumber="PC">
+    <Parameter ID="ConfigurationID" Value="mappFramework516_Simulation" />
+    <Parameter ID="UserPartitionSize" Value="256" />
+    <Parameter ID="Cyclic1Duration" Value="10000" />
+    <Parameter ID="Cyclic1Stack" Value="32000" />
+    <Parameter ID="Cyclic5Duration" Value="10000" />
+    <Parameter ID="Cyclic8Duration" Value="10000" />
+    <Parameter ID="Cyclic8Stack" Value="32000" />
+    <Group ID="FileDevice1" />
+    <Parameter ID="FileDeviceName1" Value="UserPartition" />
+    <Parameter ID="FileDevicePath1" Value="USER_PATH" />
+    <Group ID="FileDevice2" />
+    <Parameter ID="FileDeviceName2" Value="mappAlarmXFiles" />
+    <Parameter ID="FileDevicePath2" Value="USER_PATH:\AlarmX" />
+    <Group ID="FileDevice3" />
+    <Parameter ID="FileDeviceName3" Value="mappBackupFiles" />
+    <Parameter ID="FileDevicePath3" Value="USER_PATH:\Backup" />
+    <Group ID="FileDevice4" />
+    <Parameter ID="FileDeviceName4" Value="mappRecipeFiles" />
+    <Parameter ID="FileDevicePath4" Value="USER_PATH:\Recipe" />
+    <Group ID="FileDevice5" />
+    <Parameter ID="FileDeviceName5" Value="mappUserXFiles" />
+    <Parameter ID="FileDevicePath5" Value="USER_PATH:\UserX" />
+    <Group ID="FileDevice6" />
+    <Parameter ID="FileDeviceName6" Value="mappAuditFiles" />
+    <Parameter ID="FileDevicePath6" Value="USER_PATH:\Audit" />
+    <Group ID="FileDevice7" />
+    <Parameter ID="FileDeviceName7" Value="mappDataFiles" />
+    <Parameter ID="FileDevicePath7" Value="USER_PATH:\Data" />
+    <Group ID="FileDevice8" />
+    <Parameter ID="FileDeviceName8" Value="mappReportFiles" />
+    <Parameter ID="FileDevicePath8" Value="USER_PATH:\Report" />
+    <Group ID="FtpUser1" />
+    <Parameter ID="FtpUsername1" Value="Admin" />
+    <Parameter ID="FtpUserPassword1" Value="jhTZ9rja+dMo4uQziZxIvYZJ7RF3iWJ9y9zyiFMZfoo=" Description="123ABc" />
+    <Parameter ID="FtpUserSalt1" Value="8r0jnJ0m" />
+    <Parameter ID="FTPAccessRight1" Value="0" />
+    <Parameter ID="FTPdevice1" Value="ALL" />
+    <Parameter ID="ActivateOpcUa" Value="1" />
+    <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
+  </Module>
+</Hardware>
