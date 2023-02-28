@@ -36,18 +36,35 @@ END_ACTION
 
 ACTION LoadPreview:
 
-	// Load preview when a recipe is selected
-	IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR (HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection) THEN
-		// Check selected recipe name is not empty
-		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
-			MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
-			MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
-			MpRecipe_0.Load := TRUE;
-			HmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
-			HmiRecipe.Status.LastMaxSelection := MpRecipeUIConnect.Recipe.List.MaxSelection;
-			HmiRecipe.Status.InvalidRecipe := FALSE;
-		END_IF
-	END_IF
+	
+	CASE HmiRecipe.Status.PreviewCase OF
+		PREVIEW_WAIT:
+			// Load preview when a recipe is selected
+			IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR (HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection)
+				OR (HmiRecipe.Status.PreviousRangeStart <> MpRecipeUIConnect.Recipe.List.RangeStart) OR (HmiRecipe.Status.PreviousRangeStart <> MpRecipeUIConnect.Recipe.List.RangeStart) THEN
+				HmiRecipe.Status.PreviewCase := PREVIEW_LOAD;
+			END_IF
+			
+		PREVIEW_LOAD:
+			// Check selected recipe name is not empty
+			IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
+				MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
+				MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
+				MpRecipe_0.Load := TRUE;
+				HmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
+				HmiRecipe.Status.LastMaxSelection := MpRecipeUIConnect.Recipe.List.MaxSelection;
+				HmiRecipe.Status.PreviousRangeStart := MpRecipeUIConnect.Recipe.List.RangeStart;
+				HmiRecipe.Status.PreviousRangeEnd := MpRecipeUIConnect.Recipe.List.RangeEnd;
+				HmiRecipe.Status.InvalidRecipe := FALSE;
+				HmiRecipe.Status.PreviewCase := PREVIEW_CHANGE;
+			END_IF
+			
+		PREVIEW_CHANGE:
+			//Load a second time to ensure correct preview on page up/page down
+			MpRecipe_0.Load := TRUE;	
+			HmiRecipe.Status.PreviewCase := PREVIEW_WAIT;
+
+	END_CASE;
 
 	// Reset load command on MpRecipe_0 FUB
 	IF MpRecipe_0.StatusID <> 0 THEN
@@ -71,23 +88,23 @@ ACTION RecipeHMIcommands:
 			IF (MpRecipeUIConnect.Status <> mpRECIPE_UI_STATUS_IDLE) THEN
 				// MpRecipe is active so don't issue a new command
 			ELSIF HmiRecipe.Commands.CreateRecipe THEN
-				HmiRecipe.Status.HMIcommand := REC_HMI_CREATE;
-				HmiRecipe.Commands.CreateRecipe := FALSE;
-			ELSIF HmiRecipe.Commands.SaveSelectedRecipe THEN
-				HmiRecipe.Status.HMIcommand := REC_HMI_SAVE;
-				HmiRecipe.Commands.SaveSelectedRecipe := FALSE;
-			ELSIF HmiRecipe.Commands.LoadRecipe THEN
-				HmiRecipe.Status.HMIcommand := REC_HMI_LOAD;
-				HmiRecipe.Commands.LoadRecipe := FALSE;
-				IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
-					HmiRecipe.Status.ProductRecipeLoaded := FALSE;
-				ELSE
-					HmiRecipe.Status.ConfigRecipeLoaded := FALSE;
-				END_IF
-			ELSIF HmiRecipe.Commands.ResetPreview THEN
-				HmiRecipe.Status.HMIcommand := REC_HMI_RESET_PREVIEW;
-				HmiRecipe.Commands.ResetPreview := FALSE;
-			END_IF
+                HmiRecipe.Status.HMIcommand := REC_HMI_CREATE;
+                HmiRecipe.Commands.CreateRecipe := FALSE;
+            ELSIF HmiRecipe.Commands.SaveSelectedRecipe THEN
+                HmiRecipe.Status.HMIcommand := REC_HMI_SAVE;
+                HmiRecipe.Commands.SaveSelectedRecipe := FALSE;
+            ELSIF HmiRecipe.Commands.LoadRecipe THEN
+                HmiRecipe.Status.HMIcommand := REC_HMI_LOAD;
+                HmiRecipe.Commands.LoadRecipe := FALSE;
+                IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
+                    HmiRecipe.Status.ProductRecipeLoaded := FALSE;
+                ELSE
+                    HmiRecipe.Status.ConfigRecipeLoaded := FALSE;
+                END_IF
+            ELSIF HmiRecipe.Commands.ResetPreview THEN
+                HmiRecipe.Status.HMIcommand := REC_HMI_RESET_PREVIEW;
+                HmiRecipe.Commands.ResetPreview := FALSE;
+            END_IF
 
 		REC_HMI_CREATE:
 			IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
