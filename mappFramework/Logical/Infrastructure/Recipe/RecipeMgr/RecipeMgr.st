@@ -10,25 +10,30 @@ PROGRAM _INIT
 	// Create folder for this component on the user file device
 	DirCreate_0(enable := TRUE, pDevice := ADR('mappRecipeFiles'), pName := ADR('/'));
 
+	// Wait for DirCreate_0 to complete.
+	WHILE (DirCreate_0.status = ERR_FUB_BUSY) DO
+		DirCreate_0();
+	END_WHILE
+	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
+	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST OR (DirCreate_0.status = ERR_OK) THEN
 		DirCreate_0(enable := FALSE);
 	END_IF
-
-    // Initialize mapp function blocks
-    // By default, the Framework sets up an XML recipe system. To swtich to the CSV format, refer to the "Change Recipe Format"
-    // page in the AS Help (GUID 2052b3a5-f59b-45f9-9fcd-3289c93401af)
-    MpRecipeUISetup.Confirmation.RecipeDelete := TRUE;
-    MpRecipeUISetup.RecipeListSize := 9;
-    MpRecipeUISetup.RecipeListScrollWindow := 0;
-    MpRecipeUISetup.AutoLoadHeader := TRUE;
-    MpRecipeUIConnect.New.FileName := 'newRecipe';
-    MpRecipeUIConnect.Recipe.Filter := '*par';
-    MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
+	
+	// Initialize mapp function blocks
+	// By default, the Framework sets up an XML recipe system. To swtich to the CSV format, refer to the "Change Recipe Format"
+	// page in the AS Help (GUID 2052b3a5-f59b-45f9-9fcd-3289c93401af)
+	MpRecipeUISetup.Confirmation.RecipeDelete := TRUE;
+	MpRecipeUISetup.RecipeListSize := 9;
+	MpRecipeUISetup.RecipeListScrollWindow := 0;
+	MpRecipeUISetup.AutoLoadHeader := TRUE;
+	MpRecipeUIConnect.New.FileName := 'newRecipe';
+	MpRecipeUIConnect.Recipe.Filter := '*par';
+	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeUI_0.Enable := TRUE;
-    MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
-    MpRecipeUI_0.UISetup := MpRecipeUISetup;
-    MpRecipeUI_0();
+	MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
+	MpRecipeUI_0.UISetup := MpRecipeUISetup;
+	MpRecipeUI_0();
 
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
 	HmiRecipe.Status.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"CF/PLC"}';

@@ -1,24 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<OpcUaSource FileVersion="7" ArVersion="B4.92">
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="E4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
-        <ACE RoleId="3" RoleName="Service" Access="0x015F" />
-        <ACE RoleId="1" RoleName="Administrators" Access="0x017F" />
-        <ACE RoleId="4" RoleName="Operators" Access="0x015F" />
-        <ACE RoleId="2" RoleName="Everyone" Access="0x015F" />
+        <ACE RoleName="Service" Access="0x015F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+        <ACE RoleName="Operators" Access="0x015F" />
+        <ACE RoleName="Everyone" Access="0x015F" />
       </ACL>
       <ACL Id="3">
-        <ACE RoleId="3" RoleName="Service" Access="0x01FF" />
-        <ACE RoleId="1" RoleName="Administrators" Access="0x01FF" />
-        <ACE RoleId="4" RoleName="Operators" Access="0x01FF" />
-        <ACE RoleId="2" RoleName="Everyone" Access="0x017F" />
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x017F" />
       </ACL>
       <ACL Id="4">
-        <ACE RoleId="3" RoleName="Service" Access="0x01FF" />
-        <ACE RoleId="1" RoleName="Administrators" Access="0x01FF" />
-        <ACE RoleId="4" RoleName="Operators" Access="0x01FF" />
-        <ACE RoleId="2" RoleName="Everyone" Access="0x005F" />
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x005F" />
+      </ACL>
+      <ACL Id="5">
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x007F" />
       </ACL>
     </ACLAliases>
     <EURangeViolationAliases />
@@ -50,7 +57,7 @@
             <Variable Name="Current" EngineeringUnitId="4" />
             <Variable Name="MotorTemperature" EngineeringUnitId="5" />
           </Variable>
-          <Variable AclId="4" AclInherit="2" Name="Command" />
+          <Variable AclId="5" AclInherit="2" Name="Command" />
         </Variable>
         <Variable AclId="3" AclInherit="2" Name="AxisRecipe" AutomaticEnable="True" />
         <Variable Name="MpAxisBasic_0">
