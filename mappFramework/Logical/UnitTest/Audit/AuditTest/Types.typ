@@ -48,7 +48,15 @@ TYPE
 		AuditTrailArchiveAvailable : BOOL;
 	END_STRUCT;
 	HMIAuditInterfaceParameters_type : 	STRUCT 
-		Filler : BOOL;
+		ArchiveSettings : HMIAuditArchiveParType;
+	END_STRUCT;
+	HMIAuditArchiveParType : 	STRUCT 
+		Enable : BOOL;
+		MaxSize : UDINT;
+		Mode : MpAuditArchiveModeEnum;
+		Hour : USINT;
+		Minute : USINT;
+		FileType : MpAuditFileTypeEnum;
 	END_STRUCT;
 END_TYPE
 

@@ -10,14 +10,14 @@
 #include <string.h>
 
 #define TIMEOUT_TEST_CASE									\
-	if (cycleCount >= 254)									\
+	if (cycleCount >= 500)									\
 	{														\
 		char abortMessage[80];								\
 		char substate[10];									\
 		memset(abortMessage, 0, sizeof(abortMessage));		\
 		memset(substate, 0, sizeof(substate));				\
-		itoa(ActSubState, substate, 10);					\
-		strcpy(abortMessage, "Timeout in ActSubState = ");	\
+		itoa(UnitTestState, substate, 10);					\
+		strcpy(abortMessage, "Timeout in State = ");		\
 		strcat(abortMessage, substate);						\
 		TEST_FAIL(abortMessage);							\
 		TEST_DONE;											\
@@ -36,6 +36,10 @@ _TEARDOWN_SET(void)
 
 _SETUP_TEST(void)
 {
+	TestDone = 0;
+	TestFailed = 0;
+	WriteNumFiles = 0;
+	Delay = 0;
 	ArrangeSubState = 0;
 	ActSubState = 0;
 	AssertSubState = 0;
@@ -53,41 +57,49 @@ _TEARDOWN_TEST(void)
 _CYCLIC_SET(void)
 {
 	cycleCount++;
-	DirInfo(&DirInfo_0);
 }
 
 _TEST ExportArchive(void)
 {
 	TIMEOUT_TEST_CASE;
-//	UnitTestState = TEST_ASSERT;
+	
+	DirInfo_0.enable = 1;
+	DirInfo_0.pDevice = (UDINT) "mappAuditFiles";
+	DirInfo_0.pPath = 0;
+	DirInfo(&DirInfo_0);
+	
 	switch (UnitTestState)
 	{
 		case TEST_ARRANGE:
+			// Force an audit to be generated
 			SampleTemperature++;
-			DirInfo_0.enable = 1;
-			DirInfo_0.pDevice = (UDINT) "mappAuditFiles";
-			DirInfo_0.pPath = 0;
-			DirInfo(&DirInfo_0);
 			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailArchiveAvailable);
+			WriteNumFiles = 1;
 			NumberOfFiles = DirInfo_0.filenum;
 			UnitTestState = TEST_ACT;
 			break;
 		
 		case TEST_ACT:
 			// Archive audit
+			WriteNumFiles = 0;
 			HMIAuditInterfaceCtrl.Commands.ExportArchives = 1;
 			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailCmdDone);
 			HMIAuditInterfaceCtrl.Commands.ExportArchives = 0;
-			DirInfo(&DirInfo_0);
+			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailCmdDone);
+			Delay += 1;
+			TEST_BUSY_CONDITION(Delay != 2);
 			UnitTestState = TEST_ASSERT;
 			break;
 		
 		case TEST_ASSERT:
 			// Check save location for archive
 			TEST_ASSERT(NumberOfFiles + 1 == DirInfo_0.filenum);
+			TestFailed = !(NumberOfFiles + 1 == DirInfo_0.filenum);
+			TestDone = 1;
 			TEST_DONE;
 			break;
 	}
+	
 	DirInfo(&DirInfo_0);
 }
 
@@ -95,13 +107,50 @@ _TEST AutomaticArchive(void)
 {
 	TIMEOUT_TEST_CASE;
 	
-	// Arrange
+	DirInfo_0.enable = 1;
+	DirInfo_0.pDevice = (UDINT) "mappAuditFiles";
+	DirInfo_0.pPath = 0;
+	DirInfo(&DirInfo_0);
 	
-	// Act
+	switch (UnitTestState)
+	{
+		case TEST_ARRANGE:
+			// Set automatic archive parameters and force audit generation
+			SampleTemperature++;
+			HmiAudit.Parameters.ArchiveSettings.Enable = 1;
+			HmiAudit.Parameters.ArchiveSettings.FileType = 1;
+			HmiAudit.Parameters.ArchiveSettings.MaxSize = 1;
+			HmiAudit.Parameters.ArchiveSettings.Mode = 0;
+			HmiAudit.Parameters.ArchiveSettings.Hour = 1;
+			HmiAudit.Parameters.ArchiveSettings.Minute = 1;
+			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailArchiveAvailable);
+			WriteNumFiles = 1;
+			NumberOfFiles = DirInfo_0.filenum;
+			UnitTestState = TEST_ACT;
+			break;
+		
+		case TEST_ACT:
+			// Archive audit
+			WriteNumFiles = 0;
+			HMIAuditInterfaceCtrl.Commands.ExportArchives = 1;
+			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailCmdDone);
+			HMIAuditInterfaceCtrl.Commands.ExportArchives = 0;
+			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailCmdDone);
+			Delay += 1;
+			TEST_BUSY_CONDITION(Delay != 2);
+			UnitTestState = TEST_ASSERT;
+			break;
+		
+		case TEST_ASSERT:
+			// Check save location for archive
+			TEST_ASSERT(NumberOfFiles + 1 == DirInfo_0.filenum);
+			TestFailed = !(NumberOfFiles + 1 == DirInfo_0.filenum);
+			TestDone = 1;
+			TEST_DONE;
+			break;
+	}
 	
-	// Assert
-	
-	TEST_DONE;
+	DirInfo(&DirInfo_0);
 }
 
 /*
