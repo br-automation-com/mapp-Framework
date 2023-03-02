@@ -44,7 +44,7 @@ _SETUP_TEST(void)
 	ActSubState = 0;
 	AssertSubState = 0;
 	SampleTemperature = 1;
-	NumberOfFiles = 0;
+	TestNumber = 0;
 	UnitTestState = TEST_ARRANGE;
     TEST_DONE;
 }
@@ -61,6 +61,7 @@ _CYCLIC_SET(void)
 
 _TEST ExportArchive(void)
 {
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	DirInfo_0.enable = 1;
@@ -75,7 +76,7 @@ _TEST ExportArchive(void)
 			SampleTemperature++;
 			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailArchiveAvailable);
 			WriteNumFiles = 1;
-			NumberOfFiles = DirInfo_0.filenum;
+			TestNumber = DirInfo_0.filenum;
 			UnitTestState = TEST_ACT;
 			break;
 		
@@ -93,8 +94,8 @@ _TEST ExportArchive(void)
 		
 		case TEST_ASSERT:
 			// Check save location for archive
-			TEST_ASSERT(NumberOfFiles + 1 == DirInfo_0.filenum);
-			TestFailed = !(NumberOfFiles + 1 == DirInfo_0.filenum);
+			TEST_ASSERT(TestNumber + 1 == DirInfo_0.filenum);
+			TestFailed = !(TestNumber + 1 == DirInfo_0.filenum);
 			TestDone = 1;
 			TEST_DONE;
 			break;
@@ -107,50 +108,41 @@ _TEST AutomaticArchive(void)
 {
 	TIMEOUT_TEST_CASE;
 	
-	DirInfo_0.enable = 1;
-	DirInfo_0.pDevice = (UDINT) "mappAuditFiles";
-	DirInfo_0.pPath = 0;
-	DirInfo(&DirInfo_0);
-	
 	switch (UnitTestState)
 	{
 		case TEST_ARRANGE:
-			// Set automatic archive parameters and force audit generation
-			SampleTemperature++;
+			// Set automatic archive parameters prepare audit for generation
+			SampleTemperature = SAMPLE_TEMP_VALUE;
 			HmiAudit.Parameters.ArchiveSettings.Enable = 1;
-			HmiAudit.Parameters.ArchiveSettings.FileType = 1;
-			HmiAudit.Parameters.ArchiveSettings.MaxSize = 1;
-			HmiAudit.Parameters.ArchiveSettings.Mode = 0;
-			HmiAudit.Parameters.ArchiveSettings.Hour = 1;
-			HmiAudit.Parameters.ArchiveSettings.Minute = 1;
-			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailArchiveAvailable);
+			HmiAudit.Parameters.ArchiveSettings.FileType = mpAUDIT_FILE_TYPE_XML;
+			HmiAudit.Parameters.ArchiveSettings.MaxSize = MAX_FILE_SIZE;
+			HmiAudit.Parameters.ArchiveSettings.Mode = mpAUDIT_ARCHIVE_DAILY;
+			HmiAudit.Parameters.ArchiveSettings.Hour = HOUR;
+			HmiAudit.Parameters.ArchiveSettings.Minute = MINUTE;
 			WriteNumFiles = 1;
-			NumberOfFiles = DirInfo_0.filenum;
+			TestNumber = HmiAudit.Status.NumberOfArchives;
 			UnitTestState = TEST_ACT;
 			break;
 		
 		case TEST_ACT:
 			// Archive audit
+			DTSetTime_0.DT1 = SET_TIME;
 			WriteNumFiles = 0;
-			HMIAuditInterfaceCtrl.Commands.ExportArchives = 1;
-			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailCmdDone);
-			HMIAuditInterfaceCtrl.Commands.ExportArchives = 0;
-			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailCmdDone);
-			Delay += 1;
-			TEST_BUSY_CONDITION(Delay != 2);
+			TON_0.PT = TIMER_LENGTH;
+			TON_0.IN = 1;
+			TON(&TON_0);
+			TEST_BUSY_CONDITION(!TON_0.Q);
 			UnitTestState = TEST_ASSERT;
 			break;
 		
 		case TEST_ASSERT:
 			// Check save location for archive
-			TEST_ASSERT(NumberOfFiles + 1 == DirInfo_0.filenum);
-			TestFailed = !(NumberOfFiles + 1 == DirInfo_0.filenum);
+			TEST_ASSERT(TestNumber + 1 == HmiAudit.Status.NumberOfArchives);
+			TestFailed = !(TestNumber + 1 == HmiAudit.Status.NumberOfArchives);
 			TestDone = 1;
 			TEST_DONE;
 			break;
 	}
-	
-	DirInfo(&DirInfo_0);
 }
 
 /*

@@ -2,6 +2,7 @@
 VAR_CONFIG
 	::AuditMgr:MpAuditTrail_0.CommandDone AT %Q.::AuditTest:HMIAuditInterfaceCtrl.Status.AuditTrailCmdDone; (*Insert your comment here...*)
 	::AuditMgr:MpAuditTrail_0.ArchiveAvailable AT %Q.::AuditTest:HMIAuditInterfaceCtrl.Status.AuditTrailArchiveAvailable; (*Insert your comment here...*)
+	::AuditMgr:HmiAudit.Status.NumberOfArchives AT %Q.::AuditTest:HmiAudit.Status.NumberOfArchives; (*Insert your comment here...*)
 END_VAR
 (*Outputs from the unit test*)
 VAR_CONFIG

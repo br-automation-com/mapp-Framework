@@ -19,9 +19,17 @@ VAR
 	UnitTestState : TestStateEnum;
 	SampleTemperature : REAL;
 	DirInfo_0 : DirInfo;
-	NumberOfFiles : USINT;
+	TestNumber : USINT;
 	TestDone : BOOL;
 	WriteNumFiles : BOOL;
 	TestFailed : BOOL;
 	Delay : USINT;
+	DTSetTime_0 : DTSetTime;
+	HOUR : USINT := 8;
+	MINUTE : USINT := 0;
+	SET_TIME : DATE_AND_TIME := DT#2023-01-01-07:59:55;
+	MAX_FILE_SIZE : UDINT := 100; (*Maximum file size for automatic archiving (Kb)*)
+	SAMPLE_TEMP_VALUE : REAL := 5;
+	TON_0 : TON;
+	TIMER_LENGTH : TIME := T#7s;
 END_VAR

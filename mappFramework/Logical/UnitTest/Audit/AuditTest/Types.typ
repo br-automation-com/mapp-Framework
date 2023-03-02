@@ -46,6 +46,7 @@ TYPE
 	HMIAuditInterfaceStatus_type : 	STRUCT 
 		AuditTrailCmdDone : BOOL;
 		AuditTrailArchiveAvailable : BOOL;
+		NumberOfArchives : UINT;
 	END_STRUCT;
 	HMIAuditInterfaceParameters_type : 	STRUCT 
 		ArchiveSettings : HMIAuditArchiveParType;
