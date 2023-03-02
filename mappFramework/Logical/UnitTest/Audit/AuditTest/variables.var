@@ -19,7 +19,7 @@ VAR
 	UnitTestState : TestStateEnum;
 	SampleTemperature : REAL;
 	DirInfo_0 : DirInfo;
-	TestNumber : USINT;
+	TestComparisonNumber : USINT;
 	TestDone : BOOL;
 	WriteNumFiles : BOOL;
 	TestFailed : BOOL;
@@ -32,4 +32,5 @@ VAR
 	SAMPLE_TEMP_VALUE : REAL := 5;
 	TON_0 : TON;
 	TIMER_LENGTH : TIME := T#7s;
+	LogArray : ARRAY[0..7] OF UDINT;
 END_VAR
