@@ -82,14 +82,12 @@ _TEST ExportArchive(void)
 			// Force an audit to be generated
 			SampleTemperature++;
 			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailArchiveAvailable);
-			WriteNumFiles = 1;
 			TestComparisonNumber = DirInfo_0.filenum;
 			UnitTestState = TEST_ACT;
 			break;
 		
 		case TEST_ACT:
 			// Archive audit
-			WriteNumFiles = 0;
 			HMIAuditInterfaceCtrl.Commands.ExportArchives = 1;
 			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailCmdDone);
 			HMIAuditInterfaceCtrl.Commands.ExportArchives = 0;
@@ -102,8 +100,6 @@ _TEST ExportArchive(void)
 		case TEST_ASSERT:
 			// Check save location for archive
 			TEST_ASSERT(TestComparisonNumber + 1 == DirInfo_0.filenum);
-			TestFailed = !(TestComparisonNumber + 1 == DirInfo_0.filenum);
-			TestDone = 1;
 			TEST_DONE;
 			break;
 	}
@@ -113,7 +109,7 @@ _TEST ExportArchive(void)
 
 _TEST AutomaticArchive(void)
 {
-	TEST_DONE;
+//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (UnitTestState)
