@@ -36,10 +36,15 @@ _TEARDOWN_SET(void)
 
 _SETUP_TEST(void)
 {
+	Export = 0;
+	Auto = 0;
+	
 	TestDone = 0;
 	TestFailed = 0;
 	WriteNumFiles = 0;
-	Delay = 0;
+	ArrangeDelay = 0;
+	ActDelay = 0;
+	AssertDelay = 0;
 	ArrangeSubState = 0;
 	ActSubState = 0;
 	AssertSubState = 0;
@@ -51,10 +56,15 @@ _SETUP_TEST(void)
 
 _TEARDOWN_TEST(void)
 {
+	Export = 0;
+	Auto=0;
+	
 	TestDone = 0;
 	TestFailed = 0;
 	WriteNumFiles = 0;
-	Delay = 0;
+	ArrangeDelay = 0;
+	ActDelay = 0;
+	AssertDelay = 0;
 	SampleTemperature = 1;
 //	TestComparisonNumber = 0;
 	TEST_DONE;
@@ -68,6 +78,7 @@ _CYCLIC_SET(void)
 
 _TEST ExportArchive(void)
 {
+	Export=1;
 //	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
@@ -82,24 +93,31 @@ _TEST ExportArchive(void)
 			// Force an audit to be generated
 			SampleTemperature++;
 			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailArchiveAvailable);
+			ArrangeDelay += 1;																	// This delay is compensating for the function block refreshing after finishing a command
+			TEST_BUSY_CONDITION(ArrangeDelay != 2);
+//			WriteNumFiles = 1;
 			TestComparisonNumber = DirInfo_0.filenum;
 			UnitTestState = TEST_ACT;
 			break;
 		
 		case TEST_ACT:
 			// Archive audit
+//			WriteNumFiles = 0;
 			HMIAuditInterfaceCtrl.Commands.ExportArchives = 1;
 			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailCmdDone);
 			HMIAuditInterfaceCtrl.Commands.ExportArchives = 0;
 			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailCmdDone);
-			Delay += 1;																		// This delay is compensating for the function block refreshing after finishing a command
-			TEST_BUSY_CONDITION(Delay != 2);
+			ActDelay += 1;																		// This delay is compensating for the function block refreshing after finishing a command
+			TEST_BUSY_CONDITION(ActDelay != 2);
 			UnitTestState = TEST_ASSERT;
 			break;
 		
 		case TEST_ASSERT:
 			// Check save location for archive
+			AssertDelay += 1;																		// This delay is compensating for the function block refreshing after finishing a command
+			TEST_BUSY_CONDITION(AssertDelay != 2);
 			TEST_ASSERT(TestComparisonNumber + 1 == DirInfo_0.filenum);
+//			TestFailed = (TestComparisonNumber + 1 != DirInfo_0.filenum);
 			TEST_DONE;
 			break;
 	}
@@ -109,6 +127,7 @@ _TEST ExportArchive(void)
 
 _TEST AutomaticArchive(void)
 {
+	Auto=1;
 //	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
@@ -116,13 +135,15 @@ _TEST AutomaticArchive(void)
 	{
 		case TEST_ARRANGE:
 			// Set automatic archive parameters prepare audit for generation
-			SampleTemperature = SAMPLE_TEMP_VALUE;
 			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Enable = 1;
 			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.FileType = mpAUDIT_FILE_TYPE_XML;
 			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.MaxSize = MAX_FILE_SIZE;
 			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Mode = mpAUDIT_ARCHIVE_DAILY;
 			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Hour = HOUR;
 			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Minute = MINUTE;
+//			TEST_BUSY_CONDITION(HMIAuditInterfaceCtrl.Status.NumberOfArchives == 0);
+//			ArrangeDelay += 1;
+//			TEST_BUSY_CONDITION(ArrangeDelay == 2);
 			WriteNumFiles = 1;
 			TestComparisonNumber = HMIAuditInterfaceCtrl.Status.NumberOfArchives;
 			logDebug("AuditTest","CompNum = %si",LogArray);
@@ -131,9 +152,17 @@ _TEST AutomaticArchive(void)
 		
 		case TEST_ACT:
 			// Archive audit
+//			ActDelay += 1;
+//			TEST_BUSY_CONDITION(ActDelay == 2);
+//			if(SampleTemperature == SAMPLE_TEMP_VALUE)
+//				SampleTemperature = DEFAULT_TEMP_VALUE;
+//			else
+				SampleTemperature = SAMPLE_TEMP_VALUE;
 			DTSetTime_0.DT1 = SET_TIME;
 			DTSetTime_0.enable = 1;
 			DTSetTime(&DTSetTime_0);
+//			DTGetTime_0.enable = 1;
+//			DTGetTime(&DTGetTime_0);
 			WriteNumFiles = 0;
 			TON_0.PT = TIMER_LENGTH;
 			TON_0.IN = 1;

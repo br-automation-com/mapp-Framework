@@ -23,14 +23,20 @@ VAR
 	TestDone : BOOL;
 	WriteNumFiles : BOOL;
 	TestFailed : BOOL;
-	Delay : USINT;
+	ActDelay : USINT;
+	ArrangeDelay : USINT;
+	AssertDelay : USINT;
 	DTSetTime_0 : DTSetTime;
+	DTGetTime_0 : DTGetTime;
 	HOUR : USINT := 8;
 	MINUTE : USINT := 0;
-	SET_TIME : DATE_AND_TIME := DT#2023-01-01-07:59:55;
+	SET_TIME : DATE_AND_TIME := DT#2023-01-01-15:59:55;
 	MAX_FILE_SIZE : UDINT := 100; (*Maximum file size for automatic archiving (Kb)*)
 	SAMPLE_TEMP_VALUE : REAL := 5;
+	DEFAULT_TEMP_VALUE : REAL := 6;
 	TON_0 : TON;
 	TIMER_LENGTH : TIME := T#7s;
 	LogArray : ARRAY[0..7] OF UDINT;
+	Auto : BOOL;
+	Export : BOOL;
 END_VAR
