@@ -15,8 +15,6 @@ END_VAR
 (*Variables used in the tests*)
 VAR
 	cycleCount : {REDUND_UNREPLICABLE} UINT;
-	HMIAuditInterfaceCtrl : HMIAuditInterface_type := (Commands:=(ExportArchives:=FALSE));
-	UnitTestState : TestStateEnum;
 	SampleTemperature : REAL;
 	DirInfo_0 : DirInfo;
 	TestComparisonNumber : USINT;
@@ -39,4 +37,5 @@ VAR
 	LogArray : ARRAY[0..7] OF UDINT;
 	Auto : BOOL;
 	Export : BOOL;
+	MpAuditTrailCmdDone : BOOL;
 END_VAR

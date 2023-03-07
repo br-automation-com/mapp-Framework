@@ -99,7 +99,7 @@ _TEST ExportArchive(void)
 			{
 				case 0:
 					SampleTemperature++;
-					TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailArchiveAvailable);
+					TEST_BUSY_CONDITION(!HmiAudit.Status.ArchiveAvailable);
 					ArrangeSubState = 1;
 					break;
 					
@@ -119,9 +119,9 @@ _TEST ExportArchive(void)
 			switch (ActSubState)
 			{
 				case 0:
-					HMIAuditInterfaceCtrl.Commands.ExportArchives = 1;
-					TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailCmdDone);
-					HMIAuditInterfaceCtrl.Commands.ExportArchives = 0;
+					HmiAudit.Commands.ExportArchives = 1;
+					TEST_BUSY_CONDITION(!MpAuditTrailCmdDone);
+					HmiAudit.Commands.ExportArchives = 0;
 					ActSubState = 1;
 					break;
 				
@@ -157,21 +157,21 @@ _TEST AutomaticArchive(void)
 			switch (ArrangeSubState)
 			{
 				case 0:
-					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Enable = 1;
-					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.FileType = mpAUDIT_FILE_TYPE_XML;
-					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.MaxSize = MAX_FILE_SIZE;
-					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Mode = mpAUDIT_ARCHIVE_DAILY;
-					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Hour = HOUR;
-					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Minute = MINUTE;
+					HmiAudit.Parameters.ArchiveSettings.Enable = 1;
+					HmiAudit.Parameters.ArchiveSettings.FileType = mpAUDIT_FILE_TYPE_XML;
+					HmiAudit.Parameters.ArchiveSettings.MaxSize = MAX_FILE_SIZE;
+					HmiAudit.Parameters.ArchiveSettings.Mode = mpAUDIT_ARCHIVE_DAILY;
+					HmiAudit.Parameters.ArchiveSettings.Hour = HOUR;
+					HmiAudit.Parameters.ArchiveSettings.Minute = MINUTE;
 					ArrangeSubState = 1;
 					break;
 					
 				case 1:
-					//TEST_BUSY_CONDITION(HMIAuditInterfaceCtrl.Status.NumberOfArchives == 0);
+					//TEST_BUSY_CONDITION(HmiAudit.Status.NumberOfArchives == 0);
 					//ArrangeDelay += 1;
 					//TEST_BUSY_CONDITION(ArrangeDelay == 2);
 					WriteNumFiles = 1;
-					TestComparisonNumber = HMIAuditInterfaceCtrl.Status.NumberOfArchives;
+					TestComparisonNumber = HmiAudit.Status.NumberOfArchives;
 					//logDebug("AuditTest","CompNum = %si",LogArray);
 					ArrangeSubState = 2;
 					break;
@@ -220,8 +220,8 @@ _TEST AutomaticArchive(void)
 		
 		case TEST_ASSERT:
 			// Check save location for archive
-			TEST_ASSERT(TestComparisonNumber + 1 == HMIAuditInterfaceCtrl.Status.NumberOfArchives);
-			TestFailed = !(TestComparisonNumber + 1 == HMIAuditInterfaceCtrl.Status.NumberOfArchives);
+			TEST_ASSERT(TestComparisonNumber + 1 == HmiAudit.Status.NumberOfArchives);
+			TestFailed = !(TestComparisonNumber + 1 == HmiAudit.Status.NumberOfArchives);
 			TestDone = 1;
 			TEST_DONE;
 			break;
