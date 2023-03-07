@@ -4,7 +4,8 @@ TYPE
 		(
 		TEST_ARRANGE := 10,
 		TEST_ACT := 20,
-		TEST_ASSERT := 30
+		TEST_ASSERT := 30,
+		temp := 40
 		);
 END_TYPE
 

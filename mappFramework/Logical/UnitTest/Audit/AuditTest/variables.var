@@ -14,7 +14,7 @@ VAR
 END_VAR
 (*Variables used in the tests*)
 VAR
-	cycleCount : {REDUND_UNREPLICABLE} USINT;
+	cycleCount : {REDUND_UNREPLICABLE} UINT;
 	HMIAuditInterfaceCtrl : HMIAuditInterface_type := (Commands:=(ExportArchives:=FALSE));
 	UnitTestState : TestStateEnum;
 	SampleTemperature : REAL;
@@ -28,7 +28,7 @@ VAR
 	AssertDelay : USINT;
 	DTSetTime_0 : DTSetTime;
 	DTGetTime_0 : DTGetTime;
-	HOUR : USINT := 8;
+	HOUR : USINT := 16;
 	MINUTE : USINT := 0;
 	SET_TIME : DATE_AND_TIME := DT#2023-01-01-15:59:55;
 	MAX_FILE_SIZE : UDINT := 100; (*Maximum file size for automatic archiving (Kb)*)
