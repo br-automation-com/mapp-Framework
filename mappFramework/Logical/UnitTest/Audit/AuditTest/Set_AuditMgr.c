@@ -95,13 +95,22 @@ _TEST ExportArchive(void)
 	{
 		case TEST_ARRANGE:
 			// Force an audit to be generated
-			SampleTemperature++;
-			TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailArchiveAvailable);
-			ArrangeDelay += 1;																	// This delay is compensating for the function block refreshing after finishing a command
-			TEST_BUSY_CONDITION(ArrangeDelay != 10);
-			//			WriteNumFiles = 1;
-			TestComparisonNumber = DirInfo_0.filenum;
-			TestState = TEST_ACT;
+			switch (ArrangeSubState)
+			{
+				case 0:
+					SampleTemperature++;
+					TEST_BUSY_CONDITION(!HMIAuditInterfaceCtrl.Status.AuditTrailArchiveAvailable);
+					ArrangeSubState = 1;
+					break;
+					
+				case 1:
+					ArrangeDelay += 1;														// This delay is compensating for the function block refreshing after finishing a command
+					TEST_BUSY_CONDITION(ArrangeDelay != 10);
+					//			WriteNumFiles = 1;
+					TestComparisonNumber = DirInfo_0.filenum;
+					TestState = TEST_ACT;
+					break;
+			}
 			break;
 		
 		case TEST_ACT:
@@ -117,7 +126,7 @@ _TEST ExportArchive(void)
 					break;
 				
 				case 1:
-					ActDelay += 1;																		// This delay is compensating for the function block refreshing after finishing a command
+					ActDelay += 1;															// This delay is compensating for the function block refreshing after finishing a command
 					TEST_BUSY_CONDITION(ActDelay != 10);
 					TestState = TEST_ASSERT;
 					break;
@@ -126,8 +135,6 @@ _TEST ExportArchive(void)
 		
 		case TEST_ASSERT:
 			// Check save location for archive
-//			AssertDelay += 1;																		// This delay is compensating for the function block refreshing after finishing a command
-//			TEST_BUSY_CONDITION(AssertDelay != 10);
 			TEST_ASSERT(TestComparisonNumber  < DirInfo_0.filenum);
 //			TestFailed = (TestComparisonNumber + 1 != DirInfo_0.filenum);
 			TEST_DONE;
@@ -140,49 +147,75 @@ _TEST ExportArchive(void)
 _TEST AutomaticArchive(void)
 {
 	Auto=1;
-	TEST_DONE;
+//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
 	{
 		case TEST_ARRANGE:
 			// Set automatic archive parameters prepare audit for generation
-			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Enable = 1;
-			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.FileType = mpAUDIT_FILE_TYPE_XML;
-			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.MaxSize = MAX_FILE_SIZE;
-			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Mode = mpAUDIT_ARCHIVE_DAILY;
-			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Hour = HOUR;
-			HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Minute = MINUTE;
-//			TEST_BUSY_CONDITION(HMIAuditInterfaceCtrl.Status.NumberOfArchives == 0);
-//			ArrangeDelay += 1;
-//			TEST_BUSY_CONDITION(ArrangeDelay == 2);
-			WriteNumFiles = 1;
-			TestComparisonNumber = HMIAuditInterfaceCtrl.Status.NumberOfArchives;
-			logDebug("AuditTest","CompNum = %si",LogArray);
-			TestState = TEST_ACT;
+			switch (ArrangeSubState)
+			{
+				case 0:
+					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Enable = 1;
+					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.FileType = mpAUDIT_FILE_TYPE_XML;
+					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.MaxSize = MAX_FILE_SIZE;
+					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Mode = mpAUDIT_ARCHIVE_DAILY;
+					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Hour = HOUR;
+					HMIAuditInterfaceCtrl.Parameters.ArchiveSettings.Minute = MINUTE;
+					ArrangeSubState = 1;
+					break;
+					
+				case 1:
+					//TEST_BUSY_CONDITION(HMIAuditInterfaceCtrl.Status.NumberOfArchives == 0);
+					//ArrangeDelay += 1;
+					//TEST_BUSY_CONDITION(ArrangeDelay == 2);
+					WriteNumFiles = 1;
+					TestComparisonNumber = HMIAuditInterfaceCtrl.Status.NumberOfArchives;
+					//logDebug("AuditTest","CompNum = %si",LogArray);
+					ArrangeSubState = 2;
+					break;
+						
+				case 2:
+					WriteNumFiles = 0;
+					ArrangeDelay += 1;
+					TEST_BUSY_CONDITION(ArrangeDelay == 2);
+					TestState = TEST_ACT;
+					break;
+			}
 			break;
 		
 		case TEST_ACT:
 			// Archive audit
-			ActDelay += 1;
-			TEST_BUSY_CONDITION(ActDelay != 10);
-//			if(SampleTemperature == SAMPLE_TEMP_VALUE)
-//				SampleTemperature = DEFAULT_TEMP_VALUE;
-//			else
-				SampleTemperature = SAMPLE_TEMP_VALUE;
-			DTSetTime_0.DT1 = SET_TIME;
-			DTSetTime_0.enable = 1;
-			DTSetTime(&DTSetTime_0);
-//			DTGetTime_0.enable = 1;
-//			DTGetTime(&DTGetTime_0);
-			WriteNumFiles = 0;
-			TON_0.PT = TIMER_LENGTH;
-			TON_0.IN = 1;
-			TON(&TON_0);
-			TEST_BUSY_CONDITION(!TON_0.Q);
-			TestState = TEST_ASSERT;
-			TON_0.IN = 0;
-			TON(&TON_0);
+			switch (ActSubState)
+			{
+				case 0:
+//					if(SampleTemperature == SAMPLE_TEMP_VALUE)
+//						SampleTemperature = DEFAULT_TEMP_VALUE;
+//					else
+						SampleTemperature = SAMPLE_TEMP_VALUE;
+					DTSetTime_0.DT1 = SET_TIME;
+					DTSetTime_0.enable = 1;
+					DTSetTime(&DTSetTime_0);
+					ActSubState = 1;
+					break;
+					
+				case 1:
+//					DTGetTime_0.enable = 1;
+//					DTGetTime(&DTGetTime_0);
+					TON_0.PT = TIMER_LENGTH;
+					TON_0.IN = 1;
+					TON(&TON_0);
+					TEST_BUSY_CONDITION(!TON_0.Q);
+					ActSubState = 2;
+					break;
+				
+				case 2:
+					TestState = TEST_ASSERT;
+					TON_0.IN = 0;
+					TON(&TON_0);
+					break;
+			}
 			break;
 		
 		case TEST_ASSERT:
