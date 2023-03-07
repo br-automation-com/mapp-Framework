@@ -55,6 +55,7 @@ TYPE
 		IsHomed : {REDUND_UNREPLICABLE} BOOL; (*Axis is referenced*)
 		IsPowered : {REDUND_UNREPLICABLE} BOOL; (*Axis is powered*)
 		PLCopenState : {REDUND_UNREPLICABLE} McAxisPLCopenStateEnum; (*Axis PLCopenState*)
+		ModeManual : {REDUND_UNREPLICABLE} BOOL; (*Axis may be moved manually*)
 	END_STRUCT;
 	AxisControlType : {REDUND_UNREPLICABLE} 	STRUCT 
 		Command : {REDUND_UNREPLICABLE} AxisControlCommandType; (*Cmd structure*)
