@@ -92,11 +92,12 @@ PROGRAM _CYCLIC
 		MpAlarmXHistoryUI_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks & UIConnects
+	// Assign MpLinks & address references
 	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUI_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUI_0.UIConnect := ADR(MpAlarmXListUIConnect);
 	MpAlarmXHistory_0.MpLink := ADR(gMpLinkAlarmXHistory);
+	MpAlarmXHistory_0.DeviceName := ADR('mappAlarmXFiles');
 	MpAlarmXHistoryUI_0.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistoryUI_0.UIConnect := ADR(MpAlarmXHistoryUIConnect);
 

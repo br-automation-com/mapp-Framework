@@ -191,12 +191,22 @@ PROGRAM _CYCLIC
 		MpRecipeUI_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks
+	// Assign MpLinks & address references
 	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
+	MpRecipe_0.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
+	MpRecipe_0.FileName := ADR(HmiRecipe.Parameters.FileName);
+	MpRecipe_0.Header := ADR(Header);
 	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIRecipe);
 	MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeRegPar_PreviewPar.PVName := ADR('RecipeMgr:ParametersPreview');
+	MpRecipeRegPar_PreviewPar.Category := ADR(PARAMETERS_CATEGORY);
 	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeRegPar_PreviewCfg.PVName := ADR('RecipeMgr:MachineSettingsPreview');
+	MpRecipeRegPar_PreviewCfg.Category := ADR(MACHINE_CONFIGURATION_CATEGORY);
+	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);	
 
 	// Call function blocks
 	MpRecipe_0();

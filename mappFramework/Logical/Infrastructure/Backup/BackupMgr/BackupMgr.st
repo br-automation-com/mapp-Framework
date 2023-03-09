@@ -214,10 +214,12 @@ PROGRAM _CYCLIC
 	HmiBackup.Status.Update := MpBackupCore_0.Info.Automatic.Update;
 	HmiBackup.Status.BackupCtrlEnabled := (NOT HmiBackup.Status.SimulationActive);
 
-	// Assign MpLinks
+	// Assign MpLinks & address references
 	MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
+	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpBackupCoreConfig_0.MpLink := ADR(gMpLinkBackupCore);
+	MpBackupCoreConfig_0.Configuration := ADR(MpBackupConfiguration);
 
 	// Call function blocks
 	MpBackupCore_0();

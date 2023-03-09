@@ -97,8 +97,9 @@ PROGRAM _CYCLIC
 		MpFileManagerUI_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks
+	// Assign MpLinks and address references
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
+	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_FIFO.MpLink := ADR(gMpLinkFileManagerUIFile_FIFO);
 
 	// Call function blocks
