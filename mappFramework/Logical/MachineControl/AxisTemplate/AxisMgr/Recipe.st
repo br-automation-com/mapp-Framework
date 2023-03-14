@@ -86,9 +86,15 @@ ACTION RecipeCyclic:
 
 	// Cyclic function block calls
 	MpRecipeRegPar_Par.MpLink := ADR(gMpLinkRecipeXml);
+	brsstrcat(ADR(AxisControl.Status.ProductSettingsName), ADR(':ParametersPreview'));
+	MpRecipeRegPar_Par.PVName := ADR(AxisControl.Status.ProductSettingsName);
+	MpRecipeRegPar_Par.Category := ADR(PARAMETERS_CATEGORY);
 	MpRecipeRegPar_Par();
 
 	MpRecipeRegPar_Cfg.MpLink := ADR(gMpLinkRecipeXml);
+	brsstrcat(ADR(AxisControl.Status.MachineSettingsName), ADR(':MachineSettingsPreview'));
+	MpRecipeRegPar_Cfg.PVName := ADR(AxisControl.Status.MachineSettingsName);
+	MpRecipeRegPar_Cfg.Category := ADR(MACHINE_CONFIGURATION_CATEGORY);
 	MpRecipeRegPar_Cfg();
 
 END_ACTION
