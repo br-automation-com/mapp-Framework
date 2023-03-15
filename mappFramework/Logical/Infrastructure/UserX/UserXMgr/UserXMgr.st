@@ -60,9 +60,11 @@ PROGRAM _CYCLIC
 	// Call all cyclic actions
 	HMIAction;
 
-	// Assign MpLinks
+	// Assign MpLinks & address references
 	MpUserXManagerUI_0.MpLink := ADR(gMpLinkUserXLogin);
+	MpUserXManagerUI_0.UIConnect := ADR(UserXMgrUIConnect);
 	MpUserXLoginUI_0.MpLink := ADR(gMpLinkUserXLogin);
+	MpUserXLoginUI_0.UIConnect := ADR(UserXLoginUIConnect);
 	MpUserXLogin_0.MpLink := ADR(gMpLinkUserXLogin);
 
 	// Call function blocks

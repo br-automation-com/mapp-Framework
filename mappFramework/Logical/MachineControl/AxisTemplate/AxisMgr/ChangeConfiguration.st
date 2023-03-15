@@ -61,7 +61,11 @@ ACTION ChangeConfiguration:
 		CONFIG_STATE_READY:
 
 	END_CASE
-
+	
+	// Cyclic function block calls
+	AxisSettings.DriveConfiguration.PureVirtualAxis.AxisFeatures.FeatureReference.DataAddress := ADR(AxisSettings.AxisFeatures);
+	MC_BR_ProcessConfig_AX.DataAddress := ADR(AxisSettings.BaseConfiguration);
+	MC_BR_ProcessConfig_ACP.DataAddress := ADR(AxisSettings.DriveConfiguration);
 	MC_BR_ProcessConfig_ACP();
 	MC_BR_ProcessConfig_AX();
 
@@ -111,6 +115,7 @@ ACTION ChangeParameter:
 
 	END_CASE
 
+	MC_BR_ProcessParam_AX.DataAddress := ADR(AxisSettings.BaseParam);
 	MC_BR_ProcessParam_AX();
 
 END_ACTION

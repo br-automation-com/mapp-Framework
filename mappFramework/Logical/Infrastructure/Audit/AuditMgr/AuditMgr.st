@@ -100,11 +100,14 @@ PROGRAM _CYCLIC
 		MpAuditTrail_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks 
+	// Assign MpLinks & address references
 	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrail_0.DeviceName := ADR('mappAuditFiles');
 	MpAuditTrailConfig_0.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailConfig_0.Configuration := ADR(AuditTrailConfig);
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
 	MpAuditTrailUI_0.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailUI_0.UIConnect := ADR(MpAuditTrailUIConnect);
 
 	// Call function blocks
 	MpAuditTrail_0();
