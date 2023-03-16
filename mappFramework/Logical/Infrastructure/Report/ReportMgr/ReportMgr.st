@@ -64,9 +64,6 @@ PROGRAM _CYCLIC
 	MpReportCore_0.Name := ADR(HmiReport.Parameters.Name);
 	
 	// Assign address references
-	MpReportCore_0.Language := ADR('en');
-	MpReportCore_0.DeviceName := ADR('mappReportFiles');
-	MpReportCore_0.Name := ADR(HmiReport.Parameters.Name);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
