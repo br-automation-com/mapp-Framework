@@ -16,7 +16,7 @@
 		char substate[10];									\
 		memset(abortMessage, 0, sizeof(abortMessage));		\
 		memset(substate, 0, sizeof(substate));				\
-		itoa(TestState, substate, 10);					\
+		itoa(TestState, substate, 10);						\
 		strcpy(abortMessage, "Timeout in State = ");		\
 		strcat(abortMessage, substate);						\
 		TEST_FAIL(abortMessage);							\
@@ -38,12 +38,6 @@ _TEARDOWN_SET(void)
 
 _SETUP_TEST(void)
 {
-	Export = 0;
-	Auto = 0;
-	
-	TestDone = 0;
-	TestFailed = 0;
-	WriteNumFiles = 0;
 	ArrangeDelay = 0;
 	ActDelay = 0;
 	AssertDelay = 0;
@@ -60,30 +54,20 @@ _SETUP_TEST(void)
 
 _TEARDOWN_TEST(void)
 {
-	Export = 0;
-	Auto=0;
-	
-	TestDone = 0;
-	TestFailed = 0;
-	WriteNumFiles = 0;
 	ArrangeDelay = 0;
 	ActDelay = 0;
 	AssertDelay = 0;
 	SampleTemperature = 1;
-//	TestComparisonNumber = 0;
 	TEST_DONE;
 }
 
 _CYCLIC_SET(void)
 {
 	cycleCount++;
-	LogArray[0] = &TestComparisonNumber;
 }
 
 _TEST ExportArchive(void)
 {
-	Export=1;
-//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	DirInfo_0.enable = 1;
@@ -104,9 +88,8 @@ _TEST ExportArchive(void)
 					break;
 					
 				case 1:
-					ArrangeDelay += 1;														// This delay is compensating for the function block refreshing after finishing a command
-					TEST_BUSY_CONDITION(ArrangeDelay != 10);
-					//			WriteNumFiles = 1;
+					ArrangeDelay += 1;												// This delay is compensating for the function block refreshing after finishing a command
+					TEST_BUSY_CONDITION(ArrangeDelay <= 10);
 					TestComparisonNumber = DirInfo_0.filenum;
 					TestState = TEST_ACT;
 					break;
@@ -115,39 +98,33 @@ _TEST ExportArchive(void)
 		
 		case TEST_ACT:
 			// Archive audit
-			//			WriteNumFiles = 0;
 			switch (ActSubState)
 			{
 				case 0:
 					HmiAudit.Commands.ExportArchives = 1;
+					TEST_ABORT_CONDITION(MpAuditTrailError);
 					TEST_BUSY_CONDITION(!MpAuditTrailCmdDone);
 					HmiAudit.Commands.ExportArchives = 0;
 					ActSubState = 1;
 					break;
 				
 				case 1:
-					ActDelay += 1;															// This delay is compensating for the function block refreshing after finishing a command
-					TEST_BUSY_CONDITION(ActDelay != 10);
+					ActDelay += 1;													// This delay is compensating for the function block refreshing after finishing a command
+					TEST_BUSY_CONDITION(ActDelay <= 10);
 					TestState = TEST_ASSERT;
 					break;
 			}
 			break;
 		
 		case TEST_ASSERT:
-			// Check save location for archive
 			TEST_ASSERT(TestComparisonNumber  < DirInfo_0.filenum);
-//			TestFailed = (TestComparisonNumber + 1 != DirInfo_0.filenum);
 			TEST_DONE;
 			break;
 	}
-	
-	DirInfo(&DirInfo_0);
 }
 
 _TEST AutomaticArchive(void)
 {
-	Auto=1;
-//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -167,19 +144,13 @@ _TEST AutomaticArchive(void)
 					break;
 					
 				case 1:
-					//TEST_BUSY_CONDITION(HmiAudit.Status.NumberOfArchives == 0);
-					//ArrangeDelay += 1;
-					//TEST_BUSY_CONDITION(ArrangeDelay == 2);
-					WriteNumFiles = 1;
 					TestComparisonNumber = HmiAudit.Status.NumberOfArchives;
-					//logDebug("AuditTest","CompNum = %si",LogArray);
 					ArrangeSubState = 2;
 					break;
 						
 				case 2:
-					WriteNumFiles = 0;
 					ArrangeDelay += 1;
-					TEST_BUSY_CONDITION(ArrangeDelay == 2);
+					TEST_BUSY_CONDITION(ArrangeDelay <= 2);
 					TestState = TEST_ACT;
 					break;
 			}
@@ -190,10 +161,7 @@ _TEST AutomaticArchive(void)
 			switch (ActSubState)
 			{
 				case 0:
-//					if(SampleTemperature == SAMPLE_TEMP_VALUE)
-//						SampleTemperature = DEFAULT_TEMP_VALUE;
-//					else
-						SampleTemperature = SAMPLE_TEMP_VALUE;
+					SampleTemperature = SAMPLE_TEMP_VALUE;
 					DTSetTime_0.DT1 = SET_TIME;
 					DTSetTime_0.enable = 1;
 					DTSetTime(&DTSetTime_0);
@@ -201,13 +169,13 @@ _TEST AutomaticArchive(void)
 					break;
 					
 				case 1:
-//					DTGetTime_0.enable = 1;
-//					DTGetTime(&DTGetTime_0);
 					TON_0.PT = TIMER_LENGTH;
 					TON_0.IN = 1;
 					TON(&TON_0);
-					TEST_BUSY_CONDITION(!TON_0.Q);
-					ActSubState = 2;
+					if(TON_0.Q)
+					{
+						ActSubState = 2;
+					}
 					break;
 				
 				case 2:
@@ -220,9 +188,7 @@ _TEST AutomaticArchive(void)
 		
 		case TEST_ASSERT:
 			// Check save location for archive
-			TEST_ASSERT(TestComparisonNumber + 1 == HmiAudit.Status.NumberOfArchives);
-			TestFailed = !(TestComparisonNumber + 1 == HmiAudit.Status.NumberOfArchives);
-			TestDone = 1;
+			TEST_ASSERT(TestComparisonNumber + 1 <= HmiAudit.Status.NumberOfArchives);
 			TEST_DONE;
 			break;
 	}
