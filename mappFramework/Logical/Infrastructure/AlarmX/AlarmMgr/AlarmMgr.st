@@ -76,6 +76,7 @@ PROGRAM _CYCLIC
 	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
 		HmiAlarmX.Commands.ExportAlarms := FALSE;
 		MpAlarmXHistory_0.Export := FALSE;
+		HmiAlarmX.Status.AlarmExportDone := TRUE;
 	END_IF
 
 	// Error reset
@@ -92,11 +93,12 @@ PROGRAM _CYCLIC
 		MpAlarmXHistoryUI_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks & UIConnects
+	// Assign MpLinks & address references
 	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUI_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUI_0.UIConnect := ADR(MpAlarmXListUIConnect);
 	MpAlarmXHistory_0.MpLink := ADR(gMpLinkAlarmXHistory);
+	MpAlarmXHistory_0.DeviceName := ADR('mappAlarmXFiles');
 	MpAlarmXHistoryUI_0.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistoryUI_0.UIConnect := ADR(MpAlarmXHistoryUIConnect);
 

@@ -32,13 +32,24 @@
       </EventHandler>
     </EventBinding>
     <EventBinding id="HmiAlarmX.Commands.ExportAlarms.ValueChanged">
-      <Source xsi:type="opcUa.Event" refId="::AlarmMgr:HmiAlarmX.Commands.ExportAlarms" event="ValueChanged" />
-      <EventHandler condition="newValue = false AND oldValue = true">
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Alarm/AlarmExport" header="$IAT/mappFramework/Alarm/AlarmHistory" />
-          </Target>
-        </Action>
+      <Source xsi:type="opcUa.Event" refId="::AlarmMgr:HmiAlarmX.Status.AlarmExportDone" event="ValueChanged" />
+      <EventHandler condition="newValue = true AND oldValue = false">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Alarm/AlarmExport" header="$IAT/mappFramework/Alarm/AlarmHistory" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgr:HmiAlarmX.Status.AlarmExportDone">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
       </EventHandler>
     </EventBinding>
   </Bindings>
