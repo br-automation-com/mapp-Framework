@@ -76,6 +76,7 @@ PROGRAM _CYCLIC
 	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
 		HmiAlarmX.Commands.ExportAlarms := FALSE;
 		MpAlarmXHistory_0.Export := FALSE;
+		HmiAlarmX.Status.AlarmExportDone := TRUE;
 	END_IF
 
 	// Error reset

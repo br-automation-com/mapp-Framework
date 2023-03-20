@@ -7,7 +7,7 @@ TYPE
 		Parameters : AlarmParametersType; (*HMI parameters*)
 	END_STRUCT;
 	AlarmCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
-		ExportAlarms : BOOL; (*Triggers an alarm export of the alarm history. Connected to a button on the HMI. *)
+		ExportAlarms : BOOL; (*Triggers an alarm export of the alarm history.*)
 		RunQuery : BOOL; (*Triggers the query to run. Connected to a button on the HMI. *)
 	END_STRUCT;
 	AlarmParametersType : 	STRUCT  (*Structure to hold the parameters from the HMI*)
@@ -19,6 +19,7 @@ TYPE
 		AlarmSortCfg : STRING[1000]; (*Sort configuration for the AlarmList widget*)
 		AlarmFilterCfg : STRING[1000]; (*Filter configuration for the AlarmList widget*)
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the alarm query Table*)
+		AlarmExportDone : BOOL; (*Alarm export of alarm history is completed. Connected to a button on the HMI. *)
 		Query : AlarmQueryHMIType; (*Structure which rearranges the query data from AlarmQuery into a structure of arrays for easy connection to the Table widget*)
 	END_STRUCT;
 	AlarmQueryType : 	STRUCT  (*Structure for query results and status*)
