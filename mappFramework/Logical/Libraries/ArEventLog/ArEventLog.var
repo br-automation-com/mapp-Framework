@@ -1,0 +1,42 @@
+                                                                      
+ VAR CONSTANT
+	arEVENTLOG_ERR_PARAMETER			: DINT := -1070586096;	(*obsolete - invalid parameters specified*)
+	arEVENTLOG_ERR_RECORDID_INVALID		: DINT := -1070586096;	(*no record with the given id exists in the logbook*)
+	arEVENTLOG_ERR_EXISTING				: DINT := -1070586095;	(*obsolete- log module already exists*)
+	arEVENTLOG_ERR_LOGBOOK_EXISTS		: DINT := -1070586095;	(*a logbook with the given name already exists*)
+	arEVENTLOG_ERR_INTERNAL				: DINT := -1070586094;	(*unexpected internal error*)
+	arEVENTLOG_ERR_NAME_INVALID			: DINT := -1070586093;	(*the given name is invalid (empty)*)
+	arEVENTLOG_ERR_SIZE_INVALID			: DINT := -1070586092;	(*the given size is smaller than the minimum size of a logbook*)
+	arEVENTLOG_ERR_PERSISTENCE_INVAL	: DINT := -1070586091;	(*the given persistence level is unknown*)
+	arEVENTLOG_ERR_IDENT_INVALID		: DINT := -1070586090;	(*the given ident is invalid (NULL)*)
+	arEVENTLOG_ERR_IDENT_SYSTEM			: DINT := -1070586089;	(*access denied, the given ident belongs to a system logbook*)
+	arEVENTLOG_ERR_EVENTID_INVALID		: DINT := -1070586088;	(*the given event id is no customer event id*)
+	arEVENTLOG_ERR_LOGBOOK_NOT_FOUND	: DINT := -1070586087;	(*a logbook with the given name does not exist*)
+	arEVENTLOG_ERR_ADDDATA_NULL			: DINT := -1070586086;	(*the given pointer to the additional data buffer is NULL*)
+	arEVENTLOG_ERR_NO_ERRORNUMBER		: DINT := -1070586085;	(*the given record is no error number record*)
+	arEVENTLOG_ERR_MODULE_EXISTS		: DINT := -1070586084;	(*another module with the given name already exists*)
+	arEVENTLOG_ERR_NO_DESCRIPTION		: DINT := -1070586083;	(*no description was found for the given record id*)
+	arEVENTLOG_ERR_DESCRIPTION_NULL		: DINT := -1070586082;	(*the given pointer to the description buffer is NULL*)
+	arEVENTLOG_ERR_FORMAT_INVALID		: DINT := -1070586081;	(*the given format for the additional data is unknown*)
+	
+	arEVENTLOG_WRN_NO_EVENTID			: DINT := -2144327920;	(*the given record is no event id record*)
+	arEVENTLOG_WRN_FORMAT_INVALID		: DINT := -2144327919;	(*the given format for the additional data is unknown*)
+	arEVENTLOG_WRN_ADDDATA_NULL			: DINT := -2144327918;	(*the given pointer to the additional data is NULL*)
+	
+	arEVENTLOG_INF_SIZE					: DINT := 1076897555;	(*specified data size too small*)
+	
+	arEVENTLOG_SEVERITY_SUCCESS			: USINT := 0;			(*severity code success*)
+	arEVENTLOG_SEVERITY_INFO 			: USINT := 1;			(*severity code informational*)
+	arEVENTLOG_SEVERITY_WARNING			: USINT := 2;			(*severity code warning*)
+	arEVENTLOG_SEVERITY_ERROR			: USINT := 3;			(*severity code error*)
+
+	arEVENTLOG_PERSISTENCE_VOLATILE		: USINT := 0;			(*persistence volatile*)
+	arEVENTLOG_PERSISTENCE_REMANENT		: USINT := 1;			(*persistence remanent*)
+	arEVENTLOG_PERSISTENCE_PERSIST		: USINT := 2;			(*persistence persistent*)
+	
+	arEVENTLOG_ADDFORMAT_BINARY			: USINT := 0;			(*additional data format binary*)
+	arEVENTLOG_ADDFORMAT_TEXT			: USINT := 1;			(*additional data format series of null terminated strings*)
+	arEVENTLOG_ADDFORMAT_CODED			: USINT := 2;			(*additional data format binary coded data*)
+	arEVENTLOG_ADDFORMAT_CUST_BASE		: USINT := 100;			(*additional data format begin of customer area*)
+	arEVENTLOG_ADDFORMAT_CUST_MAX		: USINT := 150;			(*additional data format end of customer area*)
+END_VAR
