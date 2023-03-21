@@ -9,12 +9,6 @@
         <ACE RoleName="Administrators" Access="0x017F" />
         <ACE RoleName="Everyone" Access="0x005F" />
       </ACL>
-      <ACL Id="2">
-        <ACE RoleName="Operators" Access="0x00FF" />
-        <ACE RoleName="Service" Access="0x00FF" />
-        <ACE RoleName="Administrators" Access="0x017F" />
-        <ACE RoleName="Everyone" Access="0x005F" />
-      </ACL>
       <ACL Id="3">
         <ACE RoleName="Operators" Access="0x01FF" />
         <ACE RoleName="Service" Access="0x01FF" />
@@ -30,6 +24,8 @@
     <Module Name="&lt;Default&gt;">
       <Task Name="PackMLMgr">
         <Variable Name="HmiPackML" />
+        <Variable Name="MpPackMLCore_0" />
+        <Variable Name="MpPackMLMode_0" />
       </Task>
     </Module>
   </DefaultView>

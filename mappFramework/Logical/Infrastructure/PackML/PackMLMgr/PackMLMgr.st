@@ -15,6 +15,14 @@ PROGRAM _INIT
 	END_IF 
 	
 	// Initialize mapp function blocks
+	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLCore_0.Enable := TRUE;
+	MpPackMLCore_0();
+	
+	MpPackMLMode_0.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLMode_0.Enable := TRUE;
+	MpPackMLMode_0.ModeID := 1;
+	MpPackMLMode_0();
 	
 	 
 END_PROGRAM
@@ -22,16 +30,25 @@ END_PROGRAM
 PROGRAM _CYCLIC
 	// Call all cyclic actions
 	
+	
 	// Assign MpLinks & UIConnects
+	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLMode_0.MpLink := ADR(gMpLinkPackMLCore);
 	
 	// Call function blocks
+	MpPackMLCore_0();
+	MpPackMLMode_0();
 	 
 END_PROGRAM
 
 PROGRAM _EXIT
 	// Disable the function blocks to unlink the MpLinks
+	MpPackMLCore_0.Enable := FALSE;
+	MpPackMLMode_0.Enable := FALSE;
 	
 	// Call function blocks
+	MpPackMLCore_0();
+	MpPackMLMode_0();
 	 
 END_PROGRAM
 
