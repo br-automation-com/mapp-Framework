@@ -24,8 +24,41 @@
     <Module Name="&lt;Default&gt;">
       <Task Name="PackMLMgr">
         <Variable Name="HmiPackML" />
-        <Variable Name="MpPackMLCore_0" />
-        <Variable Name="MpPackMLMode_0" />
+        <Variable Name="MpPackMLCore_0">
+          <Variable Name="MpLink" />
+          <Variable Name="Enable" />
+          <Variable Name="ErrorReset" />
+          <Variable Name="Active" />
+          <Variable Name="Error" />
+          <Variable Name="StatusID" />
+          <Variable Name="ModeCurrent" />
+          <Variable Name="StateCurrent" />
+          <Variable Name="Info" />
+          <Variable Name="Internal" />
+        </Variable>
+        <Variable Name="MpPackMLMode_0">
+          <Variable Name="MpLink" />
+          <Variable Name="Enable" />
+          <Variable Name="ErrorReset" />
+          <Variable Name="ModeID" />
+          <Variable Name="Activate" />
+          <Variable Name="Start" />
+          <Variable Name="Stop" />
+          <Variable Name="Reset" />
+          <Variable Name="Hold" />
+          <Variable Name="Unhold" />
+          <Variable Name="Suspend" />
+          <Variable Name="Unsuspend" />
+          <Variable Name="Abort" />
+          <Variable Name="Clear" />
+          <Variable Name="StateComplete" />
+          <Variable Name="Active" />
+          <Variable Name="Error" />
+          <Variable Name="StatusID" />
+          <Variable Name="ChangeModeAllowed" />
+          <Variable Name="ModeActive" />
+          <Variable Name="StateCurrent" />
+        </Variable>
       </Task>
     </Module>
   </DefaultView>
