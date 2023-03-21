@@ -7,7 +7,7 @@
 
 PROGRAM _INIT
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('mappComponentFiles'), pName := ADR('/'));
+	DirCreate_0(enable := TRUE, pDevice := ADR('mappPackMLFiles'), pName := ADR('/'));
 
 	// Check if folder already exist and if so disabled the function block call
 	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
