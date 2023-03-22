@@ -107,6 +107,9 @@ bool FileIdleOrDisabled(void) {
 
 _SETUP_TEST(void) {
     TestState = 0;
+	ArrangeSubState = 0;
+	ActSubState = 0;
+	AssertSubState = 0;
     FileNumber = 0;
 	cycleCount = 0;
 	NameMatch = 0;
@@ -255,8 +258,6 @@ _TEST Add_File(void)
 	
 	FileCreate(&FileCreate_0);
 	FileClose(&FileClose_0);
-	TEST_ABORT_CONDITION((FileCreate_0.status != 0) && (FileCreate_0.status != 65535));
-	TEST_ABORT_CONDITION((FileClose_0.status != 0) && (FileClose_0.status != 65535));
 	
 	switch (TestState)
 	{
@@ -277,13 +278,16 @@ _TEST Add_File(void)
 					break;
 					
 				case 1:
+					TEST_ABORT_CONDITION((FileCreate_0.status != 0) && (FileCreate_0.status != 65535));
 					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
 					ActSubState = 2;
 					FileClose_0.ident = FileCreate_0.ident;
+					FileClose_0.enable = 1;
 					FileCreate_0.enable = 0;
 					break;
 				
 				case 2:
+					TEST_ABORT_CONDITION((FileClose_0.status != 0) && (FileClose_0.status != 65535));
 					TEST_BUSY_CONDITION(FileClose_0.status != 0);
 					ActSubState = 3;
 					FileClose_0.enable = 0;
@@ -318,15 +322,18 @@ _TEST Add_File(void)
 
 _TEST Copy_File(void)
 {
-	TEST_DONE;
+//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
 	{
 		case 0:
 			// Select Recipe file device and input directory name
-			MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
-			brsmemcpy(&MpFileManagerUIConnect.File.NewName, &DirName, sizeof(MpFileManagerUIConnect.File.NewName));
+			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+			{
+				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+					HmiFile.Status.SelectedIndex = i;
+			}
 			TestState = 1;
 			break;
 		
@@ -335,14 +342,14 @@ _TEST Copy_File(void)
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.CreateFolder = 1;
+					MpFileManagerUIConnect.File.Copy = 1;
 					ActSubState = 1;
 					break;
 					
 				case 1:
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
 					ActSubState = 2;
-					MpFileManagerUIConnect.File.Refresh = 1;
+					MpFileManagerUIConnect.File.Paste = 1;
 					break;
 				
 				case 2:
@@ -353,7 +360,7 @@ _TEST Copy_File(void)
 				case 3:
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedFileName) == 0)
 						{
 							NameMatch = 1;
 						}
