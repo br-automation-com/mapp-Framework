@@ -188,6 +188,7 @@ _TEARDOWN_TEST(void)
     HmiFile_UT.Parameters.Fifo.ScanInterval = 60;
     TestState = 0;
     SetupState = 0;
+	CopyTest = 0;
     TEST_DONE;
 }
 
@@ -323,18 +324,29 @@ _TEST Add_File(void)
 _TEST Copy_File(void)
 {
 //	TEST_DONE;
+	CopyTest = 1;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
 	{
 		case 0:
 			// Select Recipe file device and input directory name
-			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+			switch (ArrangeSubState)
 			{
-				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
-					HmiFile.Status.SelectedIndex = i;
+				case 0:
+					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+					ArrangeSubState = 1;
+					break;
+				
+				case 1:
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+							HmiFile.Status.SelectedIndex = i;
+					}
+					TestState = 1;
+					break;
 			}
-			TestState = 1;
 			break;
 		
 		case 1:
