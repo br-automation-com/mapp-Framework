@@ -109,6 +109,7 @@ _SETUP_TEST(void) {
     TestState = 0;
     FileNumber = 0;
 	cycleCount = 0;
+	NameMatch = 0;
     
     HmiFile_UT.Parameters.Fifo.Enable = false;
     HmiFile_UT.Parameters.Fifo.ScanInterval = 60;
@@ -195,6 +196,129 @@ _CYCLIC_SET(void)
 _TEST Create_Directory(void)
 {
 //	TEST_DONE;
+	TIMEOUT_TEST_CASE;
+	
+	switch (TestState)
+	{
+		case 0:
+			// Select Recipe file device and input directory name
+			MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+			brsmemcpy(&MpFileManagerUIConnect.File.NewName, &DirName, sizeof(MpFileManagerUIConnect.File.NewName));
+			TestState = 1;
+			break;
+		
+		case 1:
+			// Create directory
+			switch (ActSubState)
+			{
+				case 0:
+					MpFileManagerUIConnect.File.CreateFolder = 1;
+					ActSubState = 1;
+					break;
+					
+				case 1:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					ActSubState = 2;
+					MpFileManagerUIConnect.File.Refresh = 1;
+					break;
+				
+				case 2:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					ActSubState = 3;
+					break;
+				
+				case 3:
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						{
+							NameMatch = 1;
+						}
+					}
+					TestState = 2;
+					break;
+			}
+			break;
+		
+		case 2:
+			// Check save location for directory
+			TEST_ASSERT(NameMatch);
+			TEST_DONE;
+			break;
+	}
+}
+
+_TEST Add_File(void)
+{
+//	TEST_DONE;
+	TIMEOUT_TEST_CASE;
+	
+	FileCreate(&FileCreate_0);
+	FileClose(&FileClose_0);
+	TEST_ABORT_CONDITION((FileCreate_0.status != 0) && (FileCreate_0.status != 65535));
+	TEST_ABORT_CONDITION((FileClose_0.status != 0) && (FileClose_0.status != 65535));
+	
+	switch (TestState)
+	{
+		case 0:	// Arrange
+			// Select Recipe file device and input directory name
+			FileCreate_0.pDevice = (UDINT)&"mappRecipeFiles";
+			FileCreate_0.pFile = (UDINT)&CreateFileName;
+			TestState = 1;
+			break;
+		
+		case 1:	// Act
+			// Create directory
+			switch (ActSubState)
+			{
+				case 0:
+					FileCreate_0.enable = 1;
+					ActSubState = 1;
+					break;
+					
+				case 1:
+					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
+					ActSubState = 2;
+					FileClose_0.ident = FileCreate_0.ident;
+					FileCreate_0.enable = 0;
+					break;
+				
+				case 2:
+					TEST_BUSY_CONDITION(FileClose_0.status != 0);
+					ActSubState = 3;
+					FileClose_0.enable = 0;
+					MpFileManagerUIConnect.File.Refresh = 1;
+					break;
+			
+				case 3:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					ActSubState = 4;
+					break;
+				
+				case 4:
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+						{
+							NameMatch = 1;
+						}
+					}
+					TestState = 2;
+					break;
+			}
+			break;
+		
+		case 2:	// Assert
+			// Check save location for file
+			TEST_ASSERT(NameMatch);
+			TEST_DONE;
+			break;
+	}
+}
+
+_TEST Copy_File(void)
+{
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -837,12 +961,14 @@ _TEST FIFO_MaxFolderSize_Keep120Files(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2023-03-21 20:38:13Z
+LastUpdated: 2023-03-22 14:33:19Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
 {
 	new_TestFixture("Create_Directory", Create_Directory), 
+	new_TestFixture("Add_File", Add_File), 
+	new_TestFixture("Copy_File", Copy_File), 
 	new_TestFixture("FIFO_20", FIFO_20), 
 	new_TestFixture("FIFO_60", FIFO_60), 
 	new_TestFixture("FIFO_140", FIFO_140), 
