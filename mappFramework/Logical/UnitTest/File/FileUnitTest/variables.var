@@ -14,6 +14,7 @@ VAR
 END_VAR
 (*Variables used in the tests*)
 VAR
+	cycleCount : {REDUND_UNREPLICABLE} UINT;
 	HmiFile_UT : FileHmiInterfaceType; (*HMI interface structure*)
 	FileName : STRING[24];
 	FileNumber : USINT;
@@ -28,4 +29,6 @@ VAR
 	FileWrite_UT : FileWrite;
 	testData : {REDUND_UNREPLICABLE} STRING[1023] := 'testing data';
 	FileDelete_UT : FileDelete;
+	NameMatch : BOOL;
+	DirName : STRING[255] := 'FileTestDir';
 END_VAR

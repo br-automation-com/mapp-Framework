@@ -1,6 +1,16 @@
+(*Inputs to the unit test*)
 VAR_CONFIG
 	::FileMgr:MpFileManagerUI_0.StatusID AT %Q.::FileTest:MpBlockStatus[0]; (*Insert your comment here...*)
 	::FileMgr:MpFileManagerUI_FIFO.StatusID AT %Q.::FileTest:MpBlockStatus[1]; (*Insert your comment here...*)
-	Cyclic#8.::FileTest:HmiFile_UT.Parameters AT %Q.Cyclic#8.::FileMgr:HmiFile.Parameters; (*Insert your comment here...*)
 	Cyclic#8.::FileMgr:HmiFile.Status AT %Q.Cyclic#8.::FileTest:HmiFile_UT.Status; (*Insert your comment here...*)
+	::FileMgr:MpFileManagerUIConnect.File.List.Items AT %Q.::FileTest:MpFileManagerUIConnect.File.List.Items; (*Insert your comment here...*)
+	::FileMgr:MpFileManagerUIConnect.Status AT %Q.::FileTest:MpFileManagerUIConnect.Status; (*Insert your comment here...*)
+END_VAR
+(*Outputs from the unit test*)
+VAR_CONFIG
+	Cyclic#8.::FileTest:HmiFile_UT.Parameters AT %Q.Cyclic#8.::FileMgr:HmiFile.Parameters; (*Insert your comment here...*)
+	::FileTest:MpFileManagerUIConnect.DeviceList.SelectedIndex AT %Q.::FileMgr:MpFileManagerUIConnect.DeviceList.SelectedIndex; (*Insert your comment here...*)
+	::FileTest:MpFileManagerUIConnect.File.NewName AT %Q.::FileMgr:MpFileManagerUIConnect.File.NewName; (*Insert your comment here...*)
+	::FileTest:MpFileManagerUIConnect.File.CreateFolder AT %Q.::FileMgr:MpFileManagerUIConnect.File.CreateFolder; (*Insert your comment here...*)
+	::FileTest:MpFileManagerUIConnect.File.Refresh AT %Q.::FileMgr:MpFileManagerUIConnect.File.Refresh; (*Insert your comment here...*)
 END_VAR

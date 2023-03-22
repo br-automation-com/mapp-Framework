@@ -8,6 +8,20 @@
 #include <stdbool.h>
 #include <string.h>
 
+#define TIMEOUT_TEST_CASE								\
+	if (cycleCount >= 1000)								\
+	{													\
+	char abortMessage[80];								\
+	char substate[10];									\
+	memset(abortMessage, 0, sizeof(abortMessage));		\
+	memset(substate, 0, sizeof(substate));				\
+	itoa(TestState, substate, 10);						\
+	strcpy(abortMessage, "Timeout in State = ");		\
+	strcat(abortMessage, substate);						\
+	TEST_FAIL(abortMessage);							\
+	TEST_DONE;											\
+	}
+
 _SETUP_SET(void)
 {
     TestState = 0;
@@ -94,6 +108,7 @@ bool FileIdleOrDisabled(void) {
 _SETUP_TEST(void) {
     TestState = 0;
     FileNumber = 0;
+	cycleCount = 0;
     
     HmiFile_UT.Parameters.Fifo.Enable = false;
     HmiFile_UT.Parameters.Fifo.ScanInterval = 60;
@@ -172,8 +187,69 @@ _TEARDOWN_TEST(void)
     TEST_DONE;
 }
 
+_CYCLIC_SET(void)
+{
+	cycleCount++;
+}
+
+_TEST Create_Directory(void)
+{
+//	TEST_DONE;
+	TIMEOUT_TEST_CASE;
+	
+	switch (TestState)
+	{
+		case 0:
+			// Select Recipe file device and input directory name
+			MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+			brsmemcpy(&MpFileManagerUIConnect.File.NewName, &DirName, sizeof(MpFileManagerUIConnect.File.NewName));
+			TestState = 1;
+			break;
+		
+		case 1:
+			// Create directory
+			switch (ActSubState)
+			{
+				case 0:
+					MpFileManagerUIConnect.File.CreateFolder = 1;
+					ActSubState = 1;
+					break;
+					
+				case 1:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					ActSubState = 2;
+					MpFileManagerUIConnect.File.Refresh = 1;
+					break;
+				
+				case 2:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					ActSubState = 3;
+					break;
+				
+				case 3:
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						{
+							NameMatch = 1;
+						}
+					}
+					TestState = 2;
+					break;
+			}
+			break;
+		
+		case 2:
+			// Check save location for directory
+			TEST_ASSERT(NameMatch);
+			TEST_DONE;
+			break;
+	}
+}
+
 _TEST FIFO_20(void)
 {
+	TEST_DONE;
     switch (TestState)
     {
         // Arrange
@@ -232,6 +308,7 @@ _TEST FIFO_20(void)
 
 _TEST FIFO_60(void)
 {
+	TEST_DONE;
     switch (TestState)
     {
         // Arrange
@@ -291,6 +368,7 @@ _TEST FIFO_60(void)
 
 _TEST FIFO_140(void)
 {
+	TEST_DONE;
     switch (TestState)
     {
         // Arrange
@@ -350,6 +428,7 @@ _TEST FIFO_140(void)
 
 _TEST FIFO_MaxFiles60(void)
 {
+	TEST_DONE;
     switch (TestState)
     {
         // Arrange
@@ -409,6 +488,7 @@ _TEST FIFO_MaxFiles60(void)
 
 _TEST FIFO_MaxFiles120(void)
 {
+	TEST_DONE;
     switch (TestState)
     {
         // Arrange
@@ -468,6 +548,7 @@ _TEST FIFO_MaxFiles120(void)
 
 _TEST FIFO_MaxFolderSize_30Files(void)
 {
+	TEST_DONE;
     switch (TestState)
     {
         // Arrange
@@ -539,6 +620,7 @@ _TEST FIFO_MaxFolderSize_30Files(void)
 
 _TEST FIFO_MaxFolderSize_60Files(void)
 {
+	TEST_DONE;
     switch (TestState)
     {
         // Arrange
@@ -610,6 +692,7 @@ _TEST FIFO_MaxFolderSize_60Files(void)
 
 _TEST FIFO_MaxFolderSize_Keep60Files(void)
 {
+	TEST_DONE;
     switch (TestState)
     {
         // Arrange
@@ -681,6 +764,7 @@ _TEST FIFO_MaxFolderSize_Keep60Files(void)
 
 _TEST FIFO_MaxFolderSize_Keep120Files(void)
 {
+	TEST_DONE;
     switch (TestState)
     {
         // Arrange
@@ -753,21 +837,22 @@ _TEST FIFO_MaxFolderSize_Keep120Files(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2022-11-14 14:36:46Z
+LastUpdated: 2023-03-21 20:38:13Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
 {
-	new_TestFixture("FIFO_20", FIFO_20),
-	new_TestFixture("FIFO_60", FIFO_60),
-	new_TestFixture("FIFO_140", FIFO_140),
-	new_TestFixture("FIFO_MaxFiles60", FIFO_MaxFiles60),
-	new_TestFixture("FIFO_MaxFiles120", FIFO_MaxFiles120),
-	new_TestFixture("FIFO_MaxFolderSize_30Files", FIFO_MaxFolderSize_30Files),
-	new_TestFixture("FIFO_MaxFolderSize_60Files", FIFO_MaxFolderSize_60Files),
-	new_TestFixture("FIFO_MaxFolderSize_Keep60Files", FIFO_MaxFolderSize_Keep60Files),
-	new_TestFixture("FIFO_MaxFolderSize_Keep120Files", FIFO_MaxFolderSize_Keep120Files),
+	new_TestFixture("Create_Directory", Create_Directory), 
+	new_TestFixture("FIFO_20", FIFO_20), 
+	new_TestFixture("FIFO_60", FIFO_60), 
+	new_TestFixture("FIFO_140", FIFO_140), 
+	new_TestFixture("FIFO_MaxFiles60", FIFO_MaxFiles60), 
+	new_TestFixture("FIFO_MaxFiles120", FIFO_MaxFiles120), 
+	new_TestFixture("FIFO_MaxFolderSize_30Files", FIFO_MaxFolderSize_30Files), 
+	new_TestFixture("FIFO_MaxFolderSize_60Files", FIFO_MaxFolderSize_60Files), 
+	new_TestFixture("FIFO_MaxFolderSize_Keep60Files", FIFO_MaxFolderSize_Keep60Files), 
+	new_TestFixture("FIFO_MaxFolderSize_Keep120Files", FIFO_MaxFolderSize_Keep120Files), 
 };
 
-UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_FileMgr, "Set_FileMgr", setupTest, teardownTest, fixtures, setupSet, teardownSet, 0);
+UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_FileMgr, "Set_FileMgr", setupTest, teardownTest, fixtures, setupSet, teardownSet, cyclicSetCaller);
 
