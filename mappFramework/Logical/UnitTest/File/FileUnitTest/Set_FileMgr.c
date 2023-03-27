@@ -399,7 +399,7 @@ _TEST Add_File(void)
 
 _TEST Copy_File(void)
 {
-	TEST_DONE;
+//	TEST_DONE;
 	CopyTest = 1;
 	TIMEOUT_TEST_CASE;
 	
@@ -433,19 +433,21 @@ _TEST Copy_File(void)
 					MpFileManagerUIConnect.File.Copy = 1;
 					ActSubState = 1;
 					break;
-					
-				case 1:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
-					ActSubState = 2;
-					MpFileManagerUIConnect.File.Paste = 1;
-					break;
 				
+				case 1:
+					MpFileManagerUIConnect.File.Copy = 0;
+					MpFileManagerUIConnect.File.Paste = 1;
+					ActSubState = 2;
+					break;
+			
 				case 2:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
+					MpFileManagerUIConnect.File.Paste = 0;
 					ActSubState = 3;
 					break;
 				
 				case 3:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
 						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedFileName) == 0)
