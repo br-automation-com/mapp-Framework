@@ -1,4 +1,17 @@
 WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=FileTest 
-Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=0 ASCIIString=0
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=123 Type=100 Scope=37 Force=30 Index=5 ASCIIString=0
                                     name                                     type force                                                            value level type len format place expand specs
-                              cycleCount                                     UINT    0 "                                                               0"    0    6    1   10    1    0         
+                              cycleCount                                     UINT    0 "                                                               4"    0    6    1   10    1    0         
+                                       i                                    USINT    0 "                                                               0"    0    5    1   10    1    0         
+                  MpFileManagerUIConnect               MpFileManagerUIConnectType    0 "                                                               *"    0   24    1    0    1    1         
+                                  Status                                     DINT    0 "                                                               0"    1    4    1   10    0    0 e,0,mpFI
+
+                                    File                  MpFileManagerUIFileType    0 "                                                               *"    1   24    1    0    0    1         
+                                 Refresh                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                  Delete                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                    Copy                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                     Cut                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                   Paste                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                 NewName                              STRING[255]    0 "                                                   'FileTestDir'"    2    9  256    1    0    0         
+                                  Rename                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                            CreateFolder                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         

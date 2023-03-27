@@ -113,8 +113,19 @@ _SETUP_TEST(void) {
     FileNumber = 0;
 	cycleCount = 0;
 	NameMatch = 0;
+	HmiFile.Status.SelectedIndex = 0;
+	MpFileManagerUIConnect.File.Copy = 0;
+	MpFileManagerUIConnect.File.CreateFolder = 0;
+	MpFileManagerUIConnect.File.Cut = 0;
+	MpFileManagerUIConnect.File.Delete = 0;
+	MpFileManagerUIConnect.File.EnterFolder = 0;
+	MpFileManagerUIConnect.File.FolderUp = 0;
+	MpFileManagerUIConnect.File.MultiSelect = 0;
+	MpFileManagerUIConnect.File.Paste = 0;
+	MpFileManagerUIConnect.File.Refresh = 0;
+	MpFileManagerUIConnect.File.Rename = 0;
     
-    HmiFile_UT.Parameters.Fifo.Enable = false;
+	HmiFile_UT.Parameters.Fifo.Enable = false;
     HmiFile_UT.Parameters.Fifo.ScanInterval = 60;
     strcpy(HmiFile_UT.Parameters.Fifo.DeviceName, "mappUserXFiles");
 
@@ -189,6 +200,12 @@ _TEARDOWN_TEST(void)
     TestState = 0;
     SetupState = 0;
 	CopyTest = 0;
+	
+	FileCreate_0.enable = 0;
+	FileClose_0.enable = 0;
+	FileCreate(&FileCreate_0);
+	FileClose(&FileClose_0);
+	
     TEST_DONE;
 }
 
@@ -206,9 +223,34 @@ _TEST Create_Directory(void)
 	{
 		case 0:
 			// Select Recipe file device and input directory name
-			MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
-			brsmemcpy(&MpFileManagerUIConnect.File.NewName, &DirName, sizeof(MpFileManagerUIConnect.File.NewName));
-			TestState = 1;
+			switch (ArrangeSubState)
+			{
+				case 0:
+					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+					brsmemcpy(&MpFileManagerUIConnect.File.NewName, &DirName, sizeof(MpFileManagerUIConnect.File.NewName));
+					ArrangeSubState = 1;
+					break;
+			
+				case 1:
+					MpFileManagerUIConnect.File.Refresh = 1;
+					ArrangeSubState = 2;
+					break;
+			
+				case 2:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					MpFileManagerUIConnect.File.Refresh = 0;
+					ArrangeSubState = 3;
+					break;
+				
+				case 3:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						TEST_ABORT_CONDITION(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0);
+					}
+					TestState = 1;
+					break;
+			}
 			break;
 		
 		case 1:
@@ -221,6 +263,7 @@ _TEST Create_Directory(void)
 					break;
 					
 				case 1:
+					MpFileManagerUIConnect.File.CreateFolder = 0;
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
 					ActSubState = 2;
 					MpFileManagerUIConnect.File.Refresh = 1;
@@ -228,6 +271,7 @@ _TEST Create_Directory(void)
 				
 				case 2:
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					MpFileManagerUIConnect.File.Refresh = 0;
 					ActSubState = 3;
 					break;
 				
@@ -254,7 +298,7 @@ _TEST Create_Directory(void)
 
 _TEST Add_File(void)
 {
-//	TEST_DONE;
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	FileCreate(&FileCreate_0);
@@ -323,7 +367,7 @@ _TEST Add_File(void)
 
 _TEST Copy_File(void)
 {
-//	TEST_DONE;
+	TEST_DONE;
 	CopyTest = 1;
 	TIMEOUT_TEST_CASE;
 	
