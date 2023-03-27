@@ -298,7 +298,7 @@ _TEST Create_Directory(void)
 
 _TEST Add_File(void)
 {
-	TEST_DONE;
+//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	FileCreate(&FileCreate_0);
@@ -307,14 +307,39 @@ _TEST Add_File(void)
 	switch (TestState)
 	{
 		case 0:	// Arrange
-			// Select Recipe file device and input directory name
-			FileCreate_0.pDevice = (UDINT)&"mappRecipeFiles";
-			FileCreate_0.pFile = (UDINT)&CreateFileName;
-			TestState = 1;
+			// Select Recipe file device and input file name
+			switch (ArrangeSubState)
+			{
+				case 0:
+					FileCreate_0.pDevice = (UDINT)&"mappRecipeFiles";
+					FileCreate_0.pFile = (UDINT)&CreateFileName;
+					ArrangeSubState = 1;
+					break;
+			
+				case 1:
+					MpFileManagerUIConnect.File.Refresh = 1;
+					ArrangeSubState = 2;
+					break;
+			
+				case 2:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					MpFileManagerUIConnect.File.Refresh = 0;
+					ArrangeSubState = 3;
+					break;
+				
+				case 3: // Check to make sure there isn't already a file by the specified name in the directory
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						TEST_ABORT_CONDITION(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0);
+					}
+					TestState = 1;
+					break;
+			}
 			break;
 		
 		case 1:	// Act
-			// Create directory
+			// Create file
 			switch (ActSubState)
 			{
 				case 0:
@@ -334,17 +359,24 @@ _TEST Add_File(void)
 				case 2:
 					TEST_ABORT_CONDITION((FileClose_0.status != 0) && (FileClose_0.status != 65535));
 					TEST_BUSY_CONDITION(FileClose_0.status != 0);
-					ActSubState = 3;
 					FileClose_0.enable = 0;
 					MpFileManagerUIConnect.File.Refresh = 1;
+					ActSubState = 3;
 					break;
 			
 				case 3:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
+					MpFileManagerUIConnect.File.Refresh = 0;
 					ActSubState = 4;
 					break;
-				
+			
 				case 4:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					ActSubState = 5;
+					break;
+				
+				case 5:
+					MpFileManagerUIConnect.File.Refresh = 0;
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
 						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
