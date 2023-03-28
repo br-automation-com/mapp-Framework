@@ -676,6 +676,113 @@ _TEST Rename_Directory(void)
 	}
 }
 
+_TEST Cut_Paste_File(void)
+{
+	//	TEST_DONE;
+	TIMEOUT_TEST_CASE;
+	
+	switch (TestState)
+	{
+		case 0:
+			// Select Recipe file device and input file name
+			switch (ArrangeSubState)
+			{
+				case 0:
+					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+					ArrangeSubState = 1;
+					break;
+				
+				case 1:
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+							HmiFile.Status.SelectedIndex = i;
+					}
+					TestState = 1;
+					break;
+			}
+			break;
+		
+		case 1:
+			// Copy/paste file
+			switch (ActSubState)
+			{
+				case 0:
+					MpFileManagerUIConnect.File.Cut = 1;
+					ActSubState = 1;
+					break;
+				
+				case 1:
+					MpFileManagerUIConnect.File.Cut = 0;
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+							HmiFile.Status.SelectedIndex = i;
+					}
+					HmiFile.Commands.EnterFolder = 1;
+					ActSubState = 2;
+					break;
+			
+				case 2:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					HmiFile.Commands.EnterFolder = 0;
+					ActSubState = 3;
+					break;
+				
+				case 3:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					MpFileManagerUIConnect.File.Paste = 1;
+					ActSubState = 4;
+					break;
+			
+				case 4:
+					MpFileManagerUIConnect.File.Paste = 0;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
+					ActSubState = 5;
+					break;
+			
+				case 5:
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+						{
+							FileInNewLocation = 1;
+						}
+					}
+					HmiFile.Commands.FolderUp = 1;
+					ActSubState = 6;
+					break;
+				
+				case 6:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					HmiFile.Commands.FolderUp = 0;
+					ActSubState = 7;
+					break;
+				
+				case 7:
+					// Check file list for copied file
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+						{
+							FileInOldLocation = 1;
+						}
+					}
+					TestState = 2;
+					break;
+			}
+			break;
+		
+		case 2:
+			// Check if copied file was found
+			TEST_ASSERT(FileInNewLocation);
+			TEST_ASSERT(!FileInOldLocation);
+			TEST_DONE;
+			break;
+	}
+}
+
 _TEST FIFO_20(void)
 {
 	TEST_DONE;
@@ -1266,7 +1373,7 @@ _TEST FIFO_MaxFolderSize_Keep120Files(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2023-03-28 15:22:59Z
+LastUpdated: 2023-03-28 15:36:46Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
@@ -1277,6 +1384,7 @@ UNITTEST_FIXTURES(fixtures)
 	new_TestFixture("Copy_Directory", Copy_Directory), 
 	new_TestFixture("Rename_File", Rename_File), 
 	new_TestFixture("Rename_Directory", Rename_Directory), 
+	new_TestFixture("Cut_Paste_File", Cut_Paste_File), 
 	new_TestFixture("FIFO_20", FIFO_20), 
 	new_TestFixture("FIFO_60", FIFO_60), 
 	new_TestFixture("FIFO_140", FIFO_140), 
