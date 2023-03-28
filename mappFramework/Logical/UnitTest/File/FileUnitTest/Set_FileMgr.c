@@ -199,7 +199,6 @@ _TEARDOWN_TEST(void)
     HmiFile_UT.Parameters.Fifo.ScanInterval = 60;
     TestState = 0;
     SetupState = 0;
-	CopyTest = 0;
 	
 	FileCreate_0.enable = 0;
 	FileClose_0.enable = 0;
@@ -400,13 +399,12 @@ _TEST Add_File(void)
 _TEST Copy_File(void)
 {
 //	TEST_DONE;
-	CopyTest = 1;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input directory name
+			// Select Recipe file device and input file name
 			switch (ArrangeSubState)
 			{
 				case 0:
@@ -426,7 +424,7 @@ _TEST Copy_File(void)
 			break;
 		
 		case 1:
-			// Create directory
+			// Copy/paste file
 			switch (ActSubState)
 			{
 				case 0:
@@ -447,6 +445,7 @@ _TEST Copy_File(void)
 					break;
 				
 				case 3:
+					// Check file list for copied file
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
@@ -461,7 +460,78 @@ _TEST Copy_File(void)
 			break;
 		
 		case 2:
-			// Check save location for directory
+			// Check if copied file was found
+			TEST_ASSERT(NameMatch);
+			TEST_DONE;
+			break;
+	}
+}
+
+_TEST Copy_Directory(void)
+{
+	//	TEST_DONE;
+	TIMEOUT_TEST_CASE;
+	
+	switch (TestState)
+	{
+		case 0:
+			// Select Recipe file device and input directory name
+			switch (ArrangeSubState)
+			{
+				case 0:
+					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+					ArrangeSubState = 1;
+					break;
+				
+				case 1:
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+							HmiFile.Status.SelectedIndex = i;
+					}
+					TestState = 1;
+					break;
+			}
+			break;
+		
+		case 1:
+			// Copy/paste directory
+			switch (ActSubState)
+			{
+				case 0:
+					MpFileManagerUIConnect.File.Copy = 1;
+					ActSubState = 1;
+					break;
+				
+				case 1:
+					MpFileManagerUIConnect.File.Copy = 0;
+					MpFileManagerUIConnect.File.Paste = 1;
+					ActSubState = 2;
+					break;
+			
+				case 2:
+					MpFileManagerUIConnect.File.Paste = 0;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
+					ActSubState = 3;
+					break;
+				
+				case 3:
+					// Check file list for copied directory
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedDirName) == 0)
+						{
+							NameMatch = 1;
+						}
+					}
+					TestState = 2;
+					break;
+			}
+			break;
+		
+		case 2:
+			// Check if copied directory was found
 			TEST_ASSERT(NameMatch);
 			TEST_DONE;
 			break;
@@ -1058,7 +1128,7 @@ _TEST FIFO_MaxFolderSize_Keep120Files(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2023-03-22 14:33:19Z
+LastUpdated: 2023-03-28 14:01:58Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
@@ -1066,6 +1136,7 @@ UNITTEST_FIXTURES(fixtures)
 	new_TestFixture("Create_Directory", Create_Directory), 
 	new_TestFixture("Add_File", Add_File), 
 	new_TestFixture("Copy_File", Copy_File), 
+	new_TestFixture("Copy_Directory", Copy_Directory), 
 	new_TestFixture("FIFO_20", FIFO_20), 
 	new_TestFixture("FIFO_60", FIFO_60), 
 	new_TestFixture("FIFO_140", FIFO_140), 
