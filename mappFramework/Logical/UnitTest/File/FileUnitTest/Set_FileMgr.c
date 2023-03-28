@@ -441,8 +441,8 @@ _TEST Copy_File(void)
 					break;
 			
 				case 2:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
 					MpFileManagerUIConnect.File.Paste = 0;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
 					ActSubState = 3;
 					break;
 				
