@@ -30,6 +30,9 @@ ACTION FormatDeviceDataProvider:
 		END_IF
 	END_FOR
 
+END_ACTION
+
+ACTION LoadStatus:
 	// Configure visible recipe list
 	IF MpRecipeUIConnect.Recipe.List.Names[0] = '' THEN
 		HmiRecipe.Status.TableConfig := '{ "specRows": [{"from":0,"to":19, "visible":false}]}';
@@ -41,11 +44,14 @@ ACTION FormatDeviceDataProvider:
 
 	HmiRecipe.Status.FilesAvailable := (MpRecipeUIConnect.Recipe.List.Names[0] <> '');
 	HmiRecipe.Status.LoadAllowed := HmiRecipe.Status.FilesAvailable AND NOT HmiRecipe.Status.InvalidRecipe;
+	HmiRecipe.Status.DeviceValid := (MpFileManagerUI_0.StatusID <> mpFILE_ERR_INVALID_FILE_DEV);
 
 END_ACTION
 
 ACTION LoadPreview:
 
+
+	
 
 	// Category name genarate	
 	IF HmiRecipe.Parameters.CategoryIndex = PARAMETERS_CATEGORY_INDEX THEN
@@ -352,9 +358,9 @@ ACTION RecipeHMIcommands:
 	FOR i:=0 TO ((SIZEOF(MpRecipeUIConnect.Recipe.List.Names) / SIZEOF(MpRecipeUIConnect.Recipe.List.Names[0])) - 1) DO
 		temp := HmiRecipe.Parameters.FileName;
 		IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
-			brsstrcat(ADR(temp),ADR('.par'));
+			brsstrcat(ADR(temp),ADR(PARAMETERS_FILE_EXTENSION));
 		ELSIF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
-			brsstrcat(ADR(temp),ADR('.mcfg'));
+			brsstrcat(ADR(temp),ADR(MACHINE_CONFIG_FILE_EXTENSION));
 		END_IF
 		IF temp = MpRecipeUIConnect.Recipe.List.Names[i] THEN
 			HmiRecipe.Status.FileDuplicate := TRUE;

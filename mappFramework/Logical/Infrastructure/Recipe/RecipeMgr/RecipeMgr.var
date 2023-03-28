@@ -20,9 +20,6 @@ VAR
 	PARAMETERS_RECIPE : STRING[50] := 'Parameters'; (*Value of the DropDownBox selection for the Parameters category*)
 	MACHINE_CONFIGURATION_RECIPE : STRING[50] := 'Machine Configuration'; (*Value of the DropDownBox selection for the Machine Configuration category*)
 END_VAR
-VAR CONSTANT
-	LOCAL_FOLDER : STRING[10] := 'Recipe'; (*Folder name on the file device for Recipe files*)
-END_VAR
 (*Structure Types*)
 VAR
 	HmiRecipe : RecipeHmiInterfaceType; (*HMI interface structure*)

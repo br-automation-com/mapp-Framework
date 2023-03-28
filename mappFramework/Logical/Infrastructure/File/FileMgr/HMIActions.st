@@ -192,6 +192,9 @@ ACTION FileManager:
 		END_IF		
 	END_IF
 
-	
+	HmiFile.Status.DefaultFileSelected := ((MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].Name = 'Default.par') OR 
+												(MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].Name = 'Machine.mcfg')) AND
+													MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+
 	
 END_ACTION

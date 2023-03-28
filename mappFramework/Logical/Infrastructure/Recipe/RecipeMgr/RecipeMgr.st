@@ -8,10 +8,15 @@
 PROGRAM _INIT
 
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('UserPartition'), pName := ADR(LOCAL_FOLDER));
-
+	DirCreate_0(enable := TRUE, pDevice := ADR('mappRecipeFiles'), pName := ADR('/'));
+	
+	// Wait for DirCreate_0 to complete.
+	WHILE (DirCreate_0.status = ERR_FUB_BUSY) DO
+		DirCreate_0();
+	END_WHILE
+	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
+	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST OR (DirCreate_0.status = ERR_OK) THEN
 		DirCreate_0(enable := FALSE);
 	END_IF
 
@@ -19,7 +24,7 @@ PROGRAM _INIT
 	// By default, the Framework sets up an XML recipe system. To swtich to the CSV format, refer to the "Change Recipe Format"
 	// page in the AS Help (GUID 2052b3a5-f59b-45f9-9fcd-3289c93401af)
 	MpRecipeUISetup.Confirmation.RecipeDelete := TRUE;
-	MpRecipeUISetup.RecipeListSize := 10;
+	MpRecipeUISetup.RecipeListSize := 9;
 	MpRecipeUISetup.RecipeListScrollWindow := 0;
 	MpRecipeUISetup.AutoLoadHeader := TRUE;
 	MpRecipeUIConnect.New.FileName := 'newRecipe';
@@ -138,14 +143,17 @@ PROGRAM _INIT
 
 	HMIActions_Init;	
 
+
+	
 END_PROGRAM
 
-PROGRAM _CYCLIC
-
+PROGRAM _CYCLIC	
+	
 	// Call actions
 	FormatDeviceDataProvider;
 	LoadPreview;
 	RecipeHMIcommands;
+	LoadStatus;
 
 	// Reset commands on MpRecipe FUB
 	IF MpRecipe_0.CommandDone THEN
@@ -169,12 +177,20 @@ PROGRAM _CYCLIC
 		MpRecipeUI_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks
+	// Assign MpLinks & address references
 	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipe_0.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
+	MpRecipe_0.Header := ADR(Header);
 	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIRecipe);
 	MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeRegPar_PreviewPar.PVName := ADR('RecipeMgr:ParametersPreview');
+	MpRecipeRegPar_PreviewPar.Category := ADR(PARAMETERS_CATEGORY);
 	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeRegPar_PreviewCfg.PVName := ADR('RecipeMgr:MachineSettingsPreview');
+	MpRecipeRegPar_PreviewCfg.Category := ADR(MACHINE_CONFIGURATION_CATEGORY);
+	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);	
 
 	// Call function blocks
 	MpRecipe_0();

@@ -16,5 +16,7 @@ TYPE
 		CancelOverwrite : BOOL;
 		FileDuplicate : BOOL;
 		FileDuplicateLayerStatus : USINT;
+		ButtonLockedMessageLayer : USINT;
+		ButtonLockingLayer : USINT;
 	END_STRUCT;
 END_TYPE

@@ -49,6 +49,7 @@ TYPE
 		FifoConfigEnable : BOOL; (*Disable FIFO access or change confirmation when FIFO is active*)
 		FIFOLayerStatus : USINT;
 		FIFOLayerObjects : FileHmiStatusFIFOLayerObjType;
+		DefaultFileSelected : BOOL; (*The default recipe is selected*)
 	END_STRUCT;
 	FileHmiStatusFIFOLayerObjType : 	STRUCT 
 		MaxNumberOfFilesVisiblity : USINT;

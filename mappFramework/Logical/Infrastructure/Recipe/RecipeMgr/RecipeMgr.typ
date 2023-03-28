@@ -49,6 +49,7 @@ TYPE
 		RecipeLoadLayer : RecipeStatusRecipeLoadLayerType;
 		EditRecipeLayer : RecipeStatusEditRecLayerType;
 		DuplicateLayer : USINT;
+		DeviceValid : BOOL; (*Flag for whether FileDevice is valid. Prevents user from being prompted to load default recipe.*)
 	END_STRUCT;
 	RecipeStatusDefRecLayerType : 	STRUCT 
 		Status : USINT;
@@ -103,3 +104,5 @@ TYPE
 		REC_HMI_RESET_PREVIEW (*Reset the preview values to 0 / empty*)
 		);
 END_TYPE
+
+(**)

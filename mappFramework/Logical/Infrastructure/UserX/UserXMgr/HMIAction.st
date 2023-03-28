@@ -1,6 +1,7 @@
 ACTION HMIAction_Init:
 	
-	HmiUserX.FileDuplicateLayerStatus := HIDE;
+	HmiUserX.FileDuplicateLayerStatus					  := HIDE;
+	HmiUserX.ButtonLockedMessageLayer					  := HIDE;
 	UserXLoginUIConnect.ChangePassword.Dialog.LayerStatus := HIDE;
 	
 END_ACTION
@@ -44,6 +45,12 @@ ACTION HMIAction:
 	END_IF
 	
 	
+	//check User is Admin
+	IF UserXLoginUIConnect.UserLevel = USER_ADMIN_LEVEL THEN
+		HmiUserX.ButtonLockingLayer := HIDE;
+	ELSE
+		HmiUserX.ButtonLockingLayer := DISPLAY;
+	END_IF;
 	
 	
 	
