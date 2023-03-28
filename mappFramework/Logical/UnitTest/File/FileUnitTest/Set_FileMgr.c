@@ -538,6 +538,78 @@ _TEST Copy_Directory(void)
 	}
 }
 
+_TEST Rename_File(void)
+{
+	//	TEST_DONE;
+	TIMEOUT_TEST_CASE;
+	
+	switch (TestState)
+	{
+		case 0:
+			// Select Recipe file device and input name of file to be renamed and new name
+			switch (ArrangeSubState)
+			{
+				case 0:
+					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+					brsmemcpy(&MpFileManagerUIConnect.File.NewName, &NewFileName, sizeof(MpFileManagerUIConnect.File.NewName));
+					ArrangeSubState = 1;
+					break;
+				
+				case 1:
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedFileName) == 0)
+							HmiFile.Status.SelectedIndex = i;
+					}
+					TestState = 1;
+					break;
+			}
+			break;
+		
+		case 1:
+			// Rename file
+			switch (ActSubState)
+			{
+				case 0:
+					MpFileManagerUIConnect.File.Rename = 1;
+					ActSubState = 2;
+					break;
+				
+				case 1:
+					MpFileManagerUIConnect.File.Rename = 0;
+					MpFileManagerUIConnect.File.Paste = 1;
+					ActSubState = 2;
+					break;
+			
+				case 2:
+					MpFileManagerUIConnect.File.Rename = 0;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					ActSubState = 3;
+					break;
+				
+				case 3:
+					// Check file list for renamed file
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+						{
+							NameMatch = 1;
+						}
+					}
+					TestState = 2;
+					break;
+			}
+			break;
+		
+		case 2:
+			// Check if renamed file was found
+			TEST_ASSERT(NameMatch);
+			TEST_DONE;
+			break;
+	}
+}
+
 _TEST FIFO_20(void)
 {
 	TEST_DONE;
@@ -1128,7 +1200,7 @@ _TEST FIFO_MaxFolderSize_Keep120Files(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2023-03-28 14:01:58Z
+LastUpdated: 2023-03-28 14:11:25Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
@@ -1137,6 +1209,7 @@ UNITTEST_FIXTURES(fixtures)
 	new_TestFixture("Add_File", Add_File), 
 	new_TestFixture("Copy_File", Copy_File), 
 	new_TestFixture("Copy_Directory", Copy_Directory), 
+	new_TestFixture("Rename_File", Rename_File), 
 	new_TestFixture("FIFO_20", FIFO_20), 
 	new_TestFixture("FIFO_60", FIFO_60), 
 	new_TestFixture("FIFO_140", FIFO_140), 
