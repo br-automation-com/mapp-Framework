@@ -1,5 +1,5 @@
 WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=FileMgr 
-Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=4 ASCIIString=0
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=131 ASCIIString=0
                                     name                                     type force                                                            value level type len format place expand specs
                                  HmiFile                     FileHmiInterfaceType    0 "                                                               *"    0   24    1    0    1    1         
                                 Commands                      FileHmiCommandsType    0 "                                                               *"    1   24    1    0    0    1         
@@ -24,54 +24,54 @@ Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 I
                               DeviceName                               STRING[50]    0 "                                               'mappRecipeFiles'"    2    9   51    1    0    0         
                                 FileName                              STRING[255]    0 "                                                              ''"    2    9  256    1    0    0         
                                 IsFolder                                     BOOL    0 "                                                            TRUE"    2    1    1    2    0    0         
-                              BackButton                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                              BackButton                                     BOOL    0 "                                                            TRUE"    2    1    1    2    0    0         
                               DeleteStep                                     DINT    0 "                                                               0"    2    4    1   10    0    0 e,0,FILE
 
                            SelectedIndex                                    USINT    0 "                                                               0"    2    5    1   10    0    0         
                         FifoConfigEnable                                     BOOL    0 "                                                            TRUE"    2    1    1    2    0    0         
                   MpFileManagerUIConnect               MpFileManagerUIConnectType    0 "                                                               *"    0   24    1    0    1    1         
-                                  Status                                     DINT    0 "                                                              99"    1    4    1   10    0    0 e,0,mpFI
+                                  Status                                     DINT    0 "                                                               0"    1    4    1   10    0    0 e,0,mpFI
 
-                              DeviceList            MpFileManagerUIDeviceListType    0 "                                                               *"    1   24    1    0    0    0         
-                             DeviceNames                         STRING[50][0..9]    0 "                                                               *"    2    9   51    0    0    0         
-                          DeviceNames[0]                               STRING[50]    0 "                                                               *"    3    9   51    1    0    0         
-                          DeviceNames[1]                               STRING[50]    0 "                                                               *"    3    9   51    1    0    0         
-                          DeviceNames[2]                               STRING[50]    0 "                                                               *"    3    9   51    1    0    0         
-                          DeviceNames[3]                               STRING[50]    0 "                                                               *"    3    9   51    1    0    0         
-                          DeviceNames[4]                               STRING[50]    0 "                                                               *"    3    9   51    1    0    0         
-                          DeviceNames[5]                               STRING[50]    0 "                                                               *"    3    9   51    1    0    0         
-                          DeviceNames[6]                               STRING[50]    0 "                                                               *"    3    9   51    1    0    0         
-                          DeviceNames[7]                               STRING[50]    0 "                                                               *"    3    9   51    1    0    0         
-                          DeviceNames[8]                               STRING[50]    0 "                                                               *"    3    9   51    1    0    0         
-                          DeviceNames[9]                               STRING[50]    0 "                                                               *"    3    9   51    1    0    0         
-                           SelectedIndex                                     UINT    0 "                                                               *"    2    6    1   10    0    0         
+                              DeviceList            MpFileManagerUIDeviceListType    0 "                                                               *"    1   24    1    0    0    1         
+                             DeviceNames                         STRING[50][0..9]    0 "                                                               *"    2    9   51    0    0    1         
+                          DeviceNames[0]                               STRING[50]    0 "                                               'mappRecipeFiles'"    3    9   51    1    0    0         
+                          DeviceNames[1]                               STRING[50]    0 "                                                'mappAuditFiles'"    3    9   51    1    0    0         
+                          DeviceNames[2]                               STRING[50]    0 "                                               'mappReportFiles'"    3    9   51    1    0    0         
+                          DeviceNames[3]                               STRING[50]    0 "                                               'mappBackupFiles'"    3    9   51    1    0    0         
+                          DeviceNames[4]                               STRING[50]    0 "                                               'mappAlarmXFiles'"    3    9   51    1    0    0         
+                          DeviceNames[5]                               STRING[50]    0 "                                                'mappUserXFiles'"    3    9   51    1    0    0         
+                          DeviceNames[6]                               STRING[50]    0 "                                                              ''"    3    9   51    1    0    0         
+                          DeviceNames[7]                               STRING[50]    0 "                                                              ''"    3    9   51    1    0    0         
+                          DeviceNames[8]                               STRING[50]    0 "                                                              ''"    3    9   51    1    0    0         
+                          DeviceNames[9]                               STRING[50]    0 "                                                              ''"    3    9   51    1    0    0         
+                           SelectedIndex                                     UINT    0 "                                                               0"    2    6    1   10    0    0         
                                     File                  MpFileManagerUIFileType    0 "                                                               *"    1   24    1    0    0    1         
-                                    List              MpFileManagerUIFileListType    0 "                                                               *"    2   24    1    0    0    1         
-                                   Items           MpFileManagerUIItemType[0..49]    0 "                                                               *"    3   24   50    0    0    1         
-                                Items[0]                  MpFileManagerUIItemType    0 "                                                               *"    4   24    1    0    0    1         
-                                    Name                              STRING[255]    0 "                                                     'CSVformat'"    5    9  256    1    0    0         
+                                    List              MpFileManagerUIFileListType    0 "                                                               *"    2   24    1    0    0    0         
+                                   Items           MpFileManagerUIItemType[0..49]    0 "                                                               *"    3   24   50    0    0    0         
+                                Items[0]                  MpFileManagerUIItemType    0 "                                                               *"    4   24    1    0    0    0         
+                                    Name                              STRING[255]    0 "                                                              ''"    5    9  256    1    0    0         
                                     Size                                    UDINT    0 "                                                               0"    5    7    1   10    0    0         
-                            LastModified                            DATE_AND_TIME    0 "                                          DT#2023-03-28-15:46:43"    5   11    1    1    0    0         
-                                ItemType                                     DINT    0 "                                                               1"    5    4    1   10    0    0 e,0,mpFI
+                            LastModified                            DATE_AND_TIME    0 "                                          DT#1970-01-01-00:00:00"    5   11    1    1    0    0         
+                                ItemType                                     DINT    0 "                                                               0"    5    4    1   10    0    0 e,0,mpFI
 
-                              IsSelected                                     BOOL    0 "                                                            TRUE"    5    1    1    2    0    0         
-                                IsFolder                                     BOOL    0 "                                                            TRUE"    5    1    1    2    0    0         
+                              IsSelected                                     BOOL    0 "                                                           FALSE"    5    1    1    2    0    0         
+                                IsFolder                                     BOOL    0 "                                                           FALSE"    5    1    1    2    0    0         
                                 Items[1]                  MpFileManagerUIItemType    0 "                                                               *"    4   24    1    0    0    0         
-                                    Name                              STRING[255]    0 "                                                               *"    5    9  256    1    0    0         
-                                    Size                                    UDINT    0 "                                                               *"    5    7    1   10    0    0         
-                            LastModified                            DATE_AND_TIME    0 "                                                               *"    5   11    1    1    0    0         
-                                ItemType                                     DINT    0 "                                                               *"    5    4    1   10    0    0 e,0,mpFI
+                                    Name                              STRING[255]    0 "                                                              ''"    5    9  256    1    0    0         
+                                    Size                                    UDINT    0 "                                                               0"    5    7    1   10    0    0         
+                            LastModified                            DATE_AND_TIME    0 "                                          DT#1970-01-01-00:00:00"    5   11    1    1    0    0         
+                                ItemType                                     DINT    0 "                                                               0"    5    4    1   10    0    0 e,0,mpFI
 
-                              IsSelected                                     BOOL    0 "                                                               *"    5    1    1    2    0    0         
-                                IsFolder                                     BOOL    0 "                                                               *"    5    1    1    2    0    0         
+                              IsSelected                                     BOOL    0 "                                                           FALSE"    5    1    1    2    0    0         
+                                IsFolder                                     BOOL    0 "                                                           FALSE"    5    1    1    2    0    0         
                                 Items[2]                  MpFileManagerUIItemType    0 "                                                               *"    4   24    1    0    0    0         
-                                    Name                              STRING[255]    0 "                                                               *"    5    9  256    1    0    0         
-                                    Size                                    UDINT    0 "                                                               *"    5    7    1   10    0    0         
-                            LastModified                            DATE_AND_TIME    0 "                                                               *"    5   11    1    1    0    0         
-                                ItemType                                     DINT    0 "                                                               *"    5    4    1   10    0    0 e,0,mpFI
+                                    Name                              STRING[255]    0 "                                                              ''"    5    9  256    1    0    0         
+                                    Size                                    UDINT    0 "                                                               0"    5    7    1   10    0    0         
+                            LastModified                            DATE_AND_TIME    0 "                                          DT#1970-01-01-00:00:00"    5   11    1    1    0    0         
+                                ItemType                                     DINT    0 "                                                               0"    5    4    1   10    0    0 e,0,mpFI
 
-                              IsSelected                                     BOOL    0 "                                                               *"    5    1    1    2    0    0         
-                                IsFolder                                     BOOL    0 "                                                               *"    5    1    1    2    0    0         
+                              IsSelected                                     BOOL    0 "                                                           FALSE"    5    1    1    2    0    0         
+                                IsFolder                                     BOOL    0 "                                                           FALSE"    5    1    1    2    0    0         
                                 Items[3]                  MpFileManagerUIItemType    0 "                                                               *"    4   24    1    0    0    0         
                                     Name                              STRING[255]    0 "                                                               *"    5    9  256    1    0    0         
                                     Size                                    UDINT    0 "                                                               *"    5    7    1   10    0    0         
@@ -138,10 +138,10 @@ Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 I
                                SortOrder                                     DINT    0 "                                                               0"    2    4    1   10    0    0 e,0,mpFI
 
                                  Refresh                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                PathInfo              MpFileManagerUIPathInfoType    0 "                                                               *"    2   24    1    0    0    1         
-                              CurrentDir                              STRING[255]    0 "                                                              ''"    3    9  256    1    0    0         
-                               FileCount                                    UDINT    0 "                                                               5"    3    7    1   10    0    0         
-                             FolderCount                                    UDINT    0 "                                                               4"    3    7    1   10    0    0         
+                                PathInfo              MpFileManagerUIPathInfoType    0 "                                                               *"    2   24    1    0    0    0         
+                              CurrentDir                              STRING[255]    0 "                                                     'DirRename'"    3    9  256    1    0    0         
+                               FileCount                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
+                             FolderCount                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
                              EnterFolder                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
                                 FolderUp                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
                              MultiSelect                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
@@ -149,14 +149,36 @@ Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 I
                                     Copy                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
                                      Cut                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
                                    Paste                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                                 NewName                              STRING[255]    0 "                                                              ''"    2    9  256    1    0    0         
+                                 NewName                              STRING[255]    0 "                                                     'DirRename'"    2    9  256    1    0    0         
                                   Rename                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
                             CreateFolder                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
-                              MessageBox            MpFileManagerUIMessageBoxType    0 "                                                               *"    1   24    1    0    0    1         
-                             LayerStatus                                     UINT    0 "                                                               1"    2    6    1   10    0    0         
-                                    Type                                     DINT    0 "                                                               0"    2    4    1   10    0    0 e,0,mpFI
+                              MessageBox            MpFileManagerUIMessageBoxType    0 "                                                               *"    1   24    1    0    0    0         
+                             LayerStatus                                     UINT    0 "                                                               0"    2    6    1   10    0    0         
+                                    Type                                     DINT    0 "                                                               3"    2    4    1   10    0    0 e,0,mpFI
 
                              ErrorNumber                                     UINT    0 "                                                               0"    2    6    1   10    0    0         
                                  Confirm                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
                                   Cancel                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
                       DefaultLayerStatus                                     UINT    0 "                                                               0"    1    6    1   10    0    0         
+                       MpFileManagerUI_0                          MpFileManagerUI    0 "                                                               *"    0   24    1    0    1    1         
+                                  MpLink                                    UDINT    0 "                                                       115241700"    1    7    1   10    0    0         
+                                  Enable                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                              ErrorReset                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                 UISetup                 MpFileManagerUISetupType    0 "                                                               *"    1   24    1    0    0    0         
+                            FileListSize                                     UINT    0 "                                                              50"    2    6    1   10    0    0         
+                    FileListScrollWindow                                    USINT    0 "                                                               1"    2    5    1   10    0    0         
+                               UIConnect                                    UDINT    0 "                                                       153234574"    1    7    1   10    0    0         
+                                  Active                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                   Error                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                StatusID                                     DINT    0 "                                                               0"    1    4    1   10    0    0         
+                                    Info                           MpFileInfoType    0 "                                                               *"    1   24    1    0    0    0         
+                                    Diag                           MpFileDiagType    0 "                                                               *"    2   24    1    0    0    0         
+                                StatusID                       MpFileStatusIDType    0 "                                                               *"    3   24    1    0    0    0         
+                                      ID                                     DINT    0 "                                                     -1064165371"    4    4    1   10    0    0 e,0,mpFI
+
+                                Severity                                     DINT    0 "                                                               3"    4    4    1   10    0    0 e,0,mpCO
+
+                                    Code                                     UINT    0 "                                                            8197"    4    6    1   10    0    0         
+                                Internal                    MpComInternalDataType    0 "                                                               *"    1   24    1    0    0    0         
+                                 pObject                                    UDINT    0 "                                                       166792568"    2    7    1   10    0    0         
+                                   State                                    UDINT    0 "                                                               3"    2    7    1   10    0    0         
