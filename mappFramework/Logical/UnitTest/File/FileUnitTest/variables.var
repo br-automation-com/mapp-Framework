@@ -40,4 +40,8 @@ VAR
 	NewDirName : STRING[255] := 'DirRename';
 	InNewLocation : BOOL;
 	InOldLocation : BOOL;
+	CopiedNewFileName : STRING[255] := 'FileRename(1).xml';
+	CopiedNewDirName : STRING[255] := 'DirRename(1)';
+	MultiSelectFileCopy : BOOL;
+	MultiSelectDirCopy : BOOL;
 END_VAR
