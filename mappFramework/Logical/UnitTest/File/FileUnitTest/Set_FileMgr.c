@@ -115,6 +115,8 @@ _SETUP_TEST(void) {
 	NameMatch = 0;
 	InNewLocation = 0;
 	InOldLocation = 0;
+	MultiSelectDirCopy = 0;
+	MultiSelectFileCopy = 0;
 	HmiFile.Status.SelectedIndex = 0;
 	MpFileManagerUIConnect.File.Copy = 0;
 	MpFileManagerUIConnect.File.CreateFolder = 0;
@@ -924,7 +926,7 @@ _TEST Cut_Paste_Directory(void)
 
 _TEST Multiselect(void)
 {
-	TEST_DONE;
+//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -946,15 +948,27 @@ _TEST Multiselect(void)
 					}
 					ArrangeSubState = 2;
 					break;
-				
-				case 2:
-					HmiFile.Commands.EnterFolder = 1;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
-					HmiFile.Commands.EnterFolder = 0;
+			
+			case 2:
+					MpFileManagerUIConnect.File.Refresh = 1;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
+					MpFileManagerUIConnect.File.Refresh = 0;
 					ArrangeSubState = 3;
 					break;
+			
+			case 3:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					HmiFile.Commands.EnterFolder = 1;
+					ArrangeSubState = 4;
+					break;
 				
-				case 3:
+				case 4:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					HmiFile.Commands.EnterFolder = 0;
+					ArrangeSubState = 5;
+					break;
+				
+				case 5:
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					TestState = 1;
 					break;
@@ -983,13 +997,14 @@ _TEST Multiselect(void)
 				
 				case 3:
 					MpFileManagerUIConnect.File.Copy = 0;
+					MpFileManagerUIConnect.File.MultiSelect = 0;
 					MpFileManagerUIConnect.File.Paste = 1;
 					ActSubState = 4;
 					break;
 			
 				case 4:
-					MpFileManagerUIConnect.File.Paste = 0;
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
+					MpFileManagerUIConnect.File.Paste = 0;
 					ActSubState = 5;
 					break;
 			
@@ -1011,6 +1026,18 @@ _TEST Multiselect(void)
 						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedNewDirName) == 0)
 							MultiSelectDirCopy = 1;
 					}
+					ActSubState = 7;
+					break;
+			
+				case 7:
+					HmiFile.Commands.FolderUp = 1;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					HmiFile.Commands.FolderUp = 0;
+					ActSubState = 8;
+					break;
+				
+				case 8:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					TestState = 2;
 					break;
 			}
