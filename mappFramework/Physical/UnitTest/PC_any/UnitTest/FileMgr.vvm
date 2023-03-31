@@ -5,6 +5,7 @@ VAR_CONFIG
 	Cyclic#8.::FileMgr:HmiFile.Status AT %Q.Cyclic#8.::FileTest:HmiFile_UT.Status; (*Insert your comment here...*)
 	::FileMgr:MpFileManagerUIConnect.File.List.Items AT %Q.::FileTest:MpFileManagerUIConnect.File.List.Items; (*Insert your comment here...*)
 	::FileMgr:MpFileManagerUIConnect.Status AT %Q.::FileTest:MpFileManagerUIConnect.Status; (*Insert your comment here...*)
+	::FileMgr:MpFileManagerUIConnect.File.PathInfo AT %Q.::FileTest:MpFileManagerUIConnect.File.PathInfo; (*Insert your comment here...*)
 END_VAR
 (*Outputs from the unit test*)
 VAR_CONFIG
@@ -23,4 +24,5 @@ VAR_CONFIG
 	::FileTest:MpFileManagerUIConnect.File.MultiSelect AT %Q.::FileMgr:MpFileManagerUIConnect.File.MultiSelect; (*Insert your comment here...*)
 	::FileTest:MpFileManagerUIConnect.File.List.Items[0].IsSelected AT %Q.::FileMgr:MpFileManagerUIConnect.File.List.Items[0].IsSelected; (*Insert your comment here...*)
 	::FileTest:MpFileManagerUIConnect.File.List.Items[1].IsSelected AT %Q.::FileMgr:MpFileManagerUIConnect.File.List.Items[1].IsSelected; (*Insert your comment here...*)
+	::FileTest:MpFileManagerUIConnect.File.Filter AT %Q.::FileMgr:MpFileManagerUIConnect.File.Filter; (*Insert your comment here...*)
 END_VAR

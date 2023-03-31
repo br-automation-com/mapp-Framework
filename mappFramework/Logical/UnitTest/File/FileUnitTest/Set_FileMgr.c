@@ -1052,6 +1052,138 @@ _TEST Multiselect(void)
 	}
 }
 
+_TEST Search(void)
+{
+	//	TEST_DONE;
+	TIMEOUT_TEST_CASE;
+	
+	switch (TestState)
+	{
+		case 0:
+			// Set filter value to name of file
+			MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+			brsmemcpy(&MpFileManagerUIConnect.File.Filter, &CreateFileName, sizeof(MpFileManagerUIConnect.File.Filter));
+			TestState = 1;
+			break;
+		
+		case 1:
+			// Refresh MpFileManagerUIConnect
+			switch (ActSubState)
+			{
+				case 0:
+					MpFileManagerUIConnect.File.Refresh = 1;
+					ActSubState = 1;
+					break;
+				
+				case 1:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
+					MpFileManagerUIConnect.File.Refresh = 0;
+					ActSubState = 2;
+					break;
+			
+				case 2:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[0].Name, &CreateFileName) == 0)
+						NameMatch = 1;
+					ActSubState = 3;
+					break;
+				
+				case 3:
+					brsmemcpy(&MpFileManagerUIConnect.File.Filter, &"", sizeof(MpFileManagerUIConnect.File.Filter));
+					MpFileManagerUIConnect.File.Refresh = 1;
+					ActSubState = 4;
+					break;
+				
+				case 4:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
+					MpFileManagerUIConnect.File.Refresh = 0;
+					ActSubState = 5;
+					break;
+				
+				case 5:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					TestState = 2;
+					break;
+			}
+			break;
+		
+		case 2:
+			// Check if copied file was found
+			TEST_ASSERT(NameMatch);
+			TEST_DONE;
+			break;
+	}
+}
+
+_TEST Enter_Folder(void)
+{
+	//	TEST_DONE;
+	TIMEOUT_TEST_CASE;
+	
+	switch (TestState)
+	{
+		case 0:
+			// Set filter value to name of file
+			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+			{
+				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+					HmiFile.Status.SelectedIndex = i;
+			}
+			TestState = 1;
+			break;
+		
+		case 1:
+			// Refresh MpFileManagerUIConnect
+			switch (ActSubState)
+			{
+				case 0:
+					ActSubState = 100;
+					break;
+			
+				case 100:
+					HmiFile.Commands.EnterFolder = 1;
+					ActSubState = 1;
+					break;
+				
+				case 1:
+					HmiFile.Commands.EnterFolder = 0;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					ActSubState = 2;
+					break;
+			
+				case 2:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					if(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &DirName) == 0)
+						NameMatch = 1;
+					ActSubState = 3;
+					break;
+				
+				case 3:
+					HmiFile.Commands.FolderUp = 1;
+					ActSubState = 4;
+					break;
+				
+				case 4:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					HmiFile.Commands.FolderUp = 0;
+					ActSubState = 5;
+					break;
+				
+				case 5:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					TestState = 2;
+					break;
+			}
+			break;
+		
+		case 2:
+			// Check if copied file was found
+			TEST_ASSERT(NameMatch);
+			TEST_DONE;
+			break;
+	}
+}
+
 _TEST FIFO_20(void)
 {
 	TEST_DONE;
@@ -1642,7 +1774,7 @@ _TEST FIFO_MaxFolderSize_Keep120Files(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2023-03-29 16:13:21Z
+LastUpdated: 2023-03-31 20:23:22Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
@@ -1656,6 +1788,8 @@ UNITTEST_FIXTURES(fixtures)
 	new_TestFixture("Cut_Paste_File", Cut_Paste_File), 
 	new_TestFixture("Cut_Paste_Directory", Cut_Paste_Directory), 
 	new_TestFixture("Multiselect", Multiselect), 
+	new_TestFixture("Search", Search), 
+	new_TestFixture("Enter_Folder", Enter_Folder), 
 	new_TestFixture("FIFO_20", FIFO_20), 
 	new_TestFixture("FIFO_60", FIFO_60), 
 	new_TestFixture("FIFO_140", FIFO_140), 
