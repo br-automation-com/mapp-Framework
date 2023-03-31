@@ -50,9 +50,6 @@ PROGRAM _CYCLIC
 		MpAlarmXListUIConnect.AcknowledgeAll := TRUE;
 	END_IF
 
-	IF (HmiAlarmX.Commands.ExportAlarms = TRUE) THEN
-		MpAlarmXHistory_0.Export := TRUE;
-	END_IF
 
 	// Call all cyclic actions
 	AlarmHandling;
@@ -60,6 +57,7 @@ PROGRAM _CYCLIC
 	ExecuteQuery;
 	QueryTableConfig;
 	AlarmSampleFub;
+	ExportAlarms;
 
 	// Check if any reactions are active.
 	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application.
@@ -71,12 +69,6 @@ PROGRAM _CYCLIC
 		// Warning is active. Add code here to respond to warning situation.
 	ELSIF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Info') THEN
 		// Info is active. Add code here to resond to info situation.
-	END_IF
-
-	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
-		HmiAlarmX.Commands.ExportAlarms := FALSE;
-		MpAlarmXHistory_0.Export := FALSE;
-		HmiAlarmX.Status.AlarmExportDone := TRUE;
 	END_IF
 
 	// Error reset
