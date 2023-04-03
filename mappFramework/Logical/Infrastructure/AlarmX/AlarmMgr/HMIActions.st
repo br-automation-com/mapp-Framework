@@ -43,3 +43,22 @@ ACTION QueryTableConfig:
 	brsstrcat(ADR(HmiAlarmX.Status.TableConfig[0]), ADR(',"to":19, "visible":false}]}'));
 
 END_ACTION
+
+ACTION ExportAlarms:
+	
+	IF (HmiAlarmX.Commands.ExportAlarms = TRUE) THEN
+		MpAlarmXHistory_0.Export := TRUE;
+	END_IF
+	
+	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
+		MpAlarmXHistory_0.Export := FALSE;
+		HmiAlarmX.Commands.ExportAlarms := FALSE;
+		HmiAlarmX.Status.AlarmExportDone := TRUE;
+	END_IF
+	
+	IF HmiAlarmX.Status.AlarmExportDisplayed THEN
+		HmiAlarmX.Status.AlarmExportDisplayed := FALSE;
+		HmiAlarmX.Status.AlarmExportDone := FALSE;
+	END_IF
+	
+END_ACTION

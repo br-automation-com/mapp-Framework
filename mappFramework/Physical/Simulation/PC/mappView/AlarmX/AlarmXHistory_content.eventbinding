@@ -37,15 +37,15 @@
         <Sequence>
           <Step order="0">
             <Action>
-              <Target xsi:type="clientSystem.Action">
-                <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Alarm/AlarmExport" header="$IAT/mappFramework/Alarm/AlarmHistory" />
+              <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgr:HmiAlarmX.Status.AlarmExportDisplayed">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
               </Target>
             </Action>
           </Step>
           <Step order="1">
             <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::AlarmMgr:HmiAlarmX.Status.AlarmExportDone">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="false" />
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Alarm/AlarmExport" header="$IAT/mappFramework/Alarm/AlarmHistory" />
               </Target>
             </Action>
           </Step>
