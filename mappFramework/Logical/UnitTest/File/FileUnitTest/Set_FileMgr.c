@@ -219,7 +219,6 @@ _CYCLIC_SET(void)
 
 _TEST Create_Directory(void)
 {
-//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -301,7 +300,6 @@ _TEST Create_Directory(void)
 
 _TEST Add_File(void)
 {
-//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	FileCreate(&FileCreate_0);
@@ -309,7 +307,7 @@ _TEST Add_File(void)
 	
 	switch (TestState)
 	{
-		case 0:	// Arrange
+		case 0:
 			// Select Recipe file device and input file name
 			switch (ArrangeSubState)
 			{
@@ -341,7 +339,7 @@ _TEST Add_File(void)
 			}
 			break;
 		
-		case 1:	// Act
+		case 1:
 			// Create file
 			switch (ActSubState)
 			{
@@ -392,7 +390,7 @@ _TEST Add_File(void)
 			}
 			break;
 		
-		case 2:	// Assert
+		case 2:
 			// Check save location for file
 			TEST_ASSERT(NameMatch);
 			TEST_DONE;
@@ -402,13 +400,12 @@ _TEST Add_File(void)
 
 _TEST Copy_File(void)
 {
-//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input file name
+			// Select Recipe file device and input name of file to be copied
 			switch (ArrangeSubState)
 			{
 				case 0:
@@ -473,13 +470,12 @@ _TEST Copy_File(void)
 
 _TEST Copy_Directory(void)
 {
-	//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input directory name
+			// Select Recipe file device and input name of directory to be copied
 			switch (ArrangeSubState)
 			{
 				case 0:
@@ -544,7 +540,6 @@ _TEST Copy_Directory(void)
 
 _TEST Rename_File(void)
 {
-	//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -610,7 +605,6 @@ _TEST Rename_File(void)
 
 _TEST Rename_Directory(void)
 {
-//		TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -682,13 +676,12 @@ _TEST Rename_Directory(void)
 
 _TEST Cut_Paste_File(void)
 {
-	//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input file name
+			// Select Recipe file device and input name of file to be cut
 			switch (ArrangeSubState)
 			{
 				case 0:
@@ -746,6 +739,7 @@ _TEST Cut_Paste_File(void)
 					break;
 			
 				case 5:
+				// Check paste location for cut file
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
@@ -765,7 +759,7 @@ _TEST Cut_Paste_File(void)
 					break;
 				
 				case 7:
-					// Check file list for copied file
+					// Check old location for cut file
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
@@ -780,7 +774,7 @@ _TEST Cut_Paste_File(void)
 			break;
 		
 		case 2:
-			// Check if copied file was found
+			// Check new and old locations for file
 			TEST_ASSERT(InNewLocation);
 			TEST_ASSERT(!InOldLocation);
 			TEST_DONE;
@@ -790,13 +784,12 @@ _TEST Cut_Paste_File(void)
 
 _TEST Cut_Paste_Directory(void)
 {
-//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input directory name
+			// Select Recipe file device and input name of directory to be cut
 			switch (ArrangeSubState)
 			{
 				case 0:
@@ -837,6 +830,7 @@ _TEST Cut_Paste_Directory(void)
 					break;
 				
 				case 3:
+					// Find folder to paste directory into
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
@@ -882,6 +876,7 @@ _TEST Cut_Paste_Directory(void)
 					break;
 			
 				case 10:
+					// Check new location for cut directory
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
@@ -901,7 +896,7 @@ _TEST Cut_Paste_Directory(void)
 					break;
 				
 				case 12:
-					// Check file list for copied directory
+					// Check old location for cut directory
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
@@ -916,7 +911,7 @@ _TEST Cut_Paste_Directory(void)
 			break;
 		
 		case 2:
-			// Check if copied directory was found
+			// Check new and old locations for directory
 			TEST_ASSERT(InNewLocation);
 			TEST_ASSERT(!InOldLocation);
 			TEST_DONE;
@@ -926,7 +921,6 @@ _TEST Cut_Paste_Directory(void)
 
 _TEST Multiselect(void)
 {
-//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1044,7 +1038,7 @@ _TEST Multiselect(void)
 			break;
 		
 		case 2:
-			// Check if copied file was found
+			// Check if copied file and directory were found
 			TEST_ASSERT(MultiSelectFileCopy);
 			TEST_ASSERT(MultiSelectDirCopy);
 			TEST_DONE;
@@ -1054,7 +1048,6 @@ _TEST Multiselect(void)
 
 _TEST Search(void)
 {
-	//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1082,6 +1075,7 @@ _TEST Search(void)
 					break;
 			
 				case 2:
+					// Check if the first item in the file list is the desired file
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[0].Name, &CreateFileName) == 0)
 						NameMatch = 1;
@@ -1089,6 +1083,7 @@ _TEST Search(void)
 					break;
 				
 				case 3:
+					// Reset filter
 					brsmemcpy(&MpFileManagerUIConnect.File.Filter, &"", sizeof(MpFileManagerUIConnect.File.Filter));
 					MpFileManagerUIConnect.File.Refresh = 1;
 					ActSubState = 4;
@@ -1108,7 +1103,7 @@ _TEST Search(void)
 			break;
 		
 		case 2:
-			// Check if copied file was found
+			// Check if filter worked
 			TEST_ASSERT(NameMatch);
 			TEST_DONE;
 			break;
@@ -1117,7 +1112,6 @@ _TEST Search(void)
 
 _TEST Enter_Folder(void)
 {
-	//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1188,7 +1182,6 @@ _TEST Enter_Folder(void)
 
 _TEST Go_Up_Level(void)
 {
-	//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1224,7 +1217,7 @@ _TEST Go_Up_Level(void)
 					break;
 			
 				case 3:
-					// Check if current directory matches what is expected
+					// Check if folder was successfully entered
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					TEST_ABORT_CONDITION(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &DirName) != 0);
 					ActSubState = 4;
@@ -1243,6 +1236,7 @@ _TEST Go_Up_Level(void)
 					break;
 				
 				case 6:
+					// Check if folder level went back up to the root
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					if(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &"") == 0)
 						NameMatch = 1;
@@ -1260,7 +1254,6 @@ _TEST Go_Up_Level(void)
 
 _TEST Change_Sort(void)
 {
-//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1272,15 +1265,16 @@ _TEST Change_Sort(void)
 			break;
 		
 		case 1:
-			// Give HMI command to enter folder
 			switch (ActSubState)
 			{
 				case 0:
+					// Wait for sort to take effect
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_SORT);
 					ActSubState = 1;
 					break;
 			
 				case 1:
+					// Make sure sort worked correctly
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[0].Name, &DirName) == 0)
 						NameMatch = 1;
@@ -1309,7 +1303,6 @@ _TEST Change_Sort(void)
 
 _TEST Delete_File(void)
 {
-	//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1364,7 +1357,6 @@ _TEST Delete_File(void)
 
 _TEST Delete_Directory(void)
 {
-	//	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
