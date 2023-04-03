@@ -193,9 +193,7 @@ PROGRAM _CYCLIC
 
 	// Assign MpLinks & address references
 	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
-	MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
 	MpRecipe_0.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
-	MpRecipe_0.FileName := ADR(HmiRecipe.Parameters.FileName);
 	MpRecipe_0.Header := ADR(Header);
 	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
