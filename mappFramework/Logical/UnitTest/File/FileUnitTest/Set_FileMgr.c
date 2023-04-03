@@ -864,8 +864,8 @@ _TEST Cut_Paste_Directory(void)
 					break;
 				
 			case 7:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
 					HmiFile.Commands.EnterFolder = 0;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
 					ActSubState = 8;
 					break;
 				
@@ -1246,6 +1246,55 @@ _TEST Go_Up_Level(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					if(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &"") == 0)
 						NameMatch = 1;
+					TestState = 2;
+					break;
+			}
+			break;
+		
+		case 2:
+			TEST_ASSERT(NameMatch);
+			TEST_DONE;
+			break;
+	}
+}
+
+_TEST Change_Sort(void)
+{
+//	TEST_DONE;
+	TIMEOUT_TEST_CASE;
+	
+	switch (TestState)
+	{
+		case 0:
+			// Change SortOrder value
+			MpFileManagerUIConnect.File.SortOrder = 5;
+			TestState = 1;
+			break;
+		
+		case 1:
+			// Give HMI command to enter folder
+			switch (ActSubState)
+			{
+				case 0:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_SORT);
+					ActSubState = 1;
+					break;
+			
+				case 1:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[0].Name, &DirName) == 0)
+						NameMatch = 1;
+					ActSubState = 2;
+					break;
+				
+				case 2:
+					MpFileManagerUIConnect.File.SortOrder = 0;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_SORT);
+					ActSubState = 3;
+					break;
+			
+				case 3:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					TestState = 2;
 					break;
 			}
@@ -1848,7 +1897,7 @@ _TEST FIFO_MaxFolderSize_Keep120Files(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2023-04-03 13:57:39Z
+LastUpdated: 2023-04-03 14:13:38Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
@@ -1865,6 +1914,7 @@ UNITTEST_FIXTURES(fixtures)
 	new_TestFixture("Search", Search), 
 	new_TestFixture("Enter_Folder", Enter_Folder), 
 	new_TestFixture("Go_Up_Level", Go_Up_Level), 
+	new_TestFixture("Change_Sort", Change_Sort), 
 	new_TestFixture("FIFO_20", FIFO_20), 
 	new_TestFixture("FIFO_60", FIFO_60), 
 	new_TestFixture("FIFO_140", FIFO_140), 
