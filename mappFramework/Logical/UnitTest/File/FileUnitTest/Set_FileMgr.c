@@ -1123,7 +1123,7 @@ _TEST Enter_Folder(void)
 	switch (TestState)
 	{
 		case 0:
-			// Set filter value to name of file
+			// Select folder to enter
 			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 			{
 				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
@@ -1133,43 +1133,46 @@ _TEST Enter_Folder(void)
 			break;
 		
 		case 1:
-			// Refresh MpFileManagerUIConnect
+			// Give HMI command to enter folder
 			switch (ActSubState)
 			{
 				case 0:
-					ActSubState = 100;
-					break;
-			
-				case 100:
-					HmiFile.Commands.EnterFolder = 1;
+					// Acts as a delay to let the folder selection make its way to FileMgr task
 					ActSubState = 1;
 					break;
-				
+			
 				case 1:
-					HmiFile.Commands.EnterFolder = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					HmiFile.Commands.EnterFolder = 1;
 					ActSubState = 2;
 					break;
-			
+				
 				case 2:
+					HmiFile.Commands.EnterFolder = 0;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					ActSubState = 3;
+					break;
+			
+				case 3:
+					// Check if current directory matches what is expected
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					if(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &DirName) == 0)
 						NameMatch = 1;
-					ActSubState = 3;
-					break;
-				
-				case 3:
-					HmiFile.Commands.FolderUp = 1;
 					ActSubState = 4;
 					break;
 				
 				case 4:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
-					HmiFile.Commands.FolderUp = 0;
+					// Go back up to root folder
+					HmiFile.Commands.FolderUp = 1;
 					ActSubState = 5;
 					break;
 				
 				case 5:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					HmiFile.Commands.FolderUp = 0;
+					ActSubState = 6;
+					break;
+				
+				case 6:
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					TestState = 2;
 					break;
@@ -1177,7 +1180,6 @@ _TEST Enter_Folder(void)
 			break;
 		
 		case 2:
-			// Check if copied file was found
 			TEST_ASSERT(NameMatch);
 			TEST_DONE;
 			break;
