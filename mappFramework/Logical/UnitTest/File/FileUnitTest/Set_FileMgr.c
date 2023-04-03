@@ -1226,7 +1226,7 @@ _TEST Go_Up_Level(void)
 				case 3:
 					// Check if current directory matches what is expected
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					TEST_FAIL_CONDITION(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &DirName) != 0);
+					TEST_ABORT_CONDITION(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &DirName) != 0);
 					ActSubState = 4;
 					break;
 				
