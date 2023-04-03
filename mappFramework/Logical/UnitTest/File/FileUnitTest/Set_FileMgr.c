@@ -1307,6 +1307,61 @@ _TEST Change_Sort(void)
 	}
 }
 
+_TEST Delet_File(void)
+{
+	//	TEST_DONE;
+	TIMEOUT_TEST_CASE;
+	
+	switch (TestState)
+	{
+		case 0:
+			// Select file to be deleted
+			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+			{
+				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+					HmiFile.Status.SelectedIndex = i;
+			}
+			TestState = 1;
+			break;
+		
+		case 1:
+			// Delete file
+			switch (ActSubState)
+			{
+				case 0:
+					MpFileManagerUIConnect.File.Delete = 1;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_DELETE);
+					MpFileManagerUIConnect.File.Delete = 0;
+					ActSubState = 1;
+					break;
+			
+				case 1:
+					MpFileManagerUIConnect.MessageBox.Confirm = 1;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					MpFileManagerUIConnect.MessageBox.Confirm = 0;
+					ActSubState = 2;
+					break;
+				
+				case 2:
+					// Check for file
+					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					{
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+							NameMatch = 1;
+					}
+					TestState = 2;
+					break;
+			}
+			break;
+		
+		case 2:
+			// Check if file was deleted
+			TEST_ASSERT(!NameMatch);
+			TEST_DONE;
+			break;
+	}
+}
+
 _TEST FIFO_20(void)
 {
 	TEST_DONE;
@@ -1897,7 +1952,7 @@ _TEST FIFO_MaxFolderSize_Keep120Files(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2023-04-03 14:13:38Z
+LastUpdated: 2023-04-03 15:28:05Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
@@ -1915,6 +1970,7 @@ UNITTEST_FIXTURES(fixtures)
 	new_TestFixture("Enter_Folder", Enter_Folder), 
 	new_TestFixture("Go_Up_Level", Go_Up_Level), 
 	new_TestFixture("Change_Sort", Change_Sort), 
+	new_TestFixture("Delet_File", Delet_File), 
 	new_TestFixture("FIFO_20", FIFO_20), 
 	new_TestFixture("FIFO_60", FIFO_60), 
 	new_TestFixture("FIFO_140", FIFO_140), 
