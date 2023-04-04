@@ -265,19 +265,24 @@ _TEST Create_Directory(void)
 					break;
 					
 				case 1:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CREATE);
 					MpFileManagerUIConnect.File.CreateFolder = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
 					ActSubState = 2;
-					MpFileManagerUIConnect.File.Refresh = 1;
-					break;
 				
 				case 2:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					MpFileManagerUIConnect.File.Refresh = 1;
 					ActSubState = 3;
 					break;
 				
 				case 3:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
+					MpFileManagerUIConnect.File.Refresh = 0;
+					ActSubState = 4;
+					break;
+				
+				case 4:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
 						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
@@ -323,7 +328,7 @@ _TEST Add_File(void)
 					break;
 			
 				case 2:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					MpFileManagerUIConnect.File.Refresh = 0;
 					ArrangeSubState = 3;
 					break;
@@ -351,10 +356,10 @@ _TEST Add_File(void)
 				case 1:
 					TEST_ABORT_CONDITION((FileCreate_0.status != 0) && (FileCreate_0.status != 65535));
 					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
-					ActSubState = 2;
 					FileClose_0.ident = FileCreate_0.ident;
 					FileClose_0.enable = 1;
 					FileCreate_0.enable = 0;
+					ActSubState = 2;
 					break;
 				
 				case 2:
@@ -372,12 +377,11 @@ _TEST Add_File(void)
 					break;
 			
 				case 4:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					ActSubState = 5;
 					break;
 				
 				case 5:
-					MpFileManagerUIConnect.File.Refresh = 0;
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
 						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
@@ -444,8 +448,20 @@ _TEST Copy_File(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
 					ActSubState = 3;
 					break;
-				
+			
 				case 3:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					MpFileManagerUIConnect.File.Refresh = 1;
+					ActSubState = 4;
+					break;
+			
+				case 4:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
+					MpFileManagerUIConnect.File.Refresh = 0;
+					ActSubState = 5;
+					break;
+				
+				case 5:
 					// Check file list for copied file
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
@@ -514,8 +530,20 @@ _TEST Copy_Directory(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
 					ActSubState = 3;
 					break;
-				
+			
 				case 3:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					MpFileManagerUIConnect.File.Refresh = 1;
+					ActSubState = 4;
+					break;
+			
+				case 4:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
+					MpFileManagerUIConnect.File.Refresh = 0;
+					ActSubState = 5;
+					break;
+				
+				case 5:
 					// Check file list for copied directory
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
@@ -577,10 +605,17 @@ _TEST Rename_File(void)
 				case 1:
 					MpFileManagerUIConnect.File.Rename = 0;
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					MpFileManagerUIConnect.File.Refresh = 1;
 					ActSubState = 2;
 					break;
-				
+			
 				case 2:
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
+					MpFileManagerUIConnect.File.Refresh = 0;
+					ActSubState = 3;
+					break;
+				
+				case 3:
 					// Check file list for renamed file
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
@@ -636,18 +671,19 @@ _TEST Rename_Directory(void)
 			{
 				case 0:
 					MpFileManagerUIConnect.File.Rename = 1;
-					ActSubState = 2;
+					ActSubState = 1;
 					break;
 				
 				case 1:
 					MpFileManagerUIConnect.File.Rename = 0;
-					MpFileManagerUIConnect.File.Paste = 1;
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					MpFileManagerUIConnect.File.Refresh = 1;
 					ActSubState = 2;
 					break;
 			
 				case 2:
-					MpFileManagerUIConnect.File.Rename = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
+					MpFileManagerUIConnect.File.Refresh = 0;
 					ActSubState = 3;
 					break;
 				
@@ -676,6 +712,7 @@ _TEST Rename_Directory(void)
 
 _TEST Cut_Paste_File(void)
 {
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -784,6 +821,7 @@ _TEST Cut_Paste_File(void)
 
 _TEST Cut_Paste_Directory(void)
 {
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -921,6 +959,7 @@ _TEST Cut_Paste_Directory(void)
 
 _TEST Multiselect(void)
 {
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1048,6 +1087,7 @@ _TEST Multiselect(void)
 
 _TEST Search(void)
 {
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1112,6 +1152,7 @@ _TEST Search(void)
 
 _TEST Enter_Folder(void)
 {
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1182,6 +1223,7 @@ _TEST Enter_Folder(void)
 
 _TEST Go_Up_Level(void)
 {
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1254,6 +1296,7 @@ _TEST Go_Up_Level(void)
 
 _TEST Change_Sort(void)
 {
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1303,6 +1346,7 @@ _TEST Change_Sort(void)
 
 _TEST Delete_File(void)
 {
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
@@ -1357,6 +1401,7 @@ _TEST Delete_File(void)
 
 _TEST Delete_Directory(void)
 {
+	TEST_DONE;
 	TIMEOUT_TEST_CASE;
 	
 	switch (TestState)
