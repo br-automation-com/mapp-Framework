@@ -275,7 +275,10 @@ _TEST Create_Directory(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						TEST_ABORT_CONDITION(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0);
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						{
+							TEST_ABORT_MSG("Directory with chosen name already exists");
+						}
 					}
 					TestState = 1;
 					break;
@@ -364,7 +367,10 @@ _TEST Add_File(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						TEST_ABORT_CONDITION(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0);
+						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+						{
+							TEST_ABORT_MSG("File with chosen name already exists");
+						}
 					}
 					TestState = 1;
 					break;
@@ -381,7 +387,10 @@ _TEST Add_File(void)
 					break;
 					
 				case 1:
-					TEST_ABORT_CONDITION((FileCreate_0.status != 0) && (FileCreate_0.status != 65535));
+					if((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
+					{
+						TEST_ABORT_MSG("FileCreate function block has an error");
+					}
 					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
 					FileClose_0.ident = FileCreate_0.ident;
 					FileClose_0.enable = 1;
@@ -390,7 +399,10 @@ _TEST Add_File(void)
 					break;
 				
 				case 2:
-					TEST_ABORT_CONDITION((FileClose_0.status != 0) && (FileClose_0.status != 65535));
+					if((FileClose_0.status != 0) && (FileClose_0.status != 65535))
+					{
+						TEST_ABORT_MSG("FileClose function block has an error");
+					}
 					TEST_BUSY_CONDITION(FileClose_0.status != 0);
 					FileClose_0.enable = 0;
 					MpFileManagerUIConnect.File.Refresh = 1;
@@ -1326,7 +1338,10 @@ _TEST Go_Up_Level(void)
 				case 3:
 					// Check if folder was successfully entered
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					TEST_ABORT_CONDITION(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &DirName) != 0);
+					if(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &DirName) != 0)
+					{
+						TEST_ABORT_MSG("Directory was not successfully entered");
+					}
 					ActSubState = 4;
 					break;
 				
