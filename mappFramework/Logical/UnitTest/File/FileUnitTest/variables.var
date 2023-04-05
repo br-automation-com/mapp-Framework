@@ -14,6 +14,7 @@ VAR
 END_VAR
 (*Variables used in the tests*)
 VAR
+	cycleCount : {REDUND_UNREPLICABLE} UINT;
 	HmiFile_UT : FileHmiInterfaceType; (*HMI interface structure*)
 	FileName : STRING[24];
 	FileNumber : USINT;
@@ -28,4 +29,19 @@ VAR
 	FileWrite_UT : FileWrite;
 	testData : {REDUND_UNREPLICABLE} STRING[1023] := 'testing data';
 	FileDelete_UT : FileDelete;
+	NameMatch : BOOL;
+	DirName : STRING[255] := 'FileTestDir';
+	CreateFileName : STRING[255] := 'FileTestFile.xml';
+	FileCreate_0 : FileCreate;
+	FileClose_0 : FileClose;
+	CopiedFileName : STRING[255] := 'FileTestFile(1).xml';
+	CopiedDirName : STRING[255] := 'FileTestDir(1)';
+	NewFileName : STRING[255] := 'FileRename.xml';
+	NewDirName : STRING[255] := 'DirRename';
+	InNewLocation : BOOL;
+	InOldLocation : BOOL;
+	CopiedNewFileName : STRING[255] := 'FileRename(1).xml';
+	CopiedNewDirName : STRING[255] := 'DirRename(1)';
+	MultiSelectFileCopy : BOOL;
+	MultiSelectDirCopy : BOOL;
 END_VAR

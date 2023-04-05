@@ -89,7 +89,7 @@ _TEST ExportArchive(void)
 					
 				case 1:
 					ArrangeDelay += 1;												// This delay is compensating for the function block refreshing after finishing a command
-					TEST_BUSY_CONDITION(ArrangeDelay <= 10);
+					TEST_BUSY_CONDITION(ArrangeDelay <= DelayCycles);
 					TestComparisonNumber = DirInfo_0.filenum;
 					TestState = TEST_ACT;
 					break;
@@ -110,7 +110,7 @@ _TEST ExportArchive(void)
 				
 				case 1:
 					ActDelay += 1;													// This delay is compensating for the function block refreshing after finishing a command
-					TEST_BUSY_CONDITION(ActDelay <= 10);
+					TEST_BUSY_CONDITION(ActDelay <= DelayCycles);
 					TestState = TEST_ASSERT;
 					break;
 			}
@@ -150,7 +150,7 @@ _TEST AutomaticArchive(void)
 						
 				case 2:
 					ArrangeDelay += 1;
-					TEST_BUSY_CONDITION(ArrangeDelay <= 2);
+					TEST_BUSY_CONDITION(ArrangeDelay <= DelayCycles);
 					TestState = TEST_ACT;
 					break;
 			}
