@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="PackML_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-  </Bindings>
+  <Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::PackMLMgr:HmiPackML.Main.PackMLStateModel" attribute="value" />
+<Target xsi:type="brease" contentRefId="PackML_content" widgetRefId="PackMLModel1" attribute="baseModel" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::PackMLMgr:HmiPackML.Main.PackMLState" attribute="value" />
+<Target xsi:type="brease" contentRefId="PackML_content" widgetRefId="PackMLModel1" attribute="packMLState" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::PackMLMgr:HmiPackML.Commands" attribute="value" />
+<Target xsi:type="brease" contentRefId="PackML_content" widgetRefId="PackMLModel1" attribute="packMLCommand" />
+</Binding>
+</Bindings>
 </BindingsSet>

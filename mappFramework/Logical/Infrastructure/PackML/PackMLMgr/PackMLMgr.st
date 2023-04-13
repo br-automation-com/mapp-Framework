@@ -6,6 +6,7 @@
 //***********************************************************************
 
 PROGRAM _INIT
+	
 	// Create folder for this component on the user file device
 	DirCreate_0(enable := TRUE, pDevice := ADR('mappPackMLFiles'), pName := ADR('/'));
 
@@ -28,8 +29,10 @@ PROGRAM _INIT
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	// Call all cyclic actions
 	
+	// Call all cyclic actions
+	HmiCommands;
+	StateMachine;
 	
 	// Assign MpLinks & UIConnects
 	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);
@@ -42,6 +45,7 @@ PROGRAM _CYCLIC
 END_PROGRAM
 
 PROGRAM _EXIT
+	
 	// Disable the function blocks to unlink the MpLinks
 	MpPackMLCore_0.Enable := FALSE;
 	MpPackMLMode_0.Enable := FALSE;
