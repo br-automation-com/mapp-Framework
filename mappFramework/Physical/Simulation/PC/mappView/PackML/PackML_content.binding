@@ -13,5 +13,9 @@
 <Source xsi:type="opcUa" refId="::PackMLMgr:HmiPackML.Commands" attribute="value" />
 <Target xsi:type="brease" contentRefId="PackML_content" widgetRefId="PackMLModel1" attribute="packMLCommand" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::PackMLMgr:HmiPackMLState" attribute="value" />
+<Target xsi:type="brease" contentRefId="PackML_content" widgetRefId="TextOutput1" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>
