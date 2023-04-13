@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpReport">
+  <Property Name="Description" Value="mapp VC4 template MpDataTableUI"/>
+  <Property Name="Height" Value="480"/>
+  <Property Name="Index" Value="1"/>
+  <Property Name="MoveFocus" Value="Circular"/>
+  <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+  <Property Name="Width" Value="800"/>
+  <Layers>
+    <LayerRef Source="Source[local].Layer[MpBackground]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpBackground"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="0"/>
+    </LayerRef>
+    <Layer Name="Default">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpOeeListUIConnect.Filter.DefaultLayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="1"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001004" Name="txtGroupControl">
+          <Property Name="Border" Value="Source[local].Border[Mp_GroupControl]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHeader2]"/>
+          <Property Name="Height" Value="384"/>
+          <Property Name="Left" Value="0"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGroupControl]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="45"/>
+          <Property Name="Width" Value="800"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmName">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.HmiFile.Commands.FileList.Clicked]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="300"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.SelectedIndex]"/>
+          <Property Name="Left" Value="220"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="Name"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.FileNames]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="115"/>
+          <Property Name="Width" Value="255"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmName2">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.HmiFile.Commands.FileList.Clicked]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="300"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.SelectedIndex]"/>
+          <Property Name="Left" Value="474"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="Name"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.HmiFile.Status.TimeStamps]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="115"/>
+          <Property Name="Width" Value="156"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelTimestamp">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="27"/>
+          <Property Name="Left" Value="474"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryUIText]"/>
+          <Property Name="TextIndexOffset" Value="5"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="89"/>
+          <Property Name="Width" Value="156"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelTimestamp2">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="27"/>
+          <Property Name="Left" Value="220"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndexOffset" Value="1"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="89"/>
+          <Property Name="Width" Value="255"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmName3">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.File.FileMgr.HmiFile.Commands.FileList.Clicked]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="300"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+          <Property Name="Left" Value="59"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="1"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="Name"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.MpFileManagerUIConnect.DeviceList.DeviceNames]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="115"/>
+          <Property Name="Width" Value="156"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelTimestamp1">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="27"/>
+          <Property Name="Left" Value="59"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndexOffset" Value="2"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="89"/>
+          <Property Name="Width" Value="156"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdReport_Create">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_3]"/>
+          <Property Name="Height" Value="46"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="639"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndex" Value="3"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="89"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[cmdReport_Create]"/>
+          <Property Name="Width" Value="152"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdReport_Delete">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_4]"/>
+          <Property Name="Height" Value="46"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="639"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndex" Value="4"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="142"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[cmdReport_Delete]"/>
+          <Property Name="Width" Value="152"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdReport_View">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_5]"/>
+          <Property Name="Height" Value="46"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="639"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndex" Value="5"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="195"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[cmdReport_View]"/>
+          <Property Name="Width" Value="152"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdReport_PageUp">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_6]"/>
+          <Property Name="Height" Value="46"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="639"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndex" Value="6"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="313"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_6]"/>
+          <Property Name="Width" Value="152"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdReport_PageDown">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_7]"/>
+          <Property Name="Height" Value="46"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="639"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndex" Value="7"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="369"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_7]"/>
+          <Property Name="Width" Value="152"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="cmdReport_Create">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.Layer.ReportCreate]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="cmdReport_View">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.Layer.ReportView]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="cmdReport_Delete">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.Layer.ReportDelete]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_61_6">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.MpFileManagerUIConnect.File.List.PageUp]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_61_7">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.MpFileManagerUIConnect.File.List.PageDown]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+    <LayerRef Source="Source[local].Layer[MpPageControl]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpPageControl"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="2"/>
+    </LayerRef>
+    <Layer Name="ReportView">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.Layer.ReportView]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="3"/>
+      <TextGroup>
+        <TextLayer LanguageId="en">
+          <Text ID="250466" Value="REPORT CREATE"/>
+        </TextLayer>
+        <TextLayer LanguageId="de">
+          <Text ID="250466" Value="Text_1"/>
+        </TextLayer>
+        <IndexMap>
+          <Index ID="250466" Value="1"/>
+        </IndexMap>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Shape_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="289"/>
+          <Property Name="Left" Value="145"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="98"/>
+          <Property Name="Width" Value="553"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="124"/>
+          <Property Name="Left" Value="231"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="1"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="150"/>
+          <Property Name="Width" Value="374"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+    <Layer Name="ReportDelete">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.Layer.ReportDelete]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="4"/>
+      <TextGroup>
+        <TextLayer LanguageId="en">
+          <Text ID="250464" Value="REPORT DELETE"/>
+        </TextLayer>
+        <TextLayer LanguageId="de">
+          <Text ID="250464" Value="Text_1"/>
+        </TextLayer>
+        <IndexMap>
+          <Index ID="250464" Value="1"/>
+        </IndexMap>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Shape_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="289"/>
+          <Property Name="Left" Value="122"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="96"/>
+          <Property Name="Width" Value="553"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="124"/>
+          <Property Name="Left" Value="231"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="1"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="150"/>
+          <Property Name="Width" Value="374"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+    <Layer Name="ReportCreate">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.Layer.ReportCreate]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="5"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Shape_1">
+          <Property Name="BackColor" Value="239"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="264"/>
+          <Property Name="Left" Value="168"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="122"/>
+          <Property Name="Width" Value="498"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdReport_PageDown">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_8]"/>
+          <Property Name="Height" Value="46"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="178"/>
+          <Property Name="PressedBitmapSource" Value="None"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndex" Value="3"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="330"/>
+          <Property Name="VirtualKey" Value="None"/>
+          <Property Name="Width" Value="152"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdReportLayer_Cancel">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_9]"/>
+          <Property Name="Height" Value="46"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="506"/>
+          <Property Name="PressedBitmapSource" Value="None"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndex" Value="8"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="330"/>
+          <Property Name="VirtualKey" Value="None"/>
+          <Property Name="Width" Value="152"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="63"/>
+          <Property Name="Left" Value="185"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndexOffset" Value="24"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="223"/>
+          <Property Name="Width" Value="135"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_3">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="63"/>
+          <Property Name="Left" Value="378"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndexOffset" Value="23"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="244"/>
+          <Property Name="Width" Value="247"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_4">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="47"/>
+          <Property Name="Left" Value="391"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value="SimpleReport"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Parameters.Name]"/>
+          <Property Name="TextSource" Value="SingleString"/>
+          <Property Name="Top" Value="200"/>
+          <Property Name="Width" Value="144"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_2">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="63"/>
+          <Property Name="Left" Value="433"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndexOffset" Value="25"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="150"/>
+          <Property Name="Width" Value="180"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_5">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="63"/>
+          <Property Name="Left" Value="181"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndexOffset" Value="26"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="160"/>
+          <Property Name="Width" Value="180"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Button_1">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_77]"/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="218"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BasicButton]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="130"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_77]"/>
+          <Property Name="Width" Value="38"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%embVirtualKey_61_8">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.MpFileManagerUIConnect.File.List.PageDown]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_61_9">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.MpFileManagerUIConnect.File.List.PageDown]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_77">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="None"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+  </Layers>
+  <MovementOrder>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName2]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName3]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+    </MovementEntry>
+  </MovementOrder>
+  <TabSequence>
+    <TabSeqItem Index="0" Value="Source[local].Layer[MpBackground].Control[strUserName]"/>
+    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
+  </TabSequence>
+</Page>

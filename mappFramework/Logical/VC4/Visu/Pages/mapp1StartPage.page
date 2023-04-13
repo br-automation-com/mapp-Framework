@@ -192,7 +192,7 @@
           <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="65"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="382"/>
+          <Property Name="Left" Value="412"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
@@ -202,7 +202,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
-          <Property Name="Top" Value="176"/>
+          <Property Name="Top" Value="360"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_27_0]"/>
           <Property Name="Width" Value="50"/>
         </Control>
@@ -402,7 +402,7 @@
           <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="65"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="523"/>
+          <Property Name="Left" Value="412"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
@@ -412,9 +412,39 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
-          <Property Name="Top" Value="259"/>
+          <Property Name="Top" Value="112"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_45_11]"/>
           <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnMpReport">
+          <Property Name="BackColor" Value="0"/>
+          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapAlignmentVertical" Value="Above Text"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpIconsClick]"/>
+          <Property Name="BitmapIndex" Value="7"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="BitmapGroup"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_25_1]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="65"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="326"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[mappComponents]"/>
+          <Property Name="TextIndex" Value="33"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="360"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[MpReportButton]"/>
+          <Property Name="Width" Value="50"/>
         </Control>
       </Controls>
       <KeyMapping>
@@ -571,6 +601,55 @@
               <Property Name="Name" Value="Action_0"/>
               <Property Name="Page" Value="Source[local].Page[MpTweetCoreUI_Receiver]"/>
               <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="MpReportButton">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[MpReport]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_1"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.MpFileManagerUIConnect.File.Refresh]"/>
+            </KeyAction>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_2"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.Layer.ReportCreate]"/>
+            </KeyAction>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_3"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.Layer.ReportDelete]"/>
+            </KeyAction>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_4"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.Report.ReportMgr.HmiReport.Status.Layer.ReportView]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>

@@ -34,6 +34,7 @@ TYPE
 		LastSelectedDeviceIndex : UINT; (*Index of the last selected file device. Compared with MpFileManagerUIConnect.DeviceList.SelectedIndex*)
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the list of available reports*)
 		FilterString : STRING[1000]; (*String used to filter out any file that is not a PDF*)
+		Layer : ReportStatusLayerType;
 	END_STRUCT;
 	ReportExampleType : 	STRUCT  (*Structure for the example data used by the two types of reports*)
 		SimpleReport : SimpleReportDataType; (*Structure for the simple report's example data*)
@@ -69,4 +70,14 @@ TYPE
 		FORMAT_SIMPLE, (*A simple report to showcase some features of mapp Report*)
 		FORMAT_ADVANCED (*An advanced report to showcase some features of mapp Report*)
 		);
+END_TYPE
+
+(**)
+
+TYPE
+	ReportStatusLayerType : 	STRUCT 
+		ReportCreate : USINT;
+		ReportDelete : USINT;
+		ReportView : USINT;
+	END_STRUCT;
 END_TYPE

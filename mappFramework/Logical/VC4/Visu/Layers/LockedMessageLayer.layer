@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<Layer xmlns="http://br-automation.co.at/AS/VC/Project" Name="LockedMessageLayer">
+  <Property Name="BackColor" Value="9"/>
+  <Property Name="Description" Value=""/>
+  <Property Name="Height" Value="480"/>
+  <Property Name="Left" Value="0"/>
+  <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.HmiUserX.ButtonLockedMessageLayer]"/>
+  <Property Name="Top" Value="0"/>
+  <Property Name="Width" Value="800"/>
+  <TextGroup>
+    <TextLayer LanguageId="en"/>
+    <TextLayer LanguageId="de"/>
+    <IndexMap/>
+  </TextGroup>
+  <Controls>
+    <Control ClassId="0x00001003" Name="HotSpot_1">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_75]"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_75]"/>
+      <Property Name="Width" Value="800"/>
+    </Control>
+    <Control ClassId="0x00001001" Name="Shape_1">
+      <Property Name="BackColor" Value="251"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="191"/>
+      <Property Name="Left" Value="268"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+      <Property Name="Top" Value="129"/>
+      <Property Name="Width" Value="310"/>
+    </Control>
+    <Control ClassId="0x00001005" Name="Bitmap_1">
+      <Property Name="Bitmap" Value="Source[local].Bitmap[MpAxis_Alarm]"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="32"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="410"/>
+      <Property Name="SimulationValue" Value="0"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+      <Property Name="Top" Value="139"/>
+      <Property Name="Width" Value="36"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="Text_1">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Font" Value="Source[local].Font[MpPads]"/>
+      <Property Name="Height" Value="61"/>
+      <Property Name="Left" Value="293"/>
+      <Property Name="Multiline" Value="Automatic"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value=""/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[UserLevelNotPermitted]"/>
+      <Property Name="TextIndexOffset" Value="0"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="194"/>
+      <Property Name="Width" Value="262"/>
+    </Control>
+    <Control ClassId="0x00001002" Name="Button_Cancel">
+      <Property Name="AlignmentHorizontal" Value="Center"/>
+      <Property Name="BitmapIndexDatapoint" Value="None"/>
+      <Property Name="BitmapSource" Value="None"/>
+      <Property Name="Border" Value="Source[local].Border[Mp_Button_Control]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_103]"/>
+      <Property Name="ForeColor" Value="16"/>
+      <Property Name="Height" Value="41"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="383"/>
+      <Property Name="PressedBitmapSource" Value="None"/>
+      <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Control]"/>
+      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[UserLevelNotPermitted]"/>
+      <Property Name="TextIndex" Value="1"/>
+      <Property Name="TextIndexDatapoint" Value="None"/>
+      <Property Name="TextSimulationValue" Value="0"/>
+      <Property Name="TextSource" Value="MultipleTexts"/>
+      <Property Name="Top" Value="271"/>
+      <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_103]"/>
+      <Property Name="Width" Value="94"/>
+    </Control>
+  </Controls>
+  <KeyMapping>
+    <VirtualKey Name="%embVirtualKey_103">
+      <Property Name="Description" Value=""/>
+      <Property Name="VirtualKey_LED" Value="False"/>
+      <KeyActions>
+        <KeyAction ClassId="0x00000161">
+          <Property Name="CompletionDatapoint" Value="None"/>
+          <Property Name="CompletionValue" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Locking" Value="Never"/>
+          <Property Name="Name" Value="Action_0"/>
+          <Property Name="SetValue" Value="1"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.UserX.UserXMgr.HmiUserX.ButtonLockedMessageLayer]"/>
+        </KeyAction>
+      </KeyActions>
+    </VirtualKey>
+    <VirtualKey Name="%embVirtualKey_75">
+      <Property Name="Description" Value=""/>
+      <Property Name="VirtualKey_LED" Value="False"/>
+      <KeyActions>
+        <KeyAction ClassId="0x00000161">
+          <Property Name="CompletionDatapoint" Value="None"/>
+          <Property Name="CompletionValue" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Locking" Value="Never"/>
+          <Property Name="Name" Value="Action_0"/>
+          <Property Name="SetValue" Value="1"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+        </KeyAction>
+      </KeyActions>
+    </VirtualKey>
+  </KeyMapping>
+</Layer>
