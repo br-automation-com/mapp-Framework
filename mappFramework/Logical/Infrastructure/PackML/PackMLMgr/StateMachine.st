@@ -140,7 +140,7 @@ ACTION StateMachine:
 			HmiPackMLState := 'Completing';
 			
 			// Add COMPLETING actions here
-			// NOTE: once COMPLETING actions that take more than one cyclic have been added, the below may be commented out and replaced by the following line.
+			// NOTE: once COMPLETING actions that take more than one cyclic have been added, the below may be removed and replaced by the following line.
 			Completing_TON.PT := T#100ms;
 			Completing_TON.IN := TRUE;
 			IF Completing_TON.Q THEN
@@ -148,6 +148,7 @@ ACTION StateMachine:
 				MpPackMLMode_0.StateComplete := TRUE;
 			END_IF
 			Completing_TON();
+			
 			// MpPackMLMode_0.StateComplete := TRUE;
 			
 
