@@ -26,7 +26,7 @@ END_PROGRAM
 PROGRAM _CYCLIC
 	
 	// Call all cyclic actions
-	HmiCommands;
+	HmiActions;
 	StateMachine_Main;
 	
 	// Assign MpLinks & UIConnects

@@ -23,7 +23,7 @@ TYPE
 		Par : USINT;
 	END_STRUCT;
 	PackMLStatusType : 	STRUCT 
-		CurrentPackMLState : MpPackMLStateEnum;
+		CurrentPackMLState : USINT;
 		CurrentMode : DINT;
 		DownTimeReason : STRING[255];
 	END_STRUCT;
