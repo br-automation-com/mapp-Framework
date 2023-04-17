@@ -18,6 +18,19 @@
     <Group ID="UnitModes">
       <Group ID="Mode[1]">
         <Property ID="ModeID" Value="1" />
+        <Property ID="Name" Value="Automatic Mode" />
+      </Group>
+      <Group ID="Mode[2]">
+        <Property ID="ModeID" Value="2" />
+        <Selector ID="State[5]" Value="0" />
+        <Selector ID="State[17]" Value="0" />
+      </Group>
+      <Group ID="Mode[3]">
+        <Property ID="ModeID" Value="3" />
+        <Selector ID="State[1]" Value="0" />
+        <Selector ID="State[5]" Value="0" />
+        <Selector ID="State[11]" Value="0" />
+        <Selector ID="State[17]" Value="0" />
       </Group>
     </Group>
     <Selector ID="Alarms" Value="MpAlarmX">
