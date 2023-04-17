@@ -1,8 +1,8 @@
 (*Function Blocks*)
 VAR
 	DirCreate_0 : DirCreate; (*DirCreate instance*)
-	MpPackMLModule_Main : MpPackMLModule;
-	MpPackMLModulePar_Main : MpPackMLModuleParType;
+	MpPackMLModule_Main : MpPackMLModule; (*PackMLModule instance*)
+	MpPackMLModulePar_Main : MpPackMLModuleParType; (*PackMLModule Parameter instance*)
 END_VAR
 (*Constants*)
 (*Structure Types*)
@@ -11,5 +11,5 @@ VAR
 END_VAR
 (*Variables*)
 VAR
-	HmiPackMLState : STRING[100];
+	HmiPackMLState : USINT; (*PackML State (connected to HMI)*)
 END_VAR
