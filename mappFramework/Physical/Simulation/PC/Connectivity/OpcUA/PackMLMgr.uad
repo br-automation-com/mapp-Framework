@@ -81,6 +81,37 @@
           <Variable Name="StateCurrent" />
         </Variable>
         <Variable Name="HmiPackMLState" />
+        <Variable Name="MpPackMLModule_Main">
+          <Variable Name="Command">
+            <Variable Name="Abort" />
+            <Variable Name="Clear" />
+            <Variable Name="Stop" />
+            <Variable Name="Reset" />
+            <Variable Name="Start" />
+            <Variable Name="Hold" />
+            <Variable Name="Unhold" />
+            <Variable Name="Suspend" />
+            <Variable Name="Unsuspend" />
+            <Variable Name="StateComplete" />
+          </Variable>
+          <Variable Name="MpLink" />
+          <Variable Name="Enable" />
+          <Variable Name="ErrorReset" />
+          <Variable Name="Parameters" />
+          <Variable Name="Update" />
+          <Variable Name="Blocked" />
+          <Variable Name="Starved" />
+          <Variable Name="SubState" />
+          <Variable Name="StateInfo" />
+          <Variable Name="Active" />
+          <Variable Name="Error" />
+          <Variable Name="StatusID" />
+          <Variable Name="UpdateDone" />
+          <Variable Name="StateCurrent" />
+          <Variable Name="SubStateCurrent" />
+          <Variable Name="ModeID" />
+        </Variable>
+        <Variable Name="MpPackMLModulePar_Main" />
       </Task>
     </Module>
   </DefaultView>

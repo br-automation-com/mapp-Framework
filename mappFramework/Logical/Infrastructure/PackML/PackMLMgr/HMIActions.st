@@ -1,16 +1,16 @@
 
 ACTION HmiCommands:
 	
-	MpPackMLMode_0.Abort := HmiPackML.Commands.Abort;
-	MpPackMLMode_0.Clear := HmiPackML.Commands.Clear;
-	MpPackMLMode_0.StateComplete := HmiPackML.Commands.Complete;
-	MpPackMLMode_0.Hold := HmiPackML.Commands.Hold;
-	MpPackMLMode_0.Reset := HmiPackML.Commands.Reset;
-	MpPackMLMode_0.Start := HmiPackML.Commands.Start;
-	MpPackMLMode_0.Stop := HmiPackML.Commands.Stop;
-	MpPackMLMode_0.Suspend := HmiPackML.Commands.Suspend;
-	MpPackMLMode_0.Unhold := HmiPackML.Commands.Unhold;
-	MpPackMLMode_0.Unsuspend := HmiPackML.Commands.Unsuspend;
+	MpPackMLModule_Main.Command.Abort := HmiPackML.Commands.Abort;
+	MpPackMLModule_Main.Command.Clear := HmiPackML.Commands.Clear;
+	MpPackMLModule_Main.Command.StateComplete := HmiPackML.Commands.Complete;
+	MpPackMLModule_Main.Command.Hold := HmiPackML.Commands.Hold;
+	MpPackMLModule_Main.Command.Reset := HmiPackML.Commands.Reset;
+	MpPackMLModule_Main.Command.Start := HmiPackML.Commands.Start;
+	MpPackMLModule_Main.Command.Stop := HmiPackML.Commands.Stop;
+	MpPackMLModule_Main.Command.Suspend := HmiPackML.Commands.Suspend;
+	MpPackMLModule_Main.Command.Unhold := HmiPackML.Commands.Unhold;
+	MpPackMLModule_Main.Command.Unsuspend := HmiPackML.Commands.Unsuspend;
 
 END_ACTION
 	

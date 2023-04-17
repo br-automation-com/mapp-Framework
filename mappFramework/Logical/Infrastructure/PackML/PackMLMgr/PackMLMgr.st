@@ -16,43 +16,35 @@ PROGRAM _INIT
 	END_IF 
 	
 	// Initialize mapp function blocks
-	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);
-	MpPackMLCore_0.Enable := TRUE;
-	MpPackMLCore_0();
+	MpPackMLModule_Main.Parameters := ADR(MpPackMLModulePar_Main);
+	MpPackMLModule_Main.MpLink := ADR(gPackMLModule_Main);
+	MpPackMLModule_Main.Enable := TRUE;
+	MpPackMLModule_Main();
 	
-	MpPackMLMode_0.MpLink := ADR(gMpLinkPackMLCore);
-	MpPackMLMode_0.Enable := TRUE;
-	MpPackMLMode_0.ModeID := 1;
-	MpPackMLMode_0();
-	
-	 
 END_PROGRAM
 
 PROGRAM _CYCLIC
 	
 	// Call all cyclic actions
 	HmiCommands;
-	StateMachine;
+	StateMachine_Main;
 	
 	// Assign MpLinks & UIConnects
-	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);
-	MpPackMLMode_0.MpLink := ADR(gMpLinkPackMLCore);
-	
+	MpPackMLModule_Main.Parameters := ADR(MpPackMLModulePar_Main);
+	MpPackMLModule_Main.MpLink := ADR(gPackMLModule_Main);
+
 	// Call function blocks
-	MpPackMLCore_0();
-	MpPackMLMode_0();
+	MpPackMLModule_Main();
 	 
 END_PROGRAM
 
 PROGRAM _EXIT
 	
 	// Disable the function blocks to unlink the MpLinks
-	MpPackMLCore_0.Enable := FALSE;
-	MpPackMLMode_0.Enable := FALSE;
+	MpPackMLModule_Main.Enable := FALSE;
 	
 	// Call function blocks
-	MpPackMLCore_0();
-	MpPackMLMode_0();
+	MpPackMLModule_Main();
 	 
 END_PROGRAM
 

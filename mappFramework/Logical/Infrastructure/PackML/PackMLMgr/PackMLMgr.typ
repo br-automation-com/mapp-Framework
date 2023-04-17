@@ -5,6 +5,7 @@ TYPE
 		Commands : PackMLCommandsType;
 		Parameters : PackMLParametersType;
 		Status : PackMLStatusType;
+		Activate : BOOL;
 	END_STRUCT;
 	PackMLCommandsType : 	STRUCT 
 		Reset : BOOL;
