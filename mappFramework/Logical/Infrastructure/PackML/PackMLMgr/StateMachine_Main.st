@@ -144,9 +144,10 @@ ACTION StateMachine_Main:
 			HmiPackMLState := 'Completing';
 			
 			// Add COMPLETING actions here
-			// NOTE: once COMPLETING actions that take more than one cyclic have been added, the below may be removed and replaced by the following line.
+			
+			// NOTE: once COMPLETING actions that take more than one cyclic have been added, the below line
+			// should be removed and replaced by the following line.
 			MpPackMLModule_Main.Command.StateComplete := NOT MpPackMLModule_Main.Command.StateComplete;
-		
 			// MpPackMLModule_Main.Command.StateComplete := TRUE;
 			
 
