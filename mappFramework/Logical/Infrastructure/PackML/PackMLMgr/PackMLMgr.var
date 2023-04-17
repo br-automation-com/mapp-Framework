@@ -1,8 +1,6 @@
 (*Function Blocks*)
 VAR
 	DirCreate_0 : DirCreate; (*DirCreate instance*)
-	MpPackMLCore_0 : MpPackMLCore; (*MpPackMLCore instance*)
-	MpPackMLMode_0 : MpPackMLMode; (*MpPackMLMode instance*)
 	MpPackMLModule_Main : MpPackMLModule;
 	MpPackMLModulePar_Main : MpPackMLModuleParType;
 END_VAR
@@ -14,5 +12,4 @@ END_VAR
 (*Variables*)
 VAR
 	HmiPackMLState : STRING[100];
-	Completing_TON : TON;
 END_VAR
