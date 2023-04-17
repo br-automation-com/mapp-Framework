@@ -4,7 +4,6 @@ ACTION HmiActions:
 	// Connect HMIPackML Commands to function block
 	MpPackMLModule_Main.Command.Abort := HmiPackML.Commands.Abort;
 	MpPackMLModule_Main.Command.Clear := HmiPackML.Commands.Clear;
-	MpPackMLModule_Main.Command.StateComplete := HmiPackML.Commands.Complete;
 	MpPackMLModule_Main.Command.Hold := HmiPackML.Commands.Hold;
 	MpPackMLModule_Main.Command.Reset := HmiPackML.Commands.Reset;
 	MpPackMLModule_Main.Command.Start := HmiPackML.Commands.Start;
@@ -12,6 +11,11 @@ ACTION HmiActions:
 	MpPackMLModule_Main.Command.Suspend := HmiPackML.Commands.Suspend;
 	MpPackMLModule_Main.Command.Unhold := HmiPackML.Commands.Unhold;
 	MpPackMLModule_Main.Command.Unsuspend := HmiPackML.Commands.Unsuspend;
+	
+	// Allow user to command StateComplete only while machine is in state execute
+	IF MpPackMLModule_Main.StateCurrent = mpPACKML_STATE_EXECUTE THEN
+		MpPackMLModule_Main.Command.StateComplete := HmiPackML.Commands.Complete;
+	END_IF
 	
 	// Check current state and convert to a usable format by HMI
 	CASE MpPackMLModule_Main.StateCurrent OF
