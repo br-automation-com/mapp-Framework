@@ -3,6 +3,6 @@
 
 bool RecipeExists(char* recipeName);
 bool SelectRecipe(char* wantedRecipe);
-testStatusEnum RemoveNonDefaultFiles(char* filter, char* selectFile, const char* category);
+testStatusEnum RemoveNonDefaultFiles(char* filter, char* selectFile, const USINT categoryIndex, const char* category);
 
 #endif

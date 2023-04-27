@@ -26,7 +26,7 @@
 
 _SETUP_SET(void)
 {
-	return RemoveNonDefaultFiles("*.mcfg", "Machine.mcfg", MACHINE_CONFIGURATION_CATEGORY);
+	return RemoveNonDefaultFiles("*.mcfg", "Machine.mcfg", 1, MACHINE_CONFIGURATION_CATEGORY);
 }
 
 _TEARDOWN_SET(void)
@@ -40,7 +40,7 @@ _SETUP_TEST(void)
 	ArrangeSubState = 0;
 	ActSubState = 0;
 	AssertSubState = 0;
-	return RemoveNonDefaultFiles("*.mcfg", "Machine.mcfg", MACHINE_CONFIGURATION_CATEGORY);
+	return RemoveNonDefaultFiles("*.mcfg", "Machine.mcfg", 1, MACHINE_CONFIGURATION_CATEGORY);
 }
 
 _TEARDOWN_TEST(void)
