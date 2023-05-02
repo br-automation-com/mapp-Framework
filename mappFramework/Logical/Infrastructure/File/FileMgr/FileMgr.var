@@ -39,3 +39,7 @@ END_VAR
 VAR RETAIN
 	FifoSettingsRetain : {REDUND_UNREPLICABLE} FileHmiParaFifoType; (*Store FIFO settings in retain memory to be applied after boot*)
 END_VAR
+VAR
+	NextOpenIndex : USINT; (*Index for the next open slot in mpFileManagerUICOnnect device list which populates table*)
+	index : USINT; (*Index for FOR loop cheking paths*)
+END_VAR
