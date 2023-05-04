@@ -2,12 +2,14 @@
 TYPE
 	AuditQueryHMIType : 	STRUCT  (*Datatype for the structure which rearranges the query data from AuditQuery into a structure of arrays for easy connection to the Table widget in mapp View*)
 		EvTime : ARRAY[0..MAX_QUERY_RESULTS]OF DATE_AND_TIME; (*ActiveAudits query, Event-Time column*)
+		EvTimeString : ARRAY[0..MAX_QUERY_RESULTS]OF STRING[80]; (*ActiveAudits query, Event-Time column*)
 		Text : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[100]; (*ActiveAudits query, Text column*)
 		DText : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[100]; (*ActiveAudits query, Display Text column*)
 		Op : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[100]; (*ActiveAudits query, Operator-Name column*)
 		QueryCount : USINT; (*Count of query results for building the query table configuration string*)
 		Name : STRING[80]; (*Name of the query to be executed*)
 		Option : USINT; (*Index value of the selected query type in the dropdown on the query tab*)
+		DPSelectedIndex : USINT;
 	END_STRUCT;
 	ActiveAuditStateEnum : 
 		( (*Enumeration for the state for the query state machine*)
@@ -49,6 +51,10 @@ TYPE
 		ArchiveAvailable : BOOL; (*At least 1 archive is available for export*)
 		NumberOfArchives : UINT; (*How many archives are available for export*)
 		DeviceDataProvider : ARRAY[0..1]OF STRING[100]; (*Data provider for the file device selector*)
+		DeviceDataProviderVC4 : ARRAY[0..1]OF STRING[100]; (*Data provider for the file device selector*)
+		ArchiveSetupLayer : USINT;
+		ArchiveSetupTimeOfDayVisibility : USINT;
+		ArchiveSetupVisibility : USINT;
 	END_STRUCT;
 	AuditParType : 	STRUCT  (*Structure to hold parameter data for the HMI*)
 		ArchiveSettings : AuditArchiveParType; (*Parameter for archive configuration*)

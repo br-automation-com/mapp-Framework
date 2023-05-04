@@ -41,7 +41,15 @@ ACTION ReportFileExplorer:
 	// For every file, record its name, timestamp, size, and path
 	FOR i := 0 TO ((SIZEOF(HmiReport.Status.FileNames)/SIZEOF(HmiReport.Status.FileNames[0])) - 1) DO
 		HmiReport.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
-		HmiReport.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
+		HmiReport.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;		
+		
+		IF MpFileManagerUIConnect.File.List.Items[i].Size <> 0 THEN
+			HmiReport.Status.TimeStampsText[i] := DT_TO_STRING(MpFileManagerUIConnect.File.List.Items[i].LastModified);
+			HmiReport.Status.TimeStampsText[i] := RIGHT(HmiReport.Status.TimeStampsText[i], 19);
+		ELSE
+			HmiReport.Status.TimeStampsText[i] := '';
+		END_IF;
+		
 		HmiReport.Status.Size[i] := MpFileManagerUIConnect.File.List.Items[i].Size;
 		// Concatonate strings to form the file path
 		HmiReport.Status.TempFilePath[i] := '/FileDevice:';
@@ -92,4 +100,20 @@ ACTION ReportFileExplorer:
 	
 	// Set file device to selected
 	MpReportCore_0.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
+	
+	
+	
+	
+	
+	
+	//VC4
+	IF HmiReport.Status.Error THEN
+		HmiReport.Status.Layer.ReportCreate := HIDE;	  
+	END_IF;
+	HmiReport.Status.PageUpDownVisibility := NOT HmiReport.Status.FileOverMax;
+	HtmlView;
+	
+	
+	
+	
 END_ACTION

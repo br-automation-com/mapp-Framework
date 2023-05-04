@@ -26,7 +26,7 @@
 
 _SETUP_SET(void)
 {
-	return RemoveNonDefaultFiles("*.par", "Default.par", 0, PARAMETERS_CATEGORY);
+	return RemoveNonDefaultFiles("*.par", "Default.par", PARAMETERS_CATEGORY);
 }
 
 _TEARDOWN_SET(void)
@@ -40,7 +40,7 @@ _SETUP_TEST(void)
 	ArrangeSubState = 0;
 	ActSubState = 0;
 	AssertSubState = 0;
-	return RemoveNonDefaultFiles("*.par", "Default.par", 0, PARAMETERS_CATEGORY);
+	return RemoveNonDefaultFiles("*.par", "Default.par", PARAMETERS_CATEGORY);
 }
 
 _TEARDOWN_TEST(void)

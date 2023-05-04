@@ -61,7 +61,23 @@ ACTION ExecuteQuery:
 		HmiAudit.Status.Query.EvTime[i] := AuditQuery.Audits[i].EvTime;
 		HmiAudit.Status.Query.Op[i] := AuditQuery.Audits[i].Op;
 		HmiAudit.Status.Query.Text[i] := AuditQuery.Audits[i].Text;
-		HmiAudit.Status.Query.DText[i] := AuditQuery.Audits[i].DText;
+		HmiAudit.Status.Query.DText[i] := AuditQuery.Audits[i].DText;	
+		HmiAudit.Status.Query.EvTimeString[i] := DT_TO_STRING(HmiAudit.Status.Query.EvTime[i]);
+		IF HmiAudit.Status.Query.Text[i] <> "" THEN
+			HmiAudit.Status.Query.EvTimeString[i] := RIGHT(HmiAudit.Status.Query.EvTimeString[i], 19);
+		ELSE			
+			HmiAudit.Status.Query.EvTimeString[i] := '';
+		END_IF;
 	END_FOR
 
+	
+	//VC4
+	IF HmiAudit.Status.Query.DPSelectedIndex = 0 THEN
+		HmiAudit.Status.Query.Name := 'UserEvents';
+	ELSIF HmiAudit.Status.Query.DPSelectedIndex = 1 THEN
+		HmiAudit.Status.Query.Name := 'RecipeEvents';
+	END_IF;
+	HmiAudit.Status.ArchiveSetupVisibility := NOT HmiAudit.Status.ArchiveAvailable;
+	HmiAudit.Status.ArchiveSetupTimeOfDayVisibility := (HmiAudit.Parameters.ArchiveSettings.Mode = mpAUDIT_ARCHIVE_BATCH); 
+	
 END_ACTION

@@ -10,12 +10,14 @@ ACTION FormatDeviceDataProvider:
 			brsstrcat(ADR(HmiBackup.Status.DeviceDataProvider[i + 1]), ADR('"}'));
 			MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1] := 'USB';
 			brsitoa(i + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1])));
+			HmiBackup.Status.DeviceDataProviderVC4[i + 1] := 'USB';
 		ELSE
 			brsmemset(ADR(HmiBackup.Status.DeviceDataProvider[i + 1]), 0, SIZEOF(HmiBackup.Status.DeviceDataProvider[i + 1]));
+			brsmemset(ADR(HmiBackup.Status.DeviceDataProviderVC4[i + 1]), 0, SIZEOF(HmiBackup.Status.DeviceDataProviderVC4[i + 1]));
 			brsmemset(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]), 0, SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]));
 		END_IF
 	END_FOR
-
+	
 	// Configure visible device list
 	HmiBackup.Status.TableConfig[0] := '{ "specRows": [{"from":';
 	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
@@ -114,6 +116,13 @@ ACTION FileManager:
 		HmiBackup.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
 		HmiBackup.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
 		HmiBackup.Status.Size[i] := MpFileManagerUIConnect.File.List.Items[i].Size;
+		
+		HmiBackup.Status.TimeStampsString[i] := DT_TO_STRING(HmiBackup.Status.TimeStamps[i]);
+		IF HmiBackup.Status.FileNames[i] <> '' THEN
+			HmiBackup.Status.TimeStampsString[i] := RIGHT(HmiBackup.Status.TimeStampsString[i], 19);
+		ELSE
+			HmiBackup.Status.TimeStampsString[i] := '';	
+		END_IF;
 	END_FOR
 
 	IF ((MpFileManagerUIConnect.DeviceList.SelectedIndex <> HmiBackup.Status.LastSelectedDeviceIndex) AND (MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE)) THEN

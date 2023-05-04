@@ -28,6 +28,7 @@ TYPE
 		TempFilePath : ARRAY[0..49]OF STRING[255]; (*A temporary variable used to concatonate and build the full file path of the selected file*)
 		FilePath : ARRAY[0..49]OF STRING[255]; (*The full file path of the selcted file*)
 		TimeStamps : ARRAY[0..49]OF DATE_AND_TIME; (*Time stamps for existing reports*)
+		TimeStampsText : ARRAY[0..49]OF STRING[80]; (*Time stamps for existing reports*)
 		Size : {REDUND_UNREPLICABLE} ARRAY[0..49]OF UDINT; (*Sizes of existing report files*)
 		SelectedIndex : USINT; (*Index of the selected file*)
 		LastSelectedIndex : USINT := 255; (*Index of the last selected report file*)
@@ -35,6 +36,7 @@ TYPE
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the list of available reports*)
 		FilterString : STRING[1000]; (*String used to filter out any file that is not a PDF*)
 		Layer : ReportStatusLayerType;
+		PageUpDownVisibility : USINT;
 	END_STRUCT;
 	ReportExampleType : 	STRUCT  (*Structure for the example data used by the two types of reports*)
 		SimpleReport : SimpleReportDataType; (*Structure for the simple report's example data*)
@@ -79,5 +81,16 @@ TYPE
 		ReportCreate : USINT;
 		ReportDelete : USINT;
 		ReportView : USINT;
+	END_STRUCT;
+END_TYPE
+
+(**)
+(**)
+
+TYPE
+	HtmlViewType : 	STRUCT 
+		HTMLStream : STRING[255];
+		ChangeURLDatapoint : STRING[255];
+		CurrentURLDatapoint : STRING[255];
 	END_STRUCT;
 END_TYPE

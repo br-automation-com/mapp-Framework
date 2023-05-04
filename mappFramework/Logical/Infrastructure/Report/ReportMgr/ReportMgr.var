@@ -23,3 +23,12 @@ VAR
 	DeviceCount : USINT; (*Counter for available file devices*)
 	ItemCount : UDINT; (*Counter for available files*)
 END_VAR
+(**)
+VAR CONSTANT
+	DISPLAY : USINT := 0;
+	HIDE : USINT := 1;
+END_VAR
+(**)
+VAR
+	HtmlView : HtmlViewType;
+END_VAR

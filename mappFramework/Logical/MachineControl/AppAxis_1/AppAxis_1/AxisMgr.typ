@@ -40,7 +40,7 @@ TYPE
 		ProductNumber : {REDUND_UNREPLICABLE} INT := 0; (*Product Number*)
 		ProductLength : {REDUND_UNREPLICABLE} REAL := 70; (*Real Product Length*)
 	END_STRUCT;
-	AxisControlStatusType : 	STRUCT 
+	AxisControlStatusType : {REDUND_UNREPLICABLE} 	STRUCT 
 		TaskName : {REDUND_UNREPLICABLE} STRING[80]; (*Current task name for configuration changes*)
 		MachineSettingsName : {REDUND_UNREPLICABLE} STRING[255]; (*Category name for machine settings*)
 		ProductSettingsName : {REDUND_UNREPLICABLE} STRING[255]; (*Category name for product settings*)
@@ -56,9 +56,7 @@ TYPE
 		MotorTemperature : {REDUND_UNREPLICABLE} REAL; (*Motor temperature*)
 		IsHomed : {REDUND_UNREPLICABLE} BOOL; (*Axis is referenced*)
 		IsPowered : {REDUND_UNREPLICABLE} BOOL; (*Axis is powered*)
-		PLCopenState : {REDUND_UNREPLICABLE} McAxisPLCopenStateEnum; (*Axis PLCopenState*)
-		ModeManual : BOOL; (*Axis may be moved manually*)
-		StatusPointControl : ARRAY[0..1]OF UINT; (*VC4 - Axis Manual/Auto control*)
+		PLCopenState : McAxisPLCopenStateEnum; (*Axis PLCopenState*)
 	END_STRUCT;
 	AxisControlType : {REDUND_UNREPLICABLE} 	STRUCT 
 		Command : {REDUND_UNREPLICABLE} AxisControlCommandType; (*Cmd structure*)
