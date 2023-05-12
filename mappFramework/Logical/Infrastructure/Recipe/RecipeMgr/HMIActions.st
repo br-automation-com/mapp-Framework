@@ -12,26 +12,6 @@ ACTION HMIActions_Init:
 END_ACTION
 
 
-ACTION FormatDeviceDataProvider:
-
-	// Select CF device if USB device is not available
-	FOR i := 0 TO ((SIZEOF(gUSBAvailable) / SIZEOF(gUSBAvailable[0])) - 1) DO
-		IF gUSBAvailable[i] THEN
-			HmiRecipe.Status.DeviceDataProvider[i + 1] := '{"value":"USB';
-			brsitoa(i + 1, ADR(HmiRecipe.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiRecipe.Status.DeviceDataProvider[i + 1])));
-			brsstrcat(ADR(HmiRecipe.Status.DeviceDataProvider[i + 1]), ADR('","text":"USB'));
-			brsitoa(i + 1, ADR(HmiRecipe.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiRecipe.Status.DeviceDataProvider[i + 1])));
-			brsstrcat(ADR(HmiRecipe.Status.DeviceDataProvider[i + 1]), ADR('"}'));
-			MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1] := 'USB';
-			brsitoa(i + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1])));
-		ELSE
-			brsmemset(ADR(HmiRecipe.Status.DeviceDataProvider[i + 1]), 0, SIZEOF(HmiRecipe.Status.DeviceDataProvider[i + 1]));
-			brsmemset(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]), 0, SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]));
-		END_IF
-	END_FOR
-
-END_ACTION
-
 ACTION LoadStatus:
 	// Configure visible recipe list
 	IF MpRecipeUIConnect.Recipe.List.Names[0] = '' THEN
@@ -49,10 +29,7 @@ ACTION LoadStatus:
 END_ACTION
 
 ACTION LoadPreview:
-
-
 	
-
 	// Category name genarate	
 	IF HmiRecipe.Parameters.CategoryIndex = PARAMETERS_CATEGORY_INDEX THEN
 		MpRecipeUIConnect.Recipe.Filter := '*par';
@@ -75,8 +52,6 @@ ACTION LoadPreview:
 	ELSE
 		HmiRecipe.Status.DefaultRecipeLayer.Status := HIDE;	
 	END_IF;
-	
-	
 	
 	// Create Recipe Layer manager
 	IF HmiRecipe.Parameters.Category = PARAMETERS_CATEGORY THEN
@@ -109,9 +84,6 @@ ACTION LoadPreview:
 		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= UNLOCK;
 	END_IF;
 	
-	
-	
-	
 	// File Duplicate manager
 	IF HmiRecipe.Commands.CreateRecipe AND
 		HmiRecipe.Status.FileDuplicate AND
@@ -123,9 +95,6 @@ ACTION LoadPreview:
 	ELSIF HmiRecipe.Commands.CreateRecipe THEN		
 		HmiRecipe.Status.DuplicateLayer := HIDE;
 	END_IF;
-
-	
-
 	
 	// Preview Recipe Layer manager
 	IF HmiRecipe.Parameters.Category = MACHINE_CONFIGURATION_CATEGORY THEN
@@ -137,8 +106,6 @@ ACTION LoadPreview:
 		HmiRecipe.Status.PreviewRecipeLayer.ParsStatus 		 := DISPLAY;	  
 	END_IF;
 	
-	
-	
 	// Active Recipe declare	
 	IF HmiRecipe.Parameters.Category = PARAMETERS_CATEGORY THEN	
 		HmiRecipe.Status.ActiveRecipe := HmiRecipe.Status.LastLoadedProductRecipe;
@@ -146,9 +113,6 @@ ACTION LoadPreview:
 	ELSIF HmiRecipe.Parameters.Category = MACHINE_CONFIGURATION_CATEGORY THEN		
 		HmiRecipe.Status.ActiveRecipe := HmiRecipe.Status.LastLoadedConfigRecipe;
 	END_IF;
-	
-	
-	
 	
 	// Recipe Edit manager
 	IF HmiRecipe.Status.EditRecipeLayer.Save THEN
@@ -159,16 +123,6 @@ ACTION LoadPreview:
 		HmiRecipe.Commands.SaveSelectedRecipe := TRUE;
 		HmiRecipe.Commands.LoadRecipe 		  := TRUE;
 	END_IF;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	// Load preview when a recipe is selected
 	IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR (HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection) THEN
@@ -313,10 +267,6 @@ ACTION RecipeHMIcommands:
 
 	END_CASE
 
-	//	IF NOT MpRecipe_0.CommandBusy AND brsstrcmp(ADR(HmiRecipe.Status.PreviousRecipe), ADR(HmiRecipe.Parameters.FileName)) <> 0 THEN
-	//		HmiRecipe.Parameters.FileName := HmiRecipe.Status.PreviousRecipe;
-	//	END_IF
-
 	// If the Edit or Create dialog boxes open, copy the Preview structure into the Edit structure.
 	IF HmiRecipe.Status.EditDialogOpened OR HmiRecipe.Status.CreateDialogOpened THEN
 		IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
@@ -366,9 +316,6 @@ ACTION RecipeHMIcommands:
 			HmiRecipe.Status.FileDuplicate := TRUE;
 		END_IF
 	END_FOR
-
-	// Set whether the loading .gif should be shown on the HMI
-	HmiRecipe.Status.LoadingRecipeList := (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_REFRESH);
 
 	// Update status information
 	HmiRecipe.Status.LastStatus := MpRecipeUIConnect.Status;
