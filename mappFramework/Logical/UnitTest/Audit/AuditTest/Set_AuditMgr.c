@@ -49,7 +49,7 @@ _SETUP_TEST(void)
 	TestState = TEST_ARRANGE;
 	cycleCount = 0;
 	
-    TEST_DONE;
+	TEST_DONE;
 }
 
 _TEARDOWN_TEST(void)

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="PackML_content" height="660" width="1120" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Content id="PackML_content" height="1030" width="1920" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Label" id="LabelPage" top="10" left="950" width="150" zIndex="0" text="$IAT/mappFramework/PackML/PackML" textAlign="right" fontSize="24px" bold="true" />
-    <Widget xsi:type="widgets.PackML_support_lib.PackMLModel" id="PackMLModel1" top="80" left="80" width="980" zIndex="1" baseModel="temp" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelStateBanner" top="100" left="120" width="150" height="40" zIndex="15" text="$IAT/mappFramework/PackML/StateCurrent" textColor="rgba(255, 255, 255, 1)" fontSize="16px" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelCurrentState" top="130" left="120" width="150" height="40" zIndex="16" text="$IAT/mappFramework/PackML/Undefined" textColor="rgba(255, 255, 255, 1)" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelPage" top="100" left="1640" width="225" height="70" zIndex="15" text="$IAT/mappFramework/PackML/PackML" textColor="rgba(255, 255, 255, 1)" textAlign="right" fontSize="48px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelStateBanner" top="105" left="70" width="150" height="40" zIndex="14" text="$IAT/mappFramework/PackML/StateCurrent" textColor="rgba(255, 255, 255, 1)" fontSize="24px" />
+    <Widget xsi:type="widgets.PackML_support_lib.PackMLModelOld" id="PackMLModelOld1" top="50" left="0" zIndex="13" baseModel="temp" />
+    <Widget xsi:type="widgets.brease.TextOutput" id="txtOutCurrentState" top="150" left="70" width="245" zIndex="16" value="Undefined" textColor="rgba(255, 255, 255, 1)" fontSize="24px" />
   </Widgets>
 </Content>

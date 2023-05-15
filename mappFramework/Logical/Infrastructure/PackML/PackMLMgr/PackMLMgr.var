@@ -3,10 +3,11 @@ VAR
 	DirCreate_0 : DirCreate; (*DirCreate instance*)
 	MpPackMLModule_Main : MpPackMLModule; (*PackMLModule instance*)
 	MpPackMLModulePar_Main : MpPackMLModuleParType; (*PackMLModule Parameter instance*)
+	TON_StateBlink : TON; (*Timer to control state blinking action*)
 END_VAR
 (*Constants*)
 (*Structure Types*)
 VAR
-	HmiPackML : PackMLHmiInterfaceType; (*HMI interface structure*)
+	HmiPackML : PackMLHmiInterfaceType := (Parameters:=(StateEnabled:=(Clearing:=TRUE,Stopped:=TRUE,Starting:=TRUE,Idle:=TRUE,Suspended:=TRUE,Execute:=TRUE,Stopping:=TRUE,Aborting:=TRUE,Aborted:=TRUE,Holding:=TRUE,Held:=TRUE,Unholding:=TRUE,Suspending:=TRUE,Unsuspending:=TRUE,Resetting:=TRUE,Completing:=TRUE,Complete:=TRUE))); (*HMI interface structure*)
 END_VAR
 (*Variables*)
