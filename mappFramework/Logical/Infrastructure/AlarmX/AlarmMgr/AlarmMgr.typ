@@ -4,14 +4,24 @@ TYPE
 	AlarmHmiInterfaceType : 	STRUCT  (*Structure to hold commands and status from the HMI*)
 		Commands : AlarmCommandsType; (*HMI commands*)
 		Status : {REDUND_UNREPLICABLE} AlarmStatusType; (*HMI status*)
+		Parameters : AlarmParametersType; (*HMI parameters*)
 	END_STRUCT;
 	AlarmCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
-		ExportAlarms : BOOL; (*Triggers an alarm export of the alarm history. Connected to a button on the HMI. *)
+		ExportAlarms : BOOL; (*Triggers an alarm export of the alarm history. Connected to a button on the HMI.*)
 		RunQuery : BOOL; (*Triggers the query to run. Connected to a button on the HMI. *)
 	END_STRUCT;
+	AlarmParametersType : 	STRUCT  (*Structure to hold the parameters from the HMI*)
+		InstanceID : UINT; (*The instanceID of the alarm that was most recently clicked in the AlarmList. Set by an eventbinding in mapp View*)
+	END_STRUCT;
 	AlarmStatusType : 	STRUCT  (*Structure to hold status information to the mapp View HMI. (This structure is not compatible/relevant if you are using a VC4 visualization)*)
+		AlarmHistSortCfg : STRING[1000]; (*Sort configuration property for the AlarmHistory widget *)
+		AlarmHistFilterCfg : STRING[1000]; (*Filter configuration property for the AlarmHistory widget*)
+		AlarmSortCfg : STRING[1000]; (*Sort configuration for the AlarmList widget*)
+		AlarmFilterCfg : STRING[1000]; (*Filter configuration for the AlarmList widget*)
+		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the alarm query Table*)
+		AlarmExportDone : BOOL; (*Alarm export of alarm history is completed. Connected to a button on the HMI. *)
+		AlarmExportDisplayed : BOOL; (*Alarm export of alarm history is displayed. Connected to a button on the HMI. *)
 		Query : AlarmQueryHMIType; (*Structure which rearranges the query data from AlarmQuery into a structure of arrays for easy connection to the Table widget*)
-		HistoryExportLayer : USINT;
 	END_STRUCT;
 	AlarmQueryType : 	STRUCT  (*Structure for query results and status*)
 		State : ActiveAlarmStateEnum; (*State variable for the query state machine*)
@@ -27,9 +37,10 @@ TYPE
 		Name : ARRAY[0..MAX_QUERY_RESULTS]OF STRING[80]; (*Name array*)
 		Message : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[255]; (*Message array*)
 		AdditionalInfo : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[255]; (*AdditionalInformation1 array*)
-		TimeStamp : ARRAY[0..MAX_QUERY_RESULTS]OF STRING[80]; (*TimeStamp array*)
+		TimeStamp : ARRAY[0..MAX_QUERY_RESULTS]OF DATE_AND_TIME; (*TimeStamp array*)
 		Code : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT; (*Code array*)
 		Severity : ARRAY[0..MAX_QUERY_RESULTS]OF UDINT; (*Severity array*)
+		State : ARRAY[0..MAX_QUERY_RESULTS]OF CurrentAlarmStateEnum; (*State message array*)
 		QueryCount : USINT; (*Count of query results for building the query table configuration string*)
 	END_STRUCT;
 	AlarmType : 	STRUCT  (*Structure to hold the alarm data for the query results*)
@@ -42,6 +53,7 @@ TYPE
 		TimeStamp : DATE_AND_TIME; (*ActiveAlarms query, TimeStamp column*)
 		Code : UDINT; (*ActiveAlarms query, Code column*)
 		Severity : UDINT; (*ActiveAlarms query, Severity column*)
+		State : CurrentAlarmStateEnum; (*ActiveAlarms query, State column*)
 	END_STRUCT;
 	MachineDigitalInputsType : 	STRUCT  (*Safety related digital inputs *)
 		EmergencyStop : ARRAY[0..MAX_ESTOP]OF BOOL; (*Emergency stop input signals*)
@@ -66,5 +78,12 @@ TYPE
 		ACTIVE_ALARM_WAIT, (*Wait state*)
 		ACTIVE_ALARM_QUERY, (*State to query the alarm data*)
 		ACTIVE_ALARM_NEXT (*State to check if more alarms meet the query criteria and need to be queried*)
+		);
+	CurrentAlarmStateEnum : 
+		( (*Enumeration for the state of a particular alarm*)
+		INACTIVE_NOT_ACKNOWLEDGED := 0, (*Alarm inactive and not acknowledged*)
+		ACTIVE_NOT_ACKNOWLEDGED := 1, (*Alarm active and not acknowledged*)
+		ACTIVE_ACKNOWLEDGED := 2, (*Alarm active and acknowledged*)
+		INACTIVE_ACKNOWLEDGED := 3 (*Alarm inactive and acknowledged*)
 		);
 END_TYPE

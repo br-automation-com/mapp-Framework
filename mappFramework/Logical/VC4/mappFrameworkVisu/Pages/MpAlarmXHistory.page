@@ -1,0 +1,1262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpAlarmXHistory">
+  <Property Name="Description" Value="mapp VC4 template MpAlarmXHistory"/>
+  <Property Name="Height" Value="480"/>
+  <Property Name="Index" Value="10025"/>
+  <Property Name="LockedForeColor" Value="253"/>
+  <Property Name="MoveFocus" Value="Circular"/>
+  <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+  <Property Name="Width" Value="800"/>
+  <Layers>
+    <LayerRef Source="Source[local].Layer[MpBackground]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpBackground"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="0"/>
+    </LayerRef>
+    <Layer Name="Default">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpOeeListUIConnect.Filter.DefaultLayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="1"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001004" Name="txtGroupControl">
+          <Property Name="Border" Value="Source[local].Border[Mp_GroupControl]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHeader2]"/>
+          <Property Name="Height" Value="384"/>
+          <Property Name="Left" Value="0"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGroupControl]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryUIText]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="45"/>
+          <Property Name="Width" Value="800"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnPageUp">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_124_0]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="676"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollUpMulti]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="124"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_124_0]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnPageDown">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_147_1]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="676"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollDownMulti]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="288"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_147_1]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001012" Name="sclScrollBar">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_RangeBar]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="204"/>
+          <Property Name="Left" Value="653"/>
+          <Property Name="Marker" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="100"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="0"/>
+          <Property Name="MinorPitchLines" Value="1"/>
+          <Property Name="Orientation" Value="Left"/>
+          <Property Name="RangeColor" Value="253"/>
+          <Property Name="RangeEndDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.RangeEnd]"/>
+          <Property Name="RangeEndValue" Value="90"/>
+          <Property Name="RangeSpacing" Value="0"/>
+          <Property Name="RangeStartDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.RangeStart]"/>
+          <Property Name="RangeStartValue" Value="30"/>
+          <Property Name="RangeWidth" Value="32"/>
+          <Property Name="Spacing" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Default]"/>
+          <Property Name="Top" Value="124"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="ValueSimulation" Value="0"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnScrollUp">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_148_1]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="676"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollUp]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="178"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_148_1]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnScrollDown">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_151_0]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="676"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollDown]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="231"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_151_0]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtStatusLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="577"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryUIText]"/>
+          <Property Name="TextIndexOffset" Value="1"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="49"/>
+          <Property Name="Width" Value="70"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtStatusInfo">
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.Status]"/>
+          <Property Name="Left" Value="650"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryStatus]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="49"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelName">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="Left" Value="201"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryUIText]"/>
+          <Property Name="TextIndexOffset" Value="6"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="89"/>
+          <Property Name="Width" Value="140"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmName">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="205"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.SelectedIndex]"/>
+          <Property Name="Input" Value="False"/>
+          <Property Name="Left" Value="201"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.MaxSelection]"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="Name"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.Name]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="123"/>
+          <Property Name="Width" Value="140"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmMessage">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="205"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.SelectedIndex]"/>
+          <Property Name="Input" Value="False"/>
+          <Property Name="Left" Value="340"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.MaxSelection]"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="Message"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.Message]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="123"/>
+          <Property Name="Width" Value="190"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmCode">
+          <Property Name="AlignmentHorizontal" Value="Right"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="205"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.SelectedIndex]"/>
+          <Property Name="Input" Value="False"/>
+          <Property Name="Left" Value="529"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.MaxSelection]"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryCode]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="123"/>
+          <Property Name="Width" Value="60"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmStatus">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxRight]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="205"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.SelectedIndex]"/>
+          <Property Name="Input" Value="False"/>
+          <Property Name="Left" Value="589"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.MaxSelection]"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryState]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="123"/>
+          <Property Name="Width" Value="60"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpNewStateIdx_0">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.NewState[0]]"/>
+          <Property Name="Left" Value="626"/>
+          <Property Name="SimulationValue" Value="3"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="126"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpOldStateIdx_0">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.OldState[0]]"/>
+          <Property Name="Left" Value="594"/>
+          <Property Name="SimulationValue" Value="4"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="126"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpOldStateIdx_1">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="39"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.OldState[1]]"/>
+          <Property Name="Left" Value="594"/>
+          <Property Name="SimulationValue" Value="2"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="146"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpNewStateIdx_1">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="39"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.NewState[1]]"/>
+          <Property Name="Left" Value="626"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="146"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpOldStateIdx_2">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="79"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.OldState[2]]"/>
+          <Property Name="Left" Value="594"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="166"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpNewStateIdx_2">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="79"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.NewState[2]]"/>
+          <Property Name="Left" Value="626"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="166"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpOldStateIdx_3">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="78"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.OldState[3]]"/>
+          <Property Name="Left" Value="594"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="186"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpNewStateIdx_3">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="78"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.NewState[3]]"/>
+          <Property Name="Left" Value="626"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="186"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpOldStateIdx_4">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="77"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.OldState[4]]"/>
+          <Property Name="Left" Value="594"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="206"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpNewStateIdx_4">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="77"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.NewState[4]]"/>
+          <Property Name="Left" Value="626"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="206"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpOldStateIdx_5">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="76"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.OldState[5]]"/>
+          <Property Name="Left" Value="594"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="226"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpNewStateIdx_5">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="76"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.NewState[5]]"/>
+          <Property Name="Left" Value="626"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="226"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpOldStateIdx_6">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="75"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.OldState[6]]"/>
+          <Property Name="Left" Value="594"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="247"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpNewStateIdx_6">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="75"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.NewState[6]]"/>
+          <Property Name="Left" Value="626"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="247"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpOldStateIdx_7">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="74"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.OldState[7]]"/>
+          <Property Name="Left" Value="594"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="267"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpNewStateIdx_7">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="74"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.NewState[7]]"/>
+          <Property Name="Left" Value="626"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="267"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpOldStateIdx_8">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="73"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.OldState[8]]"/>
+          <Property Name="Left" Value="594"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="290"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpNewStateIdx_8">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="73"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.NewState[8]]"/>
+          <Property Name="Left" Value="626"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="290"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpOldStateIdx_9">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="72"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.OldState[9]]"/>
+          <Property Name="Left" Value="594"/>
+          <Property Name="SimulationValue" Value="2"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="310"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpNewStateIdx_9">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpAlarmXHistoryStates]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="GroupID" Value="72"/>
+          <Property Name="Height" Value="18"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.NewState[9]]"/>
+          <Property Name="Left" Value="626"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="310"/>
+          <Property Name="Width" Value="18"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelMessage">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="Left" Value="340"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryUIText]"/>
+          <Property Name="TextIndexOffset" Value="7"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="89"/>
+          <Property Name="Width" Value="190"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelCode">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="Left" Value="529"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryUIText]"/>
+          <Property Name="TextIndexOffset" Value="8"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="89"/>
+          <Property Name="Width" Value="60"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelState">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="Left" Value="588"/>
+          <Property Name="Multiline" Value="Manual"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryUIText]"/>
+          <Property Name="TextIndexOffset" Value="9"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="89"/>
+          <Property Name="Width" Value="61"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdAlarmDetail">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpAlarmX_ListDetail]"/>
+          <Property Name="BitmapAlignmentHorizontal" Value="Right of Text"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_167_0]"/>
+          <Property Name="Height" Value="65"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="663"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXListUIText]"/>
+          <Property Name="TextIndex" Value="10"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="360"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_167_0]"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelTimestamp">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="Left" Value="82"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryUIText]"/>
+          <Property Name="TextIndexOffset" Value="5"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="89"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmTimestamp">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="205"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.SelectedIndex]"/>
+          <Property Name="Input" Value="False"/>
+          <Property Name="Left" Value="82"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.MaxSelection]"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="Timestamp"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.Timestamp]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="123"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="647"/>
+          <Property Name="EndY" Value="145"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="StartX" Value="83"/>
+          <Property Name="StartY" Value="145"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_2">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="647"/>
+          <Property Name="EndY" Value="165"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="StartX" Value="83"/>
+          <Property Name="StartY" Value="165"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_3">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="647"/>
+          <Property Name="EndY" Value="185"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="StartX" Value="83"/>
+          <Property Name="StartY" Value="185"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_4">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="647"/>
+          <Property Name="EndY" Value="205"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="StartX" Value="83"/>
+          <Property Name="StartY" Value="205"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_5">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="647"/>
+          <Property Name="EndY" Value="226"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="StartX" Value="83"/>
+          <Property Name="StartY" Value="226"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_6">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="647"/>
+          <Property Name="EndY" Value="245"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="StartX" Value="83"/>
+          <Property Name="StartY" Value="245"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_7">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="647"/>
+          <Property Name="EndY" Value="266"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="StartX" Value="83"/>
+          <Property Name="StartY" Value="266"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_8">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="647"/>
+          <Property Name="EndY" Value="288"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="StartX" Value="83"/>
+          <Property Name="StartY" Value="288"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_9">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="647"/>
+          <Property Name="EndY" Value="309"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="StartX" Value="83"/>
+          <Property Name="StartY" Value="309"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdAlarmDetail1">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpAlarmX_List]"/>
+          <Property Name="BitmapAlignmentHorizontal" Value="Right of Text"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_211_0]"/>
+          <Property Name="Height" Value="65"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="527"/>
+          <Property Name="Multiline" Value="Manual"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXListUIText]"/>
+          <Property Name="TextIndex" Value="12"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="360"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_211_0]"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="bmpGroupAlarmHistory">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpAlarmX_ListHistory]"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="Height" Value="32"/>
+          <Property Name="IndexDatapoint" Value="None"/>
+          <Property Name="Left" Value="6"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="45"/>
+          <Property Name="Width" Value="32"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdAlarmHistoryExport">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpIcon_MpAlarmXHistoryExport]"/>
+          <Property Name="BitmapAlignmentHorizontal" Value="Right of Text"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_211_1]"/>
+          <Property Name="Height" Value="65"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="78"/>
+          <Property Name="Multiline" Value="Manual"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryExport]"/>
+          <Property Name="TextIndex" Value="0"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="360"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_211_1]"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdAlarmDetail2">
+          <Property Name="BitmapAlignmentHorizontal" Value="Right of Text"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpIcons]"/>
+          <Property Name="BitmapIndex" Value="27"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="BitmapGroup"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_210_2]"/>
+          <Property Name="Height" Value="65"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="391"/>
+          <Property Name="Multiline" Value="Manual"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXListUIQuery]"/>
+          <Property Name="TextIndex" Value="1"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="360"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_210_2]"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%embVirtualKey_124_0">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.PageUp]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_147_1">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.PageDown]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_148_1">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.StepUp]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_151_0">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.MpAlarmXHistoryUIConnect.AlarmList.StepDown]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_167_0">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[MpAlarmXListUI_Backtrace]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_211_0">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[MpAlarmXList]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_211_1">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.HmiAlarmX.Commands.ExportAlarms]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_210_2">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[MpAlarmXQuery]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+    <LayerRef Source="Source[local].Layer[MpPageControl]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpPageControl"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="2"/>
+    </LayerRef>
+    <Layer Name="MpMsgBox">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value="Message Box"/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.HmiAlarmX.Status.HistoryExportLayer]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="3"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001005" Name="Background">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpBackTransparent]"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="Height" Value="430"/>
+          <Property Name="IndexDatapoint" Value="None"/>
+          <Property Name="Left" Value="0"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="0"/>
+          <Property Name="Width" Value="800"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtHeader">
+          <Property Name="Border" Value="Source[local].Border[Mp_GroupControl]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="147"/>
+          <Property Name="Left" Value="267"/>
+          <Property Name="SimulationIndex" Value="1"/>
+          <Property Name="SimulationValue" Value="MsgBox Header"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGroupControl]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryExport]"/>
+          <Property Name="TextIndexOffset" Value="1"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="157"/>
+          <Property Name="Width" Value="263"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtContent">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="60"/>
+          <Property Name="Left" Value="297"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="1"/>
+          <Property Name="SimulationValue" Value="Example Alarm Text"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryExport]"/>
+          <Property Name="TextIndexOffset" Value="2"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="189"/>
+          <Property Name="Width" Value="193"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdOK">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpFile_OK]"/>
+          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_6]"/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="323"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="249"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_6]"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%embVirtualKey_6">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.AlarmX.AlarmMgr.HmiAlarmX.Status.HistoryExportLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+  </Layers>
+  <MovementOrder/>
+  <TabSequence>
+    <TabSeqItem Index="0" Value="Source[local].Layer[MpBackground].Control[strUserName]"/>
+    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[lbxAlarmMessage]"/>
+    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[lbxAlarmCode]"/>
+    <TabSeqItem Index="4" Value="Source[embedded].Layer[Default].Control[lbxAlarmStatus]"/>
+    <TabSeqItem Index="5" Value="Source[embedded].Layer[Default].Control[lbxAlarmTimestamp]"/>
+  </TabSequence>
+</Page>

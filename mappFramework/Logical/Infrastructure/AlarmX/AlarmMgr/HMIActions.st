@@ -1,16 +1,64 @@
-ACTION HMIAction_Init:
-	
-	HmiAlarmX.Status.HistoryExportLayer := HIDE;
-	
+ACTION GetBacktraceInformation:
+
+	MaxIndex := (SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID)/SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID[0])) - 1;
+	// Find selected alarm in order to show backtrace information
+	FOR i := 0 TO MaxIndex DO
+		IF (MpAlarmXCore_0.PendingAlarms = 0) THEN
+			// No pending alarms, reset instance id
+			HmiAlarmX.Parameters.InstanceID := 0;
+			EXIT;
+		END_IF
+
+		IF (MpAlarmXListUIConnect.AlarmList.InstanceID[i] = HmiAlarmX.Parameters.InstanceID) THEN
+			// Found an alarm
+			MpAlarmXListUIConnect.AlarmList.SelectedIndex := i;
+			EXIT;
+		END_IF
+
+		IF (MpAlarmXListUIConnect.AlarmList.InstanceID[i] = 0) THEN
+			IF (MpAlarmXCore_0.PendingAlarms > i) THEN
+				// Alarm not found, list can page up
+				MpAlarmXListUIConnect.AlarmList.PageUp := TRUE;
+			END_IF
+			EXIT;
+		ELSIF (i = MaxIndex) THEN
+			// Alarm not found, list can page down
+			MpAlarmXListUIConnect.AlarmList.PageDown := TRUE;
+		END_IF
+	END_FOR
+
 END_ACTION
 
+ACTION QueryTableConfig:
 
+	// Configure visible list
+	HmiAlarmX.Status.TableConfig[0] := '{ "specRows": [{"from":';
+	HmiAlarmX.Status.Query.QueryCount := 0;
+	FOR i := 0 TO 9 DO
+		IF HmiAlarmX.Status.Query.Message[i] <> "" THEN
+			HmiAlarmX.Status.Query.QueryCount := i + 1;
+		END_IF
+	END_FOR
+	brsitoa((HmiAlarmX.Status.Query.QueryCount), ADR(HmiAlarmX.Status.TableConfig[0]) + brsstrlen(ADR(HmiAlarmX.Status.TableConfig[0])));
+	brsstrcat(ADR(HmiAlarmX.Status.TableConfig[0]), ADR(',"to":19, "visible":false}]}'));
 
-ACTION HMIActions:
+END_ACTION
+
+ACTION ExportAlarms:
 	
-	// AlarmHistory Export process has been completed
+	IF (HmiAlarmX.Commands.ExportAlarms = TRUE) THEN
+		MpAlarmXHistory_0.Export := TRUE;
+	END_IF
+	
 	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
-		HmiAlarmX.Status.HistoryExportLayer := DISPLAY;	  
-	END_IF	
+		MpAlarmXHistory_0.Export := FALSE;
+		HmiAlarmX.Commands.ExportAlarms := FALSE;
+		HmiAlarmX.Status.AlarmExportDone := TRUE;
+	END_IF
+	
+	IF HmiAlarmX.Status.AlarmExportDisplayed THEN
+		HmiAlarmX.Status.AlarmExportDisplayed := FALSE;
+		HmiAlarmX.Status.AlarmExportDone := FALSE;
+	END_IF
 	
 END_ACTION

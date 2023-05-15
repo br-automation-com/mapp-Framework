@@ -12,6 +12,7 @@ ACTION ReportFormat:
 		HmiReport.Parameters.Name := 'SimpleReport';		
 		HmiReport.Status.CurrentFormat := FORMAT_SIMPLE;
 	ELSE
+		MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);
 		MpReportCore_0.Enable := TRUE;
 	END_IF
 	
@@ -41,15 +42,7 @@ ACTION ReportFileExplorer:
 	// For every file, record its name, timestamp, size, and path
 	FOR i := 0 TO ((SIZEOF(HmiReport.Status.FileNames)/SIZEOF(HmiReport.Status.FileNames[0])) - 1) DO
 		HmiReport.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
-		HmiReport.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;		
-		
-		IF MpFileManagerUIConnect.File.List.Items[i].Size <> 0 THEN
-			HmiReport.Status.TimeStampsText[i] := DT_TO_STRING(MpFileManagerUIConnect.File.List.Items[i].LastModified);
-			HmiReport.Status.TimeStampsText[i] := RIGHT(HmiReport.Status.TimeStampsText[i], 19);
-		ELSE
-			HmiReport.Status.TimeStampsText[i] := '';
-		END_IF;
-		
+		HmiReport.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
 		HmiReport.Status.Size[i] := MpFileManagerUIConnect.File.List.Items[i].Size;
 		// Concatonate strings to form the file path
 		HmiReport.Status.TempFilePath[i] := '/FileDevice:';
@@ -101,19 +94,19 @@ ACTION ReportFileExplorer:
 	// Set file device to selected
 	MpReportCore_0.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
 	
-	
-	
-	
-	
-	
-	//VC4
-	IF HmiReport.Status.Error THEN
-		HmiReport.Status.Layer.ReportCreate := HIDE;	  
-	END_IF;
-	HmiReport.Status.PageUpDownVisibility := NOT HmiReport.Status.FileOverMax;
-	HtmlView;
-	
-	
-	
+	// Sort reports for next cycle
+	IF HmiReport.Parameters.SortType = 'NameAsc' THEN
+		MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_NAME_ASC;
+	ELSIF HmiReport.Parameters.SortType = 'NameDesc' THEN
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_NAME_DESC;
+	ELSIF HmiReport.Parameters.SortType = 'DateAsc' THEN
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_MOD_TIME_ASC;
+	ELSIF HmiReport.Parameters.SortType = 'DateDesc' THEN
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_MOD_TIME_DESC;
+	ELSIF HmiReport.Parameters.SortType = 'SizeAsc' THEN
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_SIZE_ASC;
+	ELSIF HmiReport.Parameters.SortType = 'SizeDesc' THEN
+			MpFileManagerUIConnect.File.SortOrder := mpFILE_SORT_BY_SIZE_DES;
+	END_IF
 	
 END_ACTION

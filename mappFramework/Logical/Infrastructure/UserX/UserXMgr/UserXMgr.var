@@ -7,12 +7,6 @@ VAR
 END_VAR
 (*Constants*)
 VAR CONSTANT
-	DISPLAY : USINT := 0;
-	HIDE : USINT := 1;
-	USER_ADMIN_LEVEL : USINT := 100;
-END_VAR
-(**)
-VAR CONSTANT
 	USER_LIST_MAX_SELECTION : USINT := 20; (*Maxiumum selections on the User List *)
 	USER_LIST_RANGE_START : USINT := 0; (*Range start (used for UserXMgrUIConnect)*)
 	USER_LIST_RANGE_END : USINT := 20; (*Range end (used for UserXMgrUIConnect)*)
@@ -21,12 +15,11 @@ END_VAR
 VAR
 	UserXMgrUIConnect : MpUserXMgrUIConnectType; (*UserX manager connection to the HMI*)
 	UserXLoginUIConnect : MpUserXLoginUIConnectType; (*UserL login connection to the HMI*)
-	i : USINT;
-	HmiUserX : HMIUser_Typ;
+	HmiUserX : UserXHmiInterfaceType; (*HMI interface structure *)
 END_VAR
-(*Enumerations*)
 (*Variables*)
 VAR
-	UserXCheckState : enumCheckState;
 	temp : STRING[255]; (*Temporary string holder for checking file names*)
+	i : USINT; (*Index*)
 END_VAR
+(*Enumerations*)

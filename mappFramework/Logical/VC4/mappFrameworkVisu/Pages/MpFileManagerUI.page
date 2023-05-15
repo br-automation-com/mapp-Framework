@@ -1,0 +1,2543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpFileManagerUI">
+  <Property Name="Description" Value="mapp VC4 template MpFileManagerUI"/>
+  <Property Name="Height" Value="480"/>
+  <Property Name="Index" Value="10004"/>
+  <Property Name="MoveFocus" Value="Circular"/>
+  <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+  <Property Name="Width" Value="800"/>
+  <Layers>
+    <LayerRef Source="Source[local].Layer[MpBackground]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpBackground"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="0"/>
+    </LayerRef>
+    <Layer Name="Default">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="None"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="1"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001004" Name="txtGroupControl">
+          <Property Name="Border" Value="Source[local].Border[Mp_GroupControl]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHeader2]"/>
+          <Property Name="Height" Value="384"/>
+          <Property Name="Left" Value="0"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGroupControl]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="10"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="44"/>
+          <Property Name="Width" Value="800"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdDelete">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_29]"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="667"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="0"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="370"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_29]"/>
+          <Property Name="Width" Value="80"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdPaste">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_30]"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="580"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="3"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="370"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_30]"/>
+          <Property Name="Width" Value="80"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdCopy">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_31]"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="374"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="2"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="370"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_31]"/>
+          <Property Name="Width" Value="80"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdLineUp">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_14_2]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="747"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollUp]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="212"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_14_2]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdRefresh">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_32]"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="497"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="4"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="116"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_32]"/>
+          <Property Name="Width" Value="80"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdLineDown">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_37]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="747"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDownButton]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="253"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_37]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtCurrentPathInfo">
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="401"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.PathInfo.CurrentDir]"/>
+          <Property Name="TextSource" Value="SingleString"/>
+          <Property Name="Top" Value="83"/>
+          <Property Name="Width" Value="294"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdEnterDir">
+          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
+          <Property Name="BitmapIndex" Value="103"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="BitmapGroup"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_38]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="340"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="SpacingVertical" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollRight]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="83"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_38]"/>
+          <Property Name="Width" Value="55"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdExitDir">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
+          <Property Name="BitmapIndex" Value="102"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="BitmapGroup"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_39]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="280"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="SpacingHorizontal" Value="0"/>
+          <Property Name="SpacingVertical" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollLeft]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="83"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_39]"/>
+          <Property Name="Width" Value="55"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdCut">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_35_1]"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="477"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="1"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="370"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_35_1]"/>
+          <Property Name="Width" Value="80"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtCurrentPathLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="161"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="8"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="83"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtCurrentDirInfo">
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="487"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="9"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="339"/>
+          <Property Name="Width" Value="257"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtSearchLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="161"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="12"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="113"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="txtSearchFilter">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.Refresh]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="280"/>
+          <Property Name="SimulationValue" Value="Mp"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="Top" Value="114"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.Filter]"/>
+          <Property Name="Width" Value="209"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdCreateDir">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_40]"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="271"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="13"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="370"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_40]"/>
+          <Property Name="Width" Value="80"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdRename">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_41]"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="168"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="14"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="370"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_41]"/>
+          <Property Name="Width" Value="80"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtNewNameLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="164"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="15"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="339"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="txtNewName">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="283"/>
+          <Property Name="MaxChars" Value="60"/>
+          <Property Name="SimulationValue" Value="Folder / File"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="Top" Value="339"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.NewName]"/>
+          <Property Name="Width" Value="202"/>
+        </Control>
+        <Control ClassId="0x00001012" Name="sclScrollBar">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="133"/>
+          <Property Name="Left" Value="722"/>
+          <Property Name="Marker" Value="None"/>
+          <Property Name="MarkerFont" Value="Source[local].Font[MpDefault]"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="100"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="0"/>
+          <Property Name="MinorPitchLines" Value="1"/>
+          <Property Name="Orientation" Value="Left"/>
+          <Property Name="RangeColor" Value="253"/>
+          <Property Name="RangeEndDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.List.RangeEnd]"/>
+          <Property Name="RangeEndValue" Value="90"/>
+          <Property Name="RangeSpacing" Value="0"/>
+          <Property Name="RangeStartDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.List.RangeStart]"/>
+          <Property Name="RangeStartValue" Value="30"/>
+          <Property Name="RangeWidth" Value="32"/>
+          <Property Name="Spacing" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="203"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="ValueSimulation" Value="0"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdPageUp">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Multi_Scroll_Up]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_92]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="747"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Multi_Scroll_Up_press]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollUp]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="171"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_92]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdPageDown">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Multi_Scroll_Down]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_93]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="747"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Multi_Scroll_Dwn_press]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDownButton]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="294"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_93]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdSortName">
+          <Property Name="BitmapAlignmentHorizontal" Value="Right of Text"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
+          <Property Name="BitmapIndex" Value="100"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="BitmapGroup"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_74_1]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="279"/>
+          <Property Name="PressedBitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
+          <Property Name="PressedBitmapIndex" Value="101"/>
+          <Property Name="PressedBitmapSource" Value="BitmapGroup"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="SpacingHorizontal" Value="2"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="20"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="143"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_74_1]"/>
+          <Property Name="Width" Value="65"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdMultiSelect">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_1]"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="586"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="7"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="116"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_1]"/>
+          <Property Name="Width" Value="80"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdSortDate">
+          <Property Name="BitmapAlignmentHorizontal" Value="Right of Text"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
+          <Property Name="BitmapIndex" Value="100"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="BitmapGroup"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_94]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="351"/>
+          <Property Name="PressedBitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
+          <Property Name="PressedBitmapIndex" Value="101"/>
+          <Property Name="PressedBitmapSource" Value="BitmapGroup"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="SpacingHorizontal" Value="2"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="21"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="143"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_94]"/>
+          <Property Name="Width" Value="65"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdSortSize">
+          <Property Name="BitmapAlignmentHorizontal" Value="Right of Text"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
+          <Property Name="BitmapIndex" Value="100"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="BitmapGroup"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_95]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="424"/>
+          <Property Name="PressedBitmapGroup" Value="Source[local].BitmapGroup[MpFileIcons]"/>
+          <Property Name="PressedBitmapIndex" Value="101"/>
+          <Property Name="PressedBitmapSource" Value="BitmapGroup"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="SpacingHorizontal" Value="2"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="22"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="143"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_95]"/>
+          <Property Name="Width" Value="65"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtSortLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="161"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="16"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="143"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtStatusLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="570"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="17"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="49"/>
+          <Property Name="Width" Value="70"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtStatusInfo">
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.Status]"/>
+          <Property Name="Left" Value="643"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIStatus]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="49"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_5">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="156"/>
+          <Property Name="EndY" Value="423"/>
+          <Property Name="ForeColor" Value="253"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="156"/>
+          <Property Name="StartY" Value="413"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_4">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="156"/>
+          <Property Name="EndY" Value="93"/>
+          <Property Name="ForeColor" Value="253"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="156"/>
+          <Property Name="StartY" Value="83"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_3">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="6"/>
+          <Property Name="EndY" Value="413"/>
+          <Property Name="ForeColor" Value="253"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="6"/>
+          <Property Name="StartY" Value="93"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_2">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="155"/>
+          <Property Name="EndY" Value="413"/>
+          <Property Name="ForeColor" Value="253"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="7"/>
+          <Property Name="StartY" Value="413"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="155"/>
+          <Property Name="EndY" Value="93"/>
+          <Property Name="ForeColor" Value="253"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="7"/>
+          <Property Name="StartY" Value="93"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="txtcmdDevice_0">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Device_Unselect_Left]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_85]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="7"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Device_Select_Left]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="SpacingHorizontal" Value="0"/>
+          <Property Name="SpacingVertical" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIDevices]"/>
+          <Property Name="TextIndex" Value="0"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="94"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_85]"/>
+          <Property Name="Width" Value="126"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="txtcmdDevice_9">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Device_Unselect_Left]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_73]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="7"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Device_Select_Left]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIDevices]"/>
+          <Property Name="TextIndex" Value="9"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="382"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_73]"/>
+          <Property Name="Width" Value="126"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="txtcmdDevice_8">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Device_Unselect_Left]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_64]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="7"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Device_Select_Left]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIDevices]"/>
+          <Property Name="TextIndex" Value="8"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="350"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_64]"/>
+          <Property Name="Width" Value="126"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="txtcmdDevice_7">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Device_Unselect_Left]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_63]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="7"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Device_Select_Left]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIDevices]"/>
+          <Property Name="TextIndex" Value="7"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="318"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_63]"/>
+          <Property Name="Width" Value="126"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="txtcmdDevice_6">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Device_Unselect_Left]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_62]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="7"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Device_Select_Left]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIDevices]"/>
+          <Property Name="TextIndex" Value="6"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="286"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_62]"/>
+          <Property Name="Width" Value="126"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="txtcmdDevice_5">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Device_Unselect_Left]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_60]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="7"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Device_Select_Left]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="SpacingHorizontal" Value="0"/>
+          <Property Name="SpacingVertical" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIDevices]"/>
+          <Property Name="TextIndex" Value="5"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="254"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_60]"/>
+          <Property Name="Width" Value="126"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="txtcmdDevice_4">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Device_Unselect_Left]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_59]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="7"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Device_Select_Left]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIDevices]"/>
+          <Property Name="TextIndex" Value="4"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="222"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_59]"/>
+          <Property Name="Width" Value="126"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="txtcmdDevice_3">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Device_Unselect_Left]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_49_1]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="7"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Device_Select_Left]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIDevices]"/>
+          <Property Name="TextIndex" Value="3"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="190"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_49_1]"/>
+          <Property Name="Width" Value="126"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="txtcmdDevice_2">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Device_Unselect_Left]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_43]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="7"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Device_Select_Left]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIDevices]"/>
+          <Property Name="TextIndex" Value="2"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="158"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_43]"/>
+          <Property Name="Width" Value="126"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="txtcmdDevice_1">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_Button_Device_Unselect_Left]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_42]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="7"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_Device_Select_Left]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="SpacingHorizontal" Value="0"/>
+          <Property Name="SpacingVertical" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIDevices]"/>
+          <Property Name="TextIndex" Value="1"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="126"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_42]"/>
+          <Property Name="Width" Value="126"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmName">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Commands.FileList.Clicked]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="134"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.SelectedIndex]"/>
+          <Property Name="Left" Value="244"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="Name"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FileNames]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="202"/>
+          <Property Name="Width" Value="255"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmName1">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Commands.FileList.Clicked]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="134"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.SelectedIndex]"/>
+          <Property Name="Left" Value="653"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="Name"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.Size]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="202"/>
+          <Property Name="Width" Value="69"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmName2">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Commands.FileList.Clicked]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="134"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.SelectedIndex]"/>
+          <Property Name="Left" Value="498"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="Name"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.TimeStamps]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="202"/>
+          <Property Name="Width" Value="156"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmName3">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Commands.FileList.Clicked]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpButton]"/>
+          <Property Name="Height" Value="134"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.SelectedIndex]"/>
+          <Property Name="Left" Value="189"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="Name"/>
+          <Property Name="SingleTouchSelection" Value="False"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.InfoFile.Type]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="202"/>
+          <Property Name="Width" Value="56"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxAlarmName4">
+          <Property Name="AlignmentHorizontal" Value="Right"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Commands.FileList.Clicked]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpButton]"/>
+          <Property Name="Height" Value="134"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.SelectedIndex]"/>
+          <Property Name="Left" Value="164"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="Name"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="7"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.InfoFile.isSelected]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="202"/>
+          <Property Name="Width" Value="25"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelTimestamp">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="27"/>
+          <Property Name="Left" Value="498"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpAlarmXHistoryUIText]"/>
+          <Property Name="TextIndexOffset" Value="5"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="176"/>
+          <Property Name="Width" Value="156"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelTimestamp1">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="27"/>
+          <Property Name="Left" Value="653"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="22"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="176"/>
+          <Property Name="Width" Value="69"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelTimestamp2">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="27"/>
+          <Property Name="Left" Value="244"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="20"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="176"/>
+          <Property Name="Width" Value="255"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelTimestamp3">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="27"/>
+          <Property Name="Left" Value="188"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="18"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="176"/>
+          <Property Name="Width" Value="57"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdMultiSelect1">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_2]"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="678"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="19"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="116"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_2]"/>
+          <Property Name="Width" Value="118"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_FIFOSelecte0">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileFIFOIcons]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FifoSelect[0]]"/>
+          <Property Name="Left" Value="132"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="96"/>
+          <Property Name="Width" Value="24"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_FIFOSelecte1">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileFIFOIcons]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FifoSelect[1]]"/>
+          <Property Name="Left" Value="132"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="128"/>
+          <Property Name="Width" Value="24"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_FIFOSelecte9">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileFIFOIcons]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FifoSelect[9]]"/>
+          <Property Name="Left" Value="132"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="385"/>
+          <Property Name="Width" Value="24"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_FIFOSelecte2">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileFIFOIcons]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FifoSelect[2]]"/>
+          <Property Name="Left" Value="132"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="160"/>
+          <Property Name="Width" Value="24"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_FIFOSelecte3">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileFIFOIcons]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FifoSelect[3]]"/>
+          <Property Name="Left" Value="132"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="192"/>
+          <Property Name="Width" Value="24"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_FIFOSelecte4">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileFIFOIcons]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FifoSelect[4]]"/>
+          <Property Name="Left" Value="132"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="224"/>
+          <Property Name="Width" Value="24"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_FIFOSelecte5">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileFIFOIcons]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FifoSelect[5]]"/>
+          <Property Name="Left" Value="132"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="256"/>
+          <Property Name="Width" Value="24"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_FIFOSelecte6">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileFIFOIcons]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FifoSelect[6]]"/>
+          <Property Name="Left" Value="132"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="288"/>
+          <Property Name="Width" Value="24"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_FIFOSelecte7">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileFIFOIcons]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FifoSelect[7]]"/>
+          <Property Name="Left" Value="132"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="320"/>
+          <Property Name="Width" Value="24"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_FIFOSelecte8">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpFileFIFOIcons]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="37"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FifoSelect[8]]"/>
+          <Property Name="Left" Value="132"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="352"/>
+          <Property Name="Width" Value="24"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%embVirtualKey_29">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.Delete]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_30">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.Paste]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_31">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.Copy]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_14_2">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Commands.FileList.StepUp]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_32">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.Refresh]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_37">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Commands.FileList.StepDown]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_38">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.EnterFolder]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_39">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.FolderUp]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_35_1">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.Cut]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_40">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.CreateFolder]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_41">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.Rename]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_42">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_43">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="2"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_49_1">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="3"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_59">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="4"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_60">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="5"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_62">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="6"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_63">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="7"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_64">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="8"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_73">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="9"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_85">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="10"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.DeviceList.SelectedIndex]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_92">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Commands.FileList.PageUp]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_93">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Commands.FileList.PageDown]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_74_1">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="1"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.SortOrder]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_61_1">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.MultiSelect]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_94">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="1"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="4"/>
+              <Property Name="SetValue" Value="5"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.SortOrder]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_95">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="1"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="2"/>
+              <Property Name="SetValue" Value="3"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.SortOrder]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_61_2">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FIFOLayerStatus]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+    <LayerRef Source="Source[local].Layer[MpPageControl]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpPageControl"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="2"/>
+    </LayerRef>
+    <Layer Name="MpMsgBox">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value="Message Box"/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.MessageBox.LayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="3"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001005" Name="Background">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpBackTransparent]"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="Height" Value="430"/>
+          <Property Name="IndexDatapoint" Value="None"/>
+          <Property Name="Left" Value="0"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="0"/>
+          <Property Name="Width" Value="800"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtHeader">
+          <Property Name="Border" Value="Source[local].Border[Mp_GroupControl]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="224"/>
+          <Property Name="Left" Value="220"/>
+          <Property Name="SimulationIndex" Value="1"/>
+          <Property Name="SimulationValue" Value="MsgBox Header"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGroupControl]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIMessageBox]"/>
+          <Property Name="TextIndexOffset" Value="100"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="128"/>
+          <Property Name="Width" Value="360"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtContent">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="127"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.MessageBox.Type]"/>
+          <Property Name="Left" Value="226"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="1"/>
+          <Property Name="SimulationValue" Value="Example Alarm Text"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIMessageBox]"/>
+          <Property Name="TextIndexOffset" Value="10"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="177"/>
+          <Property Name="Width" Value="348"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdCancel">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpFile_Cancel]"/>
+          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_5]"/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="245"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="300"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_5]"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdOK">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpFile_OK]"/>
+          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_8]"/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="405"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="300"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_8]"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%embVirtualKey_5">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.MessageBox.Cancel]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_8">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.MessageBox.Confirm]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+    <Layer Name="FileDialog_FIFO">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FIFOLayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="4"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Shape_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="276"/>
+          <Property Name="Left" Value="235"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="126"/>
+          <Property Name="Width" Value="307"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="Shape_2">
+          <Property Name="BackColor" Value="241"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="96"/>
+          <Property Name="Left" Value="240"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="214"/>
+          <Property Name="Width" Value="301"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdRefresh">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_58]"/>
+          <Property Name="Height" Value="43"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="324"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="24"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="131"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_58]"/>
+          <Property Name="Width" Value="134"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdRefresh1">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_68]"/>
+          <Property Name="Height" Value="42"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="352"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="23"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="351"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_68]"/>
+          <Property Name="Width" Value="82"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="Numeric_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="388"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="2000"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="0"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="314"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Parameters.Fifo.ScanInterval]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="140"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="Numeric_2">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="388"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="100"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="0"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FIFOLayerObjects.MaxNumberOfFilesVisiblity]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="250"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Parameters.Fifo.MaxNumberOfFiles]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="140"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_3">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="245"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="25"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="182"/>
+          <Property Name="Width" Value="134"/>
+        </Control>
+        <Control ClassId="0x00001018" Name="Dropdown_1">
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Parameters.Fifo.SelectedDevice]"/>
+          <Property Name="Left" Value="330"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="None"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.DeviceDataProvider]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="182"/>
+          <Property Name="Width" Value="210"/>
+        </Control>
+        <Control ClassId="0x00001018" Name="Dropdown_2">
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Parameters.Fifo.FifoType]"/>
+          <Property Name="Left" Value="330"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="None"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIFIFOText]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="216"/>
+          <Property Name="Width" Value="210"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_4">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="245"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="26"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="213"/>
+          <Property Name="Width" Value="134"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_5">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="245"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FIFOLayerObjects.MaxNumberOfFilesVisiblity]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="27"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="246"/>
+          <Property Name="Width" Value="134"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_6">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="245"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="28"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="309"/>
+          <Property Name="Width" Value="134"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="Numeric_3">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="Left" Value="388"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="1000000"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="0"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FIFOLayerObjects.MaxFolderSizeVisiblity]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="279"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Parameters.Fifo.MaxFolderSize]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="140"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_7">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="245"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FIFOLayerObjects.MaxFolderSizeVisiblity]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndexOffset" Value="29"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="275"/>
+          <Property Name="Width" Value="134"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%embVirtualKey_58">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Parameters.Fifo.Enable]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_68">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FIFOLayerStatus]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+    <Layer Name="ButtonLockingLayer">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.HmiUserX.ButtonLockingLayer]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="5"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001002" Name="Button_Bar">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_SunkenNG]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_78]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="668"/>
+          <Property Name="PressedBackColor" Value="15"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="0"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="370"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_78]"/>
+          <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Button_Bar1">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_SunkenNG]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_79]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="478"/>
+          <Property Name="PressedBackColor" Value="15"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="1"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="370"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_79]"/>
+          <Property Name="Width" Value="79"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="Button_Bar2">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_SunkenNG]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_80]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="50"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="679"/>
+          <Property Name="PressedBackColor" Value="15"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
+          <Property Name="PressedForeColor" Value="0"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="TextIndex" Value="19"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="116"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_80]"/>
+          <Property Name="Width" Value="118"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%embVirtualKey_78">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.HmiUserX.ButtonLockedMessageLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_79">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.HmiUserX.ButtonLockedMessageLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_80">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.HmiUserX.ButtonLockedMessageLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+    <LayerRef Source="Source[local].Layer[LockedMessageLayer]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="LockedMessageLayer"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Z-Order" Value="6"/>
+    </LayerRef>
+  </Layers>
+  <MovementOrder>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[txtSearchFilter]">
+      <Property Name="Down" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[txtNewName]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[txtNewName]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[txtSearchFilter]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Numeric_1]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName1]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[txtNewName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName4]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_1]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName2]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName1]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName3]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName4]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName4]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[txtNewName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_1]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[FileDialog_FIFO].Control[Numeric_1]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[txtNewName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Numeric_3]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[FileDialog_FIFO].Control[Numeric_2]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_2]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_1]">
+      <Property Name="Down" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[txtSearchFilter]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_2]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_1]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[FileDialog_FIFO].Control[Numeric_3]">
+      <Property Name="Down" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Numeric_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+    </MovementEntry>
+  </MovementOrder>
+  <TabSequence>
+    <TabSeqItem Index="0" Value="Source[local].Layer[MpBackground].Control[strUserName]"/>
+    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[txtSearchFilter]"/>
+    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[txtNewName]"/>
+    <TabSeqItem Index="3" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Numeric_1]"/>
+    <TabSeqItem Index="4" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Numeric_2]"/>
+    <TabSeqItem Index="5" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_1]"/>
+    <TabSeqItem Index="6" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_2]"/>
+    <TabSeqItem Index="7" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+    <TabSeqItem Index="8" Value="Source[embedded].Layer[Default].Control[lbxAlarmName1]"/>
+    <TabSeqItem Index="9" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+    <TabSeqItem Index="10" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
+    <TabSeqItem Index="11" Value="Source[embedded].Layer[Default].Control[lbxAlarmName4]"/>
+    <TabSeqItem Index="12" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Numeric_3]"/>
+  </TabSequence>
+</Page>

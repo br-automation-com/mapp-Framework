@@ -34,7 +34,6 @@ PROGRAM _INIT
 	MpBackupCoreConfig_0();
 
 	HmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackupFiles","text":"CF/PLC"}';
-	HmiBackup.Status.DeviceDataProviderVC4[0] := 'CF/PLC';
 
 	// Restored the retained values to the backup settings
 	HmiBackup.Parameters.AutomaticBackup := AutomaticBackupRetain;
@@ -42,6 +41,14 @@ PROGRAM _INIT
 END_PROGRAM
 
 PROGRAM _CYCLIC
+	
+	// Call all cyclic actions
+	FileManager;
+	IF NOT DiagCpuIsARsim() THEN
+		ChangeConfiguration;
+	END_IF
+	FormatDeviceDataProvider;
+	
 	CASE BackupState OF
 		BACKUP_IDLE:
 			HmiBackup.Status.CreateAllowed := NOT(MpBackupCore_0.Info.Automatic.Backup.InProgress) AND NOT HmiBackup.Status.SimulationActive;
@@ -207,49 +214,18 @@ PROGRAM _CYCLIC
 	HmiBackup.Status.Update := MpBackupCore_0.Info.Automatic.Update;
 	HmiBackup.Status.BackupCtrlEnabled := (NOT HmiBackup.Status.SimulationActive);
 
-	// Call all actions
-	FileManager;
-	IF NOT DiagCpuIsARsim() THEN
-		ChangeConfiguration;
-	END_IF
-
-	FormatDeviceDataProvider;
-	
-	
-	//vc4
-	IF HmiBackup.Status.DeviceDataProviderSelectedIndex = 0 THEN
-		HmiBackup.Parameters.AutomaticBackup.Device := 'mappBackupFiles';
-		
-	ELSIF HmiBackup.Status.DeviceDataProviderSelectedIndex = 1 THEN
-		HmiBackup.Parameters.AutomaticBackup.Device := 'USB';
-		
-	ELSIF HmiBackup.Status.DeviceDataProviderSelectedIndex = 2 THEN
-		HmiBackup.Parameters.AutomaticBackup.Device := '';
-		
-	ELSIF HmiBackup.Status.DeviceDataProviderSelectedIndex = 3 THEN
-		HmiBackup.Parameters.AutomaticBackup.Device := '';
-	END_IF;
-	
-	HmiBackup.Status.Layer.Creating := (BackupState <> BACKUP_CREATING);
-	HmiBackup.Status.ButtonOperation.VisibilityPageUpDown := NOT HmiBackup.Status.FileOverMax;
-	HmiBackup.Status.ButtonOperation.OperationCreate := HmiBackup.Status.CreateAllowed;
-	HmiBackup.Status.ButtonOperation.OperationRestore := HmiBackup.Status.RestoreAllowed;
-	//		HmiBackup.Status.ButtonOperation.OperationDelete := HmiBackup.Status.
-	//		HmiBackup.Status.ButtonOperation.OperationSettings := HmiBackup.Status.
-	HmiBackup.Status.ButtonOperation.OperationDelete := 1;
-	HmiBackup.Status.ButtonOperation.OperationSettings := 1;
-	
-	
-	
-	// Assign MpLinks
+	// Assign MpLinks & address references
 	MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
+	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpBackupCoreConfig_0.MpLink := ADR(gMpLinkBackupCore);
+	MpBackupCoreConfig_0.Configuration := ADR(MpBackupConfiguration);
 
 	// Call function blocks
 	MpBackupCore_0();
 	MpFileManagerUI_0();
 	MpBackupCoreConfig_0();
+	
 END_PROGRAM
 
 PROGRAM _EXIT

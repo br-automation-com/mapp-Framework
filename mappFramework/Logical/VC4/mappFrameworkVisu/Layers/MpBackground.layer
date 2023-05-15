@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<Layer xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpBackground">
+  <Property Name="BackColor" Value="9"/>
+  <Property Name="Description" Value="Background for all pages"/>
+  <Property Name="Height" Value="480"/>
+  <Property Name="Left" Value="0"/>
+  <Property Name="StatusDatapoint" Value="None"/>
+  <Property Name="Top" Value="0"/>
+  <Property Name="Width" Value="800"/>
+  <TextGroup>
+    <TextLayer LanguageId="en"/>
+    <TextLayer LanguageId="de"/>
+    <IndexMap/>
+  </TextGroup>
+  <Controls>
+    <Control ClassId="0x00001005" Name="bmpBackground">
+      <Property Name="Bitmap" Value="Source[local].Bitmap[MpBackgroundWVGA_Logo]"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillStyle" Value="Transparent"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="SimulationValue" Value="0"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="Width" Value="800"/>
+    </Control>
+    <Control ClassId="0x0000100A" Name="dtTime">
+      <Property Name="AlignmentHorizontal" Value="Center"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Font" Value="Source[local].Font[MpPads]"/>
+      <Property Name="Height" Value="15"/>
+      <Property Name="Left" Value="597"/>
+      <Property Name="SimulationValue" Value="10:26"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[MpDateTimeFormats]"/>
+      <Property Name="TextIndex" Value="3"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="6"/>
+      <Property Name="ValueDatapoint" Value="None"/>
+      <Property Name="Width" Value="81"/>
+    </Control>
+    <Control ClassId="0x0000100A" Name="dtDate">
+      <Property Name="AlignmentHorizontal" Value="Center"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="15"/>
+      <Property Name="Left" Value="597"/>
+      <Property Name="SimulationValue" Value="01/12/2014"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[MpDateTimeFormats]"/>
+      <Property Name="TextIndex" Value="1"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="24"/>
+      <Property Name="ValueDatapoint" Value="None"/>
+      <Property Name="Width" Value="81"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="txtLabel">
+      <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="28"/>
+      <Property Name="Left" Value="7"/>
+      <Property Name="Multiline" Value="Automatic"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value=""/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[MpUserXUITexts]"/>
+      <Property Name="TextIndexOffset" Value="16"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="8"/>
+      <Property Name="Width" Value="118"/>
+    </Control>
+    <Control ClassId="0x0000100B" Name="strUserName">
+      <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="28"/>
+      <Property Name="Left" Value="125"/>
+      <Property Name="SimulationValue" Value="ABC"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+      <Property Name="Top" Value="8"/>
+      <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.UserXLoginUIConnect.CurrentUser]"/>
+      <Property Name="Width" Value="109"/>
+    </Control>
+    <Control ClassId="0x00001003" Name="htsLogin">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_4]"/>
+      <Property Name="Height" Value="33"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="4"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+      <Property Name="Top" Value="5"/>
+      <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_4]"/>
+      <Property Name="Width" Value="232"/>
+    </Control>
+  </Controls>
+  <KeyMapping>
+    <VirtualKey Name="%embVirtualKey_4">
+      <Property Name="Description" Value=""/>
+      <Property Name="VirtualKey_LED" Value="False"/>
+      <KeyActions>
+        <KeyAction ClassId="0x00000160">
+          <Property Name="Description" Value=""/>
+          <Property Name="Locking" Value="Never"/>
+          <Property Name="Name" Value="Action_0"/>
+          <Property Name="Page" Value="None"/>
+          <Property Name="Target" Value="Page"/>
+        </KeyAction>
+      </KeyActions>
+    </VirtualKey>
+  </KeyMapping>
+</Layer>

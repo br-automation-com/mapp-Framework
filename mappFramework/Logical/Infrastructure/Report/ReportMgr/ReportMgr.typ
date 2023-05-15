@@ -15,6 +15,7 @@ TYPE
 		UseAdvancedFormat : BOOL; (*Whether or not the report should use the advanced format*)
 		PathOfReportToView : STRING[255]; (*The file path of the selected report*)
 		SelectedLanguage : STRING[10] := 'en'; (*Selected language*)
+		SortType : STRING[30]; (*How to sort reports for HMI*)
 	END_STRUCT;
 	ReportStatusType : 	STRUCT  (*Structure to hold the status information from the HMI*)
 		ViewAllowed : BOOL; (*Bit to indicate it is allowable to view a report right now*)
@@ -28,15 +29,12 @@ TYPE
 		TempFilePath : ARRAY[0..49]OF STRING[255]; (*A temporary variable used to concatonate and build the full file path of the selected file*)
 		FilePath : ARRAY[0..49]OF STRING[255]; (*The full file path of the selcted file*)
 		TimeStamps : ARRAY[0..49]OF DATE_AND_TIME; (*Time stamps for existing reports*)
-		TimeStampsText : ARRAY[0..49]OF STRING[80]; (*Time stamps for existing reports*)
 		Size : {REDUND_UNREPLICABLE} ARRAY[0..49]OF UDINT; (*Sizes of existing report files*)
 		SelectedIndex : USINT; (*Index of the selected file*)
 		LastSelectedIndex : USINT := 255; (*Index of the last selected report file*)
 		LastSelectedDeviceIndex : UINT; (*Index of the last selected file device. Compared with MpFileManagerUIConnect.DeviceList.SelectedIndex*)
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the list of available reports*)
 		FilterString : STRING[1000]; (*String used to filter out any file that is not a PDF*)
-		Layer : ReportStatusLayerType;
-		PageUpDownVisibility : USINT;
 	END_STRUCT;
 	ReportExampleType : 	STRUCT  (*Structure for the example data used by the two types of reports*)
 		SimpleReport : SimpleReportDataType; (*Structure for the simple report's example data*)
@@ -72,25 +70,4 @@ TYPE
 		FORMAT_SIMPLE, (*A simple report to showcase some features of mapp Report*)
 		FORMAT_ADVANCED (*An advanced report to showcase some features of mapp Report*)
 		);
-END_TYPE
-
-(**)
-
-TYPE
-	ReportStatusLayerType : 	STRUCT 
-		ReportCreate : USINT;
-		ReportDelete : USINT;
-		ReportView : USINT;
-	END_STRUCT;
-END_TYPE
-
-(**)
-(**)
-
-TYPE
-	HtmlViewType : 	STRUCT 
-		HTMLStream : STRING[255];
-		ChangeURLDatapoint : STRING[255];
-		CurrentURLDatapoint : STRING[255];
-	END_STRUCT;
 END_TYPE

@@ -13,8 +13,6 @@ TYPE
 		Delete : BOOL; (*Delete a backup*)
 		SaveConfig : BOOL; (*Save automatic backup configuration settings*)
 		Reset : BOOL; (*Error reset*)
-		PageDown : BOOL; (*Page Down*)
-		PageUp : BOOL; (*Page Up*)
 	END_STRUCT;
 	BackupHmiParametersType : 	STRUCT  (*Structure to hold the parameters for the HMI*)
 		Name : STRING[80] := 'myBackup'; (*Name of the backup*)
@@ -28,12 +26,8 @@ TYPE
 		BackupCtrlEnabled : BOOL; (*Disable control panel for Backup with in Sim*)
 		FileNames : ARRAY[0..49]OF STRING[80]; (*Existing backup file names*)
 		TimeStamps : ARRAY[0..49]OF DATE_AND_TIME; (*Time stamps for existing backups*)
-		TimeStampsString : ARRAY[0..49]OF STRING[80]; (*Time stamps for existing backups*)
-		Size : {REDUND_UNREPLICABLE} ARRAY[0..49]OF UDINT; (*Sizes of existing backup files*)
 		Info : MpBackupProjectInfoRequestType; (*Project information (name, configuration ID, configuration version)*)
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for file device dropdown on automatic backup configuration pop-up*)
-		DeviceDataProviderVC4 : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for file device dropdown on automatic backup configuration pop-up*)
-		DeviceDataProviderSelectedIndex : USINT;
 		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the list of available backups*)
 		SimulationActive : BOOL; (*Flag for if simulation is active*)
 		SelectedIndex : USINT; (*Index of the selected backup file*)
@@ -41,22 +35,6 @@ TYPE
 		LastSelectedDeviceIndex : UINT; (*Index of the last selected file device. Compared with MpFileManagerUIConnect.DeviceList.SelectedIndex*)
 		FileOverMax : BOOL; (*Active when more than 50 items detected*)
 		Update : MpBackupAutoUpdateInfoType;
-		Layer : BackupHmiStatusLayerType;
-		ButtonOperation : BackupHmiStatusButtonOperatiType;
-	END_STRUCT;
-	BackupHmiStatusButtonOperatiType : 	STRUCT 
-		VisibilityPageUpDown : USINT;
-		OperationCreate : USINT;
-		OperationDelete : USINT;
-		OperationRestore : USINT;
-		OperationSettings : USINT;
-	END_STRUCT;
-	BackupHmiStatusLayerType : 	STRUCT 
-		Creating : USINT;
-		Create : USINT;
-		Delete : USINT;
-		Restore : USINT;
-		Settings : USINT;
 	END_STRUCT;
 	AutomaticBackupType : 	STRUCT  (*Automatic backup settings*)
 		Enable : BOOL; (*Enable automatic backup feature*)

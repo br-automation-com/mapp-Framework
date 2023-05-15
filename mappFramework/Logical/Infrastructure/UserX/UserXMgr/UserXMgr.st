@@ -15,9 +15,6 @@ PROGRAM _INIT
 		DirCreate_0(enable := FALSE);
 	END_IF
 
-	// if the system has been opened just now
-	HMIAction_Init;
-	
 	// Initialize mapp function blocks
 	UserXMgrUIConnect.User.Create.Lock := FALSE;
 	UserXMgrUIConnect.User.Lock := FALSE;
@@ -60,11 +57,17 @@ PROGRAM _CYCLIC
 		MpUserXLogin_0.ErrorReset := FALSE;
 	END_IF
 
+	// Call all cyclic actions
 	HMIAction;
+	
+	// Saving last status of UserXMgrUIconnect
+	HmiUserX.Status.LastMgrConnectStatus := UserXMgrUIConnect.Status;
 
-	// Assign MpLinks
+	// Assign MpLinks & address references
 	MpUserXManagerUI_0.MpLink := ADR(gMpLinkUserXLogin);
+	MpUserXManagerUI_0.UIConnect := ADR(UserXMgrUIConnect);
 	MpUserXLoginUI_0.MpLink := ADR(gMpLinkUserXLogin);
+	MpUserXLoginUI_0.UIConnect := ADR(UserXLoginUIConnect);
 	MpUserXLogin_0.MpLink := ADR(gMpLinkUserXLogin);
 
 	// Call function blocks

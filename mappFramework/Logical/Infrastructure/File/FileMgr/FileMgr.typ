@@ -10,31 +10,18 @@ TYPE
 		Delete : BOOL; (*Delete file*)
 		FolderUp : BOOL; (*Move back/up a folder*)
 		EnterFolder : BOOL; (*Move forward/down a folder*)
+		MultiSelect : BOOL; (*Enables the ability to select multiple files*)
 		CheckFolder : BOOL; (*Run the FIFO check to determine if old files should be deleted*)
-		FileList : FileHmiCommandsFileListType;
 	END_STRUCT;
-	FileHmiCommandsFileListType : 	STRUCT 
-		PageDown : BOOL;
-		PageUp : BOOL;
-		StepDown : BOOL;
-		StepUp : BOOL;
-		Clicked : BOOL;
-	END_STRUCT;
-END_TYPE
-
-(**)
-
-TYPE
 	FileHmiParametersType : 	STRUCT  (*Structure to hold parameters for the mapp View HMI*)
 		OldSortOrder : MpFileManagerUISortOrderEnum; (*Previous sord order*)
 		Fifo : FileHmiParaFifoType; (*Parameters for the FIFO feature (first-in-first-out)*)
 	END_STRUCT;
 	FileHmiStatusType : 	STRUCT  (*Structure to hold status information from the mapp View HMI*)
 		FileNames : ARRAY[0..49]OF STRING[80]; (*List of file names*)
-		TimeStamps : ARRAY[0..49]OF STRING[80]; (*List of time stamps for file names*)
-		InfoFile : FileHmiStatusInfoFileType;
+		TimeStamps : ARRAY[0..49]OF DATE_AND_TIME; (*List of time stamps for file names*)
 		Type : ARRAY[0..49]OF DINT; (*List of file types*)
-		Size : ARRAY[0..49]OF STRING[80]; (*List of file sizes*)
+		Size : ARRAY[0..49]OF UDINT; (*List of file sizes*)
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for the file device selector*)
 		FifoSelect : ARRAY[0..MAX_IDX_FILE_DEV]OF DINT; (*Indicate FIFO selected file device*)
 		DeviceName : STRING[50]; (*File device name*)
@@ -43,21 +30,11 @@ TYPE
 		IsFolder : BOOL; (*Flag for whether the item is a folder (versus a file)*)
 		BackButton : BOOL; (*Flag for whether the back button should be shown*)
 		DeleteStep : FileDeleteStepEnum; (*Enumeration for automatic file deletion steps*)
-		AutoDeleteSelected : USINT; (*Number of selected items*)
+		AutoDeleteSelected : USINT; (*Index for automatic file deletion*)
 		FolderSize : REAL; (*Size of currently selected folder*)
 		SelectedIndex : USINT; (*Selected index in the file list*)
 		FifoConfigEnable : BOOL; (*Disable FIFO access or change confirmation when FIFO is active*)
-		FIFOLayerStatus : USINT;
-		FIFOLayerObjects : FileHmiStatusFIFOLayerObjType;
 		DefaultFileSelected : BOOL; (*The default recipe is selected*)
-	END_STRUCT;
-	FileHmiStatusFIFOLayerObjType : 	STRUCT 
-		MaxNumberOfFilesVisiblity : USINT;
-		MaxFolderSizeVisiblity : USINT;
-	END_STRUCT;
-	FileHmiStatusInfoFileType : 	STRUCT 
-		isSelected : ARRAY[0..49]OF STRING[1];
-		Type : ARRAY[0..49]OF STRING[80];
 	END_STRUCT;
 	FileHmiParaFifoType : 	STRUCT  (*Parameters for the FIFO feature (first-in-first-out)*)
 		Enable : BOOL; (*FIFO enable*)
@@ -67,7 +44,6 @@ TYPE
 		MaxFileAge : UINT := 365; (*[days] Files older than 1 year will be deleted*)
 		MaxFolderSize : REAL := 1000; (*[kB] - Max size of files inside the active folder*)
 		MaxNumberOfFiles : UINT := 20; (*Max number of files inside active folder*)
-		SelectedDevice : UINT;
 	END_STRUCT;
 	FilePathCheckType : 	STRUCT  (*Setup for checking available folders / file devices for FIleManager*)
 		Folder : ARRAY[0..9]OF STRING[20]; (*Folder name in user partition*)

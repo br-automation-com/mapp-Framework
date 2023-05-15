@@ -5,7 +5,6 @@ VAR
 	R_TRIG_CheckStatus : R_TRIG; (*Trigger function block*)
 	TON_Wait : TON; (*FIFO handling support*)
 	TON_ScanFolder : TON; (*Timer to scan for folder*)
-	TON_EnterFolder : TON; (*Time to delay EnterFolder command so file list can refresh*)
 	CurrentIndex : UDINT; (*FIFO handling support deleting more then 50 files*)
 	DirRead_FolderSize : DirRead; (*FIFO handling support reading current folder size*)
 END_VAR
@@ -40,10 +39,7 @@ END_VAR
 VAR RETAIN
 	FifoSettingsRetain : {REDUND_UNREPLICABLE} FileHmiParaFifoType; (*Store FIFO settings in retain memory to be applied after boot*)
 END_VAR
-(**)
-VAR CONSTANT
-	DISPLAY : USINT := 0;
-	HIDE : USINT := 1;
+VAR
+	NextOpenIndex : USINT; (*Index for the next open slot in mpFileManagerUICOnnect device list which populates table*)
+	index : USINT; (*Index for FOR loop cheking paths*)
 END_VAR
-(**)
-(**)

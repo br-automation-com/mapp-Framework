@@ -54,12 +54,21 @@ ACTION ExecuteQuery:
 		HmiAlarmX.Status.Query.Name[i] := AlarmQuery.Alarms[i].Name;
 		HmiAlarmX.Status.Query.Message[i] := AlarmQuery.Alarms[i].Message;
 		HmiAlarmX.Status.Query.AdditionalInfo[i] := AlarmQuery.Alarms[i].AdditionalInfo;
-		
-		HmiAlarmX.Status.Query.TimeStamp[i] := DT_TO_STRING(AlarmQuery.Alarms[i].TimeStamp);
-		HmiAlarmX.Status.Query.TimeStamp[i] := RIGHT(HmiAlarmX.Status.Query.TimeStamp[i], 19);
-		
+		HmiAlarmX.Status.Query.TimeStamp[i] := AlarmQuery.Alarms[i].TimeStamp;
 		HmiAlarmX.Status.Query.Severity[i] := AlarmQuery.Alarms[i].Severity;
+		
+		IF HmiAlarmX.Status.Query.Active[i] AND NOT HmiAlarmX.Status.Query.Acknowledged[i] THEN
+			HmiAlarmX.Status.Query.State[i] := ACTIVE_NOT_ACKNOWLEDGED;
+		ELSIF HmiAlarmX.Status.Query.Active[i] AND HmiAlarmX.Status.Query.Acknowledged[i] THEN
+			HmiAlarmX.Status.Query.State[i] := ACTIVE_ACKNOWLEDGED;
+		ELSIF NOT HmiAlarmX.Status.Query.Active[i] AND NOT HmiAlarmX.Status.Query.Acknowledged[i] THEN
+				HmiAlarmX.Status.Query.State[i] := INACTIVE_NOT_ACKNOWLEDGED;
+		ELSIF NOT HmiAlarmX.Status.Query.Active[i] AND HmiAlarmX.Status.Query.Acknowledged[i] THEN
+				HmiAlarmX.Status.Query.State[i] := INACTIVE_ACKNOWLEDGED;
+		END_IF
+		
 	END_FOR
-	
+
+
 
 END_ACTION

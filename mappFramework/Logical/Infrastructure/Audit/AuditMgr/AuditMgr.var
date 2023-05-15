@@ -6,7 +6,6 @@ VAR
 	MpAuditTrail_CEvents : MpAuditTrail; (*AuditTrail for custom events*)
 	QueryUserEvents_0 : {REDUND_UNREPLICABLE} MpAuditQuery; (*MpAlarmXQuery instance*)
 	MpAuditTrailUI_0 : MpAuditTrailUI; (*AuditTrail UI interface*)
-	MpAuditTrail_CEvents_UI_0 : MpAuditTrailUI; (*AuditTrail UI interface*)
 END_VAR
 (*Constants*)
 VAR CONSTANT
@@ -21,8 +20,6 @@ VAR
 	AuditQuery : {REDUND_UNREPLICABLE} AuditQueryType; (*Query results and status*)
 	AuditTrailConfig : MpAuditTrailConfigType; (*Configuration structure for changing archiving setup*)
 	MpAuditTrailUIConnect : MpAuditTrailUIConnectType; (*MpAuditUI connection to the HMI*)
-	MpAuditTrailUISetup : MpAuditTrailUISetupType; (*MpAuditUI setup connection to the HMI*)
-	MpAuditTrail_CEvents_UIConnect : MpAuditTrailUIConnectType; (*MpAuditUI connection to the HMI*)
 END_VAR
 (*Variables*)
 VAR
@@ -32,9 +29,4 @@ VAR
 END_VAR
 VAR RETAIN
 	ArchiveSettingsRetain : AuditArchiveParType; (*Store settings in retain memory to be applied after boot*)
-END_VAR
-(**)
-VAR CONSTANT
-	DISPLAY : USINT := 0;
-	HIDE : USINT := 1;
 END_VAR

@@ -1,22 +1,15 @@
+(*Structure types*)
 
 TYPE
 	AuditQueryHMIType : 	STRUCT  (*Datatype for the structure which rearranges the query data from AuditQuery into a structure of arrays for easy connection to the Table widget in mapp View*)
 		EvTime : ARRAY[0..MAX_QUERY_RESULTS]OF DATE_AND_TIME; (*ActiveAudits query, Event-Time column*)
-		EvTimeString : ARRAY[0..MAX_QUERY_RESULTS]OF STRING[80]; (*ActiveAudits query, Event-Time column*)
 		Text : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[100]; (*ActiveAudits query, Text column*)
 		DText : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[100]; (*ActiveAudits query, Display Text column*)
 		Op : ARRAY[0..MAX_QUERY_RESULTS]OF WSTRING[100]; (*ActiveAudits query, Operator-Name column*)
 		QueryCount : USINT; (*Count of query results for building the query table configuration string*)
 		Name : STRING[80]; (*Name of the query to be executed*)
 		Option : USINT; (*Index value of the selected query type in the dropdown on the query tab*)
-		DPSelectedIndex : USINT;
 	END_STRUCT;
-	ActiveAuditStateEnum : 
-		( (*Enumeration for the state for the query state machine*)
-		ACTIVE_AUDIT_WAIT, (*Wait state*)
-		ACTIVE_AUDIT_QUERY, (*State to query the Audit data*)
-		ACTIVE_AUDIT_NEXT (*State to check if more Audits meet the query criteria and need to be queried*)
-		);
 	AuditCustomEventType : 	STRUCT  (*Structure for custom events handling*)
 		Set : BOOL; (*Trigger the assigned function*)
 		Type : WSTRING[100]; (*Entered when creating the entry under %typ*)
@@ -33,7 +26,7 @@ TYPE
 	END_STRUCT;
 	AuditHmiInterfaceType : 	STRUCT  (*Structure to hold commands and status from the HMI*)
 		Commands : AuditCommandsType; (*HMI commands*)
-		Parameters : AuditParType; (*HMI parameters*)
+		Parameters : AuditParametersType; (*HMI parameters*)
 		Status : {REDUND_UNREPLICABLE} AuditStatusType; (*HMI status*)
 	END_STRUCT;
 	AuditCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
@@ -51,12 +44,8 @@ TYPE
 		ArchiveAvailable : BOOL; (*At least 1 archive is available for export*)
 		NumberOfArchives : UINT; (*How many archives are available for export*)
 		DeviceDataProvider : ARRAY[0..1]OF STRING[100]; (*Data provider for the file device selector*)
-		DeviceDataProviderVC4 : ARRAY[0..1]OF STRING[100]; (*Data provider for the file device selector*)
-		ArchiveSetupLayer : USINT;
-		ArchiveSetupTimeOfDayVisibility : USINT;
-		ArchiveSetupVisibility : USINT;
 	END_STRUCT;
-	AuditParType : 	STRUCT  (*Structure to hold parameter data for the HMI*)
+	AuditParametersType : 	STRUCT  (*Structure to hold parameter data for the HMI*)
 		ArchiveSettings : AuditArchiveParType; (*Parameter for archive configuration*)
 		QuerySelection : ARRAY[0..MAX_QUERIES]OF STRING[10]; (*The selection in the query dropdown on the query tab of the Audit content*)
 	END_STRUCT;
@@ -77,3 +66,12 @@ TYPE
 END_TYPE
 
 (*Enumerations*)
+
+TYPE
+	ActiveAuditStateEnum : 
+		( (*Enumeration for the state for the query state machine*)
+		ACTIVE_AUDIT_WAIT, (*Wait state*)
+		ACTIVE_AUDIT_QUERY, (*State to query the Audit data*)
+		ACTIVE_AUDIT_NEXT (*State to check if more Audits meet the query criteria and need to be queried*)
+		);
+END_TYPE

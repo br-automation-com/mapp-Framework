@@ -1,16 +1,22 @@
-ACTION HMIActions_Init:	
-	
-	HmiRecipe.Status.CreateRecipeLayer.ParsStatus 	    	:= HIDE;
-	HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus 	:= HIDE;
-	HmiRecipe.Status.DefaultRecipeLayer.Status 		    	:= HIDE;
-	HmiRecipe.Status.RecipeLoadLayer.Status 		    	:= HIDE;
-	HmiRecipe.Status.EditRecipeLayer.ParsStatus		    	:= HIDE;
-	HmiRecipe.Status.EditRecipeLayer.MachConfigStatus   	:= HIDE;
-	HmiRecipe.Status.DuplicateLayer 					    := HIDE;
-	HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= UNLOCK;
+ACTION FormatDeviceDataProvider:
+
+	// Select CF device if USB device is not available
+	FOR i := 0 TO ((SIZEOF(gUSBAvailable) / SIZEOF(gUSBAvailable[0])) - 1) DO
+		IF gUSBAvailable[i] THEN
+			HmiRecipe.Status.DeviceDataProvider[i + 1] := '{"value":"USB';
+			brsitoa(i + 1, ADR(HmiRecipe.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiRecipe.Status.DeviceDataProvider[i + 1])));
+			brsstrcat(ADR(HmiRecipe.Status.DeviceDataProvider[i + 1]), ADR('","text":"USB'));
+			brsitoa(i + 1, ADR(HmiRecipe.Status.DeviceDataProvider[i + 1]) + brsstrlen(ADR(HmiRecipe.Status.DeviceDataProvider[i + 1])));
+			brsstrcat(ADR(HmiRecipe.Status.DeviceDataProvider[i + 1]), ADR('"}'));
+			MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1] := 'USB';
+			brsitoa(i + 1, ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]) + brsstrlen(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1])));
+		ELSE
+			brsmemset(ADR(HmiRecipe.Status.DeviceDataProvider[i + 1]), 0, SIZEOF(HmiRecipe.Status.DeviceDataProvider[i + 1]));
+			brsmemset(ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]), 0, SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[i + 1]));
+		END_IF
+	END_FOR
 	
 END_ACTION
-
 
 ACTION LoadStatus:
 	// Configure visible recipe list
@@ -29,113 +35,36 @@ ACTION LoadStatus:
 END_ACTION
 
 ACTION LoadPreview:
+
 	
-	// Category name genarate	
-	IF HmiRecipe.Parameters.CategoryIndex = PARAMETERS_CATEGORY_INDEX THEN
-		MpRecipeUIConnect.Recipe.Filter := '*par';
-		HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
-	ELSIF HmiRecipe.Parameters.CategoryIndex = MACH_CONFIG_CATEGORY_INDEX THEN
-		MpRecipeUIConnect.Recipe.Filter := '*mcfg';
-		HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
-	END_IF;
-	IF EDGEPOS(HmiRecipe.Parameters.CategoryIndex = PARAMETERS_CATEGORY_INDEX) OR 
-		EDGEPOS(HmiRecipe.Parameters.CategoryIndex = MACH_CONFIG_CATEGORY_INDEX) THEN
-		MpRecipeUIConnect.Recipe.Refresh := TRUE;
-	END_IF;
-	
-	
-	// Default recipe create Layer manager
-	IF HmiRecipe.Status.CreateRecipeLayer.ParsStatus = HIDE AND HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus = HIDE AND
-		((HmiRecipe.Status.ParameterRecipeMissing AND HmiRecipe.Parameters.Category = PARAMETERS_CATEGORY) OR
-		(HmiRecipe.Status.MachineSettingsRecipeMissing AND HmiRecipe.Parameters.Category = MACHINE_CONFIGURATION_CATEGORY)) THEN
-		HmiRecipe.Status.DefaultRecipeLayer.Status := DISPLAY;
-	ELSE
-		HmiRecipe.Status.DefaultRecipeLayer.Status := HIDE;	
-	END_IF;
-	
-	// Create Recipe Layer manager
-	IF HmiRecipe.Parameters.Category = PARAMETERS_CATEGORY THEN
-		IF HmiRecipe.Status.CreateDialogOpened THEN
-			HmiRecipe.Status.CreateRecipeLayer.ParsStatus := DISPLAY;	  
-		END_IF;	
-		IF HmiRecipe.Status.CreateRecipeLayer.ParsStatus = DISPLAY AND
-			(MpRecipeUIConnect.MessageBox.Cancel OR HmiRecipe.Commands.CreateRecipe) THEN
-			HmiRecipe.Status.CreateRecipeLayer.ParsStatus := HIDE;
-		END_IF;		
-		
-	ELSIF HmiRecipe.Parameters.Category = MACHINE_CONFIGURATION_CATEGORY THEN
-		IF HmiRecipe.Status.CreateDialogOpened THEN
-			HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus := DISPLAY;	  
-		END_IF;	
-		IF HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus = DISPLAY AND
-			(MpRecipeUIConnect.MessageBox.Cancel OR HmiRecipe.Commands.CreateRecipe) THEN
-			HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus := HIDE;
-		END_IF;
-	END_IF;
-	
-	// Lock File name input in create layer
-	IF HmiRecipe.Status.CreateRecipeLayer.ParsStatus = DISPLAY AND
-		HmiRecipe.Status.ParameterRecipeMissing THEN		
-		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= LOCK;		
-	ELSIF HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus = DISPLAY AND
-		HmiRecipe.Status.MachineSettingsRecipeMissing THEN	  
-		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= LOCK;
-	ELSE		
-		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= UNLOCK;
-	END_IF;
-	
-	// File Duplicate manager
-	IF HmiRecipe.Commands.CreateRecipe AND
-		HmiRecipe.Status.FileDuplicate AND
-		HmiRecipe.Status.DuplicateLayer = HIDE THEN
-	  
-		HmiRecipe.Commands.CreateRecipe := FALSE;
-		HmiRecipe.Status.DuplicateLayer := DISPLAY;
-		
-	ELSIF HmiRecipe.Commands.CreateRecipe THEN		
-		HmiRecipe.Status.DuplicateLayer := HIDE;
-	END_IF;
-	
-	// Preview Recipe Layer manager
-	IF HmiRecipe.Parameters.Category = MACHINE_CONFIGURATION_CATEGORY THEN
-		HmiRecipe.Status.PreviewRecipeLayer.ParsStatus 		 := HIDE;
-		HmiRecipe.Status.PreviewRecipeLayer.MachConfigStatus := DISPLAY;
-		
-	ELSIF HmiRecipe.Parameters.Category = PARAMETERS_CATEGORY THEN
-		HmiRecipe.Status.PreviewRecipeLayer.MachConfigStatus := HIDE;
-		HmiRecipe.Status.PreviewRecipeLayer.ParsStatus 		 := DISPLAY;	  
-	END_IF;
-	
-	// Active Recipe declare	
-	IF HmiRecipe.Parameters.Category = PARAMETERS_CATEGORY THEN	
-		HmiRecipe.Status.ActiveRecipe := HmiRecipe.Status.LastLoadedProductRecipe;
-		
-	ELSIF HmiRecipe.Parameters.Category = MACHINE_CONFIGURATION_CATEGORY THEN		
-		HmiRecipe.Status.ActiveRecipe := HmiRecipe.Status.LastLoadedConfigRecipe;
-	END_IF;
-	
-	// Recipe Edit manager
-	IF HmiRecipe.Status.EditRecipeLayer.Save THEN
-		HmiRecipe.Status.EditRecipeLayer.Save			  := FALSE;		
-		HmiRecipe.Status.EditRecipeLayer.ParsStatus		  := HIDE;
-		HmiRecipe.Status.EditRecipeLayer.MachConfigStatus := HIDE;
-		
-		HmiRecipe.Commands.SaveSelectedRecipe := TRUE;
-		HmiRecipe.Commands.LoadRecipe 		  := TRUE;
-	END_IF;
-	
-	// Load preview when a recipe is selected
-	IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR (HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection) THEN
-		// Check selected recipe name is not empty
-		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
-			MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
-			MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
-			MpRecipe_0.Load := TRUE;
-			HmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
-			HmiRecipe.Status.LastMaxSelection := MpRecipeUIConnect.Recipe.List.MaxSelection;
-			HmiRecipe.Status.InvalidRecipe := FALSE;
-		END_IF
-	END_IF
+	CASE HmiRecipe.Status.PreviewCase OF
+		PREVIEW_WAIT:
+			// Load preview when a recipe is selected
+			IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR (HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection)
+				OR (HmiRecipe.Status.PreviousRangeStart <> MpRecipeUIConnect.Recipe.List.RangeStart) OR (HmiRecipe.Status.PreviousRangeStart <> MpRecipeUIConnect.Recipe.List.RangeStart) THEN
+				HmiRecipe.Status.PreviewCase := PREVIEW_LOAD;
+			END_IF
+			
+		PREVIEW_LOAD:
+			// Check selected recipe name is not empty
+			IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
+				MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
+				MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
+				MpRecipe_0.Load := TRUE;
+				HmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
+				HmiRecipe.Status.LastMaxSelection := MpRecipeUIConnect.Recipe.List.MaxSelection;
+				HmiRecipe.Status.PreviousRangeStart := MpRecipeUIConnect.Recipe.List.RangeStart;
+				HmiRecipe.Status.PreviousRangeEnd := MpRecipeUIConnect.Recipe.List.RangeEnd;
+				HmiRecipe.Status.InvalidRecipe := FALSE;
+				HmiRecipe.Status.PreviewCase := PREVIEW_CHANGE;
+			END_IF
+			
+		PREVIEW_CHANGE:
+			//Load a second time to ensure correct preview on page up/page down
+			MpRecipe_0.Load := TRUE;	
+			HmiRecipe.Status.PreviewCase := PREVIEW_WAIT;
+
+	END_CASE;
 
 	// Reset load command on MpRecipe_0 FUB
 	IF MpRecipe_0.StatusID <> 0 THEN
@@ -166,7 +95,6 @@ ACTION RecipeHMIcommands:
 				HmiRecipe.Commands.SaveSelectedRecipe := FALSE;
 			ELSIF HmiRecipe.Commands.LoadRecipe THEN
 				HmiRecipe.Status.HMIcommand := REC_HMI_LOAD;
-				HmiRecipe.Status.RecipeLoadLayer.Status := HIDE;
 				HmiRecipe.Commands.LoadRecipe := FALSE;
 				IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
 					HmiRecipe.Status.ProductRecipeLoaded := FALSE;
@@ -223,6 +151,7 @@ ACTION RecipeHMIcommands:
 						// Otherwise, the last loaded recipe is the selected recipe
 					ELSE
 						HmiRecipe.Status.LastLoadedProductRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
+						HmiRecipeRetain.LastLoadedProductRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
 					END_IF
 				ELSIF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 					MachineSettings := MachineSettingsPreview;
@@ -235,6 +164,7 @@ ACTION RecipeHMIcommands:
 						// Otherwise, the last loaded recipe is the selected recipe
 					ELSE
 						HmiRecipe.Status.LastLoadedConfigRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
+						HmiRecipeRetain.LastLoadedConfigRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
 					END_IF
 				END_IF
 				HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
@@ -267,6 +197,10 @@ ACTION RecipeHMIcommands:
 
 	END_CASE
 
+	//	IF NOT MpRecipe_0.CommandBusy AND brsstrcmp(ADR(HmiRecipe.Status.PreviousRecipe), ADR(HmiRecipe.Parameters.FileName)) <> 0 THEN
+	//		HmiRecipe.Parameters.FileName := HmiRecipe.Status.PreviousRecipe;
+	//	END_IF
+
 	// If the Edit or Create dialog boxes open, copy the Preview structure into the Edit structure.
 	IF HmiRecipe.Status.EditDialogOpened OR HmiRecipe.Status.CreateDialogOpened THEN
 		IF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(PARAMETERS_RECIPE)) = 0) THEN
@@ -276,13 +210,6 @@ ACTION RecipeHMIcommands:
 			ELSE
 				HmiRecipe.Parameters.FileName:= 'newParameters';
 			END_IF
-			
-			// Open parameter dialog
-			IF HmiRecipe.Status.EditDialogOpened THEN
-				HmiRecipe.Status.EditRecipeLayer.ParsStatus := DISPLAY;				
-			ELSIF HmiRecipe.Status.CreateDialogOpened THEN
-			END_IF;
-			
 		ELSIF (brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_RECIPE)) = 0) THEN
 			MachineSettingsEdit := MachineSettingsPreview;
 			IF HmiRecipe.Status.MachineSettingsRecipeMissing THEN
@@ -290,15 +217,7 @@ ACTION RecipeHMIcommands:
 			ELSE
 				HmiRecipe.Parameters.FileName := 'newMachineConfig';
 			END_IF
-			
-			// Open machine dialog
-			IF HmiRecipe.Status.EditDialogOpened THEN
-				HmiRecipe.Status.EditRecipeLayer.MachConfigStatus := DISPLAY;
-			ELSIF HmiRecipe.Status.CreateDialogOpened THEN
-			END_IF;
-			
 		END_IF
-			
 		HmiRecipe.Status.EditDialogOpened := FALSE;
 		HmiRecipe.Status.CreateDialogOpened := FALSE;
 	END_IF
@@ -317,8 +236,12 @@ ACTION RecipeHMIcommands:
 		END_IF
 	END_FOR
 
+	// Set whether the loading .gif should be shown on the HMI
+	HmiRecipe.Status.LoadingRecipeList := (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_REFRESH);
+	HmiRecipe.Status.DefaultRecipeSelected := (HmiRecipe.Status.SelectedRecipe = CONCAT(DEFAULT_PARAMETERS,PARAMETERS_FILE_EXTENSION)) OR (HmiRecipe.Status.SelectedRecipe = CONCAT(DEFAULT_MACHINE_CONFIGURATION, MACHINE_CONFIG_FILE_EXTENSION));
+	
 	// Update status information
 	HmiRecipe.Status.LastStatus := MpRecipeUIConnect.Status;
 	HmiRecipe.Status.SelectedRecipe := MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex];
-
+	
 END_ACTION

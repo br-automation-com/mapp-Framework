@@ -15,10 +15,6 @@ PROGRAM _INIT
 		DirCreate_0(enable := FALSE);
 	END_IF
 
-	
-	// if the system has been opened just now
-	HMIAction_Init;
-	
 	// Call action to intialize alarm samples
 	AlarmSampleInit;
 
@@ -54,16 +50,14 @@ PROGRAM _CYCLIC
 		MpAlarmXListUIConnect.AcknowledgeAll := TRUE;
 	END_IF
 
-	IF (HmiAlarmX.Commands.ExportAlarms = TRUE) THEN
-		MpAlarmXHistory_0.Export := TRUE;
-	END_IF
 
 	// Call all cyclic actions
 	AlarmHandling;
+	GetBacktraceInformation;
 	ExecuteQuery;
+	QueryTableConfig;
 	AlarmSampleFub;
-	HMIActions;
-
+	ExportAlarms;
 
 	// Check if any reactions are active.
 	// Typically the MpAlarmXCheckReaction() function is called from other tasks within the application.
@@ -75,11 +69,6 @@ PROGRAM _CYCLIC
 		// Warning is active. Add code here to respond to warning situation.
 	ELSIF MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Info') THEN
 		// Info is active. Add code here to resond to info situation.
-	END_IF
-
-	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
-		HmiAlarmX.Commands.ExportAlarms := FALSE;
-		MpAlarmXHistory_0.Export := FALSE;
 	END_IF
 
 	// Error reset
@@ -96,11 +85,12 @@ PROGRAM _CYCLIC
 		MpAlarmXHistoryUI_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks & UIConnects
+	// Assign MpLinks & address references
 	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUI_0.MpLink := ADR(gMpLinkAlarmXCore);
 	MpAlarmXListUI_0.UIConnect := ADR(MpAlarmXListUIConnect);
 	MpAlarmXHistory_0.MpLink := ADR(gMpLinkAlarmXHistory);
+	MpAlarmXHistory_0.DeviceName := ADR('mappAlarmXFiles');
 	MpAlarmXHistoryUI_0.MpLink := ADR(gMpLinkAlarmXHistory);
 	MpAlarmXHistoryUI_0.UIConnect := ADR(MpAlarmXHistoryUIConnect);
 
@@ -109,7 +99,7 @@ PROGRAM _CYCLIC
 	MpAlarmXListUI_0();
 	MpAlarmXHistory_0();
 	MpAlarmXHistoryUI_0();
-	
+
 END_PROGRAM
 
 PROGRAM _EXIT

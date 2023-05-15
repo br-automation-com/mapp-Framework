@@ -1,32 +1,20 @@
 ACTION FIFOOperation:
 
 	R_TRIG_CheckStatus(CLK := (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CHANGE_DIR) OR
-	(MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CHANGE_DEVICE) OR
-	(MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CREATE));
+							  (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CHANGE_DEVICE) OR
+							  (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CREATE));
 
 	IF R_TRIG_CheckStatus.Q OR TON_ScanFolder.Q THEN
 		HmiFile.Commands.CheckFolder := HmiFile.Parameters.Fifo.Enable;
 	END_IF
 
-	// FIFO dropdown device should be same selected device
-	IF EDGEPOS(HmiFile.Status.FIFOLayerStatus = DISPLAY) THEN
-		HmiFile.Parameters.Fifo.SelectedDevice := MpFileManagerUIConnect.DeviceList.SelectedIndex;		
-	END_IF;
-	
-	//device name declare	
-	HmiFile.Parameters.Fifo.DeviceName := HmiFile.Status.DeviceDataProvider[HmiFile.Parameters.Fifo.SelectedDevice];
-
-	
-	IF HmiFile.Status.FIFOLayerStatus = DISPLAY THEN
-		brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
-		FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
-			IF (HmiFile.Parameters.Fifo.DeviceName = MpFileManagerUIConnect.DeviceList.DeviceNames[i]) AND HmiFile.Parameters.Fifo.Enable THEN
-				HmiFile.Status.FifoSelect[i] := 1;
-				EXIT;
-			END_IF
-		END_FOR
-	END_IF
-
+	brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));
+	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
+		IF (HmiFile.Parameters.Fifo.DeviceName = MpFileManagerUIConnect.DeviceList.DeviceNames[i]) AND HmiFile.Parameters.Fifo.Enable THEN
+			HmiFile.Status.FifoSelect[i] := 1;
+			EXIT;
+		END_IF
+	END_FOR
 
 	// Autodelete oldest files based on scanning option
 	CASE HmiFile.Status.DeleteStep OF
@@ -269,37 +257,16 @@ ACTION FIFOOperation:
 				END_IF
 			END_IF
 	END_CASE
-	
-	
-	
-	// FIFO objects manage
-	IF HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_NUM_OF_FILES THEN
-		HmiFile.Status.FIFOLayerObjects.MaxFolderSizeVisiblity := HIDE;
-		HmiFile.Status.FIFOLayerObjects.MaxNumberOfFilesVisiblity := DISPLAY;
-		
-	ELSIF HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_SIZE_OF_FOLDER THEN
-		HmiFile.Status.FIFOLayerObjects.MaxFolderSizeVisiblity := DISPLAY;
-		HmiFile.Status.FIFOLayerObjects.MaxNumberOfFilesVisiblity := HIDE;
-		
-	ELSE
-		HmiFile.Status.FIFOLayerObjects.MaxFolderSizeVisiblity := HIDE;
-		HmiFile.Status.FIFOLayerObjects.MaxNumberOfFilesVisiblity := HIDE;
-	END_IF
-	
 
 	// Save current archive setings to retain variable
-	FifoSettingsRetain := HmiFile.Parameters.Fifo;	
+	FifoSettingsRetain := HmiFile.Parameters.Fifo;
 	
 	// Timer to scan file device in intervals
 	TON_ScanFolder(PT := DINT_TO_TIME(HmiFile.Parameters.Fifo.ScanInterval * 60000));
 
 	MpFileManagerUIConnect_FIFO.DeviceList.DeviceNames[0] := HmiFile.Parameters.Fifo.DeviceName;
 	MpFileManagerUI_FIFO.UIConnect := ADR(MpFileManagerUIConnect_FIFO);
-	// Assign MpLink
-	MpFileManagerUI_FIFO.MpLink := ADR(gMpLinkFileManagerUIFile_FIFO);
-
 	MpFileManagerUI_FIFO.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items) / SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items[0]);
-	// Call function block
-	MpFileManagerUI_FIFO();
+
 
 END_ACTION

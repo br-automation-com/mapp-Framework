@@ -39,14 +39,6 @@ PROGRAM _INIT
 	MpAuditTrailUI_0.Enable := TRUE;
 	MpAuditTrailUI_0();
 	
-	MpAuditTrail_CEvents_UI_0.MpLink := ADR(gMpLinkCustomEvents);
-	MpAuditTrail_CEvents_UI_0.UIConnect := ADR(MpAuditTrail_CEvents_UIConnect);
-	MpAuditTrail_CEvents_UI_0.UISetup.EventListSize := SIZEOF(MpAuditTrail_CEvents_UIConnect.Output.EventID) / SIZEOF(MpAuditTrail_CEvents_UIConnect.Output.EventID[0]);
-	MpAuditTrail_CEvents_UI_0.UISetup.ScrollWindow := 1;
-	MpAuditTrail_CEvents_UI_0.Enable := TRUE;
-	MpAuditTrail_CEvents_UI_0();
-	
-	
 	// Initialize custom events
 	CustomEvent[0].Type := "Custom Event Type";
 	CustomEvent[0].Msg := "Custom Event Message";
@@ -61,7 +53,7 @@ PROGRAM _INIT
 	CustomEvent[2].Comment := "Result can be seen in the Query tab";
 
 	HmiAudit.Status.Query.Name := 'UserEvents';
-	HmiAudit.Status.Query.Option := 1;
+	HmiAudit.Status.Query.Option := 0;
 
 	// Configuring the query selection, reading the available components
 	HmiAudit.Parameters.QuerySelection[0] := 'UserXMgr';
@@ -70,22 +62,12 @@ PROGRAM _INIT
 	IF (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[0]), 0, ADR(ident)) = 0) AND (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[1]), 0, ADR(ident)) = 0) THEN
 		HmiAudit.Status.DeviceDataProvider[0] := '{"value":"UserEvents","text":"User Events Query"}';
 		HmiAudit.Status.DeviceDataProvider[1] := '{"value":"RecipeEvents","text":"Recipe Events Query"}';
-		
-		HmiAudit.Status.DeviceDataProviderVC4[0] := 'User Events Query';
-		HmiAudit.Status.DeviceDataProviderVC4[1] := 'Recipe Events Query';
-		
 	ELSIF (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[0]), 0, ADR(ident)) <> 0) AND (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[1]), 0, ADR(ident)) = 0) THEN
 		HmiAudit.Status.DeviceDataProvider[0] := '{"value":"RecipeEvents","text":"Recipe Events Query"}';
-		
-		HmiAudit.Status.DeviceDataProviderVC4[0] := 'Recipe Events Query';		
-		
 	ELSIF (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[0]), 0, ADR(ident)) = 0) AND (ST_ident(ADR(HmiAudit.Parameters.QuerySelection[1]), 0, ADR(ident)) <> 0) THEN
 		HmiAudit.Status.DeviceDataProvider[0] := '{"value":"UserEvents","text":"User Events Query"}';
-		
-		HmiAudit.Status.DeviceDataProviderVC4[0] := 'User Events Query';
 	END_IF
 
-	
 	// Restored the retained values to the archive settings
 	HmiAudit.Parameters.ArchiveSettings := ArchiveSettingsRetain;
 
@@ -118,23 +100,21 @@ PROGRAM _CYCLIC
 		MpAuditTrail_0.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks and HMI connections
+	// Assign MpLinks & address references
 	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrail_0.DeviceName := ADR('mappAuditFiles');
 	MpAuditTrailConfig_0.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailConfig_0.Configuration := ADR(AuditTrailConfig);
 	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
 	MpAuditTrailUI_0.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailUI_0.UIConnect := ADR(MpAuditTrailUIConnect);
 
 	// Call function blocks
 	MpAuditTrail_0();
 	MpAuditTrailConfig_0();
 	MpAuditTrail_CEvents();
 	MpAuditTrailUI_0();
-	
-	MpAuditTrail_CEvents_UI_0();
-	MpAuditTrail_CEvents();
-	MpAuditTrail_CEvents_UI_0();
-	
-	
+
 END_PROGRAM
 
 PROGRAM _EXIT
