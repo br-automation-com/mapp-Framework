@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CompoundWidget id="PackMLModel" width="960" height="490" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Widgets>
+		<Widget xsi:type="widgets.brease.Paper" id="papPackML" top="0" left="0" width="960" minZoomLevel="100" maxZoomLevel="100" height="490" zIndex="1" colorList="#808080,#50C643,#FFFFAA,#0000FF,#0096FF,#FFFF00,#008000" svgFilePath="LocalMedia/PackMLCmdResized.svg" transitionTime="200" borderStyle="none" />
+  
+		<Widget xsi:type="widgets.brease.Image" id="Image1" top="0" left="0" width="960" height="490" zIndex="2" image="LocalMedia/PackMLCmdResized.svg" visible="false" sizeMode="contain" />
+  
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnReset" top="322" left="56" width="63" height="63" zIndex="3" breakWord="false" multiLine="true" 		padding = "6px 0px 0px 0px" imageHeight="50%" imageWidth="50%" image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="$IAT/mappFramework/PackML/ResetButton" borderWidth="2px" cornerRadius="32px" borderColor="rgba(210, 210, 210, 1)" fontSize="8px" bold="true" margin="5px" style="Command" />
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnStart" top="115" left="146" width="63" height="63" zIndex="4" breakWord="false" multiLine="true" 		padding = "6px 0px 0px 0px" imageHeight="50%" imageWidth="50%" image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="$IAT/mappFramework/PackML/StartButton" borderWidth="2px" cornerRadius="32px" borderColor="rgba(210, 210, 210, 1)" fontSize="8px" bold="true" margin="5px" style="Command" />
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnStop" top="321" left="245" width="63" height="63"  zIndex="5" breakWord="false" multiLine="true" 		padding = "6px 0px 0px 0px" imageHeight="50%" imageWidth="50%" image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="$IAT/mappFramework/PackML/StopButton" borderWidth="2px" cornerRadius="32px" borderColor="rgba(210, 210, 210, 1)" fontSize="8px" bold="true" margin="5px" style="Command" />
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnHold" top="73" left="566" width="63" height="63" zIndex="6" breakWord="false" multiLine="true" 			padding = "6px 0px 0px 0px" imageHeight="50%" imageWidth="50%" image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="$IAT/mappFramework/PackML/HoldButton" borderWidth="2px" cornerRadius="32px" borderColor="rgba(210, 210, 210, 1)" fontSize="8px" bold="true" margin="5px" style="Command" />
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnUnhold" top="28" left="344" width="63" height="63" zIndex="7" breakWord="false" multiLine="true" 		padding = "6px 0px 0px 0px" imageHeight="50%" imageWidth="50%" image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="$IAT/mappFramework/PackML/UnholdButton" borderWidth="2px" cornerRadius="32px" borderColor="rgba(210, 210, 210, 1)" fontSize="8px" bold="true" margin="5px" style="Command" />
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnSuspend" top="155" left="566" width="63" height="63"  zIndex="8" breakWord="false" multiLine="true" 	padding = "6px 0px 0px 0px" imageHeight="50%" imageWidth="50%" image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="$IAT/mappFramework/PackML/SuspendButton" borderWidth="2px" cornerRadius="32px" borderColor="rgba(210, 210, 210, 1)" fontSize="8px" bold="true" margin="5px" style="Command" />
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnUnsuspend" top="199" left="344" width="63" height="63" zIndex="9" breakWord="false" multiLine="true" 	padding = "6px 0px 0px 0px" imageHeight="50%" imageWidth="50%" image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="$IAT/mappFramework/PackML/UnsuspendButton" borderWidth="2px" cornerRadius="32px" borderColor="rgba(210, 210, 210, 1)" fontSize="8px" bold="true" margin="5px" style="Command" />
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnAbort" top="333" left="832" width="63" height="63"    zIndex="10" breakWord="false" multiLine="true" 	padding = "6px 0px 0px 0px" imageHeight="50%" imageWidth="50%" image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="$IAT/mappFramework/PackML/AbortButton" borderWidth="2px" cornerRadius="32px" borderColor="rgba(210, 210, 210, 1)" fontSize="8px" bold="true" margin="5px" style="Command" />
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnClear" top="401" left="566" width="63" height="63"    zIndex="11" breakWord="false" multiLine="true" 	padding = "6px 0px 0px 0px" imageHeight="50%" imageWidth="50%" image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="$IAT/mappFramework/PackML/ClearButton" borderWidth="2px" cornerRadius="32px" borderColor="rgba(210, 210, 210, 1)" fontSize="8px" bold="true" margin="5px" style="Command" />
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnComplete" top="115" left="624" width="63" height="63" zIndex="12" breakWord="false" multiLine="true" 	padding = "6px 0px 0px 0px" imageHeight="50%" imageWidth="50%" image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="$IAT/mappFramework/PackML/CompleteButton" borderWidth="2px" cornerRadius="32px" borderColor="rgba(210, 210, 210, 1)" fontSize="8px" bold="true" margin="5px" style="Command" />
+		<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnReset2" top="195" left="832" width="63" height="63"   zIndex="13" breakWord="false" multiLine="true" 	padding = "6px 0px 0px 0px" imageHeight="50%" imageWidth="50%" image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="$IAT/mappFramework/PackML/ResetButton" borderWidth="2px" cornerRadius="32px" borderColor="rgba(210, 210, 210, 1)" fontSize="8px" bold="true" margin="5px" style="Command" />
+
+		<Widget xsi:type="widgets.brease.ImageList" 	id="imgLPackMLState"	zIndex="22" visible="false" width="0" height="0" imageList="['']" selectedIndex="-1"/>
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutTransform" top="0" left="0" visible="false" width="0" height="0" zIndex="23" />
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutBaseModel" top="0" left="0" visible="false" width="0" height="0" zIndex="24" />
+	
+		<Widget xsi:type="widgets.brease.TextInput"  	id="txtInInvBase" 	zIndex="42" visible="false" width="0" height="0" value="" 	borderStyle="none" borderWidth="0px" backColor="transparent" borderColor="transparent" />
+
+		<Widget xsi:type="widgets.brease.Label" id="LabelStopped" top="425" left="50" zIndex="25" text="$IAT/mappFramework/PackML/Stopped" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelStopping" top="425" left="240" zIndex="26" text="$IAT/mappFramework/PackML/Stopping" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelClearing" top="425" left="452" zIndex="27" text="$IAT/mappFramework/PackML/Clearing" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelAborted" top="425" left="670" zIndex="28" text="$IAT/mappFramework/PackML/Aborted" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelAborting" top="425" left="828" zIndex="29" text="$IAT/mappFramework/PackML/Aborting" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelResetting" top="222" left="50" zIndex="30" text="$IAT/mappFramework/PackML/Resetting" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelUnsuspending" top="222" left="242" zIndex="31" text="$IAT/mappFramework/PackML/Unsuspending" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelSuspended" top="222" left="450" zIndex="32" text="$IAT/mappFramework/PackML/Suspended" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelSuspending" top="222" left="670" zIndex="33" text="$IAT/mappFramework/PackML/Suspending" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelIdle" top="137" left="50" zIndex="34" text="$IAT/mappFramework/PackML/Idle" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelStarting" top="137" left="240" zIndex="35" text="$IAT/mappFramework/PackML/Starting" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelExecute" top="137" left="450" zIndex="36" text="$IAT/mappFramework/PackML/Execute" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelCompleting" top="137" left="713" zIndex="37" text="$IAT/mappFramework/PackML/Completing" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelComplete" top="137" left="828" zIndex="38" text="$IAT/mappFramework/PackML/Complete" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelUnholding" top="52" left="240" zIndex="39" text="$IAT/mappFramework/PackML/Unholding" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelHeld" top="52" left="450" zIndex="40" text="$IAT/mappFramework/PackML/Held" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+		<Widget xsi:type="widgets.brease.Label" id="LabelHolding" top="52" left="670" zIndex="41" text="$IAT/mappFramework/PackML/Holding" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontName="Arial Unicode" fontSize="12px" bold="false" />
+	</Widgets>
+	<Properties>
+  
+		<Property xsi:type="BindableProperty" name="packMLState" type="Number" defaultValue="-1" readOnly="false" category="Data" localizable="false" typeRefId="" nodeRefId="">
+			<Description>PackML state</Description>
+			<Mappings>
+				<Mapping widget="imgLPackMLState" property="selectedIndex" mode="oneWay"/>
+			</Mappings>
+		</Property> 
+	
+		<Property xsi:type="StructureBindableProperty" name="packMLCommand" type="PackMLCommandsType" category="Data" readOnly="false" required="false">
+			<Description>Bind to PackML command interface</Description>
+			<Mappings>
+				<!-- COMMANDS -->
+				<Mapping widget="TglBtnReset"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Reset" />
+				<Mapping widget="TglBtnStart"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Start" />
+				<Mapping widget="TglBtnStop"   		type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Stop" />
+				<Mapping widget="TglBtnHold"   		type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Hold" />
+				<Mapping widget="TglBtnUnhold"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Unhold" />
+				<Mapping widget="TglBtnSuspend"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Suspend" />
+				<Mapping widget="TglBtnUnsuspend"   type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Unsuspend" />
+				<Mapping widget="TglBtnAbort"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Abort" />
+				<Mapping widget="TglBtnClear"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Clear" />
+				<Mapping widget="TglBtnComplete"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Complete" />
+				<Mapping widget="TglBtnReset2"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Reset" />
+			</Mappings>
+		</Property>
+	
+		<Property xsi:type="BindableProperty" name="transform" type="String" defaultValue="" readOnly="false" category="Data" localizable="false" typeRefId="" nodeRefId="">
+			<Description>PackML transform</Description>
+			<Mappings>
+				<Mapping widget="txtOutTransform" property="value" mode="twoWay"/>
+				<Mapping widget="papPackML" property="transform" mode="twoWay"/>     
+			</Mappings>
+		</Property>
+	
+		<Property xsi:type="BindableProperty" name="baseModel" type="String" defaultValue="" readOnly="false" category="Data" localizable="false" typeRefId="" nodeRefId="">
+			<Description>PackML base model</Description>
+			<Mappings>
+				<Mapping widget="txtOutBaseModel" property="value" mode="twoWay"/>
+				<Mapping widget="txtInInvBase" property="value" mode="twoWay"/>
+			</Mappings>
+		</Property>
+	
+
+		<!-- 
+		Simple non bindable property:
+		Property Attributes
+		xsi:type: NonBindableProperty
+		name: name of the property (not allowed: width, height, top, left, id, enable, visible, zindex, margin, premissionview, permissionoperate, description)
+		<Property xsi:type="NonBindableProperty" name="" type="" defaultValue="" required="">
+		<Description>Description will be shown in property grid.</Description>
+		<Mappings>
+		<Mapping widget="" property=""/>
+		<Mapping widget="" property=""/>
+		</Mappings>
+		</Property>
+    
+		Simple bindable property:
+		<Property xsi:type="BindableProperty" name="" type="" defaultValue="" readOnly="" category="" localizable="" typeRefId="" nodeRefId="">
+		<Description>Description will be shown in property grid.</Description>
+		<Mappings>
+		<Mapping widget="" property="" mode=""/>
+		<Mapping widget="" property="" mode=""/>
+		</Mappings>
+		</Property>
+
+
+		Structure bindable property:
+		<Property xsi:type="StructureBindableProperty" name="" type="" readOnly="" >
+		<Description>Description will be shown in property grid.</Description>
+		<Mappings>
+		<Mapping widget="" type="" property="" mode="" memberPath="" mapToNode=""/>
+		<Mapping widget="" type="" property="" mode="" memberPath="" mapToNode=""/>
+		<Mapping widget="" type="" property="" mode="" memberPath="" mapToNode=""/>
+		</Mappings>
+		</Property>
+		-->
+	</Properties>
+
+	<Events>
+		<!--
+		<Event name="">
+		<Description>Description will be shown in property grid.</Description>
+		<Mappings>
+		<Mapping widget="" event="" />
+		</Mappings>
+		</Event>
+		-->
+	</Events>
+
+	<Actions>
+		<!--
+		<Action name="">
+		<Description>Description will be shown in property grid.</Description>
+		<Mappings>
+		<Mapping widget="" action="" />
+		</Mappings>
+		</Action>
+		-->
+	</Actions>
+
+	<EventBindings>
+    
+		<!--Paper color list - 	0:gray 
+		1:green 
+		2:yellow 
+		3:blue -->	
+  
+		<EventBinding id="imgLPackMLState.SelectedIndexChanged">
+			<Source xsi:type="widget.Event" widgetRefId="imgLPackMLState" event="SelectedIndexChanged" />
+			<!--mpPACKML_STATE_UNDEFINED-->
+			<Operand name="Base" datatype="ANY_STRING">
+				<ReadTarget xsi:type="widget.Action.Read" widgetRefId="txtInInvBase">	 
+					<Method name="GetValue"/>
+				</ReadTarget>
+			</Operand>
+			<EventHandler condition="selectedIndex = 0">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="=Base" />
+					</Target>
+				</Action>      
+			</EventHandler>
+			<!--mpPACKML_STATE_CLEARING-->
+			<EventHandler condition="selectedIndex = 1">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Clearing&quot;,&quot;style&quot;:&quot;fill:6;fill-opacity:1.5&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_STOPPED-->
+			<EventHandler condition="selectedIndex = 2">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Stopped&quot;,&quot;style&quot;:&quot;fill:5;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_STARTING-->
+			<EventHandler condition="selectedIndex = 3">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Starting&quot;,&quot;style&quot;:&quot;fill:6;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_IDLE-->
+			<EventHandler condition="selectedIndex = 4">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Idle&quot;,&quot;style&quot;:&quot;fill:5;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_SUSPENDED-->
+			<EventHandler condition="selectedIndex = 5">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Suspended&quot;,&quot;style&quot;:&quot;fill:5;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_EXECUTE-->
+			<EventHandler condition="selectedIndex = 6">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Execute&quot;,&quot;style&quot;:&quot;fill:3;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_STOPPING-->
+			<EventHandler condition="selectedIndex = 7">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Stopping&quot;,&quot;style&quot;:&quot;fill:6;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_ABORTING-->
+			<EventHandler condition="selectedIndex = 8">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Aborting&quot;,&quot;style&quot;:&quot;fill:6;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_ABORTED-->
+			<EventHandler condition="selectedIndex = 9">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Aborted&quot;,&quot;style&quot;:&quot;fill:5;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_HOLDING-->
+			<EventHandler condition="selectedIndex = 10">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Holding&quot;,&quot;style&quot;:&quot;fill:6;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_HELD-->
+			<EventHandler condition="selectedIndex = 11">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Held&quot;,&quot;style&quot;:&quot;fill:5;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_UNHOLDING-->
+			<EventHandler condition="selectedIndex = 12">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Unholding&quot;,&quot;style&quot;:&quot;fill:6;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_SUSPENDING-->
+			<EventHandler condition="selectedIndex = 13">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Suspending&quot;,&quot;style&quot;:&quot;fill:6;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_UNSUSPENDING-->
+			<EventHandler condition="selectedIndex = 14">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Unsuspending&quot;,&quot;style&quot;:&quot;fill:6;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_RESETTING-->
+			<EventHandler condition="selectedIndex = 15">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Resetting&quot;,&quot;style&quot;:&quot;fill:6;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_COMPLETING-->
+			<EventHandler condition="selectedIndex = 16">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Completing&quot;,&quot;style&quot;:&quot;fill:6;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+			<!--mpPACKML_STATE_COMPLETE-->
+			<EventHandler condition="selectedIndex = 17">
+				<Action>
+					<Target xsi:type="widget.Action" widgetRefId="txtOutTransform">
+						<Method name="SetValue" value="[{&quot;select&quot;:&quot;#Complete&quot;,&quot;style&quot;:&quot;fill:5;fill-opacity:1&quot;}]" />
+					</Target>
+				</Action>
+			</EventHandler>
+
+		</EventBinding>
+		<!-- source and target can only be widgets within the compound widget.
+		<EventBinding id="">
+		<Source xsi:type="widget.Event" widgetRefId="" event="" />
+		<EventHandler condition="">
+		<Action>
+		<Target xsi:type="widget.Action" widgetRefId="">
+		<Method name="" value="" />
+		</Target>
+		</Action>
+		</EventHandler>
+		</EventBinding>
+		-->
+	</EventBindings>
+
+</CompoundWidget>
