@@ -24,9 +24,6 @@
   <NcDataObjects>
     <NcDataObject Name="McDriveLog" Source="" Memory="UserROM" Language="Binary" />
   </NcDataObjects>
-  <VcDataObjects>
-    <VcDataObject Name="mappFr" Source="VC4.mappFrameworkVisu.dob" Memory="UserROM" Language="Vc" WarningLevel="2" />
-  </VcDataObjects>
   <Binaries>
     <BinaryObject Name="arsvcreg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="mCoWebSc" Source="" Memory="UserROM" Language="Binary" />
