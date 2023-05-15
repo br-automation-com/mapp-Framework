@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
-    <Task Name="AlarmMgr" Source="Infrastructure.VC4.AlarmX.AlarmMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="AlarmMgr" Source="Infrastructure.AlarmX.AlarmMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AppAxis_1" Source="MachineControl.AppAxis_1.AppAxis_1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AxisMgr" Source="MachineControl.AxisTemplate.AxisMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" Disabled="true" />
   </TaskClass>
@@ -37,7 +37,6 @@
     <BinaryObject Name="udbdef" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="mvLoader" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TCData" Source="" Memory="SystemROM" Language="Binary" />
-    <BinaryObject Name="MachineGrp" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="SLO_Pos" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="SLO_Speed" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UserXCfg" Source="" Memory="UserROM" Language="Binary" />
@@ -70,6 +69,7 @@
     <BinaryObject Name="AdvCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="SimpleCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="ReportFile" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="MachineGrp" Source="" Memory="UserROM" Language="Binary" />
   </Binaries>
   <Libraries>
     <LibraryObject Name="runtime" Source="Libraries.runtime.lby" Memory="UserROM" Language="binary" Debugging="true" />
