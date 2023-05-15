@@ -1,0 +1,1421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpTweetCoreUI_Alarm">
+  <Property Name="Description" Value="mapp VC4 template MpTweetCoreUI Alarm list"/>
+  <Property Name="Height" Value="480"/>
+  <Property Name="Index" Value="10033"/>
+  <Property Name="LockedForeColor" Value="248"/>
+  <Property Name="MoveFocus" Value="Circular"/>
+  <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+  <Property Name="Width" Value="800"/>
+  <Layers>
+    <LayerRef Source="Source[local].Layer[MpBackground]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpBackground"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="0"/>
+    </LayerRef>
+    <LayerRef Source="Source[local].Layer[MpPageControl]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpPageControl"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="1"/>
+    </LayerRef>
+    <Layer Name="Default">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="None"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="2"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001004" Name="txtHeaderTweetUI">
+          <Property Name="Border" Value="Source[local].Border[Mp_GroupControl]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="384"/>
+          <Property Name="Left" Value="0"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGroupControl]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUITexts]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="45"/>
+          <Property Name="Width" Value="800"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtHeaderAlarmSubsc">
+          <Property Name="Border" Value="Source[local].Border[Mp_GroupControl]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="342"/>
+          <Property Name="Left" Value="0"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGroupControl]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUITexts]"/>
+          <Property Name="TextIndexOffset" Value="14"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="87"/>
+          <Property Name="Width" Value="800"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdDelete3">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_237]"/>
+          <Property Name="Height" Value="37"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="556"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedForeColor" Value="253"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUITexts]"/>
+          <Property Name="TextIndex" Value="13"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="382"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_237]"/>
+          <Property Name="Width" Value="234"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtConfirmationTypeLabel">
+          <Property Name="AlignmentVertical" Value="Top"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder_Orange]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="32"/>
+          <Property Name="Left" Value="181"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUITexts]"/>
+          <Property Name="TextIndexOffset" Value="20"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="132"/>
+          <Property Name="Width" Value="177"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtConfirmationDetailsLabel">
+          <Property Name="AlignmentVertical" Value="Top"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder_Orange]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="32"/>
+          <Property Name="Left" Value="357"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUITexts]"/>
+          <Property Name="TextIndexOffset" Value="19"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="132"/>
+          <Property Name="Width" Value="353"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtExpResponseLabel">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="392"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUITexts]"/>
+          <Property Name="TextIndexOffset" Value="9"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="150"/>
+          <Property Name="Width" Value="105"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtRespTimeoutLabel">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="566"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUITexts]"/>
+          <Property Name="TextIndexOffset" Value="12"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="150"/>
+          <Property Name="Width" Value="93"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtAttemptsLabel">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="661"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUITexts]"/>
+          <Property Name="TextIndexOffset" Value="10"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="150"/>
+          <Property Name="Width" Value="50"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_3">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="559"/>
+          <Property Name="EndY" Value="358"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="559"/>
+          <Property Name="StartY" Value="156"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_5">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="659"/>
+          <Property Name="EndY" Value="358"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="659"/>
+          <Property Name="StartY" Value="155"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_6">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="710"/>
+          <Property Name="EndY" Value="213"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="81"/>
+          <Property Name="StartY" Value="213"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_7">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="710"/>
+          <Property Name="EndY" Value="184"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="81"/>
+          <Property Name="StartY" Value="184"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_1">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="373"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[0].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="186"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[0].Confirmation.ExpectedResponse]"/>
+          <Property Name="Width" Value="184"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numResTimeout_1">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="562"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[0].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="186"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[0].Confirmation.ResponseTimeout]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="95"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numAttempts_1">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="662"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[0].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="186"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[0].Confirmation.Attempts]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="49"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_8">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="710"/>
+          <Property Name="EndY" Value="242"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="81"/>
+          <Property Name="StartY" Value="242"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_9">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="710"/>
+          <Property Name="EndY" Value="213"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="81"/>
+          <Property Name="StartY" Value="213"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_10">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="710"/>
+          <Property Name="EndY" Value="271"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="81"/>
+          <Property Name="StartY" Value="271"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_11">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="710"/>
+          <Property Name="EndY" Value="242"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="81"/>
+          <Property Name="StartY" Value="242"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_12">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="710"/>
+          <Property Name="EndY" Value="300"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="81"/>
+          <Property Name="StartY" Value="300"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_13">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="710"/>
+          <Property Name="EndY" Value="271"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="81"/>
+          <Property Name="StartY" Value="271"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_14">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="710"/>
+          <Property Name="EndY" Value="329"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="81"/>
+          <Property Name="StartY" Value="329"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_15">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="710"/>
+          <Property Name="EndY" Value="300"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="81"/>
+          <Property Name="StartY" Value="300"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_16">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="711"/>
+          <Property Name="EndY" Value="358"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="82"/>
+          <Property Name="StartY" Value="358"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_17">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="711"/>
+          <Property Name="EndY" Value="329"/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="StartX" Value="82"/>
+          <Property Name="StartY" Value="329"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="lne_PVName_0">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="197"/>
+          <Property Name="EndY" Value="358"/>
+          <Property Name="ForeColor" Value="253"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="197"/>
+          <Property Name="StartY" Value="163"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="lne_PVName_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="373"/>
+          <Property Name="EndY" Value="358"/>
+          <Property Name="ForeColor" Value="253"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="373"/>
+          <Property Name="StartY" Value="163"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_2">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="373"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[1].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="215"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[1].Confirmation.ExpectedResponse]"/>
+          <Property Name="Width" Value="184"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numResTimeout_2">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="562"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[1].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="215"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[1].Confirmation.ResponseTimeout]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="95"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numAttempts_2">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="662"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[1].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="215"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[1].Confirmation.Attempts]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="49"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_3">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="373"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[2].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="244"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[2].Confirmation.ExpectedResponse]"/>
+          <Property Name="Width" Value="184"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numResTimeout_3">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="562"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[2].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="244"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[2].Confirmation.ResponseTimeout]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="95"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numAttempts_3">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="662"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[2].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="244"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[2].Confirmation.Attempts]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="49"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_4">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="373"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[3].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="273"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[3].Confirmation.ExpectedResponse]"/>
+          <Property Name="Width" Value="184"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numResTimeout_4">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="562"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[3].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="273"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[3].Confirmation.ResponseTimeout]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="95"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numAttempts_4">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="662"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[3].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="273"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[3].Confirmation.Attempts]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="49"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_5">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="373"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[4].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="302"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[4].Confirmation.ExpectedResponse]"/>
+          <Property Name="Width" Value="184"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numResTimeout_5">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="562"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[4].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="302"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[4].Confirmation.ResponseTimeout]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="95"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numAttempts_5">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="662"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[4].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="302"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[4].Confirmation.Attempts]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="49"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_6">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="373"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[5].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="331"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[5].Confirmation.ExpectedResponse]"/>
+          <Property Name="Width" Value="184"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numResTimeout_6">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="562"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[5].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="331"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[5].Confirmation.ResponseTimeout]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="95"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numAttempts_6">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="662"/>
+          <Property Name="Locking" Value="Datapoint &gt;= Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[5].Confirmation.Lock]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="331"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[5].Confirmation.Attempts]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="49"/>
+        </Control>
+        <Control ClassId="0x00001018" Name="drpAdmin">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="ButtonsBackColor" Value="15"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[0].Type]"/>
+          <Property Name="Left" Value="197"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="None"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUIType]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="186"/>
+          <Property Name="Width" Value="173"/>
+        </Control>
+        <Control ClassId="0x00001018" Name="drpAdmin1">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="ButtonsBackColor" Value="15"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[1].Type]"/>
+          <Property Name="Left" Value="197"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="None"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUIType]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="216"/>
+          <Property Name="Width" Value="173"/>
+        </Control>
+        <Control ClassId="0x00001018" Name="drpAdmin2">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="ButtonsBackColor" Value="15"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[2].Type]"/>
+          <Property Name="Left" Value="197"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="None"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUIType]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="244"/>
+          <Property Name="Width" Value="173"/>
+        </Control>
+        <Control ClassId="0x00001018" Name="drpAdmin3">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="ButtonsBackColor" Value="15"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[3].Type]"/>
+          <Property Name="Left" Value="197"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="None"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUIType]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="273"/>
+          <Property Name="Width" Value="173"/>
+        </Control>
+        <Control ClassId="0x00001018" Name="drpAdmin4">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="ButtonsBackColor" Value="15"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[4].Type]"/>
+          <Property Name="Left" Value="197"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="None"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUIType]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="302"/>
+          <Property Name="Width" Value="173"/>
+        </Control>
+        <Control ClassId="0x00001018" Name="drpAdmin5">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="ButtonsBackColor" Value="15"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="DropdownBorder" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[5].Type]"/>
+          <Property Name="Left" Value="197"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="None"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUIType]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="331"/>
+          <Property Name="Width" Value="173"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtRespTimeoutLabel1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="598"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUITexts]"/>
+          <Property Name="TextIndexOffset" Value="23"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="161"/>
+          <Property Name="Width" Value="32"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_7">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="81"/>
+          <Property Name="SimulationValue" Value="Receiver 0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="186"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[0].Name]"/>
+          <Property Name="Width" Value="113"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_8">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="81"/>
+          <Property Name="SimulationValue" Value="Receiver 1"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="216"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[1].Name]"/>
+          <Property Name="Width" Value="113"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_9">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="81"/>
+          <Property Name="SimulationValue" Value="Receiver 2"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="244"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[2].Name]"/>
+          <Property Name="Width" Value="113"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_10">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="81"/>
+          <Property Name="SimulationValue" Value="Receiver 3"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="273"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[3].Name]"/>
+          <Property Name="Width" Value="113"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_11">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="81"/>
+          <Property Name="SimulationValue" Value="Receiver 4"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="302"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[4].Name]"/>
+          <Property Name="Width" Value="113"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strExpResponse_12">
+          <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.EditCompletion]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="81"/>
+          <Property Name="SimulationValue" Value="Receiver 5"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+          <Property Name="Top" Value="331"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.SubscriptionsAndHierarchy.Alarm.Subscriber[5].Name]"/>
+          <Property Name="Width" Value="113"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%embVirtualKey_237">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[MpTweetCoreUI_Receiver]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+    <Layer Name="MpMsgBox">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value="Message Box"/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.MessageBox.LayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="3"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001005" Name="Background">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpBackTransparent]"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="Height" Value="430"/>
+          <Property Name="IndexDatapoint" Value="None"/>
+          <Property Name="Left" Value="0"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="0"/>
+          <Property Name="Width" Value="800"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtHeader">
+          <Property Name="Border" Value="Source[local].Border[Mp_GroupControl]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="224"/>
+          <Property Name="Left" Value="220"/>
+          <Property Name="SimulationIndex" Value="1"/>
+          <Property Name="SimulationValue" Value="MsgBox Header"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGroupControl]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUIMessageBox]"/>
+          <Property Name="TextIndexOffset" Value="5"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="128"/>
+          <Property Name="Width" Value="360"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtContent">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="127"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.MessageBox.Type]"/>
+          <Property Name="Left" Value="226"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="2"/>
+          <Property Name="SimulationValue" Value="Example Alarm Text"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpTweetCoreUIMessageBox]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="177"/>
+          <Property Name="Width" Value="348"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdCancel">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpFile_Cancel]"/>
+          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_221]"/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="245"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="300"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_221]"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdOK">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[MpFile_OK]"/>
+          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_222]"/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="405"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="300"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_222]"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%embVirtualKey_221">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.MessageBox.Cancel]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_222">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpTweetCoreUIConnect.MessageBox.Confirm]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+  </Layers>
+  <MovementOrder>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_1]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[drpAdmin]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numResTimeout_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_6]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numResTimeout_1]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numResTimeout_2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numAttempts_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numResTimeout_6]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numAttempts_1]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numAttempts_2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numResTimeout_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_7]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numAttempts_6]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_2]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_3]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[drpAdmin1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numResTimeout_2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_1]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numResTimeout_2]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numResTimeout_3]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numAttempts_2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numResTimeout_1]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numAttempts_2]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numAttempts_3]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numResTimeout_2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_8]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numAttempts_1]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_3]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_4]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[drpAdmin2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numResTimeout_3]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_2]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numResTimeout_3]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numResTimeout_4]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_3]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numAttempts_3]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numResTimeout_2]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numAttempts_3]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numAttempts_4]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numResTimeout_3]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_9]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numAttempts_2]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_4]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_5]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[drpAdmin3]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numResTimeout_4]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_3]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numResTimeout_4]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numResTimeout_5]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_4]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numAttempts_4]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numResTimeout_3]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numAttempts_4]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numAttempts_5]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numResTimeout_4]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_10]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numAttempts_3]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_5]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_6]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[drpAdmin4]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numResTimeout_5]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_4]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numResTimeout_5]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numResTimeout_6]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_5]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numAttempts_5]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numResTimeout_4]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numAttempts_5]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numAttempts_6]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numResTimeout_5]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_11]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numAttempts_4]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_6]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[drpAdmin5]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numResTimeout_6]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_5]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numResTimeout_6]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numResTimeout_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_6]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[numAttempts_6]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numResTimeout_5]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[numAttempts_6]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[numAttempts_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numResTimeout_6]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_12]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[numAttempts_5]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[drpAdmin]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[drpAdmin1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_7]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpAdmin5]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[drpAdmin1]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[drpAdmin2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_8]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpAdmin]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[drpAdmin2]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[drpAdmin3]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_9]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_3]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpAdmin1]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[drpAdmin3]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[drpAdmin4]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_10]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_4]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpAdmin2]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[drpAdmin4]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[drpAdmin5]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_11]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_5]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpAdmin3]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[drpAdmin5]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[drpAdmin]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[strExpResponse_12]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[strExpResponse_6]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpAdmin4]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_7]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_8]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numAttempts_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[drpAdmin]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_12]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_8]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_9]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numAttempts_2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[drpAdmin1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_7]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_9]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_10]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numAttempts_3]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[drpAdmin2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_8]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_10]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_11]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numAttempts_4]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[drpAdmin3]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_9]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_11]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_12]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numAttempts_5]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[drpAdmin4]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_10]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[strExpResponse_12]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[strExpResponse_7]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[numAttempts_6]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[drpAdmin5]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[strExpResponse_11]"/>
+    </MovementEntry>
+  </MovementOrder>
+  <TabSequence>
+    <TabSeqItem Index="0" Value="Source[local].Layer[MpBackground].Control[strUserName]"/>
+    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[strExpResponse_1]"/>
+    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[numResTimeout_1]"/>
+    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[numAttempts_1]"/>
+    <TabSeqItem Index="4" Value="Source[embedded].Layer[Default].Control[strExpResponse_2]"/>
+    <TabSeqItem Index="5" Value="Source[embedded].Layer[Default].Control[numResTimeout_2]"/>
+    <TabSeqItem Index="6" Value="Source[embedded].Layer[Default].Control[numAttempts_2]"/>
+    <TabSeqItem Index="7" Value="Source[embedded].Layer[Default].Control[strExpResponse_3]"/>
+    <TabSeqItem Index="8" Value="Source[embedded].Layer[Default].Control[numResTimeout_3]"/>
+    <TabSeqItem Index="9" Value="Source[embedded].Layer[Default].Control[numAttempts_3]"/>
+    <TabSeqItem Index="10" Value="Source[embedded].Layer[Default].Control[strExpResponse_4]"/>
+    <TabSeqItem Index="11" Value="Source[embedded].Layer[Default].Control[numResTimeout_4]"/>
+    <TabSeqItem Index="12" Value="Source[embedded].Layer[Default].Control[numAttempts_4]"/>
+    <TabSeqItem Index="13" Value="Source[embedded].Layer[Default].Control[strExpResponse_5]"/>
+    <TabSeqItem Index="14" Value="Source[embedded].Layer[Default].Control[numResTimeout_5]"/>
+    <TabSeqItem Index="15" Value="Source[embedded].Layer[Default].Control[numAttempts_5]"/>
+    <TabSeqItem Index="16" Value="Source[embedded].Layer[Default].Control[strExpResponse_6]"/>
+    <TabSeqItem Index="17" Value="Source[embedded].Layer[Default].Control[numResTimeout_6]"/>
+    <TabSeqItem Index="18" Value="Source[embedded].Layer[Default].Control[numAttempts_6]"/>
+    <TabSeqItem Index="19" Value="Source[embedded].Layer[Default].Control[drpAdmin]"/>
+    <TabSeqItem Index="20" Value="Source[embedded].Layer[Default].Control[drpAdmin1]"/>
+    <TabSeqItem Index="21" Value="Source[embedded].Layer[Default].Control[drpAdmin2]"/>
+    <TabSeqItem Index="22" Value="Source[embedded].Layer[Default].Control[drpAdmin3]"/>
+    <TabSeqItem Index="23" Value="Source[embedded].Layer[Default].Control[drpAdmin4]"/>
+    <TabSeqItem Index="24" Value="Source[embedded].Layer[Default].Control[drpAdmin5]"/>
+    <TabSeqItem Index="25" Value="Source[embedded].Layer[Default].Control[strExpResponse_7]"/>
+    <TabSeqItem Index="26" Value="Source[embedded].Layer[Default].Control[strExpResponse_8]"/>
+    <TabSeqItem Index="27" Value="Source[embedded].Layer[Default].Control[strExpResponse_9]"/>
+    <TabSeqItem Index="28" Value="Source[embedded].Layer[Default].Control[strExpResponse_10]"/>
+    <TabSeqItem Index="29" Value="Source[embedded].Layer[Default].Control[strExpResponse_11]"/>
+    <TabSeqItem Index="30" Value="Source[embedded].Layer[Default].Control[strExpResponse_12]"/>
+  </TabSequence>
+</Page>

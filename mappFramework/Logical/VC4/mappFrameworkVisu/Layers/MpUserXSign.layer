@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<Layer xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpUserXSign">
+  <Property Name="BackColor" Value="252"/>
+  <Property Name="Description" Value=""/>
+  <Property Name="Height" Value="480"/>
+  <Property Name="Left" Value="0"/>
+  <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpUserXSignatureUIConnect.Dialog.LayerStatus]"/>
+  <Property Name="Top" Value="0"/>
+  <Property Name="Width" Value="800"/>
+  <TextGroup>
+    <TextLayer LanguageId="en"/>
+    <TextLayer LanguageId="de"/>
+    <IndexMap/>
+  </TextGroup>
+  <Controls>
+    <Control ClassId="0x00001005" Name="bmpBackground">
+      <Property Name="Bitmap" Value="Source[local].Bitmap[MpBackTransparent]"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillStyle" Value="Transparent"/>
+      <Property Name="Height" Value="430"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="SimulationValue" Value="0"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="Width" Value="800"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="txtUserSign">
+      <Property Name="Border" Value="Source[local].Border[Mp_GroupControl]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="224"/>
+      <Property Name="Left" Value="220"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value="Change Password"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGroupControl]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[MpUserXSignUIText]"/>
+      <Property Name="TextIndexOffset" Value="0"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="129"/>
+      <Property Name="Width" Value="360"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="txtPassword">
+      <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="HighlightingForeColor" Value="16"/>
+      <Property Name="Left" Value="244"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value=""/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[MpUserXSignUIText]"/>
+      <Property Name="TextIndexOffset" Value="1"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="230"/>
+      <Property Name="Width" Value="150"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="txtUserName">
+      <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="Left" Value="244"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value=""/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[MpUserXSignUIText]"/>
+      <Property Name="TextIndexOffset" Value="2"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="195"/>
+      <Property Name="Width" Value="150"/>
+    </Control>
+    <Control ClassId="0x0000100B" Name="strPassword">
+      <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="InputMode" Value="Password"/>
+      <Property Name="InputPasswordChar" Value="x"/>
+      <Property Name="Left" Value="394"/>
+      <Property Name="SimulationValue" Value="XXX"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+      <Property Name="Top" Value="230"/>
+      <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXSignatureUIConnect.Dialog.Password]"/>
+      <Property Name="Width" Value="160"/>
+    </Control>
+    <Control ClassId="0x00001002" Name="cmdCancel">
+      <Property Name="Bitmap" Value="Source[local].Bitmap[MpFile_Cancel]"/>
+      <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+      <Property Name="BitmapIndexDatapoint" Value="None"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_172]"/>
+      <Property Name="Height" Value="35"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="245"/>
+      <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+      <Property Name="PressedBorder" Value="Source[local].Border[Mp_OutputBorder]"/>
+      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+      <Property Name="TextIndexDatapoint" Value="None"/>
+      <Property Name="TextSimulationValue" Value="0"/>
+      <Property Name="TextSource" Value="None"/>
+      <Property Name="Top" Value="310"/>
+      <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_172]"/>
+      <Property Name="Width" Value="150"/>
+    </Control>
+    <Control ClassId="0x00001002" Name="cmdOK">
+      <Property Name="Bitmap" Value="Source[local].Bitmap[MpFile_OK]"/>
+      <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+      <Property Name="BitmapIndexDatapoint" Value="None"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_173]"/>
+      <Property Name="Height" Value="35"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="405"/>
+      <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+      <Property Name="PressedBorder" Value="Source[local].Border[Mp_OutputBorder]"/>
+      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
+      <Property Name="TextIndexDatapoint" Value="None"/>
+      <Property Name="TextSimulationValue" Value="0"/>
+      <Property Name="TextSource" Value="None"/>
+      <Property Name="Top" Value="310"/>
+      <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_173]"/>
+      <Property Name="Width" Value="150"/>
+    </Control>
+    <Control ClassId="0x0000100B" Name="strUsername">
+      <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="Left" Value="394"/>
+      <Property Name="SimulationValue" Value="ABC"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpInput]"/>
+      <Property Name="Top" Value="194"/>
+      <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXSignatureUIConnect.Dialog.UserName]"/>
+      <Property Name="Width" Value="160"/>
+    </Control>
+  </Controls>
+  <KeyMapping>
+    <VirtualKey Name="%embVirtualKey_172">
+      <Property Name="Description" Value=""/>
+      <Property Name="VirtualKey_LED" Value="False"/>
+      <KeyActions>
+        <KeyAction ClassId="0x00000161">
+          <Property Name="CompletionDatapoint" Value="None"/>
+          <Property Name="CompletionValue" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Locking" Value="Never"/>
+          <Property Name="Name" Value="Action_0"/>
+          <Property Name="SetValue" Value="1"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXSignatureUIConnect.Dialog.Cancel]"/>
+        </KeyAction>
+      </KeyActions>
+    </VirtualKey>
+    <VirtualKey Name="%embVirtualKey_173">
+      <Property Name="Description" Value=""/>
+      <Property Name="VirtualKey_LED" Value="False"/>
+      <KeyActions>
+        <KeyAction ClassId="0x00000161">
+          <Property Name="CompletionDatapoint" Value="None"/>
+          <Property Name="CompletionValue" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Locking" Value="Never"/>
+          <Property Name="Name" Value="Action_0"/>
+          <Property Name="SetValue" Value="1"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpUserXSignatureUIConnect.Dialog.Confirm]"/>
+        </KeyAction>
+      </KeyActions>
+    </VirtualKey>
+  </KeyMapping>
+</Layer>

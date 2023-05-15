@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<UnitGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="Length">
+  <Property Name="DefaultDisplayUnit" Value="Source[embedded].Unit[Meter]"/>
+  <Property Name="DefaultLimit" Value="None"/>
+  <Property Name="DefaultPLCUnit" Value="Source[embedded].Unit[PLCUnit]"/>
+  <Property Name="Description" Value="Unit group for length"/>
+  <Property Name="InternalUnitTextIndex" Value="0"/>
+  <Property Name="RuntimeUnitChange" Value="None"/>
+  <Property Name="RuntimeUnitCurrentDatapoint" Value="None"/>
+  <TextGroup Name="TextGroup_1">
+    <Property Name="Description" Value=""/>
+    <Property Name="Index" Value="65535"/>
+    <TextSnippets/>
+    <TextLayer LanguageId="en">
+      <Text ID="115" Value="millimeter"/>
+      <Text ID="116" Value="mm"/>
+      <Text ID="117" Value="centimeter"/>
+      <Text ID="118" Value="cm"/>
+      <Text ID="119" Value="meter"/>
+      <Text ID="120" Value="m"/>
+      <Text ID="176" Value="inch"/>
+      <Text ID="177" Value="inch"/>
+      <Text ID="186" Value="nanometer"/>
+      <Text ID="187" Value="nm"/>
+      <Text ID="188" Value="micrometer"/>
+      <Text ID="189" Value="µm"/>
+      <Text ID="7579" Value=""/>
+      <Text ID="7580" Value=""/>
+      <Text ID="86777" Value="feet"/>
+      <Text ID="86778" Value="ft"/>
+      <Text ID="87007" Value="meter"/>
+    </TextLayer>
+    <TextLayer LanguageId="de">
+      <Text ID="115" Value="Millimeter"/>
+      <Text ID="116" Value="mm"/>
+      <Text ID="117" Value="Zentimeter"/>
+      <Text ID="118" Value="cm"/>
+      <Text ID="119" Value="Meter"/>
+      <Text ID="120" Value="m"/>
+      <Text ID="176" Value="Zoll"/>
+      <Text ID="177" Value="inch"/>
+      <Text ID="186" Value="Nanometer"/>
+      <Text ID="187" Value="nm"/>
+      <Text ID="188" Value="Mikrometer"/>
+      <Text ID="189" Value="µm"/>
+      <Text ID="7579" Value=""/>
+      <Text ID="7580" Value=""/>
+      <Text ID="86777" Value="Fuss"/>
+      <Text ID="86778" Value="ft"/>
+      <Text ID="87007" Value="Meter"/>
+    </TextLayer>
+    <IndexMap>
+      <Index ID="115" Value="1"/>
+      <Index ID="116" Value="2"/>
+      <Index ID="117" Value="3"/>
+      <Index ID="118" Value="4"/>
+      <Index ID="119" Value="5"/>
+      <Index ID="120" Value="6"/>
+      <Index ID="176" Value="9"/>
+      <Index ID="177" Value="10"/>
+      <Index ID="186" Value="7"/>
+      <Index ID="187" Value="8"/>
+      <Index ID="188" Value="11"/>
+      <Index ID="189" Value="12"/>
+      <Index ID="7579" Value="13"/>
+      <Index ID="7580" Value="14"/>
+      <Index ID="86777" Value="15"/>
+      <Index ID="86778" Value="16"/>
+      <Index ID="87007" Value="0"/>
+    </IndexMap>
+  </TextGroup>
+  <Units>
+    <Unit ClassId="0x00000602" Name="Millimeter">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="1000"/>
+      <Property Name="Index" Value="2"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="2"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="1"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="0"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Centimeter">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="100"/>
+      <Property Name="Index" Value="3"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="4"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="3"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="0"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Meter">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="1"/>
+      <Property Name="Index" Value="1"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="6"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="5"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="2"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Inch">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="39.36996"/>
+      <Property Name="Index" Value="6"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="10"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="9"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="4"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Nanometer">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="1000000000"/>
+      <Property Name="Index" Value="5"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="8"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="7"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="0"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Micrometer">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="1000000"/>
+      <Property Name="Index" Value="4"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="12"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="11"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="0"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="PLCUnit">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="1"/>
+      <Property Name="Index" Value="0"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="14"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="13"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="2"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Feet">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="3.28083"/>
+      <Property Name="Index" Value="7"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="16"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="15"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="4"/>
+    </Unit>
+  </Units>
+  <Limits/>
+</UnitGroup>

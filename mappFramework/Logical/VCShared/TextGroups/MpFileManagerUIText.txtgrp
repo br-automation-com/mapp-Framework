@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpFileManagerUIText">
+  <Property Name="Description" Value="Text for FileManagerUI"/>
+  <Property Name="Index" Value="1017"/>
+  <TextSnippets>
+    <TextSnippet ClassId="0x00002002" Name="DirName">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.PathInfo.CurrentDir]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002002" Name="DevName">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002001" Name="FileCount">
+      <Property Name="AddFractionDigits" Value="0"/>
+      <Property Name="Alignment" Value="Right"/>
+      <Property Name="Content" Value="Value Unittext"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.PathInfo.FileCount]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+      <Property Name="MinIntegerDigits" Value="1"/>
+      <Property Name="UnitText" Value="Abbreviation"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002001" Name="FolderCount">
+      <Property Name="AddFractionDigits" Value="0"/>
+      <Property Name="Alignment" Value="Right"/>
+      <Property Name="Content" Value="Value Unittext"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.PathInfo.FolderCount]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+      <Property Name="MinIntegerDigits" Value="1"/>
+      <Property Name="UnitText" Value="Abbreviation"/>
+    </TextSnippet>
+  </TextSnippets>
+  <TextLayer LanguageId="en">
+    <Text ID="110276" Value="Delete"/>
+    <Text ID="110277" Value="Cut"/>
+    <Text ID="110278" Value="Copy"/>
+    <Text ID="110279" Value="Paste"/>
+    <Text ID="110280" Value="Refresh"/>
+    <Text ID="110281" Value="CurrentPath:{DevName}{DirName}"/>
+    <Text ID="110282" Value="Selected:"/>
+    <Text ID="110283" Value="MultiSelect"/>
+    <Text ID="110284" Value="File(s) {FileCount} / Folder(s) {FolderCount}"/>
+    <Text ID="110285" Value="Current Path"/>
+    <Text ID="110286" Value="MpFileManagerUI"/>
+    <Text ID="110287" Value="No"/>
+    <Text ID="110288" Value="Search keyword"/>
+    <Text ID="110289" Value="Create Dir"/>
+    <Text ID="110290" Value="Rename"/>
+    <Text ID="110291" Value="New Name"/>
+    <Text ID="111459" Value="Sort"/>
+    <Text ID="111460" Value="Status"/>
+    <Text ID="112052" Value="Name"/>
+    <Text ID="112053" Value="Date"/>
+    <Text ID="112054" Value="Size[kbyte]"/>
+    <Text ID="223798" Value="Type"/>
+    <Text ID="223801" Value="Configure FIFO"/>
+    <Text ID="223802" Value="OK"/>
+    <Text ID="223803" Value="FIFO Enable"/>
+    <Text ID="223804" Value="FIFO Device"/>
+    <Text ID="223805" Value="FIFO Option"/>
+    <Text ID="223807" Value="Max Number of Files"/>
+    <Text ID="223808" Value="Scan Interval (Minutes)"/>
+    <Text ID="223809" Value="Max Folder Size (kB)"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="110276" Value="Löschen"/>
+    <Text ID="110277" Value="Ausschn."/>
+    <Text ID="110278" Value="Kopieren"/>
+    <Text ID="110279" Value="Einfügen"/>
+    <Text ID="110280" Value="Refresh"/>
+    <Text ID="110281" Value="Pfad:{DevName}{DirName}"/>
+    <Text ID="110282" Value="Ausgewählt:"/>
+    <Text ID="110283" Value="Mehrfach auswahl"/>
+    <Text ID="110284" Value="Dateien {FileCount} / Ordner {FolderCount}"/>
+    <Text ID="110285" Value="Akt. Pfad"/>
+    <Text ID="110286" Value="MpFileManagerUI"/>
+    <Text ID="110287" Value="Nein"/>
+    <Text ID="110288" Value="Suche"/>
+    <Text ID="110289" Value="Ordner erstellen"/>
+    <Text ID="110290" Value="Um benennen"/>
+    <Text ID="110291" Value="Neuer Name"/>
+    <Text ID="111459" Value="Sortieren"/>
+    <Text ID="111460" Value="Status"/>
+    <Text ID="112052" Value="Name"/>
+    <Text ID="112053" Value="Datum"/>
+    <Text ID="112054" Value="Größe[kbyte]"/>
+    <Text ID="223798" Value="Type"/>
+    <Text ID="223801" Value="Configure FIFO"/>
+    <Text ID="223802" Value="OK"/>
+    <Text ID="223803" Value="FIFO Enable"/>
+    <Text ID="223804" Value="FIFO Device"/>
+    <Text ID="223805" Value="FIFO Option"/>
+    <Text ID="223807" Value="Max Number of Files"/>
+    <Text ID="223808" Value="Scan Interval (Minutes)"/>
+    <Text ID="223809" Value="Max. Ordnergröße (kB)"/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="110276" Value="0"/>
+    <Index ID="110277" Value="1"/>
+    <Index ID="110278" Value="2"/>
+    <Index ID="110279" Value="3"/>
+    <Index ID="110280" Value="4"/>
+    <Index ID="110281" Value="5"/>
+    <Index ID="110282" Value="6"/>
+    <Index ID="110283" Value="7"/>
+    <Index ID="110284" Value="9"/>
+    <Index ID="110285" Value="8"/>
+    <Index ID="110286" Value="10"/>
+    <Index ID="110287" Value="11"/>
+    <Index ID="110288" Value="12"/>
+    <Index ID="110289" Value="13"/>
+    <Index ID="110290" Value="14"/>
+    <Index ID="110291" Value="15"/>
+    <Index ID="111459" Value="16"/>
+    <Index ID="111460" Value="17"/>
+    <Index ID="112052" Value="20"/>
+    <Index ID="112053" Value="21"/>
+    <Index ID="112054" Value="22"/>
+    <Index ID="223798" Value="18"/>
+    <Index ID="223801" Value="19"/>
+    <Index ID="223802" Value="23"/>
+    <Index ID="223803" Value="24"/>
+    <Index ID="223804" Value="25"/>
+    <Index ID="223805" Value="26"/>
+    <Index ID="223807" Value="27"/>
+    <Index ID="223808" Value="28"/>
+    <Index ID="223809" Value="29"/>
+  </IndexMap>
+</TextGroup>

@@ -1,0 +1,2522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpEnergyUI">
+  <Property Name="Description" Value="mapp VC4 template MpEnergyCore"/>
+  <Property Name="Height" Value="480"/>
+  <Property Name="Index" Value="10023"/>
+  <Property Name="LockedBackColor" Value="15"/>
+  <Property Name="LockedForeColor" Value="15"/>
+  <Property Name="MoveFocus" Value="Circular"/>
+  <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+  <Property Name="Width" Value="800"/>
+  <Layers>
+    <LayerRef Source="Source[local].Layer[MpBackground]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpBackground"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="0"/>
+    </LayerRef>
+    <Layer Name="Default">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpOeeListUIConnect.Filter.DefaultLayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="1"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001004" Name="txtGroupControl">
+          <Property Name="Border" Value="Source[local].Border[Mp_GroupControl]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHeader2]"/>
+          <Property Name="Height" Value="384"/>
+          <Property Name="Left" Value="0"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGroupControl]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="45"/>
+          <Property Name="Width" Value="800"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnPageUp">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_130]"/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="316"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollUpMulti]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="259"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_130]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnPageDown">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_139]"/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="316"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollDownMulti]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="379"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_139]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001012" Name="sclScrollBar">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_RangeBar]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="Height" Value="160"/>
+          <Property Name="Left" Value="301"/>
+          <Property Name="Marker" Value="None"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="100"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="0"/>
+          <Property Name="MinorPitchLines" Value="1"/>
+          <Property Name="Orientation" Value="Left"/>
+          <Property Name="RangeColor" Value="253"/>
+          <Property Name="RangeEndDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.RangeEnd]"/>
+          <Property Name="RangeEndValue" Value="90"/>
+          <Property Name="RangeSpacing" Value="0"/>
+          <Property Name="RangeStartDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.RangeStart]"/>
+          <Property Name="RangeStartValue" Value="30"/>
+          <Property Name="RangeWidth" Value="32"/>
+          <Property Name="Spacing" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Default]"/>
+          <Property Name="Top" Value="259"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="ValueSimulation" Value="0"/>
+          <Property Name="Width" Value="15"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnScrollUp">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_140]"/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="316"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollUp]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="299"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_140]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnScrollDown">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_141]"/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="316"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpScrollDown]"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="None"/>
+          <Property Name="Top" Value="339"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_141]"/>
+          <Property Name="Width" Value="40"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtStatusLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="Left" Value="572"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="1"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="48"/>
+          <Property Name="Width" Value="70"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtStatusInfo">
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="26"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.Status]"/>
+          <Property Name="Left" Value="645"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreStatus]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="48"/>
+          <Property Name="Width" Value="150"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelName">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="Left" Value="161"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="6"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="259"/>
+          <Property Name="Width" Value="70"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxReverseEnergy">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="Height" Value="126"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.SelectedIndex]"/>
+          <Property Name="Left" Value="230"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.MaxSelection]"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="5"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyReverseEnergy]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="293"/>
+          <Property Name="Width" Value="70"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelMessage">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="Left" Value="230"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="7"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="259"/>
+          <Property Name="Width" Value="70"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtLabelTimestamp">
+          <Property Name="AlignmentVertical" Value="Center"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="Height" Value="35"/>
+          <Property Name="Left" Value="42"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="5"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="259"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxModuleName">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxLeft]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="Height" Value="126"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.SelectedIndex]"/>
+          <Property Name="Left" Value="42"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.MaxSelection]"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SimulationValue" Value="ModuleName"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="5"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.Names]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleStrings"/>
+          <Property Name="Top" Value="293"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x00001008" Name="lbxForwardEnergy">
+          <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
+          <Property Name="ButtonsBackColor" Value="254"/>
+          <Property Name="ButtonsBitmapGroup" Value="None"/>
+          <Property Name="ButtonsForeColor" Value="248"/>
+          <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
+          <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="Height" Value="126"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.SelectedIndex]"/>
+          <Property Name="Left" Value="161"/>
+          <Property Name="LeftBitmap" Value="None"/>
+          <Property Name="LeftTextGroup" Value="None"/>
+          <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.MaxSelection]"/>
+          <Property Name="MaxIndex" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinIndex" Value="0"/>
+          <Property Name="OptionDatapoint" Value="None"/>
+          <Property Name="RightBitmap" Value="None"/>
+          <Property Name="RightTextGroup" Value="None"/>
+          <Property Name="SliderBackColor" Value="255"/>
+          <Property Name="SliderForeColor" Value="240"/>
+          <Property Name="SpacingVertical" Value="5"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyForwardEnergy]"/>
+          <Property Name="TextIndexOffset" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="293"/>
+          <Property Name="Width" Value="70"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="297"/>
+          <Property Name="EndY" Value="315"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="StartX" Value="45"/>
+          <Property Name="StartY" Value="315"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_2">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="297"/>
+          <Property Name="EndY" Value="335"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="StartX" Value="45"/>
+          <Property Name="StartY" Value="335"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_3">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="297"/>
+          <Property Name="EndY" Value="355"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="StartX" Value="45"/>
+          <Property Name="StartY" Value="355"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_4">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="297"/>
+          <Property Name="EndY" Value="375"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="StartX" Value="45"/>
+          <Property Name="StartY" Value="375"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_5">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="799"/>
+          <Property Name="EndY" Value="253"/>
+          <Property Name="ForeColor" Value="249"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="0"/>
+          <Property Name="StartY" Value="253"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_6">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="399"/>
+          <Property Name="EndY" Value="430"/>
+          <Property Name="ForeColor" Value="249"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="399"/>
+          <Property Name="StartY" Value="80"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_7">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="297"/>
+          <Property Name="EndY" Value="395"/>
+          <Property Name="ForeColor" Value="252"/>
+          <Property Name="GroupID" Value="56"/>
+          <Property Name="StartX" Value="45"/>
+          <Property Name="StartY" Value="395"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtActivePowerLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorderSlim]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="57"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="10"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="115"/>
+          <Property Name="Width" Value="175"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numActivePower">
+          <Property Name="AddFractionDigits" Value="1"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="232"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="115"/>
+          <Property Name="UnitText" Value="Abbreviation"/>
+          <Property Name="UnitTextAlignment" Value="Left"/>
+          <Property Name="UnitTextPosition" Value="Right"/>
+          <Property Name="UnitTextWidth" Value="0"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallDetails.ActivePower]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="110"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtReactivePowerLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorderSlim]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="57"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="11"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="137"/>
+          <Property Name="Width" Value="175"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numReactivePower">
+          <Property Name="AddFractionDigits" Value="1"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="232"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="137"/>
+          <Property Name="UnitText" Value="Abbreviation"/>
+          <Property Name="UnitTextAlignment" Value="Left"/>
+          <Property Name="UnitTextPosition" Value="Right"/>
+          <Property Name="UnitTextWidth" Value="0"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallDetails.ReactivePower]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="110"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtPeakActivePowerLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorderSlim]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="57"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="12"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="159"/>
+          <Property Name="Width" Value="175"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numActiveForwardEnergy">
+          <Property Name="AddFractionDigits" Value="1"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="232"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="159"/>
+          <Property Name="UnitText" Value="Abbreviation"/>
+          <Property Name="UnitTextAlignment" Value="Left"/>
+          <Property Name="UnitTextPosition" Value="Right"/>
+          <Property Name="UnitTextWidth" Value="0"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallDetails.PeakActivePower]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="110"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtPeakReactivePowerLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorderSlim]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="57"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="13"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="181"/>
+          <Property Name="Width" Value="175"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numActiveReverseEnergy">
+          <Property Name="AddFractionDigits" Value="1"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="232"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="181"/>
+          <Property Name="UnitText" Value="Abbreviation"/>
+          <Property Name="UnitTextAlignment" Value="Left"/>
+          <Property Name="UnitTextPosition" Value="Right"/>
+          <Property Name="UnitTextWidth" Value="0"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallDetails.PeakReactivePower]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="110"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtPowerFactorLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorderSlim]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="57"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="14"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="203"/>
+          <Property Name="Width" Value="175"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numReactiveForwardEnergy">
+          <Property Name="AddFractionDigits" Value="2"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="GroupID" Value="38"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="232"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="203"/>
+          <Property Name="UnitText" Value="Abbreviation"/>
+          <Property Name="UnitTextAlignment" Value="Left"/>
+          <Property Name="UnitTextPosition" Value="Right"/>
+          <Property Name="UnitTextWidth" Value="0"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallDetails.PowerFactor]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="110"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_9">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="799"/>
+          <Property Name="EndY" Value="106"/>
+          <Property Name="ForeColor" Value="249"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="399"/>
+          <Property Name="StartY" Value="106"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_11">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="799"/>
+          <Property Name="EndY" Value="282"/>
+          <Property Name="ForeColor" Value="249"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="399"/>
+          <Property Name="StartY" Value="282"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnSelectForward">
+          <Property Name="AlignmentHorizontal" Value="Left"/>
+          <Property Name="AlignmentVertical" Value="Bottom"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_TabUnSelect]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_156]"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="486"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_TabSelect]"/>
+          <Property Name="PressedForeColor" Value="254"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[ControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndex" Value="20"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="255"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_156]"/>
+          <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnSelectReverse">
+          <Property Name="AlignmentHorizontal" Value="Left"/>
+          <Property Name="AlignmentVertical" Value="Bottom"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_TabUnSelect]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_157]"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="566"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_TabSelect]"/>
+          <Property Name="PressedForeColor" Value="254"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[ControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndex" Value="21"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="255"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_157]"/>
+          <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnSelectCombined">
+          <Property Name="AlignmentHorizontal" Value="Left"/>
+          <Property Name="AlignmentVertical" Value="Bottom"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_TabUnSelect]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_158]"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="406"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_TabSelect]"/>
+          <Property Name="PressedForeColor" Value="254"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[ControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndex" Value="19"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="255"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_158]"/>
+          <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnOverallCombined">
+          <Property Name="AlignmentHorizontal" Value="Left"/>
+          <Property Name="AlignmentVertical" Value="Bottom"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_TabUnSelect]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_161]"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="406"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_TabSelect]"/>
+          <Property Name="PressedForeColor" Value="254"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[ControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndex" Value="19"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="79"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_161]"/>
+          <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnTemporaryData">
+          <Property Name="AlignmentHorizontal" Value="Left"/>
+          <Property Name="AlignmentVertical" Value="Bottom"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_TabUnSelect]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_163]"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="182"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_TabSelect]"/>
+          <Property Name="PressedForeColor" Value="254"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[ControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndex" Value="4"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="79"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_163]"/>
+          <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnTotalData">
+          <Property Name="AlignmentHorizontal" Value="Left"/>
+          <Property Name="AlignmentVertical" Value="Bottom"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_TabUnSelect]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_164]"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="102"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_TabSelect]"/>
+          <Property Name="PressedForeColor" Value="254"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[ControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndex" Value="3"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="79"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_164]"/>
+          <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnSelectDetails">
+          <Property Name="AlignmentHorizontal" Value="Left"/>
+          <Property Name="AlignmentVertical" Value="Bottom"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_TabUnSelect]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_165]"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="646"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_TabSelect]"/>
+          <Property Name="PressedForeColor" Value="254"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[ControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndex" Value="23"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="255"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_165]"/>
+          <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnOverallForward">
+          <Property Name="AlignmentHorizontal" Value="Left"/>
+          <Property Name="AlignmentVertical" Value="Bottom"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_TabUnSelect]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_159]"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="486"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_TabSelect]"/>
+          <Property Name="PressedForeColor" Value="254"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[ControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndex" Value="20"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="79"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_159]"/>
+          <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnOverallReverse">
+          <Property Name="AlignmentHorizontal" Value="Left"/>
+          <Property Name="AlignmentVertical" Value="Bottom"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_TabUnSelect]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_160]"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="566"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_TabSelect]"/>
+          <Property Name="PressedForeColor" Value="254"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[ControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndex" Value="21"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="79"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_160]"/>
+          <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnOverallByModule">
+          <Property Name="AlignmentHorizontal" Value="Left"/>
+          <Property Name="AlignmentVertical" Value="Bottom"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_TabUnSelect]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_162]"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="646"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_TabSelect]"/>
+          <Property Name="PressedForeColor" Value="254"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[ControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndex" Value="22"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="79"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_162]"/>
+          <Property Name="Width" Value="78"/>
+        </Control>
+        <Control ClassId="0x0000100D" Name="Line_10">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EndX" Value="399"/>
+          <Property Name="EndY" Value="106"/>
+          <Property Name="ForeColor" Value="249"/>
+          <Property Name="LineWidth" Value="2"/>
+          <Property Name="StartX" Value="0"/>
+          <Property Name="StartY" Value="106"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="%embVirtualKey_130">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.PageUp]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_139">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.PageDown]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_140">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.StepUp]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_141">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.StepDown]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_156">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.ForwardEnergyChart.ShowLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_157">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.ReverseEnergyChart.ShowLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_158">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.CombinedEnergyChart.ShowLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_159">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardEnergyChart.ShowLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_160">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ReverseEnergyChart.ShowLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_161">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.CombinedEnergyChart.ShowLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_162">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.ShowLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_163">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ShowTemporaryRecord]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_164">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="1"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ShowTemporaryRecord]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_165">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x0000016A">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="ResetValue" Value="0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.Details.ShowLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
+    <Layer Name="OverallCombined">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.CombinedEnergyChart.LayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="2"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Background">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="145"/>
+          <Property Name="Left" Value="435"/>
+          <Property Name="LineWidth" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="107"/>
+          <Property Name="Width" Value="318"/>
+        </Control>
+        <Control ClassId="0x0000101C" Name="PieChartData">
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="ForeColor" Value="247"/>
+          <Property Name="Height" Value="130"/>
+          <Property Name="Left" Value="438"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="114"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.CombinedEnergyChart.Data]"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_0">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.CombinedEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="125"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_1">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.CombinedEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="148"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_2">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.CombinedEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="2"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="171"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_3">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.CombinedEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="3"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="194"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_4">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.CombinedEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="4"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="217"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_0">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="25"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="121"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_1">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="26"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="144"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_2">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="27"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="167"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_3">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="28"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="190"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_4">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="29"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="213"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+    <Layer Name="OverallForward">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardEnergyChart.LayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="3"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Background">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="145"/>
+          <Property Name="Left" Value="435"/>
+          <Property Name="LineWidth" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="107"/>
+          <Property Name="Width" Value="318"/>
+        </Control>
+        <Control ClassId="0x0000101C" Name="PieChartData">
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="ForeColor" Value="247"/>
+          <Property Name="Height" Value="130"/>
+          <Property Name="Left" Value="438"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="114"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardEnergyChart.Data]"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_0">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="125"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_1">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="148"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_0">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="25"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="121"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_1">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="26"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="144"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+    <Layer Name="OverallReverse">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ReverseEnergyChart.LayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="4"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Background">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="145"/>
+          <Property Name="Left" Value="435"/>
+          <Property Name="LineWidth" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="107"/>
+          <Property Name="Width" Value="318"/>
+        </Control>
+        <Control ClassId="0x0000101C" Name="PieChartData">
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="ForeColor" Value="247"/>
+          <Property Name="Height" Value="130"/>
+          <Property Name="Left" Value="438"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="114"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ReverseEnergyChart.Data]"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_0">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ReverseEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="2"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="125"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_1">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ReverseEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="3"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="148"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_0">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="27"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="121"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_1">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="28"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="144"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+    <Layer Name="OverallByModule">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.LayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="5"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Background">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="145"/>
+          <Property Name="Left" Value="435"/>
+          <Property Name="LineWidth" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="107"/>
+          <Property Name="Width" Value="318"/>
+        </Control>
+        <Control ClassId="0x0000101C" Name="PieChartData">
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="ForeColor" Value="247"/>
+          <Property Name="Height" Value="130"/>
+          <Property Name="Left" Value="438"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="114"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.Data]"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartLabel_0">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="121"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.ModuleNames[0]]"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartLabel_1">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="144"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.ModuleNames[1]]"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartLabel_2">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="167"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.ModuleNames[2]]"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartLabel_3">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="190"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.ModuleNames[3]]"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartLabel_4">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="213"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.ModuleNames[4]]"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_0">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="Locking" Value="Datapoint &lt; Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.MaxSelection]"/>
+          <Property Name="LockingLevel" Value="0"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="125"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_1">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="Locking" Value="Datapoint &lt; Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.MaxSelection]"/>
+          <Property Name="LockingLevel" Value="1"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="148"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_2">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="2"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="Locking" Value="Datapoint &lt; Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.MaxSelection]"/>
+          <Property Name="LockingLevel" Value="2"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="171"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_3">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="3"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="Locking" Value="Datapoint &lt; Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.MaxSelection]"/>
+          <Property Name="LockingLevel" Value="3"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="194"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_4">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.OverallCharts.ForwardActiveEnergyByModuleChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="4"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="Locking" Value="Datapoint &lt; Level"/>
+          <Property Name="LockingDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.ModuleList.MaxSelection]"/>
+          <Property Name="LockingLevel" Value="4"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="217"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+    <Layer Name="SelectedCombined">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.CombinedEnergyChart.LayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="6"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Background">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="145"/>
+          <Property Name="Left" Value="435"/>
+          <Property Name="LineWidth" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="283"/>
+          <Property Name="Width" Value="318"/>
+        </Control>
+        <Control ClassId="0x0000101C" Name="PieChartData">
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="ForeColor" Value="247"/>
+          <Property Name="Height" Value="130"/>
+          <Property Name="Left" Value="438"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="290"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.CombinedEnergyChart.Data]"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_0">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.CombinedEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="301"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_1">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.CombinedEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="324"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_2">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.CombinedEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="2"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="347"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_3">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.CombinedEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="3"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="370"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_4">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.CombinedEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="4"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="393"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_0">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="25"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="297"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_1">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="26"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="320"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_2">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="27"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="343"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_3">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="28"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="366"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_4">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="29"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="389"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+    <Layer Name="SelectedForward">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.ForwardEnergyChart.LayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="7"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Background">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="145"/>
+          <Property Name="Left" Value="435"/>
+          <Property Name="LineWidth" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="283"/>
+          <Property Name="Width" Value="318"/>
+        </Control>
+        <Control ClassId="0x0000101C" Name="PieChartData">
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="ForeColor" Value="247"/>
+          <Property Name="Height" Value="130"/>
+          <Property Name="Left" Value="438"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="290"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.ForwardEnergyChart.Data]"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_0">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.ForwardEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="301"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_1">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.ForwardEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="1"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="324"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_0">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="25"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="297"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_1">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="26"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="320"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+    <Layer Name="SelectedDetails">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.Details.LayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="8"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Background">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="145"/>
+          <Property Name="Left" Value="435"/>
+          <Property Name="LineWidth" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="283"/>
+          <Property Name="Width" Value="318"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtActivePowerLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorderSlim]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="453"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="10"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="290"/>
+          <Property Name="Width" Value="175"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numActivePower">
+          <Property Name="AddFractionDigits" Value="1"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="628"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="290"/>
+          <Property Name="UnitText" Value="Abbreviation"/>
+          <Property Name="UnitTextAlignment" Value="Left"/>
+          <Property Name="UnitTextPosition" Value="Right"/>
+          <Property Name="UnitTextWidth" Value="0"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.Details.ActivePower]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="110"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtReactivePowerLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorderSlim]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="453"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="11"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="312"/>
+          <Property Name="Width" Value="175"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numReactivePower">
+          <Property Name="AddFractionDigits" Value="1"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="628"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="312"/>
+          <Property Name="UnitText" Value="Abbreviation"/>
+          <Property Name="UnitTextAlignment" Value="Left"/>
+          <Property Name="UnitTextPosition" Value="Right"/>
+          <Property Name="UnitTextWidth" Value="0"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.Details.ReactivePower]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="110"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtPeakActivePowerLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorderSlim]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="453"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="12"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="334"/>
+          <Property Name="Width" Value="175"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numPeakActivePower">
+          <Property Name="AddFractionDigits" Value="1"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="628"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="334"/>
+          <Property Name="UnitText" Value="Abbreviation"/>
+          <Property Name="UnitTextAlignment" Value="Left"/>
+          <Property Name="UnitTextPosition" Value="Right"/>
+          <Property Name="UnitTextWidth" Value="0"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.Details.PeakActivePower]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="110"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtPeakReactivePowerLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorderSlim]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="453"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="13"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="356"/>
+          <Property Name="Width" Value="175"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numPeakReactivePower">
+          <Property Name="AddFractionDigits" Value="1"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="628"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="356"/>
+          <Property Name="UnitText" Value="Abbreviation"/>
+          <Property Name="UnitTextAlignment" Value="Left"/>
+          <Property Name="UnitTextPosition" Value="Right"/>
+          <Property Name="UnitTextWidth" Value="0"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.Details.PeakReactivePower]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="110"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtPowerFactorLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorderSlim]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="254"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="453"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="14"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="378"/>
+          <Property Name="Width" Value="175"/>
+        </Control>
+        <Control ClassId="0x00001007" Name="numPowerFactor">
+          <Property Name="AddFractionDigits" Value="2"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="628"/>
+          <Property Name="MaxDatapoint" Value="None"/>
+          <Property Name="MaxValue" Value="None"/>
+          <Property Name="MinDatapoint" Value="None"/>
+          <Property Name="MinValue" Value="None"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="TeachDatapoint" Value="None"/>
+          <Property Name="Top" Value="378"/>
+          <Property Name="UnitText" Value="Abbreviation"/>
+          <Property Name="UnitTextAlignment" Value="Left"/>
+          <Property Name="UnitTextPosition" Value="Right"/>
+          <Property Name="UnitTextWidth" Value="0"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.Details.PowerFactor]"/>
+          <Property Name="ValueMode" Value="Standard"/>
+          <Property Name="Width" Value="110"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+    <Layer Name="SelectedReverse">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.ReverseEnergyChart.LayerStatus]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="9"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001001" Name="Background">
+          <Property Name="BackColor" Value="15"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="145"/>
+          <Property Name="Left" Value="435"/>
+          <Property Name="LineWidth" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="283"/>
+          <Property Name="Width" Value="318"/>
+        </Control>
+        <Control ClassId="0x0000101C" Name="PieChartData">
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="ForeColor" Value="247"/>
+          <Property Name="Height" Value="130"/>
+          <Property Name="Left" Value="438"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="290"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.ReverseEnergyChart.Data]"/>
+          <Property Name="Width" Value="130"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_0">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.ReverseEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="2"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="301"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strChartMarker_1">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpEnergyCoreUIConnect.SelectedModule.ReverseEnergyChart.LayerStatus]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpEnergyChartData]"/>
+          <Property Name="ColorMapIndexOffset" Value="3"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="16"/>
+          <Property Name="Left" Value="573"/>
+          <Property Name="SimulationValue" Value="."/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="324"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+          <Property Name="Width" Value="16"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_0">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="27"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="297"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtChartLabel_1">
+          <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="255"/>
+          <Property Name="Height" Value="24"/>
+          <Property Name="Left" Value="593"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpEnergyCoreUIText]"/>
+          <Property Name="TextIndexOffset" Value="28"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="320"/>
+          <Property Name="Width" Value="160"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+    <LayerRef Source="Source[local].Layer[MpPageControl]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpPageControl"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="10"/>
+    </LayerRef>
+  </Layers>
+  <MovementOrder>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxReverseEnergy]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxForwardEnergy]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxForwardEnergy]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxModuleName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxForwardEnergy]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxModuleName]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxForwardEnergy]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxReverseEnergy]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxForwardEnergy]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxForwardEnergy]"/>
+    </MovementEntry>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxForwardEnergy]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxReverseEnergy]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxModuleName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxReverseEnergy]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxReverseEnergy]"/>
+    </MovementEntry>
+  </MovementOrder>
+  <TabSequence>
+    <TabSeqItem Index="0" Value="Source[local].Layer[MpBackground].Control[strUserName]"/>
+    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[lbxForwardEnergy]"/>
+    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[lbxReverseEnergy]"/>
+    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[lbxModuleName]"/>
+    <TabSeqItem Index="4" Value="Source[embedded].Layer[Default].Control[numActivePower]"/>
+    <TabSeqItem Index="5" Value="Source[embedded].Layer[Default].Control[numReactivePower]"/>
+    <TabSeqItem Index="6" Value="Source[embedded].Layer[Default].Control[numActiveForwardEnergy]"/>
+    <TabSeqItem Index="7" Value="Source[embedded].Layer[Default].Control[numActiveReverseEnergy]"/>
+    <TabSeqItem Index="8" Value="Source[embedded].Layer[Default].Control[numReactiveForwardEnergy]"/>
+    <TabSeqItem Index="9" Value="Source[embedded].Layer[OverallByModule].Control[strChartLabel_0]"/>
+    <TabSeqItem Index="10" Value="Source[embedded].Layer[OverallByModule].Control[strChartLabel_1]"/>
+    <TabSeqItem Index="11" Value="Source[embedded].Layer[OverallByModule].Control[strChartLabel_2]"/>
+    <TabSeqItem Index="12" Value="Source[embedded].Layer[OverallByModule].Control[strChartLabel_3]"/>
+    <TabSeqItem Index="13" Value="Source[embedded].Layer[OverallByModule].Control[strChartLabel_4]"/>
+    <TabSeqItem Index="14" Value="Source[embedded].Layer[OverallByModule].Control[strChartMarker_0]"/>
+    <TabSeqItem Index="15" Value="Source[embedded].Layer[OverallByModule].Control[strChartMarker_1]"/>
+    <TabSeqItem Index="16" Value="Source[embedded].Layer[OverallByModule].Control[strChartMarker_2]"/>
+    <TabSeqItem Index="17" Value="Source[embedded].Layer[OverallByModule].Control[strChartMarker_3]"/>
+    <TabSeqItem Index="18" Value="Source[embedded].Layer[OverallByModule].Control[strChartMarker_4]"/>
+    <TabSeqItem Index="19" Value="Source[embedded].Layer[SelectedDetails].Control[numActivePower]"/>
+    <TabSeqItem Index="20" Value="Source[embedded].Layer[SelectedDetails].Control[numReactivePower]"/>
+    <TabSeqItem Index="21" Value="Source[embedded].Layer[SelectedDetails].Control[numPeakActivePower]"/>
+    <TabSeqItem Index="22" Value="Source[embedded].Layer[SelectedDetails].Control[numPeakReactivePower]"/>
+    <TabSeqItem Index="23" Value="Source[embedded].Layer[SelectedDetails].Control[numPowerFactor]"/>
+    <TabSeqItem Index="24" Value="Source[embedded].Layer[SelectedCombined].Control[strChartMarker_0]"/>
+    <TabSeqItem Index="25" Value="Source[embedded].Layer[SelectedCombined].Control[strChartMarker_1]"/>
+    <TabSeqItem Index="26" Value="Source[embedded].Layer[SelectedCombined].Control[strChartMarker_2]"/>
+    <TabSeqItem Index="27" Value="Source[embedded].Layer[SelectedCombined].Control[strChartMarker_3]"/>
+    <TabSeqItem Index="28" Value="Source[embedded].Layer[SelectedCombined].Control[strChartMarker_4]"/>
+    <TabSeqItem Index="29" Value="Source[embedded].Layer[SelectedForward].Control[strChartMarker_0]"/>
+    <TabSeqItem Index="30" Value="Source[embedded].Layer[SelectedForward].Control[strChartMarker_1]"/>
+    <TabSeqItem Index="31" Value="Source[embedded].Layer[SelectedReverse].Control[strChartMarker_0]"/>
+    <TabSeqItem Index="32" Value="Source[embedded].Layer[SelectedReverse].Control[strChartMarker_1]"/>
+    <TabSeqItem Index="33" Value="Source[embedded].Layer[OverallCombined].Control[strChartMarker_4]"/>
+    <TabSeqItem Index="34" Value="Source[embedded].Layer[OverallCombined].Control[strChartMarker_0]"/>
+    <TabSeqItem Index="35" Value="Source[embedded].Layer[OverallCombined].Control[strChartMarker_3]"/>
+    <TabSeqItem Index="36" Value="Source[embedded].Layer[OverallCombined].Control[strChartMarker_1]"/>
+    <TabSeqItem Index="37" Value="Source[embedded].Layer[OverallCombined].Control[strChartMarker_2]"/>
+    <TabSeqItem Index="38" Value="Source[embedded].Layer[OverallForward].Control[strChartMarker_0]"/>
+    <TabSeqItem Index="39" Value="Source[embedded].Layer[OverallForward].Control[strChartMarker_1]"/>
+    <TabSeqItem Index="40" Value="Source[embedded].Layer[OverallReverse].Control[strChartMarker_0]"/>
+    <TabSeqItem Index="41" Value="Source[embedded].Layer[OverallReverse].Control[strChartMarker_1]"/>
+  </TabSequence>
+</Page>

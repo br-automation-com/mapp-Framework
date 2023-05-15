@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpUserXUIMessageBox">
+  <Property Name="Description" Value="Message box text for UserXUI"/>
+  <Property Name="Index" Value="2112"/>
+  <TextSnippets>
+    <TextSnippet ClassId="0x00002004" Name="ErrorText">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.UserXMgrUIConnect.MessageBox.ErrorNumber]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[MpUserXUIErrorText]"/>
+      <Property Name="TextIndexOffset" Value="0"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002002" Name="SelectedUser">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.UserXMgrUIConnect.User.Info.UserName]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002004" Name="LoginError">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.UserXLoginUIConnect.MessageBox.ErrorNumber]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[MpUserXUIErrorText]"/>
+      <Property Name="TextIndexOffset" Value="0"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002002" Name="SelectedGroup">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.UserXMgrUIConnect.Role.Info.Name]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+    </TextSnippet>
+  </TextSnippets>
+  <TextLayer LanguageId="en">
+    <Text ID="169052" Value="{ErrorText}"/>
+    <Text ID="169053" Value="Do you really want to delete user {SelectedUser}?"/>
+    <Text ID="169054" Value="Do you really want to lock the user {SelectedUser}? The user will be no longer allowed to log in!"/>
+    <Text ID="169055" Value="Do you really want to unlock the user {SelectedUser}? The user will be able to log in again!"/>
+    <Text ID="169056" Value="{LoginError}"/>
+    <Text ID="169057" Value=""/>
+    <Text ID="169058" Value=""/>
+    <Text ID="169059" Value="Do you really want to delete group {SelectedGroup}?"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="169052" Value="{ErrorText}"/>
+    <Text ID="169053" Value="Möchten sie wirklich den Benutzer {SelectedUser} löschen?"/>
+    <Text ID="169054" Value="Wollen Sie wirklich den Benutzer {SelectedUser} sperren? Der Benutzer wird nicht mehr gestattet sich anzumelden!"/>
+    <Text ID="169055" Value="Wollen Sie wirklich den Benutzer {SelectedUser} entsperren? Der Benutzer wird es wieder gestattet sich anzumelden!"/>
+    <Text ID="169056" Value="{LoginError}"/>
+    <Text ID="169057" Value=""/>
+    <Text ID="169058" Value=""/>
+    <Text ID="169059" Value="Möchten sie wirklich die Gruppe {SelectedGroup} löschen?"/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="169052" Value="1"/>
+    <Index ID="169053" Value="2"/>
+    <Index ID="169054" Value="3"/>
+    <Index ID="169055" Value="4"/>
+    <Index ID="169056" Value="101"/>
+    <Index ID="169057" Value="0"/>
+    <Index ID="169058" Value="100"/>
+    <Index ID="169059" Value="5"/>
+  </IndexMap>
+</TextGroup>

@@ -1,0 +1,40 @@
+(*Function Blocks*)
+VAR
+	DirCreate_0 : DirCreate; (*DirCreate instance*)
+	MpAuditTrail_0 : MpAuditTrail; (*AuditTrail for regular mapp events*)
+	MpAuditTrailConfig_0 : MpAuditTrailConfig; (*AuditTrail configuration*)
+	MpAuditTrail_CEvents : MpAuditTrail; (*AuditTrail for custom events*)
+	QueryUserEvents_0 : {REDUND_UNREPLICABLE} MpAuditQuery; (*MpAlarmXQuery instance*)
+	MpAuditTrailUI_0 : MpAuditTrailUI; (*AuditTrail UI interface*)
+	MpAuditTrail_CEvents_UI_0 : MpAuditTrailUI; (*AuditTrail UI interface*)
+END_VAR
+(*Constants*)
+VAR CONSTANT
+	MAX_QUERY_RESULTS : USINT := 19; (*Maximum number of query results (Value+1)*)
+	MAX_CUSTOM_EVENTS : USINT := 9; (*Maximum number of custom events*)
+	MAX_QUERIES : USINT := 2; (*Maximum number of configured queries*)
+END_VAR
+(*Structure Types*)
+VAR
+	HmiAudit : AuditHmiInterfaceType; (*HMI interface structure*)
+	CustomEvent : ARRAY[0..MAX_CUSTOM_EVENTS] OF AuditCustomEventType; (*Custom events*)
+	AuditQuery : {REDUND_UNREPLICABLE} AuditQueryType; (*Query results and status*)
+	AuditTrailConfig : MpAuditTrailConfigType; (*Configuration structure for changing archiving setup*)
+	MpAuditTrailUIConnect : MpAuditTrailUIConnectType; (*MpAuditUI connection to the HMI*)
+	MpAuditTrailUISetup : MpAuditTrailUISetupType; (*MpAuditUI setup connection to the HMI*)
+	MpAuditTrail_CEvents_UIConnect : MpAuditTrailUIConnectType; (*MpAuditUI connection to the HMI*)
+END_VAR
+(*Variables*)
+VAR
+	i : USINT; (*Index for loops*)
+	ident : UDINT; (*Identifier for task deployment*)
+	VariableMonitorExample : REAL; (*Used for the variable monitor example*)
+END_VAR
+VAR RETAIN
+	ArchiveSettingsRetain : AuditArchiveParType; (*Store settings in retain memory to be applied after boot*)
+END_VAR
+(**)
+VAR CONSTANT
+	DISPLAY : USINT := 0;
+	HIDE : USINT := 1;
+END_VAR

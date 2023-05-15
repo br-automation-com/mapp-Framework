@@ -1,5 +1,7 @@
 (*Recipe*)
 VAR CONSTANT
+	MACH_CONFIG_CATEGORY_INDEX : USINT := 1; (*Recipe category index for machine config*)
+	PARAMETERS_CATEGORY_INDEX : USINT := 0; (*Recipe category index for machine parameters*)
 	PARAMETERS_CATEGORY : STRING[10] := 'Parameters'; (*Recipe category for runtime parameters*)
 	MACHINE_CONFIGURATION_CATEGORY : STRING[30] := 'Machine Configuration'; (*Recipe category for machine configuration settings*)
 	DEFAULT_PARAMETERS : STRING[20] := 'Default'; (*Default parameters recipe file name*)

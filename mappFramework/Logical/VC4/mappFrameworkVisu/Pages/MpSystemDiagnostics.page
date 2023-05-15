@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpSystemDiagnostics">
+  <Property Name="Description" Value="Template system diagnostic page - access SDM via HTML control"/>
+  <Property Name="Height" Value="480"/>
+  <Property Name="Index" Value="1001"/>
+  <Property Name="MoveFocus" Value="Circular"/>
+  <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+  <Property Name="Width" Value="800"/>
+  <Layers>
+    <LayerRef Source="Source[local].Layer[MpBackground]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpBackground"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="0"/>
+    </LayerRef>
+    <Layer Name="Default">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="None"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="1"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001014" Name="htmlSDM">
+          <Property Name="AllowAutoRefresh" Value="No"/>
+          <Property Name="ChangeURLDatapoint" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="CurrentTitleDatapoint" Value="None"/>
+          <Property Name="CurrentURLDatapoint" Value="None"/>
+          <Property Name="DefaultURLs" Value="Source[global].TextGroup[Mp_httpURL_SDM]"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="HTMLStream" Value="None"/>
+          <Property Name="Height" Value="339"/>
+          <Property Name="Left" Value="90"/>
+          <Property Name="RenderEngine" Value="Automatic"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpHTML_SDM]"/>
+          <Property Name="Top" Value="68"/>
+          <Property Name="Width" Value="620"/>
+        </Control>
+      </Controls>
+      <KeyMapping/>
+    </Layer>
+    <LayerRef Source="Source[local].Layer[MpPageControl]">
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Frozen"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="Name" Value="MpPageControl"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Normal"/>
+      <Property Name="Z-Order" Value="2"/>
+    </LayerRef>
+  </Layers>
+  <MovementOrder>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[htmlSDM]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[htmlSDM]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[htmlSDM]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[htmlSDM]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[htmlSDM]"/>
+    </MovementEntry>
+  </MovementOrder>
+  <TabSequence>
+    <TabSeqItem Index="0" Value="Source[embedded].Layer[Default].Control[htmlSDM]"/>
+    <TabSeqItem Index="1" Value="Source[local].Layer[MpBackground].Control[strUserName]"/>
+  </TabSequence>
+</Page>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.2.37"?>
+<UnitGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="Mass">
+  <Property Name="DefaultDisplayUnit" Value="Source[embedded].Unit[Kilogramm]"/>
+  <Property Name="DefaultLimit" Value="None"/>
+  <Property Name="DefaultPLCUnit" Value="Source[embedded].Unit[PLCUnit]"/>
+  <Property Name="Description" Value="Unit group for mass"/>
+  <Property Name="InternalUnitTextIndex" Value="0"/>
+  <Property Name="RuntimeUnitChange" Value="None"/>
+  <Property Name="RuntimeUnitCurrentDatapoint" Value="None"/>
+  <TextGroup Name="TextGroup_1">
+    <Property Name="Description" Value=""/>
+    <Property Name="Index" Value="65535"/>
+    <TextSnippets/>
+    <TextLayer LanguageId="en">
+      <Text ID="243" Value="gramm"/>
+      <Text ID="244" Value=" g"/>
+      <Text ID="245" Value="kilogramm"/>
+      <Text ID="246" Value=" kg"/>
+      <Text ID="247" Value="milligramm"/>
+      <Text ID="248" Value=" mg"/>
+      <Text ID="7589" Value=""/>
+      <Text ID="7590" Value=""/>
+      <Text ID="87016" Value="kilogramm"/>
+    </TextLayer>
+    <TextLayer LanguageId="de">
+      <Text ID="243" Value="Gramm"/>
+      <Text ID="244" Value="g"/>
+      <Text ID="245" Value="Kilogramm"/>
+      <Text ID="246" Value="kg"/>
+      <Text ID="247" Value="Milligramm"/>
+      <Text ID="248" Value="mg"/>
+      <Text ID="7589" Value=""/>
+      <Text ID="7590" Value=""/>
+      <Text ID="87016" Value="Kilogramm"/>
+    </TextLayer>
+    <IndexMap>
+      <Index ID="243" Value="1"/>
+      <Index ID="244" Value="2"/>
+      <Index ID="245" Value="3"/>
+      <Index ID="246" Value="4"/>
+      <Index ID="247" Value="5"/>
+      <Index ID="248" Value="6"/>
+      <Index ID="7589" Value="7"/>
+      <Index ID="7590" Value="8"/>
+      <Index ID="87016" Value="0"/>
+    </IndexMap>
+  </TextGroup>
+  <Units>
+    <Unit ClassId="0x00000602" Name="Gramm">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="1000"/>
+      <Property Name="Index" Value="2"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="2"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="1"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="0"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Kilogramm">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="1"/>
+      <Property Name="Index" Value="1"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="4"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="3"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="2"/>
+    </Unit>
+    <Unit ClassId="0x00000602" Name="Milligramm">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Factor" Value="1000000"/>
+      <Property Name="Index" Value="3"/>
+      <Property Name="Offset" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="6"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="5"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="0"/>
+    </Unit>
+    <Unit ClassId="0x00000603" Name="PLCUnit">
+      <Property Name="DefaultPrecisionDatapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Index" Value="0"/>
+      <Property Name="Text_Abbreviation_TextGroup" Value="None"/>
+      <Property Name="Text_Abbreviation_TextIndex" Value="8"/>
+      <Property Name="Text_Description_TextGroup" Value="None"/>
+      <Property Name="Text_Description_TextIndex" Value="7"/>
+      <Property Name="UnitFraction" Value="False"/>
+      <Property Name="Unit_DefaultPrecision" Value="2"/>
+      <Property Name="Value[0].Internal" Value="0"/>
+      <Property Name="Value[0].Scaled" Value="0"/>
+      <Property Name="Value[1].Internal" Value="1"/>
+      <Property Name="Value[1].Scaled" Value="1"/>
+    </Unit>
+  </Units>
+  <Limits/>
+</UnitGroup>
