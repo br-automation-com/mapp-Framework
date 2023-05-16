@@ -56,7 +56,9 @@ TYPE
 		MotorTemperature : {REDUND_UNREPLICABLE} REAL; (*Motor temperature*)
 		IsHomed : {REDUND_UNREPLICABLE} BOOL; (*Axis is referenced*)
 		IsPowered : {REDUND_UNREPLICABLE} BOOL; (*Axis is powered*)
-		PLCopenState : McAxisPLCopenStateEnum; (*Axis PLCopenState*)
+		PLCopenState : {REDUND_UNREPLICABLE} McAxisPLCopenStateEnum; (*Axis PLCopenState*)
+		ModeManual : BOOL; (*Axis may be moved manually*)
+		StatusPointControl : ARRAY[0..1]OF UINT; (*VC4 - Axis Manual/Auto control*)
 	END_STRUCT;
 	AxisControlType : {REDUND_UNREPLICABLE} 	STRUCT 
 		Command : {REDUND_UNREPLICABLE} AxisControlCommandType; (*Cmd structure*)

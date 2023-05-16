@@ -202,6 +202,12 @@ ACTION AxisStateMachine:
 	AxisControl.Status.PLCopenState := MpAxisBasic_0.Info.PLCopenState;
 	AxisControl.Status.Position := MpAxisBasic_0.Position;
 	AxisControl.Status.Velocity := MpAxisBasic_0.Velocity;
+	AxisControl.Status.ModeManual := (State <> STATE_AUTOMATIC_OPERATION); 
+	//VC4 related code
+	AxisControl.Status.StatusPointControl[0].0 := NOT AxisControl.Status.StatusPointControl[1].0;
+	AxisControl.Status.StatusPointControl[0].1 := NOT AxisControl.Status.ModeManual;
+
+	
 
 END_ACTION
 
