@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.2.37"?>
+<?AutomationStudio Version="4.10.4.38 SP"?>
 <Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="mapp1StartPage">
   <Property Name="Description" Value="mapp VC4 template start page"/>
   <Property Name="Height" Value="480"/>
@@ -162,7 +162,7 @@
           <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="65"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="379"/>
+          <Property Name="Left" Value="385"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
@@ -192,7 +192,7 @@
           <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="65"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="445"/>
+          <Property Name="Left" Value="453"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
@@ -222,7 +222,7 @@
           <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="65"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="323"/>
+          <Property Name="Left" Value="327"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
@@ -372,7 +372,7 @@
           <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="65"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="267"/>
+          <Property Name="Left" Value="269"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
@@ -432,7 +432,7 @@
           <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="65"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="505"/>
+          <Property Name="Left" Value="511"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
@@ -462,7 +462,7 @@
           <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="65"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="603"/>
+          <Property Name="Left" Value="569"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
@@ -472,8 +472,38 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
-          <Property Name="Top" Value="348"/>
+          <Property Name="Top" Value="353"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[cmd_BackupPageButton]"/>
+          <Property Name="Width" Value="60"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="btnMpAxis">
+          <Property Name="BackColor" Value="0"/>
+          <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
+          <Property Name="BitmapAlignmentVertical" Value="Above Text"/>
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[MpIconsClick]"/>
+          <Property Name="BitmapIndex" Value="4"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="BitmapGroup"/>
+          <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_45_3]"/>
+          <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
+          <Property Name="ForeColor" Value="0"/>
+          <Property Name="Height" Value="65"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="637"/>
+          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+          <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[mappComponents]"/>
+          <Property Name="TextIndex" Value="3"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="353"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_45_3]"/>
           <Property Name="Width" Value="60"/>
         </Control>
       </Controls>
@@ -737,6 +767,19 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_1"/>
               <Property Name="Page" Value="Source[local].Page[MpAuditTrailUI]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_45_3">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[MpAxisBasic]"/>
               <Property Name="Target" Value="Page"/>
             </KeyAction>
           </KeyActions>
