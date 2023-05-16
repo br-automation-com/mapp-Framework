@@ -20,6 +20,14 @@
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::PackMLMgr:HmiPackML.Status.StateCurrent" attribute="value" />
 			<Target xsi:type="brease" contentRefId="PackML_content" widgetRefId="txtOutCurrentState" attribute="value" />
+		</Binding>	
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::PackMLMgr:HmiPackML.Commands.Mode" attribute="value" />
+			<Target xsi:type="brease" contentRefId="PackML_content" widgetRefId="drpDwnBoxModeSelector" attribute="selectedIndex" />
 		</Binding>
-	</Bindings>
+	<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::PackMLMgr:HmiPackML.Status.ModeCurrent" attribute="value" />
+<Target xsi:type="brease" contentRefId="PackML_content" widgetRefId="txtOutCurrentMode" attribute="value" />
+</Binding>
+</Bindings>
 </BindingsSet>

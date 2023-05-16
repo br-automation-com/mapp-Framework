@@ -11,3 +11,8 @@ VAR
 	HmiPackML : PackMLHmiInterfaceType := (Parameters:=(StateEnabled:=(Clearing:=TRUE,Stopped:=TRUE,Starting:=TRUE,Idle:=TRUE,Suspended:=TRUE,Execute:=TRUE,Stopping:=TRUE,Aborting:=TRUE,Aborted:=TRUE,Holding:=TRUE,Held:=TRUE,Unholding:=TRUE,Suspending:=TRUE,Unsuspending:=TRUE,Resetting:=TRUE,Completing:=TRUE,Complete:=TRUE))); (*HMI interface structure*)
 END_VAR
 (*Variables*)
+VAR
+	Manual : PackMLStateEnabledType := (Clearing:=FALSE,Stopped:=TRUE,Starting:=TRUE,Idle:=TRUE,Suspended:=FALSE,Execute:=TRUE,Stopping:=TRUE,Aborting:=TRUE,Aborted:=TRUE,Holding:=FALSE,Held:=FALSE,Unholding:=FALSE,Suspending:=FALSE,Unsuspending:=FALSE,Resetting:=TRUE,Completing:=FALSE,Complete:=FALSE); (*State active / inactive control*)
+	Maintenance : PackMLStateEnabledType := (Clearing:=TRUE,Stopped:=TRUE,Starting:=TRUE,Idle:=TRUE,Suspended:=FALSE,Execute:=TRUE,Stopping:=TRUE,Aborting:=TRUE,Aborted:=TRUE,Holding:=TRUE,Held:=TRUE,Unholding:=TRUE,Suspending:=FALSE,Unsuspending:=FALSE,Resetting:=TRUE,Completing:=TRUE,Complete:=TRUE); (*State active / inactive control*)
+	AutomaticMode : PackMLStateEnabledType := (Clearing:=TRUE,Stopped:=TRUE,Starting:=TRUE,Idle:=TRUE,Suspended:=TRUE,Execute:=TRUE,Stopping:=TRUE,Aborting:=TRUE,Aborted:=TRUE,Holding:=TRUE,Held:=TRUE,Unholding:=TRUE,Suspending:=TRUE,Unsuspending:=TRUE,Resetting:=TRUE,Completing:=TRUE,Complete:=TRUE); (*State active / inactive control*)
+END_VAR
