@@ -95,7 +95,7 @@ ACTION StateMachine_Main:
 			
 			// Add COMPLETE actions here
 			
-			MpPackMLMode_0.Reset := MpPackMLBasicUIConnect.StateControl.StateComplete;
+			MpPackMLMode_0.Reset := MpPackMLBasicUIConnect.StateControl.Reset;
 			
 		mpPACKML_STATE_RESETTING:
 			

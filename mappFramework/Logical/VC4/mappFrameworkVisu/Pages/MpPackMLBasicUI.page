@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.2.37"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
 <Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpPackMLBasicUI">
   <Property Name="Description" Value="mapp VC4 template MpPackMLBasicUI"/>
   <Property Name="Height" Value="480"/>
@@ -182,7 +182,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="DropdownBorder" Value="Source[local].Border[Mp_Flat_grey]"/>
           <Property Name="Height" Value="33"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.ModeControl.SelectedIndex]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.ModeControl.SelectedIndex]"/>
           <Property Name="Left" Value="583"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
@@ -362,7 +362,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="ForeColor" Value="254"/>
           <Property Name="Height" Value="26"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.ModeCurrent]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.ModeCurrent]"/>
           <Property Name="Left" Value="383"/>
           <Property Name="SimulationIndex" Value="1"/>
           <Property Name="SimulationValue" Value=""/>
@@ -394,7 +394,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="ForeColor" Value="254"/>
           <Property Name="Height" Value="26"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateCurrent]"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateCurrent]"/>
           <Property Name="Left" Value="618"/>
           <Property Name="SimulationIndex" Value="6"/>
           <Property Name="SimulationValue" Value=""/>
@@ -443,7 +443,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Abort]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Abort]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -458,7 +458,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Clear]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Clear]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -473,7 +473,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Start]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Start]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -488,7 +488,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Hold]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Hold]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -503,7 +503,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Suspend]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Suspend]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -518,7 +518,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.ModeControl.Activate]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.ModeControl.Activate]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -533,7 +533,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Stop]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Stop]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -548,7 +548,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Unhold]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Unhold]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -563,7 +563,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Unsuspend]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Unsuspend]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -578,7 +578,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Reset]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Reset]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -593,7 +593,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.StateComplete]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.StateComplete]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1349,7 +1349,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="100"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Starting]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Starting]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1372,7 +1372,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="100"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Completing]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Completing]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1395,7 +1395,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="34"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Held]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Held]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1418,7 +1418,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="34"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Suspended]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Suspended]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1441,7 +1441,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="34"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Aborted]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Aborted]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1518,7 +1518,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="34"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Idle]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Idle]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1541,7 +1541,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="100"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Resetting]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Resetting]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1573,7 +1573,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="34"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Stopped]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Stopped]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1614,7 +1614,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="100"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Unholding]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Unholding]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1637,7 +1637,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="100"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Unsuspending]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Unsuspending]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1661,7 +1661,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="100"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Suspending]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Suspending]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1711,7 +1711,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="100"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Holding]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Holding]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1752,7 +1752,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="34"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Complete]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Complete]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1811,7 +1811,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="100"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Clearing]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Clearing]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1854,7 +1854,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="100"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Aborting]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Aborted]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1877,7 +1877,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="100"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Stopping]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Stopping]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
@@ -1911,7 +1911,7 @@
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="BackColor" Value="197"/>
           <Property Name="Border" Value="Source[local].Border[Mp_Flat_grey]"/>
-          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.ColorIndex.Execute]"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.ColorIndex.Execute]"/>
           <Property Name="ColorMap" Value="Source[local].ColorMap[MpPMLStateColors]"/>
           <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="ControlID" Value="0"/>
