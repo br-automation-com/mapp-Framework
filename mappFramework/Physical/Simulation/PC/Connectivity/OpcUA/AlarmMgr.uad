@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="7" ArVersion="B4.82">
+<OpcUaSource FileVersion="7" ArVersion="E4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
@@ -53,7 +53,9 @@
           </Variable>
         </Variable>
         <Variable Name="HmiAlarmX" AutomaticEnable="True">
-          <Variable Name="Status" />
+          <Variable Name="Status">
+            <Variable Name="TableConfig" EnableArrayElements="True" />
+          </Variable>
         </Variable>
         <Variable Name="QueryActiveAlarms_0" />
         <Variable Name="AlarmQuery">

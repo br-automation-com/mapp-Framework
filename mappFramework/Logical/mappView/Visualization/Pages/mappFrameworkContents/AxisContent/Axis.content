@@ -15,6 +15,12 @@
         </Widget>
       </Widgets>
     </Widget>
+    <Widget xsi:type="widgets.brease.AlarmLine" id="alrmLineAxis" top="0" left="405" width="595" height="40" zIndex="5" imageActive="Media/mappFrameworkSymbols/Alarm/AlarmActive.svg" imageActiveAcknowledged="Media/mappFrameworkSymbols/Alarm/AlarmStateActiveAck.svg" imageInactive="Media/mappFrameworkSymbols/Alarm/AlarmInactive.svg" imageHeight="40" imageWidth="40" borderStyle="none" cellPadding="0px 0px 0px 10px" backColor="rgba(255, 255, 255, 1)">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.AlarmLineItem" id="alrmLineAxisState" width="40" zIndex="0" columnType="state" />
+        <Widget xsi:type="widgets.brease.AlarmLineItem" id="alrmLineAxisMsg" width="550" zIndex="1" />
+      </Widgets>
+    </Widget>
     <Widget xsi:type="widgets.brease.Label" id="LabelPage" top="10" left="950" width="150" zIndex="4" text="$IAT/mappFramework/Axis/Axis" textAlign="right" fontSize="24px" bold="true" />
   </Widgets>
 </Content>
