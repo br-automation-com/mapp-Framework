@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.2.37"?>
+<?AutomationStudio Version="4.10.4.38 SP"?>
 <Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpReport">
   <Property Name="Description" Value="mapp VC4 template MpDataTableUI"/>
   <Property Name="Height" Value="480"/>
@@ -563,51 +563,8 @@
           <Property Name="Top" Value="191"/>
           <Property Name="Width" Value="326"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdEdit1">
-          <Property Name="AlignmentHorizontal" Value="Center"/>
-          <Property Name="BitmapIndexDatapoint" Value="None"/>
-          <Property Name="BitmapSource" Value="None"/>
-          <Property Name="Border" Value="Source[local].Border[Mp_SunkenNG]"/>
-          <Property Name="ControlID" Value="0"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_15_0_0_12]"/>
-          <Property Name="Height" Value="45"/>
-          <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="635"/>
-          <Property Name="PressedBackColor" Value="16"/>
-          <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
-          <Property Name="PressedBorder" Value="Source[local].Border[Mp_SunkenNG]"/>
-          <Property Name="PressedForeColor" Value="253"/>
-          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
-          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.ButtonOperation.OperationCreate]"/>
-          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpButtonUp]"/>
-          <Property Name="TextGroup" Value="Source[global].TextGroup[MpBackupUITexts]"/>
-          <Property Name="TextIndex" Value="8"/>
-          <Property Name="TextIndexDatapoint" Value="None"/>
-          <Property Name="TextSimulationValue" Value="0"/>
-          <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="174"/>
-          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_15_0_0_12]"/>
-          <Property Name="Width" Value="151"/>
-        </Control>
       </Controls>
-      <KeyMapping>
-        <VirtualKey Name="%embVirtualKey_15_0_0_12">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.CmdButtonsPressed]"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
-      </KeyMapping>
+      <KeyMapping/>
     </Layer>
     <Layer Name="ReportCreate">
       <Property Name="BackColor" Value="9"/>
