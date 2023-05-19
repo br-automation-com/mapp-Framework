@@ -26,8 +26,8 @@ END_PROGRAM
 PROGRAM _CYCLIC
 	
 	// Call all cyclic actions
-	HmiActions;
 	StateMachine_Main;
+	HmiActions;
 	
 	// Assign MpLinks & UIConnects
 	MpPackMLModule_Main.Parameters := ADR(MpPackMLModulePar_Main);

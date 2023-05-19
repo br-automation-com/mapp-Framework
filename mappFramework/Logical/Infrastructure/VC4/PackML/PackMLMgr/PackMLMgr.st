@@ -33,8 +33,8 @@ END_PROGRAM
 PROGRAM _CYCLIC
 	
 	// Call all cyclic actions
-	HmiActions;
 	StateMachine_Main;
+	HmiActions;
 	
 	// Assign MpLinks & UIConnects
 	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);
