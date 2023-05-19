@@ -50,6 +50,7 @@ TYPE
 		EditRecipeLayer : RecipeStatusEditRecLayerType;
 		DuplicateLayer : USINT;
 		DeviceValid : BOOL; (*Flag for whether FileDevice is valid. Prevents user from being prompted to load default recipe.*)
+		InvalidRecipeLayer : BOOL;
 	END_STRUCT;
 	RecipeStatusDefRecLayerType : 	STRUCT 
 		Status : USINT;

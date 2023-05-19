@@ -130,12 +130,5 @@ ACTION AxisAutomatic:
 END_ACTION
 
 ACTION AxisReset:
-
-//	 edge alarms don't require a reset
-//	 IF (MpAlarmXControl_SpeedNotSet.Set = TRUE) THEN
-//		MpAlarmXControl_SpeedNotSet.Set := FALSE;
-//		MpAlarmXControl_SpeedNotSet.ID := MpAlarmXControl_SpeedNotSet.InstanceID;
-//		MpAlarmXControl_SpeedNotSet.Reset := TRUE;
-//	 END_IF
-
+	// AxisReset action call
 END_ACTION

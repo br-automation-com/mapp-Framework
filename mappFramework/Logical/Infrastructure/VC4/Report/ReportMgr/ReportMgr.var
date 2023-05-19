@@ -25,10 +25,7 @@ VAR
 END_VAR
 (**)
 VAR CONSTANT
-	DISPLAY : USINT := 0;
-	HIDE : USINT := 1;
+	DISPLAY : BOOL := FALSE;
+	HIDE : BOOL := TRUE;
 END_VAR
 (**)
-VAR
-	HtmlView : HtmlViewType;
-END_VAR

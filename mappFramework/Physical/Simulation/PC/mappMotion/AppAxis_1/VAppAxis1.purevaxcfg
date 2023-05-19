@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="gMpLinkPureVAxCfgAppAxis_1" Type="purevaxcfg">
     <Property ID="TypeID" Value="PureVAxConfig" />
@@ -6,7 +7,7 @@
       <Property ID="AxisReference" Value="gMpLinkAppAxis_1" />
       <Group ID="Homing">
         <Selector ID="Mode" Value="RestorePosition" />
-        <Property ID="RestorePositionVariable" Value="::AxisMgr:RestorePosition" />
+        <Property ID="RestorePositionVariable" Value="::AppAxis_1:RestorePosition_AppAxis_1" />
       </Group>
       <Selector ID="JerkFilter" Value="NotUsed" />
     </Group>

@@ -5,12 +5,11 @@ VAR
 	State : {REDUND_UNREPLICABLE} StateEnum; (*OMAC based state machine*)
 	AutomaticState : {REDUND_UNREPLICABLE} AutomaticStateEnum; (*Automatic handling state*)
 	ManualState : {REDUND_UNREPLICABLE} ManualStateEnum; (*Manual handling state*)
-	AxisControl : {REDUND_UNREPLICABLE} AxisControlType; (*Single axis control type*)
+	AxisControl : {REDUND_UNREPLICABLE} AxisControlType := (Status:=(StatusPointControl:=[0,1])); (*Single axis control type*)
 	AxisSettings : {REDUND_UNREPLICABLE} AxisSettingsType; (*Single axis settings *)
 END_VAR
 (*Function Blocks*)
 VAR
-	RestorePosition : {REDUND_UNREPLICABLE} McPureVAxRestorePosType; (*Data structure for retsore position mode*)
 	MpRecipeRegPar_Cfg : {REDUND_UNREPLICABLE} MpRecipeRegPar; (*Register function block for configuration values*)
 	MpRecipeRegPar_Par : {REDUND_UNREPLICABLE} MpRecipeRegPar; (*Register function block for parameter values*)
 	MpAlarmXCore_0 : {REDUND_UNREPLICABLE} MpAlarmXCore; (*AlarmX Core function block*)

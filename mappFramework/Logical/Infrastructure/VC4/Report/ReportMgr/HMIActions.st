@@ -102,7 +102,7 @@ ACTION ReportFileExplorer:
 	MpReportCore_0.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
 	
 	
-	
+
 	
 	
 	
@@ -110,9 +110,16 @@ ACTION ReportFileExplorer:
 	IF HmiReport.Status.Error THEN
 		HmiReport.Status.Layer.ReportCreate := HIDE;	  
 	END_IF;
-	HmiReport.Status.PageUpDownVisibility := NOT HmiReport.Status.FileOverMax;
-	HtmlView;
-	
+	IF HmiReport.Status.DeleteAllowed THEN
+		HmiReport.Status.DeleteButtonEnableStatus := HIDE;
+	ELSE
+		HmiReport.Status.DeleteButtonEnableStatus := DISPLAY;		
+	END_IF;	
+	IF HmiReport.Status.FileOverMax THEN
+		HmiReport.Status.PageUpDownVisibility := DISPLAY;
+	ELSE
+		HmiReport.Status.PageUpDownVisibility := HIDE;
+	END_IF;
 	
 	
 	

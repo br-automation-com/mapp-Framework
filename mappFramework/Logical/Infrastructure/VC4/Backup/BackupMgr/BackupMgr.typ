@@ -43,6 +43,9 @@ TYPE
 		Update : MpBackupAutoUpdateInfoType;
 		Layer : BackupHmiStatusLayerType;
 		ButtonOperation : BackupHmiStatusButtonOperatiType;
+		CmdButtonsPressed : BOOL;
+		grpBobDetailsStatus : BOOL;
+		SettingsContentsStatus : BOOL;
 	END_STRUCT;
 	BackupHmiStatusButtonOperatiType : 	STRUCT 
 		VisibilityPageUpDown : USINT;
@@ -57,6 +60,7 @@ TYPE
 		Delete : USINT;
 		Restore : USINT;
 		Settings : USINT;
+		FuncNotAvailable : USINT;
 	END_STRUCT;
 	AutomaticBackupType : 	STRUCT  (*Automatic backup settings*)
 		Enable : BOOL; (*Enable automatic backup feature*)

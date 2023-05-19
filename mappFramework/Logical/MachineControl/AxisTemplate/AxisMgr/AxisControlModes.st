@@ -4,15 +4,11 @@ END_ACTION
 
 ACTION AxisCyclic:
 	// Cyclic action call
-	IF (MpRecipeRegPar_Par.UpdateNotification) THEN
-
-	END_IF
-
 END_ACTION
 
 ACTION AxisManual:
 	// Action handling manual axis control
-	MpAxisParameters.Jog.Velocity := AxisControl.Parameters.Velocity;
+	MpAxisParameters.Jog.Velocity := AxisControl.Parameters.JogVelocity;
 	MpAxisParameters.Velocity := AxisControl.Parameters.Velocity;
 	MpAxisParameters.Position := AxisControl.Parameters.Position;
 	MpAxisParameters.Distance := AxisControl.Parameters.Distance;
@@ -32,6 +28,8 @@ ACTION AxisManual:
 				AxisControl.Command.MoveAbsolute := FALSE;
 				AxisControl.Command.MoveAdditive := FALSE;
 				ManualState := MANUAL_STATE_MOVE;
+			ELSE
+				State := STATE_READY;	
 			END_IF
 			// Jog state
 		MANUAL_STATE_JOG:
@@ -92,7 +90,6 @@ ACTION AxisAutomatic:
 	CASE AutomaticState OF
 		AUTOMATIC_STATE_IDLE:
 			IF (AxisControl.Command.Start = TRUE) THEN
-				MpAlarmXControl_SpeedNotSet.Set := (MpAxisParameters.Velocity = 0);
 				AutomaticState := AUTOMATIC_STATE_RUNNING;
 			END_IF
 
@@ -115,7 +112,6 @@ ACTION AxisAutomatic:
 				AutomaticState := AUTOMATIC_STATE_IDLE;
 			ELSIF (AxisControl.Command.UpdateVelocity = TRUE) THEN
 				AxisControl.Command.UpdateVelocity := FALSE;
-				MpAlarmXControl_SpeedNotSet.Set := (MpAxisParameters.Velocity = 0);
 				MpAxisBasic_0.Update := TRUE;
 			ELSIF (MpAxisBasic_0.UpdateDone = TRUE) THEN
 				MpAxisBasic_0.Update := FALSE;
@@ -124,7 +120,6 @@ ACTION AxisAutomatic:
 
 END_ACTION
 
-
 ACTION AxisReset:
-
+	// AxisReset action call
 END_ACTION

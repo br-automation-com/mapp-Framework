@@ -17,7 +17,7 @@ PROGRAM _INIT
 	AxisInit;
 
 	// Call initialization variables
-	RestorePosition;
+	RestorePosition_AppAxis_1;
 
 	// Initialize homing mode
 	MpAxisParameters.Homing.Mode := mcHOMING_DEFAULT;

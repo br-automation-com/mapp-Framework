@@ -1,13 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CompoundWidget id="PackMLModelOld" width="1285" height="765" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CompoundWidget id="PackMLModelOld" width="1920" height="980" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-  	<Widget xsi:type="widgets.brease.Paper" id="papPackML" top="0" left="0" width="1285" height="765" zIndex="1" colorList="#808080,#50C643,#FFFFAA,#0000FF,#0096FF,#FFFF00,#008000" svgFilePath="LocalMedia/PackMLOld.svg" transitionTime="200" borderStyle="none" />
+  	<Widget xsi:type="widgets.brease.Paper" id="papPackML" top="0" left="0" width="100%" height="100%" zIndex="1" colorList="#808080,#50C643,#FFFFAA,#0000FF,#0096FF,#FFFF00,#008000" svgFilePath="LocalMedia/PackMLOldCmd.svg" transitionTime="200" borderStyle="none" />
   
-  	<Widget xsi:type="widgets.brease.ImageList" 	id="imgLPackMLState"	zIndex="2" visible="false" width="0" height="0" imageList="['']" selectedIndex="-1"/>
-	<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutTransform" top="0" left="0" visible="false" width="0" height="0" zIndex="3" />
-	<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutBaseModel" top="0" left="0" visible="false" width="0" height="0" zIndex="4" />
+    <Widget xsi:type="widgets.brease.Image" id="Image1" top="0" left="0" width="100%" height="100%" zIndex="2" image="LocalMedia/PackMLOldCmd.svg" visible="false" />
+  
+	<Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnReset" top="644" left="112" width="126" height="126" zIndex="3" breakWord="true" multiLine="true" 		image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="RESET" borderWidth="4px" cornerRadius="63px" borderColor="rgba(210, 210, 210, 1)" 		fontSize="15px" bold="true" margin="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnStart" top="230" left="293" width="126" height="126" zIndex="4" breakWord="true" multiLine="true" 		image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="START" borderWidth="4px" cornerRadius="63px" borderColor="rgba(210, 210, 210, 1)" 		fontSize="15px" bold="true" margin="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnStop" top="643" left="491" width="126" height="126"  zIndex="5" breakWord="true" multiLine="true" 		image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="STOP" borderWidth="4px" cornerRadius="63px" borderColor="rgba(210, 210, 210, 1)" 		fontSize="15px" bold="true" margin="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnHold" top="146" left="1133" width="126" height="126" zIndex="6" breakWord="true" multiLine="true" 		image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="HOLD" borderWidth="4px" cornerRadius="63px" borderColor="rgba(210, 210, 210, 1)" 		fontSize="15px" bold="true" margin="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnUnhold" top="57" left="688" width="126" height="126" zIndex="7" breakWord="true" multiLine="true" 		image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="UNHOLD" borderWidth="4px" cornerRadius="63px" borderColor="rgba(210, 210, 210, 1)" 	fontSize="15px" bold="true" margin="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnSuspend" top="311" left="1133" width="126" height="126"  zIndex="8" breakWord="true" multiLine="true" 	image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="SUSPEND" borderWidth="4px" cornerRadius="63px" borderColor="rgba(210, 210, 210, 1)" 	fontSize="15px" bold="true" margin="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnUnsuspend" top="399" left="688" width="126" height="126" zIndex="9" breakWord="true" multiLine="true" 	image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="UNSUSPEND" borderWidth="4px" cornerRadius="63px" borderColor="rgba(210, 210, 210, 1)" 	fontSize="15px" bold="true" margin="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnAbort" top="666" left="1664" width="126" height="126"    zIndex="10" breakWord="true" multiLine="true" 	image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="ABORT" borderWidth="4px" cornerRadius="63px" borderColor="rgba(210, 210, 210, 1)" 		fontSize="15px" bold="true" margin="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnClear" top="803" left="1133" width="126" height="126"    zIndex="11" breakWord="true" multiLine="true" 	image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="CLEAR" borderWidth="4px" cornerRadius="63px" borderColor="rgba(210, 210, 210, 1)" 		fontSize="15px" bold="true" margin="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnComplete" top="230" left="1248" width="126" height="126" zIndex="12" breakWord="true" multiLine="true" 	image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="COMPLETE" borderWidth="4px" cornerRadius="63px" borderColor="rgba(210, 210, 210, 1)" 	fontSize="15px" bold="true" margin="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="TglBtnReset2" top="390" left="1664" width="126" height="126"   zIndex="13" breakWord="true" multiLine="true" 	image="LocalMedia/TouchMe.svg" imageAlign="bottom" text="RESET" borderWidth="4px" cornerRadius="63px" borderColor="rgba(210, 210, 210, 1)" 		fontSize="15px" bold="true" margin="10px" style="Command" />
+
+  	<Widget xsi:type="widgets.brease.ImageList" 	id="imgLPackMLState"	zIndex="22" visible="false" width="0" height="0" imageList="['']" selectedIndex="-1"/>
+	<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutTransform" top="0" left="0" visible="false" width="0" height="0" zIndex="23" />
+	<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutBaseModel" top="0" left="0" visible="false" width="0" height="0" zIndex="24" />
 	
-	<Widget xsi:type="widgets.brease.TextInput"  	id="txtInInvBase" 	zIndex="30" visible="false" width="0" height="0" value="" 	borderStyle="none" borderWidth="0px" backColor="transparent" borderColor="transparent" />
+	<Widget xsi:type="widgets.brease.TextInput"  	id="txtInInvBase" 	zIndex="25" visible="false" width="0" height="0" value="" 	borderStyle="none" borderWidth="0px" backColor="transparent" borderColor="transparent" />
 
   </Widgets>
   <Properties>
@@ -18,6 +32,24 @@
         <Mapping widget="imgLPackMLState" property="selectedIndex" mode="oneWay"/>
       </Mappings>
     </Property> 
+	
+    <Property xsi:type="StructureBindableProperty" name="packMLCommand" type="PackMLCommandsType" category="Data" readOnly="false" required="false">
+	<Description>Bind to PackML command interface</Description>
+		<Mappings>
+       <!-- COMMANDS -->
+	   		<Mapping widget="TglBtnReset"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Reset" />
+			<Mapping widget="TglBtnStart"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Start" />
+			<Mapping widget="TglBtnStop"   		type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Stop" />
+			<Mapping widget="TglBtnHold"   		type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Hold" />
+			<Mapping widget="TglBtnUnhold"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Unhold" />
+			<Mapping widget="TglBtnSuspend"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Suspend" />
+			<Mapping widget="TglBtnUnsuspend"   type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Unsuspend" />
+			<Mapping widget="TglBtnAbort"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Abort" />
+			<Mapping widget="TglBtnClear"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Clear" />
+			<Mapping widget="TglBtnComplete"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Complete" />
+			<Mapping widget="TglBtnReset2"   	type="Boolean"  property="value" mode="twoWay" mapToNode="false"  memberPath="Reset" />
+		</Mappings>
+	</Property>
 	
 	<Property xsi:type="BindableProperty" name="transform" type="String" defaultValue="" readOnly="false" category="Data" localizable="false" typeRefId="" nodeRefId="">
       <Description>PackML transform</Description>
