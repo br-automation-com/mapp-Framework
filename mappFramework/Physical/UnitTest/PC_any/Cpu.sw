@@ -11,22 +11,14 @@
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
   <TaskClass Name="Cyclic#8">
-    <Task Name="AlarmMgr" Source="Infrastructure.VC4.AlarmX.AlarmMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AlarmXUnit" Source="UnitTest.AlarmX.AlarmXUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
-    <Task Name="AuditMgr" Source="Infrastructure.VC4.Audit.AuditMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AuditTest" Source="UnitTest.Audit.AuditTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
-    <Task Name="BackupMgr" Source="Infrastructure.VC4.Backup.BackupMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="BackupUnit" Source="UnitTest.Backup.BackupUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
-    <Task Name="UsbMgr" Source="Infrastructure.VC4.Usb.UsbMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="RecipeMgr" Source="Infrastructure.VC4.Recipe.RecipeMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="RecipeMgrU" Source="UnitTest.Recipe.RecipeMgrUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
-    <Task Name="UserXMgr" Source="Infrastructure.VC4.UserX.UserXMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="UserXUnitT" Source="UnitTest.UserX.UserXUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
-    <Task Name="FileMgr" Source="Infrastructure.VC4.File.FileMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="FileTest" Source="UnitTest.File.FileUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
     <Task Name="AppAxisUni" Source="UnitTest.AppAxis_1.AppAxisUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
     <Task Name="ReportUnit" Source="UnitTest.Report.ReportUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
-    <Task Name="ReportMgr" Source="Infrastructure.VC4.Report.ReportMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <NcDataObjects>
     <NcDataObject Name="mcdrivelog" Source="" Memory="UserROM" Language="Binary" />

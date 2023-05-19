@@ -190,7 +190,7 @@
           <Property Name="BitmapSource" Value="SingleBitmap"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_220]"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_220_0]"/>
           <Property Name="Height" Value="65"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="663"/>
@@ -205,7 +205,7 @@
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="360"/>
-          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_220]"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_220_0]"/>
           <Property Name="Width" Value="130"/>
         </Control>
         <Control ClassId="0x00001008" Name="lbxAlarmEventID">
@@ -527,7 +527,7 @@
           <Property Name="BitmapSource" Value="SingleBitmap"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_210_4]"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_210_4_0]"/>
           <Property Name="Height" Value="65"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="526"/>
@@ -542,25 +542,12 @@
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="360"/>
-          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_210_4]"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_210_4_0]"/>
           <Property Name="Width" Value="130"/>
         </Control>
       </Controls>
       <KeyMapping>
-        <VirtualKey Name="%embVirtualKey_220">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x00000160">
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="Page" Value="Source[local].Page[MpAlarmXList]"/>
-              <Property Name="Target" Value="Page"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
-        <VirtualKey Name="%embVirtualKey_210_4">
+        <VirtualKey Name="%embVirtualKey_210_4_0">
           <Property Name="Description" Value=""/>
           <Property Name="VirtualKey_LED" Value="False"/>
           <KeyActions>
@@ -569,6 +556,19 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="Page" Value="Source[local].Page[MpAlarmXHistory]"/>
+              <Property Name="Target" Value="Page"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_220_0">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[MpAlarmXList]"/>
               <Property Name="Target" Value="Page"/>
             </KeyAction>
           </KeyActions>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.4.38 SP"?>
+<?AutomationStudio Version="4.10.2.37"?>
 <Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="mapp1StartPage">
   <Property Name="Description" Value="mapp VC4 template start page"/>
   <Property Name="Height" Value="480"/>
@@ -508,55 +508,6 @@
         </Control>
       </Controls>
       <KeyMapping>
-        <VirtualKey Name="cmd_BackupPageButton">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Layer.Create]"/>
-            </KeyAction>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_1"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Layer.Delete]"/>
-            </KeyAction>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_2"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Layer.Restore]"/>
-            </KeyAction>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_3"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Layer.Settings]"/>
-            </KeyAction>
-            <KeyAction ClassId="0x00000160">
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_4"/>
-              <Property Name="Page" Value="Source[local].Page[MpBackup]"/>
-              <Property Name="Target" Value="Page"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
         <VirtualKey Name="%embVirtualKey_45_8">
           <Property Name="Description" Value=""/>
           <Property Name="VirtualKey_LED" Value="False"/>
@@ -696,77 +647,6 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="Page" Value="Source[local].Page[MpTweetCoreUI_Receiver]"/>
-              <Property Name="Target" Value="Page"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
-        <VirtualKey Name="MpReportButton">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x00000160">
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="Page" Value="Source[local].Page[MpReport]"/>
-              <Property Name="Target" Value="Page"/>
-            </KeyAction>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_1"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Report.ReportMgr.MpFileManagerUIConnect.File.Refresh]"/>
-            </KeyAction>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_2"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Report.ReportMgr.HmiReport.Status.Layer.ReportCreate]"/>
-            </KeyAction>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_3"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Report.ReportMgr.HmiReport.Status.Layer.ReportDelete]"/>
-            </KeyAction>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_4"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Report.ReportMgr.HmiReport.Status.Layer.ReportView]"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
-        <VirtualKey Name="cmd_AuditPageButton">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Audit.AuditMgr.HmiAudit.Status.ArchiveSetupLayer]"/>
-            </KeyAction>
-            <KeyAction ClassId="0x00000160">
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_1"/>
-              <Property Name="Page" Value="Source[local].Page[MpAuditTrailUI]"/>
               <Property Name="Target" Value="Page"/>
             </KeyAction>
           </KeyActions>
