@@ -1,0 +1,120 @@
+WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=PackMLMgr 
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=266 Scope=60 Force=60 Index=50 ASCIIString=0
+                                    name                                     type force                                                            value level type len format place expand specs
+                               HmiPackML                   PackMLHmiInterfaceType    0 "                                                               *"    0   24    1    0    1    1         
+                                Commands                       PackMLCommandsType    0 "                                                               *"    1   24    1    0    0    1         
+                                   Reset                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                   Start                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                    Stop                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                    Hold                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                  Unhold                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                 Suspend                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                               Unsuspend                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                   Abort                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                   Clear                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                Complete                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                    Mode                                     DINT    0 "                                                               1"    2    4    1   10    0    0         
+                              Parameters                     PackMLParametersType    0 "                                                               *"    1   24    1    0    0    1         
+                                     Par                                    USINT    0 "                                                               0"    2    5    1   10    0    0         
+                            StateEnabled                   PackMLStateEnabledType    0 "                                                               *"    2   24    1    0    0    0         
+                                Clearing                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                 Stopped                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                Starting                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                    Idle                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                               Suspended                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                 Execute                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                Stopping                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                Aborting                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                 Aborted                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                 Holding                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                    Held                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                               Unholding                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                              Suspending                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                            Unsuspending                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                               Resetting                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                              Completing                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                Complete                                     BOOL    0 "                                                               *"    3    1    1    2    0    0         
+                                  Status                         PackMLStatusType    0 "                                                               *"    1   24    1    0    0    1         
+                            StateCurrent                               STRING[20]    0 "                                                       'Stopped'"    2    9   21    1    0    0         
+                             ModeCurrent                               STRING[50]    0 "                                                'Automatic Mode'"    2    9   51    1    0    0         
+                          DownTimeReason                              STRING[255]    0 "                                                              ''"    2    9  256    1    0    0         
+                        PackMLStateModel                           STRING[100000]    0 "'[{"select":"#Clearing","style":"fill:1;fill-opacity:1"},{"select":"#Stopped","style""    2    9 100001    1    0    0         
+                             PackMLState                                     DINT    0 "                                                               2"    2    4    1   10    0    0 e,0,mpPA
+
+                                Activate                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                  Manual                   PackMLStateEnabledType    0 "                                                               *"    0   24    1    0    1    1         
+                                Clearing                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                 Stopped                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                Starting                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                    Idle                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                               Suspended                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                 Execute                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                Stopping                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                Aborting                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                 Aborted                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                 Holding                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                    Held                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                               Unholding                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                              Suspending                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                            Unsuspending                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                               Resetting                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                              Completing                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                Complete                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                     MpPackMLModule_Main                           MpPackMLModule    0 "                                                               *"    0   24    1    0    1    1         
+                                  MpLink                                    UDINT    0 "                                                       137364116"    1    7    1   10    0    0         
+                                  Enable                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                              ErrorReset                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                              Parameters                                    UDINT    0 "                                                       338048312"    1    7    1   10    0    0         
+                                  Update                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                 Blocked                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                 Starved                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                 Command                MpPackMLModuleCommandType    0 "                                                               *"    1   24    1    0    0    0         
+                                   Abort                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                   Clear                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                    Stop                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                   Reset                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                   Start                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                    Hold                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                  Unhold                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                 Suspend                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                               Unsuspend                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                           StateComplete                                     BOOL    0 "                                                           FALSE"    2    1    1    2    0    0         
+                                SubState                                     DINT    0 "                                                               0"    1    4    1   10    0    0         
+                               StateInfo                              STRING[255]    0 "                                                              ''"    1    9  256    1    0    0         
+                                  Active                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                   Error                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                StatusID                                     DINT    0 "                                                     -2137750523"    1    4    1   10    0    0         
+                              UpdateDone                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                            StateCurrent                                     DINT    0 "                                                               2"    1    4    1   10    0    0 e,0,mpPA
+
+                         SubStateCurrent                                     DINT    0 "                                                               0"    1    4    1   10    0    0         
+                                  ModeID                                     DINT    0 "                                                               3"    1    4    1   10    0    0         
+                                    Info                   MpPackMLModuleInfoType    0 "                                                               *"    1   24    1    0    0    1         
+                             ModeCurrent                               STRING[50]    0 "                                                        'Manual'"    2    9   51    1    0    0         
+                            StateCurrent                               STRING[20]    0 "                                                       'Stopped'"    2    9   21    1    0    0         
+                              ChildCount                                    UDINT    0 "                                                               0"    2    7    1   10    0    0         
+                                  Parent                       MpPackMLParentType    0 "                                                               *"    2   24    1    0    0    0         
+                                    Name                              STRING[255]    0 "                                                               *"    3    9  256    1    0    0         
+                            StateCurrent                                     DINT    0 "                                                               *"    3    4    1   10    0    0 e,0,mpPA
+
+                         SubStateCurrent                                     DINT    0 "                                                               *"    3    4    1   10    0    0         
+                                   Level                                    UDINT    0 "                                                               0"    2    7    1   10    0    0         
+                         ReadyForCommand                                     BOOL    0 "                                                            TRUE"    2    1    1    2    0    0         
+                                    Diag                         MpPackMLDiagType    0 "                                                               *"    2   24    1    0    0    0         
+                                StatusID                     MpPackMLStatusIDType    0 "                                                               *"    3   24    1    0    0    0         
+                                      ID                                     DINT    0 "                                                               *"    4    4    1   10    0    0 e,0,mpPA
+
+                                Severity                                     DINT    0 "                                                               *"    4    4    1   10    0    0 e,0,mpCO
+
+                                    Code                                     UINT    0 "                                                               *"    4    6    1   10    0    0         
+                                Internal                    MpComInternalDataType    0 "                                                               *"    1   24    1    0    0    1         
+                                 pObject                                    UDINT    0 "                                                       170272240"    2    7    1   10    0    0         
+                                   State                                    UDINT    0 "                                                               3"    2    7    1   10    0    0         
+                          TON_StateBlink                                      TON    0 "                                                               *"    0   24    1    0    1    0         
+                                      IN                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                      PT                                     TIME    0 "                                                           T#01s"    1   12    1    1    0    0         
+                                       Q                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                                      ET                                     TIME    0 "                                                         T#810ms"    1   12    1    1    0    0         
+                               StartTime                                     TIME    0 "                                             T#01h_03m_33s_650ms"    1   12    1    1    0    0         
+                                       M                                     BOOL    0 "                                                            TRUE"    1    1    1    2    0    0         
+                                 Restart                                    UDINT    0 "                                                               2"    1    7    1   10    0    0         

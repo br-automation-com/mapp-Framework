@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.2.37"?>
+<?AutomationStudio Version="4.10.4.38 SP"?>
 <Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpPackMLStatisticsUI">
   <Property Name="Description" Value="mapp VC4 template MpPackMLStatisticsUI"/>
   <Property Name="ForeColor" Value="252"/>
@@ -164,11 +164,11 @@
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_98]"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_98_0]"/>
           <Property Name="ForeColor" Value="0"/>
           <Property Name="Height" Value="50"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="340"/>
+          <Property Name="Left" Value="717"/>
           <Property Name="Multiline" Value="Automatic"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedBorder" Value="Source[local].Border[Mp_Button_pressed]"/>
@@ -179,9 +179,9 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="430"/>
-          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_98]"/>
-          <Property Name="Width" Value="120"/>
+          <Property Name="Top" Value="92"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_98_0]"/>
+          <Property Name="Width" Value="80"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtStateStarting1">
           <Property Name="AlignmentHorizontal" Value="Center"/>
@@ -2242,10 +2242,10 @@
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_100]"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_100_0]"/>
           <Property Name="Height" Value="50"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="579"/>
+          <Property Name="Left" Value="717"/>
           <Property Name="Multiline" Value="Automatic"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedForeColor" Value="253"/>
@@ -2256,26 +2256,13 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="430"/>
-          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_100]"/>
+          <Property Name="Top" Value="378"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_100_0]"/>
           <Property Name="Width" Value="80"/>
         </Control>
       </Controls>
       <KeyMapping>
-        <VirtualKey Name="%embVirtualKey_98">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x00000160">
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="Page" Value="Source[local].Page[MpPackMLBasicUI]"/>
-              <Property Name="Target" Value="Page"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
-        <VirtualKey Name="%embVirtualKey_100">
+        <VirtualKey Name="%embVirtualKey_100_0">
           <Property Name="Description" Value=""/>
           <Property Name="VirtualKey_LED" Value="False"/>
           <KeyActions>
@@ -2288,6 +2275,19 @@
               <Property Name="ResetValue" Value="0"/>
               <Property Name="SetValue" Value="1"/>
               <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLStatisticsUIConnect.States.ResetTimers]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_98_0">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000160">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="Page" Value="Source[local].Page[MpPackMLBasicUI]"/>
+              <Property Name="Target" Value="Page"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>

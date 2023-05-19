@@ -31,7 +31,7 @@ ACTION AxisStateMachine:
 			AxisControl.Status.Status := 'Initializing';
 			ChangeConfiguration;
 			ChangeParameter;
-			IF ((ConfigurationState = CONFIG_STATE_READY) AND (ParameterState = PAR_STATE_READY) AND (MpAxisBasic_0.Active = TRUE)) THEN
+			IF (((ConfigurationState = CONFIG_STATE_READY) OR (ConfigurationState = CONFIG_STATE_NOT_USED)) AND ((ParameterState = PAR_STATE_READY) OR (ParameterState = PAR_STATE_NOT_USED)) AND (MpAxisBasic_0.Active = TRUE)) THEN
 				AxisControl.Status.IsReady := TRUE;
 
 				State := STATE_POWER_ON;
@@ -203,6 +203,9 @@ ACTION AxisStateMachine:
 	AxisControl.Status.Position := MpAxisBasic_0.Position;
 	AxisControl.Status.Velocity := MpAxisBasic_0.Velocity;
 	AxisControl.Status.ModeManual := (State <> STATE_AUTOMATIC_OPERATION);
+	//VC4 related code
+	AxisControl.Status.StatusPointControl[0].0 := NOT AxisControl.Status.StatusPointControl[1].0;
+	AxisControl.Status.StatusPointControl[0].1 := NOT AxisControl.Status.ModeManual;
 
 END_ACTION
 

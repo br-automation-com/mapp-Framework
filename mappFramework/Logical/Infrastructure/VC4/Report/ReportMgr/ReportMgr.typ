@@ -37,6 +37,7 @@ TYPE
 		FilterString : STRING[1000]; (*String used to filter out any file that is not a PDF*)
 		Layer : ReportStatusLayerType;
 		PageUpDownVisibility : USINT;
+		DeleteButtonEnableStatus : BOOL;
 	END_STRUCT;
 	ReportExampleType : 	STRUCT  (*Structure for the example data used by the two types of reports*)
 		SimpleReport : SimpleReportDataType; (*Structure for the simple report's example data*)
@@ -78,19 +79,10 @@ END_TYPE
 
 TYPE
 	ReportStatusLayerType : 	STRUCT 
-		ReportCreate : USINT;
-		ReportDelete : USINT;
-		ReportView : USINT;
+		ReportCreate : BOOL;
+		ReportDelete : BOOL;
 	END_STRUCT;
 END_TYPE
 
 (**)
 (**)
-
-TYPE
-	HtmlViewType : 	STRUCT 
-		HTMLStream : STRING[255];
-		ChangeURLDatapoint : STRING[255];
-		CurrentURLDatapoint : STRING[255];
-	END_STRUCT;
-END_TYPE

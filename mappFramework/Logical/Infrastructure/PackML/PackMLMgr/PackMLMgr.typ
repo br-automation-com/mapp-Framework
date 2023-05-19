@@ -18,6 +18,7 @@ TYPE
 		Abort : BOOL;
 		Clear : BOOL;
 		Complete : BOOL;
+		Mode : DINT;
 	END_STRUCT;
 	PackMLParametersType : 	STRUCT  (*Structure to hold the parameters for the HMI*)
 		Par : USINT;

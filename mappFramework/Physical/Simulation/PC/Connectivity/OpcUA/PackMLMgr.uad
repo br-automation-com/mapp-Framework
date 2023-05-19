@@ -23,28 +23,6 @@
   <DefaultView AclId="3">
     <Module Name="&lt;Default&gt;">
       <Task Name="PackMLMgr">
-        <Variable Name="HmiPackML" AutomaticEnable="True">
-          <Variable Name="Commands">
-            <Variable Name="Reset" />
-            <Variable Name="Start" />
-            <Variable Name="Stop" />
-            <Variable Name="Hold" />
-            <Variable Name="Unhold" />
-            <Variable Name="Suspend" />
-            <Variable Name="Unsuspend" />
-            <Variable Name="Abort" />
-            <Variable Name="Clear" />
-            <Variable Name="Complete" />
-          </Variable>
-          <Variable Name="Parameters">
-            <Variable Name="Par" />
-          </Variable>
-          <Variable Name="Status">
-            <Variable Name="DownTimeReason" />
-            <Variable Name="PackMLStateModel" />
-            <Variable Name="PackMLState" />
-          </Variable>
-        </Variable>
         <Variable Name="MpPackMLModule_Main">
           <Variable Name="Command">
             <Variable Name="Abort" />
@@ -76,6 +54,7 @@
           <Variable Name="ModeID" />
         </Variable>
         <Variable Name="MpPackMLModulePar_Main" />
+        <Variable Name="HmiPackML" AutomaticEnable="True" />
       </Task>
     </Module>
   </DefaultView>

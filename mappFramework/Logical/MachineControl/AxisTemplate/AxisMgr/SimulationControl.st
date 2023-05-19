@@ -1,5 +1,4 @@
 ACTION SimulationControl:
-
 	// Automatic settings when project is in simulation
 	IF NOT (DiagCpuIsARsim() OR DiagCpuIsSimulated()) THEN
 		RETURN;

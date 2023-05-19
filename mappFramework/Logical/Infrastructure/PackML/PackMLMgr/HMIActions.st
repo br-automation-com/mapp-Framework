@@ -17,6 +17,16 @@ ACTION HmiActions:
 		MpPackMLModule_Main.Command.StateComplete := HmiPackML.Commands.Complete;
 	END_IF
 	
+	// Assign mode configuration based on active mode
+	CASE MpPackMLModule_Main.ModeID OF	
+		1:
+			HmiPackML.Parameters.StateEnabled := AutomaticMode;
+		2:
+			HmiPackML.Parameters.StateEnabled := Maintenance;
+		3:
+			HmiPackML.Parameters.StateEnabled := Manual;
+	END_CASE		
+	
 	// control state machine active state blinking
 	CASE HmiPackML.Status.PackMLState OF
 		

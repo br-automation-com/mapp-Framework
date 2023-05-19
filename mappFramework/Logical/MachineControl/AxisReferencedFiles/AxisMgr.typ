@@ -56,6 +56,7 @@ TYPE
 		IsPowered : {REDUND_UNREPLICABLE} BOOL; (*Axis is powered*)
 		PLCopenState : {REDUND_UNREPLICABLE} McAxisPLCopenStateEnum; (*Axis PLCopenState*)
 		ModeManual : {REDUND_UNREPLICABLE} BOOL; (*Axis may be moved manually*)
+		StatusPointControl : {REDUND_UNREPLICABLE} ARRAY[0..1]OF UINT; (*VC4 - Axis Manual/Auto control*)
 	END_STRUCT;
 	AxisControlType : {REDUND_UNREPLICABLE} 	STRUCT 
 		Command : {REDUND_UNREPLICABLE} AxisControlCommandType; (*Cmd structure*)
@@ -95,6 +96,7 @@ TYPE
 		);
 	ParameterStateEnum : 
 		(
+		PAR_STATE_NOT_USED, (*Param initialization not used*)
 		PAR_STATE_INIT, (*Param initialization state*)
 		PAR_STATE_READ, (*Param read state*)
 		PAR_STATE_WRITE, (*Param write state*)
@@ -102,6 +104,7 @@ TYPE
 		);
 	ConfigurationStateEnum : 
 		(
+		CONFIG_STATE_NOT_USED, (*Config initialization not used*)
 		CONFIG_STATE_INIT, (*Config initialization state*)
 		CONFIG_STATE_READ, (*Config read state*)
 		CONFIG_STATE_WRITE, (*Config write state*)

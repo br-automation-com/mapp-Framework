@@ -480,7 +480,7 @@
           <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_4_1]"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_4_1_0]"/>
           <Property Name="Height" Value="31"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="528"/>
@@ -494,7 +494,7 @@
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="120"/>
-          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_4_1]"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_4_1_0]"/>
           <Property Name="Width" Value="92"/>
         </Control>
         <Control ClassId="0x00001002" Name="cmdSetGerman">
@@ -503,7 +503,7 @@
           <Property Name="Border" Value="Source[local].Border[Mp_Button]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_5_0]"/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_5_0_0]"/>
           <Property Name="Height" Value="31"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="390"/>
@@ -517,23 +517,12 @@
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="120"/>
-          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_5_0]"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_5_0_0]"/>
           <Property Name="Width" Value="92"/>
         </Control>
       </Controls>
       <KeyMapping>
-        <VirtualKey Name="TouchCalibration">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x00000164">
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
-        <VirtualKey Name="%embVirtualKey_4_1">
+        <VirtualKey Name="%embVirtualKey_4_1_0">
           <Property Name="Description" Value=""/>
           <Property Name="VirtualKey_LED" Value="False"/>
           <KeyActions>
@@ -545,7 +534,7 @@
             </KeyAction>
           </KeyActions>
         </VirtualKey>
-        <VirtualKey Name="%embVirtualKey_5_0">
+        <VirtualKey Name="%embVirtualKey_5_0_0">
           <Property Name="Description" Value=""/>
           <Property Name="VirtualKey_LED" Value="False"/>
           <KeyActions>
@@ -554,6 +543,17 @@
               <Property Name="Language" Value="de"/>
               <Property Name="Locking" Value="Never"/>
               <Property Name="Mode" Value="Set"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="TouchCalibration">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000164">
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
