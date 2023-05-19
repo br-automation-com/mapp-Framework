@@ -216,7 +216,7 @@ PROGRAM _CYCLIC
 	FormatDeviceDataProvider;
 	
 	
-	//vc4
+	//---------------------- VC4 ------------------------//
 	IF HmiBackup.Status.DeviceDataProviderSelectedIndex = 0 THEN
 		HmiBackup.Parameters.AutomaticBackup.Device := 'mappBackupFiles';
 		
@@ -230,14 +230,71 @@ PROGRAM _CYCLIC
 		HmiBackup.Parameters.AutomaticBackup.Device := '';
 	END_IF;
 	
-	HmiBackup.Status.Layer.Creating := (BackupState <> BACKUP_CREATING);
-	HmiBackup.Status.ButtonOperation.VisibilityPageUpDown := NOT HmiBackup.Status.FileOverMax;
-	HmiBackup.Status.ButtonOperation.OperationCreate := HmiBackup.Status.CreateAllowed;
-	HmiBackup.Status.ButtonOperation.OperationRestore := HmiBackup.Status.RestoreAllowed;
-	//		HmiBackup.Status.ButtonOperation.OperationDelete := HmiBackup.Status.
-	//		HmiBackup.Status.ButtonOperation.OperationSettings := HmiBackup.Status.
-	HmiBackup.Status.ButtonOperation.OperationDelete := 1;
-	HmiBackup.Status.ButtonOperation.OperationSettings := 1;
+	// Function is not available Layer manager
+	IF HmiBackup.Status.CmdButtonsPressed AND HmiBackup.Status.SimulationActive THEN
+		HmiBackup.Status.Layer.FuncNotAvailable := DISPLAY;
+	ELSE
+		HmiBackup.Status.Layer.FuncNotAvailable := HIDE;		
+	END_IF;	
+
+	// Visibility creating layer
+	IF BackupState = BACKUP_CREATING THEN
+		HmiBackup.Status.Layer.Creating := DISPLAY;
+	ELSE
+		HmiBackup.Status.Layer.Creating := HIDE;
+	END_IF;	
+	// Visibility UpDown buttons
+	IF HmiBackup.Status.FileOverMax THEN
+		HmiBackup.Status.ButtonOperation.VisibilityPageUpDown := DISPLAY;
+	ELSE
+		HmiBackup.Status.ButtonOperation.VisibilityPageUpDown := HIDE;	  
+	END_IF;	
+	
+	// Operation Create Button
+	IF HmiBackup.Status.CreateAllowed AND NOT HmiBackup.Status.SimulationActive THEN
+		HmiBackup.Status.ButtonOperation.OperationCreate := OPERATION_ACTIVATED;
+	ELSE
+		HmiBackup.Status.ButtonOperation.OperationCreate := OPERATION_DEACTIVATED;
+	END_IF;	
+	// Operation Restore Button
+	IF HmiBackup.Status.RestoreAllowed AND NOT HmiBackup.Status.SimulationActive THEN
+		HmiBackup.Status.ButtonOperation.OperationRestore := OPERATION_ACTIVATED;
+	ELSE
+		HmiBackup.Status.ButtonOperation.OperationRestore := OPERATION_DEACTIVATED;
+	END_IF;	
+	// Operation Delete Button
+	IF (*admin AND*) NOT HmiBackup.Status.SimulationActive THEN
+		HmiBackup.Status.ButtonOperation.OperationDelete := OPERATION_ACTIVATED;
+	ELSE
+		HmiBackup.Status.ButtonOperation.OperationDelete := OPERATION_DEACTIVATED;
+	END_IF;	
+	// Operation Settings Button
+	IF (*admin AND*) NOT HmiBackup.Status.SimulationActive THEN
+		HmiBackup.Status.ButtonOperation.OperationSettings := OPERATION_ACTIVATED;
+	ELSE
+		HmiBackup.Status.ButtonOperation.OperationSettings := OPERATION_DEACTIVATED;
+	END_IF;
+	
+	
+	//grpBobDetailsStatus Visible/Hide
+	IF HmiBackup.Status.BackupCtrlEnabled AND HmiBackup.Status.Info.Name <> '' THEN
+		HmiBackup.Status.grpBobDetailsStatus := USINT_TO_BOOL(DISPLAY);	
+		
+	ELSIF NOT HmiBackup.Status.BackupCtrlEnabled OR HmiBackup.Status.Info.Name = '' THEN
+		HmiBackup.Status.grpBobDetailsStatus := USINT_TO_BOOL(HIDE);		
+	END_IF;
+	
+	
+	//settings contents
+	IF HmiBackup.Parameters.AutomaticBackup.Enable THEN
+		HmiBackup.Status.SettingsContentsStatus := USINT_TO_BOOL(DISPLAY);
+	ELSE
+		HmiBackup.Status.SettingsContentsStatus := USINT_TO_BOOL(HIDE);	  
+	END_IF;
+	
+	//-----------------------------------------------------//
+	//													   //
+	//-----------------------------------------------------//
 	
 	
 	

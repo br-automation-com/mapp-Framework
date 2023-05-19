@@ -36,6 +36,7 @@ PROGRAM _INIT
 	MpRecipeUI_0();
 
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
+	HmiRecipe.Status.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"CF/PLC"}';
 	HmiRecipe.Parameters.DeviceName := 'mappRecipeFiles';
 	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipe_0.Enable := TRUE;
@@ -149,6 +150,7 @@ END_PROGRAM
 PROGRAM _CYCLIC	
 	
 	// Call actions
+	FormatDeviceDataProvider;
 	LoadPreview;
 	RecipeHMIcommands;
 	LoadStatus;
