@@ -4,16 +4,16 @@ ACTION HmiActions:
 	IF HmiPackML.Status.LastState <> MpPackMLMode_0.StateCurrent THEN
 		
 		// Reset all commands on each state change
-		MpPackMLBasicUIConnect.StateControl.Abort := MpPackMLMode_0.Abort := 0;
-		MpPackMLBasicUIConnect.StateControl.Clear := MpPackMLMode_0.Clear := 0;
-		MpPackMLBasicUIConnect.StateControl.Hold := MpPackMLMode_0.Hold := 0;
-		MpPackMLBasicUIConnect.StateControl.Reset := MpPackMLMode_0.Reset := 0;
-		MpPackMLBasicUIConnect.StateControl.Start := MpPackMLMode_0.Start := 0;
-		MpPackMLBasicUIConnect.StateControl.StateComplete := MpPackMLMode_0.StateComplete := 0;
-		MpPackMLBasicUIConnect.StateControl.Stop := MpPackMLMode_0.Stop := 0;
-		MpPackMLBasicUIConnect.StateControl.Suspend := MpPackMLMode_0.Suspend := 0;
-		MpPackMLBasicUIConnect.StateControl.Unhold := MpPackMLMode_0.Unhold := 0;
-		MpPackMLBasicUIConnect.StateControl.Unsuspend := MpPackMLMode_0.Unsuspend := 0;
+		MpPackMLBasicUIConnect.StateControl.Abort := MpPackMLMode_0.Abort := FALSE;
+		MpPackMLBasicUIConnect.StateControl.Clear := MpPackMLMode_0.Clear := FALSE;
+		MpPackMLBasicUIConnect.StateControl.Hold := MpPackMLMode_0.Hold := FALSE;
+		MpPackMLBasicUIConnect.StateControl.Reset := MpPackMLMode_0.Reset := FALSE;
+		MpPackMLBasicUIConnect.StateControl.Start := MpPackMLMode_0.Start := FALSE;
+		MpPackMLBasicUIConnect.StateControl.StateComplete := MpPackMLMode_0.StateComplete := FALSE;
+		MpPackMLBasicUIConnect.StateControl.Stop := MpPackMLMode_0.Stop := FALSE;
+		MpPackMLBasicUIConnect.StateControl.Suspend := MpPackMLMode_0.Suspend := FALSE;
+		MpPackMLBasicUIConnect.StateControl.Unhold := MpPackMLMode_0.Unhold := FALSE;
+		MpPackMLBasicUIConnect.StateControl.Unsuspend := MpPackMLMode_0.Unsuspend := FALSE;
 		
 		// Reset all ColorIndexes on each state change
 		MpPackMLBasicUIConnect.StateControl.ColorIndex.Stopped := 0;

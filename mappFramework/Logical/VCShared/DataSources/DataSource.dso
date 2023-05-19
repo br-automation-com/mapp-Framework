@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <?AutomationStudio Version="4.10.5.38 SP"?>
-=======
-<?AutomationStudio Version="4.10.4.38 SP"?>
->>>>>>> origin/develop
 <DataSource xmlns="http://br-automation.co.at/AS/VC/Project" Name="DataSource">
   <Property Name="AutoRefresh" Value="False"/>
   <Property Name="DefaultUpdateTime" Value="200"/>
@@ -9342,25 +9338,7 @@
                   <Property Name="UserID" Value="None"/>
                   <Property Name="VCType" Value="BOOL"/>
                 </DataPoint>
-                <DataPoint Name="Hold">
-                  <Property Name="ConnectedBySharedResource" Value="False"/>
-                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-                  <Property Name="Description" Value=""/>
-                  <Property Name="PLCType" Value="BOOL"/>
-                  <Property Name="UpdateTime" Value="Default"/>
-                  <Property Name="UserID" Value="None"/>
-                  <Property Name="VCType" Value="BOOL"/>
-                </DataPoint>
                 <DataPoint Name="Unhold">
-                  <Property Name="ConnectedBySharedResource" Value="False"/>
-                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-                  <Property Name="Description" Value=""/>
-                  <Property Name="PLCType" Value="BOOL"/>
-                  <Property Name="UpdateTime" Value="Default"/>
-                  <Property Name="UserID" Value="None"/>
-                  <Property Name="VCType" Value="BOOL"/>
-                </DataPoint>
-                <DataPoint Name="Suspend">
                   <Property Name="ConnectedBySharedResource" Value="False"/>
                   <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
                   <Property Name="Description" Value=""/>
@@ -9562,10 +9540,37 @@
                     <Property Name="VCType" Value="INTEGER"/>
                   </DataPoint>
                 </Folder>
+                <DataPoint Name="Hold">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="BOOL"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="BOOL"/>
+                </DataPoint>
+                <DataPoint Name="Suspend">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="BOOL"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="BOOL"/>
+                </DataPoint>
               </Folder>
               <Folder Name="ModeControl">
                 <Property Name="Description" Value=""/>
                 <Property Name="FolderType" Value="Struct"/>
+                <DataPoint Name="SelectedIndex">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="UINT"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="INTEGER"/>
+                </DataPoint>
                 <DataPoint Name="Activate">
                   <Property Name="ConnectedBySharedResource" Value="False"/>
                   <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
@@ -9896,24 +9901,6 @@
           <Property Name="UserID" Value="None"/>
           <Property Name="VCType" Value="INTEGER"/>
         </DataPoint>
-        <DataPoint Name="Activate">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-        <DataPoint Name="SelectedIndex">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="UINT"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="INTEGER"/>
-        </DataPoint>
         <DataPoint Name="LockActivation">
           <Property Name="ConnectedBySharedResource" Value="False"/>
           <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
@@ -9927,87 +9914,6 @@
       <Folder Name="StateControl">
         <Property Name="Description" Value=""/>
         <Property Name="FolderType" Value="Struct"/>
-        <DataPoint Name="Unhold">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-        <DataPoint Name="Abort">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-        <DataPoint Name="StateComplete">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-        <DataPoint Name="Hold">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-        <DataPoint Name="Start">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-        <DataPoint Name="Unsuspend">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-        <DataPoint Name="Reset">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-        <DataPoint Name="Suspend">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-        <DataPoint Name="Stop">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
         <Folder Name="ColorIndex">
           <Property Name="Description" Value=""/>
           <Property Name="FolderType" Value="Struct"/>
@@ -10165,34 +10071,7 @@
             <Property Name="VCType" Value="INTEGER"/>
           </DataPoint>
         </Folder>
-        <DataPoint Name="Clear">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
       </Folder>
-      <DataPoint Name="StateCurrent">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-        <Property Name="Description" Value=""/>
-        <Property Name="PLCType" Value="MpPackMLStateEnum"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-      <DataPoint Name="ModeCurrent">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-        <Property Name="Description" Value=""/>
-        <Property Name="PLCType" Value="DINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
     </Folder>
     <Folder Name="MpDataRecorderAlarmUIConnect">
       <Property Name="Description" Value=""/>
@@ -14907,205 +14786,6 @@
         <Property Name="UserID" Value="None"/>
         <Property Name="VCType" Value="INTEGER"/>
       </DataPoint>
-<<<<<<< HEAD
-      <DataPoint Name="ModeCurrent">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-        <Property Name="Description" Value=""/>
-        <Property Name="PLCType" Value="DINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-    </Folder>
-    <Folder Name="MpPackMLBasicUIConnect">
-      <Property Name="Description" Value=""/>
-      <Property Name="FolderType" Value="Struct"/>
-      <Folder Name="ModeControl">
-        <Property Name="Description" Value=""/>
-        <Property Name="FolderType" Value="Struct"/>
-        <DataPoint Name="MaxSelection">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="UDINT"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="INTEGER"/>
-        </DataPoint>
-        <DataPoint Name="LockActivation">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-      </Folder>
-      <Folder Name="StateControl">
-        <Property Name="Description" Value=""/>
-        <Property Name="FolderType" Value="Struct"/>
-        <Folder Name="ColorIndex">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <DataPoint Name="Held">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Resetting">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Stopped">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Execute">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Suspending">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Stopping">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Unsuspending">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Idle">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Completing">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Suspended">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Complete">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Holding">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Aborted">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Aborting">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Unholding">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Starting">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Clearing">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-        </Folder>
-      </Folder>
-=======
->>>>>>> origin/develop
     </Folder>
     <Folder Name="MpOeeTrendUIConnect">
       <Property Name="Description" Value=""/>

@@ -194,6 +194,7 @@
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
           <Property Name="SimulationValue" Value="1"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.ModeControl.SelectedIndex]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Default]"/>
           <Property Name="TextGroup" Value="Source[global].TextGroup[MpPackMLModesNames]"/>
           <Property Name="TextIndexOffset" Value="0"/>
@@ -432,6 +433,66 @@
         </Control>
       </Controls>
       <KeyMapping>
+        <VirtualKey Name="%embVirtualKey_1_1">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="None"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_8_1">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="None"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_9_2">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="None"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_12_1">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="None"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
         <VirtualKey Name="%embVirtualKey_102_0">
           <Property Name="Description" Value=""/>
           <Property Name="VirtualKey_LED" Value="False"/>
@@ -475,52 +536,7 @@
             </KeyAction>
           </KeyActions>
         </VirtualKey>
-        <VirtualKey Name="%embVirtualKey_1_1">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Start]"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
-        <VirtualKey Name="%embVirtualKey_8_1">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Hold]"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
-        <VirtualKey Name="%embVirtualKey_9_2">
-          <Property Name="Description" Value=""/>
-          <Property Name="VirtualKey_LED" Value="False"/>
-          <KeyActions>
-            <KeyAction ClassId="0x00000161">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_0"/>
-              <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Suspend]"/>
-            </KeyAction>
-          </KeyActions>
-        </VirtualKey>
-        <VirtualKey Name="%embVirtualKey_12_1">
+        <VirtualKey Name="%embVirtualKey_12_1_0">
           <Property Name="Description" Value=""/>
           <Property Name="VirtualKey_LED" Value="False"/>
           <KeyActions>
@@ -546,7 +562,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Start]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Start]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -636,7 +652,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Hold]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Hold]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -651,7 +667,7 @@
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
               <Property Name="SetValue" Value="1"/>
-              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.MpPackMLBasicUIConnect.StateControl.Suspend]"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.PackML.PackMLMgr.MpPackMLBasicUIConnect.StateControl.Suspend]"/>
             </KeyAction>
           </KeyActions>
         </VirtualKey>
@@ -1714,7 +1730,7 @@
           <Property Name="FillStyle" Value="Opaque"/>
           <Property Name="Height" Value="40"/>
           <Property Name="HighlightingBackColor" Value="100"/>
-          <Property Name="Left" Value="376"/>
+          <Property Name="Left" Value="375"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Default]"/>
@@ -1937,7 +1953,7 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[MpPackMLStateNames]"/>
           <Property Name="TextIndexOffset" Value="7"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="327"/>
+          <Property Name="Top" Value="326"/>
           <Property Name="Width" Value="80"/>
         </Control>
         <Control ClassId="0x00001001" Name="shpAbortFrame_5">

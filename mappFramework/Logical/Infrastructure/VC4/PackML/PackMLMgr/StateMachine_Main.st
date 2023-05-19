@@ -80,7 +80,7 @@ ACTION StateMachine_Main:
 
 		mpPACKML_STATE_ABORTED:
 			
-			MpPackMLBasicUIConnect.StateControl.ColorIndex.Stopped := 2;
+			MpPackMLBasicUIConnect.StateControl.ColorIndex.Aborted := 2;
 			
 			// Add ABORTED actions here
 			
@@ -116,6 +116,8 @@ ACTION StateMachine_Main:
 			
 			// Add COMPLETING actions here
 			
+			// NOTE: To allow the state machine to move forward, the StateComplete command has been connected
+			// to the HMI button. The user should change this to set StateComplete to TRUE upon COMPLETING actions.
 			MpPackMLMode_0.StateComplete := MpPackMLBasicUIConnect.StateControl.StateComplete;
 			
 
