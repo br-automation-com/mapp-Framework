@@ -7,6 +7,9 @@
 
 PROGRAM _INIT
 	
+	// NOTE: For VC4 implementations, the MpPackMLCore must be configured in "standalone" mode.
+	// For additional information, see "Required Modifications" in AS Mapp Framework Help.
+	
 	// Create folder for this component on the user file device
 	DirCreate_0(enable := TRUE, pDevice := ADR('mappPackMLFiles'), pName := ADR('/'));
 
@@ -16,13 +19,14 @@ PROGRAM _INIT
 	END_IF 
 	
 	// Initialize mapp function blocks
-	MpPackMLModule_Main.Parameters := ADR(MpPackMLModulePar_Main);
-	MpPackMLModule_Main.MpLink := ADR(gPackMLModule_Main);
-	MpPackMLModule_Main.Enable := TRUE;
-	MpPackMLModule_Main();
+	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLCore_0.Enable := TRUE;
+	MpPackMLCore_0();
 	
-	// Initialize startup mode - Automatic Mode
-	HmiPackML.Commands.Mode := 1; 
+	MpPackMLMode_0.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLMode_0.Enable := TRUE;
+	MpPackMLMode_0.ModeID := 1;
+	MpPackMLMode_0();
 	
 END_PROGRAM
 
@@ -33,21 +37,22 @@ PROGRAM _CYCLIC
 	HmiActions;
 	
 	// Assign MpLinks & UIConnects
-	MpPackMLModule_Main.Parameters := ADR(MpPackMLModulePar_Main);
-	MpPackMLModule_Main.MpLink := ADR(gPackMLModule_Main);
+	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLMode_0.MpLink := ADR(gMpLinkPackMLCore);
 
 	// Call function blocks
-	MpPackMLModule_Main();
+	MpPackMLCore_0();
+	MpPackMLMode_0();
 	 
 END_PROGRAM
 
 PROGRAM _EXIT
 	
 	// Disable the function blocks to unlink the MpLinks
-	MpPackMLModule_Main.Enable := FALSE;
+	MpPackMLCore_0.Enable := FALSE;
 	
 	// Call function blocks
-	MpPackMLModule_Main();
+	MpPackMLCore_0();
 	 
 END_PROGRAM
 

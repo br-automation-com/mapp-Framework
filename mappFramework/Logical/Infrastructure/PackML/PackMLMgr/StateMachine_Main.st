@@ -32,7 +32,6 @@ ACTION StateMachine_Main:
 			
 			// Add SUSPENDED actions here
 			
-
 		mpPACKML_STATE_UNSUSPENDING:
 	
 			// Add UNSUSPENDING actions here

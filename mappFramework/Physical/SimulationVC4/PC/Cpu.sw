@@ -20,6 +20,7 @@
     <Task Name="UserXMgr" Source="Infrastructure.VC4.UserX.UserXMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AuditMgr" Source="Infrastructure.VC4.Audit.AuditMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="ReportMgr" Source="Infrastructure.VC4.Report.ReportMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="PackMLMgr" Source="Infrastructure.VC4.PackML.PackMLMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <NcDataObjects>
     <NcDataObject Name="McDriveLog" Source="" Memory="UserROM" Language="Binary" />
@@ -143,6 +144,7 @@
     <LibraryObject Name="IecCheck" Source="Libraries.IecCheck.lby" Memory="UserROM" Language="IEC" Debugging="true" />
     <LibraryObject Name="MpAudit" Source="Libraries.MpAudit.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="MpReport" Source="Libraries.MpReport.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="MpPackML" Source="Libraries.MpPackML.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="brsystem" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="aseth" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
