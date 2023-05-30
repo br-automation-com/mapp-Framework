@@ -6,7 +6,7 @@
 //***********************************************************************
 
 PROGRAM _INIT
-
+	
 	// Create folder for this component on the user file device
 	DirCreate_0(enable := TRUE, pDevice := ADR('mappRecipeFiles'), pName := ADR('/'));
 	

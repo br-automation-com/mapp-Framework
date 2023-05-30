@@ -7,6 +7,7 @@ ACTION HMIActions_Init:
 	HmiRecipe.Status.EditRecipeLayer.ParsStatus		    	:= HIDE;
 	HmiRecipe.Status.EditRecipeLayer.MachConfigStatus   	:= HIDE;
 	HmiRecipe.Status.DuplicateLayer 					    := HIDE;
+	HmiRecipe.Status.DefaultFilesCannotBeDeleteLayer	    := HIDE;
 	HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= UNLOCK;
 	
 END_ACTION
@@ -49,8 +50,6 @@ ACTION LoadStatus:
 END_ACTION
 
 ACTION LoadPreview:
-
-
 	
 	//invalid Recip Manager
 	IF HmiRecipe.Status.InvalidRecipe THEN
@@ -70,8 +69,7 @@ ACTION LoadPreview:
 	IF EDGEPOS(HmiRecipe.Parameters.CategoryIndex = PARAMETERS_CATEGORY_INDEX) OR 
 		EDGEPOS(HmiRecipe.Parameters.CategoryIndex = MACH_CONFIG_CATEGORY_INDEX) THEN
 		MpRecipeUIConnect.Recipe.Refresh := TRUE;
-	END_IF;
-	
+	END_IF;	
 	
 	// Default recipe create Layer manager
 	IF HmiRecipe.Status.CreateRecipeLayer.ParsStatus = HIDE AND HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus = HIDE AND
@@ -80,9 +78,7 @@ ACTION LoadPreview:
 		HmiRecipe.Status.DefaultRecipeLayer.Status := DISPLAY;
 	ELSE
 		HmiRecipe.Status.DefaultRecipeLayer.Status := HIDE;	
-	END_IF;
-	
-	
+	END_IF;	
 	
 	// Create Recipe Layer manager
 	IF HmiRecipe.Parameters.Category = PARAMETERS_CATEGORY THEN
@@ -113,10 +109,7 @@ ACTION LoadPreview:
 		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= LOCK;
 	ELSE		
 		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= UNLOCK;
-	END_IF;
-	
-	
-	
+	END_IF;	
 	
 	// File Duplicate manager
 	IF HmiRecipe.Commands.CreateRecipe AND
@@ -129,9 +122,6 @@ ACTION LoadPreview:
 	ELSIF HmiRecipe.Commands.CreateRecipe THEN		
 		HmiRecipe.Status.DuplicateLayer := HIDE;
 	END_IF;
-
-	
-
 	
 	// Preview Recipe Layer manager
 	IF HmiRecipe.Parameters.Category = MACHINE_CONFIGURATION_CATEGORY THEN
@@ -141,9 +131,7 @@ ACTION LoadPreview:
 	ELSIF HmiRecipe.Parameters.Category = PARAMETERS_CATEGORY THEN
 		HmiRecipe.Status.PreviewRecipeLayer.MachConfigStatus := HIDE;
 		HmiRecipe.Status.PreviewRecipeLayer.ParsStatus 		 := DISPLAY;	  
-	END_IF;
-	
-	
+	END_IF;	
 	
 	// Active Recipe declare	
 	IF HmiRecipe.Parameters.Category = PARAMETERS_CATEGORY THEN	
@@ -151,10 +139,7 @@ ACTION LoadPreview:
 		
 	ELSIF HmiRecipe.Parameters.Category = MACHINE_CONFIGURATION_CATEGORY THEN		
 		HmiRecipe.Status.ActiveRecipe := HmiRecipe.Status.LastLoadedConfigRecipe;
-	END_IF;
-	
-	
-	
+	END_IF;	
 	
 	// Recipe Edit manager
 	IF HmiRecipe.Status.EditRecipeLayer.Save THEN
@@ -163,21 +148,13 @@ ACTION LoadPreview:
 		HmiRecipe.Status.EditRecipeLayer.MachConfigStatus := HIDE;
 		
 		HmiRecipe.Commands.SaveSelectedRecipe := TRUE;
-		HmiRecipe.Commands.LoadRecipe 		  := TRUE;
 	END_IF;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	// Load preview when a recipe is selected
-	IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR (HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection) THEN
+	IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR 
+		(HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection) OR
+		EDGENEG(HmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_CREATE) THEN
+		
 		// Check selected recipe name is not empty
 		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
 			MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
@@ -322,6 +299,29 @@ ACTION RecipeHMIcommands:
 	//	IF NOT MpRecipe_0.CommandBusy AND brsstrcmp(ADR(HmiRecipe.Status.PreviousRecipe), ADR(HmiRecipe.Parameters.FileName)) <> 0 THEN
 	//		HmiRecipe.Parameters.FileName := HmiRecipe.Status.PreviousRecipe;
 	//	END_IF
+	
+	
+	
+	//default files cannot be deleted	  
+	IF HmiRecipe.Status.SelectedRecipe = 'Default.par' OR 
+		HmiRecipe.Status.SelectedRecipe = 'Machine.mcfg' THEN
+		
+		HmiRecipe.Status.DefaultFilesDeleteButtonStatus := DISPLAY;
+	ELSE
+		HmiRecipe.Status.DefaultFilesDeleteButtonStatus := HIDE;
+	END_IF;
+	
+	//selected index should be equal active recipe
+	IF EDGEPOS(MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) THEN
+		IF HmiRecipe.Status.RecipePageOpenedNow THEN	
+			HmiRecipe.Status.RecipePageOpenedNow := FALSE;
+			FOR i := 0 TO 19 DO
+				IF MpRecipeUIConnect.Recipe.List.Names[i] = HmiRecipe.Status.ActiveRecipe THEN
+					MpRecipeUIConnect.Recipe.List.SelectedIndex := i;
+				END_IF;
+			END_FOR;		
+		END_IF;	
+	END_IF;	
 
 	// If the Edit or Create dialog boxes open, copy the Preview structure into the Edit structure.
 	IF HmiRecipe.Status.EditDialogOpened OR HmiRecipe.Status.CreateDialogOpened THEN

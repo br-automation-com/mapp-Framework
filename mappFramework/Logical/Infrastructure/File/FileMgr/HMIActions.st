@@ -24,16 +24,16 @@ ACTION FormatDeviceDataProvider:
 	//Check initilized folder for existance and remove any from the device list that don't exist
 	MaxDeviceNameIndex := ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1);
 	NextOpenIndex := 0;
-	FOR Index := 0 TO MaxDeviceNameIndex DO	
-		IdentStatus := ST_ident(ADR(PathCheck.PrgName[Index ]),0,ADR(Ident));
+	FOR index := 0 TO MaxDeviceNameIndex DO	
+		IdentStatus := ST_ident(ADR(PathCheck.PrgName[index]),0,ADR(Ident));
 		//Assign device name to next available slot in table according to if the path is valid
 		IF (IdentStatus = 0) THEN		//path is valid
-			MpFileManagerUIConnect.DeviceList.DeviceNames[NextOpenIndex] := PathCheck.DeviceList.DeviceNames[Index  + 1];
+			MpFileManagerUIConnect.DeviceList.DeviceNames[NextOpenIndex] := PathCheck.DeviceList.DeviceNames[index + 1];
 			NextOpenIndex := NextOpenIndex + 1;
 		END_IF;
 		//Clear the remaining index slots with invalid path checks
-		IF Index  > NextOpenIndex THEN
-			MpFileManagerUIConnect.DeviceList.DeviceNames[Index ] := '';
+		IF index > NextOpenIndex THEN
+			MpFileManagerUIConnect.DeviceList.DeviceNames[index] := '';
 		END_IF	
 	END_FOR;
 

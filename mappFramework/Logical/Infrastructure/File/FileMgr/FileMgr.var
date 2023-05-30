@@ -32,7 +32,6 @@ VAR
 	USBOffset : USINT := 0; (*Device list offset where to add USB device*)
 	MaxDeviceNameIndex : USINT; (*How many devices are configured*)
 	tempIdx : USINT; (*FIFO handling support index variable*)
-	TempIdx : USINT; (*FIFO handling support index variable*)
 	FileNameArraySize : USINT; (*FIFO handling support size of the array*)
 	StartIndex : USINT; (*FIFO handling support *)
 	Fifo_Count : USINT; (*FIFO handling support current file count*)
@@ -42,4 +41,5 @@ VAR RETAIN
 END_VAR
 VAR
 	NextOpenIndex : USINT; (*Index for the next open slot in mpFileManagerUICOnnect device list which populates table*)
+	index : USINT; (*Index for FOR loop cheking paths*)
 END_VAR

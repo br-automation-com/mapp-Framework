@@ -21,6 +21,7 @@ TYPE
 		FileName : STRING[255]; (*Recipe file name*)
 	END_STRUCT;
 	RecipeStatusType : 	STRUCT  (*Structure to hold status information from the mapp View HMI*)
+		DefaultFilesDeleteButtonStatus : USINT;
 		HMIcommand : RecipeHmiStepEnum; (*State machine step for HMI commands*)
 		LastLoadedConfigRecipe : STRING[255]; (*Last loaded configuration recipe*)
 		LastLoadedProductRecipe : STRING[255]; (*Last loaded product recipe*)
@@ -51,6 +52,8 @@ TYPE
 		DuplicateLayer : USINT;
 		DeviceValid : BOOL; (*Flag for whether FileDevice is valid. Prevents user from being prompted to load default recipe.*)
 		InvalidRecipeLayer : BOOL;
+		DefaultFilesCannotBeDeleteLayer : USINT;
+		RecipePageOpenedNow : BOOL;
 	END_STRUCT;
 	RecipeStatusDefRecLayerType : 	STRUCT 
 		Status : USINT;

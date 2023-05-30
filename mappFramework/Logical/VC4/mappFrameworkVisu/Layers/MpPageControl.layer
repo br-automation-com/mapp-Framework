@@ -467,7 +467,7 @@
           <Property Name="CompletionValue" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Locking" Value="Never"/>
-          <Property Name="Name" Value="Action_5"/>
+          <Property Name="Name" Value="Action_4"/>
           <Property Name="SetValue" Value="1"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Report.ReportMgr.HmiReport.Status.Layer.ReportView]"/>
         </KeyAction>
@@ -538,7 +538,7 @@
         <KeyAction ClassId="0x00000160">
           <Property Name="Description" Value=""/>
           <Property Name="Locking" Value="Never"/>
-          <Property Name="Name" Value="Action_6"/>
+          <Property Name="Name" Value="Action_4"/>
           <Property Name="Page" Value="Source[local].Page[MpBackup]"/>
           <Property Name="Target" Value="Page"/>
         </KeyAction>
@@ -560,9 +560,18 @@
         <KeyAction ClassId="0x00000160">
           <Property Name="Description" Value=""/>
           <Property Name="Locking" Value="Never"/>
-          <Property Name="Name" Value="Action_2"/>
+          <Property Name="Name" Value="Action_1"/>
           <Property Name="Page" Value="Source[local].Page[MpRecipeUI]"/>
           <Property Name="Target" Value="Page"/>
+        </KeyAction>
+        <KeyAction ClassId="0x00000161">
+          <Property Name="CompletionDatapoint" Value="None"/>
+          <Property Name="CompletionValue" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Locking" Value="Never"/>
+          <Property Name="Name" Value="Action_2"/>
+          <Property Name="SetValue" Value="1"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Recipe.RecipeMgr.HmiRecipe.Status.RecipePageOpenedNow]"/>
         </KeyAction>
       </KeyActions>
     </VirtualKey>

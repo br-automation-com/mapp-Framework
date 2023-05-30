@@ -30,6 +30,5 @@ VAR
 	Alarms : {REDUND_UNREPLICABLE} ARRAY[0..99] OF BOOL; (*Array of monitored alarm bits*)
 	CommissioningModeActive : {REDUND_UNREPLICABLE} BOOL; (*Boolean value to enable commissioning mode. By default, this inhibits the Alarms[0] alarm*)
 	i : USINT; (*Index for loops*)
-	MaxIndex : USINT; (*Maximum index for the alarm list*)
 END_VAR
 (**)
