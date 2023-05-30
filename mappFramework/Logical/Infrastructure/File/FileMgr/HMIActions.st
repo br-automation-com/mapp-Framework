@@ -2,38 +2,38 @@ ACTION FormatDeviceDataProvider:
 
 	// Select CF device if USB device is not available
 	FOR i := 0 TO IDX_USB_DEV_LIST DO
-		tempIdx := (i + USBOffset);
+		TempIdx := (i + USBOffset);
 
 		IF gUSBAvailable[i] THEN
 
-			HmiFile.Status.DeviceDataProvider[tempIdx] := '{"value":"USB';
-			brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[tempIdx]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[tempIdx])));
+			HmiFile.Status.DeviceDataProvider[TempIdx] := '{"value":"USB';
+			brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[TempIdx]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[TempIdx])));
 
-			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[tempIdx]), ADR('","text":"USB'));
-			brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[tempIdx]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[tempIdx])));
-			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[tempIdx]), ADR('"}'));
+			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[TempIdx]), ADR('","text":"USB'));
+			brsitoa(i + 1, ADR(HmiFile.Status.DeviceDataProvider[TempIdx]) + brsstrlen(ADR(HmiFile.Status.DeviceDataProvider[TempIdx])));
+			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[TempIdx]), ADR('"}'));
 
-			PathCheck.DeviceList.DeviceNames[tempIdx] := 'USB';
-			brsitoa(i + 1, ADR(PathCheck.DeviceList.DeviceNames[tempIdx]) + brsstrlen(ADR(PathCheck.DeviceList.DeviceNames[tempIdx])));
+			PathCheck.DeviceList.DeviceNames[TempIdx] := 'USB';
+			brsitoa(i + 1, ADR(PathCheck.DeviceList.DeviceNames[TempIdx]) + brsstrlen(ADR(PathCheck.DeviceList.DeviceNames[TempIdx])));
 		ELSE
-			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[tempIdx]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[tempIdx]));
-			brsmemset(ADR(PathCheck.DeviceList.DeviceNames[tempIdx]), 0, SIZEOF(PathCheck.DeviceList.DeviceNames[tempIdx]));
+			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[TempIdx]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[TempIdx]));
+			brsmemset(ADR(PathCheck.DeviceList.DeviceNames[TempIdx]), 0, SIZEOF(PathCheck.DeviceList.DeviceNames[TempIdx]));
 		END_IF
 	END_FOR
 
 	//Check initilized folder for existance and remove any from the device list that don't exist
 	MaxDeviceNameIndex := ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1);
 	NextOpenIndex := 0;
-	FOR index := 0 TO MaxDeviceNameIndex DO	
-		IdentStatus := ST_ident(ADR(PathCheck.PrgName[index]),0,ADR(Ident));
+	FOR TempIdx := 0 TO MaxDeviceNameIndex DO	
+		IdentStatus := ST_ident(ADR(PathCheck.PrgName[TempIdx]),0,ADR(Ident));
 		//Assign device name to next available slot in table according to if the path is valid
 		IF (IdentStatus = 0) THEN		//path is valid
-			MpFileManagerUIConnect.DeviceList.DeviceNames[NextOpenIndex] := PathCheck.DeviceList.DeviceNames[index + 1];
+			MpFileManagerUIConnect.DeviceList.DeviceNames[NextOpenIndex] := PathCheck.DeviceList.DeviceNames[TempIdx + 1];
 			NextOpenIndex := NextOpenIndex + 1;
 		END_IF;
 		//Clear the remaining index slots with invalid path checks
-		IF index > NextOpenIndex THEN
-			MpFileManagerUIConnect.DeviceList.DeviceNames[index] := '';
+		IF TempIdx > NextOpenIndex THEN
+			MpFileManagerUIConnect.DeviceList.DeviceNames[TempIdx] := '';
 		END_IF	
 	END_FOR;
 
