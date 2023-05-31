@@ -39,6 +39,10 @@ ACTION HMIAction:
 		USERX_FINISH:
 
 	END_CASE
+
+	// assign file name based on selected index
+	UserXMgrUIConnect.Import.Dialog.FileName := UserXMgrUIConnect.Import.Dialog.List.FileNames[UserXMgrUIConnect.Import.Dialog.List.SelectedIndex];
+
 	// If new updates are made via export execute a check
 	IF UserXMgrUIConnect.Export.ShowDialog THEN
 		UserXCheckState := USERX_NEW_EXPORT;
