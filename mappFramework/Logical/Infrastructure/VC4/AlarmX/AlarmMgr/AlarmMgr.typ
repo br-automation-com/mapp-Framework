@@ -3,7 +3,11 @@
 TYPE
 	AlarmHmiInterfaceType : 	STRUCT  (*Structure to hold commands and status from the HMI*)
 		Commands : AlarmCommandsType; (*HMI commands*)
+		Parameters : AlarmParType; (*HMI parameters*)
 		Status : {REDUND_UNREPLICABLE} AlarmStatusType; (*HMI status*)
+	END_STRUCT;
+	AlarmParType : 	STRUCT  (*Structure to hold the parameters for the HMI*)
+		Language : USINT; (*Current VC4 language*)
 	END_STRUCT;
 	AlarmCommandsType : 	STRUCT  (*Structure to hold the commands from the HMI*)
 		ExportAlarms : BOOL; (*Triggers an alarm export of the alarm history. Connected to a button on the HMI. *)

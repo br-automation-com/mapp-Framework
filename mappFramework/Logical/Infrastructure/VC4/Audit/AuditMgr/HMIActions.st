@@ -78,3 +78,29 @@ ACTION QueryTableConfig:
 	brsstrcat(ADR(HmiAudit.Status.TableConfig[0]), ADR('}'));
 
 END_ACTION
+
+ACTION VC4Support:
+ 
+	//language assignments
+	
+	CASE HmiAudit.Parameters.Language OF
+	
+		0://English
+			MpAuditTrail_0.Language := ADR('en');
+			MpAuditTrailUI_0.Language := ADR('en');
+			MpAuditTrail_CEvents.Language := ADR('en');
+			MpAuditTrail_CEvents_UI_0.Language := ADR('en');
+		1://German
+			MpAuditTrail_0.Language := ADR('de');
+			MpAuditTrailUI_0.Language := ADR('de');
+			MpAuditTrail_CEvents.Language := ADR('de');
+			MpAuditTrail_CEvents_UI_0.Language := ADR('de');
+		2://Chinese
+			MpAuditTrail_0.Language := ADR('ch');
+			MpAuditTrailUI_0.Language := ADR('ch');
+			MpAuditTrail_CEvents.Language := ADR('ch');
+			MpAuditTrail_CEvents_UI_0.Language := ADR('ch');
+	
+	END_CASE 
+
+END_ACTION

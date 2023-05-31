@@ -18,5 +18,6 @@ TYPE
 		FileDuplicateLayerStatus : USINT;
 		ButtonLockedMessageLayer : USINT;
 		ButtonLockingLayer : USINT;
+		SelectedLanguage : USINT;
 	END_STRUCT;
 END_TYPE

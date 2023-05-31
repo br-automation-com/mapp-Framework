@@ -15,6 +15,7 @@ TYPE
 		UseAdvancedFormat : BOOL; (*Whether or not the report should use the advanced format*)
 		PathOfReportToView : STRING[255]; (*The file path of the selected report*)
 		SelectedLanguage : STRING[10] := 'en'; (*Selected language*)
+		Language : USINT; (*Current VC4 language*)
 	END_STRUCT;
 	ReportStatusType : 	STRUCT  (*Structure to hold the status information from the HMI*)
 		ViewAllowed : BOOL; (*Bit to indicate it is allowable to view a report right now*)

@@ -99,6 +99,7 @@ PROGRAM _CYCLIC
 	ArchiveExport;
 	ArchiveSettings;
 	ChangeConfiguration;
+	VC4Support;
 
 	// Sample code for how custom events can be triggered. Use custom events as needed around the application for debugging purposes.
 	IF EDGEPOS(CustomEvent[0].Set) THEN
