@@ -59,7 +59,7 @@
           <Property Name="Top" Value="45"/>
           <Property Name="Width" Value="800"/>
         </Control>
-        <Control ClassId="0x00001008" Name="lbxAlarmName">
+        <Control ClassId="0x00001008" Name="lbxReportName">
           <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
           <Property Name="ButtonsBackColor" Value="254"/>
           <Property Name="ButtonsBitmapGroup" Value="None"/>
@@ -93,7 +93,7 @@
           <Property Name="Top" Value="115"/>
           <Property Name="Width" Value="255"/>
         </Control>
-        <Control ClassId="0x00001008" Name="lbxAlarmName2">
+        <Control ClassId="0x00001008" Name="lbxReportTimestamp">
           <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
           <Property Name="ButtonsBackColor" Value="254"/>
           <Property Name="ButtonsBitmapGroup" Value="None"/>
@@ -143,7 +143,7 @@
           <Property Name="Top" Value="89"/>
           <Property Name="Width" Value="156"/>
         </Control>
-        <Control ClassId="0x00001004" Name="txtLabelTimestamp2">
+        <Control ClassId="0x00001004" Name="txtLabelReports">
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
           <Property Name="ControlID" Value="0"/>
@@ -159,7 +159,7 @@
           <Property Name="Top" Value="89"/>
           <Property Name="Width" Value="255"/>
         </Control>
-        <Control ClassId="0x00001008" Name="lbxAlarmName3">
+        <Control ClassId="0x00001008" Name="lbxReportDevices">
           <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
           <Property Name="ButtonsBackColor" Value="254"/>
           <Property Name="ButtonsBitmapGroup" Value="None"/>
@@ -193,7 +193,7 @@
           <Property Name="Top" Value="115"/>
           <Property Name="Width" Value="156"/>
         </Control>
-        <Control ClassId="0x00001004" Name="txtLabelTimestamp1">
+        <Control ClassId="0x00001004" Name="txtLabelDevices">
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
           <Property Name="ControlID" Value="0"/>
@@ -232,7 +232,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[cmdReport_Create]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReport_Delete">
+        <Control ClassId="0x00001002" Name="cmdReport_Delete1">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -303,7 +303,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_7_0]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdEdit2">
+        <Control ClassId="0x00001002" Name="cmdReport_Delete">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -330,7 +330,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_15_0_0_14]"/>
           <Property Name="Width" Value="151"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdEdit3">
+        <Control ClassId="0x00001002" Name="cmdReport_Delete2">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -479,7 +479,8 @@
         <IndexMap/>
       </TextGroup>
       <Controls>
-        <Control ClassId="0x00001001" Name="Shape_1">
+        <Control ClassId="0x00001001" Name="Background">
+          <Property Name="BackColor" Value="239"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="216"/>
@@ -488,7 +489,7 @@
           <Property Name="Top" Value="128"/>
           <Property Name="Width" Value="409"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtDialogHeader">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="8"/>
           <Property Name="ControlID" Value="0"/>
@@ -506,7 +507,7 @@
           <Property Name="Top" Value="128"/>
           <Property Name="Width" Value="408"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReport_PageDown">
+        <Control ClassId="0x00001002" Name="cmdReportLayer_Delete">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -548,7 +549,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[cmdReport_DialogDelete_Cancel]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_5">
+        <Control ClassId="0x00001004" Name="txtDialogMessage">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="79"/>
@@ -587,7 +588,7 @@
         <IndexMap/>
       </TextGroup>
       <Controls>
-        <Control ClassId="0x00001001" Name="Shape_1">
+        <Control ClassId="0x00001001" Name="Background">
           <Property Name="BackColor" Value="239"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -597,7 +598,7 @@
           <Property Name="Top" Value="122"/>
           <Property Name="Width" Value="463"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReport_PageDown">
+        <Control ClassId="0x00001002" Name="cmdReportLayer_Create">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -639,7 +640,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_61_9_0]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtLabelReportLayer_Name">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="53"/>
@@ -653,7 +654,7 @@
           <Property Name="Top" Value="211"/>
           <Property Name="Width" Value="106"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_3">
+        <Control ClassId="0x00001004" Name="txtLabelReportLayer_FileName">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="63"/>
@@ -668,7 +669,7 @@
           <Property Name="Top" Value="260"/>
           <Property Name="Width" Value="247"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_4">
+        <Control ClassId="0x00001004" Name="txtLabelReportLayer_ReportName">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpInput]"/>
@@ -682,7 +683,7 @@
           <Property Name="Top" Value="216"/>
           <Property Name="Width" Value="144"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_2">
+        <Control ClassId="0x00001004" Name="txtLabelReportLayer_AdvInfo">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="63"/>
@@ -697,7 +698,7 @@
           <Property Name="Top" Value="155"/>
           <Property Name="Width" Value="180"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_5">
+        <Control ClassId="0x00001004" Name="txtLabelReportLayer_SimpleInfo">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="63"/>
@@ -712,7 +713,7 @@
           <Property Name="Top" Value="155"/>
           <Property Name="Width" Value="180"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_2">
+        <Control ClassId="0x00001002" Name="btnAdvancedOption">
           <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -738,7 +739,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_81_0]"/>
           <Property Name="Width" Value="51"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_6">
+        <Control ClassId="0x00001004" Name="txtLabelReportLayer_AdvReport">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="47"/>
@@ -752,7 +753,7 @@
           <Property Name="Top" Value="124"/>
           <Property Name="Width" Value="134"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_3">
+        <Control ClassId="0x00001002" Name="btnSimpleReportOption">
           <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -778,7 +779,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_101_1]"/>
           <Property Name="Width" Value="51"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_7">
+        <Control ClassId="0x00001004" Name="txtLabelReportLayer_SimpleReport">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="47"/>
@@ -791,6 +792,24 @@
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="124"/>
           <Property Name="Width" Value="144"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtDialogHeader">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="BackColor" Value="8"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Opaque"/>
+          <Property Name="Font" Value="Source[local].Font[MpInput]"/>
+          <Property Name="Height" Value="49"/>
+          <Property Name="Left" Value="168"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpReportUITexts]"/>
+          <Property Name="TextIndexOffset" Value="12"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="74"/>
+          <Property Name="Width" Value="463"/>
         </Control>
       </Controls>
       <KeyMapping>
@@ -878,29 +897,29 @@
     </Layer>
   </Layers>
   <MovementOrder>
-    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxReportName]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxReportTimestamp]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxReportDevices]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxReportTimestamp]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxReportTimestamp]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName2]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxReportTimestamp]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxReportName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxReportName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxReportDevices]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxReportName]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName3]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxReportDevices]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxReportName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxReportTimestamp]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxReportName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxReportName]"/>
     </MovementEntry>
   </MovementOrder>
   <TabSequence>
     <TabSeqItem Index="0" Value="Source[local].Layer[MpBackground].Control[strUserName]"/>
-    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
+    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[lbxReportName]"/>
+    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[lbxReportTimestamp]"/>
+    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[lbxReportDevices]"/>
   </TabSequence>
 </Page>
