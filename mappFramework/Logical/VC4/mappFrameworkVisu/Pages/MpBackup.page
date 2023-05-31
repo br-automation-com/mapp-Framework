@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.2.37"?>
+<?AutomationStudio Version="4.10.4.38 SP"?>
 <Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpBackup">
   <Property Name="Description" Value="mapp VC4 template MpDataTableUI"/>
   <Property Name="Height" Value="480"/>
@@ -59,7 +59,7 @@
           <Property Name="Top" Value="45"/>
           <Property Name="Width" Value="800"/>
         </Control>
-        <Control ClassId="0x00001008" Name="lbxAlarmName">
+        <Control ClassId="0x00001008" Name="lbxBackupName">
           <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
           <Property Name="ButtonsBackColor" Value="254"/>
           <Property Name="ButtonsBitmapGroup" Value="None"/>
@@ -93,7 +93,7 @@
           <Property Name="Top" Value="115"/>
           <Property Name="Width" Value="255"/>
         </Control>
-        <Control ClassId="0x00001008" Name="lbxAlarmName2">
+        <Control ClassId="0x00001008" Name="lbxBackupTimestamp">
           <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
           <Property Name="ButtonsBackColor" Value="254"/>
           <Property Name="ButtonsBitmapGroup" Value="None"/>
@@ -143,7 +143,7 @@
           <Property Name="Top" Value="89"/>
           <Property Name="Width" Value="156"/>
         </Control>
-        <Control ClassId="0x00001004" Name="txtLabelTimestamp2">
+        <Control ClassId="0x00001004" Name="txtLabelBackupName">
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
           <Property Name="ControlID" Value="0"/>
@@ -159,7 +159,7 @@
           <Property Name="Top" Value="89"/>
           <Property Name="Width" Value="255"/>
         </Control>
-        <Control ClassId="0x00001008" Name="lbxAlarmName3">
+        <Control ClassId="0x00001008" Name="lbxBackupDevices">
           <Property Name="Border" Value="Source[local].Border[Mp_ListBoxCenter]"/>
           <Property Name="ButtonsBackColor" Value="254"/>
           <Property Name="ButtonsBitmapGroup" Value="None"/>
@@ -193,7 +193,7 @@
           <Property Name="Top" Value="115"/>
           <Property Name="Width" Value="156"/>
         </Control>
-        <Control ClassId="0x00001004" Name="txtLabelTimestamp1">
+        <Control ClassId="0x00001004" Name="txtLabelDevices">
           <Property Name="AlignmentVertical" Value="Center"/>
           <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
           <Property Name="ControlID" Value="0"/>
@@ -209,7 +209,7 @@
           <Property Name="Top" Value="89"/>
           <Property Name="Width" Value="156"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReport_Create">
+        <Control ClassId="0x00001002" Name="cmdCreate3">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -232,7 +232,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_110_1]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReport_Delete">
+        <Control ClassId="0x00001002" Name="cmdDelete3">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -255,7 +255,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_123_1]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReport_View">
+        <Control ClassId="0x00001002" Name="cmdRestore3">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -278,7 +278,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_124_1]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReport_PageUp">
+        <Control ClassId="0x00001002" Name="cmdSettings3">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -301,7 +301,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_126_1]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReport_Create1">
+        <Control ClassId="0x00001002" Name="cmdPageUp">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -325,7 +325,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_128_0]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReport_Create2">
+        <Control ClassId="0x00001002" Name="cmdPageDown">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -349,7 +349,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_168_1]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtBackupDetails">
           <Property Name="BackColor" Value="8"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -378,7 +378,7 @@
           <Property Name="Top" Value="324"/>
           <Property Name="Width" Value="572"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_8">
+        <Control ClassId="0x00001004" Name="txtLabelDetailsName">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -395,7 +395,7 @@
           <Property Name="Top" Value="329"/>
           <Property Name="Width" Value="150"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_9">
+        <Control ClassId="0x00001004" Name="txtLabelDetailsVersion">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -412,7 +412,7 @@
           <Property Name="Top" Value="360"/>
           <Property Name="Width" Value="150"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_10">
+        <Control ClassId="0x00001004" Name="txtLabelDetailsConfigID">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -429,7 +429,7 @@
           <Property Name="Top" Value="391"/>
           <Property Name="Width" Value="150"/>
         </Control>
-        <Control ClassId="0x0000100B" Name="String_1">
+        <Control ClassId="0x0000100B" Name="strBackupName">
           <Property Name="BackColor" Value="241"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -443,7 +443,7 @@
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Info.Name]"/>
           <Property Name="Width" Value="390"/>
         </Control>
-        <Control ClassId="0x0000100B" Name="String_2">
+        <Control ClassId="0x0000100B" Name="strBackupVersion">
           <Property Name="BackColor" Value="241"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -457,7 +457,7 @@
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Info.ConfigurationVersion]"/>
           <Property Name="Width" Value="390"/>
         </Control>
-        <Control ClassId="0x0000100B" Name="String_3">
+        <Control ClassId="0x0000100B" Name="strBackupConfigID">
           <Property Name="BackColor" Value="241"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -471,7 +471,7 @@
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Info.ConfigurationID]"/>
           <Property Name="Width" Value="390"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdEdit1">
+        <Control ClassId="0x00001002" Name="cmdCreate">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -498,7 +498,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_15_0_0_5_0]"/>
           <Property Name="Width" Value="151"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdEdit2">
+        <Control ClassId="0x00001002" Name="cmdDelete">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -525,7 +525,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_15_0_0_6_0]"/>
           <Property Name="Width" Value="151"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdEdit3">
+        <Control ClassId="0x00001002" Name="cmdRestore">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -552,7 +552,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_15_0_0_7_0]"/>
           <Property Name="Width" Value="151"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdEdit4">
+        <Control ClassId="0x00001002" Name="cmdSettings">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -579,7 +579,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_15_0_0_8_0]"/>
           <Property Name="Width" Value="151"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdEdit5">
+        <Control ClassId="0x00001002" Name="cmdDelete2">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -606,7 +606,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_15_0_0_9]"/>
           <Property Name="Width" Value="151"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdEdit6">
+        <Control ClassId="0x00001002" Name="cmdRestore2">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -633,7 +633,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_15_0_0_10]"/>
           <Property Name="Width" Value="151"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdEdit7">
+        <Control ClassId="0x00001002" Name="cmdSettings2">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -965,7 +965,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_181_1]"/>
           <Property Name="Width" Value="800"/>
         </Control>
-        <Control ClassId="0x00001001" Name="Shape_1">
+        <Control ClassId="0x00001001" Name="Background">
           <Property Name="BackColor" Value="252"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -975,7 +975,7 @@
           <Property Name="Top" Value="122"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReportLayer_Cancel">
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_Cancel">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -996,7 +996,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_186_1]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReportLayer_Cancel1">
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_Save">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -1017,7 +1017,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[cmd_BackupSettingsSaveButton]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtDialogHeader">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="8"/>
           <Property Name="ControlID" Value="0"/>
@@ -1035,7 +1035,7 @@
           <Property Name="Top" Value="94"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_3">
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_Enable">
           <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -1061,7 +1061,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_129_0]"/>
           <Property Name="Width" Value="51"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_7">
+        <Control ClassId="0x00001004" Name="txtLabelEnableBackup">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -1087,7 +1087,7 @@
           <Property Name="StartY" Value="165"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_8">
+        <Control ClassId="0x00001004" Name="txtLabelPrefix">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -1104,7 +1104,7 @@
           <Property Name="Top" Value="173"/>
           <Property Name="Width" Value="150"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_9">
+        <Control ClassId="0x00001004" Name="txtLabelDevices">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -1121,7 +1121,7 @@
           <Property Name="Top" Value="213"/>
           <Property Name="Width" Value="150"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_10">
+        <Control ClassId="0x00001004" Name="txtLabelInterval">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -1138,7 +1138,7 @@
           <Property Name="Top" Value="253"/>
           <Property Name="Width" Value="150"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_11">
+        <Control ClassId="0x00001004" Name="txtLabelTimeOfDay">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -1155,7 +1155,7 @@
           <Property Name="Top" Value="294"/>
           <Property Name="Width" Value="150"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_4">
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_Overwrite">
           <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -1182,7 +1182,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_131_1]"/>
           <Property Name="Width" Value="51"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_12">
+        <Control ClassId="0x00001004" Name="txtLabelOverwriteOldest">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -1198,7 +1198,7 @@
           <Property Name="Top" Value="315"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_13">
+        <Control ClassId="0x00001004" Name="txtLabelMaxBackups">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -1215,7 +1215,7 @@
           <Property Name="Top" Value="326"/>
           <Property Name="Width" Value="87"/>
         </Control>
-        <Control ClassId="0x00001018" Name="Dropdown_1">
+        <Control ClassId="0x00001018" Name="drpDwnInterval">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="ButtonsBitmapGroup" Value="None"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
@@ -1242,7 +1242,7 @@
           <Property Name="Top" Value="253"/>
           <Property Name="Width" Value="164"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_14">
+        <Control ClassId="0x00001004" Name="txtLabelColon">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1259,7 +1259,7 @@
           <Property Name="Top" Value="294"/>
           <Property Name="Width" Value="13"/>
         </Control>
-        <Control ClassId="0x00001018" Name="Dropdown_2">
+        <Control ClassId="0x00001018" Name="drpDwnDevices">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="ButtonsBitmapGroup" Value="None"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
@@ -1286,7 +1286,7 @@
           <Property Name="Top" Value="213"/>
           <Property Name="Width" Value="164"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_5">
+        <Control ClassId="0x00001007" Name="numInToD_Hour">
           <Property Name="AlignmentHorizontal" Value="Left"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
@@ -1306,7 +1306,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="75"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_6">
+        <Control ClassId="0x00001007" Name="numInToD_Minute">
           <Property Name="AlignmentHorizontal" Value="Left"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
@@ -1326,7 +1326,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="75"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_7">
+        <Control ClassId="0x00001007" Name="numInMaxBackups">
           <Property Name="AlignmentHorizontal" Value="Left"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
@@ -1346,7 +1346,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="61"/>
         </Control>
-        <Control ClassId="0x0000100B" Name="String_1">
+        <Control ClassId="0x0000100B" Name="strBackupNamePrefix">
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1506,7 +1506,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_179_1]"/>
           <Property Name="Width" Value="800"/>
         </Control>
-        <Control ClassId="0x00001001" Name="Shape_1">
+        <Control ClassId="0x00001001" Name="Background">
           <Property Name="BackColor" Value="252"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1516,7 +1516,7 @@
           <Property Name="Top" Value="142"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReportLayer_Cancel">
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_Cancel">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -1537,7 +1537,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_180_1]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReportLayer_Cancel1">
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_Restore">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -1558,7 +1558,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[cmd_BackupRestoreButton]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtDialogHeader">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="8"/>
           <Property Name="ControlID" Value="0"/>
@@ -1576,7 +1576,7 @@
           <Property Name="Top" Value="114"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_2">
+        <Control ClassId="0x00001004" Name="txtDialogMessage">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="252"/>
           <Property Name="ControlID" Value="0"/>
@@ -1710,7 +1710,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_170_1]"/>
           <Property Name="Width" Value="800"/>
         </Control>
-        <Control ClassId="0x00001001" Name="Shape_1">
+        <Control ClassId="0x00001001" Name="Background">
           <Property Name="BackColor" Value="252"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1720,7 +1720,7 @@
           <Property Name="Top" Value="142"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReportLayer_Cancel">
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_Cancel">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -1741,7 +1741,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_178_1]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReportLayer_Cancel1">
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_Delete">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -1762,7 +1762,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[cmd_BackupDeleteButton]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtDialogHeader">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="8"/>
           <Property Name="ControlID" Value="0"/>
@@ -1780,7 +1780,7 @@
           <Property Name="Top" Value="114"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_2">
+        <Control ClassId="0x00001004" Name="txtDialogMessage">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="252"/>
           <Property Name="ControlID" Value="0"/>
@@ -1925,7 +1925,7 @@
           <Property Name="Top" Value="171"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtDialogHeader">
           <Property Name="BackColor" Value="250"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1942,12 +1942,12 @@
           <Property Name="Top" Value="144"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_8">
+        <Control ClassId="0x00001004" Name="txtDialogMessage">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
           <Property Name="Height" Value="80"/>
-          <Property Name="Left" Value="278"/>
+          <Property Name="Left" Value="262"/>
           <Property Name="Multiline" Value="Automatic"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value="SimpleReport"/>
@@ -1958,7 +1958,7 @@
           <Property Name="Top" Value="184"/>
           <Property Name="Width" Value="290"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_2">
+        <Control ClassId="0x00001004" Name="textBackground">
           <Property Name="BackColor" Value="250"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1975,7 +1975,7 @@
           <Property Name="Top" Value="269"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReportLayer_Cancel">
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_OK">
           <Property Name="BackColor" Value="14"/>
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
@@ -1984,7 +1984,7 @@
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_232_0]"/>
           <Property Name="Height" Value="37"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="362"/>
+          <Property Name="Left" Value="356"/>
           <Property Name="PressedBitmapSource" Value="None"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
@@ -2079,6 +2079,93 @@
         </VirtualKey>
       </KeyMapping>
     </Layer>
+    <Layer Name="DialogNewUpdateInstall">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Layer.Installing]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="7"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001005" Name="Bitmap_1">
+          <Property Name="Bitmap" Value="Source[local].Bitmap[InstallInProgress]"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="Height" Value="266"/>
+          <Property Name="IndexDatapoint" Value="None"/>
+          <Property Name="Left" Value="200"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="104"/>
+          <Property Name="Width" Value="400"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="cmd_AuditArchiveSetupSave">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Audit.AuditMgr.HmiAudit.Commands.SaveConfig]"/>
+            </KeyAction>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_1"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Audit.AuditMgr.HmiAudit.Status.ArchiveSetupLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="cmd_BackupCreateButton">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Commands.Create]"/>
+            </KeyAction>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_1"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Layer.Create]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
     <Layer Name="DialogCreating">
       <Property Name="BackColor" Value="9"/>
       <Property Name="Description" Value=""/>
@@ -2093,7 +2180,7 @@
       <Property Name="Top" Value="0"/>
       <Property Name="VisibilityMode" Value="Hidden"/>
       <Property Name="Width" Value="800"/>
-      <Property Name="Z-Order" Value="7"/>
+      <Property Name="Z-Order" Value="8"/>
       <TextGroup>
         <TextLayer LanguageId="en"/>
         <TextLayer LanguageId="de"/>
@@ -2112,7 +2199,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_134_1]"/>
           <Property Name="Width" Value="800"/>
         </Control>
-        <Control ClassId="0x00001001" Name="Shape_1">
+        <Control ClassId="0x00001001" Name="Background">
           <Property Name="BackColor" Value="252"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -2122,7 +2209,7 @@
           <Property Name="Top" Value="142"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtDialogHeader">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="8"/>
           <Property Name="ControlID" Value="0"/>
@@ -2140,7 +2227,7 @@
           <Property Name="Top" Value="114"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_8">
+        <Control ClassId="0x00001004" Name="txtDialogMessage">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -2236,6 +2323,343 @@
         </VirtualKey>
       </KeyMapping>
     </Layer>
+    <Layer Name="DialogNewUpdateAvailable">
+      <Property Name="BackColor" Value="9"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EditingMode" Value="Normal"/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="OutlineColor" Value="0"/>
+      <Property Name="OutlineDisplayControl" Value="False"/>
+      <Property Name="OutlineDisplayName" Value="True"/>
+      <Property Name="OutlineHatched" Value="False"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Layer.NewVersion]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="VisibilityMode" Value="Hidden"/>
+      <Property Name="Width" Value="800"/>
+      <Property Name="Z-Order" Value="9"/>
+      <TextGroup>
+        <TextLayer LanguageId="en"/>
+        <TextLayer LanguageId="de"/>
+        <IndexMap/>
+      </TextGroup>
+      <Controls>
+        <Control ClassId="0x00001003" Name="HotSpot_1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_265]"/>
+          <Property Name="Height" Value="480"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="0"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_265]"/>
+          <Property Name="Width" Value="800"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="shapeBackground">
+          <Property Name="BackColor" Value="252"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="280"/>
+          <Property Name="Left" Value="195"/>
+          <Property Name="LineWidth" Value="0"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="97"/>
+          <Property Name="Width" Value="410"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtHeader">
+          <Property Name="BackColor" Value="250"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Opaque"/>
+          <Property Name="Font" Value="Source[local].Font[MpInput]"/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="Left" Value="200"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpBackupUITexts]"/>
+          <Property Name="TextIndexOffset" Value="30"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="104"/>
+          <Property Name="Width" Value="400"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtInfoDetails">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
+          <Property Name="Height" Value="38"/>
+          <Property Name="Left" Value="200"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value="SimpleReport"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpBackupUITexts]"/>
+          <Property Name="TextIndexOffset" Value="31"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="144"/>
+          <Property Name="Width" Value="400"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strName">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="323"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="195"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Update.Name]"/>
+          <Property Name="Width" Value="277"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtNameLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="Left" Value="200"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpBackupUITexts]"/>
+          <Property Name="TextIndexOffset" Value="5"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="197"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strVersion">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="323"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="233"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Update.ConfigurationVersion]"/>
+          <Property Name="Width" Value="277"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtVersionLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="Left" Value="200"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpBackupUITexts]"/>
+          <Property Name="TextIndexOffset" Value="6"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="235"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x0000100B" Name="strConfigID">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="30"/>
+          <Property Name="Left" Value="323"/>
+          <Property Name="SimulationValue" Value="ABC"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="271"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Update.ConfigurationID]"/>
+          <Property Name="Width" Value="277"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="txtConfigIDLabel">
+          <Property Name="Border" Value="Source[local].Border[Mp_LabelBorder]"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="28"/>
+          <Property Name="Left" Value="200"/>
+          <Property Name="Multiline" Value="Automatic"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpBackupUITexts]"/>
+          <Property Name="TextIndexOffset" Value="7"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="273"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x00001001" Name="shapeButtonBackground">
+          <Property Name="BackColor" Value="250"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="ForeColor" Value="250"/>
+          <Property Name="Height" Value="63"/>
+          <Property Name="Left" Value="200"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
+          <Property Name="Top" Value="307"/>
+          <Property Name="Width" Value="400"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_OK">
+          <Property Name="BackColor" Value="14"/>
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_266]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="259"/>
+          <Property Name="PressedBitmapSource" Value="None"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpBackupUITexts]"/>
+          <Property Name="TextIndex" Value="27"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="318"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[cmdBackupInstallNewVersion]"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_Cancel">
+          <Property Name="BitmapIndexDatapoint" Value="None"/>
+          <Property Name="BitmapSource" Value="None"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_178_2]"/>
+          <Property Name="Height" Value="40"/>
+          <Property Name="KeyMatrixOffset" Value="None"/>
+          <Property Name="Left" Value="429"/>
+          <Property Name="PressedBitmapSource" Value="None"/>
+          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[MpBackupUITexts]"/>
+          <Property Name="TextIndex" Value="12"/>
+          <Property Name="TextIndexDatapoint" Value="None"/>
+          <Property Name="TextSimulationValue" Value="0"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="318"/>
+          <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_178_2]"/>
+          <Property Name="Width" Value="120"/>
+        </Control>
+      </Controls>
+      <KeyMapping>
+        <VirtualKey Name="cmd_AuditArchiveSetupSave">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Audit.AuditMgr.HmiAudit.Commands.SaveConfig]"/>
+            </KeyAction>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_1"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Audit.AuditMgr.HmiAudit.Status.ArchiveSetupLayer]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="cmd_BackupCreateButton">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Commands.Create]"/>
+            </KeyAction>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_1"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Layer.Create]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_265">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="None"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="cmdBackupInstallNewVersion">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Commands.Update]"/>
+            </KeyAction>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_1"/>
+              <Property Name="SetValue" Value="1"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Layer.NewVersion]"/>
+            </KeyAction>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_2"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.Layer.Installing]"/>
+            </KeyAction>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_4"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.ButtonOperation.CheckForUpdate]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+        <VirtualKey Name="%embVirtualKey_178_2">
+          <Property Name="Description" Value=""/>
+          <Property Name="VirtualKey_LED" Value="False"/>
+          <KeyActions>
+            <KeyAction ClassId="0x00000161">
+              <Property Name="CompletionDatapoint" Value="None"/>
+              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="Description" Value=""/>
+              <Property Name="Locking" Value="Never"/>
+              <Property Name="Name" Value="Action_0"/>
+              <Property Name="SetValue" Value="0"/>
+              <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.ButtonOperation.CheckForUpdate]"/>
+            </KeyAction>
+          </KeyActions>
+        </VirtualKey>
+      </KeyMapping>
+    </Layer>
     <Layer Name="DialogCreate">
       <Property Name="BackColor" Value="9"/>
       <Property Name="Description" Value=""/>
@@ -2250,7 +2674,7 @@
       <Property Name="Top" Value="0"/>
       <Property Name="VisibilityMode" Value="Hidden"/>
       <Property Name="Width" Value="800"/>
-      <Property Name="Z-Order" Value="8"/>
+      <Property Name="Z-Order" Value="10"/>
       <TextGroup>
         <TextLayer LanguageId="en"/>
         <TextLayer LanguageId="de"/>
@@ -2269,7 +2693,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_169_1]"/>
           <Property Name="Width" Value="800"/>
         </Control>
-        <Control ClassId="0x00001001" Name="Shape_1">
+        <Control ClassId="0x00001001" Name="Background">
           <Property Name="BackColor" Value="252"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -2279,13 +2703,12 @@
           <Property Name="Top" Value="142"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReportLayer_Cancel">
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_Cancel">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_171_0]"/>
-          <Property Name="GroupID" Value="64"/>
           <Property Name="Height" Value="46"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="442"/>
@@ -2301,13 +2724,12 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_171_0]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001002" Name="cmdReportLayer_Cancel1">
+        <Control ClassId="0x00001002" Name="cmdBackupLayer_Create">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_187_1]"/>
-          <Property Name="GroupID" Value="64"/>
           <Property Name="Height" Value="46"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
           <Property Name="Left" Value="236"/>
@@ -2323,7 +2745,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[cmd_BackupCreateButton]"/>
           <Property Name="Width" Value="152"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtDialogHeader">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="8"/>
           <Property Name="ControlID" Value="0"/>
@@ -2341,12 +2763,11 @@
           <Property Name="Top" Value="114"/>
           <Property Name="Width" Value="366"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_8">
+        <Control ClassId="0x00001004" Name="txtLabelName">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
           <Property Name="ForeColor" Value="254"/>
-          <Property Name="GroupID" Value="64"/>
           <Property Name="Height" Value="30"/>
           <Property Name="Left" Value="243"/>
           <Property Name="SimulationIndex" Value="0"/>
@@ -2358,11 +2779,10 @@
           <Property Name="Top" Value="238"/>
           <Property Name="Width" Value="150"/>
         </Control>
-        <Control ClassId="0x0000100B" Name="String_1">
+        <Control ClassId="0x0000100B" Name="strBackupName">
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
-          <Property Name="GroupID" Value="64"/>
           <Property Name="Height" Value="30"/>
           <Property Name="Left" Value="442"/>
           <Property Name="SimulationValue" Value="ABC"/>
@@ -2455,81 +2875,84 @@
     </Layer>
   </Layers>
   <MovementOrder>
-    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[DialogSettings].Control[String_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxBackupName]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxBackupTimestamp]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxBackupDevices]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[DialogSettings].Control[strBackupNamePrefix]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxBackupTimestamp]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName2]">
-      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[Dropdown_2]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[DialogSettings].Control[Dropdown_2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[String_1]"/>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxBackupTimestamp]">
+      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[drpDwnDevices]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[DialogSettings].Control[drpDwnDevices]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxBackupDevices]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[strBackupNamePrefix]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName3]">
-      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_5]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_7]"/>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxBackupDevices]">
+      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[numInToD_Hour]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxBackupTimestamp]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxBackupName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[numInMaxBackups]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[Dropdown_1]">
-      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_5]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[DialogCreate].Control[String_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[DialogCreate].Control[String_1]"/>
+    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[drpDwnInterval]">
+      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[numInToD_Hour]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxBackupName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[DialogCreate].Control[strBackupName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[DialogCreate].Control[strBackupName]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[Dropdown_2]">
-      <Property Name="Down" Value="Source[embedded].Layer[DialogCreate].Control[String_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[DialogCreate].Control[String_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[drpDwnDevices]">
+      <Property Name="Down" Value="Source[embedded].Layer[DialogCreate].Control[strBackupName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxBackupName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[DialogCreate].Control[strBackupName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxBackupName]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[Numeric_5]">
-      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_7]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_6]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[Dropdown_1]"/>
+    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[numInToD_Hour]">
+      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[numInMaxBackups]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxBackupName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[DialogSettings].Control[numInToD_Minute]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[drpDwnInterval]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[Numeric_6]">
-      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_7]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_5]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[Dropdown_1]"/>
+    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[numInToD_Minute]">
+      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[numInMaxBackups]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[DialogSettings].Control[numInToD_Hour]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxBackupTimestamp]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[drpDwnInterval]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[Numeric_7]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[DialogSettings].Control[String_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_5]"/>
+    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[numInMaxBackups]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxBackupName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxBackupName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[DialogSettings].Control[strBackupNamePrefix]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[numInToD_Hour]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[String_1]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_7]"/>
+    <MovementEntry Control="Source[embedded].Layer[DialogSettings].Control[strBackupNamePrefix]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxBackupName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxBackupName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxBackupTimestamp]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[numInMaxBackups]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[DialogCreate].Control[String_1]">
-      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[Dropdown_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[DialogSettings].Control[Dropdown_2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[Dropdown_2]"/>
+    <MovementEntry Control="Source[embedded].Layer[DialogCreate].Control[strBackupName]">
+      <Property Name="Down" Value="Source[embedded].Layer[DialogSettings].Control[drpDwnInterval]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[DialogSettings].Control[drpDwnDevices]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxBackupTimestamp]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[DialogSettings].Control[drpDwnDevices]"/>
     </MovementEntry>
   </MovementOrder>
   <TabSequence>
     <TabSeqItem Index="0" Value="Source[local].Layer[MpBackground].Control[strUserName]"/>
-    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
-    <TabSeqItem Index="4" Value="Source[embedded].Layer[Default].Control[String_1]"/>
-    <TabSeqItem Index="5" Value="Source[embedded].Layer[Default].Control[String_2]"/>
-    <TabSeqItem Index="6" Value="Source[embedded].Layer[Default].Control[String_3]"/>
-    <TabSeqItem Index="7" Value="Source[embedded].Layer[DialogCreate].Control[String_1]"/>
-    <TabSeqItem Index="8" Value="Source[embedded].Layer[DialogSettings].Control[Dropdown_1]"/>
-    <TabSeqItem Index="9" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_5]"/>
-    <TabSeqItem Index="10" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_6]"/>
-    <TabSeqItem Index="11" Value="Source[embedded].Layer[DialogSettings].Control[Numeric_7]"/>
-    <TabSeqItem Index="12" Value="Source[embedded].Layer[DialogSettings].Control[Dropdown_2]"/>
-    <TabSeqItem Index="13" Value="Source[embedded].Layer[DialogSettings].Control[String_1]"/>
+    <TabSeqItem Index="1" Value="Source[embedded].Layer[Default].Control[lbxBackupName]"/>
+    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[lbxBackupTimestamp]"/>
+    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[lbxBackupDevices]"/>
+    <TabSeqItem Index="4" Value="Source[embedded].Layer[Default].Control[strBackupName]"/>
+    <TabSeqItem Index="5" Value="Source[embedded].Layer[Default].Control[strBackupVersion]"/>
+    <TabSeqItem Index="6" Value="Source[embedded].Layer[Default].Control[strBackupConfigID]"/>
+    <TabSeqItem Index="7" Value="Source[embedded].Layer[DialogCreate].Control[strBackupName]"/>
+    <TabSeqItem Index="8" Value="Source[embedded].Layer[DialogSettings].Control[drpDwnInterval]"/>
+    <TabSeqItem Index="9" Value="Source[embedded].Layer[DialogSettings].Control[numInToD_Hour]"/>
+    <TabSeqItem Index="10" Value="Source[embedded].Layer[DialogSettings].Control[numInToD_Minute]"/>
+    <TabSeqItem Index="11" Value="Source[embedded].Layer[DialogSettings].Control[numInMaxBackups]"/>
+    <TabSeqItem Index="12" Value="Source[embedded].Layer[DialogSettings].Control[drpDwnDevices]"/>
+    <TabSeqItem Index="13" Value="Source[embedded].Layer[DialogSettings].Control[strBackupNamePrefix]"/>
+    <TabSeqItem Index="14" Value="Source[embedded].Layer[DialogNewUpdateAvailable].Control[strName]"/>
+    <TabSeqItem Index="15" Value="Source[embedded].Layer[DialogNewUpdateAvailable].Control[strVersion]"/>
+    <TabSeqItem Index="16" Value="Source[embedded].Layer[DialogNewUpdateAvailable].Control[strConfigID]"/>
   </TabSequence>
 </Page>

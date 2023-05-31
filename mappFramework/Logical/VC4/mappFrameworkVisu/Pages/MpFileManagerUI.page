@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.2.37"?>
+<?AutomationStudio Version="4.10.4.38 SP"?>
 <Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpFileManagerUI">
   <Property Name="Description" Value="mapp VC4 template MpFileManagerUI"/>
   <Property Name="Height" Value="480"/>
@@ -1118,6 +1118,9 @@
           <Property Name="ButtonsForeColor" Value="248"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
           <Property Name="ButtonsSlider" Value="Never"/>
+          <Property Name="ColorDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.MultiSelect]"/>
+          <Property Name="ColorMap" Value="Source[local].ColorMap[MpFileMultiSel]"/>
+          <Property Name="ColorMapIndexOffset" Value="0"/>
           <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Commands.FileList.Clicked]"/>
           <Property Name="CompletionValue" Value="1"/>
           <Property Name="ControlID" Value="0"/>
@@ -1125,6 +1128,7 @@
           <Property Name="Font" Value="Source[local].Font[MpButton]"/>
           <Property Name="Height" Value="134"/>
           <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.SelectedIndex]"/>
+          <Property Name="Input" Value="False"/>
           <Property Name="Left" Value="164"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
@@ -1135,7 +1139,7 @@
           <Property Name="OptionDatapoint" Value="None"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
-          <Property Name="SimulationValue" Value="Name"/>
+          <Property Name="SimulationValue" Value="+"/>
           <Property Name="SliderBackColor" Value="255"/>
           <Property Name="SliderForeColor" Value="240"/>
           <Property Name="SpacingVertical" Value="7"/>
@@ -2499,7 +2503,7 @@
     <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName1]">
       <Property Name="Down" Value="Source[embedded].Layer[Default].Control[txtNewName]"/>
       <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName4]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
       <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName2]">
@@ -2510,15 +2514,9 @@
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName3]">
       <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName4]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName1]"/>
       <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
       <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
-    </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName4]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[txtNewName]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[Dropdown_1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FileDialog_FIFO].Control[Numeric_1]">
       <Property Name="Down" Value="Source[embedded].Layer[Default].Control[txtNewName]"/>

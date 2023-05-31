@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.2.37"?>
+<?AutomationStudio Version="4.10.4.38 SP"?>
 <DataSource xmlns="http://br-automation.co.at/AS/VC/Project" Name="DataSource">
   <Property Name="AutoRefresh" Value="False"/>
   <Property Name="DefaultUpdateTime" Value="200"/>
@@ -8229,6 +8229,15 @@
                   <Property Name="UserID" Value="None"/>
                   <Property Name="VCType" Value="BOOL"/>
                 </DataPoint>
+                <DataPoint Name="Update">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="BOOL"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="BOOL"/>
+                </DataPoint>
               </Folder>
               <Folder Name="Status">
                 <Property Name="Description" Value=""/>
@@ -8283,6 +8292,15 @@
                     <Property Name="VCType" Value="INTEGER"/>
                   </DataPoint>
                   <DataPoint Name="OperationSettings">
+                    <Property Name="ConnectedBySharedResource" Value="False"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="USINT"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="INTEGER"/>
+                  </DataPoint>
+                  <DataPoint Name="CheckForUpdate">
                     <Property Name="ConnectedBySharedResource" Value="False"/>
                     <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
                     <Property Name="Description" Value=""/>
@@ -8350,6 +8368,24 @@
                     <Property Name="VCType" Value="INTEGER"/>
                   </DataPoint>
                   <DataPoint Name="Delete">
+                    <Property Name="ConnectedBySharedResource" Value="False"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="USINT"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="INTEGER"/>
+                  </DataPoint>
+                  <DataPoint Name="NewVersion">
+                    <Property Name="ConnectedBySharedResource" Value="False"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="USINT"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="INTEGER"/>
+                  </DataPoint>
+                  <DataPoint Name="Installing">
                     <Property Name="ConnectedBySharedResource" Value="False"/>
                     <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
                     <Property Name="Description" Value=""/>
@@ -8449,6 +8485,40 @@
                   <Property Name="UserID" Value="None"/>
                   <Property Name="VCType" Value="INTEGER"/>
                 </DataPoint>
+                <Folder Name="Update">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <DataPoint Name="Name">
+                    <Property Name="ConnectedBySharedResource" Value="False"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="STRING"/>
+                    <Property Name="StringLength" Value="255"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="STRING"/>
+                  </DataPoint>
+                  <DataPoint Name="ConfigurationID">
+                    <Property Name="ConnectedBySharedResource" Value="False"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="STRING"/>
+                    <Property Name="StringLength" Value="255"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="STRING"/>
+                  </DataPoint>
+                  <DataPoint Name="ConfigurationVersion">
+                    <Property Name="ConnectedBySharedResource" Value="False"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="STRING"/>
+                    <Property Name="StringLength" Value="64"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="STRING"/>
+                  </DataPoint>
+                </Folder>
               </Folder>
               <Folder Name="Parameters">
                 <Property Name="Description" Value=""/>

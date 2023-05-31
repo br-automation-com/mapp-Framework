@@ -53,6 +53,7 @@ TYPE
 		OperationDelete : USINT;
 		OperationRestore : USINT;
 		OperationSettings : USINT;
+		CheckForUpdate : USINT;
 	END_STRUCT;
 	BackupHmiStatusLayerType : 	STRUCT 
 		Creating : USINT;
@@ -61,6 +62,8 @@ TYPE
 		Restore : USINT;
 		Settings : USINT;
 		FuncNotAvailable : USINT;
+		NewVersion : USINT;
+		Installing : USINT;
 	END_STRUCT;
 	AutomaticBackupType : 	STRUCT  (*Automatic backup settings*)
 		Enable : BOOL; (*Enable automatic backup feature*)

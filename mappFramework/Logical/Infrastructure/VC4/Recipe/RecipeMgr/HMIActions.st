@@ -1,14 +1,14 @@
 ACTION HMIActions_Init:	
 	
-	HmiRecipe.Status.CreateRecipeLayer.ParsStatus 	    	:= HIDE;
-	HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus 	:= HIDE;
-	HmiRecipe.Status.DefaultRecipeLayer.Status 		    	:= HIDE;
-	HmiRecipe.Status.RecipeLoadLayer.Status 		    	:= HIDE;
-	HmiRecipe.Status.EditRecipeLayer.ParsStatus		    	:= HIDE;
-	HmiRecipe.Status.EditRecipeLayer.MachConfigStatus   	:= HIDE;
-	HmiRecipe.Status.DuplicateLayer 					    := HIDE;
-	HmiRecipe.Status.DefaultFilesCannotBeDeleteLayer	    := HIDE;
-	HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= UNLOCK;
+	HmiRecipe.Status.CreateRecipeLayer.ParsStatus			:= HIDE;
+	HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus		:= HIDE;
+	HmiRecipe.Status.DefaultRecipeLayer.Status				:= HIDE;
+	HmiRecipe.Status.RecipeLoadLayer.Status					:= HIDE;
+	HmiRecipe.Status.EditRecipeLayer.ParsStatus				:= HIDE;
+	HmiRecipe.Status.EditRecipeLayer.MachConfigStatus		:= HIDE;
+	HmiRecipe.Status.DuplicateLayer							:= HIDE;
+	HmiRecipe.Status.DefaultFilesCannotBeDeleteLayer		:= HIDE;
+	HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive	:= UNLOCK;
 	
 END_ACTION
 
@@ -103,12 +103,12 @@ ACTION LoadPreview:
 	// Lock File name input in create layer
 	IF HmiRecipe.Status.CreateRecipeLayer.ParsStatus = DISPLAY AND
 		HmiRecipe.Status.ParameterRecipeMissing THEN		
-		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= LOCK;		
+		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive	:= LOCK;		
 	ELSIF HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus = DISPLAY AND
 		HmiRecipe.Status.MachineSettingsRecipeMissing THEN	  
-		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= LOCK;
+		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive	:= LOCK;
 	ELSE		
-		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive 	:= UNLOCK;
+		HmiRecipe.Status.CreateRecipeLayer.FileNameInputActive	:= UNLOCK;
 	END_IF;	
 	
 	// File Duplicate manager
@@ -125,12 +125,12 @@ ACTION LoadPreview:
 	
 	// Preview Recipe Layer manager
 	IF HmiRecipe.Parameters.Category = MACHINE_CONFIGURATION_CATEGORY THEN
-		HmiRecipe.Status.PreviewRecipeLayer.ParsStatus 		 := HIDE;
+		HmiRecipe.Status.PreviewRecipeLayer.ParsStatus		 := HIDE;
 		HmiRecipe.Status.PreviewRecipeLayer.MachConfigStatus := DISPLAY;
 		
 	ELSIF HmiRecipe.Parameters.Category = PARAMETERS_CATEGORY THEN
 		HmiRecipe.Status.PreviewRecipeLayer.MachConfigStatus := HIDE;
-		HmiRecipe.Status.PreviewRecipeLayer.ParsStatus 		 := DISPLAY;	  
+		HmiRecipe.Status.PreviewRecipeLayer.ParsStatus		 := DISPLAY;	  
 	END_IF;	
 	
 	// Active Recipe declare	
