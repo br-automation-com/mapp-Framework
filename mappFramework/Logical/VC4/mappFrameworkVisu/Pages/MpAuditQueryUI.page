@@ -59,7 +59,7 @@
           <Property Name="Top" Value="45"/>
           <Property Name="Width" Value="800"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_1">
+        <Control ClassId="0x00001002" Name="cmdAuditTrail">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -81,7 +81,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_192_1]"/>
           <Property Name="Width" Value="133"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_2">
+        <Control ClassId="0x00001002" Name="cmdAuditCustomEvents">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -103,7 +103,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_193_1]"/>
           <Property Name="Width" Value="133"/>
         </Control>
-        <Control ClassId="0x00001008" Name="Listbox_1">
+        <Control ClassId="0x00001008" Name="lstBoxMessages">
           <Property Name="ButtonsBitmapGroup" Value="None"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
           <Property Name="ButtonsSlider" Value="Never"/>
@@ -130,7 +130,7 @@
           <Property Name="Top" Value="169"/>
           <Property Name="Width" Value="380"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtLabelMessages">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="8"/>
           <Property Name="ControlID" Value="0"/>
@@ -148,7 +148,7 @@
           <Property Name="Top" Value="143"/>
           <Property Name="Width" Value="380"/>
         </Control>
-        <Control ClassId="0x00001008" Name="Listbox_2">
+        <Control ClassId="0x00001008" Name="lstBoxTimestamp">
           <Property Name="ButtonsBitmapGroup" Value="None"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
           <Property Name="ButtonsSlider" Value="Never"/>
@@ -175,7 +175,7 @@
           <Property Name="Top" Value="169"/>
           <Property Name="Width" Value="200"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_2">
+        <Control ClassId="0x00001004" Name="txtLabelTimestamp">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="8"/>
           <Property Name="ControlID" Value="0"/>
@@ -193,7 +193,7 @@
           <Property Name="Top" Value="143"/>
           <Property Name="Width" Value="200"/>
         </Control>
-        <Control ClassId="0x00001008" Name="Listbox_3">
+        <Control ClassId="0x00001008" Name="lstBoxOperator">
           <Property Name="ButtonsBitmapGroup" Value="None"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
           <Property Name="ButtonsSlider" Value="Never"/>
@@ -220,7 +220,7 @@
           <Property Name="Top" Value="169"/>
           <Property Name="Width" Value="200"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_3">
+        <Control ClassId="0x00001004" Name="txtLabelOperator">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="8"/>
           <Property Name="ControlID" Value="0"/>
@@ -238,7 +238,7 @@
           <Property Name="Top" Value="143"/>
           <Property Name="Width" Value="200"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_3">
+        <Control ClassId="0x00001002" Name="cmdRunQuery">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -260,7 +260,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_194_1]"/>
           <Property Name="Width" Value="133"/>
         </Control>
-        <Control ClassId="0x00001018" Name="Dropdown_1">
+        <Control ClassId="0x00001018" Name="drpDwnQuerySelector">
           <Property Name="ButtonsBitmapGroup" Value="None"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -1252,14 +1252,14 @@
     </LayerRef>
   </Layers>
   <MovementOrder>
-    <MovementEntry Control="Source[embedded].Layer[Default].Control[Dropdown_1]">
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]">
       <Property Name="Down" Value="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]"/>
       <Property Name="Left" Value="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]"/>
       <Property Name="Right" Value="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]"/>
       <Property Name="Up" Value="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[strShowHideUser]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numUntilMonth]"/>
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numUntilYear]"/>
       <Property Name="Up" Value="Source[embedded].Layer[FilterDialog].Control[numUntilMonth]"/>
@@ -1268,31 +1268,31 @@
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numUntilYear]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numFromMinute]"/>
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numFromMonth]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numFromMonth]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numUntilMonth]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numFromYear]"/>
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numFromDay]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numFromDay]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numUntilDay]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numFromMonth]"/>
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numFromHour]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numFromHour]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numUntilHour]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numFromDay]"/>
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numFromMinute]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numFromMinute]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numUntilMinute]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numFromHour]"/>
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numFromYear]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numUntilYear]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[strShowHideUser]"/>
@@ -1327,7 +1327,7 @@
     <MovementEntry Control="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numFromDay]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numFromMonth]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]"/>
       <Property Name="Up" Value="Source[embedded].Layer[FilterDialog].Control[strShowHideUser]"/>
     </MovementEntry>
   </MovementOrder>
@@ -1344,10 +1344,10 @@
     <TabSeqItem Index="9" Value="Source[embedded].Layer[FilterDialog].Control[numUntilDay]"/>
     <TabSeqItem Index="10" Value="Source[embedded].Layer[FilterDialog].Control[numUntilHour]"/>
     <TabSeqItem Index="11" Value="Source[embedded].Layer[FilterDialog].Control[numUntilMinute]"/>
-    <TabSeqItem Index="12" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
-    <TabSeqItem Index="13" Value="Source[embedded].Layer[Default].Control[Listbox_2]"/>
-    <TabSeqItem Index="14" Value="Source[embedded].Layer[Default].Control[Listbox_3]"/>
-    <TabSeqItem Index="15" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
+    <TabSeqItem Index="12" Value="Source[embedded].Layer[Default].Control[lstBoxMessages]"/>
+    <TabSeqItem Index="13" Value="Source[embedded].Layer[Default].Control[lstBoxTimestamp]"/>
+    <TabSeqItem Index="14" Value="Source[embedded].Layer[Default].Control[lstBoxOperator]"/>
+    <TabSeqItem Index="15" Value="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]"/>
     <TabSeqItem Index="16" Value="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]"/>
   </TabSequence>
 </Page>

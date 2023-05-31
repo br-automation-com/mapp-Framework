@@ -59,7 +59,7 @@
           <Property Name="Top" Value="45"/>
           <Property Name="Width" Value="800"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_1">
+        <Control ClassId="0x00001002" Name="cmdAuditTrail">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -81,7 +81,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_138_2]"/>
           <Property Name="Width" Value="133"/>
         </Control>
-        <Control ClassId="0x00001002" Name="Button_3">
+        <Control ClassId="0x00001002" Name="cmdAuditQuery">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -103,7 +103,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_143_0]"/>
           <Property Name="Width" Value="133"/>
         </Control>
-        <Control ClassId="0x00001008" Name="Listbox_1">
+        <Control ClassId="0x00001008" Name="lstBoxCustomMessages">
           <Property Name="ButtonsBitmapGroup" Value="None"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
           <Property Name="ButtonsSlider" Value="Never"/>
@@ -238,7 +238,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_85_0_0_1_0]"/>
           <Property Name="Width" Value="40"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtLabelTableHeader">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="8"/>
           <Property Name="ControlID" Value="0"/>
@@ -1165,57 +1165,57 @@
     </LayerRef>
   </Layers>
   <MovementOrder>
-    <MovementEntry Control="Source[embedded].Layer[Default].Control[Listbox_1]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]">
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numFromYear]"/>
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numFromMonth]"/>
       <Property Name="Up" Value="Source[embedded].Layer[FilterDialog].Control[strShowHideUser]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[strShowHideUser]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
       <Property Name="Up" Value="Source[embedded].Layer[FilterDialog].Control[numUntilMonth]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numFromYear]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numUntilYear]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numFromMonth]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numUntilMonth]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numFromDay]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numFromDay]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numUntilDay]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numFromMonth]"/>
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numFromHour]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numFromHour]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numUntilHour]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numFromDay]"/>
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numFromMinute]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numFromMinute]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numUntilMinute]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numFromHour]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numUntilYear]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
       <Property Name="Up" Value="Source[embedded].Layer[FilterDialog].Control[numFromYear]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numUntilMonth]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numUntilDay]"/>
       <Property Name="Up" Value="Source[embedded].Layer[FilterDialog].Control[numFromMonth]"/>
     </MovementEntry>
@@ -1234,7 +1234,7 @@
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[numUntilMinute]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[strShowHideUser]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numUntilHour]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
       <Property Name="Up" Value="Source[embedded].Layer[FilterDialog].Control[numFromMinute]"/>
     </MovementEntry>
   </MovementOrder>
@@ -1251,6 +1251,6 @@
     <TabSeqItem Index="9" Value="Source[embedded].Layer[FilterDialog].Control[numUntilDay]"/>
     <TabSeqItem Index="10" Value="Source[embedded].Layer[FilterDialog].Control[numUntilHour]"/>
     <TabSeqItem Index="11" Value="Source[embedded].Layer[FilterDialog].Control[numUntilMinute]"/>
-    <TabSeqItem Index="12" Value="Source[embedded].Layer[Default].Control[Listbox_1]"/>
+    <TabSeqItem Index="12" Value="Source[embedded].Layer[Default].Control[lstBoxCustomMessages]"/>
   </TabSequence>
 </Page>

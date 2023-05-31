@@ -1188,6 +1188,7 @@
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
           <Property Name="Height" Value="47"/>
           <Property Name="Left" Value="288"/>
+          <Property Name="Multiline" Value="Automatic"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value="SimpleReport"/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.SettingsContentsStatus]"/>
@@ -2228,6 +2229,7 @@
           <Property Name="Width" Value="366"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtDialogMessage">
+          <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHeader]"/>
@@ -2637,7 +2639,7 @@
               <Property Name="CompletionValue" Value="0"/>
               <Property Name="Description" Value=""/>
               <Property Name="Locking" Value="Never"/>
-              <Property Name="Name" Value="Action_4"/>
+              <Property Name="Name" Value="Action_3"/>
               <Property Name="SetValue" Value="0"/>
               <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Status.ButtonOperation.CheckForUpdate]"/>
             </KeyAction>
