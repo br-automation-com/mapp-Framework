@@ -134,7 +134,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_49_0]"/>
           <Property Name="Width" Value="90"/>
         </Control>
-        <Control ClassId="0x00001008" Name="lbxRecipeList">
+        <Control ClassId="0x00001008" Name="lbxRecipeListName">
           <Property Name="Border" Value="Source[local].Border[Mp_SunkenNGgray]"/>
           <Property Name="ButtonsBackColor" Value="254"/>
           <Property Name="ButtonsBitmapGroup" Value="None"/>
@@ -482,7 +482,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_90_0]"/>
           <Property Name="Width" Value="65"/>
         </Control>
-        <Control ClassId="0x00001008" Name="lbxRecipeList2">
+        <Control ClassId="0x00001008" Name="lbxRecipeListSize">
           <Property Name="Border" Value="Source[local].Border[Mp_SunkenNGgray]"/>
           <Property Name="ButtonsBackColor" Value="254"/>
           <Property Name="ButtonsBitmapGroup" Value="None"/>
@@ -513,7 +513,7 @@
           <Property Name="Top" Value="178"/>
           <Property Name="Width" Value="60"/>
         </Control>
-        <Control ClassId="0x00001008" Name="lbxRecipeList3">
+        <Control ClassId="0x00001008" Name="lbxRecipeListDate">
           <Property Name="Border" Value="Source[local].Border[Mp_SunkenNGgray]"/>
           <Property Name="ButtonsBackColor" Value="254"/>
           <Property Name="ButtonsBitmapGroup" Value="None"/>
@@ -545,7 +545,7 @@
           <Property Name="Top" Value="178"/>
           <Property Name="Width" Value="140"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtLabelTableName">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
@@ -560,16 +560,16 @@
           <Property Name="TextIndexOffset" Value="20"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
           <Property Name="Top" Value="167"/>
-          <Property Name="Width" Value="250"/>
+          <Property Name="Width" Value="214"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_2">
+        <Control ClassId="0x00001004" Name="txtLabelTableDate">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
           <Property Name="ForeColor" Value="247"/>
           <Property Name="Height" Value="11"/>
           <Property Name="IndexDatapoint" Value="None"/>
-          <Property Name="Left" Value="268"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
@@ -577,16 +577,16 @@
           <Property Name="TextIndexOffset" Value="21"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
           <Property Name="Top" Value="167"/>
-          <Property Name="Width" Value="140"/>
+          <Property Name="Width" Value="135"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_3">
+        <Control ClassId="0x00001004" Name="txtLabelTableSize">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Font" Value="Source[local].Font[MpHtml_SDM]"/>
           <Property Name="ForeColor" Value="247"/>
           <Property Name="Height" Value="11"/>
           <Property Name="IndexDatapoint" Value="None"/>
-          <Property Name="Left" Value="407"/>
+          <Property Name="Left" Value="375"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpBubbleText]"/>
@@ -596,7 +596,7 @@
           <Property Name="Top" Value="167"/>
           <Property Name="Width" Value="60"/>
         </Control>
-        <Control ClassId="0x00001018" Name="Dropdown_1">
+        <Control ClassId="0x00001018" Name="drpDwnCategory">
           <Property Name="ButtonsBitmapGroup" Value="None"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
           <Property Name="ControlID" Value="0"/>
@@ -1091,7 +1091,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="352"/>
+          <Property Name="Top" Value="353"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_86_0]"/>
           <Property Name="Width" Value="88"/>
         </Control>
@@ -1193,7 +1193,7 @@
         <IndexMap/>
       </TextGroup>
       <Controls>
-        <Control ClassId="0x00001001" Name="Shape_1">
+        <Control ClassId="0x00001001" Name="Background">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="87"/>
@@ -1218,7 +1218,7 @@
           <Property Name="Top" Value="132"/>
           <Property Name="Width" Value="283"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtSelectedRecipe">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="Border" Value="Source[local].Border[Mp_BitmapFrame]"/>
           <Property Name="ControlID" Value="0"/>
@@ -1235,7 +1235,7 @@
           <Property Name="Top" Value="158"/>
           <Property Name="Width" Value="139"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_2">
+        <Control ClassId="0x00001004" Name="txtActiveRecipe">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="Border" Value="Source[local].Border[Mp_BitmapFrame]"/>
           <Property Name="ControlID" Value="0"/>
@@ -1252,7 +1252,7 @@
           <Property Name="Top" Value="158"/>
           <Property Name="Width" Value="100"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_3">
+        <Control ClassId="0x00001004" Name="txtSelectedRecipeName">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1268,7 +1268,7 @@
           <Property Name="Top" Value="190"/>
           <Property Name="Width" Value="99"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_4">
+        <Control ClassId="0x00001004" Name="txtActiveRecipeName">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1284,7 +1284,7 @@
           <Property Name="Top" Value="190"/>
           <Property Name="Width" Value="99"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_5">
+        <Control ClassId="0x00001004" Name="txtLabelInvalidRecipe">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="Border" Value="Source[local].Border[Mp_BitmapFrame]"/>
           <Property Name="ControlID" Value="0"/>
@@ -1348,7 +1348,7 @@
         </IndexMap>
       </TextGroup>
       <Controls>
-        <Control ClassId="0x00001001" Name="Shape_1">
+        <Control ClassId="0x00001001" Name="Background_1">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="193"/>
@@ -1373,7 +1373,7 @@
           <Property Name="Top" Value="220"/>
           <Property Name="Width" Value="283"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_5">
+        <Control ClassId="0x00001004" Name="txtLabel_Settings1">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -1387,7 +1387,7 @@
           <Property Name="Top" Value="222"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_2">
+        <Control ClassId="0x00001007" Name="numIn_4">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1405,7 +1405,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_3">
+        <Control ClassId="0x00001007" Name="numIn_5">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1423,7 +1423,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_6">
+        <Control ClassId="0x00001004" Name="txtLabel_Settings2">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -1437,7 +1437,7 @@
           <Property Name="Top" Value="260"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_7">
+        <Control ClassId="0x00001004" Name="txtLabel_Settings3">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -1451,7 +1451,7 @@
           <Property Name="Top" Value="298"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_8">
+        <Control ClassId="0x00001004" Name="txtLabel_Settings4">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -1465,7 +1465,7 @@
           <Property Name="Top" Value="336"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_9">
+        <Control ClassId="0x00001004" Name="txtLabel_Settings5">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -1479,7 +1479,7 @@
           <Property Name="Top" Value="375"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_5">
+        <Control ClassId="0x00001007" Name="numPreview_4">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1497,7 +1497,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_6">
+        <Control ClassId="0x00001007" Name="numPreview_5">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1515,7 +1515,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_7">
+        <Control ClassId="0x00001007" Name="numIn_2">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1533,7 +1533,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_8">
+        <Control ClassId="0x00001007" Name="numPreview_2">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1551,7 +1551,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_9">
+        <Control ClassId="0x00001007" Name="numIn_1">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1569,7 +1569,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_10">
+        <Control ClassId="0x00001007" Name="numPreview_1">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1587,7 +1587,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_10">
+        <Control ClassId="0x00001004" Name="txtPreview_3">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1604,7 +1604,7 @@
           <Property Name="Top" Value="299"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_11">
+        <Control ClassId="0x00001004" Name="txtIn_3">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1621,7 +1621,7 @@
           <Property Name="Top" Value="299"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001001" Name="Shape_2">
+        <Control ClassId="0x00001001" Name="Background_2">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="183"/>
@@ -1677,7 +1677,7 @@
         </IndexMap>
       </TextGroup>
       <Controls>
-        <Control ClassId="0x00001001" Name="Shape_1">
+        <Control ClassId="0x00001001" Name="Background_1">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="193"/>
@@ -1702,7 +1702,7 @@
           <Property Name="Top" Value="220"/>
           <Property Name="Width" Value="283"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_5">
+        <Control ClassId="0x00001004" Name="txtLabel_Parameter1">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -1716,7 +1716,7 @@
           <Property Name="Top" Value="222"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x0000100B" Name="String_1">
+        <Control ClassId="0x0000100B" Name="strIn_2">
           <Property Name="AlignmentHorizontal" Value="Right"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1728,7 +1728,7 @@
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Recipe.RecipeMgr.Parameters.AddParametersHere2]"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_1">
+        <Control ClassId="0x00001007" Name="numIn_3">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1746,7 +1746,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_2">
+        <Control ClassId="0x00001007" Name="numIn_4">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1764,7 +1764,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_3">
+        <Control ClassId="0x00001007" Name="numIn_5">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1782,7 +1782,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_6">
+        <Control ClassId="0x00001004" Name="txtLabel_Parameter2">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -1796,7 +1796,7 @@
           <Property Name="Top" Value="261"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_7">
+        <Control ClassId="0x00001004" Name="txtLabel_Parameter3">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -1810,7 +1810,7 @@
           <Property Name="Top" Value="300"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_8">
+        <Control ClassId="0x00001004" Name="txtLabel_Parameter4">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -1824,7 +1824,7 @@
           <Property Name="Top" Value="339"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_9">
+        <Control ClassId="0x00001004" Name="txtLabel_Parameter5">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -1838,7 +1838,7 @@
           <Property Name="Top" Value="379"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x0000100B" Name="String_2">
+        <Control ClassId="0x0000100B" Name="strPreview_2">
           <Property Name="AlignmentHorizontal" Value="Right"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1850,7 +1850,7 @@
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Recipe.RecipeMgr.ParametersPreview.AddParametersHere2]"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_4">
+        <Control ClassId="0x00001007" Name="numPreview_3">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1868,7 +1868,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_5">
+        <Control ClassId="0x00001007" Name="numPreview_4">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1886,7 +1886,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_6">
+        <Control ClassId="0x00001007" Name="numPreview_5">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1904,7 +1904,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_10">
+        <Control ClassId="0x00001004" Name="txtPreview_1">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1921,7 +1921,7 @@
           <Property Name="Top" Value="224"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_11">
+        <Control ClassId="0x00001004" Name="txtIn_1">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -1938,7 +1938,7 @@
           <Property Name="Top" Value="224"/>
           <Property Name="Width" Value="95"/>
         </Control>
-        <Control ClassId="0x00001001" Name="Shape_2">
+        <Control ClassId="0x00001001" Name="Background_2">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="183"/>
@@ -2360,7 +2360,7 @@
           <Property Name="Top" Value="228"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtLabelSetting_3">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -2431,7 +2431,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_2">
+        <Control ClassId="0x00001004" Name="txtLabelSetting_2">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -2445,7 +2445,7 @@
           <Property Name="Top" Value="182"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_3">
+        <Control ClassId="0x00001004" Name="txtLabelSetting_1">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -2459,7 +2459,7 @@
           <Property Name="Top" Value="136"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_4">
+        <Control ClassId="0x00001004" Name="txtLabelSetting_4">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -2473,7 +2473,7 @@
           <Property Name="Top" Value="278"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_5">
+        <Control ClassId="0x00001004" Name="txtLabelSetting_5">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -2506,7 +2506,7 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_6">
+        <Control ClassId="0x00001004" Name="txtSettingsRecipeName">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -2675,14 +2675,14 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_16_2]"/>
           <Property Name="Width" Value="150"/>
         </Control>
-        <Control ClassId="0x00001018" Name="Dropdown_1">
+        <Control ClassId="0x00001018" Name="drpDwnSettings_3">
           <Property Name="ButtonsBitmapGroup" Value="None"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Recipe.RecipeMgr.MachineSettingsEdit.AddMachineSettingsHere3]"/>
-          <Property Name="Left" Value="435"/>
+          <Property Name="Left" Value="425"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -2700,11 +2700,11 @@
           <Property Name="Top" Value="167"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtLabelSetting_3">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="278"/>
+          <Property Name="Left" Value="255"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BubbleText]"/>
@@ -2714,13 +2714,13 @@
           <Property Name="Top" Value="168"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_1">
+        <Control ClassId="0x00001007" Name="numInSettings_1">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="435"/>
+          <Property Name="Left" Value="425"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -2733,13 +2733,13 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_2">
+        <Control ClassId="0x00001007" Name="numInSettings_4">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="435"/>
+          <Property Name="Left" Value="425"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -2752,13 +2752,13 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_3">
+        <Control ClassId="0x00001007" Name="numInSettings_5">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="435"/>
+          <Property Name="Left" Value="425"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -2771,11 +2771,11 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_2">
+        <Control ClassId="0x00001004" Name="txtLabelSetting_2">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="278"/>
+          <Property Name="Left" Value="255"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BubbleText]"/>
@@ -2785,11 +2785,11 @@
           <Property Name="Top" Value="121"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_3">
+        <Control ClassId="0x00001004" Name="txtLabelSetting_1">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="278"/>
+          <Property Name="Left" Value="255"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BubbleText]"/>
@@ -2799,11 +2799,11 @@
           <Property Name="Top" Value="75"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_4">
+        <Control ClassId="0x00001004" Name="txtLabelSetting_4">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="278"/>
+          <Property Name="Left" Value="255"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BubbleText]"/>
@@ -2813,11 +2813,11 @@
           <Property Name="Top" Value="217"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_5">
+        <Control ClassId="0x00001004" Name="txtLabelSetting_5">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="278"/>
+          <Property Name="Left" Value="255"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BubbleText]"/>
@@ -2827,7 +2827,7 @@
           <Property Name="Top" Value="265"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_6">
+        <Control ClassId="0x00001004" Name="txtLabelSettingsRecipeName">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -2841,7 +2841,7 @@
           <Property Name="Top" Value="322"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x0000100B" Name="String_2">
+        <Control ClassId="0x0000100B" Name="strSettingsRecipeName">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="240"/>
           <Property Name="ControlID" Value="0"/>
@@ -2856,7 +2856,7 @@
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Recipe.RecipeMgr.HmiRecipe.Parameters.FileName]"/>
           <Property Name="Width" Value="139"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_7">
+        <Control ClassId="0x00001004" Name="txtLabel_mcfg">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -2870,13 +2870,13 @@
           <Property Name="Top" Value="320"/>
           <Property Name="Width" Value="39"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_4">
+        <Control ClassId="0x00001007" Name="numInSettings_2">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="435"/>
+          <Property Name="Left" Value="425"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -3371,14 +3371,14 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_13_2]"/>
           <Property Name="Width" Value="150"/>
         </Control>
-        <Control ClassId="0x00001018" Name="Dropdown_1">
+        <Control ClassId="0x00001018" Name="drpDwnParameter_1">
           <Property Name="ButtonsBitmapGroup" Value="None"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Recipe.RecipeMgr.ParametersEdit.AddParametersHere1]"/>
-          <Property Name="Left" Value="435"/>
+          <Property Name="Left" Value="425"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
           <Property Name="MaxDatapoint" Value="None"/>
@@ -3396,11 +3396,11 @@
           <Property Name="Top" Value="77"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_1">
+        <Control ClassId="0x00001004" Name="txtLabelParameter_1">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="278"/>
+          <Property Name="Left" Value="255"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BubbleText]"/>
@@ -3410,25 +3410,25 @@
           <Property Name="Top" Value="77"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x0000100B" Name="String_1">
+        <Control ClassId="0x0000100B" Name="strParameter_2">
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="435"/>
+          <Property Name="Left" Value="425"/>
           <Property Name="SimulationValue" Value="ABC"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="Top" Value="124"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Recipe.RecipeMgr.ParametersEdit.AddParametersHere2]"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_1">
+        <Control ClassId="0x00001007" Name="numParameter_5">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="435"/>
+          <Property Name="Left" Value="425"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -3441,13 +3441,13 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_2">
+        <Control ClassId="0x00001007" Name="numParameter_4">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="435"/>
+          <Property Name="Left" Value="425"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -3460,13 +3460,13 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001007" Name="Numeric_3">
+        <Control ClassId="0x00001007" Name="numParameter_6">
           <Property Name="AddFractionDigits" Value="1"/>
           <Property Name="Border" Value="Source[local].Border[Mp_InputBorder]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="435"/>
+          <Property Name="Left" Value="425"/>
           <Property Name="MaxDatapoint" Value="None"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="None"/>
@@ -3479,11 +3479,11 @@
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="103"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_2">
+        <Control ClassId="0x00001004" Name="txtLabelParameter_2">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="278"/>
+          <Property Name="Left" Value="255"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BubbleText]"/>
@@ -3493,11 +3493,11 @@
           <Property Name="Top" Value="125"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_3">
+        <Control ClassId="0x00001004" Name="txtLabelParameter_3">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="278"/>
+          <Property Name="Left" Value="255"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BubbleText]"/>
@@ -3507,11 +3507,11 @@
           <Property Name="Top" Value="173"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_4">
+        <Control ClassId="0x00001004" Name="txtLabelParameter_4">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="278"/>
+          <Property Name="Left" Value="255"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BubbleText]"/>
@@ -3521,11 +3521,11 @@
           <Property Name="Top" Value="221"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_5">
+        <Control ClassId="0x00001004" Name="txtLabelParameter_5">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="278"/>
+          <Property Name="Left" Value="255"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[BubbleText]"/>
@@ -3535,7 +3535,7 @@
           <Property Name="Top" Value="270"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_6">
+        <Control ClassId="0x00001004" Name="txtLabelParameter_6">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -3549,7 +3549,7 @@
           <Property Name="Top" Value="326"/>
           <Property Name="Width" Value="138"/>
         </Control>
-        <Control ClassId="0x0000100B" Name="String_2">
+        <Control ClassId="0x0000100B" Name="strRecipeParametersName">
           <Property Name="AlignmentHorizontal" Value="Center"/>
           <Property Name="BackColor" Value="240"/>
           <Property Name="ControlID" Value="0"/>
@@ -3564,7 +3564,7 @@
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Recipe.RecipeMgr.HmiRecipe.Parameters.FileName]"/>
           <Property Name="Width" Value="139"/>
         </Control>
-        <Control ClassId="0x00001004" Name="Text_7">
+        <Control ClassId="0x00001004" Name="txtLabel_par">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
@@ -3613,7 +3613,7 @@
         </VirtualKey>
       </KeyMapping>
     </Layer>
-    <Layer Name="MpMsgRecipeDupliacte">
+    <Layer Name="MpMsgRecipeDuplicate">
       <Property Name="BackColor" Value="9"/>
       <Property Name="Description" Value="Message Box"/>
       <Property Name="EditingMode" Value="Normal"/>
@@ -3670,7 +3670,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="134"/>
           <Property Name="Left" Value="223"/>
-          <Property Name="Multiline" Value="Manual"/>
+          <Property Name="Multiline" Value="Automatic"/>
           <Property Name="SimulationIndex" Value="1"/>
           <Property Name="SimulationValue" Value="Example Alarm Text"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
@@ -3726,7 +3726,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_72_0]"/>
           <Property Name="Width" Value="150"/>
         </Control>
-        <Control ClassId="0x0000100B" Name="String_2">
+        <Control ClassId="0x0000100B" Name="strFileName">
           <Property Name="Border" Value="Source[local].Border[Mp_OutputBorder]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -4070,185 +4070,185 @@
     </Layer>
   </Layers>
   <MovementOrder>
-    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxRecipeList]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Dropdown_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[String_2]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxRecipeListName]">
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeEditPars].Control[String_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[strSettingsRecipeName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpDwnCategory]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[Default].Control[Dropdown_1]">
+    <MovementEntry Control="Source[embedded].Layer[Default].Control[drpDwnCategory]">
       <Property Name="Down" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxRecipeList]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxRecipeListName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_2]"/>
       <Property Name="Up" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Dropdown_1]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_3]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxRecipeList]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_2]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_5]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_4]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_1]"/>
       <Property Name="Up" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_1]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Dropdown_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_4]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[drpDwnSettings_3]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Dropdown_1]"/>
       <Property Name="Up" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Dropdown_1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_2]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[String_2]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxRecipeList]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_3]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[strSettingsRecipeName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_5]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_2]"/>
       <Property Name="Up" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_2]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_3]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[String_2]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[strSettingsRecipeName]"/>
       <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_3]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[String_2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[strSettingsRecipeName]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_4]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_2]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxRecipeList]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Dropdown_1]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_4]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[drpDwnSettings_3]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditPars].Control[String_1]"/>
       <Property Name="Up" Value="Source[embedded].Layer[MpRecipeEditPars].Control[String_1]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Dropdown_1]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[drpDwnSettings_3]">
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_5]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_5]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_5]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[drpDwnCategory]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_1]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Dropdown_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Dropdown_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Dropdown_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[String_2]"/>
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_1]">
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[drpDwnParameter_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[drpDwnParameter_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[drpDwnParameter_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[strRecipeParametersName]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_2]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_2]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_2]"/>
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_4]">
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_4]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_4]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_4]"/>
       <Property Name="Up" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_4]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_3]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_3]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_3]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_3]"/>
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_5]">
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_6]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_6]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_6]"/>
       <Property Name="Up" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Dropdown_1]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[String_2]">
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[strSettingsRecipeName]">
       <Property Name="Down" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_3]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[String_2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[String_2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[strRecipeParametersName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[strRecipeParametersName]"/>
       <Property Name="Up" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_3]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_4]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[String_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[String_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[String_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Dropdown_1]"/>
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_2]">
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[strParameter_2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[strParameter_2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[strParameter_2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[drpDwnParameter_1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[MpRecipeEditPars].Control[Dropdown_1]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[drpDwnCategory]"/>
       <Property Name="Left" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[String_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[drpDwnCategory]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[strParameter_2]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[MpRecipeEditPars].Control[String_1]">
       <Property Name="Down" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_4]"/>
       <Property Name="Left" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_4]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxRecipeList]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxRecipeListName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_5]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_1]">
       <Property Name="Down" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Dropdown_1]"/>
       <Property Name="Left" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Dropdown_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxRecipeList]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxRecipeListName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_4]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_2]">
       <Property Name="Down" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_2]"/>
       <Property Name="Left" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxRecipeList]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_3]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxRecipeListName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_6]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_3]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[String_2]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[strRecipeParametersName]"/>
       <Property Name="Left" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_3]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxRecipeList]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxRecipeListName]"/>
       <Property Name="Up" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_2]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[Dropdown_1]">
-      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_4]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_1]"/>
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[drpDwnParameter_1]">
+      <Property Name="Down" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[drpDwnCategory]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_1]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[String_1]">
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[strParameter_2]">
       <Property Name="Down" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Dropdown_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Dropdown_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Dropdown_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_4]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[drpDwnCategory]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_2]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_1]">
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_5]">
       <Property Name="Down" Value="Source[embedded].Layer[MpRecipeEditPars].Control[String_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeEditPars].Control[String_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditPars].Control[String_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Dropdown_1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxRecipeListName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_4]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[drpDwnSettings_3]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_2]">
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_4]">
       <Property Name="Down" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxRecipeListName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Dropdown_1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_4]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_3]">
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_6]">
       <Property Name="Down" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_2]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Numeric_2]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_3]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxRecipeListName]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_2]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_5]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[String_2]">
+    <MovementEntry Control="Source[embedded].Layer[MpRecipeCreatePars].Control[strRecipeParametersName]">
       <Property Name="Down" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_3]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxRecipeList]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxRecipeListName]"/>
       <Property Name="Right" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_3]"/>
       <Property Name="Up" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_3]"/>
     </MovementEntry>
   </MovementOrder>
   <TabSequence>
-    <TabSeqItem Index="0" Value="Source[embedded].Layer[Default].Control[lbxRecipeList]"/>
+    <TabSeqItem Index="0" Value="Source[embedded].Layer[Default].Control[lbxRecipeListName]"/>
     <TabSeqItem Index="1" Value="Source[local].Layer[MpBackground].Control[strUserName]"/>
-    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[lbxRecipeList2]"/>
-    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[lbxRecipeList3]"/>
-    <TabSeqItem Index="4" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Dropdown_1]"/>
-    <TabSeqItem Index="5" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[String_1]"/>
-    <TabSeqItem Index="6" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_1]"/>
-    <TabSeqItem Index="7" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_2]"/>
-    <TabSeqItem Index="8" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[Numeric_3]"/>
-    <TabSeqItem Index="9" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[String_2]"/>
-    <TabSeqItem Index="10" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_1]"/>
-    <TabSeqItem Index="11" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Dropdown_1]"/>
-    <TabSeqItem Index="12" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_2]"/>
-    <TabSeqItem Index="13" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_3]"/>
-    <TabSeqItem Index="14" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[String_2]"/>
-    <TabSeqItem Index="15" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[Numeric_4]"/>
-    <TabSeqItem Index="16" Value="Source[embedded].Layer[Default].Control[Dropdown_1]"/>
-    <TabSeqItem Index="17" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[Numeric_1]"/>
-    <TabSeqItem Index="18" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[Numeric_2]"/>
-    <TabSeqItem Index="19" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[Numeric_3]"/>
-    <TabSeqItem Index="20" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[String_1]"/>
-    <TabSeqItem Index="21" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[String_2]"/>
-    <TabSeqItem Index="22" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[Numeric_4]"/>
-    <TabSeqItem Index="23" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[Numeric_5]"/>
-    <TabSeqItem Index="24" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[Numeric_6]"/>
-    <TabSeqItem Index="25" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[Numeric_2]"/>
-    <TabSeqItem Index="26" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[Numeric_3]"/>
-    <TabSeqItem Index="27" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[Numeric_5]"/>
-    <TabSeqItem Index="28" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[Numeric_6]"/>
-    <TabSeqItem Index="29" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[Numeric_7]"/>
-    <TabSeqItem Index="30" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[Numeric_8]"/>
-    <TabSeqItem Index="31" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[Numeric_9]"/>
-    <TabSeqItem Index="32" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[Numeric_10]"/>
+    <TabSeqItem Index="2" Value="Source[embedded].Layer[Default].Control[lbxRecipeListSize]"/>
+    <TabSeqItem Index="3" Value="Source[embedded].Layer[Default].Control[lbxRecipeListDate]"/>
+    <TabSeqItem Index="4" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[drpDwnParameter_1]"/>
+    <TabSeqItem Index="5" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[strParameter_2]"/>
+    <TabSeqItem Index="6" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_5]"/>
+    <TabSeqItem Index="7" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_4]"/>
+    <TabSeqItem Index="8" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[numParameter_6]"/>
+    <TabSeqItem Index="9" Value="Source[embedded].Layer[MpRecipeCreatePars].Control[strRecipeParametersName]"/>
+    <TabSeqItem Index="10" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_1]"/>
+    <TabSeqItem Index="11" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[drpDwnSettings_3]"/>
+    <TabSeqItem Index="12" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_4]"/>
+    <TabSeqItem Index="13" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_5]"/>
+    <TabSeqItem Index="14" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[strSettingsRecipeName]"/>
+    <TabSeqItem Index="15" Value="Source[embedded].Layer[MpRecipeCreateMachConfig].Control[numInSettings_2]"/>
+    <TabSeqItem Index="16" Value="Source[embedded].Layer[Default].Control[drpDwnCategory]"/>
+    <TabSeqItem Index="17" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[numIn_3]"/>
+    <TabSeqItem Index="18" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[numIn_4]"/>
+    <TabSeqItem Index="19" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[numIn_5]"/>
+    <TabSeqItem Index="20" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[strIn_2]"/>
+    <TabSeqItem Index="21" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[strPreview_2]"/>
+    <TabSeqItem Index="22" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[numPreview_3]"/>
+    <TabSeqItem Index="23" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[numPreview_4]"/>
+    <TabSeqItem Index="24" Value="Source[embedded].Layer[MpRecipePreviewPars].Control[numPreview_5]"/>
+    <TabSeqItem Index="25" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[numIn_4]"/>
+    <TabSeqItem Index="26" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[numIn_5]"/>
+    <TabSeqItem Index="27" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[numPreview_4]"/>
+    <TabSeqItem Index="28" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[numPreview_5]"/>
+    <TabSeqItem Index="29" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[numIn_2]"/>
+    <TabSeqItem Index="30" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[numPreview_2]"/>
+    <TabSeqItem Index="31" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[numIn_1]"/>
+    <TabSeqItem Index="32" Value="Source[embedded].Layer[MpRecipePreviewMchCfg].Control[numPreview_1]"/>
     <TabSeqItem Index="33" Value="Source[embedded].Layer[MpRecipeLoad].Control[String_1]"/>
     <TabSeqItem Index="34" Value="Source[embedded].Layer[MpRecipeEditPars].Control[Dropdown_1]"/>
     <TabSeqItem Index="35" Value="Source[embedded].Layer[MpRecipeEditPars].Control[String_1]"/>
@@ -4260,6 +4260,6 @@
     <TabSeqItem Index="41" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_2]"/>
     <TabSeqItem Index="42" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_3]"/>
     <TabSeqItem Index="43" Value="Source[embedded].Layer[MpRecipeEditMachConfig].Control[Numeric_4]"/>
-    <TabSeqItem Index="44" Value="Source[embedded].Layer[MpMsgRecipeDupliacte].Control[String_2]"/>
+    <TabSeqItem Index="44" Value="Source[embedded].Layer[MpMsgRecipeDuplicate].Control[strFileName]"/>
   </TabSequence>
 </Page>
