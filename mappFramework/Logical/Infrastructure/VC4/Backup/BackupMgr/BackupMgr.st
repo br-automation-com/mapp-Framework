@@ -33,7 +33,6 @@ PROGRAM _INIT
 
 	MpBackupCoreConfig_0();
 
-	HmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackupFiles","text":"CF/PLC"}';
 	HmiBackup.Status.DeviceDataProviderVC4[0] := 'CF/PLC';
 
 	// Restored the retained values to the backup settings
@@ -213,7 +212,6 @@ PROGRAM _CYCLIC
 		ChangeConfiguration;
 	END_IF
 
-	FormatDeviceDataProvider;
 	VC4Support;	   
 	
 	// Assign MpLinks

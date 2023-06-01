@@ -104,12 +104,12 @@ ACTION ReportFileExplorer:
 	
 	//VC4
 	IF HmiReport.Status.Error THEN
-		HmiReport.Status.Layer.ReportCreate := HIDE;	  
+		HmiReport.Status.Layer.ReportCreate := USINT_TO_BOOL(HIDE);	  
 	END_IF;
 	IF HmiReport.Status.DeleteAllowed THEN
-		HmiReport.Status.DeleteButtonEnableStatus := HIDE;
+		HmiReport.Status.DeleteButtonEnableStatus := USINT_TO_BOOL(HIDE);
 	ELSE
-		HmiReport.Status.DeleteButtonEnableStatus := DISPLAY;		
+		HmiReport.Status.DeleteButtonEnableStatus := USINT_TO_BOOL(DISPLAY);		
 	END_IF;	
 	IF HmiReport.Status.FileOverMax THEN
 		HmiReport.Status.PageUpDownVisibility := DISPLAY;
@@ -126,7 +126,7 @@ ACTION ReportFileExplorer:
 		1://German
 			MpReportCore_0.Language := ADR('de');
 		2://Chinese
-			MpReportCore_0.Language := ADR('ch');
+			MpReportCore_0.Language := ADR('zh');
 	
 	END_CASE 
 	

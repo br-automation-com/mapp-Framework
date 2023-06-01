@@ -4,7 +4,6 @@ ACTION ExecuteQuery:
 	QueryActiveAlarms_0.MpLink := ADR(gMpLinkAlarmXCore);
 	QueryActiveAlarms_0.Enable := TRUE;
 	QueryActiveAlarms_0.Name := ADR('ActiveAlarms');
-	QueryActiveAlarms_0.Language := ADR('en');
 	QueryActiveAlarms_0();
 
 	CASE (AlarmQuery.State) OF

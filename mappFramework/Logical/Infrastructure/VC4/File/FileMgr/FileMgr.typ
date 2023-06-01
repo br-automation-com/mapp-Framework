@@ -47,17 +47,17 @@ TYPE
 		FolderSize : REAL; (*Size of currently selected folder*)
 		SelectedIndex : USINT; (*Selected index in the file list*)
 		FifoConfigEnable : BOOL; (*Disable FIFO access or change confirmation when FIFO is active*)
-		FIFOLayerStatus : USINT;
-		FIFOLayerObjects : FileHmiStatusFIFOLayerObjType;
+		FIFOLayerStatus : USINT; (*VC4 FIFO layer status*)
+		FIFOLayerObjects : FileHmiStatusFIFOLayerOptType; (*VC4 FIFO option visibility control*)
 		DefaultFileSelected : BOOL; (*The default recipe is selected*)
 	END_STRUCT;
-	FileHmiStatusFIFOLayerObjType : 	STRUCT 
-		MaxNumberOfFilesVisiblity : USINT;
-		MaxFolderSizeVisiblity : USINT;
+	FileHmiStatusFIFOLayerOptType : 	STRUCT  (*VC4 FIFO option visibility control*)
+		MaxNumberOfFilesVisiblity : USINT; (*VC4 max number of files option*)
+		MaxFolderSizeVisiblity : USINT; (*VC4 folder size option*)
 	END_STRUCT;
-	FileHmiStatusInfoFileType : 	STRUCT 
-		isSelected : ARRAY[0..49]OF STRING[1];
-		Type : ARRAY[0..49]OF STRING[80];
+	FileHmiStatusInfoFileType : 	STRUCT  (*VC4 structure for  file type information details*)
+		isSelected : ARRAY[0..49]OF STRING[1]; (*VC4 file is selected*)
+		Type : ARRAY[0..49]OF STRING[80]; (*VC4 file is of type*)
 	END_STRUCT;
 	FileHmiParaFifoType : 	STRUCT  (*Parameters for the FIFO feature (first-in-first-out)*)
 		Enable : BOOL; (*FIFO enable*)

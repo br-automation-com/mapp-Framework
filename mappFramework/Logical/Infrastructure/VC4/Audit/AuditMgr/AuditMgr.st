@@ -84,8 +84,7 @@ PROGRAM _INIT
 		
 		HmiAudit.Status.DeviceDataProviderVC4[0] := 'User Events Query';
 	END_IF
-
-	
+   
 	// Restored the retained values to the archive settings
 	HmiAudit.Parameters.ArchiveSettings := ArchiveSettingsRetain;
 
