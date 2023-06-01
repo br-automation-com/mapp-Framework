@@ -26,8 +26,29 @@ ACTION ExecuteQuery:
 			IF ((QueryActiveAlarms_0.CommandDone = TRUE) AND (QueryActiveAlarms_0.Info.HasMoreRows = FALSE)) THEN
 				QueryActiveAlarms_0.Execute := FALSE;
 				QueryActiveAlarms_0.Next := FALSE;
-				AlarmQuery.State := ACTIVE_ALARM_WAIT;
-				// If the number of query results is more than MAX_QUERY_RESULTS, then query the next set of results
+				AlarmQuery.State := ACTIVE_ALARM_WAIT;	
+			// If the number of query results is more than MAX_QUERY_RESULTS, then query the next set of results
+			// Convert the query results into arrays that can be displacyed in VC4
+				FOR i := 0 TO MAX_QUERY_RESULTS DO
+					HmiAlarmX.Status.Query.Active[i] := AlarmQuery.Alarms[i].Active;
+					HmiAlarmX.Status.Query.Acknowledged[i] := AlarmQuery.Alarms[i].Acknowledged;
+					HmiAlarmX.Status.Query.Scope[i] := AlarmQuery.Alarms[i].Scope;
+					HmiAlarmX.Status.Query.Name[i] := AlarmQuery.Alarms[i].Name;
+					HmiAlarmX.Status.Query.Message[i] := AlarmQuery.Alarms[i].Message;
+					HmiAlarmX.Status.Query.AdditionalInfo[i] := AlarmQuery.Alarms[i].AdditionalInfo;
+						
+					HmiAlarmX.Status.Query.TimeStamp[i] := DT_TO_STRING(AlarmQuery.Alarms[i].TimeStamp);
+					HmiAlarmX.Status.Query.TimeStamp[i] := RIGHT(HmiAlarmX.Status.Query.TimeStamp[i], 19);
+	
+					HmiAlarmX.Status.Query.Severity[i] := AlarmQuery.Alarms[i].Severity;
+				END_FOR
+				HmiAlarmX.Status.Query.QueryCount := 0;
+				FOR i := 0 TO MAX_QUERY_RESULTS DO
+					IF HmiAlarmX.Status.Query.Message[i] <> "" THEN
+						HmiAlarmX.Status.Query.QueryCount := i + 1;
+					END_IF
+				END_FOR
+				
 			ELSIF ((QueryActiveAlarms_0.CommandDone = TRUE) AND (QueryActiveAlarms_0.Info.HasMoreRows = TRUE)) THEN
 				QueryActiveAlarms_0.Next := FALSE;
 				AlarmQuery.State := ACTIVE_ALARM_NEXT;
@@ -46,20 +67,7 @@ ACTION ExecuteQuery:
 			END_IF
 	END_CASE
 
-	// Convert the query results into arrays that can easily be bound to the Table widget in mapp View
-	FOR i := 0 TO MAX_QUERY_RESULTS DO
-		HmiAlarmX.Status.Query.Active[i] := AlarmQuery.Alarms[i].Active;
-		HmiAlarmX.Status.Query.Acknowledged[i] := AlarmQuery.Alarms[i].Acknowledged;
-		HmiAlarmX.Status.Query.Scope[i] := AlarmQuery.Alarms[i].Scope;
-		HmiAlarmX.Status.Query.Name[i] := AlarmQuery.Alarms[i].Name;
-		HmiAlarmX.Status.Query.Message[i] := AlarmQuery.Alarms[i].Message;
-		HmiAlarmX.Status.Query.AdditionalInfo[i] := AlarmQuery.Alarms[i].AdditionalInfo;
-		
-		HmiAlarmX.Status.Query.TimeStamp[i] := DT_TO_STRING(AlarmQuery.Alarms[i].TimeStamp);
-		HmiAlarmX.Status.Query.TimeStamp[i] := RIGHT(HmiAlarmX.Status.Query.TimeStamp[i], 19);
-		
-		HmiAlarmX.Status.Query.Severity[i] := AlarmQuery.Alarms[i].Severity;
-	END_FOR
+
 	
 
 END_ACTION
