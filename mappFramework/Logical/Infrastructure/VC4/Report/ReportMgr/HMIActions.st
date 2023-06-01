@@ -105,17 +105,17 @@ ACTION ReportFileExplorer:
 	//VC4
 	IF HmiReport.Status.Error THEN
 		HmiReport.Status.Layer.ReportCreate := USINT_TO_BOOL(HIDE);	  
-	END_IF;
+	END_IF
 	IF HmiReport.Status.DeleteAllowed THEN
 		HmiReport.Status.DeleteButtonEnableStatus := USINT_TO_BOOL(HIDE);
 	ELSE
 		HmiReport.Status.DeleteButtonEnableStatus := USINT_TO_BOOL(DISPLAY);		
-	END_IF;	
+	END_IF	
 	IF HmiReport.Status.FileOverMax THEN
 		HmiReport.Status.PageUpDownVisibility := DISPLAY;
 	ELSE
 		HmiReport.Status.PageUpDownVisibility := HIDE;
-	END_IF;
+	END_IF
 	
 	//language assignments
 	

@@ -113,9 +113,9 @@ ACTION FileManager:
 			HmiFile.Status.InfoFile.Type[i] := 'FILE';
 		END_IF		
 		IF MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN			
-			HmiFile.Status.InfoFile.isSelected[i] := '+';
+			HmiFile.Status.InfoFile.IsSelected[i] := '+';
 		ELSE				
-			HmiFile.Status.InfoFile.isSelected[i] := '-';
+			HmiFile.Status.InfoFile.IsSelected[i] := '-';
 		END_IF
 		
 	
@@ -123,7 +123,7 @@ ACTION FileManager:
 		IF HmiFile.Status.FileNames[i] = '' THEN
 			HmiFile.Status.TimeStamps[i] := '';
 			HmiFile.Status.Size[i] := '';
-			HmiFile.Status.InfoFile.isSelected[i] := '';
+			HmiFile.Status.InfoFile.IsSelected[i] := '';
 			HmiFile.Status.InfoFile.Type[i] := '';
 		END_IF;	
 		

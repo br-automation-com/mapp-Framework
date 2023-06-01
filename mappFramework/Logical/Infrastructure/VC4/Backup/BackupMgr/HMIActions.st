@@ -170,10 +170,10 @@ ACTION VC4Support:
 	
 	//grpBobDetailsStatus Visible/Hide
 	IF HmiBackup.Status.BackupCtrlEnabled AND HmiBackup.Status.Info.Name <> '' THEN
-		HmiBackup.Status.grpBobDetailsStatus := USINT_TO_BOOL(DISPLAY);	
+		HmiBackup.Status.BackupDetailsStatus := DISPLAY;	
 		
 	ELSIF NOT HmiBackup.Status.BackupCtrlEnabled OR HmiBackup.Status.Info.Name = '' THEN
-		HmiBackup.Status.grpBobDetailsStatus := USINT_TO_BOOL(HIDE);		
+		HmiBackup.Status.BackupDetailsStatus := HIDE;		
 	END_IF;
 	  
 	//settings contents

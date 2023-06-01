@@ -42,7 +42,7 @@ TYPE
 		Layer : BackupHmiStatusLayerType; (*VC4 layer control structure*)
 		ButtonOperation : BackupHmiStatusButtonOperatiType; (*VC4 button control*)
 		CmdButtonsPressed : BOOL; (*VC4 button control*)
-		grpBobDetailsStatus : BOOL; (*VC4 detail group visibilty *)
+		BackupDetailsStatus : UINT; (*VC4 backup detail visibilty *)
 		SettingsContentsStatus : BOOL; (*VC4 access control *)
 	END_STRUCT;
 	BackupHmiStatusButtonOperatiType : 	STRUCT  (*Structure for VC4 button handling*)
