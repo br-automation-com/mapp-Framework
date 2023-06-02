@@ -79,29 +79,12 @@ ACTION ReportFileExplorer:
 		HmiReport.Status.LastSelectedIndex := HmiReport.Status.LastSelectedIndex + 1;
 	END_IF
 	
-	// Configure device list so that only the rows with entries will show
-	HmiReport.Status.TableConfig[0] := '{ "specRows": [{"from":';
-	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
-		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
-			DeviceCount := i + 1;
-		END_IF
-	END_FOR
-	brsitoa((DeviceCount), ADR(HmiReport.Status.TableConfig[0]) + brsstrlen(ADR(HmiReport.Status.TableConfig[0])));
-	brsstrcat(ADR(HmiReport.Status.TableConfig[0]), ADR(',"to":9, "visible":false}]}'));
-
-	// Configure file list so that only the rows with entries will show
-	ItemCount := MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount;
-	HmiReport.Status.TableConfig[1] := '{ "specRows": [{"from":';
-	brsitoa((ItemCount), ADR(HmiReport.Status.TableConfig[1]) + brsstrlen(ADR(HmiReport.Status.TableConfig[1])));
-	brsstrcat(ADR(HmiReport.Status.TableConfig[1]), ADR(',"to":50, "visible":false}]}'));
-
 	// If more than 50 items exist, set the File OverMax flag (used for page up/down buttons)
 	HmiReport.Status.FileOverMax := ItemCount > 50;
 	
 	// Set file device to selected
 	MpReportCore_0.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
-	
-	
+	   
 	//VC4
 	IF HmiReport.Status.Error THEN
 		HmiReport.Status.Layer.ReportCreate := USINT_TO_BOOL(HIDE);	  

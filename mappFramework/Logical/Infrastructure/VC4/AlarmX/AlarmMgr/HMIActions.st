@@ -1,12 +1,12 @@
-ACTION HMIAction_Init:
-	
+ACTION VC4_Init:
+	// Initial layer visibility setup
 	HmiAlarmX.Status.HistoryExportLayer := HIDE;
 	
 END_ACTION
 
 
 
-ACTION HMIActions:
+ACTION VC4_Cyclic:
 	
 	// AlarmHistory Export process has been completed
 	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN

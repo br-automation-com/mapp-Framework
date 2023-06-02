@@ -34,7 +34,7 @@ PROGRAM _CYCLIC
 	
 	// Call all cyclic actions
 	StateMachine_Main;
-	HmiActions;
+	VC4_Cyclic;
 	
 	// Assign MpLinks & UIConnects
 	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);

@@ -1,4 +1,4 @@
-ACTION HMIAction_Init:
+ACTION VC4_Init:
 	
 	HmiUserX.FileDuplicateLayerStatus					  := HIDE;
 	HmiUserX.ButtonLockedMessageLayer					  := HIDE;
@@ -7,7 +7,7 @@ ACTION HMIAction_Init:
 END_ACTION
 
 
-ACTION HMIAction:
+ACTION VC4_Cylic:
 
 	CASE UserXCheckState OF
 		USERX_START:

@@ -44,7 +44,6 @@ TYPE
 	AuditStatusType : 	STRUCT  (*Structure to hold status information from the mapp View HMI. (This structure is not compatible/relevant if you are using a VC4 visualization)*)
 		AuditSortCfg : STRING[1000]; (*Sort configuration for the AuditList widget*)
 		AuditFilterCfg : STRING[1000]; (*Filter configuration for the AuditList widget*)
-		TableConfig : ARRAY[0..1]OF STRING[255]; (*Table configuration for the Audit query Table*)
 		Query : AuditQueryHMIType; (*Structure which rearranges the query data from AuditQuery into a structure of arrays for easy connection to the Table widget*)
 		CustomEventSortCfg : STRING[1000]; (*Sort configuration for the AuditList Custom Events widget*)
 		CustomEventsFilterCfg : STRING[1000]; (*Filter configuration for the AuditList Custom Events widget*)
@@ -52,9 +51,9 @@ TYPE
 		NumberOfArchives : UINT; (*How many archives are available for export*)
 		DeviceDataProvider : ARRAY[0..1]OF STRING[100]; (*Data provider for the file device selector*)
 		DeviceDataProviderVC4 : ARRAY[0..1]OF STRING[100]; (*Data provider for the file device selector*)
-		ArchiveSetupLayer : USINT;
-		ArchiveSetupTimeOfDayVisibility : USINT;
-		ArchiveSetupVisibility : USINT;
+		ArchiveSetupLayer : USINT; (*VC4 visibility control*)
+		ArchiveSetupTimeOfDayVisibility : USINT; (*VC4 visibility control*)
+		ArchiveSetupVisibility : USINT; (*VC4 visibility control*)
 	END_STRUCT;
 	AuditParType : 	STRUCT  (*Structure to hold parameter data for the HMI*)
 		ArchiveSettings : AuditArchiveParType; (*Parameter for archive configuration*)

@@ -97,7 +97,7 @@ ACTION FileManager:
 END_ACTION
 
 
-ACTION VC4Support:	  
+ACTION VC4_Cylic:	  
 	//---------------------- VC4 ------------------------//
 	IF HmiBackup.Status.DeviceDataProviderSelectedIndex = 0 THEN
 		HmiBackup.Parameters.AutomaticBackup.Device := 'mappBackupFiles';
@@ -168,7 +168,7 @@ ACTION VC4Support:
 		HmiBackup.Status.ButtonOperation.OperationSettings := OPERATION_DEACTIVATED;
 	END_IF;	  
 	
-	//grpBobDetailsStatus Visible/Hide
+	//BackupDetailsStatus Visible/Hide
 	IF HmiBackup.Status.BackupCtrlEnabled AND HmiBackup.Status.Info.Name <> '' THEN
 		HmiBackup.Status.BackupDetailsStatus := DISPLAY;	
 		

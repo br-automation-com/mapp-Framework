@@ -84,7 +84,7 @@ PROGRAM _INIT
 	HmiFile.Parameters.Fifo := FifoSettingsRetain;
 	
 	// if the system has been opened just now
-	HMIActions_Init;
+	VC4_Init;
 	
 END_PROGRAM
 
@@ -92,7 +92,7 @@ PROGRAM _CYCLIC
 
 	// Call all actions
 	FormatDeviceDataProvider;
-	FileManager;
+	VC4_Cyclic;
 	FIFOOperation;
 
 	// Error reset

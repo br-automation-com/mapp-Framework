@@ -64,9 +64,6 @@ ACTION ExecuteQuery:
 				QueryActiveAlarms_0.Next := TRUE;
 				AlarmQuery.State := ACTIVE_ALARM_QUERY;
 			END_IF
-	END_CASE
-
-
-	
+	END_CASE 
 
 END_ACTION

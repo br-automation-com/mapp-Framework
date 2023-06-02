@@ -208,12 +208,11 @@ PROGRAM _CYCLIC
 
 	// Call all actions
 	FileManager;
+	VC4_Cylic;
 	IF NOT DiagCpuIsARsim() THEN
 		ChangeConfiguration;
 	END_IF
 
-	VC4Support;	   
-	
 	// Assign MpLinks
 	MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);

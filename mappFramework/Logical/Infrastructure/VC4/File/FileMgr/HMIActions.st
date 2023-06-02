@@ -1,4 +1,4 @@
-ACTION HMIActions_Init:	
+ACTION VC4_Init:	
 	
 	brsmemset(ADR(HmiFile.Status.FifoSelect[0]), 0, SIZEOF(HmiFile.Status.FifoSelect));	
 	IF HmiFile.Parameters.Fifo.Enable THEN
@@ -8,78 +8,7 @@ ACTION HMIActions_Init:
 	HmiFile.Status.FIFOLayerStatus := HIDE;
 END_ACTION
 
-
-ACTION FormatDeviceDataProvider:
-	
-	// Select CF device if USB device is not available
-	FOR i := 0 TO IDX_USB_DEV_LIST DO
-		tempIdx := (i + USBOffset);
-
-		IF gUSBAvailable[i] THEN
-			PathCheck.DeviceList.DeviceNames[tempIdx] := 'USB';
-			brsitoa(i + 1, ADR(PathCheck.DeviceList.DeviceNames[tempIdx]) + brsstrlen(ADR(PathCheck.DeviceList.DeviceNames[tempIdx])));
-		ELSE
-			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[tempIdx]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[tempIdx]));
-			brsmemset(ADR(PathCheck.DeviceList.DeviceNames[tempIdx]), 0, SIZEOF(PathCheck.DeviceList.DeviceNames[tempIdx]));
-		END_IF
-	END_FOR
-
-	MaxDeviceNameIndex := ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1);
-	//Check initilized folder for existance and remove any from the device list that don't exist
-	IF (IdentStatus = 0) THEN
-		// copy device name from source list into the actual device list
-		MpFileManagerUIConnect.DeviceList.DeviceNames[Index] := PathCheck.DeviceList.DeviceNames[DeviceListCount];
-		Index := Index + 1;
-		DeviceListCount := DeviceListCount + 1;
-
-		IF (DeviceListCount > ((SIZEOF(PathCheck.DeviceList.DeviceNames) / SIZEOF(PathCheck.DeviceList.DeviceNames[0])) - 1)) THEN
-			DeviceListCount := 0;
-		END_IF
-		IF (Index > MaxDeviceNameIndex) THEN
-			Index := 0;
-		END_IF
-	ELSIF (IdentStatus = 3324) THEN
-		DeviceListCount := DeviceListCount + 1;
-		IF DeviceListCount > ((SIZEOF(PathCheck.DeviceList.DeviceNames) / SIZEOF(PathCheck.DeviceList.DeviceNames[0])) - 1) THEN
-			//Delete entries past the actual number of devices found
-			FOR i:=Index TO MaxDeviceNameIndex DO
-				MpFileManagerUIConnect.DeviceList.DeviceNames[i] := '';
-			END_FOR
-			DeviceListCount := 0;
-			Index := 0;
-		END_IF
-	END_IF
-
-	IdentStatus := ST_ident(ADR(PathCheck.PrgName[DeviceListCount]),0,ADR(Ident));
-
-	// Configure visible device list
-	HmiFile.Status.TableConfig[0] := '{ "specRows": [{"from":';
-	FOR i := 0 TO MaxDeviceNameIndex DO
-		IF MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '' THEN
-			DeviceCount := i + 1;
-		END_IF
-	END_FOR
-	brsitoa((DeviceCount), ADR(HmiFile.Status.TableConfig[0]) + brsstrlen(ADR(HmiFile.Status.TableConfig[0])));
-	brsstrcat(ADR(HmiFile.Status.TableConfig[0]), ADR(',"to":9, "visible":false}]}'));
-
-	// Configure visible file list
-	HmiFile.Status.TableConfig[1] := '{ "specRows": [{"from":';
-	brsitoa((MpFileManagerUIConnect.File.PathInfo.FileCount + MpFileManagerUIConnect.File.PathInfo.FolderCount), ADR(HmiFile.Status.TableConfig[1]) + brsstrlen(ADR(HmiFile.Status.TableConfig[1])));
-	brsstrcat(ADR(HmiFile.Status.TableConfig[1]), ADR(',"to":49, "visible":false}]}'));
-
-	
-	// Create device data provider for FIFO drop down
-	FOR i := 0 TO MaxDeviceNameIndex DO
-		IF (MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '') THEN
-			HmiFile.Status.DeviceDataProvider[i] := MpFileManagerUIConnect.DeviceList.DeviceNames[i];
-		ELSE
-			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[i]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[i]));
-		END_IF
-	END_FOR	
-	
-END_ACTION
-
-ACTION FileManager:
+ACTION VC4_Cyclic:
 
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
@@ -92,7 +21,7 @@ ACTION FileManager:
 		HmiFile.Status.TimeStamps[i] := DT_TO_STRING(MpFileManagerUIConnect.File.List.Items[i].LastModified);			
 		HmiFile.Status.TimeStamps[i] := RIGHT(HmiFile.Status.TimeStamps[i], 19);
 
-		// file size
+		// File size
 		HmiFile.Status.Size[i] := REAL_TO_STRING(UDINT_TO_REAL(MpFileManagerUIConnect.File.List.Items[i].Size) * 0.001);
 
 		// Set image array based on item type
@@ -102,9 +31,7 @@ ACTION FileManager:
 			HmiFile.Status.Type[i] := FILE_SELECTED;
 		ELSE
 			HmiFile.Status.Type[i] := FILE;
-		END_IF
-	
-		
+		END_IF		
 		
 		// Fill file info string arrays
 		IF MpFileManagerUIConnect.File.List.Items[i].IsFolder THEN			
@@ -116,8 +43,7 @@ ACTION FileManager:
 			HmiFile.Status.InfoFile.IsSelected[i] := '+';
 		ELSE				
 			HmiFile.Status.InfoFile.IsSelected[i] := '-';
-		END_IF
-		
+		END_IF	   
 	
 		// if file not exist clear objects
 		IF HmiFile.Status.FileNames[i] = '' THEN
@@ -195,6 +121,59 @@ ACTION FileManager:
 	HmiFile.Status.DefaultFileSelected := ((MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].Name = 'Default.par') OR 
 												(MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].Name = 'Machine.mcfg')) AND
 													MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+	
+END_ACTION
 
+ACTION FormatDeviceDataProvider:
+	
+	// Select CF device if USB device is not available
+	FOR i := 0 TO IDX_USB_DEV_LIST DO
+		tempIdx := (i + USBOffset);
+
+		IF gUSBAvailable[i] THEN
+			PathCheck.DeviceList.DeviceNames[tempIdx] := 'USB';
+			brsitoa(i + 1, ADR(PathCheck.DeviceList.DeviceNames[tempIdx]) + brsstrlen(ADR(PathCheck.DeviceList.DeviceNames[tempIdx])));
+		ELSE
+			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[tempIdx]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[tempIdx]));
+			brsmemset(ADR(PathCheck.DeviceList.DeviceNames[tempIdx]), 0, SIZEOF(PathCheck.DeviceList.DeviceNames[tempIdx]));
+		END_IF
+	END_FOR
+
+	MaxDeviceNameIndex := ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1);
+	//Check initilized folder for existance and remove any from the device list that don't exist
+	IF (IdentStatus = 0) THEN
+		// copy device name from source list into the actual device list
+		MpFileManagerUIConnect.DeviceList.DeviceNames[Index] := PathCheck.DeviceList.DeviceNames[DeviceListCount];
+		Index := Index + 1;
+		DeviceListCount := DeviceListCount + 1;
+
+		IF (DeviceListCount > ((SIZEOF(PathCheck.DeviceList.DeviceNames) / SIZEOF(PathCheck.DeviceList.DeviceNames[0])) - 1)) THEN
+			DeviceListCount := 0;
+		END_IF
+		IF (Index > MaxDeviceNameIndex) THEN
+			Index := 0;
+		END_IF
+	ELSIF (IdentStatus = 3324) THEN
+		DeviceListCount := DeviceListCount + 1;
+		IF DeviceListCount > ((SIZEOF(PathCheck.DeviceList.DeviceNames) / SIZEOF(PathCheck.DeviceList.DeviceNames[0])) - 1) THEN
+			//Delete entries past the actual number of devices found
+			FOR i:=Index TO MaxDeviceNameIndex DO
+				MpFileManagerUIConnect.DeviceList.DeviceNames[i] := '';
+			END_FOR
+			DeviceListCount := 0;
+			Index := 0;
+		END_IF
+	END_IF
+
+	IdentStatus := ST_ident(ADR(PathCheck.PrgName[DeviceListCount]),0,ADR(Ident));
+	
+	// Create device data provider for FIFO drop down
+	FOR i := 0 TO MaxDeviceNameIndex DO
+		IF (MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '') THEN
+			HmiFile.Status.DeviceDataProvider[i] := MpFileManagerUIConnect.DeviceList.DeviceNames[i];
+		ELSE
+			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[i]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[i]));
+		END_IF
+	END_FOR	
 	
 END_ACTION
