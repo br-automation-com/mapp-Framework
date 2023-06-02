@@ -2052,22 +2052,6 @@
         </DataPoint>
       </Folder>
     </Folder>
-    <Folder Name="MpTweetCoreUIConnect">
-      <Property Name="Description" Value=""/>
-      <Property Name="FolderType" Value="Struct"/>
-      <Folder Name="MessageBox">
-        <Property Name="Description" Value=""/>
-        <Property Name="FolderType" Value="Struct"/>
-        <DataPoint Name="ErrorNumber">
-          <Property Name="ConnectedBySharedResource" Value="True"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="UINT"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="INTEGER"/>
-        </DataPoint>
-      </Folder>
-    </Folder>
     <Folder Name="MpUserAlarmUIConnect">
       <Property Name="Description" Value=""/>
       <Property Name="FolderType" Value="Struct"/>
@@ -9735,6 +9719,1327 @@
                   <Property Name="UserID" Value="None"/>
                   <Property Name="VCType" Value="BOOL"/>
                 </DataPoint>
+                <DataPoint Name="MaxSelection">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="UDINT"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="INTEGER"/>
+                </DataPoint>
+                <DataPoint Name="LockActivation">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="BOOL"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="BOOL"/>
+                </DataPoint>
+              </Folder>
+              <DataPoint Name="ModeCurrent">
+                <Property Name="ConnectedBySharedResource" Value="False"/>
+                <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                <Property Name="Description" Value=""/>
+                <Property Name="PLCType" Value="DINT"/>
+                <Property Name="UpdateTime" Value="Default"/>
+                <Property Name="UserID" Value="None"/>
+                <Property Name="VCType" Value="INTEGER"/>
+              </DataPoint>
+              <DataPoint Name="StateCurrent">
+                <Property Name="ConnectedBySharedResource" Value="False"/>
+                <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                <Property Name="Description" Value=""/>
+                <Property Name="PLCType" Value="MpPackMLStateEnum"/>
+                <Property Name="UpdateTime" Value="Default"/>
+                <Property Name="UserID" Value="None"/>
+                <Property Name="VCType" Value="INTEGER"/>
+              </DataPoint>
+            </Folder>
+            <Folder Name="MpPackMLStatisticsUIConnect">
+              <Property Name="Description" Value=""/>
+              <Property Name="FolderType" Value="Struct"/>
+              <Folder Name="States">
+                <Property Name="Description" Value=""/>
+                <Property Name="FolderType" Value="Struct"/>
+                <Folder Name="Clearing">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Stopped">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Starting">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Idle">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Suspended">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Execute">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Stopping">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Aborting">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Aborted">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Holding">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Held">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Unholding">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Suspending">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Unsuspending">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Resetting">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Completing">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <Folder Name="Complete">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <Folder Name="CumulativeTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                  <DataPoint Name="CumulativePercent">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                    <Property Name="DPLimit" Value="None"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="REAL"/>
+                    <Property Name="PLCUnit" Value="None"/>
+                    <Property Name="UnitGroup" Value="None"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="SCALED"/>
+                  </DataPoint>
+                  <Folder Name="CurrentTime">
+                    <Property Name="Description" Value=""/>
+                    <Property Name="FolderType" Value="Struct"/>
+                    <DataPoint Name="Hours">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="UDINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Minutes">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                    <DataPoint Name="Seconds">
+                      <Property Name="ConnectedBySharedResource" Value="True"/>
+                      <Property Name="Description" Value=""/>
+                      <Property Name="PLCType" Value="USINT"/>
+                      <Property Name="UpdateTime" Value="Default"/>
+                      <Property Name="UserID" Value="None"/>
+                      <Property Name="VCType" Value="INTEGER"/>
+                    </DataPoint>
+                  </Folder>
+                </Folder>
+                <DataPoint Name="ResetTimers">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="BOOL"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="BOOL"/>
+                </DataPoint>
+              </Folder>
+              <Folder Name="Mode">
+                <Property Name="Description" Value=""/>
+                <Property Name="FolderType" Value="Struct"/>
+                <Folder Name="CumulativeTime">
+                  <Property Name="Description" Value=""/>
+                  <Property Name="FolderType" Value="Struct"/>
+                  <DataPoint Name="Hours">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="UDINT"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="INTEGER"/>
+                  </DataPoint>
+                  <DataPoint Name="Minutes">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="USINT"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="INTEGER"/>
+                  </DataPoint>
+                  <DataPoint Name="Seconds">
+                    <Property Name="ConnectedBySharedResource" Value="True"/>
+                    <Property Name="Description" Value=""/>
+                    <Property Name="PLCType" Value="USINT"/>
+                    <Property Name="UpdateTime" Value="Default"/>
+                    <Property Name="UserID" Value="None"/>
+                    <Property Name="VCType" Value="INTEGER"/>
+                  </DataPoint>
+                </Folder>
+                <DataPoint Name="CumulativePercent">
+                  <Property Name="ConnectedBySharedResource" Value="True"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="DPLimit" Value="None"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="REAL"/>
+                  <Property Name="PLCUnit" Value="None"/>
+                  <Property Name="UnitGroup" Value="None"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="SCALED"/>
+                </DataPoint>
               </Folder>
               <DataPoint Name="ModeCurrent">
                 <Property Name="ConnectedBySharedResource" Value="False"/>
@@ -10065,193 +11370,6 @@
         <Property Name="VCType" Value="BOOL[]"/>
       </DataPoint>
     </Folder>
-    <Folder Name="MpPackMLBasicUIConnect">
-      <Property Name="Description" Value=""/>
-      <Property Name="FolderType" Value="Struct"/>
-      <Folder Name="ModeControl">
-        <Property Name="Description" Value=""/>
-        <Property Name="FolderType" Value="Struct"/>
-        <DataPoint Name="MaxSelection">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="UDINT"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="INTEGER"/>
-        </DataPoint>
-        <DataPoint Name="LockActivation">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-      </Folder>
-      <Folder Name="StateControl">
-        <Property Name="Description" Value=""/>
-        <Property Name="FolderType" Value="Struct"/>
-        <Folder Name="ColorIndex">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <DataPoint Name="Held">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Completing">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Resetting">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Unholding">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Unsuspending">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Execute">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Stopped">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Idle">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Stopping">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Suspending">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Complete">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Holding">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Aborted">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Aborting">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Starting">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Clearing">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Suspended">
-            <Property Name="ConnectedBySharedResource" Value="False"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-        </Folder>
-      </Folder>
-    </Folder>
     <Folder Name="MpDataRecorderAlarmUIConnect">
       <Property Name="Description" Value=""/>
       <Property Name="FolderType" Value="Struct"/>
@@ -10544,7 +11662,7 @@
           <Property Name="UserID" Value="None"/>
           <Property Name="VCType" Value="SCALED[]"/>
           <DataPoint Name="ReverseActiveEnergy[7]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10555,7 +11673,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[8]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10566,7 +11684,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[2]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10577,7 +11695,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[15]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10588,7 +11706,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[17]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10599,7 +11717,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[13]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10610,7 +11728,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[3]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10621,7 +11739,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[14]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10632,7 +11750,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[12]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10643,7 +11761,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[10]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10654,7 +11772,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[9]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10665,7 +11783,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[11]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10676,7 +11794,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[4]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10687,7 +11805,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[19]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10698,7 +11816,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[18]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10709,7 +11827,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[16]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10720,7 +11838,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[5]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10731,7 +11849,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[0]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10742,7 +11860,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[6]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10753,7 +11871,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ReverseActiveEnergy[1]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10775,7 +11893,7 @@
           <Property Name="UserID" Value="None"/>
           <Property Name="VCType" Value="SCALED[]"/>
           <DataPoint Name="ForwardActiveEnergy[6]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10786,7 +11904,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[16]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10797,7 +11915,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[0]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10808,7 +11926,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[1]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10819,7 +11937,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[3]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10830,7 +11948,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[4]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10841,7 +11959,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[15]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10852,7 +11970,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[14]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10863,7 +11981,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[5]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10874,7 +11992,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[8]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10885,7 +12003,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[10]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10896,7 +12014,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[11]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10907,7 +12025,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[2]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10918,7 +12036,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[12]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10929,7 +12047,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[9]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10940,7 +12058,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[18]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10951,7 +12069,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[13]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10962,7 +12080,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[19]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10973,7 +12091,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[7]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -10984,7 +12102,7 @@
             <Property Name="VCType" Value="SCALED"/>
           </DataPoint>
           <DataPoint Name="ForwardActiveEnergy[17]">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
+            <Property Name="ConnectedBySharedResource" Value="False"/>
             <Property Name="DPLimit" Value="Default"/>
             <Property Name="Description" Value=""/>
             <Property Name="PLCType" Value="LREAL"/>
@@ -13661,1309 +14779,6 @@
           <Property Name="UserID" Value="None"/>
           <Property Name="VCType" Value="STRING"/>
         </DataPoint>
-      </DataPoint>
-    </Folder>
-    <Folder Name="MpPackMLStatisticsUIConnect">
-      <Property Name="Description" Value=""/>
-      <Property Name="FolderType" Value="Struct"/>
-      <Folder Name="States">
-        <Property Name="Description" Value=""/>
-        <Property Name="FolderType" Value="Struct"/>
-        <Folder Name="Aborted">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Completing">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Aborting">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Idle">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Stopped">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Complete">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-        </Folder>
-        <DataPoint Name="ResetTimers">
-          <Property Name="ConnectedBySharedResource" Value="False"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="BOOL"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="BOOL"/>
-        </DataPoint>
-        <Folder Name="Unsuspending">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Stopping">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Starting">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-        </Folder>
-        <Folder Name="Held">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Execute">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Unholding">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Suspended">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-        </Folder>
-        <Folder Name="Suspending">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Clearing">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Resetting">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-        <Folder Name="Holding">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <DataPoint Name="CumulativePercent">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-            <Property Name="DPLimit" Value="None"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="REAL"/>
-            <Property Name="PLCUnit" Value="None"/>
-            <Property Name="UnitGroup" Value="None"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="SCALED"/>
-          </DataPoint>
-          <Folder Name="CumulativeTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-          <Folder Name="CurrentTime">
-            <Property Name="Description" Value=""/>
-            <Property Name="FolderType" Value="Struct"/>
-            <DataPoint Name="Hours">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="UDINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Seconds">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-            <DataPoint Name="Minutes">
-              <Property Name="ConnectedBySharedResource" Value="True"/>
-              <Property Name="Description" Value=""/>
-              <Property Name="PLCType" Value="USINT"/>
-              <Property Name="UpdateTime" Value="Default"/>
-              <Property Name="UserID" Value="None"/>
-              <Property Name="VCType" Value="INTEGER"/>
-            </DataPoint>
-          </Folder>
-        </Folder>
-      </Folder>
-      <DataPoint Name="ModeCurrent">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-        <Property Name="Description" Value=""/>
-        <Property Name="PLCType" Value="DINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-      <Folder Name="Mode">
-        <Property Name="Description" Value=""/>
-        <Property Name="FolderType" Value="Struct"/>
-        <DataPoint Name="CumulativePercent">
-          <Property Name="ConnectedBySharedResource" Value="True"/>
-          <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-          <Property Name="DPLimit" Value="None"/>
-          <Property Name="Description" Value=""/>
-          <Property Name="PLCType" Value="REAL"/>
-          <Property Name="PLCUnit" Value="None"/>
-          <Property Name="UnitGroup" Value="None"/>
-          <Property Name="UpdateTime" Value="Default"/>
-          <Property Name="UserID" Value="None"/>
-          <Property Name="VCType" Value="SCALED"/>
-        </DataPoint>
-        <Folder Name="CumulativeTime">
-          <Property Name="Description" Value=""/>
-          <Property Name="FolderType" Value="Struct"/>
-          <DataPoint Name="Seconds">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Minutes">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="USINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-          <DataPoint Name="Hours">
-            <Property Name="ConnectedBySharedResource" Value="True"/>
-            <Property Name="Description" Value=""/>
-            <Property Name="PLCType" Value="UDINT"/>
-            <Property Name="UpdateTime" Value="Default"/>
-            <Property Name="UserID" Value="None"/>
-            <Property Name="VCType" Value="INTEGER"/>
-          </DataPoint>
-        </Folder>
-      </Folder>
-      <DataPoint Name="StateCurrent">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-        <Property Name="Description" Value=""/>
-        <Property Name="PLCType" Value="MpPackMLStateEnum"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
       </DataPoint>
     </Folder>
     <Folder Name="MpOeeTrendUIConnect">

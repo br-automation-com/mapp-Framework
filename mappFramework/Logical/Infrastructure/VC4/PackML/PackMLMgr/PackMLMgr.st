@@ -28,21 +28,34 @@ PROGRAM _INIT
 	MpPackMLMode_0.ModeID := 1;
 	MpPackMLMode_0();
 	
+	MpPackMLBasicUI_0.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLBasicUI_0.Enable := TRUE;
+	MpPackMLBasicUI_0.UIConnect := ADR(MpPackMLBasicUIConnect);
+	MpPackMLBasicUI_0();
+	
+	MpPackMLStatisticsUI_0.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLStatisticsUI_0.Enable := TRUE;
+	MpPackMLStatisticsUI_0.UIConnect := ADR(MpPackMLStatisticsUIConnect);
+	MpPackMLStatisticsUI_0();
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC
 	
 	// Call all cyclic actions
 	StateMachine_Main;
-	VC4_Cyclic;
 	
 	// Assign MpLinks & UIConnects
 	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);
 	MpPackMLMode_0.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLBasicUI_0.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLStatisticsUI_0.MpLink := ADR(gMpLinkPackMLCore);
 
 	// Call function blocks
 	MpPackMLCore_0();
 	MpPackMLMode_0();
+	MpPackMLBasicUI_0();
+	MpPackMLStatisticsUI_0();
 	 
 END_PROGRAM
 
@@ -50,9 +63,15 @@ PROGRAM _EXIT
 	
 	// Disable the function blocks to unlink the MpLinks
 	MpPackMLCore_0.Enable := FALSE;
+	MpPackMLMode_0.Enable := FALSE;
+	MpPackMLBasicUI_0.Enable := FALSE;
+	MpPackMLStatisticsUI_0.Enable := TRUE;
 	
 	// Call function blocks
 	MpPackMLCore_0();
+	MpPackMLMode_0();
+	MpPackMLBasicUI_0();
+	MpPackMLStatisticsUI_0();
 	 
 END_PROGRAM
 

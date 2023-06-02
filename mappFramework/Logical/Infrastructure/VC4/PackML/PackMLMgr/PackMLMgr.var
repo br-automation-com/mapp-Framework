@@ -3,6 +3,8 @@ VAR
 	DirCreate_0 : DirCreate; (*DirCreate instance*)
 	MpPackMLCore_0 : MpPackMLCore;
 	MpPackMLMode_0 : MpPackMLMode;
+	MpPackMLBasicUI_0 : MpPackMLBasicUI;
+	MpPackMLStatisticsUI_0 : MpPackMLStatisticsUI;
 END_VAR
 (*Constants*)
 (*Structure Types*)
@@ -11,3 +13,6 @@ VAR
 	HmiPackML : PackMLHmiInterfaceType; (*HMI interface structure*)
 END_VAR
 (*Variables*)
+VAR
+	MpPackMLStatisticsUIConnect : MpPackMLStatisticsUIConnectType;
+END_VAR
