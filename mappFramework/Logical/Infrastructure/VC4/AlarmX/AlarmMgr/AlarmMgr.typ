@@ -15,7 +15,7 @@ TYPE
 	END_STRUCT;
 	AlarmStatusType : 	STRUCT  (*Structure to hold status information to the mapp View HMI. (This structure is not compatible/relevant if you are using a VC4 visualization)*)
 		Query : AlarmQueryHMIType; (*Structure which rearranges the query data from AlarmQuery into a structure of arrays for easy connection to the Table widget*)
-		HistoryExportLayer : USINT;
+		HistoryExportLayer : USINT; (*VC4 layer control*)
 	END_STRUCT;
 	AlarmQueryType : 	STRUCT  (*Structure for query results and status*)
 		State : ActiveAlarmStateEnum; (*State variable for the query state machine*)

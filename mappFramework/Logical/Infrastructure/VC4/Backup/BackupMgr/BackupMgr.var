@@ -22,16 +22,7 @@ END_VAR
 (*Variables*)
 VAR
 	i : USINT; (*Index for loops*)
-	DeviceCount : USINT; (*Counter for available file devices*)
-	ItemCount : UDINT;
 END_VAR
 VAR RETAIN
-	AutomaticBackupRetain : AutomaticBackupType;
-END_VAR
-(**)
-VAR CONSTANT
-	DISPLAY : USINT := 0;
-	HIDE : USINT := 1;
-	OPERATION_ACTIVATED : USINT := 1;
-	OPERATION_DEACTIVATED : USINT := 0;
+	AutomaticBackupRetain : AutomaticBackupType; (*Store backup settings in retain*)
 END_VAR

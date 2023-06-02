@@ -24,7 +24,6 @@ END_VAR
 VAR
 	i : USINT; (*Index for FOR loops*)
 	DeviceListCount : USINT; (*Counter for accessible file devices*)
-	DeviceCount : USINT; (*Counter for available file devices*)
 	Ident : UDINT; (*Ident of a program on target*)
 	IdentStatus : UINT; (*Status variable if a program exists on target*)
 	Index : USINT; (*Index for avaliable devices*)
@@ -39,10 +38,3 @@ END_VAR
 VAR RETAIN
 	FifoSettingsRetain : {REDUND_UNREPLICABLE} FileHmiParaFifoType; (*Store FIFO settings in retain memory to be applied after boot*)
 END_VAR
-(**)
-VAR CONSTANT
-	DISPLAY : USINT := 0;
-	HIDE : USINT := 1;
-END_VAR
-(**)
-(**)

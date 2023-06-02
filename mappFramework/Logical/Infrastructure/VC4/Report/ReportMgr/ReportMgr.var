@@ -20,12 +20,5 @@ VAR
 	i : USINT; (*Index*)
 	TimeIndex : INT; (*Index to loop through file devices*)
 	tempDeviceIndex : USINT; (*Temporary index for identifying USB devices*)
-	DeviceCount : USINT; (*Counter for available file devices*)
 	ItemCount : UDINT; (*Counter for available files*)
 END_VAR
-(**)
-VAR CONSTANT
-	DISPLAY : BOOL := FALSE;
-	HIDE : BOOL := TRUE;
-END_VAR
-(**)

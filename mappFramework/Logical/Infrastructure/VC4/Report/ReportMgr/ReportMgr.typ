@@ -34,11 +34,10 @@ TYPE
 		SelectedIndex : USINT; (*Index of the selected file*)
 		LastSelectedIndex : USINT := 255; (*Index of the last selected report file*)
 		LastSelectedDeviceIndex : UINT; (*Index of the last selected file device. Compared with MpFileManagerUIConnect.DeviceList.SelectedIndex*)
-		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the list of available reports*)
 		FilterString : STRING[1000]; (*String used to filter out any file that is not a PDF*)
-		Layer : ReportStatusLayerType;
-		PageUpDownVisibility : USINT;
-		DeleteButtonEnableStatus : BOOL;
+		Layer : ReportStatusLayerType; (*VC4 visibility control structure*)
+		PageUpDownVisibility : USINT; (*VC4 visibility control*)
+		DeleteButtonEnableStatus : BOOL; (*VC4 access control*)
 	END_STRUCT;
 	ReportExampleType : 	STRUCT  (*Structure for the example data used by the two types of reports*)
 		SimpleReport : SimpleReportDataType; (*Structure for the simple report's example data*)
@@ -64,6 +63,10 @@ TYPE
 		TimeStamp : ARRAY[0..NUM_TEMP_SAMPLES]OF INT; (*The time the temperature sample was taken*)
 		Value : ARRAY[0..NUM_TEMP_SAMPLES]OF REAL; (*The actual temperature reading*)
 	END_STRUCT;
+	ReportStatusLayerType : 	STRUCT  (*VC4 visibility control structure*)
+		ReportCreate : BOOL; (*VC4 visibility control*)
+		ReportDelete : BOOL; (*VC4 visibility control*)
+	END_STRUCT;
 END_TYPE
 
 (*Enumerations*)
@@ -75,15 +78,3 @@ TYPE
 		FORMAT_ADVANCED (*An advanced report to showcase some features of mapp Report*)
 		);
 END_TYPE
-
-(**)
-
-TYPE
-	ReportStatusLayerType : 	STRUCT 
-		ReportCreate : BOOL;
-		ReportDelete : BOOL;
-	END_STRUCT;
-END_TYPE
-
-(**)
-(**)

@@ -14,10 +14,9 @@ PROGRAM _INIT
 	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
 		DirCreate_0(enable := FALSE);
 	END_IF
-
 	
-	// if the system has been opened just now
-	HMIAction_Init;
+	 // Initial visibility setup
+	VC4_Init;
 	
 	// Call action to intialize alarm samples
 	AlarmSampleInit;
@@ -62,7 +61,7 @@ PROGRAM _CYCLIC
 	AlarmHandling;
 	ExecuteQuery;
 	AlarmSampleFub;
-	HMIActions;
+	VC4_Cyclic;
 
 
 	// Check if any reactions are active.

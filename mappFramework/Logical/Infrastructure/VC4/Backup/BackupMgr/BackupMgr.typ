@@ -31,39 +31,37 @@ TYPE
 		TimeStampsString : ARRAY[0..49]OF STRING[80]; (*Time stamps for existing backups*)
 		Size : {REDUND_UNREPLICABLE} ARRAY[0..49]OF UDINT; (*Sizes of existing backup files*)
 		Info : MpBackupProjectInfoRequestType; (*Project information (name, configuration ID, configuration version)*)
-		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for file device dropdown on automatic backup configuration pop-up*)
 		DeviceDataProviderVC4 : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for file device dropdown on automatic backup configuration pop-up*)
-		DeviceDataProviderSelectedIndex : USINT;
-		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the list of available backups*)
+		DeviceDataProviderSelectedIndex : USINT; (*Data provider for file device *)
 		SimulationActive : BOOL; (*Flag for if simulation is active*)
 		SelectedIndex : USINT; (*Index of the selected backup file*)
 		LastSelectedIndex : USINT := 255; (*Index of the last selected backup file*)
 		LastSelectedDeviceIndex : UINT; (*Index of the last selected file device. Compared with MpFileManagerUIConnect.DeviceList.SelectedIndex*)
 		FileOverMax : BOOL; (*Active when more than 50 items detected*)
-		Update : MpBackupAutoUpdateInfoType;
-		Layer : BackupHmiStatusLayerType;
-		ButtonOperation : BackupHmiStatusButtonOperatiType;
-		CmdButtonsPressed : BOOL;
-		grpBobDetailsStatus : BOOL;
-		SettingsContentsStatus : BOOL;
+		Update : MpBackupAutoUpdateInfoType; (*Backup update details*)
+		Layer : BackupHmiStatusLayerType; (*VC4 layer control structure*)
+		ButtonOperation : BackupHmiStatusButtonOperatiType; (*VC4 button control*)
+		CmdButtonsPressed : BOOL; (*VC4 button control*)
+		BackupDetailsStatus : UINT; (*VC4 backup detail visibilty *)
+		SettingsContentsStatus : BOOL; (*VC4 access control *)
 	END_STRUCT;
-	BackupHmiStatusButtonOperatiType : 	STRUCT 
-		VisibilityPageUpDown : USINT;
-		OperationCreate : USINT;
-		OperationDelete : USINT;
-		OperationRestore : USINT;
-		OperationSettings : USINT;
-		CheckForUpdate : USINT;
+	BackupHmiStatusButtonOperatiType : 	STRUCT  (*Structure for VC4 button handling*)
+		VisibilityPageUpDown : USINT; (*VC4 visibility for up down*)
+		OperationCreate : USINT; (*VC4 control create*)
+		OperationDelete : USINT; (*VC4 control delete*)
+		OperationRestore : USINT; (*VC4 control to restore*)
+		OperationSettings : USINT; (*VC4 control to open settings*)
+		CheckForUpdate : USINT; (*VC4 control check for new update*)
 	END_STRUCT;
-	BackupHmiStatusLayerType : 	STRUCT 
-		Creating : USINT;
-		Create : USINT;
-		Delete : USINT;
-		Restore : USINT;
-		Settings : USINT;
-		FuncNotAvailable : USINT;
-		NewVersion : USINT;
-		Installing : USINT;
+	BackupHmiStatusLayerType : 	STRUCT  (*Structure to control layer visibility *)
+		Creating : USINT; (*VC4 control creating backup layer*)
+		Create : USINT; (*VC4 control create layer*)
+		Delete : USINT; (*VC4 control delete layer*)
+		Restore : USINT; (*VC4 control restore layer*)
+		Settings : USINT; (*VC4 control settings layer*)
+		FuncNotAvailable : USINT; (*VC4 control function not available in sim layer*)
+		NewVersion : USINT; (*VC4 control new version layer*)
+		Installing : USINT; (*VC4 control installing new version layer*)
 	END_STRUCT;
 	AutomaticBackupType : 	STRUCT  (*Automatic backup settings*)
 		Enable : BOOL; (*Enable automatic backup feature*)

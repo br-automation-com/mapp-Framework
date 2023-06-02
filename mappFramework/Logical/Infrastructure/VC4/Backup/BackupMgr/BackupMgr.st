@@ -33,7 +33,6 @@ PROGRAM _INIT
 
 	MpBackupCoreConfig_0();
 
-	HmiBackup.Status.DeviceDataProvider[0] := '{"value":"mappBackupFiles","text":"CF/PLC"}';
 	HmiBackup.Status.DeviceDataProviderVC4[0] := 'CF/PLC';
 
 	// Restored the retained values to the backup settings
@@ -209,13 +208,11 @@ PROGRAM _CYCLIC
 
 	// Call all actions
 	FileManager;
+	VC4_Cylic;
 	IF NOT DiagCpuIsARsim() THEN
 		ChangeConfiguration;
 	END_IF
 
-	FormatDeviceDataProvider;
-	VC4Support;	   
-	
 	// Assign MpLinks
 	MpBackupCore_0.MpLink := ADR(gMpLinkBackupCore);
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);

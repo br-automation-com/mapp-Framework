@@ -1,5 +1,5 @@
 
-ACTION HmiActions:
+ACTION VC4_Cyclic:
 	
 	IF HmiPackML.Status.LastState <> MpPackMLMode_0.StateCurrent THEN
 		

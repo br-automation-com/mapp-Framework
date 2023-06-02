@@ -84,8 +84,7 @@ PROGRAM _INIT
 		
 		HmiAudit.Status.DeviceDataProviderVC4[0] := 'User Events Query';
 	END_IF
-
-	
+   
 	// Restored the retained values to the archive settings
 	HmiAudit.Parameters.ArchiveSettings := ArchiveSettingsRetain;
 
@@ -95,11 +94,10 @@ PROGRAM _CYCLIC
 
 	// Call all cyclic actions
 	ExecuteQuery;
-	QueryTableConfig;
 	ArchiveExport;
 	ArchiveSettings;
 	ChangeConfiguration;
-	VC4Support;
+	VC4_Cyclic;
 
 	// Sample code for how custom events can be triggered. Use custom events as needed around the application for debugging purposes.
 	IF EDGEPOS(CustomEvent[0].Set) THEN

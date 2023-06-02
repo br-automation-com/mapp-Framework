@@ -15,8 +15,8 @@ PROGRAM _INIT
 		DirCreate_0(enable := FALSE);
 	END_IF
 
-	// if the system has been opened just now
-	HMIAction_Init;
+	 // Initial visibility setup
+	VC4_Init;
 	
 	// Initialize mapp function blocks
 	UserXMgrUIConnect.User.Create.Lock := FALSE;
@@ -60,7 +60,8 @@ PROGRAM _CYCLIC
 		MpUserXLogin_0.ErrorReset := FALSE;
 	END_IF
 
-	HMIAction;
+	// Cyclic action calls
+	VC4_Cylic;
 
 	// Assign MpLinks
 	MpUserXManagerUI_0.MpLink := ADR(gMpLinkUserXLogin);

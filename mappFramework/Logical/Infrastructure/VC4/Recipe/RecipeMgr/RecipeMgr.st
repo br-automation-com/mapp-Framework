@@ -141,9 +141,7 @@ PROGRAM _INIT
 
 	HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 
-	HMIActions_Init;	
-
-
+	VC4_Init;	
 	
 END_PROGRAM
 

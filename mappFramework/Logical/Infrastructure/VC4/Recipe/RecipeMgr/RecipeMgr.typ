@@ -41,7 +41,6 @@ TYPE
 		ParameterRecipeMissing : BOOL; (*Flag for if the default parameters recipe is not present*)
 		LoadAllowed : BOOL; (*Flag for whether you can load a recipe. Recipe must exist and be valid. *)
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*File device data provider*)
-		TableConfig : STRING[120]; (*Table configuration *)
 		SelectedRecipe : STRING[255]; (*The name of the selected recipe*)
 		ActiveRecipe : STRING[255];
 		DefaultRecipeLayer : RecipeStatusDefRecLayerType;

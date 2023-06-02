@@ -1,4 +1,4 @@
-ACTION HMIActions_Init:	
+ACTION VC4_Init:	
 	
 	HmiRecipe.Status.CreateRecipeLayer.ParsStatus			:= HIDE;
 	HmiRecipe.Status.CreateRecipeLayer.MachConfigStatus		:= HIDE;
@@ -34,15 +34,7 @@ ACTION FormatDeviceDataProvider:
 END_ACTION
 
 ACTION LoadStatus:
-	// Configure visible recipe list
-	IF MpRecipeUIConnect.Recipe.List.Names[0] = '' THEN
-		HmiRecipe.Status.TableConfig := '{ "specRows": [{"from":0,"to":19, "visible":false}]}';
-	ELSE
-		HmiRecipe.Status.TableConfig := '{ "specRows": [{"from":';
-		brsitoa(MpRecipeUIConnect.Recipe.List.MaxSelection + 1, ADR(HmiRecipe.Status.TableConfig) + brsstrlen(ADR(HmiRecipe.Status.TableConfig)));
-		brsstrcat(ADR(HmiRecipe.Status.TableConfig), ADR(',"to":19, "visible":false}]}'));
-	END_IF
-
+	// Configure recipe actions
 	HmiRecipe.Status.FilesAvailable := (MpRecipeUIConnect.Recipe.List.Names[0] <> '');
 	HmiRecipe.Status.LoadAllowed := HmiRecipe.Status.FilesAvailable AND NOT HmiRecipe.Status.InvalidRecipe;
 	HmiRecipe.Status.DeviceValid := (MpFileManagerUI_0.StatusID <> mpFILE_ERR_INVALID_FILE_DEV);

@@ -11,14 +11,14 @@ TYPE
 		FolderUp : BOOL; (*Move back/up a folder*)
 		EnterFolder : BOOL; (*Move forward/down a folder*)
 		CheckFolder : BOOL; (*Run the FIFO check to determine if old files should be deleted*)
-		FileList : FileHmiCommandsFileListType;
+		FileList : FileHmiCommandsFileListType; (*VC4 structure of commands*)
 	END_STRUCT;
-	FileHmiCommandsFileListType : 	STRUCT 
-		PageDown : BOOL;
-		PageUp : BOOL;
-		StepDown : BOOL;
-		StepUp : BOOL;
-		Clicked : BOOL;
+	FileHmiCommandsFileListType : 	STRUCT  (*Structure of VC4 commands*)
+		PageDown : BOOL; (*VC4 button PageDown*)
+		PageUp : BOOL; (*VC4 button PageUp*)
+		StepDown : BOOL; (*VC4 button StepDown*)
+		StepUp : BOOL; (*VC4 button StepUp*)
+		Clicked : BOOL; (*VC4 button clicked*)
 	END_STRUCT;
 END_TYPE
 
@@ -32,14 +32,13 @@ TYPE
 	FileHmiStatusType : 	STRUCT  (*Structure to hold status information from the mapp View HMI*)
 		FileNames : ARRAY[0..49]OF STRING[80]; (*List of file names*)
 		TimeStamps : ARRAY[0..49]OF STRING[80]; (*List of time stamps for file names*)
-		InfoFile : FileHmiStatusInfoFileType;
+		InfoFile : FileHmiStatusInfoFileType; (*VC4 info about selected file*)
 		Type : ARRAY[0..49]OF DINT; (*List of file types*)
 		Size : ARRAY[0..49]OF STRING[80]; (*List of file sizes*)
 		DeviceDataProvider : ARRAY[0..MAX_IDX_FILE_DEV]OF STRING[100]; (*Data provider for the file device selector*)
 		FifoSelect : ARRAY[0..MAX_IDX_FILE_DEV]OF DINT; (*Indicate FIFO selected file device*)
 		DeviceName : STRING[50]; (*File device name*)
 		FileName : STRING[255]; (*Fille name*)
-		TableConfig : ARRAY[0..1]OF STRING[120]; (*Table configuration for the file explorer (table widget) on the mapp View HMI*)
 		IsFolder : BOOL; (*Flag for whether the item is a folder (versus a file)*)
 		BackButton : BOOL; (*Flag for whether the back button should be shown*)
 		DeleteStep : FileDeleteStepEnum; (*Enumeration for automatic file deletion steps*)
@@ -47,17 +46,17 @@ TYPE
 		FolderSize : REAL; (*Size of currently selected folder*)
 		SelectedIndex : USINT; (*Selected index in the file list*)
 		FifoConfigEnable : BOOL; (*Disable FIFO access or change confirmation when FIFO is active*)
-		FIFOLayerStatus : USINT;
-		FIFOLayerObjects : FileHmiStatusFIFOLayerObjType;
+		FIFOLayerStatus : USINT; (*VC4 FIFO layer status*)
+		FIFOLayerObjects : FileHmiStatusFIFOLayerOptType; (*VC4 FIFO option visibility control*)
 		DefaultFileSelected : BOOL; (*The default recipe is selected*)
 	END_STRUCT;
-	FileHmiStatusFIFOLayerObjType : 	STRUCT 
-		MaxNumberOfFilesVisiblity : USINT;
-		MaxFolderSizeVisiblity : USINT;
+	FileHmiStatusFIFOLayerOptType : 	STRUCT  (*VC4 FIFO option visibility control*)
+		MaxNumberOfFilesVisiblity : USINT; (*VC4 max number of files option*)
+		MaxFolderSizeVisiblity : USINT; (*VC4 folder size option*)
 	END_STRUCT;
-	FileHmiStatusInfoFileType : 	STRUCT 
-		isSelected : ARRAY[0..49]OF STRING[1];
-		Type : ARRAY[0..49]OF STRING[80];
+	FileHmiStatusInfoFileType : 	STRUCT  (*VC4 structure for  file type information details*)
+		IsSelected : ARRAY[0..49]OF STRING[1]; (*VC4 file is selected*)
+		Type : ARRAY[0..49]OF STRING[80]; (*VC4 file is of type*)
 	END_STRUCT;
 	FileHmiParaFifoType : 	STRUCT  (*Parameters for the FIFO feature (first-in-first-out)*)
 		Enable : BOOL; (*FIFO enable*)
@@ -89,7 +88,7 @@ TYPE
 		FILE_SORT_BY_DATE, (*Sort by date so the oldest files are at the end*)
 		FILE_SORT_BY_DATE_WAIT, (*Wait step switching sorting mode*)
 		FILE_GO_TO_END, (*Pages down until at the end of the file list*)
-		FILE_GO_TO_END_1,
+		FILE_GO_TO_END_1, (*Pages down until at the end of the file list*)
 		FILE_CHECK_FOR_FILTER, (*Check which delete filter is active*)
 		FILE_SELECT_OLDEST_FILES_0, (*Scan and select all file over the filter setting*)
 		FILE_CALC_FOLDER_SIZE, (*Calculate the overall file size in the open folder*)
