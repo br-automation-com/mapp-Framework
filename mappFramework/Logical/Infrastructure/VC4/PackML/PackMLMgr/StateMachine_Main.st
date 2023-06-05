@@ -5,73 +5,73 @@ ACTION StateMachine_Main:
 		
 		mpPACKML_STATE_STOPPED:
 		   
-			// Add STOPPED actions here
+			// Add STOPPED actions here			
+			MpPackMLMode_0.StateComplete := FALSE;
 					   
 		mpPACKML_STATE_STARTING:
 					   
-			// Add STARTING actions here
-			
-			MpPackMLBasicUIConnect.StateControl.StateComplete := TRUE;
-			
+			// Add STARTING actions here			
+			MpPackMLMode_0.StateComplete := TRUE;
+					
 		mpPACKML_STATE_IDLE:
 		
 			// Add IDLE actions here
+			MpPackMLMode_0.StateComplete := FALSE;
 						
 		mpPACKML_STATE_SUSPENDING:
 			
-			// Add SUSPENDING actions here
-			
-			MpPackMLBasicUIConnect.StateControl.StateComplete := TRUE;
+			// Add SUSPENDING actions here			 
+			MpPackMLMode_0.StateComplete := TRUE;
 
 		mpPACKML_STATE_SUSPENDED:
 
-			// Add SUSPENDED actions here
+			// Add SUSPENDED actions here			
+			MpPackMLMode_0.StateComplete := FALSE;
 			
 		mpPACKML_STATE_UNSUSPENDING:
 
 			// Add UNSUSPENDING actions here
-			
-			MpPackMLBasicUIConnect.StateControl.StateComplete := TRUE;			
-			
+			MpPackMLMode_0.StateComplete := TRUE;
+					  
 		mpPACKML_STATE_EXECUTE:
 
-			// Add EXECUTE actions here
+			// Add EXECUTE actions here			
+			MpPackMLMode_0.StateComplete := FALSE;
 			
 		mpPACKML_STATE_STOPPING:
 
-			// Add STOPPING actions here
-			
-			MpPackMLBasicUIConnect.StateControl.StateComplete := TRUE;
+			// Add STOPPING actions here		   
+			MpPackMLMode_0.StateComplete := TRUE;
 			
 		mpPACKML_STATE_ABORTING:
 
-			// Add ABORTING actions here
-			
-			MpPackMLBasicUIConnect.StateControl.StateComplete := TRUE;
+			// Add ABORTING actions here		   
+			MpPackMLMode_0.StateComplete := TRUE;
 
 		mpPACKML_STATE_ABORTED:
 
-			// Add ABORTED actions here
+			// Add ABORTED actions here			
+			MpPackMLMode_0.StateComplete := FALSE;
 						
 		mpPACKML_STATE_HOLDING:
 
-			// Add HOLDING actions here
-			
-			MpPackMLBasicUIConnect.StateControl.StateComplete := TRUE;
+			// Add HOLDING actions here			   
+			MpPackMLMode_0.StateComplete := TRUE;
 			
 		mpPACKML_STATE_HELD:
 
-			// Add HELD actions here
+			// Add HELD actions here			
+			MpPackMLMode_0.StateComplete := FALSE;
 	   
 		mpPACKML_STATE_UNHOLDING:
 
 			// Add UNHOLDING actions here
-			
-			MpPackMLBasicUIConnect.StateControl.StateComplete := TRUE;
-			
+			MpPackMLMode_0.StateComplete := TRUE;
+						
 		mpPACKML_STATE_COMPLETING:
 
 			// Add COMPLETING actions here
+			MpPackMLMode_0.StateComplete := TRUE;
 			
 			// NOTE: To allow the state machine to move forward, the StateComplete command has been connected
 			// to the HMI button. The user should change this to set StateComplete to TRUE upon COMPLETING actions.
@@ -79,23 +79,21 @@ ACTION StateMachine_Main:
 		mpPACKML_STATE_COMPLETE:
 
 			// Add COMPLETE actions here
+			MpPackMLMode_0.StateComplete := FALSE;
 			
 		mpPACKML_STATE_RESETTING:
 
-			// Add RESETTING actions here
-			
-			MpPackMLBasicUIConnect.StateControl.StateComplete := TRUE;
+			// Add RESETTING actions here			
+			MpPackMLMode_0.StateComplete := TRUE;
 			
 		mpPACKML_STATE_CLEARING:
 
 			// Add CLEARING actions here
-
-			MpPackMLBasicUIConnect.StateControl.StateComplete := TRUE;
+			MpPackMLMode_0.StateComplete := TRUE;
 			
 		mpPACKML_STATE_UNDEFINED:
 			
-			// Add UNDEFINED actions here
-			
+			// Add UNDEFINED actions here		   
 			MpPackMLMode_0.Activate := TRUE;
 			
 		mpPACKML_STATE_DEACTIVATING:
@@ -110,7 +108,7 @@ ACTION StateMachine_Main:
 
 			// Add ACTIVATING actions here	
 			
-			MpPackMLBasicUIConnect.StateControl.StateComplete := TRUE;
+			MpPackMLMode_0.StateComplete := TRUE;
 		
 	END_CASE
 	

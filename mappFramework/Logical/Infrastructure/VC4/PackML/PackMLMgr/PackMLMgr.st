@@ -38,6 +38,9 @@ PROGRAM _INIT
 	MpPackMLStatisticsUI_0.UIConnect := ADR(MpPackMLStatisticsUIConnect);
 	MpPackMLStatisticsUI_0();
 	
+	// Assign Production mode as selected Index since it's the start mode and preselected
+	MpPackMLBasicUIConnect.ModeControl.SelectedIndex := 1; 
+	
 END_PROGRAM
 
 PROGRAM _CYCLIC
