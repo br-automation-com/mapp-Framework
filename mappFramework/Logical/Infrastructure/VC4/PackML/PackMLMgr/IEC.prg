@@ -5,6 +5,6 @@
     <File Description="Init, cyclic, exit code">PackMLMgr.st</File>
     <File Description="Local data types" Private="true">PackMLMgr.typ</File>
     <File Description="Local variables" Private="true">PackMLMgr.var</File>
-    <File>StateMachine_Main.st</File>
+    <File>StateMachine.st</File>
   </Files>
 </Program>

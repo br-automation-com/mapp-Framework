@@ -1,7 +1,7 @@
 ACTION VC4_Init:
 	
-	HmiUserX.FileDuplicateLayerStatus					  := HIDE;
-	HmiUserX.ButtonLockedMessageLayer					  := HIDE;
+	HmiUserX.FileDuplicateLayerStatus := HIDE;
+	HmiUserX.ButtonLockedMessageLayer := HIDE;
 	UserXLoginUIConnect.ChangePassword.Dialog.LayerStatus := HIDE;
 	
 END_ACTION
@@ -40,7 +40,7 @@ ACTION VC4_Cylic:
 
 	END_CASE
 
-	// assign file name based on selected index
+	// Assign file name based on selected index
 	UserXMgrUIConnect.Import.Dialog.FileName := UserXMgrUIConnect.Import.Dialog.List.FileNames[UserXMgrUIConnect.Import.Dialog.List.SelectedIndex];
 
 	// If new updates are made via export execute a check
@@ -49,7 +49,7 @@ ACTION VC4_Cylic:
 	END_IF
 	
 	
-	//check User is Admin
+	// Check User is Admin
 	IF UserXLoginUIConnect.UserLevel = USER_ADMIN_LEVEL THEN
 		HmiUserX.ButtonLockingLayer := HIDE;
 	ELSE
@@ -58,7 +58,7 @@ ACTION VC4_Cylic:
 	
 	
 	
-	//Duplicate file checks
+	// Duplicate file checks
 	HmiUserX.FileDuplicate := FALSE;
 	FOR i := 0 TO ((SIZEOF(UserXMgrUIConnect.Import.Dialog.List.FileNames) / SIZEOF(UserXMgrUIConnect.Import.Dialog.List.FileNames[0])) - 1) DO
 		temp := UserXMgrUIConnect.Export.Dialog.FileName;
@@ -89,29 +89,27 @@ ACTION VC4_Cylic:
 	
 	
 	
-	// Manage FileExport Layer
-	(*Close*)
+	// Manage FileExport Layer - close
 	IF UserXMgrUIConnect.Export.Dialog.Cancel OR HmiUserX.Export THEN
 		UserXMgrUIConnect.Export.Dialog.LayerStatus := HIDE;
 	END_IF
 	
 	
-	// Manage FileDupliacte Layer
-	(*Close*)
+	// Manage FileDupliacte Layer - close
 	IF HmiUserX.CancelOverwrite OR HmiUserX.ConfirmOverwrite THEN
 		HmiUserX.CancelOverwrite := FALSE;		
 		HmiUserX.ConfirmOverwrite := FALSE;
 		HmiUserX.FileDuplicateLayerStatus := HIDE;	  
 	END_IF
-	(*Open*)
+	
+	// Manage FileDupliacte Layer - open
 	IF HmiUserX.Export AND HmiUserX.FileDuplicate THEN
 		HmiUserX.FileDuplicateLayerStatus := DISPLAY;
 	END_IF;
 	
-	//Password change require manage
+	// Password change require manage
 	IF EDGENEG(UserXLoginUIConnect.MessageBox.ErrorNumber = 28690) THEN
 		IF UserXLoginUIConnect.MessageBox.Confirm THEN
-	  
 			UserXLoginUIConnect.ChangePassword.Dialog.LayerStatus := DISPLAY;
 			UserXLoginUIConnect.ChangePassword.ShowDialog := TRUE;
 		END_IF

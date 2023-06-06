@@ -71,7 +71,7 @@ ACTION ExecuteQuery:
 	END_FOR
 
 	
-	//VC4
+	// VC4
 	IF HmiAudit.Status.Query.DPSelectedIndex = 0 THEN
 		HmiAudit.Status.Query.Name := 'UserEvents';
 	ELSIF HmiAudit.Status.Query.DPSelectedIndex = 1 THEN

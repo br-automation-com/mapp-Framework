@@ -1,5 +1,5 @@
 
-ACTION StateMachine_Main:
+ACTION StateMachine:
 
 	CASE MpPackMLCore_0.StateCurrent OF
 		

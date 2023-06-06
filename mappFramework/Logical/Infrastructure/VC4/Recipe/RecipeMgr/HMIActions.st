@@ -34,6 +34,7 @@ ACTION FormatDeviceDataProvider:
 END_ACTION
 
 ACTION LoadStatus:
+	
 	// Configure recipe actions
 	HmiRecipe.Status.FilesAvailable := (MpRecipeUIConnect.Recipe.List.Names[0] <> '');
 	HmiRecipe.Status.LoadAllowed := HmiRecipe.Status.FilesAvailable AND NOT HmiRecipe.Status.InvalidRecipe;
@@ -43,7 +44,7 @@ END_ACTION
 
 ACTION LoadPreview:
 	
-	//invalid Recip Manager
+	// Invalid Recip Manager
 	IF HmiRecipe.Status.InvalidRecipe THEN
 		HmiRecipe.Status.InvalidRecipeLayer := USINT_TO_BOOL(DISPLAY);
 	ELSE
@@ -287,14 +288,8 @@ ACTION RecipeHMIcommands:
 			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 
 	END_CASE
-
-	//	IF NOT MpRecipe_0.CommandBusy AND brsstrcmp(ADR(HmiRecipe.Status.PreviousRecipe), ADR(HmiRecipe.Parameters.FileName)) <> 0 THEN
-	//		HmiRecipe.Parameters.FileName := HmiRecipe.Status.PreviousRecipe;
-	//	END_IF
 	
-	
-	
-	//default files cannot be deleted	  
+	// Default files cannot be deleted	  
 	IF HmiRecipe.Status.SelectedRecipe = 'Default.par' OR 
 		HmiRecipe.Status.SelectedRecipe = 'Machine.mcfg' THEN
 		
@@ -303,7 +298,7 @@ ACTION RecipeHMIcommands:
 		HmiRecipe.Status.DefaultFilesDeleteButtonStatus := HIDE;
 	END_IF;
 	
-	//selected index should be equal active recipe
+	// Selected index should be equal active recipe
 	IF EDGEPOS(MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) THEN
 		IF HmiRecipe.Status.RecipePageOpenedNow THEN	
 			HmiRecipe.Status.RecipePageOpenedNow := FALSE;

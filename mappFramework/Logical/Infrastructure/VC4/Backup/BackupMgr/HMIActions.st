@@ -5,6 +5,7 @@ ACTION SaveBackupConfiguration:
 	MpBackupConfiguration.AutomaticBackup.DeviceName := HmiBackup.Parameters.AutomaticBackup.Device;
 	MpBackupConfiguration.AutomaticBackup.OverwriteOldest := HmiBackup.Parameters.AutomaticBackup.OverwriteOldest;
 	MpBackupConfiguration.AutomaticBackup.Mode.Time := UDINT_TO_TOD((((USINT_TO_UDINT(HmiBackup.Parameters.AutomaticBackup.Mode.Hour) * 60) + HmiBackup.Parameters.AutomaticBackup.Mode.Minute) * 60) * 1000);
+	
 	CASE HmiBackup.Parameters.AutomaticBackup.Mode.Interval OF
 		BACKUP_EVERYDAY:
 			MpBackupConfiguration.AutomaticBackup.Mode.Interval := mpBACKUP_INTERVAL_DAILY;
@@ -44,6 +45,7 @@ ACTION LoadBackupConfiguration:
 	HmiBackup.Parameters.AutomaticBackup.OverwriteOldest := MpBackupConfiguration.AutomaticBackup.OverwriteOldest;
 	HmiBackup.Parameters.AutomaticBackup.Mode.Hour := UDINT_TO_USINT(TOD_TO_UDINT(MpBackupConfiguration.AutomaticBackup.Mode.Time) / 1000 / 60 / 60);
 	HmiBackup.Parameters.AutomaticBackup.Mode.Minute := UDINT_TO_USINT(TOD_TO_UDINT(MpBackupConfiguration.AutomaticBackup.Mode.Time) / 1000 / 60) - (HmiBackup.Parameters.AutomaticBackup.Mode.Hour * 60);
+	
 	CASE MpBackupConfiguration.AutomaticBackup.Mode.Interval OF
 		mpBACKUP_INTERVAL_DAILY:
 			HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_EVERYDAY;
@@ -65,6 +67,7 @@ ACTION LoadBackupConfiguration:
 					HmiBackup.Parameters.AutomaticBackup.Mode.Interval := BACKUP_SUNDAY;
 			END_CASE
 	END_CASE
+	
 END_ACTION
 
 ACTION FileManager:
@@ -72,6 +75,7 @@ ACTION FileManager:
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_0();
+	
 	FOR i := 0 TO ((SIZEOF(HmiBackup.Status.FileNames)/SIZEOF(HmiBackup.Status.FileNames[0])) - 1) DO
 		HmiBackup.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
 		HmiBackup.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
@@ -98,7 +102,7 @@ END_ACTION
 
 
 ACTION VC4_Cylic:	  
-	//---------------------- VC4 ------------------------//
+
 	IF HmiBackup.Status.DeviceDataProviderSelectedIndex = 0 THEN
 		HmiBackup.Parameters.AutomaticBackup.Device := 'mappBackupFiles';
 		
@@ -155,14 +159,14 @@ ACTION VC4_Cylic:
 	END_IF;	
 	
 	// Operation Delete Button
-	IF (*admin AND*) NOT HmiBackup.Status.SimulationActive THEN
+	IF NOT HmiBackup.Status.SimulationActive THEN
 		HmiBackup.Status.ButtonOperation.OperationDelete := OPERATION_ACTIVATED;
 	ELSE
 		HmiBackup.Status.ButtonOperation.OperationDelete := OPERATION_DEACTIVATED;
 	END_IF;	
 	
 	// Operation Settings Button
-	IF (*admin AND*) NOT HmiBackup.Status.SimulationActive THEN
+	IF NOT HmiBackup.Status.SimulationActive THEN
 		HmiBackup.Status.ButtonOperation.OperationSettings := OPERATION_ACTIVATED;
 	ELSE
 		HmiBackup.Status.ButtonOperation.OperationSettings := OPERATION_DEACTIVATED;

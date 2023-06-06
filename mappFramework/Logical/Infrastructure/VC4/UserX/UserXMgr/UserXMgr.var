@@ -16,12 +16,14 @@ END_VAR
 VAR
 	UserXMgrUIConnect : MpUserXMgrUIConnectType; (*UserX manager connection to the HMI*)
 	UserXLoginUIConnect : MpUserXLoginUIConnectType; (*UserL login connection to the HMI*)
-	i : USINT;
 	HmiUserX : HMIUser_Typ;
 END_VAR
 (*Enumerations*)
-(*Variables*)
 VAR
 	UserXCheckState : enumCheckState;
+END_VAR
+(*Variables*)
+VAR
+	i : USINT;
 	temp : STRING[255]; (*Temporary string holder for checking file names*)
 END_VAR

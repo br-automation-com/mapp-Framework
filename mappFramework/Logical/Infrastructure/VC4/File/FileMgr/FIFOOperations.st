@@ -8,7 +8,7 @@ ACTION FIFOOperation:
 		HmiFile.Commands.CheckFolder := HmiFile.Parameters.Fifo.Enable;
 	END_IF
 
-	//device name declare	
+	// Device name declare	
 	HmiFile.Parameters.Fifo.DeviceName := HmiFile.Status.DeviceDataProvider[HmiFile.Parameters.Fifo.SelectedDevice];
   
 	IF HmiFile.Status.FIFOLayerStatus = DISPLAY THEN
@@ -63,7 +63,7 @@ ACTION FIFOOperation:
 				END_IF
 			END_FOR
 			IF (HmiFile.Parameters.Fifo.DeviceName <> MpFileManagerUIConnect_FIFO.DeviceList.DeviceNames[MpFileManagerUIConnect_FIFO.DeviceList.SelectedIndex]) THEN
-				// file device not found
+				// File device not found
 				HmiFile.Status.DeleteStep := FILE_DELETE_WAIT;
 			ELSIF (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) THEN
 				MpFileManagerUIConnect_FIFO.File.Refresh := TRUE;
@@ -120,7 +120,7 @@ ACTION FIFOOperation:
 			IF (TON_Wait.Q = TRUE) THEN
 				TON_Wait.IN := FALSE;
 				Fifo_Count := Fifo_Count + 1;
-				// in case we are stuck trying to get to the last page
+				// In case we are stuck trying to get to the last page
 				HmiFile.Status.DeleteStep := SEL(Fifo_Count > 10, FILE_GO_TO_END, FILE_DELETE_WAIT);
 			END_IF
 			TON_Wait();
@@ -143,7 +143,7 @@ ACTION FIFOOperation:
 					MpFileManagerUIConnect_FIFO.File.MultiSelect := TRUE;
 				END_IF
 				HmiFile.Status.AutoDeleteSelected := 0;
-				// start from the first file to delete and select everything after
+				// Start from the first file to delete and select everything after
 				// e.g. if there are 100 files and we want to keep 60 files around then we'd start at 60 + 0 MOD 50 = 10 and go to index 49
 				FileNameArraySize := SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items)/SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items[0]);
 				IF (HmiFile.Parameters.Fifo.MaxNumberOfFiles >= FileNameArraySize) THEN
@@ -239,7 +239,7 @@ ACTION FIFOOperation:
 				IF (HmiFile.Parameters.Fifo.FifoType = FILE_FIFO_SIZE_OF_FOLDER) THEN
 					HmiFile.Status.DeleteStep := SEL((HmiFile.Status.FolderSize > (HmiFile.Parameters.Fifo.MaxFolderSize*1024)), FILE_RESET_SORT_BY, FILE_GO_TO_END);
 				ELSE
-					// if more files need to be deleted then go back to select the oldest files
+					// If more files need to be deleted then go back to select the oldest files
 					HmiFile.Status.DeleteStep := SEL((MpFileManagerUIConnect_FIFO.File.PathInfo.FileCount > HmiFile.Parameters.Fifo.MaxNumberOfFiles), FILE_RESET_SORT_BY, FILE_GO_TO_END);
 				END_IF
 			END_IF
@@ -288,10 +288,12 @@ ACTION FIFOOperation:
 
 	MpFileManagerUIConnect_FIFO.DeviceList.DeviceNames[0] := HmiFile.Parameters.Fifo.DeviceName;
 	MpFileManagerUI_FIFO.UIConnect := ADR(MpFileManagerUIConnect_FIFO);
+	
 	// Assign MpLink
 	MpFileManagerUI_FIFO.MpLink := ADR(gMpLinkFileManagerUIFile_FIFO);
 
 	MpFileManagerUI_FIFO.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items) / SIZEOF(MpFileManagerUIConnect_FIFO.File.List.Items[0]);
+	
 	// Call function block
 	MpFileManagerUI_FIFO();
 

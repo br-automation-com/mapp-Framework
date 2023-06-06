@@ -2,7 +2,7 @@
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
 // Created: April 12, 2022
-// Description: Task for backup management.
+// Description: Task for backup management with VC4 front-end.
 //***********************************************************************
 
 PROGRAM _INIT
@@ -119,7 +119,7 @@ PROGRAM _CYCLIC
 
 		BACKUP_REFRESHING_LIST:
 			IF MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_REFRESH THEN
-				// Wait for the list to be refreshed with the newly created backup file
+			// Wait for the list to be refreshed with the newly created backup file
 			ELSIF MpFileManagerUIConnect.Status = mpFILE_UI_STATUS_IDLE THEN
 				HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.LastSelectedIndex + 1;
 				BackupState := BACKUP_IDLE;
@@ -170,7 +170,7 @@ PROGRAM _CYCLIC
 		BACKUP_ERROR:
 			MpBackupCore_0.Create := FALSE;
 			MpBackupCore_0.Install := FALSE;
-			IF MpBackupCore_0.Info.Diag.StatusID.ID <> 0 THEN //-1064159486
+			IF MpBackupCore_0.Info.Diag.StatusID.ID <> 0 THEN
 				HmiBackup.Status.Error := TRUE;
 			END_IF
 			IF HmiBackup.Commands.Reset OR (MpBackupCore_0.Info.Diag.StatusID.ID = -1064159486) THEN
@@ -222,6 +222,7 @@ PROGRAM _CYCLIC
 	MpBackupCore_0();
 	MpFileManagerUI_0();
 	MpBackupCoreConfig_0();
+	
 END_PROGRAM
 
 PROGRAM _EXIT

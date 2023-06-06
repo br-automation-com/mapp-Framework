@@ -21,6 +21,11 @@ VAR
 	AuditQuery : {REDUND_UNREPLICABLE} AuditQueryType; (*Query results and status*)
 	AuditTrailConfig : MpAuditTrailConfigType; (*Configuration structure for changing archiving setup*)
 	MpAuditTrailUIConnect : MpAuditTrailUIConnectType; (*MpAuditUI connection to the HMI*)
+END_VAR
+VAR RETAIN
+	ArchiveSettingsRetain : AuditArchiveParType; (*Store settings in retain memory to be applied after boot*)
+END_VAR
+VAR
 	MpAuditTrail_CEvents_UIConnect : MpAuditTrailUIConnectType; (*MpAuditUI connection to the HMI*)
 END_VAR
 (*Variables*)
@@ -29,8 +34,3 @@ VAR
 	ident : UDINT; (*Identifier for task deployment*)
 	VariableMonitorExample : REAL; (*Used for the variable monitor example*)
 END_VAR
-VAR RETAIN
-	ArchiveSettingsRetain : AuditArchiveParType; (*Store settings in retain memory to be applied after boot*)
-END_VAR
-
-

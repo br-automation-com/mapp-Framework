@@ -1,3 +1,4 @@
+(*Structure types*)
 
 TYPE
 	AuditQueryHMIType : 	STRUCT  (*Datatype for the structure which rearranges the query data from AuditQuery into a structure of arrays for easy connection to the Table widget in mapp View*)
@@ -11,12 +12,6 @@ TYPE
 		Option : USINT; (*Index value of the selected query type in the dropdown on the query tab*)
 		DPSelectedIndex : USINT;
 	END_STRUCT;
-	ActiveAuditStateEnum : 
-		( (*Enumeration for the state for the query state machine*)
-		ACTIVE_AUDIT_WAIT, (*Wait state*)
-		ACTIVE_AUDIT_QUERY, (*State to query the Audit data*)
-		ACTIVE_AUDIT_NEXT (*State to check if more Audits meet the query criteria and need to be queried*)
-		);
 	AuditCustomEventType : 	STRUCT  (*Structure for custom events handling*)
 		Set : BOOL; (*Trigger the assigned function*)
 		Type : WSTRING[100]; (*Entered when creating the entry under %typ*)
@@ -77,3 +72,12 @@ TYPE
 END_TYPE
 
 (*Enumerations*)
+
+TYPE
+	ActiveAuditStateEnum : 
+		( (*Enumeration for the state for the query state machine*)
+		ACTIVE_AUDIT_WAIT, (*Wait state*)
+		ACTIVE_AUDIT_QUERY, (*State to query the Audit data*)
+		ACTIVE_AUDIT_NEXT (*State to check if more Audits meet the query criteria and need to be queried*)
+		);
+END_TYPE

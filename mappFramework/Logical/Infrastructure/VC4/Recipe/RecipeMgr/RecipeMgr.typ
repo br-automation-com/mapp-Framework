@@ -74,11 +74,6 @@ TYPE
 		MachConfigStatus : USINT;
 		Save : BOOL;
 	END_STRUCT;
-END_TYPE
-
-(**)
-
-TYPE
 	ParametersType : 	STRUCT  (*Demo / starter structure for machine parameters*)
 		AddParametersHere1 : BOOL; (*Add your parameteres here *)
 		AddParametersHere2 : STRING[80]; (*Add your parameteres here *)

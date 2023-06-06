@@ -2,7 +2,7 @@
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
 // Created: June 1, 2023
-// Description: Task for handling PackML control.
+// Description: Task for handling PackML control with VC4 front-end.
 //***********************************************************************
 
 PROGRAM _INIT
@@ -46,7 +46,7 @@ END_PROGRAM
 PROGRAM _CYCLIC
 	
 	// Call all cyclic actions
-	StateMachine_Main;
+	StateMachine;
 	
 	// Assign MpLinks & UIConnects
 	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);

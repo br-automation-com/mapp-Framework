@@ -2,7 +2,7 @@
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
 // Created: Jan 1, 2022
-// Description: Tasks for recipe control.
+// Description: Tasks for recipe control with VC4 front-end.
 //***********************************************************************
 
 PROGRAM _INIT

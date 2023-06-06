@@ -27,7 +27,6 @@
     <Task Name="AppAxisUni" Source="UnitTest.AppAxis_1.AppAxisUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
     <Task Name="ReportUnit" Source="UnitTest.Report.ReportUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
     <Task Name="ReportMgr" Source="Infrastructure.Report.ReportMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="LoggerDemo" Source="Infrastructure.LoggerDemo.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
   </TaskClass>
   <NcDataObjects>
     <NcDataObject Name="mcdrivelog" Source="" Memory="UserROM" Language="Binary" />

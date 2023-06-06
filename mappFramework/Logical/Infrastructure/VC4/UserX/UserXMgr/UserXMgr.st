@@ -2,7 +2,7 @@
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
 // Created: April 12, 2022
-// Description: Tasks for user management.
+// Description: Tasks for user management with VC4 front-end.
 //***********************************************************************
 
 PROGRAM _INIT

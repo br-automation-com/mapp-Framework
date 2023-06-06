@@ -1,10 +1,9 @@
 ACTION VC4_Init:
+	
 	// Initial layer visibility setup
 	HmiAlarmX.Status.HistoryExportLayer := HIDE;
 	
 END_ACTION
-
-
 
 ACTION VC4_Cyclic:
 	
@@ -16,21 +15,25 @@ ACTION VC4_Cyclic:
 	// Language assignments	  
 	CASE HmiAlarmX.Parameters.Language OF
 	
-		0://English
+		// English
+		0:
 			MpAlarmXListUIConnect.Language := 'en';
 			MpAlarmXHistory_0.Language := ADR('en');
 			MpAlarmXHistoryUIConnect.Language := 'en';
 			QueryActiveAlarms_0.Language := ADR('en');
-		1://German
+		// German
+		1:
 			MpAlarmXListUIConnect.Language := 'de';
 			MpAlarmXHistory_0.Language := ADR('de');
 			MpAlarmXHistoryUIConnect.Language := 'de';
 			QueryActiveAlarms_0.Language := ADR('de');
-		2://Chinese
+		// Chinese
+		2:
 			MpAlarmXListUIConnect.Language := 'zh';
 			MpAlarmXHistory_0.Language := ADR('zh');
 			MpAlarmXHistoryUIConnect.Language := 'zh';
 			QueryActiveAlarms_0.Language := ADR('zh');	  
+		
 	END_CASE
 	
 END_ACTION

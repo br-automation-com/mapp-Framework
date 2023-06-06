@@ -2,7 +2,7 @@
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
 // Created: Sept 1, 2022
-// Description: Task for audit management.
+// Description: Task for audit management with VC4 front-end.
 //***********************************************************************
 
 PROGRAM _INIT

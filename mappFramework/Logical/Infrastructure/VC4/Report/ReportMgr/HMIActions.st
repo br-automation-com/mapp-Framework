@@ -85,7 +85,7 @@ ACTION ReportFileExplorer:
 	// Set file device to selected
 	MpReportCore_0.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
 	   
-	//VC4
+	// VC4
 	IF HmiReport.Status.Error THEN
 		HmiReport.Status.Layer.ReportCreate := USINT_TO_BOOL(HIDE);	  
 	END_IF
@@ -100,15 +100,17 @@ ACTION ReportFileExplorer:
 		HmiReport.Status.PageUpDownVisibility := HIDE;
 	END_IF
 	
-	//language assignments
-	
+	// Language assignments
 	CASE HmiReport.Parameters.Language OF
 	
-		0://English
+		// English
+		0:
 			MpReportCore_0.Language := ADR('en');
-		1://German
+		// German
+		1:
 			MpReportCore_0.Language := ADR('de');
-		2://Chinese
+		// Chinese
+		2:
 			MpReportCore_0.Language := ADR('zh');
 	
 	END_CASE 

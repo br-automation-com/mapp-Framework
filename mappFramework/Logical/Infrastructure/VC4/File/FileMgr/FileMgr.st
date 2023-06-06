@@ -2,7 +2,7 @@
 // Copyright: B&R Industrial Automation GmbH
 // Author: B&R Industrial Automation GmbH
 // Created: April 12, 2022
-// Description: Task for file management
+// Description: Task for file management with VC4 front-end.
 //***********************************************************************
 
 PROGRAM _INIT
@@ -43,7 +43,6 @@ PROGRAM _INIT
 		HmiFile.Parameters.Fifo.ScanInterval := 60;
 	END_IF
 
-
 	// Initialize which folders should exist
 	PathCheck.DeviceList := MpFileManagerUIConnect.DeviceList;
 			
@@ -83,7 +82,7 @@ PROGRAM _INIT
 	// Restored the retained values to the FIFO settings
 	HmiFile.Parameters.Fifo := FifoSettingsRetain;
 	
-	// if the system has been opened just now
+	// Handle retained FIFO settings
 	VC4_Init;
 	
 END_PROGRAM

@@ -5,7 +5,6 @@ VAR
 	R_TRIG_CheckStatus : R_TRIG; (*Trigger function block*)
 	TON_Wait : TON; (*FIFO handling support*)
 	TON_ScanFolder : TON; (*Timer to scan for folder*)
-	CurrentIndex : UDINT; (*FIFO handling support deleting more then 50 files*)
 	DirRead_FolderSize : DirRead; (*FIFO handling support reading current folder size*)
 END_VAR
 (*Constants*)
@@ -18,10 +17,16 @@ VAR
 	MpFileManagerUIConnect_FIFO : {REDUND_UNREPLICABLE} MpFileManagerUIConnectType; (*File manager connection to the HMI*)
 	HmiFile : FileHmiInterfaceType; (*HMI interface structure*)
 	PathCheck : FilePathCheckType; (*Parameter structure controlling the visible file device based on available folders*)
+END_VAR
+VAR RETAIN
+	FifoSettingsRetain : {REDUND_UNREPLICABLE} FileHmiParaFifoType; (*Store FIFO settings in retain memory to be applied after boot*)
+END_VAR
+VAR
 	DirectoryData : fiDIR_READ_DATA; (*FIFO handling support reading current folder size*)
 END_VAR
 (*Variables*)
 VAR
+	CurrentIndex : UDINT; (*FIFO handling support deleting more then 50 files*)
 	i : USINT; (*Index for FOR loops*)
 	DeviceListCount : USINT; (*Counter for accessible file devices*)
 	Ident : UDINT; (*Ident of a program on target*)
@@ -34,7 +39,4 @@ VAR
 	FileNameArraySize : USINT; (*FIFO handling support size of the array*)
 	StartIndex : USINT; (*FIFO handling support *)
 	Fifo_Count : USINT; (*FIFO handling support current file count*)
-END_VAR
-VAR RETAIN
-	FifoSettingsRetain : {REDUND_UNREPLICABLE} FileHmiParaFifoType; (*Store FIFO settings in retain memory to be applied after boot*)
 END_VAR

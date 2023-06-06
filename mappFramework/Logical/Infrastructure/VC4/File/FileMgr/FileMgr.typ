@@ -20,11 +20,6 @@ TYPE
 		StepUp : BOOL; (*VC4 button StepUp*)
 		Clicked : BOOL; (*VC4 button clicked*)
 	END_STRUCT;
-END_TYPE
-
-(**)
-
-TYPE
 	FileHmiParametersType : 	STRUCT  (*Structure to hold parameters for the mapp View HMI*)
 		OldSortOrder : MpFileManagerUISortOrderEnum; (*Previous sord order*)
 		Fifo : FileHmiParaFifoType; (*Parameters for the FIFO feature (first-in-first-out)*)

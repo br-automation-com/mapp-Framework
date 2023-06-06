@@ -57,20 +57,23 @@ END_ACTION
 
 ACTION VC4_Cyclic:
  
-	//language assignments	 
+	// Language assignments	 
 	CASE HmiAudit.Parameters.Language OF
 	
-		0://English
+		//English
+		0:
 			MpAuditTrail_0.Language := ADR('en');
 			MpAuditTrailUI_0.Language := ADR('en');
 			MpAuditTrail_CEvents.Language := ADR('en');
 			MpAuditTrail_CEvents_UI_0.Language := ADR('en');
-		1://German
+		// German
+		1:
 			MpAuditTrail_0.Language := ADR('de');
 			MpAuditTrailUI_0.Language := ADR('de');
 			MpAuditTrail_CEvents.Language := ADR('de');
 			MpAuditTrail_CEvents_UI_0.Language := ADR('de');
-		2://Chinese
+		// Chinese
+		2:
 			MpAuditTrail_0.Language := ADR('zh');
 			MpAuditTrailUI_0.Language := ADR('zh');
 			MpAuditTrail_CEvents.Language := ADR('zh');
