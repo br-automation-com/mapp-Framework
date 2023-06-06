@@ -15,7 +15,7 @@
         <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
         <Property Name="Description" Value=""/>
         <Property Name="PLCType" Value="STRING"/>
-        <Property Name="StringLength" Value="0"/>
+        <Property Name="StringLength" Value="65535"/>
         <Property Name="UpdateTime" Value="Default"/>
         <Property Name="UserID" Value="None"/>
         <Property Name="VCType" Value="STRING"/>
@@ -104,55 +104,6 @@
         <Property Name="ConnectedBySharedResource" Value="False"/>
         <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
         <Property Name="Description" Value=""/>
-        <Property Name="PLCType" Value="USINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-    </Folder>
-    <Folder Name="Display">
-      <Property Name="Description" Value="Display Settings"/>
-      <Property Name="FolderType" Value="Struct"/>
-      <DataPoint Name="Brightness">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="Brightness (0 - 100)"/>
-        <Property Name="PLCType" Value="USINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-      <DataPoint Name="Contrast">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="Contrast (0 - 100)"/>
-        <Property Name="PLCType" Value="USINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-      <DataPoint Name="BackLight">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="0 = backlight off / 1 = backlight on"/>
-        <Property Name="PLCType" Value="USINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-    </Folder>
-    <Folder Name="Connection">
-      <Property Name="Description" Value="Connection Parameters"/>
-      <Property Name="FolderType" Value="Struct"/>
-      <DataPoint Name="IPAddress">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="IP-Address"/>
-        <Property Name="PLCType" Value="STRING"/>
-        <Property Name="StringLength" Value="65535"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="STRING"/>
-      </DataPoint>
-      <DataPoint Name="NodeNumber">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="Node Number"/>
         <Property Name="PLCType" Value="USINT"/>
         <Property Name="UpdateTime" Value="Default"/>
         <Property Name="UserID" Value="None"/>
@@ -183,66 +134,6 @@
         <Property Name="UpdateTime" Value="Default"/>
         <Property Name="UserID" Value="None"/>
         <Property Name="VCType" Value="SCALED"/>
-      </DataPoint>
-    </Folder>
-    <Folder Name="DateTime">
-      <Property Name="Description" Value="System Date and Time"/>
-      <Property Name="FolderType" Value="Struct"/>
-      <DataPoint Name="Day">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="System Time - Day"/>
-        <Property Name="PLCType" Value="UINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-      <DataPoint Name="Hour">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="System Time - Hour"/>
-        <Property Name="PLCType" Value="UINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-      <DataPoint Name="Minute">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="System Time - Minute"/>
-        <Property Name="PLCType" Value="UINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-      <DataPoint Name="Month">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="System Time - Month"/>
-        <Property Name="PLCType" Value="UINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-      <DataPoint Name="Second">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="System Time - Second"/>
-        <Property Name="PLCType" Value="UINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-      <DataPoint Name="Year">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="System Time - Year"/>
-        <Property Name="PLCType" Value="UINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
-      </DataPoint>
-      <DataPoint Name="DayOfWeek">
-        <Property Name="ConnectedBySharedResource" Value="False"/>
-        <Property Name="Description" Value="System Time - Day of week"/>
-        <Property Name="PLCType" Value="UINT"/>
-        <Property Name="UpdateTime" Value="Default"/>
-        <Property Name="UserID" Value="None"/>
-        <Property Name="VCType" Value="INTEGER"/>
       </DataPoint>
     </Folder>
     <Folder Name="Memory">
