@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.4.38 SP"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
 <Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpBackup">
   <Property Name="Description" Value="mapp VC4 template MpDataTableUI"/>
   <Property Name="Height" Value="480"/>
@@ -1307,7 +1307,7 @@
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
           <Property Name="Top" Value="294"/>
-          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Audit.AuditMgr.HmiAudit.Parameters.ArchiveSettings.Hour]"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Backup.BackupMgr.HmiBackup.Parameters.AutomaticBackup.Mode.Hour]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="75"/>
         </Control>
@@ -1922,7 +1922,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_135_2]"/>
           <Property Name="Width" Value="800"/>
         </Control>
-        <Control ClassId="0x00001001" Name="Shape_1">
+        <Control ClassId="0x00001001" Name="Shape_background">
           <Property Name="BackColor" Value="252"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
@@ -2210,7 +2210,7 @@
           <Property Name="Width" Value="800"/>
         </Control>
         <Control ClassId="0x00001001" Name="Background">
-          <Property Name="BackColor" Value="252"/>
+          <Property Name="BackColor" Value="16"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="253"/>
@@ -2254,14 +2254,14 @@
           <Property Name="Top" Value="149"/>
           <Property Name="Width" Value="331"/>
         </Control>
-        <Control ClassId="0x00001005" Name="Bitmap_1">
+        <Control ClassId="0x00001005" Name="bmpProgressRing">
           <Property Name="Bitmap" Value="Source[local].Bitmap[inprogress]"/>
           <Property Name="BitmapSource" Value="SingleBitmap"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="204"/>
           <Property Name="IndexDatapoint" Value="None"/>
-          <Property Name="Left" Value="305"/>
+          <Property Name="Left" Value="300"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
           <Property Name="Top" Value="186"/>

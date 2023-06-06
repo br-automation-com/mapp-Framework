@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.4.38 SP"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
 <Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpAuditQueryUI">
   <Property Name="BackColor" Value="15"/>
   <Property Name="Description" Value="mapp VC4 template MpAuditTrailUI"/>
@@ -1179,7 +1179,7 @@
         <IndexMap/>
       </TextGroup>
       <Controls>
-        <Control ClassId="0x00001002" Name="Button_3">
+        <Control ClassId="0x00001002" Name="cmdRunQueryLocked">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
           <Property Name="BitmapSource" Value="None"/>
           <Property Name="Border" Value="Source[local].Border[Mp_SunkenNG]"/>
@@ -1202,7 +1202,7 @@
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_210_5]"/>
           <Property Name="Width" Value="133"/>
         </Control>
-        <Control ClassId="0x00001018" Name="Dropdown_1">
+        <Control ClassId="0x00001018" Name="drpDwnQuerySelectorLocked">
           <Property Name="ButtonsBitmapGroup" Value="None"/>
           <Property Name="ButtonsPressedBitmapGroup" Value="None"/>
           <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.HmiUserX.ButtonLockedMessageLayer]"/>
@@ -1264,10 +1264,10 @@
   </Layers>
   <MovementOrder>
     <MovementEntry Control="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]">
-      <Property Name="Down" Value="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[ButtonLockingLayer].Control[drpDwnQuerySelectorLocked]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[ButtonLockingLayer].Control[drpDwnQuerySelectorLocked]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[ButtonLockingLayer].Control[drpDwnQuerySelectorLocked]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[ButtonLockingLayer].Control[drpDwnQuerySelectorLocked]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FilterDialog].Control[strShowHideUser]">
       <Property Name="Down" Value="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]"/>
@@ -1335,7 +1335,7 @@
       <Property Name="Right" Value="Source[embedded].Layer[FilterDialog].Control[numUntilYear]"/>
       <Property Name="Up" Value="Source[embedded].Layer[FilterDialog].Control[numFromMinute]"/>
     </MovementEntry>
-    <MovementEntry Control="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]">
+    <MovementEntry Control="Source[embedded].Layer[ButtonLockingLayer].Control[drpDwnQuerySelectorLocked]">
       <Property Name="Down" Value="Source[embedded].Layer[FilterDialog].Control[numFromDay]"/>
       <Property Name="Left" Value="Source[embedded].Layer[FilterDialog].Control[numFromMonth]"/>
       <Property Name="Right" Value="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]"/>
@@ -1359,6 +1359,6 @@
     <TabSeqItem Index="13" Value="Source[embedded].Layer[Default].Control[lstBoxTimestamp]"/>
     <TabSeqItem Index="14" Value="Source[embedded].Layer[Default].Control[lstBoxOperator]"/>
     <TabSeqItem Index="15" Value="Source[embedded].Layer[Default].Control[drpDwnQuerySelector]"/>
-    <TabSeqItem Index="16" Value="Source[embedded].Layer[ButtonLockingLayer].Control[Dropdown_1]"/>
+    <TabSeqItem Index="16" Value="Source[embedded].Layer[ButtonLockingLayer].Control[drpDwnQuerySelectorLocked]"/>
   </TabSequence>
 </Page>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.4.38 SP"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
 <Layer xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpPageControl">
   <Property Name="BackColor" Value="249"/>
   <Property Name="Description" Value="Background for all pages"/>
@@ -29,7 +29,7 @@
       <Property Name="Font" Value="Source[local].Font[MpMenuButtons]"/>
       <Property Name="Height" Value="50"/>
       <Property Name="KeyMatrixOffset" Value="None"/>
-      <Property Name="Left" Value="491"/>
+      <Property Name="Left" Value="746"/>
       <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
       <Property Name="PressedBorder" Value="Source[local].Border[Mp_Flat_grey]"/>
       <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
@@ -37,7 +37,7 @@
       <Property Name="TextIndexDatapoint" Value="None"/>
       <Property Name="TextSimulationValue" Value="0"/>
       <Property Name="TextSource" Value="None"/>
-      <Property Name="Top" Value="0"/>
+      <Property Name="Top" Value="428"/>
       <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_23_0]"/>
       <Property Name="Width" Value="50"/>
     </Control>
@@ -91,32 +91,6 @@
       <Property Name="TextSource" Value="None"/>
       <Property Name="Top" Value="430"/>
       <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_25_2]"/>
-      <Property Name="Width" Value="55"/>
-    </Control>
-    <Control ClassId="0x00001002" Name="cmdAlarmPage">
-      <Property Name="BackColor" Value="0"/>
-      <Property Name="Bitmap" Value="Source[local].Bitmap[MpImg_Warning]"/>
-      <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
-      <Property Name="BitmapAlignmentVertical" Value="Above Text"/>
-      <Property Name="BitmapIndexDatapoint" Value="None"/>
-      <Property Name="BitmapSource" Value="SingleBitmap"/>
-      <Property Name="Border" Value="Source[local].Border[Mp_FrameInvisible]"/>
-      <Property Name="ControlID" Value="0"/>
-      <Property Name="Description" Value=""/>
-      <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_26_1]"/>
-      <Property Name="Font" Value="Source[local].Font[MpMenuButtons]"/>
-      <Property Name="Height" Value="50"/>
-      <Property Name="KeyMatrixOffset" Value="None"/>
-      <Property Name="Left" Value="745"/>
-      <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
-      <Property Name="PressedBorder" Value="Source[local].Border[Mp_Flat_grey]"/>
-      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
-      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpGlobalAreaButton]"/>
-      <Property Name="TextIndexDatapoint" Value="None"/>
-      <Property Name="TextSimulationValue" Value="0"/>
-      <Property Name="TextSource" Value="None"/>
-      <Property Name="Top" Value="430"/>
-      <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_26_1]"/>
       <Property Name="Width" Value="55"/>
     </Control>
     <Control ClassId="0x00001002" Name="btnMpRecipe">
@@ -231,7 +205,7 @@
       <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_45_1]"/>
       <Property Name="Width" Value="50"/>
     </Control>
-    <Control ClassId="0x00001002" Name="btnMpAlarm1">
+    <Control ClassId="0x00001002" Name="btnMpAlarmX">
       <Property Name="BackColor" Value="0"/>
       <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
       <Property Name="BitmapAlignmentVertical" Value="Above Text"/>
@@ -259,7 +233,7 @@
       <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_44_2]"/>
       <Property Name="Width" Value="50"/>
     </Control>
-    <Control ClassId="0x00001002" Name="btnMpUser1">
+    <Control ClassId="0x00001002" Name="btnMpUserX">
       <Property Name="BackColor" Value="0"/>
       <Property Name="BitmapAlignmentHorizontal" Value="Center"/>
       <Property Name="BitmapAlignmentVertical" Value="Above Text"/>
@@ -408,19 +382,6 @@
           <Property Name="Locking" Value="Never"/>
           <Property Name="Name" Value="Action_0"/>
           <Property Name="Page" Value="Source[local].Page[mapp1StartPage]"/>
-          <Property Name="Target" Value="Page"/>
-        </KeyAction>
-      </KeyActions>
-    </VirtualKey>
-    <VirtualKey Name="%embVirtualKey_26_1">
-      <Property Name="Description" Value=""/>
-      <Property Name="VirtualKey_LED" Value="False"/>
-      <KeyActions>
-        <KeyAction ClassId="0x00000160">
-          <Property Name="Description" Value=""/>
-          <Property Name="Locking" Value="Never"/>
-          <Property Name="Name" Value="Action_0"/>
-          <Property Name="Page" Value="Source[local].Page[MpAlarmXList]"/>
           <Property Name="Target" Value="Page"/>
         </KeyAction>
       </KeyActions>
