@@ -48,15 +48,12 @@ ACTION VC4_Cylic:
 		UserXCheckState := USERX_NEW_EXPORT;
 	END_IF
 	
-	
 	// Check User is Admin
 	IF UserXLoginUIConnect.UserLevel = USER_ADMIN_LEVEL THEN
 		HmiUserX.ButtonLockingLayer := HIDE;
 	ELSE
 		HmiUserX.ButtonLockingLayer := DISPLAY;
 	END_IF;
-	
-	
 	
 	// Duplicate file checks
 	HmiUserX.FileDuplicate := FALSE;
@@ -87,13 +84,10 @@ ACTION VC4_Cylic:
 		HmiUserX.Export := FALSE;
 	END_IF
 	
-	
-	
 	// Manage FileExport Layer - close
 	IF UserXMgrUIConnect.Export.Dialog.Cancel OR HmiUserX.Export THEN
 		UserXMgrUIConnect.Export.Dialog.LayerStatus := HIDE;
 	END_IF
-	
 	
 	// Manage FileDupliacte Layer - close
 	IF HmiUserX.CancelOverwrite OR HmiUserX.ConfirmOverwrite THEN
@@ -113,6 +107,15 @@ ACTION VC4_Cylic:
 			UserXLoginUIConnect.ChangePassword.Dialog.LayerStatus := DISPLAY;
 			UserXLoginUIConnect.ChangePassword.ShowDialog := TRUE;
 		END_IF
+	END_IF
+	
+	// Check and set current language datapoint based on user preference   
+	IF UserXLoginUIConnect.Language = 'en' THEN
+		HmiUserX.SelectedLanguage := 0;
+	ELSIF UserXLoginUIConnect.Language = 'de' THEN
+		HmiUserX.SelectedLanguage := 1;
+	ELSIF UserXLoginUIConnect.Language = 'zh' THEN
+		HmiUserX.SelectedLanguage := 2;    
 	END_IF
 	
 END_ACTION
