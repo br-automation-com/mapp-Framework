@@ -53,6 +53,7 @@ TYPE
 		InvalidRecipeLayer : BOOL;
 		DefaultFilesCannotBeDeleteLayer : USINT;
 		RecipePageOpenedNow : BOOL;
+		LoadPreviewAfterPageOpened : BOOL;
 	END_STRUCT;
 	RecipeStatusDefRecLayerType : 	STRUCT 
 		Status : USINT;

@@ -34,7 +34,6 @@ ACTION FormatDeviceDataProvider:
 END_ACTION
 
 ACTION LoadStatus:
-	
 	// Configure recipe actions
 	HmiRecipe.Status.FilesAvailable := (MpRecipeUIConnect.Recipe.List.Names[0] <> '');
 	HmiRecipe.Status.LoadAllowed := HmiRecipe.Status.FilesAvailable AND NOT HmiRecipe.Status.InvalidRecipe;
@@ -44,7 +43,7 @@ END_ACTION
 
 ACTION LoadPreview:
 	
-	// Invalid Recip Manager
+	//Invalid Recip Manager
 	IF HmiRecipe.Status.InvalidRecipe THEN
 		HmiRecipe.Status.InvalidRecipeLayer := USINT_TO_BOOL(DISPLAY);
 	ELSE
@@ -146,8 +145,7 @@ ACTION LoadPreview:
 	// Load preview when a recipe is selected
 	IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR 
 		(HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection) OR
-		EDGENEG(HmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_CREATE) THEN
-		
+		EDGENEG(HmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_CREATE) THEN		
 		// Check selected recipe name is not empty
 		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
 			MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
@@ -289,7 +287,7 @@ ACTION RecipeHMIcommands:
 
 	END_CASE
 	
-	// Default files cannot be deleted	  
+	//default files cannot be deleted	  
 	IF HmiRecipe.Status.SelectedRecipe = 'Default.par' OR 
 		HmiRecipe.Status.SelectedRecipe = 'Machine.mcfg' THEN
 		
@@ -298,7 +296,10 @@ ACTION RecipeHMIcommands:
 		HmiRecipe.Status.DefaultFilesDeleteButtonStatus := HIDE;
 	END_IF;
 	
-	// Selected index should be equal active recipe
+	//selected index should be equal active recipe
+	IF HmiRecipe.Status.RecipePageOpenedNow THEN
+		HmiRecipe.Status.LoadPreviewAfterPageOpened := TRUE;
+	END_IF;
 	IF EDGEPOS(MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) THEN
 		IF HmiRecipe.Status.RecipePageOpenedNow THEN	
 			HmiRecipe.Status.RecipePageOpenedNow := FALSE;
@@ -306,9 +307,23 @@ ACTION RecipeHMIcommands:
 				IF MpRecipeUIConnect.Recipe.List.Names[i] = HmiRecipe.Status.ActiveRecipe THEN
 					MpRecipeUIConnect.Recipe.List.SelectedIndex := i;
 				END_IF;
-			END_FOR;		
+			END_FOR;
 		END_IF;	
 	END_IF;	
+	IF HmiRecipe.Status.LoadPreviewAfterPageOpened THEN
+		HmiRecipe.Status.LoadPreviewAfterPageOpened := FALSE;
+		// Check selected recipe name is not empty
+		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
+			MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
+			MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
+			MpRecipe_0.Load := TRUE;
+			HmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
+			HmiRecipe.Status.LastMaxSelection := MpRecipeUIConnect.Recipe.List.MaxSelection;
+			HmiRecipe.Status.InvalidRecipe := FALSE;
+		END_IF
+	END_IF;
+	
+	
 
 	// If the Edit or Create dialog boxes open, copy the Preview structure into the Edit structure.
 	IF HmiRecipe.Status.EditDialogOpened OR HmiRecipe.Status.CreateDialogOpened THEN
