@@ -1,5 +1,3 @@
-
-(* TODO: Add your comment here *)
 FUNCTION PackMLBaseModel
 
 			BaseLayout := '';
@@ -141,6 +139,8 @@ FUNCTION PackMLBaseModel
 			
 			brsstrcat(ADR(BaseLayout),ADR(stringPart));
 			brsstrcat(ADR(BaseLayout),ADR(']'));
+	
+			PackMLBaseModel := TRUE;
 
 
 END_FUNCTION

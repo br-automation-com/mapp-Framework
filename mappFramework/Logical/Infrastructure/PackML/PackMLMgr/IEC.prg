@@ -6,7 +6,7 @@
     <File Description="Local data types" Private="true">PackMLMgr.typ</File>
     <File Description="Local variables" Private="true">PackMLMgr.var</File>
     <File Description="Supporting code for the HMI interface">HMIActions.st</File>
-    <File Description="Main state machine logic">StateMachine_Main.st</File>
+    <File Description="Main state machine logic">StateMachine.st</File>
     <File Description="Declaration for local helper functions" Private="true">LocalFunctions.fun</File>
     <File Description="Function to control the paper widget transform string">PackMLBaseModel.st</File>
   </Files>

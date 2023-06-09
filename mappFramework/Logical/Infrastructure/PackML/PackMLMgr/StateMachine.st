@@ -1,5 +1,5 @@
 
-ACTION StateMachine_Main:
+ACTION StateMachine:
 
 	// Check active state and change mode if allowed
 	IF MpPackMLModeChangeIsAllowed(gMpLinkPackMLCore,HmiPackML.Commands.Mode) = 0 THEN
