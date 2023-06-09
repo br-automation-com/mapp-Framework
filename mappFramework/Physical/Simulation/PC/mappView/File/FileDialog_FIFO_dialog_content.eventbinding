@@ -90,12 +90,17 @@
     </EventBinding>
     <EventBinding id="ContentLoaded.FileDialog_FIFO_dialog_content">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <Operand datatype="BOOL" name="FIFOenable">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:HmiFile.Parameters.Fifo.Enable">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
       <Operand datatype="ANY_INT" name="SelectedDeviceIndex">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:MpFileManagerUIConnect.DeviceList.SelectedIndex">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="contentId = &quot;FileDialog_FIFO_dialog_content&quot;">
+      <EventHandler condition="contentId = &quot;FileDialog_FIFO_dialog_content&quot; AND NOT FIFOenable">
         <Action>
           <Target xsi:type="widgets.brease.DropDownBox.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownDevice">
             <Method xsi:type="widgets.brease.DropDownBox.Action.SetSelectedIndex" index="= SelectedDeviceIndex" />
