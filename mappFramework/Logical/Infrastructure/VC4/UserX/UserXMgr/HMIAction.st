@@ -110,12 +110,15 @@ ACTION VC4_Cylic:
 	END_IF
 	
 	// Check and set current language datapoint based on user preference   
-	IF UserXLoginUIConnect.Language = 'en' THEN
-		HmiUserX.SelectedLanguage := 0;
-	ELSIF UserXLoginUIConnect.Language = 'de' THEN
-		HmiUserX.SelectedLanguage := 1;
-	ELSIF UserXLoginUIConnect.Language = 'zh' THEN
-		HmiUserX.SelectedLanguage := 2;    
+	IF UserXLoginUIConnect.CurrentUser <> HmiUserX.PreviousUser THEN
+		HmiUserX.PreviousUser := UserXLoginUIConnect.CurrentUser;
+		IF UserXLoginUIConnect.Language = 'en' THEN
+			HmiUserX.SelectedLanguage := 0;
+		ELSIF UserXLoginUIConnect.Language = 'de' THEN
+			HmiUserX.SelectedLanguage := 1;
+		ELSIF UserXLoginUIConnect.Language = 'zh' THEN
+			HmiUserX.SelectedLanguage := 2;    
+		END_IF
 	END_IF
 	
 END_ACTION

@@ -11,6 +11,7 @@ TYPE
 		ButtonLockedMessageLayer : USINT;
 		ButtonLockingLayer : USINT;
 		SelectedLanguage : USINT;
+		PreviousUser : WSTRING[50];
 	END_STRUCT;
 END_TYPE
 
