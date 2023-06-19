@@ -20,6 +20,7 @@
     <Task Name="UserXMgr" Source="Infrastructure.UserX.UserXMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AuditMgr" Source="Infrastructure.Audit.AuditMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="ReportMgr" Source="Infrastructure.Report.ReportMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="PackMLMgr" Source="Infrastructure.PackML.PackMLMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <NcDataObjects>
     <NcDataObject Name="McDriveLog" Source="" Memory="UserROM" Language="Binary" />
@@ -36,7 +37,8 @@
     <BinaryObject Name="udbdef" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="mvLoader" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="TCData" Source="" Memory="SystemROM" Language="Binary" />
-    <BinaryObject Name="MachineGrp" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="SLO_Pos" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="SLO_Speed" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UserXCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UserXlogin" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arconfig" Source="" Memory="SystemROM" Language="Binary" />
@@ -64,6 +66,10 @@
     <BinaryObject Name="AuditCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="UnitCfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="CustomCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="AdvCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="SimpleCfg" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="ReportFile" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="MachineGrp" Source="" Memory="UserROM" Language="Binary" />
   </Binaries>
   <Libraries>
     <LibraryObject Name="runtime" Source="Libraries.runtime.lby" Memory="UserROM" Language="binary" Debugging="true" />
@@ -94,6 +100,7 @@
     <LibraryObject Name="IecCheck" Source="Libraries.IecCheck.lby" Memory="UserROM" Language="IEC" Debugging="true" />
     <LibraryObject Name="MpAudit" Source="Libraries.MpAudit.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="MpReport" Source="Libraries.MpReport.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="MpPackML" Source="Libraries.MpPackML.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="brsystem" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="aseth" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
@@ -105,5 +112,6 @@
     <LibraryObject Name="arcert" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="aruser" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asepl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="vcresman" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="PackML_content" height="1030" width="1920" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Label" id="LabelPage" top="100" left="1640" width="225" height="70" zIndex="15" text="$IAT/mappFramework/PackML/PackML" textColor="rgba(255, 255, 255, 1)" textAlign="right" fontSize="48px" bold="true" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelStateBanner" top="105" left="70" width="150" height="40" zIndex="14" text="$IAT/mappFramework/PackML/StateCurrent" textColor="rgba(255, 255, 255, 1)" fontSize="24px" />
+    <Widget xsi:type="widgets.PackML_support_lib.PackMLModelOld" id="PackMLModelOld1" top="50" left="0" zIndex="13" baseModel="temp" />
+    <Widget xsi:type="widgets.brease.TextOutput" id="txtOutCurrentState" top="150" left="70" width="245" zIndex="16" value="Undefined" textColor="rgba(255, 255, 255, 1)" fontSize="24px" />
+    <Widget xsi:type="widgets.brease.DropDownBox" id="drpDwnBoxModeSelector" top="225" left="1620" width="230" height="40" zIndex="17" dataProvider="[{'value':'0','text':''},{'value':'1','text':'$IAT/mappFramework/PackML/Mode.Automatic'},{'value':'2','text':'$IAT/mappFramework/PackML/Mode.Maintenance'},{'value':'3','text':'$IAT/mappFramework/PackML/Mode.Manual'}]" listPosition="bottom" listWidth="230" selectedValue="0" fontSize="24px" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelCurrentMode" top="190" left="70" width="150" height="40" zIndex="18" text="$IAT/mappFramework/PackML/ModeCurrent" textColor="rgba(255, 255, 255, 1)" fontSize="24px" />
+    <Widget xsi:type="widgets.brease.TextOutput" id="txtOutCurrentMode" top="235" left="70" width="245" zIndex="19" value="Undefined" textColor="rgba(255, 255, 255, 1)" fontSize="24px" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelModeSelect" top="175" left="1620" width="150" height="40" zIndex="20" text="$IAT/mappFramework/PackML/ModeSelect" textColor="rgba(255, 255, 255, 1)" fontSize="24px" />
+  </Widgets>
+</Content>

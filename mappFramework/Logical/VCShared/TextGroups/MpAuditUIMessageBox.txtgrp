@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpAuditUIMessageBox">
+  <Property Name="Description" Value="Message box text for MpAuditUI"/>
+  <Property Name="Index" Value="1166"/>
+  <TextSnippets>
+    <TextSnippet ClassId="0x00002004" Name="Error">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.Audit.AuditMgr.MpAuditTrailUIConnect.MessageBox.ErrorNumber]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[MpAuditUIErrorText]"/>
+      <Property Name="TextIndexOffset" Value="0"/>
+    </TextSnippet>
+  </TextSnippets>
+  <TextLayer LanguageId="en">
+    <Text ID="285903" Value="{Error}"/>
+    <Text ID="285904" Value="Error"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="285903" Value="{Error}"/>
+    <Text ID="285904" Value="Fehler"/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="285903" Value="{Error}"/>
+    <Text ID="285904" Value="错误"/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="285903" Value="1"/>
+    <Index ID="285904" Value="0"/>
+  </IndexMap>
+</TextGroup>

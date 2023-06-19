@@ -1,0 +1,28 @@
+(*Function Blocks*)
+VAR
+	MpBackupCore_0 : MpBackupCore; (*MpBackupCore instance*)
+	MpBackupCoreConfig_0 : MpBackupCoreConfig; (*MpBackupCoreConfig instance*)
+	MpFileManagerUI_0 : MpFileManagerUI := (UISetup:=(FileListSize:=50)); (*MpFileManagerUI instance*)
+	DirCreate_0 : DirCreate; (*DirCreate instance*)
+END_VAR
+(*Constants*)
+VAR CONSTANT
+	MAX_IDX_FILE_DEV : USINT := MAX_IDX_USB_DEV_LIST + 1; (*Maximum number of  file devices *)
+END_VAR
+(*Structure Types*)
+VAR
+	MpBackupConfiguration : MpBackupCoreConfigType; (*MpBackup configuration*)
+	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappBackupFiles','USB1',8('')])); (*MpFile connection to the HMI*)
+	HmiBackup : BackupHmiInterfaceType; (*HMI interface structure*)
+END_VAR
+(*Enumerations*)
+VAR
+	BackupState : BackupStateEnum; (*States for backup state machine*)
+END_VAR
+(*Variables*)
+VAR
+	i : USINT; (*Index for loops*)
+END_VAR
+VAR RETAIN
+	AutomaticBackupRetain : AutomaticBackupType; (*Store backup settings in retain*)
+END_VAR

@@ -12,6 +12,9 @@ TYPE
 	UserXStatusType : 	STRUCT  (*Structure to hold status information to the HMI*)
 		FileDuplicate : BOOL; (*Flag that a user export file already exists with the specified name*)
 		UserXHmiState : HmiStateEnum; (*State variable for HMI interaction*)
+		LastMgrConnectStatus : MpUserXUIStatusEnum;
+		ExportComplete : BOOL;
+		UserExportDisplayed : BOOL;
 	END_STRUCT;
 END_TYPE
 

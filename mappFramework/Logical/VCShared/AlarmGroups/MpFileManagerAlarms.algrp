@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
+<AlarmGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpFileManagerAlarms">
+  <Property Name="AcknowledgeImage" Value="Source[global].Variable[DataSource.MpFileManagerAlarmUIConnect.AcknowledgeImage]"/>
+  <Property Name="ActiveBackColor" Value="4"/>
+  <Property Name="ActiveForeColor" Value="0"/>
+  <Property Name="AlarmImage" Value="Source[global].Variable[DataSource.MpFileManagerAlarmUIConnect.AlarmImage]"/>
+  <Property Name="BypassBackColor" Value="14"/>
+  <Property Name="BypassForeColor" Value="0"/>
+  <Property Name="BypassImage" Value="None"/>
+  <Property Name="DefaultBackColor" Value="15"/>
+  <Property Name="DefaultForeColor" Value="0"/>
+  <Property Name="Description" Value="Default alarm collection for MpFileManager"/>
+  <Property Name="GroupAlarm" Value="None"/>
+  <Property Name="ImageOffset" Value="0"/>
+  <Property Name="Index" Value="1000"/>
+  <Property Name="LatchedBackColor" Value="2"/>
+  <Property Name="LatchedForeColor" Value="0"/>
+  <Property Name="Priority" Value="1"/>
+  <Property Name="QuitBackColor" Value="1"/>
+  <Property Name="QuitForeColor" Value="15"/>
+  <Alarms>
+    <Alarm Index="0">
+      <Property Name="Acknowledge" Value="Required"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
+    <Alarm Index="1">
+      <Property Name="Acknowledge" Value="Required"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
+    <Alarm Index="2">
+      <Property Name="Acknowledge" Value="Required"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
+    <Alarm Index="Group">
+      <Property Name="Acknowledge" Value="Possible"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+    </Alarm>
+  </Alarms>
+  <TextGroup>
+    <TextSnippets>
+      <TextSnippet ClassId="0x00002002" Name="AddInfo0">
+        <Property Name="Alignment" Value="Left"/>
+        <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpFileManagerAlarmUIConnect.AddInfo[0]]"/>
+        <Property Name="Description" Value=""/>
+        <Property Name="FillCharacter" Value=""/>
+        <Property Name="MaxChars" Value="None"/>
+        <Property Name="MinChars" Value="None"/>
+        <Property Name="Persistent" Value="True"/>
+      </TextSnippet>
+      <TextSnippet ClassId="0x00002002" Name="AddInfo1">
+        <Property Name="Alignment" Value="Left"/>
+        <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpFileManagerAlarmUIConnect.AddInfo[1]]"/>
+        <Property Name="Description" Value=""/>
+        <Property Name="FillCharacter" Value=""/>
+        <Property Name="MaxChars" Value="None"/>
+        <Property Name="MinChars" Value="None"/>
+        <Property Name="Persistent" Value="True"/>
+      </TextSnippet>
+      <TextSnippet ClassId="0x00002002" Name="AddInfo2">
+        <Property Name="Alignment" Value="Left"/>
+        <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpFileManagerAlarmUIConnect.AddInfo[2]]"/>
+        <Property Name="Description" Value=""/>
+        <Property Name="FillCharacter" Value=""/>
+        <Property Name="MaxChars" Value="None"/>
+        <Property Name="MinChars" Value="None"/>
+        <Property Name="Persistent" Value="True"/>
+      </TextSnippet>
+    </TextSnippets>
+    <TextLayer LanguageId="en">
+      <Text ID="481" Value="Operation failed because the device (e.g. USB stick) was not found {AddInfo0}"/>
+      <Text ID="482" Value="Operation failed because file/directory already exists (no overwrite). {AddInfo1}"/>
+      <Text ID="483" Value="General error from the file system (should cover all other exceptions) {AddInfo2}"/>
+      <Text ID="422" Value=""/>
+    </TextLayer>
+    <TextLayer LanguageId="de">
+      <Text ID="481" Value="Vorgang fehlgeschlagen. Speichermedium (z.B. USB Stick) wurde nicht gefunden {AddInfo0}"/>
+      <Text ID="482" Value="Vorgang fehlgeschlagen. Datei/Ordner existiert bereits (kein Überschreiben) {AddInfo1}"/>
+      <Text ID="483" Value="Genereller Fehler im Dateisystem (soll alle anderen Ausnahmen decken) {AddInfo2}"/>
+      <Text ID="422" Value=""/>
+    </TextLayer>
+    <TextLayer LanguageId="zh">
+      <Text ID="481" Value="操作失败，因为未找到设备（例如 USB 记忆棒）{AddInfo0}"/>
+      <Text ID="482" Value="操作失败，因为文件/目录已经存在（没有覆盖）。 {AddInfo1}"/>
+      <Text ID="483" Value="来自文件系统的一般错误（应该涵盖所有其他异常）{AddInfo2}"/>
+      <Text ID="422" Value=""/>
+    </TextLayer>
+    <IndexMap>
+      <Index ID="481" Value="0"/>
+      <Index ID="482" Value="1"/>
+      <Index ID="483" Value="2"/>
+      <Index ID="422" Value="Group"/>
+    </IndexMap>
+  </TextGroup>
+</AlarmGroup>

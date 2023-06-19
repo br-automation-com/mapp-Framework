@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpUserXUIMessageBox">
+  <Property Name="Description" Value="Message box text for UserXUI"/>
+  <Property Name="Index" Value="2112"/>
+  <TextSnippets>
+    <TextSnippet ClassId="0x00002004" Name="ErrorText">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.UserXMgrUIConnect.MessageBox.ErrorNumber]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[MpUserXUIErrorText]"/>
+      <Property Name="TextIndexOffset" Value="0"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002002" Name="SelectedUser">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.UserXMgrUIConnect.User.Info.UserName]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002004" Name="LoginError">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.UserXLoginUIConnect.MessageBox.ErrorNumber]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[MpUserXUIErrorText]"/>
+      <Property Name="TextIndexOffset" Value="0"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002002" Name="SelectedGroup">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.UserX.UserXMgr.UserXMgrUIConnect.Role.Info.Name]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+    </TextSnippet>
+  </TextSnippets>
+  <TextLayer LanguageId="en">
+    <Text ID="286313" Value="{ErrorText}"/>
+    <Text ID="286314" Value="Do you really want to delete user {SelectedUser}?"/>
+    <Text ID="286315" Value="Do you really want to lock the user {SelectedUser}? The user will be no longer allowed to log in!"/>
+    <Text ID="286316" Value="Do you really want to unlock the user {SelectedUser}? The user will be able to log in again!"/>
+    <Text ID="286317" Value="{LoginError}"/>
+    <Text ID="286318" Value=""/>
+    <Text ID="286319" Value=""/>
+    <Text ID="286320" Value="Do you really want to delete group {SelectedGroup}?"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="286313" Value="{ErrorText}"/>
+    <Text ID="286314" Value="Möchten sie wirklich den Benutzer {SelectedUser} löschen?"/>
+    <Text ID="286315" Value="Wollen Sie wirklich den Benutzer {SelectedUser} sperren? Der Benutzer wird nicht mehr gestattet sich anzumelden!"/>
+    <Text ID="286316" Value="Wollen Sie wirklich den Benutzer {SelectedUser} entsperren? Der Benutzer wird es wieder gestattet sich anzumelden!"/>
+    <Text ID="286317" Value="{LoginError}"/>
+    <Text ID="286318" Value=""/>
+    <Text ID="286319" Value=""/>
+    <Text ID="286320" Value="Möchten sie wirklich die Gruppe {SelectedGroup} löschen?"/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="286313" Value="{ErrorText}"/>
+    <Text ID="286314" Value="您真的要删除用户 {SelectedUser} 吗？"/>
+    <Text ID="286315" Value="您真的要锁定用户 {SelectedUser} 吗？ 该用户将不再被允许登录！"/>
+    <Text ID="286316" Value="您真的要解锁用户 {SelectedUser} 吗？ 用户将能够再次登录！"/>
+    <Text ID="286317" Value="{LoginError}"/>
+    <Text ID="286318" Value=""/>
+    <Text ID="286319" Value=""/>
+    <Text ID="286320" Value="您真的要删除组 {SelectedGroup} 吗？"/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="286313" Value="1"/>
+    <Index ID="286314" Value="2"/>
+    <Index ID="286315" Value="3"/>
+    <Index ID="286316" Value="4"/>
+    <Index ID="286317" Value="101"/>
+    <Index ID="286318" Value="0"/>
+    <Index ID="286319" Value="100"/>
+    <Index ID="286320" Value="5"/>
+  </IndexMap>
+</TextGroup>

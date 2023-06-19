@@ -209,7 +209,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_2" comment="Displays warning about duplicate file">
+    <EventBinding id="ValueChanged.Event.FileDuplicate" comment="Displays warning about duplicate file">
       <Source xsi:type="opcUa.Event" refId="::UserXMgr:HmiUserX.Status.FileDuplicate" event="ValueChanged" />
       <EventHandler condition="newValue = true">
         <Action>
@@ -219,7 +219,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_1">
+    <EventBinding id="ValueChanged.SessionEvent.UserXRefreshList">
       <Source xsi:type="session.Event" refId="UserXRefreshList" event="ValueChanged" />
       <EventHandler condition="newValue = true">
         <Sequence>
@@ -275,6 +275,27 @@
             <Method xsi:type="session.VariableAction.SetValueBool" value="true" />
           </Target>
         </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="HmiUserX.Status.ExportComplete.ValueChanged">
+      <Source xsi:type="opcUa.Event" refId="::UserXMgr:HmiUserX.Status.ExportComplete" event="ValueChanged" />
+      <EventHandler condition="newValue = true">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::UserXMgr:HmiUserX.Status.UserExportDisplayed">
+                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/UserX/UserXListExportBody" header="$IAT/mappFramework/UserX/UserXListExportHeader" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
       </EventHandler>
     </EventBinding>
   </Bindings>

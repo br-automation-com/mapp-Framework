@@ -1,6 +1,16 @@
+(*Recipe*)
 VAR CONSTANT
+	MACH_CONFIG_CATEGORY_INDEX : USINT := 1; (*Recipe category index for machine config*)
+	PARAMETERS_CATEGORY_INDEX : USINT := 0; (*Recipe category index for machine parameters*)
 	PARAMETERS_CATEGORY : STRING[10] := 'Parameters'; (*Recipe category for runtime parameters*)
 	MACHINE_CONFIGURATION_CATEGORY : STRING[30] := 'Machine Configuration'; (*Recipe category for machine configuration settings*)
+	DEFAULT_PARAMETERS : STRING[20] := 'Default'; (*Default parameters recipe file name*)
+	PARAMETERS_FILE_EXTENSION : STRING[10] := '.par'; (*File extension for parameter recipe files*)
+	DEFAULT_MACHINE_CONFIGURATION : STRING[20] := 'Machine'; (*Default machine configuration recipe file name*)
+	MACHINE_CONFIG_FILE_EXTENSION : STRING[10] := '.mcfg'; (*File extension for machine configuration recipe files*)
+END_VAR
+(*File*)
+VAR CONSTANT
 	MAX_IDX_USB_DEV_LIST : USINT := 2; (*Maximum number of USB storage devices. Value 2 = 2 USB devices (index 0 and 1)*)
 	IDX_USB_DEV_LIST : USINT := MAX_IDX_USB_DEV_LIST - 1; (*Maximum number of USB storage devices.*)
 END_VAR

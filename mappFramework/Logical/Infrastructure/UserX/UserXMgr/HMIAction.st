@@ -35,7 +35,7 @@ ACTION HMIAction:
 		HmiUserX.Status.UserXHmiState := USERX_NEW_EXPORT;
 	END_IF
 
-	//Duplicate file checks
+	// Duplicate file checks
 	HmiUserX.Status.FileDuplicate := FALSE;
 	FOR i := 0 TO ((SIZEOF(UserXMgrUIConnect.Import.Dialog.List.FileNames) / SIZEOF(UserXMgrUIConnect.Import.Dialog.List.FileNames[0])) - 1) DO
 		temp := UserXMgrUIConnect.Export.Dialog.FileName;
@@ -52,6 +52,17 @@ ACTION HMIAction:
 	ELSIF NOT HmiUserX.Status.FileDuplicate AND HmiUserX.Commands.Export THEN
 		UserXMgrUIConnect.Export.Dialog.Confirm := TRUE;
 		HmiUserX.Commands.Export := FALSE;
+	END_IF
+	
+	// Export confirmation pop-up handling
+	IF (HmiUserX.Status.LastMgrConnectStatus = mpUSERX_UI_STATUS_WAIT_DLG) AND (UserXMgrUIConnect.Status = mpUSERX_UI_STATUS_IDLE) AND UserXMgrUIConnect.Export.Dialog.Confirm THEN
+		HmiUserX.Status.ExportComplete := TRUE;
+	END_IF
+	
+	IF HmiUserX.Status.UserExportDisplayed THEN
+		HmiUserX.Status.ExportComplete := FALSE;
+		HmiUserX.Status.UserExportDisplayed := FALSE;
+		UserXMgrUIConnect.Export.Dialog.Confirm := FALSE;
 	END_IF
 
 END_ACTION

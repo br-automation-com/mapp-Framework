@@ -59,6 +59,9 @@ PROGRAM _CYCLIC
 
 	// Call all cyclic actions
 	HMIAction;
+	
+	// Saving last status of UserXMgrUIconnect
+	HmiUserX.Status.LastMgrConnectStatus := UserXMgrUIConnect.Status;
 
 	// Assign MpLinks & address references
 	MpUserXManagerUI_0.MpLink := ADR(gMpLinkUserXLogin);

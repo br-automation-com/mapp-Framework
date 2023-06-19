@@ -238,7 +238,7 @@ ACTION RecipeHMIcommands:
 
 	// Set whether the loading .gif should be shown on the HMI
 	HmiRecipe.Status.LoadingRecipeList := (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_REFRESH);
-	HmiRecipe.Status.DefaultRecipeSelected := (HmiRecipe.Status.SelectedRecipe = 'Default.par') OR (HmiRecipe.Status.SelectedRecipe = 'Machine.mcfg');
+	HmiRecipe.Status.DefaultRecipeSelected := (HmiRecipe.Status.SelectedRecipe = CONCAT(DEFAULT_PARAMETERS,PARAMETERS_FILE_EXTENSION)) OR (HmiRecipe.Status.SelectedRecipe = CONCAT(DEFAULT_MACHINE_CONFIGURATION, MACHINE_CONFIG_FILE_EXTENSION));
 	
 	// Update status information
 	HmiRecipe.Status.LastStatus := MpRecipeUIConnect.Status;

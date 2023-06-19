@@ -12,7 +12,6 @@ ACTION ReportFormat:
 		HmiReport.Parameters.Name := 'SimpleReport';		
 		HmiReport.Status.CurrentFormat := FORMAT_SIMPLE;
 	ELSE
-		MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);
 		MpReportCore_0.Enable := TRUE;
 	END_IF
 	

@@ -8,13 +8,14 @@
 PROGRAM _INIT
 
 	// Inititialize mapp function block
-	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipeFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := 'mappAuditFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[2] := 'mappReportFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[3] := 'mappDataFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := 'mappBackupFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := 'mappAlarmXFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappUserXFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'USER';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := 'mappRecipeFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[2] := 'mappAuditFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[3] := 'mappReportFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := 'mappDataFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := 'mappBackupFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappAlarmXFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[7] := 'mappUserXFiles';
 	MpFileManagerUI_0.Enable := TRUE;
 	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
 	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
@@ -65,13 +66,14 @@ PROGRAM _INIT
 	PathCheck.Folder[5] := 'AlarmX';
 	PathCheck.Folder[6] := 'UserX';
 
-	HmiFile.Status.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"mappRecipeFiles"}';
-	HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappAuditFiles","text":"mappAuditFiles"}';
-	HmiFile.Status.DeviceDataProvider[2] := '{"value":"mappReportFiles","text":"mappReportFiles"}';
-	HmiFile.Status.DeviceDataProvider[3] := '{"value":"mappDataFiles","text":"mappDataFiles"}';
-	HmiFile.Status.DeviceDataProvider[4] := '{"value":"mappBackupFiles","text":"mappBackupFiles"}';
-	HmiFile.Status.DeviceDataProvider[5] := '{"value":"mappAlarmXFiles","text":"mappAlarmXFiles"}';
-	HmiFile.Status.DeviceDataProvider[6] := '{"value":"mappUserXFiles","text":"mappUserXFiles"}';
+	HmiFile.Status.DeviceDataProvider[0] := '{"value":"USER","text":"UserPath"}';
+	HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappRecipeFiles","text":"mappRecipeFiles"}';
+	HmiFile.Status.DeviceDataProvider[2] := '{"value":"mappAuditFiles","text":"mappAuditFiles"}';
+	HmiFile.Status.DeviceDataProvider[3] := '{"value":"mappReportFiles","text":"mappReportFiles"}';
+	HmiFile.Status.DeviceDataProvider[4] := '{"value":"mappDataFiles","text":"mappDataFiles"}';
+	HmiFile.Status.DeviceDataProvider[5] := '{"value":"mappBackupFiles","text":"mappBackupFiles"}';
+	HmiFile.Status.DeviceDataProvider[6] := '{"value":"mappAlarmXFiles","text":"mappAlarmXFiles"}';
+	HmiFile.Status.DeviceDataProvider[7] := '{"value":"mappUserXFiles","text":"mappUserXFiles"}';
 
 	// Calculate offset for potential additional USB devices
 	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO

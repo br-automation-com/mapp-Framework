@@ -17,14 +17,14 @@ PROGRAM _INIT
 	AxisInit;
 
 	// Call initialization variables
-	RestorePosition;
+	RestorePosition_AxisTemplate;
 
 	// Initialize homing mode
 	MpAxisParameters.Homing.Mode := mcHOMING_DEFAULT;
 
 	// Enable mapp function blocks
-	MpAlarmXCore_0.Enable := TRUE;
 	MpAxisBasic_0.Enable := TRUE;
+	MpAlarmXCore_0.Enable := TRUE;	
 
 END_PROGRAM
 

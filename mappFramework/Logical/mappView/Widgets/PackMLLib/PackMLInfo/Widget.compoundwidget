@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CompoundWidget id="PackMLInfo" width="410" height="230" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+  	<Widget xsi:type="widgets.brease.GroupBox" id="grpPackMLInfo" top="0" left="0" width="410" height="230" zIndex="0" style="Infobox">
+      <Widgets>        
+        <Widget xsi:type="widgets.brease.Label" 		id="lblModuleName" 		top="10" left="20" width="160" zIndex="1" text="Module Name:" fontSize="16px" />
+        <Widget xsi:type="widgets.brease.Label" 		id="lblStateCurrent" 	top="50" left="20" width="160" zIndex="2" text="State Current:" fontSize="16px" />
+        <Widget xsi:type="widgets.brease.Label" 		id="lblSubStateCurrent" top="90" left="20" width="160" zIndex="3" text="Sub State Current:" fontSize="16px" />
+        <Widget xsi:type="widgets.brease.Label" 		id="lblStateInfo" 		top="130" left="20" width="160" zIndex="4" text="State Info:" fontSize="16px" />
+		<Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutModuleName" 	top="10" left="190" width="210" zIndex="0" />
+        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutStateCurr" 	top="50" left="190" width="210" zIndex="5" />
+        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutSubStateCurr" top="90" left="190" width="210" zIndex="6" />
+        <Widget xsi:type="widgets.brease.TextOutput" 	id="txtOutStateInfo" 	top="130" left="190" width="210" height="60" zIndex="7" breakWord="true" multiLine="true" textAlign="left top"/>
+      </Widgets>
+    </Widget>
+	<!--<Widget xsi:type="widgets.brease.ImageList" 	id="numOutSubStateCurr" 	top="0" left="0" width="1" height="1" 	zIndex="10" imageList="['']"  visible="false" selectedIndex="0"/>-->
+	<Widget xsi:type="widgets.brease.ImageList" 	id="numOutStateCurr" 		top="0" left="0" width="1" height="1" 	zIndex="11" imageList="['']"  visible="false" selectedIndex="-1"/>
+	<Widget xsi:type="widgets.brease.DropDownBox" 	id="numOutSubStateCurr" top="0" left="0" width="1" height="1" 	zIndex="10" visible="false" selectedIndex="-1" />
+  </Widgets>
+  <Properties>
+  
+    <Property xsi:type="StructureBindableProperty" name="PackMLInfo" type="MpPackMLModulePVType" category="Data" readOnly="false" required="false">
+	<Description>Bind to the robot service interface</Description>
+		<Mappings>
+       <!-- OUTPUT -->
+	   		<Mapping widget="txtOutModuleName"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="Name" />
+			<Mapping widget="numOutStateCurr"   	type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="StateCurrent" />
+			<Mapping widget="numOutSubStateCurr"   	type="Number"  property="selectedIndex" mode="twoWay" mapToNode="false"  memberPath="SubStateCurrent" />
+			<Mapping widget="txtOutStateInfo"   	type="String"  property="value" mode="twoWay" mapToNode="false"  memberPath="StateInfo" />			
+		</Mappings>
+	</Property>
+  
+	<Property xsi:type="NonBindableProperty" name="text" type="String" defaultValue="PackML Info" category="Appearance" required="false">
+      <Description>Text for box</Description>
+      <Mappings>
+        <Mapping widget="grpPackMLInfo" property="text"/>		
+      </Mappings>
+    </Property>
+	
+	<Property xsi:type="NonBindableProperty" name="dataProvider" type="ItemCollection" defaultValue="[{'value':'0','text':''},{'value':'1','text':'SubState 1'}]" category="Data" required="false">
+      <Description>Dataprovider for sub state current</Description>
+      <Mappings>
+        <Mapping widget="numOutSubStateCurr" property="dataProvider"/>		
+      </Mappings>
+    </Property>
+    <!-- 
+    Simple non bindable property:
+    Property Attributes
+    xsi:type: NonBindableProperty
+    name: name of the property (not allowed: width, height, top, left, id, enable, visible, zindex, margin, premissionview, permissionoperate, description)
+    <Property xsi:type="NonBindableProperty" name="" type="" defaultValue="" required="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" property=""/>
+        <Mapping widget="" property=""/>
+      </Mappings>
+    </Property>
+    
+    Simple bindable property:
+    <Property xsi:type="BindableProperty" name="" type="" defaultValue="" readOnly="" category="" localizable="" typeRefId="" nodeRefId="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" property="" mode=""/>
+        <Mapping widget="" property="" mode=""/>
+      </Mappings>
+    </Property>
+
+
+    Structure bindable property:
+		<Property xsi:type="StructureBindableProperty" name="" type="" readOnly="" >
+			<Description>Description will be shown in property grid.</Description>
+			<Mappings>
+				<Mapping widget="" type="" property="" mode="" memberPath="" mapToNode=""/>
+				<Mapping widget="" type="" property="" mode="" memberPath="" mapToNode=""/>
+				<Mapping widget="" type="" property="" mode="" memberPath="" mapToNode=""/>
+			</Mappings>
+		</Property>
+    -->
+  </Properties>
+
+  <Events>
+    <!--
+    <Event name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" event="" />
+      </Mappings>
+    </Event>
+    -->
+  </Events>
+
+  <Actions>
+    <!--
+    <Action name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" action="" />
+      </Mappings>
+    </Action>
+    -->
+  </Actions>
+
+  <EventBindings>
+    <EventBinding id="StateCurrent">
+      <Source xsi:type="widget.Event" widgetRefId="numOutStateCurr" event="SelectedIndexChanged" />
+      <EventHandler condition="selectedIndex = 0">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 1">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.1" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 2">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.2" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 3">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.3" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 4">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.4" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 5">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.5" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 6">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.6" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 7">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.7" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 8">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.8" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 9">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.9" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 10">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.10" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 11">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.11" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 12">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.12" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 13">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.13" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 14">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.14" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 15">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.15" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 16">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.16" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 17">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.17" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 30">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.30" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 31">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.31" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 32">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutStateCurr">
+            <Method name="SetValue" value="$IAT/PackML.State.32" />
+          </Target>
+        </Action>
+      </EventHandler>
+	</EventBinding>
+	
+	<EventBinding id="SubStateCurrent">
+      <Source xsi:type="widget.Event" widgetRefId="numOutSubStateCurr" event="SelectedIndexChanged" /> 
+      <EventHandler condition="selectedIndex = 0">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSubStateCurr">
+            <Method name="SetValue" value="=selectedValue" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 1">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSubStateCurr">
+            <Method name="SetValue" value="=selectedValue" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 2">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSubStateCurr">
+            <Method name="SetValue" value="=selectedValue" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 3">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSubStateCurr">
+            <Method name="SetValue" value="=selectedValue" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 4">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSubStateCurr">
+            <Method name="SetValue" value="=selectedValue" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 5">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSubStateCurr">
+            <Method name="SetValue" value="=selectedValue" />
+          </Target>
+        </Action>
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 6">
+        <Action>
+          <Target xsi:type="widget.Action" widgetRefId="txtOutSubStateCurr">
+            <Method name="SetValue" value="=selectedValue" />
+          </Target>
+        </Action>
+      </EventHandler>
+	</EventBinding>
+	
+  </EventBindings>
+
+</CompoundWidget>

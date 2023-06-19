@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
+<AlarmGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpPackMLAlarms">
+  <Property Name="AcknowledgeImage" Value="Source[global].Variable[DataSource.MpPackMLAlarmUIConnect.AcknowledgeImage]"/>
+  <Property Name="ActiveBackColor" Value="4"/>
+  <Property Name="ActiveForeColor" Value="0"/>
+  <Property Name="AlarmImage" Value="Source[global].Variable[DataSource.MpPackMLAlarmUIConnect.AlarmImage]"/>
+  <Property Name="BypassBackColor" Value="14"/>
+  <Property Name="BypassForeColor" Value="0"/>
+  <Property Name="BypassImage" Value="None"/>
+  <Property Name="DefaultBackColor" Value="15"/>
+  <Property Name="DefaultForeColor" Value="0"/>
+  <Property Name="Description" Value="Default alarm collection for MpPackML"/>
+  <Property Name="GroupAlarm" Value="None"/>
+  <Property Name="ImageOffset" Value="0"/>
+  <Property Name="Index" Value="3000"/>
+  <Property Name="LatchedBackColor" Value="2"/>
+  <Property Name="LatchedForeColor" Value="0"/>
+  <Property Name="Priority" Value="1"/>
+  <Property Name="QuitBackColor" Value="1"/>
+  <Property Name="QuitForeColor" Value="0"/>
+  <Alarms>
+    <Alarm Index="0">
+      <Property Name="Acknowledge" Value="Required"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
+    <Alarm Index="1">
+      <Property Name="Acknowledge" Value="Required"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
+    <Alarm Index="2">
+      <Property Name="Acknowledge" Value="Required"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
+    <Alarm Index="Group">
+      <Property Name="Acknowledge" Value="Possible"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+    </Alarm>
+  </Alarms>
+  <TextGroup>
+    <TextSnippets>
+      <TextSnippet ClassId="0x00002002" Name="AddInfo1">
+        <Property Name="Alignment" Value="Left"/>
+        <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpPackMLAlarmUIConnect.AddInfo[1]]"/>
+        <Property Name="Description" Value=""/>
+        <Property Name="FillCharacter" Value=""/>
+        <Property Name="MaxChars" Value="None"/>
+        <Property Name="MinChars" Value="None"/>
+        <Property Name="Persistent" Value="True"/>
+      </TextSnippet>
+      <TextSnippet ClassId="0x00002002" Name="AddInfo0">
+        <Property Name="Alignment" Value="Left"/>
+        <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpPackMLAlarmUIConnect.AddInfo[0]]"/>
+        <Property Name="Description" Value=""/>
+        <Property Name="FillCharacter" Value=""/>
+        <Property Name="MaxChars" Value="None"/>
+        <Property Name="MinChars" Value="None"/>
+        <Property Name="Persistent" Value="True"/>
+      </TextSnippet>
+      <TextSnippet ClassId="0x00002002" Name="AddInfo2">
+        <Property Name="Alignment" Value="Left"/>
+        <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpPackMLAlarmUIConnect.AddInfo[2]]"/>
+        <Property Name="Description" Value=""/>
+        <Property Name="FillCharacter" Value=""/>
+        <Property Name="MaxChars" Value="None"/>
+        <Property Name="MinChars" Value="None"/>
+        <Property Name="Persistent" Value="True"/>
+      </TextSnippet>
+    </TextSnippets>
+    <TextLayer LanguageId="en">
+      <Text ID="2425" Value="Transition to this state not possible {AddInfo0}"/>
+      <Text ID="2426" Value="Mode transition not possible {AddInfo1}"/>
+      <Text ID="2427" Value="Invalid configuration {AddInfo2}"/>
+      <Text ID="2424" Value=""/>
+    </TextLayer>
+    <TextLayer LanguageId="de">
+      <Text ID="2425" Value="Übergang in diesem Zustand nicht möglich {AddInfo0}"/>
+      <Text ID="2426" Value="Modeübergang nicht möglich {AddInfo1}"/>
+      <Text ID="2427" Value="Ungültige Konfiguration {AddInfo2}"/>
+      <Text ID="2424" Value=""/>
+    </TextLayer>
+    <TextLayer LanguageId="zh">
+      <Text ID="2425" Value="无法转换到此状态 {AddInfo0}"/>
+      <Text ID="2426" Value="模式转换不可能 {AddInfo1}"/>
+      <Text ID="2427" Value="无效配置 {AddInfo2}"/>
+      <Text ID="2424" Value=""/>
+    </TextLayer>
+    <IndexMap>
+      <Index ID="2425" Value="0"/>
+      <Index ID="2426" Value="1"/>
+      <Index ID="2427" Value="2"/>
+      <Index ID="2424" Value="Group"/>
+    </IndexMap>
+  </TextGroup>
+</AlarmGroup>

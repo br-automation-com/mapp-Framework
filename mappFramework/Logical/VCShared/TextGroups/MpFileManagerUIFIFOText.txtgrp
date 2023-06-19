@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpFileManagerUIFIFOText">
+  <Property Name="Description" Value="Text for FileManagerUI"/>
+  <Property Name="Index" Value="1018"/>
+  <TextSnippets>
+    <TextSnippet ClassId="0x00002002" Name="DirName">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.PathInfo.CurrentDir]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002002" Name="DevName">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002001" Name="FileCount">
+      <Property Name="AddFractionDigits" Value="0"/>
+      <Property Name="Alignment" Value="Right"/>
+      <Property Name="Content" Value="Value Unittext"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.PathInfo.FileCount]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+      <Property Name="MinIntegerDigits" Value="1"/>
+      <Property Name="UnitText" Value="Abbreviation"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002001" Name="FolderCount">
+      <Property Name="AddFractionDigits" Value="0"/>
+      <Property Name="Alignment" Value="Right"/>
+      <Property Name="Content" Value="Value Unittext"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.PathInfo.FolderCount]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+      <Property Name="MinIntegerDigits" Value="1"/>
+      <Property Name="UnitText" Value="Abbreviation"/>
+    </TextSnippet>
+  </TextSnippets>
+  <TextLayer LanguageId="en">
+    <Text ID="286008" Value="Delete by number of files"/>
+    <Text ID="286009" Value="Delete max folder size"/>
+    <Text ID="286010" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="286008" Value="Löschen bei Dateianzahl"/>
+    <Text ID="286009" Value="Löschen bei maximale Ordergröße"/>
+    <Text ID="286010" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="286008" Value="按文件数删除"/>
+    <Text ID="286009" Value="删除最大文件夹大小"/>
+    <Text ID="286010" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="286008" Value="0"/>
+    <Index ID="286009" Value="1"/>
+    <Index ID="286010" Value="2"/>
+  </IndexMap>
+</TextGroup>

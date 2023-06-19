@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpAuditEventTextSetup">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="0"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="208502" Value="[%[TIME=%u%T]] [%ev$[TEXT=0]]"/>
+    <Text ID="208503" Value="User-Action [%act$[TEXT=g1163]] ([%usr])"/>
+    <Text ID="208504" Value="Signatur ID [%act]: [%typ$[TEXT=g2130]] ([%typt])"/>
+    <Text ID="208505" Value="changed DP:[%dpid$[TEXT=g1161]] [%old$[TEXT=%sel]] to [%new$[TEXT=%sel]]"/>
+    <Text ID="208506" Value="changed VCDP:[%dpid$[TEXT=g1161]] [%old$[TEXT=%sel]] to [%new$[TEXT=%sel]]"/>
+    <Text ID="208507" Value="[%typ$[TEXT=4]]"/>
+    <Text ID="208508" Value="OPC-UA: [%op] - Value [%dpid] changed from [%old] to [%new]"/>
+    <Text ID="208509" Value="User [%op] started batch [%id], last batch [%prev] finished"/>
+    <Text ID="208510" Value="Alarm: [%name], old State: [%stold], new State:[%stnew]"/>
+    <Text ID="208511" Value="[%act$[TEXT=g2129]]"/>
+    <Text ID="208512" Value="PackML mode: Old: [%old] New: [%new]"/>
+    <Text ID="208513" Value="PackML state: Old: [%old] New: [%new]"/>
+    <Text ID="208514" Value="Tweet: [%act$[TEXT=g2131]]"/>
+    <Text ID="208515" Value="[%op] - Buffer was reset"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="208502" Value="[%[TIME=%u%T]] [%ev$[TEXT=0]]"/>
+    <Text ID="208503" Value="Anwender Aktion [%act$[TEXT=g1163]] ([%usr])"/>
+    <Text ID="208504" Value="Signatur ID [%act]: [%typ$[TEXT=g2130]] ([%typt])"/>
+    <Text ID="208505" Value="Geänderter DP:[%dpid$[TEXT=g1161]] [%old$[TEXT=%sel]] to [%new$[TEXT=%sel]]"/>
+    <Text ID="208506" Value="Geänderter VCDP:[%dpid$[TEXT=g1161]] [%old$[TEXT=%sel]] to [%new$[TEXT=%sel]]"/>
+    <Text ID="208507" Value="[%typ$[TEXT=4]]"/>
+    <Text ID="208508" Value="OPC-UA: [%op] - Wert [%dpid] änderte sich von [%old] zu [%new]"/>
+    <Text ID="208509" Value="Benutzer [%op] startet Batch [%id], vorheriger Batch [%prev] beendet"/>
+    <Text ID="208510" Value="Alarm: [%name], alter Zustand: [%stold], neuer Zustand:[%stnew]"/>
+    <Text ID="208511" Value="[%act$[TEXT=g2129]]"/>
+    <Text ID="208512" Value="PackML Modus: Alt: [%old] Neu: [%new]"/>
+    <Text ID="208513" Value="PackML Zustand: Alt: [%old] Neu: [%new]"/>
+    <Text ID="208514" Value="Tweet: [%act$[TEXT=g2131]]"/>
+    <Text ID="208515" Value="[%op] - Buffer wurde zurückgesetzt"/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="208502" Value="[%[TIME=%u%T]] [%ev$[TEXT=0]]"/>
+    <Text ID="208503" Value="用户操作 [%act$[TEXT=g1163]] ([%usr])"/>
+    <Text ID="208504" Value="签名编号D [%act]: [%typ$[TEXT=g2130]] ([%typt])"/>
+    <Text ID="208505" Value="改变了DP:[%dpid$[TEXT=g1161]] [%old$[TEXT=%sel]] 到 [%new$[TEXT=%sel]]"/>
+    <Text ID="208506" Value="变了 VCDP:[%dpid$[TEXT=g1161]] [%old$[TEXT=%sel]] 到 [%new$[TEXT=%sel]]"/>
+    <Text ID="208507" Value="[%typ$[TEXT=4]]"/>
+    <Text ID="208508" Value="OPC-UA: [%op] - 价值 [%dpid] 从 [%old] 到 [%new]"/>
+    <Text ID="208509" Value="用户 [%op] 开始批量 [%id], 最后一批 [%prev] 完成的"/>
+    <Text ID="208510" Value="警报: [%name], 旧州: [%stold], 新状态:[%stnew]"/>
+    <Text ID="208511" Value="[%act$[TEXT=g2129]]"/>
+    <Text ID="208512" Value="PackML 模式: 老的: [%old] 新的: [%new]"/>
+    <Text ID="208513" Value="PackML 态: 老的: [%old] 新的: [%new]"/>
+    <Text ID="208514" Value="Tweet: [%act$[TEXT=g2131]]"/>
+    <Text ID="208515" Value="[%op] - 缓冲区已重置"/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="208502" Value="0"/>
+    <Index ID="208503" Value="2"/>
+    <Index ID="208504" Value="3"/>
+    <Index ID="208505" Value="16"/>
+    <Index ID="208506" Value="17"/>
+    <Index ID="208507" Value="18"/>
+    <Index ID="208508" Value="19"/>
+    <Index ID="208509" Value="20"/>
+    <Index ID="208510" Value="33"/>
+    <Index ID="208511" Value="48"/>
+    <Index ID="208512" Value="64"/>
+    <Index ID="208513" Value="65"/>
+    <Index ID="208514" Value="80"/>
+    <Index ID="208515" Value="2457"/>
+  </IndexMap>
+</TextGroup>

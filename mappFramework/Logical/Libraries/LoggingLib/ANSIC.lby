@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Library Version="2.30.1" SubType="ANSIC" xmlns="http://br-automation.co.at/AS/Library">
+  <Files>
+    <File Description="Exported data types">LoggingLib.typ</File>
+    <File Description="Exported constants">LoggingLib.var</File>
+    <File Description="Exported functions and function blocks">LoggingLib.fun</File>
+    <File>LoggingLib.c</File>
+    <File>AsLoggerInternal.h</File>
+    <File>AsLoggerServer.c</File>
+    <File>AsLoggerFile.c</File>
+    <File>AsLoggerLogBook.c</File>
+    <File>LoggingLibText.tmx</File>
+  </Files>
+  <Dependencies>
+    <Dependency ObjectName="AsTCP" />
+    <Dependency ObjectName="astime" />
+    <Dependency ObjectName="FileIO" />
+    <Dependency ObjectName="ArEventLog" />
+    <Dependency ObjectName="snprintf" />
+    <Dependency ObjectName="Runtime" />
+  </Dependencies>
+</Library>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
+<AlarmGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpRecipeAlarms">
+  <Property Name="AcknowledgeImage" Value="Source[global].Variable[DataSource.MpRecipeAlarmUIConnect.AcknowledgeImage]"/>
+  <Property Name="ActiveBackColor" Value="4"/>
+  <Property Name="ActiveForeColor" Value="0"/>
+  <Property Name="AlarmImage" Value="Source[global].Variable[DataSource.MpRecipeAlarmUIConnect.AlarmImage]"/>
+  <Property Name="BypassBackColor" Value="14"/>
+  <Property Name="BypassForeColor" Value="0"/>
+  <Property Name="BypassImage" Value="None"/>
+  <Property Name="DefaultBackColor" Value="15"/>
+  <Property Name="DefaultForeColor" Value="0"/>
+  <Property Name="Description" Value="Default alarm collection for MpRecipe"/>
+  <Property Name="GroupAlarm" Value="None"/>
+  <Property Name="ImageOffset" Value="0"/>
+  <Property Name="Index" Value="1001"/>
+  <Property Name="LatchedBackColor" Value="2"/>
+  <Property Name="LatchedForeColor" Value="0"/>
+  <Property Name="Priority" Value="1"/>
+  <Property Name="QuitBackColor" Value="1"/>
+  <Property Name="QuitForeColor" Value="15"/>
+  <Alarms>
+    <Alarm Index="0">
+      <Property Name="Acknowledge" Value="Required"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
+    <Alarm Index="1">
+      <Property Name="Acknowledge" Value="Required"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
+    <Alarm Index="2">
+      <Property Name="Acknowledge" Value="Required"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
+    <Alarm Index="3">
+      <Property Name="Acknowledge" Value="Required"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
+    <Alarm Index="Group">
+      <Property Name="Acknowledge" Value="Possible"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+    </Alarm>
+  </Alarms>
+  <TextGroup>
+    <TextSnippets>
+      <TextSnippet ClassId="0x00002002" Name="AddInfo2">
+        <Property Name="Alignment" Value="Left"/>
+        <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpRecipeAlarmUIConnect.AddInfo[2]]"/>
+        <Property Name="Description" Value=""/>
+        <Property Name="FillCharacter" Value=""/>
+        <Property Name="MaxChars" Value="None"/>
+        <Property Name="MinChars" Value="None"/>
+        <Property Name="Persistent" Value="True"/>
+      </TextSnippet>
+      <TextSnippet ClassId="0x00002002" Name="AddInfo1">
+        <Property Name="Alignment" Value="Left"/>
+        <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpRecipeAlarmUIConnect.AddInfo[1]]"/>
+        <Property Name="Description" Value=""/>
+        <Property Name="FillCharacter" Value=""/>
+        <Property Name="MaxChars" Value="None"/>
+        <Property Name="MinChars" Value="None"/>
+        <Property Name="Persistent" Value="True"/>
+      </TextSnippet>
+      <TextSnippet ClassId="0x00002002" Name="AddInfo0">
+        <Property Name="Alignment" Value="Left"/>
+        <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpRecipeAlarmUIConnect.AddInfo[0]]"/>
+        <Property Name="Description" Value=""/>
+        <Property Name="FillCharacter" Value=""/>
+        <Property Name="MaxChars" Value="None"/>
+        <Property Name="MinChars" Value="None"/>
+        <Property Name="Persistent" Value="True"/>
+      </TextSnippet>
+      <TextSnippet ClassId="0x00002002" Name="AddInfo3">
+        <Property Name="Alignment" Value="Left"/>
+        <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpRecipeAlarmUIConnect.AddInfo[3]]"/>
+        <Property Name="Description" Value=""/>
+        <Property Name="FillCharacter" Value=""/>
+        <Property Name="MaxChars" Value="None"/>
+        <Property Name="MinChars" Value="None"/>
+        <Property Name="Persistent" Value="True"/>
+      </TextSnippet>
+      <TextSnippet ClassId="0x00002002" Name="AddInfo4">
+        <Property Name="Alignment" Value="Left"/>
+        <Property Name="Datapoint" Value="Source[global].Variable[DataSource.MpRecipeAlarmUIConnect.AddInfo[4]]"/>
+        <Property Name="Description" Value=""/>
+        <Property Name="FillCharacter" Value=""/>
+        <Property Name="MaxChars" Value="None"/>
+        <Property Name="MinChars" Value="None"/>
+        <Property Name="Persistent" Value="True"/>
+      </TextSnippet>
+    </TextSnippets>
+    <TextLayer LanguageId="en">
+      <Text ID="411" Value="Saving of recipe failed {AddInfo0}"/>
+      <Text ID="412" Value="Saving of recipe failed partially. Parts of the recipe could be written {AddInfo1}"/>
+      <Text ID="413" Value="Loading of recipe failed {AddInfo2}"/>
+      <Text ID="414" Value="Loading of recipe failed partially. Parts of the recipe could be read {AddInfo3}"/>
+      <Text ID="20" Value=""/>
+    </TextLayer>
+    <TextLayer LanguageId="de">
+      <Text ID="411" Value="Rezept speichern fehlgeschlagen {AddInfo0}"/>
+      <Text ID="412" Value="Rezept speichern teilweise fehlgeschlagen. Teile des Rezepts konnten geschrieben werden {AddInfo1}"/>
+      <Text ID="413" Value="Rezept laden fehlgeschlagen {AddInfo2}"/>
+      <Text ID="414" Value="Rezept laden teilweise fehlgeschlagen. Teile des Rezepts konnten gelesen werden {AddInfo3}"/>
+      <Text ID="20" Value=""/>
+    </TextLayer>
+    <TextLayer LanguageId="zh">
+      <Text ID="411" Value="保存食谱失败 {AddInfo0}"/>
+      <Text ID="412" Value="保存食谱部分失败。 部分食谱可以写成 {AddInfo1}"/>
+      <Text ID="413" Value="加载食谱失败 {AddInfo2}"/>
+      <Text ID="414" Value="加载配方部分失败。 可以阅读部分食谱 {AddInfo3}"/>
+      <Text ID="20" Value=""/>
+    </TextLayer>
+    <IndexMap>
+      <Index ID="411" Value="0"/>
+      <Index ID="412" Value="1"/>
+      <Index ID="413" Value="2"/>
+      <Index ID="414" Value="3"/>
+      <Index ID="20" Value="Group"/>
+    </IndexMap>
+  </TextGroup>
+</AlarmGroup>

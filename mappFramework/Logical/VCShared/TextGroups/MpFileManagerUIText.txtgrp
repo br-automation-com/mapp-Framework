@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpFileManagerUIText">
+  <Property Name="Description" Value="Text for FileManagerUI"/>
+  <Property Name="Index" Value="1017"/>
+  <TextSnippets>
+    <TextSnippet ClassId="0x00002002" Name="DirName">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.PathInfo.CurrentDir]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002002" Name="DevName">
+      <Property Name="Alignment" Value="Left"/>
+      <Property Name="Datapoint" Value="None"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002001" Name="FileCount">
+      <Property Name="AddFractionDigits" Value="0"/>
+      <Property Name="Alignment" Value="Right"/>
+      <Property Name="Content" Value="Value Unittext"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.PathInfo.FileCount]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+      <Property Name="MinIntegerDigits" Value="1"/>
+      <Property Name="UnitText" Value="Abbreviation"/>
+    </TextSnippet>
+    <TextSnippet ClassId="0x00002001" Name="FolderCount">
+      <Property Name="AddFractionDigits" Value="0"/>
+      <Property Name="Alignment" Value="Right"/>
+      <Property Name="Content" Value="Value Unittext"/>
+      <Property Name="Datapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.MpFileManagerUIConnect.File.PathInfo.FolderCount]"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="FillCharacter" Value=""/>
+      <Property Name="MaxChars" Value="None"/>
+      <Property Name="MinChars" Value="None"/>
+      <Property Name="MinIntegerDigits" Value="1"/>
+      <Property Name="UnitText" Value="Abbreviation"/>
+    </TextSnippet>
+  </TextSnippets>
+  <TextLayer LanguageId="en">
+    <Text ID="286041" Value="Delete"/>
+    <Text ID="286042" Value="Cut"/>
+    <Text ID="286043" Value="Copy"/>
+    <Text ID="286044" Value="Paste"/>
+    <Text ID="286045" Value="Refresh"/>
+    <Text ID="286046" Value="CurrentPath:{DevName}{DirName}"/>
+    <Text ID="286047" Value="Selected:"/>
+    <Text ID="286048" Value="MultiSelect"/>
+    <Text ID="286049" Value="File(s) {FileCount} / Folder(s) {FolderCount}"/>
+    <Text ID="286050" Value="Current Path"/>
+    <Text ID="286051" Value="MpFileManagerUI"/>
+    <Text ID="286052" Value="No"/>
+    <Text ID="286053" Value="Search keyword"/>
+    <Text ID="286054" Value="Create Dir"/>
+    <Text ID="286055" Value="Rename"/>
+    <Text ID="286056" Value="New Name"/>
+    <Text ID="286057" Value="Sort"/>
+    <Text ID="286058" Value="Status"/>
+    <Text ID="286059" Value="Name"/>
+    <Text ID="286060" Value="Date"/>
+    <Text ID="286061" Value="Size[kbyte]"/>
+    <Text ID="286062" Value="Type"/>
+    <Text ID="286063" Value="Configure FIFO"/>
+    <Text ID="286064" Value="OK"/>
+    <Text ID="286065" Value="FIFO Enable"/>
+    <Text ID="286066" Value="FIFO Device"/>
+    <Text ID="286067" Value="FIFO Option"/>
+    <Text ID="286068" Value="Max Number of Files"/>
+    <Text ID="286069" Value="Scan Interval (Minutes)"/>
+    <Text ID="286070" Value="Max Folder Size (kB)"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="286041" Value="Löschen"/>
+    <Text ID="286042" Value="Ausschn."/>
+    <Text ID="286043" Value="Kopieren"/>
+    <Text ID="286044" Value="Einfügen"/>
+    <Text ID="286045" Value="Refresh"/>
+    <Text ID="286046" Value="Pfad:{DevName}{DirName}"/>
+    <Text ID="286047" Value="Ausgewählt:"/>
+    <Text ID="286048" Value="Mehrfach auswahl"/>
+    <Text ID="286049" Value="Dateien {FileCount} / Ordner {FolderCount}"/>
+    <Text ID="286050" Value="Akt. Pfad"/>
+    <Text ID="286051" Value="MpFileManagerUI"/>
+    <Text ID="286052" Value="Nein"/>
+    <Text ID="286053" Value="Suche"/>
+    <Text ID="286054" Value="Ordner erstellen"/>
+    <Text ID="286055" Value="Um benennen"/>
+    <Text ID="286056" Value="Neuer Name"/>
+    <Text ID="286057" Value="Sortieren"/>
+    <Text ID="286058" Value="Status"/>
+    <Text ID="286059" Value="Name"/>
+    <Text ID="286060" Value="Datum"/>
+    <Text ID="286061" Value="Größe[kbyte]"/>
+    <Text ID="286062" Value="Type"/>
+    <Text ID="286063" Value="Configure FIFO"/>
+    <Text ID="286064" Value="OK"/>
+    <Text ID="286065" Value="FIFO Enable"/>
+    <Text ID="286066" Value="FIFO Device"/>
+    <Text ID="286067" Value="FIFO Option"/>
+    <Text ID="286068" Value="Max Number of Files"/>
+    <Text ID="286069" Value="Scan Interval (Minutes)"/>
+    <Text ID="286070" Value="Max. Ordnergröße (kB)"/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="286041" Value="错误"/>
+    <Text ID="286042" Value="切"/>
+    <Text ID="286043" Value="复制"/>
+    <Text ID="286044" Value="粘贴"/>
+    <Text ID="286045" Value="刷新"/>
+    <Text ID="286046" Value="当前路径：{DevName}{DirName}"/>
+    <Text ID="286047" Value="已选："/>
+    <Text ID="286048" Value="多选"/>
+    <Text ID="286049" Value="文件 {FileCount} / 文件夹 {FolderCount}"/>
+    <Text ID="286050" Value="当前路径"/>
+    <Text ID="286051" Value="MpFileManagerUI"/>
+    <Text ID="286052" Value="不"/>
+    <Text ID="286053" Value="搜索关键词"/>
+    <Text ID="286054" Value="创建目录"/>
+    <Text ID="286055" Value="改名"/>
+    <Text ID="286056" Value="新名字"/>
+    <Text ID="286057" Value="种类"/>
+    <Text ID="286058" Value="地位"/>
+    <Text ID="286059" Value="姓名"/>
+    <Text ID="286060" Value="日期"/>
+    <Text ID="286061" Value="大小[千字节]"/>
+    <Text ID="286062" Value="类型"/>
+    <Text ID="286063" Value="配置先进先出"/>
+    <Text ID="286064" Value="OK"/>
+    <Text ID="286065" Value="FIFO 使能够"/>
+    <Text ID="286066" Value="FIFO 设备"/>
+    <Text ID="286067" Value="FIFO 选项"/>
+    <Text ID="286068" Value="最大文件数"/>
+    <Text ID="286069" Value="扫描间隔（分钟）"/>
+    <Text ID="286070" Value="最大文件夹大小 (kB)"/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="286041" Value="0"/>
+    <Index ID="286042" Value="1"/>
+    <Index ID="286043" Value="2"/>
+    <Index ID="286044" Value="3"/>
+    <Index ID="286045" Value="4"/>
+    <Index ID="286046" Value="5"/>
+    <Index ID="286047" Value="6"/>
+    <Index ID="286048" Value="7"/>
+    <Index ID="286049" Value="9"/>
+    <Index ID="286050" Value="8"/>
+    <Index ID="286051" Value="10"/>
+    <Index ID="286052" Value="11"/>
+    <Index ID="286053" Value="12"/>
+    <Index ID="286054" Value="13"/>
+    <Index ID="286055" Value="14"/>
+    <Index ID="286056" Value="15"/>
+    <Index ID="286057" Value="16"/>
+    <Index ID="286058" Value="17"/>
+    <Index ID="286059" Value="20"/>
+    <Index ID="286060" Value="21"/>
+    <Index ID="286061" Value="22"/>
+    <Index ID="286062" Value="18"/>
+    <Index ID="286063" Value="19"/>
+    <Index ID="286064" Value="23"/>
+    <Index ID="286065" Value="24"/>
+    <Index ID="286066" Value="25"/>
+    <Index ID="286067" Value="26"/>
+    <Index ID="286068" Value="27"/>
+    <Index ID="286069" Value="28"/>
+    <Index ID="286070" Value="29"/>
+  </IndexMap>
+</TextGroup>
