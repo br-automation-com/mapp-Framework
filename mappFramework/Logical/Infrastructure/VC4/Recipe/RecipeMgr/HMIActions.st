@@ -37,7 +37,7 @@ ACTION LoadStatus:
 	// Configure recipe actions
 	HmiRecipe.Status.FilesAvailable := (MpRecipeUIConnect.Recipe.List.Names[0] <> '');
 	HmiRecipe.Status.LoadAllowed := HmiRecipe.Status.FilesAvailable AND NOT HmiRecipe.Status.InvalidRecipe;
-	HmiRecipe.Status.DeviceValid := (MpFileManagerUI_0.StatusID <> mpFILE_ERR_INVALID_FILE_DEV);
+	HmiRecipe.Status.DeviceValid := (MpFileManagerUIRecipe.StatusID <> mpFILE_ERR_INVALID_FILE_DEV);
 
 END_ACTION
 
@@ -148,23 +148,23 @@ ACTION LoadPreview:
 		EDGENEG(HmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_CREATE) THEN		
 		// Check selected recipe name is not empty
 		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
-			MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
-			MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
-			MpRecipe_0.Load := TRUE;
+			MpRecipeSys.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
+			MpRecipeSys.Category := ADR(HmiRecipe.Parameters.Category);
+			MpRecipeSys.Load := TRUE;
 			HmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
 			HmiRecipe.Status.LastMaxSelection := MpRecipeUIConnect.Recipe.List.MaxSelection;
 			HmiRecipe.Status.InvalidRecipe := FALSE;
 		END_IF
 	END_IF
 
-	// Reset load command on MpRecipe_0 FUB
-	IF MpRecipe_0.StatusID <> 0 THEN
+	// Reset load command on MpRecipeSys FUB
+	IF MpRecipeSys.StatusID <> 0 THEN
 		HmiRecipe.Status.InvalidRecipe := TRUE;
 		HmiRecipe.Commands.ResetPreview := TRUE;
 	END_IF;
 
-	IF ((MpRecipe_0.CommandDone = TRUE) OR (MpRecipe_0.Error = TRUE)) THEN
-		MpRecipe_0.Load := FALSE;
+	IF ((MpRecipeSys.CommandDone = TRUE) OR (MpRecipeSys.Error = TRUE)) THEN
+		MpRecipeSys.Load := FALSE;
 	END_IF
 
 END_ACTION
@@ -218,14 +218,14 @@ ACTION RecipeHMIcommands:
 			END_IF
 
 			Header.Name := MpRecipeUIConnect.New.FileName;
-			DTGetTime_0.enable := TRUE;
+			DTGetTimeRecipe.enable := TRUE;
 			REPEAT
-				DTGetTime_0();
-				UNTIL (DTGetTime_0.status = 0)
+				DTGetTimeRecipe();
+				UNTIL (DTGetTimeRecipe.status = 0)
 			END_REPEAT;
-			Header.DateTime := DTGetTime_0.DT1;
-			DTGetTime_0.enable := FALSE;
-			DTGetTime_0();
+			Header.DateTime := DTGetTimeRecipe.DT1;
+			DTGetTimeRecipe.enable := FALSE;
+			DTGetTimeRecipe();
 			MpRecipeUIConnect.New.Create := TRUE;
 
 			HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
@@ -270,8 +270,8 @@ ACTION RecipeHMIcommands:
 				END_IF
 
 				IF (brsstrlen(ADR(HmiRecipe.Status.SelectedRecipe)) > 0) THEN
-					MpRecipe_0.FileName := ADR(HmiRecipe.Status.SelectedRecipe);
-					MpRecipe_0.Save := TRUE;
+					MpRecipeSys.FileName := ADR(HmiRecipe.Status.SelectedRecipe);
+					MpRecipeSys.Save := TRUE;
 				END_IF
 
 				HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
@@ -314,9 +314,9 @@ ACTION RecipeHMIcommands:
 		HmiRecipe.Status.LoadPreviewAfterPageOpened := FALSE;
 		// Check selected recipe name is not empty
 		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
-			MpRecipe_0.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
-			MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
-			MpRecipe_0.Load := TRUE;
+			MpRecipeSys.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
+			MpRecipeSys.Category := ADR(HmiRecipe.Parameters.Category);
+			MpRecipeSys.Load := TRUE;
 			HmiRecipe.Status.LastSelectedIndex := MpRecipeUIConnect.Recipe.List.SelectedIndex;
 			HmiRecipe.Status.LastMaxSelection := MpRecipeUIConnect.Recipe.List.MaxSelection;
 			HmiRecipe.Status.InvalidRecipe := FALSE;
