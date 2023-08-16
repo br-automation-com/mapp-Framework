@@ -2,23 +2,23 @@
 ACTION HmiActions:
 	
 	// Connect HMIPackML Commands to function block
-	MpPackMLModule_Main.Command.Abort := HmiPackML.Commands.Abort;
-	MpPackMLModule_Main.Command.Clear := HmiPackML.Commands.Clear;
-	MpPackMLModule_Main.Command.Hold := HmiPackML.Commands.Hold;
-	MpPackMLModule_Main.Command.Reset := HmiPackML.Commands.Reset;
-	MpPackMLModule_Main.Command.Start := HmiPackML.Commands.Start;
-	MpPackMLModule_Main.Command.Stop := HmiPackML.Commands.Stop;
-	MpPackMLModule_Main.Command.Suspend := HmiPackML.Commands.Suspend;
-	MpPackMLModule_Main.Command.Unhold := HmiPackML.Commands.Unhold;
-	MpPackMLModule_Main.Command.Unsuspend := HmiPackML.Commands.Unsuspend;
+	MpPackMLModuleMain.Command.Abort := HmiPackML.Commands.Abort;
+	MpPackMLModuleMain.Command.Clear := HmiPackML.Commands.Clear;
+	MpPackMLModuleMain.Command.Hold := HmiPackML.Commands.Hold;
+	MpPackMLModuleMain.Command.Reset := HmiPackML.Commands.Reset;
+	MpPackMLModuleMain.Command.Start := HmiPackML.Commands.Start;
+	MpPackMLModuleMain.Command.Stop := HmiPackML.Commands.Stop;
+	MpPackMLModuleMain.Command.Suspend := HmiPackML.Commands.Suspend;
+	MpPackMLModuleMain.Command.Unhold := HmiPackML.Commands.Unhold;
+	MpPackMLModuleMain.Command.Unsuspend := HmiPackML.Commands.Unsuspend;
 	
 	// Allow user to command StateComplete only while machine is in state execute
-	IF MpPackMLModule_Main.StateCurrent = mpPACKML_STATE_EXECUTE THEN
-		MpPackMLModule_Main.Command.StateComplete := HmiPackML.Commands.Complete;
+	IF MpPackMLModuleMain.StateCurrent = mpPACKML_STATE_EXECUTE THEN
+		MpPackMLModuleMain.Command.StateComplete := HmiPackML.Commands.Complete;
 	END_IF
 	
 	// Assign mode configuration based on active mode
-	CASE MpPackMLModule_Main.ModeID OF	
+	CASE MpPackMLModuleMain.ModeID OF	
 		1:
 			HmiPackML.Parameters.StateEnabled := AutomaticMode;
 		2:
@@ -35,18 +35,18 @@ ACTION HmiActions:
 			PackMLBaseModel(HmiPackML.Parameters.StateEnabled,ADR(HmiPackML.Status.PackMLStateModel));
 					
 			//start timer before transitioning to the current state which turns the opacity to 100% creating a blinking effect
-			TON_StateBlink.IN := TRUE;
-			IF TON_StateBlink.Q THEN 
-				HmiPackML.Status.PackMLState := MpPackMLModule_Main.StateCurrent;
-				TON_StateBlink.IN := FALSE;
+			StateBlinkTimer.IN := TRUE;
+			IF StateBlinkTimer.Q THEN 
+				HmiPackML.Status.PackMLState := MpPackMLModuleMain.StateCurrent;
+				StateBlinkTimer.IN := FALSE;
 			END_IF	
 			
 		mpPACKML_STATE_CLEARING..mpPACKML_STATE_COMPLETE:	
 									
-			TON_StateBlink.IN := TRUE;
-			IF TON_StateBlink.Q THEN 
+			StateBlinkTimer.IN := TRUE;
+			IF StateBlinkTimer.Q THEN 
 				HmiPackML.Status.PackMLState := 0;
-				TON_StateBlink.IN := FALSE;
+				StateBlinkTimer.IN := FALSE;
 			END_IF				
 						
 		ELSE	//if the state does't exist because of the synchronized mode use just go back to state 0
@@ -54,11 +54,11 @@ ACTION HmiActions:
 	END_CASE
 
 	// timer function block call
-	TON_StateBlink(PT := t#1s);
+	StateBlinkTimer(PT := t#1s);
 	
 	// copy status info to HMI structure
-	HmiPackML.Status.StateCurrent := MpPackMLModule_Main.Info.StateCurrent;
-	HmiPackML.Status.ModeCurrent := MpPackMLModule_Main.Info.ModeCurrent;
+	HmiPackML.Status.StateCurrent := MpPackMLModuleMain.Info.StateCurrent;
+	HmiPackML.Status.ModeCurrent := MpPackMLModuleMain.Info.ModeCurrent;
 	
 END_ACTION
 	
