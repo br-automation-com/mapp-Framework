@@ -107,9 +107,9 @@ END_ACTION
 
 ACTION FileManager:
 
-	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIBackup);
-	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
-	MpFileManagerUI_0();
+	MpFileManagerUIBackup.MpLink := ADR(gMpLinkFileManagerUIBackup);
+	MpFileManagerUIBackup.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUIBackup();
 	FOR i := 0 TO ((SIZEOF(HmiBackup.Status.FileNames)/SIZEOF(HmiBackup.Status.FileNames[0])) - 1) DO
 		HmiBackup.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
 		HmiBackup.Status.TimeStamps[i] := MpFileManagerUIConnect.File.List.Items[i].LastModified;
