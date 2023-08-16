@@ -8,36 +8,36 @@
 PROGRAM _INIT
 
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('mappAuditFiles'), pName := ADR('/'));
+	DirCreateAudit(enable := TRUE, pDevice := ADR('mappAuditFiles'), pName := ADR('/'));
 
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
-		DirCreate_0(enable := FALSE);
+	IF DirCreateAudit.status = fiERR_DIR_ALREADY_EXIST THEN
+		DirCreateAudit(enable := FALSE);
 	END_IF
 
 	// Initialize mapp function blocks
-	MpAuditTrail_0.Enable := TRUE;
-	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrail_0.Language := ADR('en');
-	MpAuditTrail_0.DeviceName := ADR('mappAuditFiles');
-	MpAuditTrail_0();
+	MpAuditTrailSys.Enable := TRUE;
+	MpAuditTrailSys.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailSys.Language := ADR('en');
+	MpAuditTrailSys.DeviceName := ADR('mappAuditFiles');
+	MpAuditTrailSys();
 
-	MpAuditTrailConfig_0.Enable := TRUE;
-	MpAuditTrailConfig_0.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrailConfig_0.Configuration := ADR(AuditTrailConfig);
-	MpAuditTrailConfig_0.Load := TRUE;
-	MpAuditTrailConfig_0();
+	MpAuditTrailConfigSys.Enable := TRUE;
+	MpAuditTrailConfigSys.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailConfigSys.Configuration := ADR(AuditTrailConfig);
+	MpAuditTrailConfigSys.Load := TRUE;
+	MpAuditTrailConfigSys();
 
-	MpAuditTrail_CEvents.Enable := TRUE;
-	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
-	MpAuditTrail_CEvents();
+	MpAuditTrailCEvents.Enable := TRUE;
+	MpAuditTrailCEvents.MpLink := ADR(gMpLinkCustomEvents);
+	MpAuditTrailCEvents();
 
-	MpAuditTrailUI_0.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrailUI_0.UIConnect := ADR(MpAuditTrailUIConnect);
-	MpAuditTrailUI_0.UISetup.EventListSize := SIZEOF(MpAuditTrailUIConnect.Output.EventID) / SIZEOF(MpAuditTrailUIConnect.Output.EventID[0]);
-	MpAuditTrailUI_0.UISetup.ScrollWindow := 1;
-	MpAuditTrailUI_0.Enable := TRUE;
-	MpAuditTrailUI_0();
+	MpAuditTrailUISys.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailUISys.UIConnect := ADR(MpAuditTrailUIConnect);
+	MpAuditTrailUISys.UISetup.EventListSize := SIZEOF(MpAuditTrailUIConnect.Output.EventID) / SIZEOF(MpAuditTrailUIConnect.Output.EventID[0]);
+	MpAuditTrailUISys.UISetup.ScrollWindow := 1;
+	MpAuditTrailUISys.Enable := TRUE;
+	MpAuditTrailUISys();
 	
 	// Initialize custom events
 	CustomEvent[0].Type := "Custom Event Type";
@@ -96,40 +96,40 @@ PROGRAM _CYCLIC
 	END_IF
 
 	// Error reset
-	IF NOT MpAuditTrail_0.Error THEN
-		MpAuditTrail_0.ErrorReset := FALSE;
+	IF NOT MpAuditTrailSys.Error THEN
+		MpAuditTrailSys.ErrorReset := FALSE;
 	END_IF
 
 	// Assign MpLinks & address references
-	MpAuditTrail_0.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrail_0.DeviceName := ADR('mappAuditFiles');
-	MpAuditTrailConfig_0.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrailConfig_0.Configuration := ADR(AuditTrailConfig);
-	MpAuditTrail_CEvents.MpLink := ADR(gMpLinkCustomEvents);
-	MpAuditTrailUI_0.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrailUI_0.UIConnect := ADR(MpAuditTrailUIConnect);
+	MpAuditTrailSys.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailSys.DeviceName := ADR('mappAuditFiles');
+	MpAuditTrailConfigSys.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailConfigSys.Configuration := ADR(AuditTrailConfig);
+	MpAuditTrailCEvents.MpLink := ADR(gMpLinkCustomEvents);
+	MpAuditTrailUISys.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailUISys.UIConnect := ADR(MpAuditTrailUIConnect);
 
 	// Call function blocks
-	MpAuditTrail_0();
-	MpAuditTrailConfig_0();
-	MpAuditTrail_CEvents();
-	MpAuditTrailUI_0();
+	MpAuditTrailSys();
+	MpAuditTrailConfigSys();
+	MpAuditTrailCEvents();
+	MpAuditTrailUISys();
 
 END_PROGRAM
 
 PROGRAM _EXIT
 
 	// Disable the function blocks to unlink the MpLinks
-	MpAuditTrail_0.Enable := FALSE;
-	MpAuditTrailConfig_0.Enable := FALSE;
-	MpAuditTrail_CEvents.Enable := FALSE;
-	MpAuditTrailUI_0.Enable := FALSE;
+	MpAuditTrailSys.Enable := FALSE;
+	MpAuditTrailConfigSys.Enable := FALSE;
+	MpAuditTrailCEvents.Enable := FALSE;
+	MpAuditTrailUISys.Enable := FALSE;
 
 	// Call function blocks
-	MpAuditTrail_0();
-	MpAuditTrailConfig_0();
-	MpAuditTrail_CEvents();
-	MpAuditTrailUI_0();
+	MpAuditTrailSys();
+	MpAuditTrailConfigSys();
+	MpAuditTrailCEvents();
+	MpAuditTrailUISys();
 
 END_PROGRAM
 
