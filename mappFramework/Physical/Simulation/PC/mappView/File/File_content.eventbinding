@@ -177,10 +177,10 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="MpFileManagerUI_0.Info.Diag.StatusID.Code.ValueChanged">
-      <Source xsi:type="opcUa.Event" refId="::FileMgr:MpFileManagerUI_0.Info.Diag.StatusID.Code" event="ValueChanged" />
+    <EventBinding id="MpFileManagerUISys.Info.Diag.StatusID.Code.ValueChanged">
+      <Source xsi:type="opcUa.Event" refId="::FileMgr:MpFileManagerUISys.Info.Diag.StatusID.Code" event="ValueChanged" />
       <Operand datatype="ANY_INT" name="CodeType">
-        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:MpFileManagerUI_0.Info.Diag.StatusID.Code">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::FileMgr:MpFileManagerUISys.Info.Diag.StatusID.Code">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
