@@ -6,6 +6,8 @@ ACTION AxisStateMachine:
 	IsHomedEdgePos();
 	ReferenceEdgePos.CLK := AxisControl.Command.Reference;
 	ReferenceEdgePos();
+	ZeroPendingAlarmsEdgePos.CLK := (MpAlarmXCore_0.PendingAlarms = 0);
+	ZeroPendingAlarmsEdgePos();
 
 	CASE State OF
 		STATE_STOPPING..STATE_RESETTING:
@@ -167,7 +169,7 @@ ACTION AxisStateMachine:
 		// In this State the module attempts to clear any outstanding errors.  No hazardous motion should occur in this State.
 		STATE_RESETTING:
 			ResetAllAxisCommands;
-			IF (AxisControl.Command.Reset = TRUE) OR ((MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') = FALSE) AND EDGEPOS(MpAlarmXCore_0.PendingAlarms = 0)) THEN
+			IF (AxisControl.Command.Reset = TRUE) OR ((MpAlarmXCheckReaction(gMpLinkAlarmXCore, 'Error') = FALSE) AND ZeroPendingAlarmsEdgePos.Q) THEN
 				AxisControl.Status.Busy := TRUE;
 				AxisControl.Command.Reset := FALSE;
 				MpAxisBasic_0.ErrorReset := TRUE;
