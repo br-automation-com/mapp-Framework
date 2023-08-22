@@ -11,9 +11,9 @@ END_ACTION
 
 ACTION VC4_Cyclic:
 
-	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
-	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
-	MpFileManagerUI_0();
+	MpFileManagerUISys.MpLink := ADR(gMpLinkFileManagerUIFile);
+	MpFileManagerUISys.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUISys();
 
 	FOR i := 0 TO ((SIZEOF(HmiFile.Status.FileNames)/SIZEOF(HmiFile.Status.FileNames[0])) - 1) DO
 		HmiFile.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;

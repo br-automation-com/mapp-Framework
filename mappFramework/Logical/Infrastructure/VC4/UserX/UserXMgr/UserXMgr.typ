@@ -1,7 +1,7 @@
 (*Structure types*)
 
 TYPE
-	HMIUser_Typ : 	STRUCT 
+	UserXHmiInterfaceType : 	STRUCT 
 		NewFileName : STRING[255];
 		Export : BOOL;
 		ConfirmOverwrite : BOOL;
@@ -18,7 +18,7 @@ END_TYPE
 (*Enumerations*)
 
 TYPE
-	enumCheckState : 
+	HmiStateEnum : 
 		(
 		USERX_START := 0,
 		USERX_WAIT_FOR_DIALOG := 1,

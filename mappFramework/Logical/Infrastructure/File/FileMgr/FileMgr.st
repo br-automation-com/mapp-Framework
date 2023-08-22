@@ -16,11 +16,11 @@ PROGRAM _INIT
 	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := 'mappBackupFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappAlarmXFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[7] := 'mappUserXFiles';
-	MpFileManagerUI_0.Enable := TRUE;
-	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
-	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
-	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
-	MpFileManagerUI_0();
+	MpFileManagerUISys.Enable := TRUE;
+	MpFileManagerUISys.MpLink := ADR(gMpLinkFileManagerUIFile);
+	MpFileManagerUISys.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUISys.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
+	MpFileManagerUISys();
 
 	HmiFile.Status.DeleteStep := FILE_DISABLED;
 
@@ -95,17 +95,17 @@ PROGRAM _CYCLIC
 	FIFOOperation;
 
 	// Error reset
-	IF NOT MpFileManagerUI_0.Error THEN
-		MpFileManagerUI_0.ErrorReset := FALSE;
+	IF NOT MpFileManagerUISys.Error THEN
+		MpFileManagerUISys.ErrorReset := FALSE;
 	END_IF
 
 	// Assign MpLinks and address references
-	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
-	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUISys.MpLink := ADR(gMpLinkFileManagerUIFile);
+	MpFileManagerUISys.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUI_FIFO.MpLink := ADR(gMpLinkFileManagerUIFile_FIFO);
 
 	// Call function blocks
-	MpFileManagerUI_0();
+	MpFileManagerUISys();
 	MpFileManagerUI_FIFO();
 
 END_PROGRAM
@@ -113,11 +113,11 @@ END_PROGRAM
 PROGRAM _EXIT
 
 	// Disable the function blocks to unlink the MpLink
-	MpFileManagerUI_0.Enable := FALSE;
+	MpFileManagerUISys.Enable := FALSE;
 	MpFileManagerUI_FIFO.Enable := FALSE;
 
 	// Call function blocks
-	MpFileManagerUI_0();
+	MpFileManagerUISys();
 	MpFileManagerUI_FIFO();
 
 END_PROGRAM

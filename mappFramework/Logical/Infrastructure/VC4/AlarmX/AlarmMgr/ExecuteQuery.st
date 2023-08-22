@@ -1,10 +1,11 @@
 ACTION ExecuteQuery:
 
 	// Initialize mapp function block
-	QueryActiveAlarms_0.MpLink := ADR(gMpLinkAlarmXCore);
-	QueryActiveAlarms_0.Enable := TRUE;
-	QueryActiveAlarms_0.Name := ADR('ActiveAlarms');
-	QueryActiveAlarms_0();
+	QueryActiveAlarms.MpLink := ADR(gMpLinkAlarmXCore);
+	QueryActiveAlarms.Enable := TRUE;
+	QueryActiveAlarms.Name := ADR('ActiveAlarms');
+	QueryActiveAlarms.Language := ADR('en');
+	QueryActiveAlarms();
 
 	CASE (AlarmQuery.State) OF
 		ACTIVE_ALARM_WAIT:
@@ -15,16 +16,16 @@ ACTION ExecuteQuery:
 			IF (HmiAlarmX.Commands.RunQuery = TRUE) THEN
 				brsmemset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
 				AlarmQuery.LastUpdateCount := AlarmQuery.UpdateCount;
-				QueryActiveAlarms_0.Execute := TRUE;
+				QueryActiveAlarms.Execute := TRUE;
 				HmiAlarmX.Commands.RunQuery := FALSE;
 				AlarmQuery.State := ACTIVE_ALARM_QUERY;
 			END_IF
 
 		ACTIVE_ALARM_QUERY:
 			// If the number of query results is less than MAX_QUERY_RESULTS, return to the wait state
-			IF ((QueryActiveAlarms_0.CommandDone = TRUE) AND (QueryActiveAlarms_0.Info.HasMoreRows = FALSE)) THEN
-				QueryActiveAlarms_0.Execute := FALSE;
-				QueryActiveAlarms_0.Next := FALSE;
+			IF ((QueryActiveAlarms.CommandDone = TRUE) AND (QueryActiveAlarms.Info.HasMoreRows = FALSE)) THEN
+				QueryActiveAlarms.Execute := FALSE;
+				QueryActiveAlarms.Next := FALSE;
 				AlarmQuery.State := ACTIVE_ALARM_WAIT;			
 				// Convert the query results into arrays that can be displayed in VC4
 				FOR i := 0 TO MAX_QUERY_RESULTS DO
@@ -46,8 +47,8 @@ ACTION ExecuteQuery:
 					END_IF
 				END_FOR
 			// If the number of query results is more than MAX_QUERY_RESULTS, then query the next set of results	
-			ELSIF ((QueryActiveAlarms_0.CommandDone = TRUE) AND (QueryActiveAlarms_0.Info.HasMoreRows = TRUE)) THEN
-				QueryActiveAlarms_0.Next := FALSE;
+			ELSIF ((QueryActiveAlarms.CommandDone = TRUE) AND (QueryActiveAlarms.Info.HasMoreRows = TRUE)) THEN
+				QueryActiveAlarms.Next := FALSE;
 				AlarmQuery.State := ACTIVE_ALARM_NEXT;
 			END_IF
 
@@ -59,7 +60,7 @@ ACTION ExecuteQuery:
 				// Otherwise, the older alarms in the query will get overwritten with the newest entries here.
 				brsmemset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
 				AlarmQuery.Next := FALSE;
-				QueryActiveAlarms_0.Next := TRUE;
+				QueryActiveAlarms.Next := TRUE;
 				AlarmQuery.State := ACTIVE_ALARM_QUERY;
 			END_IF
 	END_CASE 

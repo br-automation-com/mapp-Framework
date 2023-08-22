@@ -10,19 +10,19 @@ VAR
 END_VAR
 (*Function Blocks*)
 VAR
-	MpRecipeRegPar_Cfg : {REDUND_UNREPLICABLE} MpRecipeRegPar; (*Register function block for configuration values*)
-	MpRecipeRegPar_Par : {REDUND_UNREPLICABLE} MpRecipeRegPar; (*Register function block for parameter values*)
-	MpAlarmXCore_0 : {REDUND_UNREPLICABLE} MpAlarmXCore; (*AlarmX Core function block*)
+	MpRecipeRegParCfg : {REDUND_UNREPLICABLE} MpRecipeRegPar; (*Register function block for configuration values*)
+	MpRecipeRegParPar : {REDUND_UNREPLICABLE} MpRecipeRegPar; (*Register function block for parameter values*)
+	MpAlarmXCoreAxis : {REDUND_UNREPLICABLE} MpAlarmXCore; (*AlarmX Core function block*)
 	MpAxisParameters : {REDUND_UNREPLICABLE} MpAxisBasicParType := (Distance:=70,Velocity:=100,Acceleration:=5000,Deceleration:=5000,Jog:=(Velocity:=70,Acceleration:=5000,Deceleration:=5000),AutoTune:=(MaxCurrentPercent:=50,MaxDistance:=720,MaxPositionError:=5)); (*Standard MpAxis parameter structure *)
-	MpAxisBasic_0 : {REDUND_UNREPLICABLE} MpAxisBasic; (*MpAxis main function block*)
-	MC_BR_ProcessConfig_AX : {REDUND_UNREPLICABLE} MC_BR_ProcessConfig; (*Function block to read and write the axis configuration*)
-	MC_BR_ProcessConfig_ACP : {REDUND_UNREPLICABLE} MC_BR_ProcessConfig; (*Function block to read and write the ACOPOS configuration*)
+	MpAxisBasicAppAxis : {REDUND_UNREPLICABLE} MpAxisBasic; (*MpAxis main function block*)
+	ProcessConfigAX : {REDUND_UNREPLICABLE} MC_BR_ProcessConfig; (*Function block to read and write the axis configuration*)
+	ProcessConfigACP : {REDUND_UNREPLICABLE} MC_BR_ProcessConfig; (*Function block to read and write the ACOPOS configuration*)
 	IsHomedEdgePos : {REDUND_UNREPLICABLE} R_TRIG; (*Detecting rising edge for Homed*)
 	InPositionEdgePos : {REDUND_UNREPLICABLE} R_TRIG; (*Detecting rising edge for InPosition*)
 	ReferenceEdgePos : {REDUND_UNREPLICABLE} R_TRIG; (*Detecting rising edge for Referenced*)
 	ZeroPendingAlarmsEdgePos : {REDUND_UNREPLICABLE} R_TRIG; (*Detecting rising edge when all alarms are cleared*)
-	MC_BR_ProcessParam_AX : {REDUND_UNREPLICABLE} MC_BR_ProcessParam; (*Function block to read and write the ACOPOS parameters*)
-	MpAlarmXControl_SpeedNotSet : {REDUND_UNREPLICABLE} MpAlarmXAlarmControl; (*AlarmX control function block*)
+	ProcessParamAX : {REDUND_UNREPLICABLE} MC_BR_ProcessParam; (*Function block to read and write the ACOPOS parameters*)
+	AlarmSpeedNotSet : {REDUND_UNREPLICABLE} MpAlarmXAlarmControl; (*AlarmX control function block*)
 END_VAR
 (*Recipe*)
 VAR

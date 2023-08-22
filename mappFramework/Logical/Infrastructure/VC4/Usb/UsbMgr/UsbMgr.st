@@ -19,16 +19,16 @@ PROGRAM _CYCLIC
 			Node := 1;
 			USB.Status := ERR_OK;
 			IF USB.Cmd.AutoScan = TRUE THEN
-				TON_01(IN := 1, PT := USB.Par.RefreshInterval);
+				RefreshTimer(IN := 1, PT := USB.Par.RefreshInterval);
 				// Get new USB data
-				IF(TON_01.Q) THEN
-					TON_01(IN := 0);
+				IF(RefreshTimer.Q) THEN
+					RefreshTimer(IN := 0);
 					USB.Status := ERR_FUB_BUSY;
-					brsmemset(ADR(Usb_data), 0, SIZEOF(Usb_data));
+					brsmemset(ADR(UsbData), 0, SIZEOF(UsbData));
 					StateMachine := USB_CREATE_NODE_ID_LIST;
 				END_IF
 			ELSE
-				TON_01(IN := 0);
+				RefreshTimer(IN := 0);
 			END_IF
 			// Refresh USB data every X seconds when enabled
 			IF USB.Cmd.ErrorReset = TRUE THEN
@@ -43,20 +43,20 @@ PROGRAM _CYCLIC
 			// Get USB device list
 			// -----------------------------------------------------------------------------------------------------------
 		USB_CREATE_NODE_ID_LIST:
-			UsbNodeListGet_0.enable := 1;
-			UsbNodeListGet_0.pBuffer := ADR(Node_id_buffer);
-			UsbNodeListGet_0.bufferSize := SIZEOF(Node_id_buffer);
-			UsbNodeListGet_0.filterInterfaceClass := asusb_CLASS_MASS_STORAGE;
-			UsbNodeListGet_0.filterInterfaceSubClass := 0;
-			UsbNodeListGet_0;
+			GetUsbNodeList.enable := 1;
+			GetUsbNodeList.pBuffer := ADR(NodeIdBuffer);
+			GetUsbNodeList.bufferSize := SIZEOF(NodeIdBuffer);
+			GetUsbNodeList.filterInterfaceClass := asusb_CLASS_MASS_STORAGE;
+			GetUsbNodeList.filterInterfaceSubClass := 0;
+			GetUsbNodeList;
 
 			// --------------------------------------------------------------------------------------------------------------------
 			// Success
-			IF UsbNodeListGet_0.status = 0 THEN
+			IF GetUsbNodeList.status = 0 THEN
 				StateMachine := USB_READ_DEVICE_DATA;
 				Node := 1;
 				// No USB devices found
-			ELSIF UsbNodeListGet_0.status = asusbERR_USB_NOTFOUND THEN
+			ELSIF GetUsbNodeList.status = asusbERR_USB_NOTFOUND THEN
 				// Unlink old device if it is gone now otherwise wait for next round
 				FOR i:=1 TO MAX_IDX_USB_DEV_LIST DO
 					IF(USB.Par.IsConnected[i] = TRUE) THEN
@@ -67,10 +67,10 @@ PROGRAM _CYCLIC
 				END_FOR;
 				StateMachine := USB_WAIT;
 				// Error
-			ELSIF UsbNodeListGet_0.status <> ERR_FUB_BUSY THEN
-				USB.Status := UsbNodeListGet_0.status;
+			ELSIF GetUsbNodeList.status <> ERR_FUB_BUSY THEN
+				USB.Status := GetUsbNodeList.status;
 				USB.Err.State := StateMachine;
-				IF UsbNodeListGet_0.status = asusbERR_BUFSIZE THEN
+				IF GetUsbNodeList.status = asusbERR_BUFSIZE THEN
 					USB.Err.Text := 'maximum number of devices reached';
 				ELSE
 					USB.Err.Text := 'error getting device list';
@@ -81,17 +81,17 @@ PROGRAM _CYCLIC
 			// Get device information
 			// -----------------------------------------------------------------------------------------------------------
 		USB_READ_DEVICE_DATA:
-			UsbNodeGet_0.enable := 1;
-			UsbNodeGet_0.nodeId := Node_id_buffer[Node];
-			UsbNodeGet_0.pBuffer := ADR(Usb_data[Node]);
-			UsbNodeGet_0.bufferSize := SIZEOF (Usb_data[Node]);
-			UsbNodeGet_0;
+			GetUsbNode.enable := 1;
+			GetUsbNode.nodeId := NodeIdBuffer[Node];
+			GetUsbNode.pBuffer := ADR(UsbData[Node]);
+			GetUsbNode.bufferSize := SIZEOF (UsbData[Node]);
+			GetUsbNode;
 
 			// --------------------------------------------------------------------------------------------------------------------
 			// Success
-			IF UsbNodeGet_0.status = 0 THEN
+			IF GetUsbNode.status = 0 THEN
 				// Make sure we have enough space to store USB data, proceed with next StateMachine when all devices are detetced
-				IF (Node = UsbNodeListGet_0.listNodes) OR (Node = MAX_IDX_USB_DEV_LIST) THEN
+				IF (Node = GetUsbNodeList.listNodes) OR (Node = MAX_IDX_USB_DEV_LIST) THEN
 					Node := 1;
 					StateMachine := USB_CHECK_LINKED;
 					// Get next USB device
@@ -99,8 +99,8 @@ PROGRAM _CYCLIC
 					Node := Node + 1;
 				END_IF;
 				// Error
-			ELSIF UsbNodeGet_0.status <> ERR_FUB_BUSY THEN
-				USB.Status := UsbNodeGet_0.status;
+			ELSIF GetUsbNode.status <> ERR_FUB_BUSY THEN
+				USB.Status := GetUsbNode.status;
 				USB.Err.State := StateMachine;
 				USB.Err.Text := 'error getting device data';
 				StateMachine := USB_ERROR;
@@ -118,27 +118,27 @@ PROGRAM _CYCLIC
 
 			// -----------------------------------------------------------------------------------------------------------
 			// Check if device is still active
-			Is_linked := FALSE;
+			IsLinked := FALSE;
 			FOR i:=1 TO MAX_IDX_USB_DEV_LIST DO
 				// Compare old and new data
-				IF(brsmemcmp(ADR(Usb_data_old[Node]), ADR(Usb_data[i]), SIZEOF(Usb_data[i])) = 0) AND
-					(USB.Par.IgnoreDongle = FALSE OR (USB.Par.IgnoreDongle = TRUE AND Usb_data[i].productId <> BRproductId AND Usb_data[i].vendorId <> BRvendorId)) THEN
+				IF(brsmemcmp(ADR(UsbDataOld[Node]), ADR(UsbData[i]), SIZEOF(UsbData[i])) = 0) AND
+					(USB.Par.IgnoreDongle = FALSE OR (USB.Par.IgnoreDongle = TRUE AND UsbData[i].productId <> BrProductId AND UsbData[i].vendorId <> BrVendorId)) THEN
 					// Clear data, mark as linked and EXIT loop
-					brsmemset(ADR(Usb_data[i]), 0, SIZEOF(Usb_data[i]));
-					Is_linked := TRUE;
+					brsmemset(ADR(UsbData[i]), 0, SIZEOF(UsbData[i]));
+					IsLinked := TRUE;
 					EXIT;
 				END_IF
 			END_FOR;
 
 			// -----------------------------------------------------------------------------------------------------------
 			// Find next linked device
-			IF(Is_linked OR Usb_data_old[Node].interfaceClass = 0) THEN
+			IF(IsLinked OR UsbDataOld[Node].interfaceClass = 0) THEN
 				IF(Node < MAX_IDX_USB_DEV_LIST) THEN
 					Node := Node + 1;
-					WHILE(Node < MAX_IDX_USB_DEV_LIST AND Usb_data_old[Node].interfaceClass = 0) DO
+					WHILE(Node < MAX_IDX_USB_DEV_LIST AND UsbDataOld[Node].interfaceClass = 0) DO
 						Node := Node + 1;
 					END_WHILE;
-					IF(Node = MAX_IDX_USB_DEV_LIST AND Usb_data_old[Node].interfaceClass = 0) THEN
+					IF(Node = MAX_IDX_USB_DEV_LIST AND UsbDataOld[Node].interfaceClass = 0) THEN
 						Node := Node + 1;
 					END_IF
 				ELSE
@@ -160,8 +160,8 @@ PROGRAM _CYCLIC
 
 			// -----------------------------------------------------------------------------------------------------------
 			// Find next new device
-			IF(Usb_data[Node].interfaceClass <> 0) THEN
-				IF(USB.Par.IgnoreDongle = FALSE OR (Usb_data[Node].productId <> BRproductId AND Usb_data[Node].vendorId <> BRvendorId)) THEN
+			IF(UsbData[Node].interfaceClass <> 0) THEN
+				IF(USB.Par.IgnoreDongle = FALSE OR (UsbData[Node].productId <> BrProductId AND UsbData[Node].vendorId <> BrVendorId)) THEN
 					StateMachine := USB_LINK_DEVICE;
 					RETURN;
 				END_IF
@@ -173,12 +173,12 @@ PROGRAM _CYCLIC
 		USB_LINK_DEVICE:
 			// Find empty slot
 			FOR i:=1 TO MAX_IDX_USB_DEV_LIST DO
-				IF(Usb_data_old[i].interfaceClass = 0) THEN
+				IF(UsbDataOld[i].interfaceClass = 0) THEN
 					EXIT;
 				END_IF
 			END_FOR;
 			// No more slot available
-			IF(i = MAX_IDX_USB_DEV_LIST AND Usb_data_old[i].interfaceClass <> 0) THEN
+			IF(i = MAX_IDX_USB_DEV_LIST AND UsbDataOld[i].interfaceClass <> 0) THEN
 				USB.Status := ERR_MAX_DEVICE;
 				USB.Err.State := StateMachine;
 				USB.Err.Text := 'maximum number of device reached';
@@ -186,29 +186,29 @@ PROGRAM _CYCLIC
 				RETURN;
 			END_IF
 			// Create device string
-			brsstrcpy(ADR(Device_param), ADR('/DEVICE='));
-			brsstrcat(ADR(Device_param), ADR(Usb_data[Node].ifName));
-			brsstrcpy(ADR(Device_name), ADR('USB'));
+			brsstrcpy(ADR(DevicePara), ADR('/DEVICE='));
+			brsstrcat(ADR(DevicePara), ADR(UsbData[Node].ifName));
+			brsstrcpy(ADR(DeviceName), ADR('USB'));
 			brsitoa(i, ADR(tmpSTR));
-			brsstrcat(ADR(Device_name), ADR(tmpSTR));
+			brsstrcat(ADR(DeviceName), ADR(tmpSTR));
 			// Link device
-			DevLink_0.enable := 1;
-			DevLink_0.pDevice := ADR(Device_name);
-			DevLink_0.pParam := ADR(Device_param);
-			DevLink_0;
+			DevLinkSys.enable := 1;
+			DevLinkSys.pDevice := ADR(DeviceName);
+			DevLinkSys.pParam := ADR(DevicePara);
+			DevLinkSys;
 
 			// --------------------------------------------------------------------------------------------------------------------
 			// Success
-			IF DevLink_0.status = 0 THEN
+			IF DevLinkSys.status = 0 THEN
 				// Store data for new device
-				brsmemcpy(ADR(Usb_data_old[i]), ADR(Usb_data[Node]), SIZEOF(Usb_data[Node]));
+				brsmemcpy(ADR(UsbDataOld[i]), ADR(UsbData[Node]), SIZEOF(UsbData[Node]));
 				USB.Par.IsConnected[i] := TRUE;
-				Link_handle[i] := DevLink_0.handle;
+				LinkHandle[i] := DevLinkSys.handle;
 				Node := Node + 1;
 				StateMachine := USB_LINK_NEW;
 				// Error
-			ELSIF DevLink_0.status <> ERR_FUB_BUSY THEN
-				USB.Status := DevLink_0.status;
+			ELSIF DevLinkSys.status <> ERR_FUB_BUSY THEN
+				USB.Status := DevLinkSys.status;
 				USB.Err.State := StateMachine;
 				USB.Err.Text := 'error linking device';
 				StateMachine := USB_ERROR;
@@ -217,34 +217,34 @@ PROGRAM _CYCLIC
 			// UnLink device
 			// -----------------------------------------------------------------------------------------------------------
 		USB_UNLINK_DEVICE:
-			DevUnlink_0.enable := 1;
-			DevUnlink_0.handle := Link_handle[Node];
-			DevUnlink_0;
+			DevUnlinkSys.enable := 1;
+			DevUnlinkSys.handle := LinkHandle[Node];
+			DevUnlinkSys;
 
 			// --------------------------------------------------------------------------------------------------------------------
 			// Success
-			IF DevUnlink_0.status = 0 THEN
+			IF DevUnlinkSys.status = 0 THEN
 				// Clear data
-				brsmemset(ADR(Usb_data_old[Node]), 0, SIZEOF(Usb_data_old[Node]));
+				brsmemset(ADR(UsbDataOld[Node]), 0, SIZEOF(UsbDataOld[Node]));
 				USB.Par.IsConnected[Node] := FALSE;
-				Link_handle[Node] := 0;
+				LinkHandle[Node] := 0;
 				// Find next linked device
-				WHILE(Node < MAX_IDX_USB_DEV_LIST AND Usb_data_old[Node].interfaceClass = 0) DO
+				WHILE(Node < MAX_IDX_USB_DEV_LIST AND UsbDataOld[Node].interfaceClass = 0) DO
 					Node := Node + 1;
 				END_WHILE;
-				IF(Node = MAX_IDX_USB_DEV_LIST AND Usb_data_old[Node].interfaceClass = 0) THEN
+				IF(Node = MAX_IDX_USB_DEV_LIST AND UsbDataOld[Node].interfaceClass = 0) THEN
 					Node := Node + 1;
 				END_IF
 				StateMachine := USB_CHECK_LINKED;
 				// Error
-			ELSIF DevUnlink_0.status <> ERR_FUB_BUSY THEN
+			ELSIF DevUnlinkSys.status <> ERR_FUB_BUSY THEN
 				// Clear data
-				brsmemset(ADR(Usb_data_old[Node]), 0, SIZEOF(Usb_data_old[Node]));
+				brsmemset(ADR(UsbDataOld[Node]), 0, SIZEOF(UsbDataOld[Node]));
 				USB.Par.IsConnected[Node] := FALSE;
-				Link_handle[Node] := 0;
+				LinkHandle[Node] := 0;
 
 				brsitoa(Node, ADR(tmpSTR));
-				USB.Status := DevUnlink_0.status;
+				USB.Status := DevUnlinkSys.status;
 				USB.Err.State := StateMachine;
 				USB.Err.Text := 'error unlinking device no ';
 				brsstrcat(ADR(USB.Err.Text), ADR(tmpSTR));
@@ -261,13 +261,13 @@ PROGRAM _CYCLIC
 
 			// Unlink device
 			IF(USB.Err.State = USB_LINK_DEVICE) THEN
-				DevUnlink_0.enable := 1;
-				DevUnlink_0.handle := DevLink_0.handle;
-				DevUnlink_0;
+				DevUnlinkSys.enable := 1;
+				DevUnlinkSys.handle := DevLinkSys.handle;
+				DevUnlinkSys;
 			END_IF
 
 			// Reset error
-			IF(USB.Cmd.ErrorReset AND DevUnlink_0.status <> ERR_FUB_BUSY) THEN
+			IF(USB.Cmd.ErrorReset AND DevUnlinkSys.status <> ERR_FUB_BUSY) THEN
 				USB.Cmd.ErrorReset := FALSE;
 				brsmemset(ADR(USB.Err), 0, SIZEOF(USB.Err));
 				StateMachine := USB_WAIT;
@@ -279,10 +279,10 @@ END_PROGRAM
 PROGRAM _EXIT
 	FOR i:=1 TO MAX_IDX_USB_DEV_LIST DO
 		REPEAT
-			DevUnlink_0.enable := 1;
-			DevUnlink_0.handle := Link_handle[i];
-			DevUnlink_0;
-			UNTIL DevUnlink_0.status <> ERR_FUB_BUSY
+			DevUnlinkSys.enable := 1;
+			DevUnlinkSys.handle := LinkHandle[i];
+			DevUnlinkSys;
+			UNTIL DevUnlinkSys.status <> ERR_FUB_BUSY
 		END_REPEAT;
 	END_FOR;
 END_PROGRAM

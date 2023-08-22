@@ -1,12 +1,12 @@
 (*Function Blocks*)
 VAR
-	MpRecipe_0 : MpRecipeXml; (*MpRecipe instance*)
+	MpRecipeSys : MpRecipeXml; (*MpRecipe instance*)
 	MpRecipeRegPar_PreviewPar : MpRecipeRegPar; (*MpRecipeRegPar instance for ParametersPreview variable*)
 	MpRecipeRegPar_PreviewCfg : MpRecipeRegPar; (*MpRecipeRegPar instance for MachineSettingsPreview*)
-	MpRecipeUI_0 : MpRecipeUI; (*MpRecupeUI instance*)
-	MpFileManagerUI_0 : MpFileManagerUI; (*MpFileManagerUI instance*)
-	DTGetTime_0 : DTGetTime; (*DTGetTime instance*)
-	DirCreate_0 : DirCreate; (*DirCreate instance*)
+	MpRecipeUISys : MpRecipeUI; (*MpRecupeUI instance*)
+	MpFileManagerUIRecipe : MpFileManagerUI; (*MpFileManagerUI instance*)
+	DTGetTimeRecipe : DTGetTime; (*DTGetTime instance*)
+	DirCreateRecipe : DirCreate; (*DirCreate instance*)
 END_VAR
 (*Constants*)
 VAR CONSTANT
