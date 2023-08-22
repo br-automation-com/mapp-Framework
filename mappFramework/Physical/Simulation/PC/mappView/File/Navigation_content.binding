@@ -2,7 +2,7 @@
 <BindingsSet id="File_Navigation_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Bindings>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUI_0.Active" attribute="value" />
+			<Source xsi:type="opcUa" refId="::FileMgr:MpFileManagerUISys.Active" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Navigation_content" widgetRefId="LoadFileContent" attribute="visible" />
 		</Binding>
 	</Bindings>

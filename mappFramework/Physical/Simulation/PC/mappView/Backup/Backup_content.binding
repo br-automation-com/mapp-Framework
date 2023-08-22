@@ -64,11 +64,11 @@
 			<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="GrpBoxButtonControl" attribute="enable" />
 		</Binding>	
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::BackupMgr:MpBackupCore_0.Info.Automatic.Backup.InProgress" attribute="value" />
+			<Source xsi:type="opcUa" refId="::BackupMgr:MpBackupCoreSys.Info.Automatic.Backup.InProgress" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="ImageBackupInProgress" attribute="visible" />
 		</Binding>
 		<Binding mode="twoWay">
-			<Source xsi:type="opcUa" refId="::BackupMgr:MpBackupCore_0.Info.Automatic.Backup.InProgress" attribute="value" />
+			<Source xsi:type="opcUa" refId="::BackupMgr:MpBackupCoreSys.Info.Automatic.Backup.InProgress" attribute="value" />
 			<Target xsi:type="brease" contentRefId="Backup_content" widgetRefId="LabelBackupInProgress" attribute="visible" />
 		</Binding>
 	</Bindings>

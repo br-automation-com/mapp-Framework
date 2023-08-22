@@ -1,12 +1,12 @@
 (*Function Blocks*)
 VAR
-	MpFileManagerUI_0 : MpFileManagerUI; (*MpFileManagerUI instance*)
+	MpFileManagerUISys : MpFileManagerUI; (*MpFileManagerUI instance*)
 	MpFileManagerUI_FIFO : MpFileManagerUI; (*MpFileManagerUI instance*)
-	R_TRIG_CheckStatus : R_TRIG; (*Trigger function block*)
-	TON_Wait : TON; (*FIFO handling support*)
-	TON_ScanFolder : TON; (*Timer to scan for folder*)
+	CheckStatusTrigger : R_TRIG; (*Trigger function block*)
+	WaitTimer : TON; (*FIFO handling support*)
+	ScanFolderTimer : TON; (*Timer to scan for folder*)
 	CurrentIndex : UDINT; (*FIFO handling support deleting more then 50 files*)
-	DirRead_FolderSize : DirRead; (*FIFO handling support reading current folder size*)
+	DirReadFolderSize : DirRead; (*FIFO handling support reading current folder size*)
 END_VAR
 (*Constants*)
 VAR CONSTANT

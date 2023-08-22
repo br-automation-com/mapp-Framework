@@ -23,22 +23,22 @@
   <DefaultView AclId="3">
     <Module Name="&lt;Default&gt;">
       <Task Name="AlarmMgr">
-        <Variable Name="MpAlarmXCore_0">
+        <Variable Name="MpAlarmXCoreMain">
           <Variable Name="ActiveAlarms" />
           <Variable Name="PendingAlarms" />
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
           <Variable Name="Active" />
         </Variable>
-        <Variable Name="MpAlarmXHistory_0">
+        <Variable Name="MpAlarmXHistoryMain">
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
         </Variable>
-        <Variable Name="MpAlarmXHistoryUI_0">
+        <Variable Name="MpAlarmXHistoryUIMain">
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
         </Variable>
-        <Variable Name="MpAlarmXListUI_0">
+        <Variable Name="MpAlarmXListUIMain">
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
         </Variable>
@@ -57,7 +57,7 @@
             <Variable Name="TableConfig" EnableArrayElements="True" />
           </Variable>
         </Variable>
-        <Variable Name="QueryActiveAlarms_0" />
+        <Variable Name="QueryActiveAlarms" />
         <Variable Name="AlarmQuery">
           <Variable Name="Alarms" EnableArrayElements="True" />
         </Variable>

@@ -11,32 +11,32 @@ PROGRAM _INIT
 	// For additional information, see "Required Modifications" in AS Mapp Framework Help.
 	
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('mappPackMLFiles'), pName := ADR('/'));
+	DirCreatePackML(enable := TRUE, pDevice := ADR('mappPackMLFiles'), pName := ADR('/'));
 
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
-		DirCreate_0(enable := FALSE);
+	IF DirCreatePackML.status = fiERR_DIR_ALREADY_EXIST THEN
+		DirCreatePackML(enable := FALSE);
 	END_IF 
 	
 	// Initialize mapp function blocks
-	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);
-	MpPackMLCore_0.Enable := TRUE;
-	MpPackMLCore_0();
+	MpPackMLCoreMain.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLCoreMain.Enable := TRUE;
+	MpPackMLCoreMain();
 	
-	MpPackMLMode_0.MpLink := ADR(gMpLinkPackMLCore);
-	MpPackMLMode_0.Enable := TRUE;
-	MpPackMLMode_0.ModeID := 1;
-	MpPackMLMode_0();
+	MpPackMLModeMain.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLModeMain.Enable := TRUE;
+	MpPackMLModeMain.ModeID := 1;
+	MpPackMLModeMain();
 	
-	MpPackMLBasicUI_0.MpLink := ADR(gMpLinkPackMLCore);
-	MpPackMLBasicUI_0.Enable := TRUE;
-	MpPackMLBasicUI_0.UIConnect := ADR(MpPackMLBasicUIConnect);
-	MpPackMLBasicUI_0();
+	MpPackMLBasicUIMain.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLBasicUIMain.Enable := TRUE;
+	MpPackMLBasicUIMain.UIConnect := ADR(MpPackMLBasicUIConnect);
+	MpPackMLBasicUIMain();
 	
-	MpPackMLStatisticsUI_0.MpLink := ADR(gMpLinkPackMLCore);
-	MpPackMLStatisticsUI_0.Enable := TRUE;
-	MpPackMLStatisticsUI_0.UIConnect := ADR(MpPackMLStatisticsUIConnect);
-	MpPackMLStatisticsUI_0();
+	MpPackMLStatisticsUIMain.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLStatisticsUIMain.Enable := TRUE;
+	MpPackMLStatisticsUIMain.UIConnect := ADR(MpPackMLStatisticsUIConnect);
+	MpPackMLStatisticsUIMain();
 	
 	// Assign Production mode as selected Index since it's the start mode and preselected
 	MpPackMLBasicUIConnect.ModeControl.SelectedIndex := 1; 
@@ -49,32 +49,32 @@ PROGRAM _CYCLIC
 	StateMachine;
 	
 	// Assign MpLinks & UIConnects
-	MpPackMLCore_0.MpLink := ADR(gMpLinkPackMLCore);
-	MpPackMLMode_0.MpLink := ADR(gMpLinkPackMLCore);
-	MpPackMLBasicUI_0.MpLink := ADR(gMpLinkPackMLCore);
-	MpPackMLStatisticsUI_0.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLCoreMain.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLModeMain.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLBasicUIMain.MpLink := ADR(gMpLinkPackMLCore);
+	MpPackMLStatisticsUIMain.MpLink := ADR(gMpLinkPackMLCore);
 
 	// Call function blocks
-	MpPackMLCore_0();
-	MpPackMLMode_0();
-	MpPackMLBasicUI_0();
-	MpPackMLStatisticsUI_0();
+	MpPackMLCoreMain();
+	MpPackMLModeMain();
+	MpPackMLBasicUIMain();
+	MpPackMLStatisticsUIMain();
 	 
 END_PROGRAM
 
 PROGRAM _EXIT
 	
 	// Disable the function blocks to unlink the MpLinks
-	MpPackMLCore_0.Enable := FALSE;
-	MpPackMLMode_0.Enable := FALSE;
-	MpPackMLBasicUI_0.Enable := FALSE;
-	MpPackMLStatisticsUI_0.Enable := TRUE;
+	MpPackMLCoreMain.Enable := FALSE;
+	MpPackMLModeMain.Enable := FALSE;
+	MpPackMLBasicUIMain.Enable := FALSE;
+	MpPackMLStatisticsUIMain.Enable := TRUE;
 	
 	// Call function blocks
-	MpPackMLCore_0();
-	MpPackMLMode_0();
-	MpPackMLBasicUI_0();
-	MpPackMLStatisticsUI_0();
+	MpPackMLCoreMain();
+	MpPackMLModeMain();
+	MpPackMLBasicUIMain();
+	MpPackMLStatisticsUIMain();
 	 
 END_PROGRAM
 

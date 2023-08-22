@@ -2,17 +2,17 @@ ACTION ReportFormat:
 
 	// If the current format and the selected format do not match, disable the function block for a cycle and make the change
 	IF HmiReport.Parameters.UseAdvancedFormat AND (HmiReport.Status.CurrentFormat = FORMAT_SIMPLE) THEN
-		MpReportCore_0.Enable := FALSE;
-		MpReportCore_0.MpLink := ADR(gMpLinkAdvancedReport);
+		MpReportCoreSys.Enable := FALSE;
+		MpReportCoreSys.MpLink := ADR(gMpLinkAdvancedReport);
 		HmiReport.Parameters.Name := 'AdvancedReport';
 		HmiReport.Status.CurrentFormat := FORMAT_ADVANCED;
 	ELSIF NOT HmiReport.Parameters.UseAdvancedFormat AND (HmiReport.Status.CurrentFormat = FORMAT_ADVANCED) THEN
-		MpReportCore_0.Enable := FALSE;
-		MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);
+		MpReportCoreSys.Enable := FALSE;
+		MpReportCoreSys.MpLink := ADR(gMpLinkSimpleReport);
 		HmiReport.Parameters.Name := 'SimpleReport';		
 		HmiReport.Status.CurrentFormat := FORMAT_SIMPLE;
 	ELSE
-		MpReportCore_0.Enable := TRUE;
+		MpReportCoreSys.Enable := TRUE;
 	END_IF
 	
 END_ACTION
@@ -20,12 +20,12 @@ END_ACTION
 ACTION ReportFileExplorer:
 	
 	// Connections between the HMI structure and the report function block
-	HmiReport.Status.Busy := MpReportCore_0.CommandBusy;
-	HmiReport.Status.Error := MpReportCore_0.Error;
-	MpReportCore_0.Language := ADR(HmiReport.Parameters.SelectedLanguage);
+	HmiReport.Status.Busy := MpReportCoreSys.CommandBusy;
+	HmiReport.Status.Error := MpReportCoreSys.Error;
+	MpReportCoreSys.Language := ADR(HmiReport.Parameters.SelectedLanguage);
 
 	// Set or reset bits based on when a report can be created, deleted, and/or viewed.
-	HmiReport.Status.CreateAllowed := NOT(MpReportCore_0.CommandBusy);
+	HmiReport.Status.CreateAllowed := NOT(MpReportCoreSys.CommandBusy);
 	HmiReport.Status.ViewAllowed := (MpFileManagerUIConnect.File.List.Items[HmiReport.Status.SelectedIndex].ItemType = mpFILE_ITEM_TYPE_USER1);
 	HmiReport.Status.DeleteAllowed := (MpFileManagerUIConnect.File.List.Items[HmiReport.Status.SelectedIndex].ItemType = mpFILE_ITEM_TYPE_USER1);
 
@@ -83,7 +83,7 @@ ACTION ReportFileExplorer:
 	HmiReport.Status.FileOverMax := ItemCount > 50;
 	
 	// Set file device to selected
-	MpReportCore_0.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
+	MpReportCoreSys.DeviceName := ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[MpFileManagerUIConnect.DeviceList.SelectedIndex]);
 	   
 	// VC4
 	IF HmiReport.Status.Error THEN
@@ -105,13 +105,13 @@ ACTION ReportFileExplorer:
 	
 		// English
 		0:
-			MpReportCore_0.Language := ADR('en');
+			MpReportCoreSys.Language := ADR('en');
 		// German
 		1:
-			MpReportCore_0.Language := ADR('de');
+			MpReportCoreSys.Language := ADR('de');
 		// Chinese
 		2:
-			MpReportCore_0.Language := ADR('zh');
+			MpReportCoreSys.Language := ADR('zh');
 	
 	END_CASE 
 	

@@ -3,7 +3,7 @@ ACTION GetBacktraceInformation:
 	MaxIndex := (SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID)/SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID[0])) - 1;
 	// Find selected alarm in order to show backtrace information
 	FOR i := 0 TO MaxIndex DO
-		IF (MpAlarmXCore_0.PendingAlarms = 0) THEN
+		IF (MpAlarmXCoreMain.PendingAlarms = 0) THEN
 			// No pending alarms, reset instance id
 			HmiAlarmX.Parameters.InstanceID := 0;
 			EXIT;
@@ -16,7 +16,7 @@ ACTION GetBacktraceInformation:
 		END_IF
 
 		IF (MpAlarmXListUIConnect.AlarmList.InstanceID[i] = 0) THEN
-			IF (MpAlarmXCore_0.PendingAlarms > i) THEN
+			IF (MpAlarmXCoreMain.PendingAlarms > i) THEN
 				// Alarm not found, list can page up
 				MpAlarmXListUIConnect.AlarmList.PageUp := TRUE;
 			END_IF
@@ -47,11 +47,11 @@ END_ACTION
 ACTION ExportAlarms:
 	
 	IF (HmiAlarmX.Commands.ExportAlarms = TRUE) THEN
-		MpAlarmXHistory_0.Export := TRUE;
+		MpAlarmXHistoryMain.Export := TRUE;
 	END_IF
 	
-	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
-		MpAlarmXHistory_0.Export := FALSE;
+	IF ((MpAlarmXHistoryMain.Export = TRUE) AND (MpAlarmXHistoryMain.CommandDone = TRUE)) THEN
+		MpAlarmXHistoryMain.Export := FALSE;
 		HmiAlarmX.Commands.ExportAlarms := FALSE;
 		HmiAlarmX.Status.AlarmExportDone := TRUE;
 	END_IF

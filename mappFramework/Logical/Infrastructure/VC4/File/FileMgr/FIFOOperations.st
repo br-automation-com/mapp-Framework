@@ -1,10 +1,10 @@
 ACTION FIFOOperation:
 
-	R_TRIG_CheckStatus(CLK := (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CHANGE_DIR) OR
-	(MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CHANGE_DEVICE) OR
-	(MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CREATE));
+	CheckStatusTrigger(CLK := (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CHANGE_DIR) OR
+							  (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CHANGE_DEVICE) OR
+							  (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_CREATE));
 
-	IF R_TRIG_CheckStatus.Q OR TON_ScanFolder.Q THEN
+	IF CheckStatusTrigger.Q OR ScanFolderTimer.Q THEN
 		HmiFile.Commands.CheckFolder := HmiFile.Parameters.Fifo.Enable;
 	END_IF
 
@@ -34,10 +34,10 @@ ACTION FIFOOperation:
 		FILE_DELETE_WAIT:
 			IF (HmiFile.Parameters.Fifo.Enable = TRUE) THEN
 				// Wait for check the correct device selection
-				TON_ScanFolder.IN := TRUE;
+				ScanFolderTimer.IN := TRUE;
 				HmiFile.Status.FifoConfigEnable := TRUE;
-				IF TON_ScanFolder.Q THEN
-					TON_ScanFolder.IN := FALSE;
+				IF ScanFolderTimer.Q THEN
+					ScanFolderTimer.IN := FALSE;
 					HmiFile.Status.FifoConfigEnable := FALSE;
 					Fifo_Count := 0;
 					HmiFile.Status.DeleteStep := FILE_SCAN_FOLDER_WAIT;
@@ -115,15 +115,15 @@ ACTION FIFOOperation:
 			END_IF
 
 		FILE_GO_TO_END_1:
-			TON_Wait.IN := (MpFileManagerUIConnect_FIFO.File.List.PageDown = FALSE);
-			TON_Wait.PT := T#200ms;
-			IF (TON_Wait.Q = TRUE) THEN
-				TON_Wait.IN := FALSE;
+			WaitTimer.IN := (MpFileManagerUIConnect_FIFO.File.List.PageDown = FALSE);
+			WaitTimer.PT := T#200ms;
+			IF (WaitTimer.Q = TRUE) THEN
+				WaitTimer.IN := FALSE;
 				Fifo_Count := Fifo_Count + 1;
 				// In case we are stuck trying to get to the last page
 				HmiFile.Status.DeleteStep := SEL(Fifo_Count > 10, FILE_GO_TO_END, FILE_DELETE_WAIT);
 			END_IF
-			TON_Wait();
+			WaitTimer();
 
 		FILE_CHECK_FOR_FILTER:
 			// Check which delete filter is active
@@ -181,15 +181,15 @@ ACTION FIFOOperation:
 			IF (CurrentIndex = 0) THEN
 				HmiFile.Status.FolderSize := 0;
 			END_IF
-			DirRead_FolderSize.enable := TRUE;
-			DirRead_FolderSize.pDevice := ADR(HmiFile.Parameters.Fifo.DeviceName);
-			DirRead_FolderSize.pPath := 0;
-			DirRead_FolderSize.entry := CurrentIndex;
-			DirRead_FolderSize.option := fiFILE;
-			DirRead_FolderSize.pData := ADR(DirectoryData);
-			DirRead_FolderSize.data_len := SIZEOF(DirectoryData);
-			DirRead_FolderSize();
-			IF ((DirRead_FolderSize.status = ERR_OK) OR (DirRead_FolderSize.status = fiERR_NO_MORE_ENTRIES)) THEN
+			DirReadFolderSize.enable := TRUE;
+			DirReadFolderSize.pDevice := ADR(HmiFile.Parameters.Fifo.DeviceName);
+			DirReadFolderSize.pPath := 0;
+			DirReadFolderSize.entry := CurrentIndex;
+			DirReadFolderSize.option := fiFILE;
+			DirReadFolderSize.pData := ADR(DirectoryData);
+			DirReadFolderSize.data_len := SIZEOF(DirectoryData);
+			DirReadFolderSize();
+			IF ((DirReadFolderSize.status = ERR_OK) OR (DirReadFolderSize.status = fiERR_NO_MORE_ENTRIES)) THEN
 				HmiFile.Status.FolderSize := HmiFile.Status.FolderSize + UDINT_TO_REAL(DirectoryData.Filelength);
 				CurrentIndex := CurrentIndex + 1;
 				IF (CurrentIndex >= MpFileManagerUIConnect_FIFO.File.PathInfo.FileCount) THEN
@@ -284,7 +284,7 @@ ACTION FIFOOperation:
 	FifoSettingsRetain := HmiFile.Parameters.Fifo;	
 	
 	// Timer to scan file device in intervals
-	TON_ScanFolder(PT := DINT_TO_TIME(HmiFile.Parameters.Fifo.ScanInterval * 60000));
+	ScanFolderTimer(PT := DINT_TO_TIME(HmiFile.Parameters.Fifo.ScanInterval * 60000));
 
 	MpFileManagerUIConnect_FIFO.DeviceList.DeviceNames[0] := HmiFile.Parameters.Fifo.DeviceName;
 	MpFileManagerUI_FIFO.UIConnect := ADR(MpFileManagerUIConnect_FIFO);
