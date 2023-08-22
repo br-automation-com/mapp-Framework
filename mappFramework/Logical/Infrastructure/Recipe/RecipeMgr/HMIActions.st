@@ -40,14 +40,15 @@ ACTION LoadPreview:
 	CASE HmiRecipe.Status.PreviewCase OF
 		PREVIEW_WAIT:
 			// Load preview when a recipe is selected
-			IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR (HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection)
-				OR (HmiRecipe.Status.PreviousRangeStart <> MpRecipeUIConnect.Recipe.List.RangeStart) OR (HmiRecipe.Status.PreviousRangeStart <> MpRecipeUIConnect.Recipe.List.RangeStart) THEN
+			IF ((MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR (HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection)
+				OR (HmiRecipe.Status.PreviousRangeStart <> MpRecipeUIConnect.Recipe.List.RangeStart) OR (HmiRecipe.Status.PreviousRangeStart <> MpRecipeUIConnect.Recipe.List.RangeStart))
+				AND (MpRecipeUIConnect.Status = mpRECIPE_UI_STATUS_IDLE) THEN
 				HmiRecipe.Status.PreviewCase := PREVIEW_LOAD;
 			END_IF
 			
 		PREVIEW_LOAD:
 			// Check selected recipe name is not empty
-			IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
+			IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) AND (HmiRecipe.Status.HMIcommand = REC_HMI_WAIT) THEN
 				MpRecipeSys.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
 				MpRecipeSys.Category := ADR(HmiRecipe.Parameters.Category);
 				MpRecipeSys.Load := TRUE;
