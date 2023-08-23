@@ -6,7 +6,7 @@ ACTION StateMachine:
 		MpPackMLChangeMode(gMpLinkPackMLCore,HmiPackML.Commands.Mode);
 	END_IF	
 
-	CASE MpPackMLModule_Main.StateCurrent OF
+	CASE MpPackMLModuleMain.StateCurrent OF
 		
 		mpPACKML_STATE_STOPPED:
 			
@@ -16,7 +16,7 @@ ACTION StateMachine:
 			
 			// Add STARTING actions here
 			
-			MpPackMLModule_Main.Command.StateComplete := TRUE;
+			MpPackMLModuleMain.Command.StateComplete := TRUE;
 			
 		mpPACKML_STATE_IDLE:
 			
@@ -26,7 +26,7 @@ ACTION StateMachine:
 			
 			// Add SUSPENDING actions here
 			
-			MpPackMLModule_Main.Command.StateComplete := TRUE;
+			MpPackMLModuleMain.Command.StateComplete := TRUE;
 
 		mpPACKML_STATE_SUSPENDED:
 			
@@ -36,7 +36,7 @@ ACTION StateMachine:
 	
 			// Add UNSUSPENDING actions here
 			
-			MpPackMLModule_Main.Command.StateComplete := TRUE;
+			MpPackMLModuleMain.Command.StateComplete := TRUE;
 			
 		mpPACKML_STATE_EXECUTE:
 			
@@ -46,13 +46,13 @@ ACTION StateMachine:
 			
 			// Add STOPPING actions here
 			
-			MpPackMLModule_Main.Command.StateComplete := TRUE;
+			MpPackMLModuleMain.Command.StateComplete := TRUE;
 			
 		mpPACKML_STATE_ABORTING:
 			
 			// Add ABORTING actions here
 			
-			MpPackMLModule_Main.Command.StateComplete := TRUE;
+			MpPackMLModuleMain.Command.StateComplete := TRUE;
 
 		mpPACKML_STATE_ABORTED:
 			
@@ -62,7 +62,7 @@ ACTION StateMachine:
 			
 			// Add HOLDING actions here
 			
-			MpPackMLModule_Main.Command.StateComplete := TRUE;
+			MpPackMLModuleMain.Command.StateComplete := TRUE;
 			
 		mpPACKML_STATE_HELD:
 			
@@ -72,7 +72,7 @@ ACTION StateMachine:
 			
 			// Add UNHOLDING actions here
 			
-			MpPackMLModule_Main.Command.StateComplete := TRUE;
+			MpPackMLModuleMain.Command.StateComplete := TRUE;
 			
 		mpPACKML_STATE_COMPLETING:
 			
@@ -80,8 +80,8 @@ ACTION StateMachine:
 			
 			// NOTE: once COMPLETING actions that take more than one cyclic have been added, the below line
 			// should be removed and replaced by the following line.
-			MpPackMLModule_Main.Command.StateComplete := NOT MpPackMLModule_Main.Command.StateComplete;
-			// MpPackMLModule_Main.Command.StateComplete := TRUE;
+			MpPackMLModuleMain.Command.StateComplete := NOT MpPackMLModuleMain.Command.StateComplete;
+			// MpPackMLModuleMain.Command.StateComplete := TRUE;
 			
 
 		mpPACKML_STATE_COMPLETE:
@@ -92,13 +92,13 @@ ACTION StateMachine:
 			
 			// Add RESETTING actions here
 			
-			MpPackMLModule_Main.Command.StateComplete := TRUE;
+			MpPackMLModuleMain.Command.StateComplete := TRUE;
 			
 		mpPACKML_STATE_CLEARING:
 			
 			// Add CLEARING actions here
 			
-			MpPackMLModule_Main.Command.StateComplete := TRUE;
+			MpPackMLModuleMain.Command.StateComplete := TRUE;
 			
 		mpPACKML_STATE_DEACTIVATING:
 
@@ -112,7 +112,7 @@ ACTION StateMachine:
 
 			// Add ACTIVATING actions here	
 			
-			MpPackMLModule_Main.Command.StateComplete := TRUE;
+			MpPackMLModuleMain.Command.StateComplete := TRUE;
 		
 	END_CASE
 	

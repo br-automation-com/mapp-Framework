@@ -11,8 +11,8 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="AlarmMgr.MpAlarmXCore_0.PendingAlarms.ValueChanged">
-      <Source xsi:type="opcUa.Event" refId="::AlarmMgr:MpAlarmXCore_0.PendingAlarms" event="ValueChanged" />
+    <EventBinding id="AlarmMgr.MpAlarmXCoreMain.PendingAlarms.ValueChanged">
+      <Source xsi:type="opcUa.Event" refId="::AlarmMgr:MpAlarmXCoreMain.PendingAlarms" event="ValueChanged" />
       <EventHandler condition="newValue &gt; 0">
         <Action>
           <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="Navigation_content" widgetRefId="LoadAlarmContent">

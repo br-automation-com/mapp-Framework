@@ -1,12 +1,12 @@
 (*Function Blocks*)
 VAR
-	DirCreate_0 : DirCreate; (*DirCreate instance*)
-	MpAuditTrail_0 : MpAuditTrail; (*AuditTrail for regular mapp events*)
-	MpAuditTrailConfig_0 : MpAuditTrailConfig; (*AuditTrail configuration*)
-	MpAuditTrail_CEvents : MpAuditTrail; (*AuditTrail for custom events*)
-	QueryUserEvents_0 : {REDUND_UNREPLICABLE} MpAuditQuery; (*MpAlarmXQuery instance*)
-	MpAuditTrailUI_0 : MpAuditTrailUI; (*AuditTrail UI interface*)
-	MpAuditTrail_CEvents_UI_0 : MpAuditTrailUI; (*AuditTrail UI interface*)
+	DirCreateAudit : DirCreate; (*DirCreate instance*)
+	MpAuditTrailSys : MpAuditTrail; (*AuditTrail for regular mapp events*)
+	MpAuditTrailConfigSys : MpAuditTrailConfig; (*AuditTrail configuration*)
+	MpAuditTrailCEvents : MpAuditTrail; (*AuditTrail for custom events*)
+	QueryUserEvents : {REDUND_UNREPLICABLE} MpAuditQuery; (*MpAlarmXQuery instance*)
+	MpAuditTrailUISys : MpAuditTrailUI; (*AuditTrail UI interface*)
+	MpAuditTrailCEventsUI : MpAuditTrailUI; (*AuditTrail UI interface*)
 END_VAR
 (*Constants*)
 VAR CONSTANT
@@ -26,7 +26,7 @@ VAR RETAIN
 	ArchiveSettingsRetain : AuditArchiveParType; (*Store settings in retain memory to be applied after boot*)
 END_VAR
 VAR
-	MpAuditTrail_CEvents_UIConnect : MpAuditTrailUIConnectType; (*MpAuditUI connection to the HMI*)
+	MpAuditTrailCEventsUIConnect : MpAuditTrailUIConnectType; (*MpAuditUI connection to the HMI*)
 END_VAR
 (*Variables*)
 VAR

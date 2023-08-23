@@ -1,9 +1,9 @@
 (*Function Blocks*)
 VAR
-	MpUserXLogin_0 : MpUserXLogin; (*MpUserXLogin instance*)
-	MpUserXManagerUI_0 : MpUserXManagerUI := (UISetup:=(FileDevice:='mappUserXFiles')); (*MpUserXManagerUI instance*)
-	MpUserXLoginUI_0 : MpUserXLoginUI; (*MpUserXLoginUI instance*)
-	DirCreate_0 : DirCreate; (*DirCreate instance*)
+	MpUserXLoginSys : MpUserXLogin; (*MpUserXLogin instance*)
+	MpUserXManagerUISys : MpUserXManagerUI := (UISetup:=(FileDevice:='mappUserXFiles')); (*MpUserXManagerUI instance*)
+	MpUserXLoginUISys : MpUserXLoginUI; (*MpUserXLoginUI instance*)
+	DirCreateUser : DirCreate; (*DirCreate instance*)
 END_VAR
 (*Constants*)
 VAR CONSTANT
@@ -16,11 +16,11 @@ END_VAR
 VAR
 	UserXMgrUIConnect : MpUserXMgrUIConnectType; (*UserX manager connection to the HMI*)
 	UserXLoginUIConnect : MpUserXLoginUIConnectType; (*UserL login connection to the HMI*)
-	HmiUserX : HMIUser_Typ;
+	HmiUserX : UserXHmiInterfaceType; (*HMI interface structure *)
 END_VAR
 (*Enumerations*)
 VAR
-	UserXCheckState : enumCheckState;
+	UserXCheckState : HmiStateEnum;
 END_VAR
 (*Variables*)
 VAR

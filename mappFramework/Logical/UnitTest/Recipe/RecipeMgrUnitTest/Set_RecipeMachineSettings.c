@@ -301,9 +301,7 @@ _TEST Preview(void)
 
 				case 4:
 					TEST_BUSY_CONDITION(!SelectRecipe("preview.mcfg"));
-					MpRecipeUIConnect.Recipe.Load = true;
-					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_LOAD);
-					MpRecipeUIConnect.Recipe.Load = false;
+					  TEST_BUSY_CONDITION(MpRecipeSys.CommandDone != true);
 					ActSubState = 5;
 				break;
 
