@@ -1,0 +1,21 @@
+(********************************************************************
+ * COPYRIGHT --  
+ ********************************************************************
+ * Program: utTemplate_automated
+ * File: variables.var
+ * Author: -
+ * Created: - 
+ ********************************************************************
+ * Local variables of program utTemplate_automated
+ ********************************************************************)
+(*Describe the test*)
+VAR
+	Testsuite : UtMgrTestSuite := (Name:='ReportMgr',Description:='ReportMgr Unit Tests',MetaInformation:='Meta');
+END_VAR
+(*Variables used in the tests*)
+VAR
+	HmiReport_UT : ReportHmiInterfaceType; (*HMI interface structure*)
+	CoreInfo_UT : MpReportCoreInfoType;
+	CoreInfoActive : BOOL;
+	CoreCmdDone : BOOL;
+END_VAR
