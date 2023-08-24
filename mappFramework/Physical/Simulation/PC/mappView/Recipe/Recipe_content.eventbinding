@@ -103,6 +103,13 @@
           </Step>
           <Step order="2">
             <Action>
+              <Target xsi:type="session.VariableAction" refId="SessionVarEditRecipe">
+                <Method xsi:type="session.VariableAction.ToggleValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="5">
+            <Action>
               <Target xsi:type="clientSystem.Action">
                 <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="NewRecipe_dialog" />
               </Target>
@@ -122,7 +129,14 @@
               </Target>
             </Action>
           </Step>
-          <Step order="3">
+          <Step order="2">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="SessionVarEditRecipe">
+                <Method xsi:type="session.VariableAction.ToggleValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="4">
             <Action>
               <Target xsi:type="clientSystem.Action">
                 <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="EditRecipe_dialog" />
@@ -130,28 +144,6 @@
             </Action>
           </Step>
         </Sequence>
-      </EventHandler>
-    </EventBinding>
-    <EventBinding id="EditRecipe_dialog.opened">
-      <Source xsi:type="clientSystem.Event" event="DialogOpened" />
-      <Operand datatype="ANY_INT" name="CategoryDropdown">
-        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory">
-          <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
-        </ReadTarget>
-      </Operand>
-      <EventHandler condition="dialogId = &quot;EditRecipe_dialog&quot; AND CategoryDropdown = 0">
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_EditPars_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
-          </Target>
-        </Action>
-      </EventHandler>
-      <EventHandler condition="dialogId = &quot;EditRecipe_dialog&quot; AND CategoryDropdown = 1">
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_EditMachConfig_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
-          </Target>
-        </Action>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_content.BtnRecipePageDown.Click">
@@ -209,7 +201,7 @@
           <Step order="1">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewParsNew_content" />
               </Target>
             </Action>
           </Step>
@@ -274,7 +266,7 @@
           <Step order="4">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewParsNew_content" />
               </Target>
             </Action>
           </Step>
@@ -307,7 +299,7 @@
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="contentId = &quot;RecipePreviewPars_content&quot; AND DefaultParametersMissing AND DeviceValid">
+      <EventHandler condition="contentId = &quot;RecipePreviewParsNew_content&quot; AND DefaultParametersMissing AND DeviceValid">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingRecipeText" header="$IAT/mappFramework/Recipe/MissingRecipeHeader" />
@@ -372,6 +364,38 @@
               </Sequence>
             </ResultHandler>
           </Result>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_content.DialogClosed.EditOrNewRecipeDialog">
+      <Source xsi:type="clientSystem.Event" event="DialogClosed" />
+      <EventHandler condition="dialogId = &quot;EditRecipe_dialog&quot; OR dialogId = &quot;NewRecipe_dialog&quot;">
+        <Action>
+          <Target xsi:type="session.VariableAction" refId="SessionVarEditRecipe">
+            <Method xsi:type="session.VariableAction.SetValueBool" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_content.ValueChanged.SessionVarEditRecipe">
+      <Source xsi:type="session.Event" refId="SessionVarEditRecipe" event="ValueChanged" />
+      <Operand datatype="ANY_INT" name="CategoryDropdownValue">
+        <ReadTarget xsi:type="widgets.brease.DropDownBox.ReadAction" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory">
+          <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="newValue=false AND  CategoryDropdownValue=0">
+        <Action>
+          <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
+            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewParsNew_content" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue=false AND  CategoryDropdownValue=1">
+        <Action>
+          <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
+            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewMachConfig_content" />
+          </Target>
         </Action>
       </EventHandler>
     </EventBinding>

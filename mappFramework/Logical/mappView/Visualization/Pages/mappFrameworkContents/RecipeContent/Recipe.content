@@ -20,12 +20,12 @@
     <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownRecipeCategory" top="72" left="130" width="230" height="40" zIndex="12" dataProvider="[{'value':'Parameters','text':'$IAT/mappFramework/Recipe/Parameters'},{'value':'Machine Configuration','text':'$IAT/mappFramework/Recipe/MachineSettings'}]" listWidth="250" selectedValue="Parameters" fontSize="18px" />
     <Widget xsi:type="widgets.brease.GroupBox" id="GrpBoxPreview" top="100" left="660" width="440" height="440" zIndex="31" text="$IAT/mappFramework/Recipe/Preview">
       <Widgets>
-        <Widget xsi:type="widgets.brease.ContentControl" id="ContentCtrlPreview" top="80" left="0" width="440" height="325" zIndex="0" contentId="RecipePreviewPars_content" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelSelectedRecipe" top="9" left="122" width="150" height="40" zIndex="2" breakWord="true" multiLine="true" text="$IAT/mappFramework/Recipe/SelectedRecipe" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelActiveRecipe" top="9" left="292" width="150" height="40" zIndex="1" breakWord="true" multiLine="true" text="$IAT/mappFramework/Recipe/ActiveRecipe" fontSize="18px" bold="true" />
-        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutRecipeName" top="49" left="292" width="150" height="35" zIndex="3" breakWord="true" multiLine="true" value="LoadedRecipeName" wordWrap="true" textAlign="left top" fontSize="12px" padding="0px 5px 5px 5px" />
-        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutSelectedRecipe" top="49" left="122" width="150" height="35" zIndex="4" breakWord="true" multiLine="true" value="SelectedRecipeName" wordWrap="true" textAlign="left top" fontSize="12px" padding="0px 5px 5px 5px" />
-        <Widget xsi:type="widgets.brease.Label" id="LabelInvalidRecipe" top="4" left="122" width="100" height="10" zIndex="5" text="$IAT/mappFramework/Recipe/InvalidRecipe" style="Error" visible="false" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelSelectedRecipe" top="9" left="122" width="150" height="40" zIndex="1" breakWord="true" multiLine="true" text="$IAT/mappFramework/Recipe/SelectedRecipe" fontSize="18px" bold="true" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelActiveRecipe" top="9" left="292" width="150" height="40" zIndex="0" breakWord="true" multiLine="true" text="$IAT/mappFramework/Recipe/ActiveRecipe" fontSize="18px" bold="true" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutRecipeName" top="49" left="292" width="150" height="35" zIndex="2" breakWord="true" multiLine="true" value="LoadedRecipeName" wordWrap="true" textAlign="left top" fontSize="12px" padding="0px 5px 5px 5px" />
+        <Widget xsi:type="widgets.brease.TextOutput" id="TextOutSelectedRecipe" top="49" left="122" width="150" height="35" zIndex="3" breakWord="true" multiLine="true" value="SelectedRecipeName" wordWrap="true" textAlign="left top" fontSize="12px" padding="0px 5px 5px 5px" />
+        <Widget xsi:type="widgets.brease.Label" id="LabelInvalidRecipe" top="4" left="122" width="100" height="10" zIndex="4" text="$IAT/mappFramework/Recipe/InvalidRecipe" style="Error" visible="false" />
+        <Widget xsi:type="widgets.brease.ContentControl" id="ContentCtrlPreview" top="75" left="0" width="440" height="325" zIndex="5" contentId="RecipePreviewParsNew_content" />
       </Widgets>
     </Widget>
     <Widget xsi:type="widgets.brease.Image" id="ImageLoading" top="90" left="590" width="40" height="40" zIndex="32" image="Media/mappFrameworkSymbols/Gifs/InProgressGray.gif" visible="false" />

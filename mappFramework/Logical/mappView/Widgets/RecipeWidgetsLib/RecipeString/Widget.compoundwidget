@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CompoundWidget id="RecipeString" width="415" height="30" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>	
+  	<Widget xsi:type="widgets.brease.Label" id="LabelPar" top="0" left="0" width="160" zIndex="0" multiLine="true" text="$IAT/mappFramework/Recipe/Parameter1" wordWrap="true" fontSize="18px" bold="true" margin="0px 5px 0px 0px" />
+	<Widget xsi:type="widgets.brease.FlexLayoutPanel" id="FlexLayoutPanel1" top="0" left="165" width="125" height="30" zIndex="1" padding="0px" childMainAlign="end" childCrossAlign="start" margin="0px">
+	  <Widgets>    
+        <Widget xsi:type="widgets.brease.TextInput" id="TextInParEdit" top="0" left="0" width="120" zIndex="1" padding="0px" margin="0px 5px 0px 0px" textAlign="left" visible="false"/>
+		<Widget xsi:type="widgets.brease.TextInput" id="TextInParSel" top="0" left="0" width="120" zIndex="2" padding="0px" margin="0px 5px 0px 0px" textAlign="left" enable="false"/>
+      </Widgets>
+    </Widget>	
+	<Widget xsi:type="widgets.brease.TextInput" id="TextInParActive" top="0" left="290" width="120" zIndex="3" padding="0px" margin="0px 5px 0px 0px" textAlign="left" enable="false"/>
+	
+	<Widget xsi:type="widgets.brease.ImageList" 	id="tbEdit" 	top="0" left="0" width="1" height="1" 	zIndex="50" imageList="['']"  visible="false" selectedIndex="-1"/>
+	<Widget xsi:type="widgets.brease.ImageList" 	id="tbCheckSel" 	top="0" left="0" width="1" height="1" 	zIndex="51" imageList="['']"  visible="false" selectedIndex="-1"/>
+	<Widget xsi:type="widgets.brease.ImageList" 	id="tbCheckActive" 	top="0" left="0" width="1" height="1" 	zIndex="52" imageList="['']"  visible="false" selectedIndex="-1"/>
+  </Widgets>
+  <Properties>
+  	<Property xsi:type="NonBindableProperty" name="text" type="String" defaultValue="Parameter" category="Appearance" localizable="true" required="false">
+      <Description>Text for label</Description>
+      <Mappings>
+        <Mapping widget="LabelPar" property="text"/>		
+      </Mappings>
+    </Property>	
+	
+	<Property xsi:type="BindableProperty" name="activeVisibility" type="Boolean" defaultValue="true" readOnly="false" category="Appearance" typeRefId="" nodeRefId="">
+      <Description>Active input visibility</Description>
+      <Mappings>
+        <Mapping widget="TextInParActive" property="visible" mode="twoWay"/>
+      </Mappings>
+	</Property>
+	  
+	<Property xsi:type="BindableProperty" name="selectedVisibility" type="Boolean" defaultValue="true" readOnly="false" category="Appearance" typeRefId="" nodeRefId="">
+      <Description>Selected input visibility</Description>
+      <Mappings>
+        <Mapping widget="TextInParSel" property="visible" mode="twoWay"/>
+      </Mappings>
+	  </Property>  
+	
+	<Property xsi:type="BindableProperty" name="activateEditMode" type="Boolean" defaultValue="false" readOnly="false" category="Appearance" typeRefId="" nodeRefId="">
+      <Description>Activate edit mode</Description>
+      <Mappings>
+        <Mapping widget="tbEdit" property="selectedIndex" mode="twoWay"/>
+      </Mappings>
+    </Property>
+	
+	
+	<Property xsi:type="BindableProperty" name="valuePreview" type="String" defaultValue="" readOnly="false" category="Data" typeRefId="" nodeRefId="">
+      <Description>Preview value</Description>
+      <Mappings>
+        <Mapping widget="TextInParSel" property="value" mode="twoWay"/>
+		<Mapping widget="tbCheckSel" property="selectedIndex" mode="twoWay"/>
+      </Mappings>
+    </Property>
+	
+	<Property xsi:type="BindableProperty" name="valueActive" type="String" defaultValue="" readOnly="false" category="Data" typeRefId="" nodeRefId="">
+      <Description>Active value</Description>
+      <Mappings>
+        <Mapping widget="TextInParActive" property="value" mode="twoWay"/>
+		<Mapping widget="tbCheckActive" property="selectedIndex" mode="twoWay"/>
+      </Mappings>
+    </Property>
+	
+	<Property xsi:type="BindableProperty" name="valueEdit" type="String" defaultValue="" readOnly="false" category="Data" typeRefId="" nodeRefId="">
+      <Description>Edit value</Description>
+      <Mappings>
+        <Mapping widget="TextInParEdit" property="value" mode="twoWay"/>
+      </Mappings>
+    </Property>
+	
+  </Properties>
+
+  <Events>
+    <!--
+    <Event name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" event="" />
+      </Mappings>
+    </Event>
+    -->
+  </Events>
+
+  <Actions>
+    
+    <!--<Action name="EditPar">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+		<Mapping widget="tbEdit" action="SetValue" />
+      </Mappings>
+    </Action>-->
+    
+  </Actions>
+
+  <EventBindings>
+    <!-- source and target can only be widgets within the compound widget.-->
+    <EventBinding id="ActivateEditMode">
+      <Source xsi:type="widget.Event" widgetRefId="tbEdit" event="SelectedIndexChanged" />
+      <EventHandler condition="selectedIndex = 1">
+		<Sequence>
+			<Step order="0">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="TextInParActive">
+					<Method name="SetVisible" value="false" />
+				  </Target>
+				</Action>
+			</Step>
+			<Step order="1">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="TextInParSel">
+					<Method name="SetVisible" value="false" />
+				  </Target>
+				</Action>
+			</Step>
+			<Step order="2">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="TextInParEdit">
+					<Method name="SetVisible" value="true" />
+				  </Target>
+				</Action>
+			</Step>
+		</Sequence>       
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 0">
+        <Sequence>
+			<Step order="0">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="TextInParActive">
+					<Method name="SetVisible" value="true" />
+				  </Target>
+				</Action>
+			</Step>
+			<Step order="1">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="TextInParSel">
+					<Method name="SetVisible" value="true" />
+				  </Target>
+				</Action>
+			</Step>
+			<Step order="2">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="TextInParEdit">
+					<Method name="SetVisible" value="false" />
+				  </Target>
+				</Action>
+			</Step>
+		</Sequence>  
+      </EventHandler>
+    </EventBinding>
+	
+		<EventBinding id="ValueDifferenceSel">
+      <Source xsi:type="widget.Event" widgetRefId="tbCheckSel" event="SelectedIndexChanged" />
+	  <Operand name="ActiveValue" datatype="ANY_STRING">
+			<ReadTarget xsi:type="widget.Action.Read" widgetRefId="TextInParActive">	 
+				<Method name="GetValue"/>
+			</ReadTarget>
+		</Operand>
+		<Operand name="SelValue" datatype="ANY_STRING">
+			<ReadTarget xsi:type="widget.Action.Read" widgetRefId="TextInParSel">	 
+				<Method name="GetValue"/>
+			</ReadTarget>
+		</Operand>
+      <EventHandler condition="SelValue &lt;&gt; ActiveValue">
+			<Action>
+			  <Target xsi:type="widget.Action" widgetRefId="TextInParSel">
+				<Method name="SetStyle" value="modified" />
+			  </Target>
+			</Action>      
+      </EventHandler>
+	  <EventHandler condition="SelValue = ActiveValue">
+			<Action>
+			  <Target xsi:type="widget.Action" widgetRefId="TextInParSel">
+				<Method name="SetStyle" value="default" />
+			  </Target>
+			</Action>    
+      </EventHandler>
+    </EventBinding>
+	
+		<EventBinding id="ValueDifferenceActive">
+      <Source xsi:type="widget.Event" widgetRefId="tbCheckActive" event="SelectedIndexChanged" />
+	  <Operand name="ActiveValue" datatype="ANY_STRING">
+			<ReadTarget xsi:type="widget.Action.Read" widgetRefId="TextInParActive">	 
+				<Method name="GetValue"/>
+			</ReadTarget>
+		</Operand>
+		<Operand name="SelValue" datatype="ANY_STRING">
+			<ReadTarget xsi:type="widget.Action.Read" widgetRefId="TextInParSel">	 
+				<Method name="GetValue"/>
+			</ReadTarget>
+		</Operand>
+      <EventHandler condition="SelValue &lt;&gt; ActiveValue">
+			<Action>
+			  <Target xsi:type="widget.Action" widgetRefId="TextInParSel">
+				<Method name="SetStyle" value="modified" />
+			  </Target>
+			</Action>      
+      </EventHandler>
+	  <EventHandler condition="SelValue = ActiveValue">
+			<Action>
+			  <Target xsi:type="widget.Action" widgetRefId="TextInParSel">
+				<Method name="SetStyle" value="default" />
+			  </Target>
+			</Action>    
+      </EventHandler>
+    </EventBinding>
+    
+  </EventBindings>
+
+</CompoundWidget>

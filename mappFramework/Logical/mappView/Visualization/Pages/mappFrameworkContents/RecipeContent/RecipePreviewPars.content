@@ -1,40 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="RecipePreviewPars_content" height="325" width="440" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Content id="RecipePreviewParsNew_content" height="325" width="415" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Widgets>
-    <Widget xsi:type="widgets.brease.Line" id="LineDivider" zIndex="1" x1="0" x2="440" y1="0" y2="0" lineWidth="2px" />
-    <Widget xsi:type="widgets.brease.GroupBox" id="GrpBoxMain" top="2" left="0" width="440" height="325" zIndex="2" childPositioning="relative" style="transparent">
+    <Widget xsi:type="widgets.brease.GroupBox" id="grpBox" top="0" left="0" width="415" height="325" zIndex="0" childPositioning="relative">
       <Widgets>
-        <Widget xsi:type="widgets.brease.GroupBox" id="GrpBoxLabels" top="0" left="0" width="130" height="500" zIndex="0" childPositioning="relative" style="transparent">
-          <Widgets>
-            <Widget xsi:type="widgets.brease.Label" id="LabelPar1" top="0" left="0" width="120" zIndex="0" multiLine="true" text="$IAT/mappFramework/Recipe/Parameter1" wordWrap="true" fontSize="18px" bold="true" margin="5px 0px 20px 0px" />
-            <Widget xsi:type="widgets.brease.Label" id="LabelPar2" top="0" left="0" width="120" zIndex="1" multiLine="true" text="$IAT/mappFramework/Recipe/Parameter2" wordWrap="true" fontSize="18px" bold="true" margin="20px 0px 20px 0px" />
-            <Widget xsi:type="widgets.brease.Label" id="LabelPar3" top="0" left="0" width="120" zIndex="2" multiLine="true" text="$IAT/mappFramework/Recipe/Parameter3" wordWrap="true" fontSize="18px" bold="true" margin="20px 0px 20px 0px" />
-            <Widget xsi:type="widgets.brease.Label" id="LabelPar4" top="0" left="0" width="120" zIndex="3" multiLine="true" text="$IAT/mappFramework/Recipe/Parameter4" wordWrap="true" fontSize="18px" bold="true" margin="20px 0px 20px 0px" />
-            <Widget xsi:type="widgets.brease.Label" id="LabelPar5" top="0" left="0" width="120" zIndex="4" multiLine="true" text="$IAT/mappFramework/Recipe/Parameter5" wordWrap="true" fontSize="18px" bold="true" margin="20px 0px 20px 0px" />
-          </Widgets>
-        </Widget>
-        <Widget xsi:type="widgets.brease.GroupBox" id="GrpBoxSelected" top="0" left="0" width="155" height="500" zIndex="1" style="transparent">
-          <Widgets>
-            <Widget xsi:type="widgets.brease.GroupBox" id="GrpBoxSelected1" top="0" left="0" width="155" height="500" zIndex="1" childPositioning="relative" style="transparent" visible="false">
-              <Widgets>
-                <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutPar1Sel" top="0" left="0" zIndex="0" padding="0px" margin="5px 0px 20px 0px" />
-                <Widget xsi:type="widgets.brease.TextOutput" id="TextOutPar2Sel" top="0" left="0" width="120" zIndex="1" breakWord="true" multiLine="true" wordWrap="true" padding="20px 0px 20px 10px" margin="20px 0px 20px 0px" />
-                <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutPar3Sel" top="0" left="0" zIndex="2" padding="0px" margin="20px 0px 20px 0px" />
-                <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutPar4Sel" top="0" left="0" zIndex="3" padding="0px" margin="20px 0px 20px 0px" />
-                <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutPar5Sel" top="0" left="0" zIndex="4" padding="0px" margin="20px 0px 20px 0px" />
-              </Widgets>
-            </Widget>
-          </Widgets>
-        </Widget>
-        <Widget xsi:type="widgets.brease.GroupBox" id="GrpBoxActive" top="0" left="0" width="155" height="500" zIndex="2" childPositioning="relative" style="transparent">
-          <Widgets>
-            <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutPar1Active" top="0" left="0" zIndex="0" padding="0px" margin="5px 0px 20px 0px" />
-            <Widget xsi:type="widgets.brease.TextOutput" id="TextOutPar2Active" top="0" left="0" width="120" zIndex="1" breakWord="true" multiLine="true" wordWrap="true" padding="20px 0px 20px 10px" margin="20px 0px 20px 0px" />
-            <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutPar3Active" top="0" left="0" zIndex="2" padding="0px" margin="20px 0px 20px 0px" />
-            <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutPar4Active" top="0" left="0" zIndex="3" padding="0px" margin="20px 0px 20px 0px" />
-            <Widget xsi:type="widgets.brease.NumericOutput" id="NumOutPar5Active" top="0" left="0" zIndex="4" padding="0px" margin="20px 0px 20px 0px" />
-          </Widgets>
-        </Widget>
+        <Widget xsi:type="widgets.RecipeWidgetsLib.RecipeBool" id="RecipeBool1" top="0" left="0" zIndex="0" text="$IAT/mappFramework/Recipe/Parameter1" margin="15px 0px 15px 0px" />
+        <Widget xsi:type="widgets.RecipeWidgetsLib.RecipeString" id="RecipeString1" top="0" left="0" zIndex="1" text="$IAT/mappFramework/Recipe/Parameter2" margin="15px 0px 15px 0px" />
+        <Widget xsi:type="widgets.RecipeWidgetsLib.RecipeValue" id="RecipeValue2" top="0" left="0" zIndex="2" text="$IAT/mappFramework/Recipe/Parameter3" margin="15px 0px 15px 0px" />
+        <Widget xsi:type="widgets.RecipeWidgetsLib.RecipeValue" id="RecipeValue4" top="0" left="0" zIndex="3" text="$IAT/mappFramework/Recipe/Parameter4" margin="15px 0px 15px 0px" />
+        <Widget xsi:type="widgets.RecipeWidgetsLib.RecipeValue" id="RecipeValue5" top="0" left="0" zIndex="4" text="$IAT/mappFramework/Recipe/Parameter5" margin="15px 0px 15px 0px" />
       </Widgets>
     </Widget>
   </Widgets>
