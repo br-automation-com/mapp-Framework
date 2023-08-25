@@ -4,11 +4,11 @@
   	<Widget xsi:type="widgets.brease.Label" id="LabelPar" top="0" left="0" width="160" zIndex="0" multiLine="true" text="$IAT/mappFramework/Recipe/Parameter1" wordWrap="true" fontSize="18px" bold="true" margin="0px 5px 0px 0px" />
 	<Widget xsi:type="widgets.brease.FlexLayoutPanel" id="FlexLayoutPanel1" top="0" left="165" width="125" height="30" zIndex="1" padding="0px" childMainAlign="end" childCrossAlign="start" margin="0px">
       <Widgets>       
-        <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownParEdit" top="0" left="0" width="120" zIndex="1" dataProvider="[{'value':'0','text':'False'},{'value':'1','text':'True'}]" selectedValue="0" visible="false" margin="0px 5px 0px 0px"/>
-		<Widget xsi:type="widgets.brease.DropDownBox" id="DropDownParSel" top="0" left="0" width="120" zIndex="2" dataProvider="[{'value':'0','text':'False'},{'value':'1','text':'True'}]" selectedValue="0" enable="false" margin="0px 5px 0px 0px"/>
+        <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownParEdit" top="0" left="0" width="120" zIndex="1" dataProvider="[{'value':'0','text':'False'},{'value':'1','text':'True'}]" padding="0px 10px 0px 10px" selectedValue="0" visible="false" margin="0px 5px 0px 0px"/>
+		<Widget xsi:type="widgets.brease.DropDownBox" id="DropDownParSel" top="0" left="0" width="120" zIndex="2" dataProvider="[{'value':'0','text':'False'},{'value':'1','text':'True'}]" padding="0px 10px 0px 10px" selectedValue="0" enable="false" margin="0px 5px 0px 0px"/>
       </Widgets>
     </Widget>
-	<Widget xsi:type="widgets.brease.DropDownBox" id="DropDownParActive" top="0" left="290" width="120" zIndex="3" dataProvider="[{'value':'0','text':'False'},{'value':'1','text':'True'}]" selectedValue="0" enable="false" margin="0px 5px 0px 0px"/>
+	<Widget xsi:type="widgets.brease.DropDownBox" id="DropDownParActive" top="0" left="290" width="120" zIndex="3" dataProvider="[{'value':'0','text':'False'},{'value':'1','text':'True'}]" padding="0px 10px 0px 10px" selectedValue="0" enable="false" margin="0px 5px 0px 0px"/>
 
 	<Widget xsi:type="widgets.brease.ImageList" 	id="tbEdit" 	top="0" left="0" width="1" height="1" 	zIndex="50" imageList="['']"  visible="false" selectedIndex="-1"/>
 	<Widget xsi:type="widgets.brease.ImageList" 	id="tbCheckSel" 	top="0" left="0" width="1" height="1" 	zIndex="51" imageList="['']"  visible="false" selectedIndex="-1"/>

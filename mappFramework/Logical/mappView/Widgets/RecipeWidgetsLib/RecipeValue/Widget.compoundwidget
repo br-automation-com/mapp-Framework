@@ -4,12 +4,12 @@
   	<Widget xsi:type="widgets.brease.Label" id="LabelPar" top="0" left="0" width="160" zIndex="0" multiLine="true" text="$IAT/mappFramework/Recipe/Parameter1" wordWrap="true" fontSize="18px" bold="true" margin="0px 5px 0px 0px" />
 	<Widget xsi:type="widgets.brease.FlexLayoutPanel" id="FlexLayoutPanel1" top="0" left="165" width="125" height="30" zIndex="1" padding="0px" childMainAlign="end" childCrossAlign="start" margin="0px">
       <Widgets>        
-        <Widget xsi:type="widgets.brease.NumericInput" id="NumInParEdit" top="0" left="0" width="120" zIndex="1" padding="0px" margin="0px 5px 0px 0px" visible="false"/>
-		<Widget xsi:type="widgets.brease.NumericInput" id="NumInParSel" top="0" left="0" width="120" zIndex="2" padding="0px" margin="0px 5px 0px 0px" enable="false"/>		
+        <Widget xsi:type="widgets.brease.NumericInput" id="NumInParEdit" top="0" left="0" width="120" zIndex="1" margin="0px 5px 0px 0px" padding="0px 10px 0px 10px" visible="false"/>
+		<Widget xsi:type="widgets.brease.NumericInput" id="NumInParSel" top="0" left="0" width="120" zIndex="2" margin="0px 5px 0px 0px" padding="0px 10px 0px 10px" enable="false"/>		
 		
       </Widgets>
     </Widget>
-	<Widget xsi:type="widgets.brease.NumericInput" id="NumInParActive" top="0" left="290" width="120" zIndex="4" padding="0px" margin="0px 5px 0px 0px" enable="false"/>
+	<Widget xsi:type="widgets.brease.NumericInput" id="NumInParActive" top="0" left="290" width="120" zIndex="4" margin="0px 5px 0px 0px" padding="0px 10px 0px 10px" enable="false"/>
 	
 	<Widget xsi:type="widgets.brease.ImageList" 	id="tbEdit" 		top="0" left="0" width="1" height="1" 	zIndex="50" imageList="['']"  visible="false" selectedIndex="-1"/>
 	<Widget xsi:type="widgets.brease.ImageList" 	id="tbCheckSel" 	top="0" left="0" width="1" height="1" 	zIndex="51" imageList="['']"  visible="false" selectedIndex="-1"/>
@@ -18,6 +18,7 @@
   
   
   <Properties>
+ <!--LocalProperty-->
 	<Property xsi:type="LocalProperty" name="modifiedStyle" type="String" defaultValue="modified" category="Appearance" required="false" public="true">
 		<Description>Style for value difference</Description>
 		<Actions>
@@ -27,7 +28,7 @@
 		</Actions>
 	</Property>
  
- 
+ <!--NonBindableProperties-->
   	<Property xsi:type="NonBindableProperty" name="text" type="String" defaultValue="Parameter" category="Appearance" localizable="true" required="false">
       <Description>Text for label</Description>
       <Mappings>
@@ -71,6 +72,25 @@
       </Mappings>
     </Property>
 	
+	<Property xsi:type="NonBindableProperty" name="maxValue" type="Number" defaultValue="100" readOnly="false" category="Behavior" typeRefId="" nodeRefId="">
+      <Description>Max input value</Description>
+      <Mappings>
+        <Mapping widget="NumInParEdit" property="maxValue" />
+		<Mapping widget="NumInParSel" property="maxValue" />
+		<Mapping widget="NumInParActive" property="maxValue" />
+      </Mappings>
+    </Property>
+	
+	<Property xsi:type="NonBindableProperty" name="minValue" type="Number" defaultValue="0" readOnly="false" category="Behavior" typeRefId="" nodeRefId="">
+      <Description>Min input value</Description>
+      <Mappings>
+        <Mapping widget="NumInParEdit" property="minValue" />
+		<Mapping widget="NumInParSel" property="minValue" />
+		<Mapping widget="NumInParActive" property="minValue" />
+      </Mappings>
+    </Property>
+	
+ <!--BindableProperties-->	
 	<Property xsi:type="BindableProperty" name="activeVisibility" type="Boolean" defaultValue="true" readOnly="false" category="Behavior" typeRefId="" nodeRefId="">
       <Description>Active input visibility</Description>
       <Mappings>
@@ -115,6 +135,17 @@
         <Mapping widget="NumInParEdit" property="value" mode="twoWay"/>
       </Mappings>
     </Property>
+	
+	<Property xsi:type="BindableProperty" name="format" type="MeasurementSystemFormat" defaultValue="{'metric':{ 'decimalPlaces' : 1, 'minimumIntegerDigits' : 1 }, 'imperial' :{ 'decimalPlaces' : 1, 'minimumIntegerDigits' : 1 }, 'imperial-us' :{ 'decimalPlaces' : 1, 'minimumIntegerDigits' : 1 }}" readOnly="false" category="Appearance" typeRefId="" nodeRefId="">
+      <Description>Value formatting</Description>
+      <Mappings>
+        <Mapping widget="NumInParEdit" property="format" mode="twoWay"/>
+		<Mapping widget="NumInParSel" property="format" mode="twoWay"/>
+		<Mapping widget="NumInParActive" property="format" mode="twoWay"/>
+      </Mappings>
+    </Property>
+	
+	
   
   </Properties>
 

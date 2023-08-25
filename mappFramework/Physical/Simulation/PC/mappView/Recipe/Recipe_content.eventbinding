@@ -201,7 +201,7 @@
           <Step order="1">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePars_content" />
               </Target>
             </Action>
           </Step>
@@ -219,7 +219,7 @@
           <Step order="1">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewMachConfig_content" />
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipeMachConfig_content" />
               </Target>
             </Action>
           </Step>
@@ -266,7 +266,7 @@
           <Step order="4">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePars_content" />
               </Target>
             </Action>
           </Step>
@@ -287,7 +287,7 @@
         </Sequence>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="RecipePreviewPars_content.loaded">
+    <EventBinding id="RecipePars_content.loaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="BOOL" name="DefaultParametersMissing">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.ParameterRecipeMissing">
@@ -299,7 +299,7 @@
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="contentId = &quot;RecipePreviewPars_content&quot; AND DefaultParametersMissing AND DeviceValid">
+      <EventHandler condition="contentId = &quot;RecipePars_content&quot; AND DefaultParametersMissing AND DeviceValid">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingRecipeText" header="$IAT/mappFramework/Recipe/MissingRecipeHeader" />
@@ -327,7 +327,7 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="RecipePreviewMachConfig_content.loaded">
+    <EventBinding id="RecipeMachConfig_content.loaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="BOOL" name="DefaultMachineSettingsMissing">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.MachineSettingsRecipeMissing">
@@ -339,7 +339,7 @@
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="contentId = &quot;RecipePreviewMachConfig_content&quot; AND  DefaultMachineSettingsMissing AND DeviceValid">
+      <EventHandler condition="contentId = &quot;RecipeMachConfig_content&quot; AND  DefaultMachineSettingsMissing AND DeviceValid">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingRecipeText" header="$IAT/mappFramework/Recipe/MissingRecipeHeader" />
@@ -387,14 +387,14 @@
       <EventHandler condition="newValue=false AND  CategoryDropdownValue=0">
         <Action>
           <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
+            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePars_content" />
           </Target>
         </Action>
       </EventHandler>
       <EventHandler condition="newValue=false AND  CategoryDropdownValue=1">
         <Action>
           <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewMachConfig_content" />
+            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipeMachConfig_content" />
           </Target>
         </Action>
       </EventHandler>
