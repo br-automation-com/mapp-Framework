@@ -15,6 +15,16 @@
 	<Widget xsi:type="widgets.brease.ImageList" 	id="tbCheckActive" 	top="0" left="0" width="1" height="1" 	zIndex="52" imageList="['']"  visible="false" selectedIndex="-1"/>
   </Widgets>
   <Properties>
+  	
+	<Property xsi:type="LocalProperty" name="modifiedStyle" type="String" defaultValue="modified" category="Appearance" required="false" public="true">
+		<Description>Style for value difference</Description>
+		<Actions>
+			<GetAction name="GetStyle">
+				<Description>GetStyle for modification.</Description>
+			</GetAction>
+		</Actions>
+	</Property>
+  
   	<Property xsi:type="NonBindableProperty" name="text" type="String" defaultValue="Parameter" category="Appearance" localizable="true" required="false">
       <Description>Text for label</Description>
       <Mappings>
@@ -22,21 +32,21 @@
       </Mappings>
     </Property>	
 	
-	<Property xsi:type="BindableProperty" name="activeVisibility" type="Boolean" defaultValue="true" readOnly="false" category="Appearance" typeRefId="" nodeRefId="">
+	<Property xsi:type="BindableProperty" name="activeVisibility" type="Boolean" defaultValue="true" readOnly="false" category="Behavior" typeRefId="" nodeRefId="">
       <Description>Active input visibility</Description>
       <Mappings>
         <Mapping widget="TextInParActive" property="visible" mode="twoWay"/>
       </Mappings>
 	</Property>
 	  
-	<Property xsi:type="BindableProperty" name="selectedVisibility" type="Boolean" defaultValue="true" readOnly="false" category="Appearance" typeRefId="" nodeRefId="">
+	<Property xsi:type="BindableProperty" name="selectedVisibility" type="Boolean" defaultValue="true" readOnly="false" category="Behavior" typeRefId="" nodeRefId="">
       <Description>Selected input visibility</Description>
       <Mappings>
         <Mapping widget="TextInParSel" property="visible" mode="twoWay"/>
       </Mappings>
 	  </Property>  
 	
-	<Property xsi:type="BindableProperty" name="activateEditMode" type="Boolean" defaultValue="false" readOnly="false" category="Appearance" typeRefId="" nodeRefId="">
+	<Property xsi:type="BindableProperty" name="activateEditMode" type="Boolean" defaultValue="false" readOnly="false" category="Behavior" typeRefId="" nodeRefId="">
       <Description>Activate edit mode</Description>
       <Mappings>
         <Mapping widget="tbEdit" property="selectedIndex" mode="twoWay"/>
@@ -159,10 +169,15 @@
 				<Method name="GetValue"/>
 			</ReadTarget>
 		</Operand>
+		<Operand name="style" datatype="ANY_STRING">
+			<ReadTarget xsi:type="this.Action.Read">	 
+				<Method name="GetStyle"/>
+			</ReadTarget>
+		</Operand>
       <EventHandler condition="SelValue &lt;&gt; ActiveValue">
 			<Action>
 			  <Target xsi:type="widget.Action" widgetRefId="TextInParSel">
-				<Method name="SetStyle" value="modified" />
+				<Method name="SetStyle" value="=style" />
 			  </Target>
 			</Action>      
       </EventHandler>
@@ -187,10 +202,15 @@
 				<Method name="GetValue"/>
 			</ReadTarget>
 		</Operand>
+		<Operand name="style" datatype="ANY_STRING">
+			<ReadTarget xsi:type="this.Action.Read">	 
+				<Method name="GetStyle"/>
+			</ReadTarget>
+		</Operand>
       <EventHandler condition="SelValue &lt;&gt; ActiveValue">
 			<Action>
 			  <Target xsi:type="widget.Action" widgetRefId="TextInParSel">
-				<Method name="SetStyle" value="modified" />
+				<Method name="SetStyle" value="=style" />
 			  </Target>
 			</Action>      
       </EventHandler>

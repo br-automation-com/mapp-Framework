@@ -9,10 +9,6 @@
 			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.InvalidRecipe" attribute="value" />
 			<Target xsi:type="expression" refId="MachineSettingsPreviewVisible" attribute="InvalidRecipe" />
 		</Binding>				
-		<!--<Binding mode="twoWay">
-			<Source xsi:type="expression" refId="MachineSettingsPreviewVisible" attribute="result" />
-			<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="GrpBoxSelected1" attribute="visible" />
-		</Binding>-->
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsPreview.AddMachineSettingsHere1" attribute="value" />
 			<Target xsi:type="brease" contentRefId="RecipePreviewMachConfig_content" widgetRefId="RecipeValue1" attribute="valuePreview" />

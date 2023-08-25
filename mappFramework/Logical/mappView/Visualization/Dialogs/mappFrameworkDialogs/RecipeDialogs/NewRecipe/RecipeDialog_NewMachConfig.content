@@ -3,16 +3,11 @@
   <Widgets>
     <Widget xsi:type="widgets.brease.Label" id="LabelNewRecipeName" top="345" left="15" width="145" zIndex="0" text="$IAT/mappFramework/Recipe/NewRecipeName" textColor="rgba(137, 137, 137, 1)" fontSize="16px" bold="false" />
     <Widget xsi:type="widgets.brease.TextInput" id="TextInNewRecipe" top="340" left="160" width="200" height="40" zIndex="1" borderWidth="0px 0px 0px 6px" backColor="rgba(175, 175, 175, 1)" borderColor="rgba(255, 136, 0, 1)" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPar1New" top="20" left="80" width="120" zIndex="2" text="$IAT/mappFramework/Recipe/Setting1" fontSize="18px" bold="true" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPar2New" top="80" left="80" width="120" zIndex="3" text="$IAT/mappFramework/Recipe/Setting2" fontSize="18px" bold="true" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPar3New" top="140" left="80" width="120" zIndex="4" text="$IAT/mappFramework/Recipe/Setting3" fontSize="18px" bold="true" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPar4New" top="200" left="80" width="120" zIndex="5" multiLine="true" text="$IAT/mappFramework/Recipe/Setting4" wordWrap="true" fontSize="18px" bold="true" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelPar5New" top="260" left="80" width="120" zIndex="6" multiLine="true" text="$IAT/mappFramework/Recipe/Setting5" wordWrap="true" fontSize="18px" bold="true" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="NumInMachConfig1New" top="20" left="240" zIndex="7" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="NumInMachConfig4New" top="200" left="240" zIndex="8" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="NumInMachConfig5New" top="260" left="240" zIndex="9" />
-    <Widget xsi:type="widgets.brease.NumericInput" id="NumInMachConfig2New" top="80" left="240" zIndex="10" />
-    <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownMachConfig3New" top="140" left="240" zIndex="11" dataProvider="[{'value':'0','text':'False'},{'value':'1','text':'True'}]" selectedValue="0" />
-    <Widget xsi:type="widgets.brease.Label" id="LabelMcfg" top="345" left="360" width="60" zIndex="12" text=".mcfg" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="LabelMcfg" top="345" left="360" width="60" zIndex="2" text=".mcfg" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.GroupBox" id="grpBoxContent" top="0" left="0" width="420" height="325" zIndex="3">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.ContentControl" id="ContentCtrlEdit" top="0" left="0" zIndex="0" contentId="RecipePreviewMachConfig_content" />
+      </Widgets>
+    </Widget>
   </Widgets>
 </Content>

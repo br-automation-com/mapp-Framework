@@ -201,7 +201,7 @@
           <Step order="1">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewParsNew_content" />
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
               </Target>
             </Action>
           </Step>
@@ -266,7 +266,7 @@
           <Step order="4">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewParsNew_content" />
+                <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
               </Target>
             </Action>
           </Step>
@@ -299,7 +299,7 @@
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="contentId = &quot;RecipePreviewParsNew_content&quot; AND DefaultParametersMissing AND DeviceValid">
+      <EventHandler condition="contentId = &quot;RecipePreviewPars_content&quot; AND DefaultParametersMissing AND DeviceValid">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingRecipeText" header="$IAT/mappFramework/Recipe/MissingRecipeHeader" />
@@ -387,7 +387,7 @@
       <EventHandler condition="newValue=false AND  CategoryDropdownValue=0">
         <Action>
           <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewParsNew_content" />
+            <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePreviewPars_content" />
           </Target>
         </Action>
       </EventHandler>
