@@ -79,7 +79,7 @@ bool SelectRecipe(char* wantedRecipe)
 	return (strcmp(wantedRecipe, HmiRecipe.Status.SelectedRecipe) == 0);
 }
 
-testStatusEnum RemoveNonDefaultFiles(char* filter, char* selectFile, const char* category)
+testStatusEnum RemoveNonDefaultFiles(USINT categoryIndex, char* selectFile, const char* category)
 {
 	switch (SetupState)
 	{
@@ -129,9 +129,8 @@ testStatusEnum RemoveNonDefaultFiles(char* filter, char* selectFile, const char*
 
 		case 10:
 			strcpy((char*)&HmiRecipe.Parameters.DeviceName, "mappRecipeFiles");
-			strcpy((char*)&MpRecipeUIConnect.Recipe.Filter, filter);
+			HmiRecipe.Parameters.CategoryIndex = categoryIndex;
 			MpRecipeUIConnect.Recipe.Refresh = true;
-			strcpy((char*)&HmiRecipe.Parameters.Category, category);
 			TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_REFRESH)
 			MpRecipeUIConnect.Recipe.Refresh = false;
 			SetupState = 11;

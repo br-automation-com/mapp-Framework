@@ -26,7 +26,7 @@
 
 _SETUP_SET(void)
 {
-	return RemoveNonDefaultFiles("*.par", "Default.par", PARAMETERS_CATEGORY);
+	return RemoveNonDefaultFiles(PARAMETERS_CATEGORY_INDEX, "Default.par", PARAMETERS_CATEGORY);
 }
 
 _TEARDOWN_SET(void)
@@ -40,7 +40,7 @@ _SETUP_TEST(void)
 	ArrangeSubState = 0;
 	ActSubState = 0;
 	AssertSubState = 0;
-	return RemoveNonDefaultFiles("*.par", "Default.par", PARAMETERS_CATEGORY);
+	return RemoveNonDefaultFiles(PARAMETERS_CATEGORY_INDEX, "Default.par", PARAMETERS_CATEGORY);
 }
 
 _TEARDOWN_TEST(void)
@@ -669,21 +669,21 @@ SKIP_TEST EditActive(void)
 B+R UnitTest: This is generated code.
 Do not edit! Do not move!
 Description: UnitTest Testprogramm infrastructure (TestSet).
-LastUpdated: 2022-11-07 13:02:54Z
+LastUpdated: 2023-08-25 18:59:10Z
 By B+R UnitTest Helper Version: 2.0.1.59
 */
 UNITTEST_FIXTURES(fixtures)
 {
-	new_TestFixture("DefaultValues", DefaultValues),
-	new_TestFixture("CreateNew", CreateNew),
-	new_TestFixture("CreateExisting", CreateExisting),
-	new_TestFixture("CreateNonExisting", CreateNonExisting),
-	new_TestFixture("CreateActive", CreateActive),
-	new_TestFixture("PreviewShouldNotAffectActive", PreviewShouldNotAffectActive),
-	new_TestFixture("Preview", Preview),
-	new_TestFixture("Delete", Delete),
-	new_TestFixture("Invalid", Invalid),
-	skipTestFixture("EditActive", EditActive),
+	new_TestFixture("DefaultValues", DefaultValues), 
+	new_TestFixture("CreateNew", CreateNew), 
+	new_TestFixture("CreateExisting", CreateExisting), 
+	new_TestFixture("CreateNonExisting", CreateNonExisting), 
+	new_TestFixture("CreateActive", CreateActive), 
+	new_TestFixture("PreviewShouldNotAffectActive", PreviewShouldNotAffectActive), 
+	new_TestFixture("Preview", Preview), 
+	new_TestFixture("Delete", Delete), 
+	new_TestFixture("Invalid", Invalid), 
+	skipTestFixture("EditActive", EditActive), 
 };
 
 UNITTEST_CALLER_COMPLETE_EXPLICIT(Set_RecipeParameters, "Set_RecipeParameters", setupTest, teardownTest, fixtures, setupSet, teardownSet, cyclicSetCaller);

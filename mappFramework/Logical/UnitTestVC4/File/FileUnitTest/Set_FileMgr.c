@@ -228,7 +228,6 @@ _TEARDOWN_TEST(void)
 	HmiFile.Commands.Delete = 0;
 	HmiFile.Commands.EnterFolder = 0;
 	HmiFile.Commands.FolderUp = 0;
-	HmiFile.Commands.MultiSelect = 0;
 	HmiFile.Status.SelectedIndex = 0;
 	
 	FileCreate_0.enable = 0;
