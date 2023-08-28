@@ -156,11 +156,22 @@
         </Action>
       </EventHandler>
       <EventHandler>
-        <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex">
-            <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="9" />
-          </Target>
-        </Action>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.SelectedIndex">
+                <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="9" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="SessionVarRecipeActivePage">
+                <Method xsi:type="session.VariableAction.AddValue" value="1" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_content.BtnRecipePageUp.Click">
@@ -173,11 +184,22 @@
         </Action>
       </EventHandler>
       <EventHandler>
-        <Action>
-          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.SelectedIndex">
-            <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="0" />
-          </Target>
-        </Action>
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.SelectedIndex">
+                <Method xsi:type="opcUa.NodeAction.SetValueNumber" value="0" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="SessionVarRecipeActivePage">
+                <Method xsi:type="session.VariableAction.AddValue" value="-1" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
       </EventHandler>
     </EventBinding>
     <EventBinding id="Recipe_content.DropDownRecipeCategory.SelectedIndexChanged">
@@ -242,7 +264,7 @@
               </Target>
             </Action>
           </Step>
-          <Step order="1">
+          <Step order="1" deactivated="true">
             <Action>
               <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
@@ -281,6 +303,13 @@
             <Action>
               <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.RecipeContentLoaded">
                 <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="7" deactivated="true">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="SessionVarRecipeActivePage">
+                <Method xsi:type="session.VariableAction.SetValueNumber" value="1" />
               </Target>
             </Action>
           </Step>
@@ -395,6 +424,16 @@
         <Action>
           <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
             <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipeMachConfig_content" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="EventBinding_1">
+      <Source xsi:type="opcUa.Event" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.RangeEnd" event="ValueChanged" />
+      <EventHandler condition="newValue=100">
+        <Action>
+          <Target xsi:type="session.VariableAction" refId="SessionVarRecipeActivePage">
+            <Method xsi:type="session.VariableAction.SetValueNumber" value="1" />
           </Target>
         </Action>
       </EventHandler>
