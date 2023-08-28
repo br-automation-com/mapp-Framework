@@ -1,0 +1,15 @@
+(*Inputs to the unit test*)
+VAR_CONFIG
+	::AppAxis_1:MpAxisBasicAppAxis.StatusID AT %Q.::AppAxisUni:MpBlockStatus[0]; (*Insert your comment here...*)
+	::AppAxis_1:MpAlarmXCoreAxis.StatusID AT %Q.::AppAxisUni:MpBlockStatus[1]; (*Insert your comment here...*)
+	::AppAxis_1:MpRecipeRegParCfg.StatusID AT %Q.::AppAxisUni:MpBlockStatus[2]; (*Insert your comment here...*)
+	::AppAxis_1:MpRecipeRegParPar.StatusID AT %Q.::AppAxisUni:MpBlockStatus[3]; (*Insert your comment here...*)
+	::AppAxis_1:AxisControl.Status AT %Q.::AppAxisUni:AxisControl.Status; (*Insert your comment here...*)
+	::AppAxis_1:MpAlarmXCoreAxis AT %Q.::AppAxisUni:MpAlarmXCoreAxis; (*Insert your comment here...*)
+	::AppAxis_1:State AT %Q.::AppAxisUni:State; (*Insert your comment here...*)
+END_VAR
+(*Outputs from the unit test*)
+VAR_CONFIG
+	::AppAxisUni:AxisControl.Command AT %Q.::AppAxis_1:AxisControl.Command; (*Insert your comment here...*)
+	::AppAxisUni:AxisControl.Parameters AT %Q.::AppAxis_1:AxisControl.Parameters; (*Insert your comment here...*)
+END_VAR

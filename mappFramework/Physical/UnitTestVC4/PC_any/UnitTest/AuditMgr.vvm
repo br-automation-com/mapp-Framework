@@ -1,0 +1,18 @@
+(*Inputs to the unit test*)
+VAR_CONFIG
+	::AuditMgr:MpAuditTrailSys.CommandDone AT %Q.::AuditTest:MpAuditTrailCmdDone; (*Insert your comment here...*)
+	::AuditMgr:HmiAudit.Status.ArchiveAvailable AT %Q.::AuditTest:HmiAudit.Status.ArchiveAvailable; (*Insert your comment here...*)
+	::AuditMgr:HmiAudit.Status.NumberOfArchives AT %Q.::AuditTest:HmiAudit.Status.NumberOfArchives; (*Insert your comment here...*)
+	::AuditMgr:MpAuditTrailSys.Error AT %Q.::AuditTest:MpAuditTrailError; (*Insert your comment here...*)
+END_VAR
+(*Outputs from the unit test*)
+VAR_CONFIG
+	::AuditTest:HmiAudit.Commands.ExportArchives AT %Q.::AuditMgr:HmiAudit.Commands.ExportArchives; (*Insert your comment here...*)
+	::AuditTest:SampleTemperature AT %Q.::AuditMgr:VariableMonitorExample; (*Insert your comment here...*)
+	::AuditTest:HmiAudit.Parameters.ArchiveSettings.Enable AT %Q.::AuditMgr:HmiAudit.Parameters.ArchiveSettings.Enable; (*Insert your comment here...*)
+	::AuditTest:HmiAudit.Parameters.ArchiveSettings.MaxSize AT %Q.::AuditMgr:HmiAudit.Parameters.ArchiveSettings.MaxSize; (*Insert your comment here...*)
+	::AuditTest:HmiAudit.Parameters.ArchiveSettings.Mode AT %Q.::AuditMgr:HmiAudit.Parameters.ArchiveSettings.Mode; (*Insert your comment here...*)
+	::AuditTest:HmiAudit.Parameters.ArchiveSettings.Hour AT %Q.::AuditMgr:HmiAudit.Parameters.ArchiveSettings.Hour; (*Insert your comment here...*)
+	::AuditTest:HmiAudit.Parameters.ArchiveSettings.Minute AT %Q.::AuditMgr:HmiAudit.Parameters.ArchiveSettings.Minute; (*Insert your comment here...*)
+	::AuditTest:HmiAudit.Parameters.ArchiveSettings.FileType AT %Q.::AuditMgr:HmiAudit.Parameters.ArchiveSettings.FileType; (*Insert your comment here...*)
+END_VAR

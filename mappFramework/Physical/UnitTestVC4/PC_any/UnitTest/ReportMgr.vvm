@@ -1,0 +1,9 @@
+VAR_CONFIG
+	::ReportMgr:MpFileManagerUIReport.StatusID AT %Q.::ReportUnit:MpBlockStatus[0]; (*Insert your comment here...*)
+	Cyclic#8.::ReportUnit:HmiReport_UT.Commands AT %Q.Cyclic#8.::ReportMgr:HmiReport.Commands; (*Insert your comment here...*)
+	Cyclic#8.::ReportUnit:HmiReport_UT.Parameters.UseAdvancedFormat AT %Q.Cyclic#8.::ReportMgr:HmiReport.Parameters.UseAdvancedFormat; (*Insert your comment here...*)
+	Cyclic#8.::ReportMgr:HmiReport.Status AT %Q.Cyclic#8.::ReportUnit:HmiReport_UT.Status; (*Insert your comment here...*)
+	Cyclic#8.::ReportMgr:MpReportCoreSys.Active AT %Q.::ReportUnit:CoreInfoActive; (*Insert your comment here...*)
+	Cyclic#8.::ReportMgr:MpReportCoreSys.CommandDone AT %Q.::ReportUnit:CoreCmdDone; (*Insert your comment here...*)
+	Cyclic#8.::ReportMgr:MpReportCoreSys.Info AT %Q.::ReportUnit:CoreInfo_UT; (*Insert your comment here...*)
+END_VAR

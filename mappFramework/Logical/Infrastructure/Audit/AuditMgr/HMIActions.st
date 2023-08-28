@@ -70,9 +70,9 @@ ACTION QueryTableConfig:
 
 	// Hide operator column for the recipe query
 	IF (HmiAudit.Status.Query.Option = 0) THEN
-		brsstrcat(ADR(HmiAudit.Status.TableConfig[0]), ADR(', "specColumns": [ {"from":1, "to":1, "visible":true}]'));
+		brsstrcat(ADR(HmiAudit.Status.TableConfig[0]), ADR(', "specColumns": [ {"from":2, "to":2, "visible":true}]'));
 	ELSIF (HmiAudit.Status.Query.Option = 1) THEN
-		brsstrcat(ADR(HmiAudit.Status.TableConfig[0]), ADR(', "specColumns": [ {"from":1, "to":1, "visible":false}]'));
+		brsstrcat(ADR(HmiAudit.Status.TableConfig[0]), ADR(', "specColumns": [ {"from":2, "to":2, "visible":false}]'));
 	END_IF
 
 	brsstrcat(ADR(HmiAudit.Status.TableConfig[0]), ADR('}'));

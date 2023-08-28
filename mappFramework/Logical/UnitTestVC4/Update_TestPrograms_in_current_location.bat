@@ -1,0 +1,30 @@
+@@echo off
+
+set tool=%cd%\..\AS\TS_UnitTest\UnitTest_TestProgram_Helper.exe
+
+
+
+REM switch to project context
+chdir /d %~dp0
+set currDirPackage=%cd%\package.pkg
+
+
+
+REM execute helper on all test programs in this package
+"%tool%" "%currDirPackage%"
+
+SETLOCAL EnableDelayedExpansion
+for /d %%d in (*.*) do (
+    "%tool%" "%cd%\%%d\package.pkg"
+)
+
+REM eval result 
+if   errorLevel 1 goto echoErrorLevel
+goto End
+
+:echoErrorLevel
+echo errorLevel: %errorLevel%
+
+
+:End
+rem pause
