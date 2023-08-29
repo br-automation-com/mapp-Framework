@@ -1,0 +1,31 @@
+(********************************************************************
+ * COPYRIGHT --  
+ ********************************************************************
+ * Program: utTemplate_automated
+ * File: variables.var
+ * Author: -
+ * Created: - 
+ ********************************************************************
+ * Local variables of program utTemplate_automated
+ ********************************************************************)
+(*Describe the test*)
+VAR
+	ArrangeSubState : USINT;
+	ActSubState : USINT;
+	AssertSubState : USINT;
+	TestState : USINT;
+	CommonTestsuite : UtMgrTestSuite := (Name:='Common Unit Tests',Description:='Common Unit Tests',Type:=utMgrTEST_TYPE_C,MetaInformation:='Meta');
+END_VAR
+(*Variables used in the tests*)
+VAR
+	FileDeviceName : STRING[80];
+	MpBlockStatus : ARRAY[0..9] OF DINT;
+	DirInfoCommon_UT : DirInfo;
+	TextNameSpace : STRING[80];
+	TextID : STRING[80];
+	Text : STRING[80];
+	ArTextSysGetTextComon_UT : ArTextSysGetText;
+	LastTestCase : STRING[80];
+	LastTestSet : STRING[80];
+	LastTestFile : STRING[255];
+END_VAR
