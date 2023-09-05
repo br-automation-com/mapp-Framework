@@ -73,7 +73,7 @@ ACTION LoadPreview:
 		HmiRecipe.Commands.ResetPreview := TRUE;
 	END_IF;
 
-	IF ((MpRecipeSys.CommandDone = TRUE) OR (MpRecipeSys.Error = TRUE)) THEN
+	IF ((MpRecipeSys.CommandDone) OR (MpRecipeSys.Error)) THEN
 		MpRecipeSys.Load := FALSE;
 	END_IF
 

@@ -13,7 +13,7 @@ ACTION ExecuteQuery:
 			// If you prefer that the query runs anytime new data is available, then uncomment line 15 and comment out line 16 and delete
 			// the "Run query" button from the HMI.
 			//IF (AlarmQuery.LastUpdateCount <> AlarmQuery.UpdateCount) THEN
-			IF (HmiAlarmX.Commands.RunQuery = TRUE) THEN
+			IF (HmiAlarmX.Commands.RunQuery) THEN
 				brsmemset(ADR(AlarmQuery.Alarms[0]), 0, SIZEOF(AlarmQuery.Alarms));
 				AlarmQuery.LastUpdateCount := AlarmQuery.UpdateCount;
 				QueryActiveAlarms.Execute := TRUE;
@@ -23,7 +23,7 @@ ACTION ExecuteQuery:
 
 		ACTIVE_ALARM_QUERY:
 			// If the number of query results is less than MAX_QUERY_RESULTS, return to the wait state
-			IF ((QueryActiveAlarms.CommandDone = TRUE) AND (QueryActiveAlarms.Info.HasMoreRows = FALSE)) THEN
+			IF ((QueryActiveAlarms.CommandDone) AND (NOT QueryActiveAlarms.Info.HasMoreRows)) THEN
 				QueryActiveAlarms.Execute := FALSE;
 				QueryActiveAlarms.Next := FALSE;
 				AlarmQuery.State := ACTIVE_ALARM_WAIT;			
@@ -47,13 +47,13 @@ ACTION ExecuteQuery:
 					END_IF
 				END_FOR
 			// If the number of query results is more than MAX_QUERY_RESULTS, then query the next set of results	
-			ELSIF ((QueryActiveAlarms.CommandDone = TRUE) AND (QueryActiveAlarms.Info.HasMoreRows = TRUE)) THEN
+			ELSIF ((QueryActiveAlarms.CommandDone) AND (QueryActiveAlarms.Info.HasMoreRows)) THEN
 				QueryActiveAlarms.Next := FALSE;
 				AlarmQuery.State := ACTIVE_ALARM_NEXT;
 			END_IF
 
 		ACTIVE_ALARM_NEXT:
-			IF (AlarmQuery.Next = TRUE) THEN
+			IF (AlarmQuery.Next) THEN
 				// By default, AlarmQuery.Alarms has 20 elements, so it can hold 20 query results at a time (MAX_QUERY_RESULTS = 19).
 				// If AlarmQuery.Next is true, this means the query result is more than 20 alarms.
 				// If you want to save the data for the first 20 alarms, add code here to copy AlarmQuery.Alarms to another location.

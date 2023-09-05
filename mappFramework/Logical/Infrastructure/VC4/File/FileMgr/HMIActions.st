@@ -57,9 +57,9 @@ ACTION VC4_Cyclic:
 	END_FOR
 
 	// Mutli selection
-	IF (MpFileManagerUIConnect.File.MultiSelect = FALSE) THEN
+	IF (NOT MpFileManagerUIConnect.File.MultiSelect) THEN
 		MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsSelected := TRUE;	
-	ELSIF (MpFileManagerUIConnect.File.MultiSelect = TRUE) AND HmiFile.Commands.FileList.Clicked THEN
+	ELSIF (MpFileManagerUIConnect.File.MultiSelect) AND HmiFile.Commands.FileList.Clicked THEN
 		MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsSelected := NOT MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsSelected;
 	END_IF
 	HmiFile.Commands.FileList.Clicked := FALSE;

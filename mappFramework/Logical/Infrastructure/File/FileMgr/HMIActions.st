@@ -88,9 +88,9 @@ ACTION FileManager:
 		END_IF
 
 		// Set file selected when the table is clicked Single and MultiSelect
-		IF (MpFileManagerUIConnect.File.MultiSelect = FALSE) THEN
+		IF (NOT MpFileManagerUIConnect.File.MultiSelect) THEN
 			MpFileManagerUIConnect.File.List.Items[i].IsSelected := (i = HmiFile.Status.SelectedIndex);
-		ELSIF (MpFileManagerUIConnect.File.MultiSelect = TRUE) AND (HmiFile.Commands.MultiSelect = TRUE) THEN
+		ELSIF (MpFileManagerUIConnect.File.MultiSelect) AND (HmiFile.Commands.MultiSelect) THEN
 			IF (i = HmiFile.Status.SelectedIndex) AND NOT MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
 				MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
 				HmiFile.Commands.MultiSelect := FALSE;

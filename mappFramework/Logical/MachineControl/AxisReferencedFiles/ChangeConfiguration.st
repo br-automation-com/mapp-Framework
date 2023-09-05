@@ -28,7 +28,7 @@ ACTION ChangeConfiguration:
 			ProcessConfigACP.Name := MpAxisBasicAppAxis.Info.HardwareInfo.Axis.ConfigElementLocation;
 			ProcessConfigAX.Name := MpAxisBasicAppAxis.Info.HardwareInfo.Axis.AxisName;
 
-			IF (MpAxisBasicAppAxis.Active = TRUE) THEN
+			IF (MpAxisBasicAppAxis.Active) THEN
 				ConfigurationState := CONFIG_STATE_READ;
 			END_IF
 
@@ -39,7 +39,7 @@ ACTION ChangeConfiguration:
 
 			ProcessConfigAX.Mode := mcPCM_LOAD;
 			ProcessConfigAX.Execute := TRUE;
-			IF (ProcessConfigACP.Done = TRUE) AND (ProcessConfigAX.Done = TRUE) THEN
+			IF (ProcessConfigACP.Done) AND (ProcessConfigAX.Done) THEN
 				ProcessConfigACP.Execute := FALSE;
 				ProcessConfigAX.Execute := FALSE;
 				ConfigurationState := CONFIG_STATE_READY;
@@ -52,7 +52,7 @@ ACTION ChangeConfiguration:
 
 			ProcessConfigAX.Mode := mcPCM_SAVE;
 			ProcessConfigAX.Execute := TRUE;
-			IF (ProcessConfigACP.Done = TRUE) AND (ProcessConfigAX.Done = TRUE) THEN
+			IF (ProcessConfigACP.Done) AND (ProcessConfigAX.Done) THEN
 				ProcessConfigACP.Execute := FALSE;
 				ProcessConfigAX.Execute := FALSE;
 				ConfigurationState := CONFIG_STATE_READY;
@@ -87,7 +87,7 @@ ACTION ChangeParameter:
 			// Wait state
 			ProcessParamAX.Component := MpAxisBasicAppAxis.MpLink;
 
-			IF (MpAxisBasicAppAxis.Active = TRUE) THEN
+			IF (MpAxisBasicAppAxis.Active) THEN
 				ParameterState := PAR_STATE_READ;
 			END_IF
 
@@ -96,7 +96,7 @@ ACTION ChangeParameter:
 			ProcessParamAX.Mode := mcPPM_READ;
 			ProcessParamAX.Execute := TRUE;
 
-			IF (ProcessParamAX.Done = TRUE) THEN
+			IF (ProcessParamAX.Done) THEN
 				ProcessParamAX.Execute := FALSE;
 				ParameterState := PAR_STATE_READY;
 			END_IF
@@ -106,7 +106,7 @@ ACTION ChangeParameter:
 			ProcessParamAX.Mode := mcPPM_WRITE;
 			ProcessParamAX.Execute := TRUE;
 
-			IF (ProcessParamAX.Done = TRUE) THEN
+			IF (ProcessParamAX.Done) THEN
 				ProcessParamAX.Execute := FALSE;
 				ParameterState := PAR_STATE_READY;
 			END_IF

@@ -53,7 +53,7 @@ PROGRAM _CYCLIC
 		MpAlarmXListUIConnect.AcknowledgeAll := TRUE;
 	END_IF
 
-	IF (HmiAlarmX.Commands.ExportAlarms = TRUE) THEN
+	IF (HmiAlarmX.Commands.ExportAlarms) THEN
 		MpAlarmXHistoryMain.Export := TRUE;
 	END_IF
 
@@ -76,7 +76,7 @@ PROGRAM _CYCLIC
 		// Info is active. Add code here to resond to info situation.
 	END_IF
 
-	IF ((MpAlarmXHistoryMain.Export = TRUE) AND (MpAlarmXHistoryMain.CommandDone = TRUE)) THEN
+	IF ((MpAlarmXHistoryMain.Export) AND (MpAlarmXHistoryMain.CommandDone)) THEN
 		HmiAlarmX.Commands.ExportAlarms := FALSE;
 		MpAlarmXHistoryMain.Export := FALSE;
 	END_IF

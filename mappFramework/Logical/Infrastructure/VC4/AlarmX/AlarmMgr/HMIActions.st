@@ -8,7 +8,7 @@ END_ACTION
 ACTION VC4_Cyclic:
 	
 	// AlarmHistory Export process has been completed
-	IF ((MpAlarmXHistoryMain.Export = TRUE) AND (MpAlarmXHistoryMain.CommandDone = TRUE)) THEN
+	IF ((MpAlarmXHistoryMain.Export) AND (MpAlarmXHistoryMain.CommandDone)) THEN
 		HmiAlarmX.Status.HistoryExportLayer := DISPLAY;	  
 	END_IF	
 	

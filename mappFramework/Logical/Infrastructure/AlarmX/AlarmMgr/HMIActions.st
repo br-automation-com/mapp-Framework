@@ -46,11 +46,11 @@ END_ACTION
 
 ACTION ExportAlarms:
 	
-	IF (HmiAlarmX.Commands.ExportAlarms = TRUE) THEN
+	IF (HmiAlarmX.Commands.ExportAlarms) THEN
 		MpAlarmXHistoryMain.Export := TRUE;
 	END_IF
 	
-	IF ((MpAlarmXHistoryMain.Export = TRUE) AND (MpAlarmXHistoryMain.CommandDone = TRUE)) THEN
+	IF ((MpAlarmXHistoryMain.Export) AND (MpAlarmXHistoryMain.CommandDone)) THEN
 		MpAlarmXHistoryMain.Export := FALSE;
 		HmiAlarmX.Commands.ExportAlarms := FALSE;
 		HmiAlarmX.Status.AlarmExportDone := TRUE;

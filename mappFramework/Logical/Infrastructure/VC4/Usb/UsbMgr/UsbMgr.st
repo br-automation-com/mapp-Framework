@@ -18,7 +18,7 @@ PROGRAM _CYCLIC
 			// Refresh USB data every X seconds when enabled
 			Node := 1;
 			USB.Status := ERR_OK;
-			IF USB.Cmd.AutoScan = TRUE THEN
+			IF USB.Cmd.AutoScan THEN
 				RefreshTimer(IN := 1, PT := USB.Par.RefreshInterval);
 				// Get new USB data
 				IF(RefreshTimer.Q) THEN
@@ -31,7 +31,7 @@ PROGRAM _CYCLIC
 				RefreshTimer(IN := 0);
 			END_IF
 			// Refresh USB data every X seconds when enabled
-			IF USB.Cmd.ErrorReset = TRUE THEN
+			IF USB.Cmd.ErrorReset THEN
 				StateMachine := USB_ERROR;
 			END_IF
 
@@ -59,7 +59,7 @@ PROGRAM _CYCLIC
 			ELSIF GetUsbNodeList.status = asusbERR_USB_NOTFOUND THEN
 				// Unlink old device if it is gone now otherwise wait for next round
 				FOR i:=1 TO MAX_IDX_USB_DEV_LIST DO
-					IF(USB.Par.IsConnected[i] = TRUE) THEN
+					IF(USB.Par.IsConnected[i]) THEN
 						Node := 1;
 						StateMachine := USB_CHECK_LINKED;
 						RETURN;
@@ -122,7 +122,7 @@ PROGRAM _CYCLIC
 			FOR i:=1 TO MAX_IDX_USB_DEV_LIST DO
 				// Compare old and new data
 				IF(brsmemcmp(ADR(UsbDataOld[Node]), ADR(UsbData[i]), SIZEOF(UsbData[i])) = 0) AND
-					(USB.Par.IgnoreDongle = FALSE OR (USB.Par.IgnoreDongle = TRUE AND UsbData[i].productId <> BrProductId AND UsbData[i].vendorId <> BrVendorId)) THEN
+					((NOT USB.Par.IgnoreDongle) OR (USB.Par.IgnoreDongle AND UsbData[i].productId <> BrProductId AND UsbData[i].vendorId <> BrVendorId)) THEN
 					// Clear data, mark as linked and EXIT loop
 					brsmemset(ADR(UsbData[i]), 0, SIZEOF(UsbData[i]));
 					IsLinked := TRUE;
@@ -161,7 +161,7 @@ PROGRAM _CYCLIC
 			// -----------------------------------------------------------------------------------------------------------
 			// Find next new device
 			IF(UsbData[Node].interfaceClass <> 0) THEN
-				IF(USB.Par.IgnoreDongle = FALSE OR (UsbData[Node].productId <> BrProductId AND UsbData[Node].vendorId <> BrVendorId)) THEN
+				IF((NOT USB.Par.IgnoreDongle) OR (UsbData[Node].productId <> BrProductId AND UsbData[Node].vendorId <> BrVendorId)) THEN
 					StateMachine := USB_LINK_DEVICE;
 					RETURN;
 				END_IF

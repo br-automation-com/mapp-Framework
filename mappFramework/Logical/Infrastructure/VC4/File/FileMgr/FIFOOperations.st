@@ -24,7 +24,7 @@ ACTION FIFOOperation:
 	// Autodelete oldest files based on scanning option
 	CASE HmiFile.Status.DeleteStep OF
 		FILE_DISABLED:
-			IF (HmiFile.Parameters.Fifo.Enable = TRUE) THEN
+			IF (HmiFile.Parameters.Fifo.Enable) THEN
 				MpFileManagerUI_FIFO.Enable := TRUE;
 				HmiFile.Status.DeleteStep := FILE_DELETE_WAIT;
 			ELSE
@@ -32,7 +32,7 @@ ACTION FIFOOperation:
 			END_IF
 			
 		FILE_DELETE_WAIT:
-			IF (HmiFile.Parameters.Fifo.Enable = TRUE) THEN
+			IF (HmiFile.Parameters.Fifo.Enable) THEN
 				// Wait for check the correct device selection
 				ScanFolderTimer.IN := TRUE;
 				HmiFile.Status.FifoConfigEnable := TRUE;
@@ -48,7 +48,7 @@ ACTION FIFOOperation:
 
 		FILE_SCAN_FOLDER_WAIT:
 			// Wait for check for old files command
-			IF (HmiFile.Commands.CheckFolder = TRUE) AND ((MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) OR (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_ERROR)) THEN
+			IF (HmiFile.Commands.CheckFolder) AND ((MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) OR (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_ERROR)) THEN
 				HmiFile.Commands.CheckFolder := FALSE;
 				HmiFile.Status.DeleteStep := FILE_SELECT_DEVICE;
 				HmiFile.Parameters.OldSortOrder := MpFileManagerUIConnect_FIFO.File.SortOrder;
@@ -71,7 +71,7 @@ ACTION FIFOOperation:
 			END_IF
 
 		FILE_REFRESH:
-			IF ((MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) AND (MpFileManagerUIConnect_FIFO.File.Refresh = FALSE)) THEN
+			IF ((MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_IDLE) AND (NOT MpFileManagerUIConnect_FIFO.File.Refresh)) THEN
 				HmiFile.Status.DeleteStep := FILE_SORT_BY_DATE;
 			END_IF
 
@@ -84,7 +84,7 @@ ACTION FIFOOperation:
 				MpFileManagerUI_FIFO();
 			END_IF
 
-			IF (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_REFRESH) AND (MpFileManagerUIConnect_FIFO.File.Refresh = FALSE) THEN
+			IF (MpFileManagerUIConnect_FIFO.Status = mpFILE_UI_STATUS_REFRESH) AND (NOT MpFileManagerUIConnect_FIFO.File.Refresh) THEN
 				HmiFile.Status.DeleteStep := FILE_SORT_BY_DATE_WAIT;
 			END_IF
 
@@ -115,9 +115,9 @@ ACTION FIFOOperation:
 			END_IF
 
 		FILE_GO_TO_END_1:
-			WaitTimer.IN := (MpFileManagerUIConnect_FIFO.File.List.PageDown = FALSE);
+			WaitTimer.IN := (NOT MpFileManagerUIConnect_FIFO.File.List.PageDown);
 			WaitTimer.PT := T#200ms;
-			IF (WaitTimer.Q = TRUE) THEN
+			IF (WaitTimer.Q) THEN
 				WaitTimer.IN := FALSE;
 				Fifo_Count := Fifo_Count + 1;
 				// In case we are stuck trying to get to the last page

@@ -158,7 +158,7 @@ PROGRAM _CYCLIC
 		MpRecipeSys.Load := FALSE;
 		MpRecipeSys.Save := FALSE;
 		// Set update notification for machine category
-		IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_CATEGORY)) = 0) AND (MpRecipeSys.Save = TRUE)) THEN
+		IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_CATEGORY)) = 0) AND (MpRecipeSys.Save)) THEN
 			MpRecipeSys.UpdateNotification := TRUE;
 		ELSE
 			MpRecipeSys.UpdateNotification := FALSE;

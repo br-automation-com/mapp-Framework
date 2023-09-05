@@ -14,14 +14,14 @@ END_ACTION
 ACTION ArchiveSettings:
 
 	// Audit Trail Config implementation
-	IF (HmiAudit.Commands.SaveConfig = TRUE) THEN
+	IF (HmiAudit.Commands.SaveConfig) THEN
 		HmiAudit.Commands.SaveConfig := FALSE;
 		SaveAuditConfiguration;
 		MpAuditTrailConfigSys.Save := TRUE;
 	END_IF
 
 	// After the configuration has been changed the AuditTrail is reset (disabled). This re-enables the component
-	IF MpAuditTrailSys.Active = FALSE THEN
+	IF NOT MpAuditTrailSys.Active THEN
 		MpAuditTrailSys.Enable := TRUE;
 	END_IF
 

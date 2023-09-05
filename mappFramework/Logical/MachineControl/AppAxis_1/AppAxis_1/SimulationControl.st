@@ -4,7 +4,7 @@ ACTION SimulationControl:
 		RETURN;
 	END_IF
 
-	IF ((MpAxisBasicAppAxis.IsHomed = FALSE) AND (MpAxisBasicAppAxis.Home = FALSE)) THEN
+	IF ((NOT MpAxisBasicAppAxis.IsHomed) AND (NOT MpAxisBasicAppAxis.Home)) THEN
 		AxisControl.Command.Reference := TRUE;
 	END_IF
 
