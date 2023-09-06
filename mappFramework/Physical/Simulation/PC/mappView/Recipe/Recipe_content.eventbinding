@@ -261,22 +261,11 @@
         </ReadTarget>
       </Operand>
       <EventHandler condition="contentId = &quot;Recipe_content&quot;">
-        <Sequence>
-          <Step order="0" deactivated="true">
-            <Action>
-              <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
-                <Method xsi:type="widgets.brease.ContentControl.Action.UnloadContent" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.RecipeContentLoaded">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-              </Target>
-            </Action>
-          </Step>
-        </Sequence>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Status.RecipeContentLoaded">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+          </Target>
+        </Action>
       </EventHandler>
       <EventHandler condition="CategoryDropdownValue = 0 AND CurrentContentID &lt;&gt; &quot;RecipePars_content&quot;">
         <Sequence>
@@ -287,38 +276,10 @@
               </Target>
             </Action>
           </Step>
-          <Step order="1" deactivated="true">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="2" deactivated="true">
-            <Action>
-              <Target xsi:type="widgets.brease.DropDownBox.Action" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory">
-                <Method xsi:type="widgets.brease.DropDownBox.Action.SetSelectedIndex" index="0" />
-              </Target>
-            </Action>
-          </Step>
           <Step order="4">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
                 <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipePars_content" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="5" deactivated="true">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Parameters.Category">
-                <Method xsi:type="opcUa.NodeAction.SetValueString" value="Parameters" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="7" deactivated="true">
-            <Action>
-              <Target xsi:type="session.VariableAction" refId="SessionVarRecipeActivePage">
-                <Method xsi:type="session.VariableAction.SetValueNumber" value="1" />
               </Target>
             </Action>
           </Step>
@@ -333,38 +294,10 @@
               </Target>
             </Action>
           </Step>
-          <Step order="1" deactivated="true">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
-                <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="2" deactivated="true">
-            <Action>
-              <Target xsi:type="widgets.brease.DropDownBox.Action" contentRefId="Recipe_content" widgetRefId="DropDownRecipeCategory">
-                <Method xsi:type="widgets.brease.DropDownBox.Action.SetSelectedIndex" index="0" />
-              </Target>
-            </Action>
-          </Step>
           <Step order="4">
             <Action>
               <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
                 <Method xsi:type="widgets.brease.ContentControl.Action.LoadContent" contentId="RecipeMachConfig_content" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="5" deactivated="true">
-            <Action>
-              <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Parameters.Category">
-                <Method xsi:type="opcUa.NodeAction.SetValueString" value="Parameters" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="7" deactivated="true">
-            <Action>
-              <Target xsi:type="session.VariableAction" refId="SessionVarRecipeActivePage">
-                <Method xsi:type="session.VariableAction.SetValueNumber" value="1" />
               </Target>
             </Action>
           </Step>

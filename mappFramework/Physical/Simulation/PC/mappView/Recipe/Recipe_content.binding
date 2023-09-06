@@ -229,8 +229,7 @@
 		<Binding mode="oneWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.DefaultRecipeSelected" attribute="value" /> 
 			<Target xsi:type="session" refId="SessionVarDefaultRecipeSelected" attribute="value" />
-		</Binding>
-	
+		</Binding>	
 
 		<Binding mode="twoWay">
 			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.SelectedIndex" attribute="value" />
@@ -247,6 +246,10 @@
 		<Binding mode="oneWay"> 
 		   <Source xsi:type="text" refId="IAT/mappFramework/Recipe/CurrentPage" attribute="value" /> 
 		   <Target xsi:type="brease" widgetRefId="TxtOutCurrentPage" contentRefId="Recipe_content" attribute="value" /> 
+		</Binding>
+		<Binding mode="oneWay"> 
+		   <Source xsi:type="text" refId="IAT/mappFramework/Recipe/CurrentPage" attribute="value" /> 
+		   <Target xsi:type="brease" widgetRefId="TableItemRecipeList" contentRefId="Recipe_content" attribute="text" /> 
 		</Binding>
 	</Bindings>
 </BindingsSet>
