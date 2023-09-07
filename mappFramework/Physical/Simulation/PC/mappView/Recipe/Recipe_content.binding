@@ -247,9 +247,17 @@
 		   <Source xsi:type="text" refId="IAT/mappFramework/Recipe/CurrentPage" attribute="value" /> 
 		   <Target xsi:type="brease" widgetRefId="TxtOutCurrentPage" contentRefId="Recipe_content" attribute="value" /> 
 		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.RangeStart" attribute="value" />
+			<Target xsi:type="expression" refId="RecipeListPageNum" attribute="RangeStart" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.RangeEnd" attribute="value" />
+			<Target xsi:type="expression" refId="RecipeListPageNum" attribute="RangeEnd" />
+		</Binding>
 		<Binding mode="oneWay"> 
-		   <Source xsi:type="text" refId="IAT/mappFramework/Recipe/CurrentPage" attribute="value" /> 
-		   <Target xsi:type="brease" widgetRefId="TableItemRecipeList" contentRefId="Recipe_content" attribute="text" /> 
+		   <Source xsi:type="expression" refId="RecipeListPageNum" attribute="result" /> 
+		   <Target xsi:type="brease" widgetRefId="TxtOutCurrentPage" contentRefId="Recipe_content" attribute="visible" /> 
 		</Binding>
 	</Bindings>
 </BindingsSet>

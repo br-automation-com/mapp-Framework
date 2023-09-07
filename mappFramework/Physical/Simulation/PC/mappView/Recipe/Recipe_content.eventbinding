@@ -416,12 +416,22 @@
         </Action>
       </EventHandler>
     </EventBinding>
-    <EventBinding id="EventBinding_1">
+    <EventBinding id="SessionVarRecipeActivePage.SetValue">
       <Source xsi:type="opcUa.Event" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.List.RangeEnd" event="ValueChanged" />
       <EventHandler condition="newValue=100">
         <Action>
           <Target xsi:type="session.VariableAction" refId="SessionVarRecipeActivePage">
             <Method xsi:type="session.VariableAction.SetValueNumber" value="1" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="Recipe_content.BtnRefresh.Click">
+      <Source xsi:type="widgets.brease.PushButton.Event" contentRefId="Recipe_content" widgetRefId="BtnRefresh" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.Recipe.Refresh">
+            <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
           </Target>
         </Action>
       </EventHandler>

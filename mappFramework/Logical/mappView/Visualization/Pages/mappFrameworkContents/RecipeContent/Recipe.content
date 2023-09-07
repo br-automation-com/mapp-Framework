@@ -6,7 +6,7 @@
     <Widget xsi:type="widgets.brease.Button" id="BtnEdit" top="550" left="887" height="100" zIndex="2" image="Media/mappFrameworkSymbols/Edit/Edit.svg" imageAlign="top" text="$IAT/mappFramework/Recipe/Edit" imageHeight="30" imageWidth="30" fontSize="16px" permissionOperate="['Administrators', 'Service']" style="Command" />
     <Widget xsi:type="widgets.brease.Table" id="TableRecipe" top="135" left="29" width="600" height="405" zIndex="3" rowHeight="40" cornerRadius="0px 0px 0px 0px" fontSize="18px" headerFontSize="20px">
       <Widgets>
-        <Widget xsi:type="widgets.brease.TableItem" id="TableItemRecipeList" zIndex="0" columnWidth="360" rowHeight="40" text="$IAT/mappFramework/Recipe/CurrentPage" />
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItemRecipeList" zIndex="0" columnWidth="360" rowHeight="40" text="$IAT/mappFramework/Recipe/RecipeList" />
         <Widget xsi:type="widgets.brease.TableItem" id="TableItemTimeStamp" zIndex="1" columnWidth="240" text="$IAT/mappFramework/Recipe/TimeStamp" />
       </Widgets>
     </Widget>
@@ -30,6 +30,7 @@
     </Widget>
     <Widget xsi:type="widgets.brease.Image" id="ImageLoading" top="90" left="590" width="40" height="40" zIndex="32" image="Media/mappFrameworkSymbols/Gifs/InProgressGray.gif" visible="false" />
     <Widget xsi:type="widgets.brease.Label" id="LabelPage" top="10" left="950" width="150" zIndex="33" multiLine="true" text="$IAT/mappFramework/Recipe/Recipe" textAlign="right" fontSize="24px" bold="true" />
-    <Widget xsi:type="widgets.brease.TextOutput" id="TxtOutCurrentPage" top="550" left="30" width="230" height="45" zIndex="34" value="$IAT/mappFramework/Recipe/CurrentPage" fontName="Arial Unicode" bold="true" />
+    <Widget xsi:type="widgets.brease.TextOutput" id="TxtOutCurrentPage" top="550" left="30" width="220" zIndex="34" value="$IAT/mappFramework/Recipe/CurrentPage" fontName="Arial Unicode" bold="true" padding="0px 10px 0px 10px" />
+    <Widget xsi:type="widgets.brease.PushButton" id="BtnRefresh" top="135" left="30" width="360" height="40" zIndex="35" image="Media/mappFrameworkSymbols/File/Refresh.svg" imageHeight="25" imageWidth="25" textAlign="left" fontSize="18px" style="transparent" />
   </Widgets>
 </Content>

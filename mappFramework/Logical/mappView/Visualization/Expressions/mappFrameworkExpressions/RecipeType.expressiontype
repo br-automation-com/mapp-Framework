@@ -37,5 +37,14 @@
 				RecipeFilesAvailable AND NOT InvalidRecipe
 			</Operation>
 		</ExpressionType>
+		<ExpressionType name="myRecipePageNumVisible" datatype="BOOL">
+			<Operands>
+				<Operand name="RangeStart" datatype="ANY_REAL" />
+				<Operand name="RangeEnd" datatype="ANY_REAL" />
+			</Operands>
+			<Operation>
+				NOT ((RangeStart = 0) AND (RangeEnd = 100)) 
+			</Operation>
+		</ExpressionType>
     </ExpressionTypes>
 </ExpressionTypeSet>
