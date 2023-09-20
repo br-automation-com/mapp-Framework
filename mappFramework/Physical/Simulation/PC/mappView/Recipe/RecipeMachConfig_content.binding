@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="RecipeMachConfig_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Bindings>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.FilesAvailable" attribute="value" />
+			<Target xsi:type="expression" refId="MachineSettingsPreviewVisible" attribute="RecipeFilesAvailable" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.InvalidRecipe" attribute="value" />
+			<Target xsi:type="expression" refId="MachineSettingsPreviewVisible" attribute="InvalidRecipe" />
+		</Binding>				
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsPreview.AddMachineSettingsHere1" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue1" attribute="valuePreview" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsPreview.AddMachineSettingsHere3" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeBool1" attribute="valuePreview" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsPreview.AddMachineSettingsHere4" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue3" attribute="valuePreview" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsPreview.AddMachineSettingsHere5" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue4" attribute="valuePreview" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsPreview.AddMachineSettingsHere2" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue2" attribute="valuePreview" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere1" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue1" attribute="valueEdit" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere3" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeBool1" attribute="valueEdit" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere4" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue3" attribute="valueEdit" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere5" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue4" attribute="valueEdit" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere2" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue2" attribute="valueEdit" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettings.AddMachineSettingsHere1" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue1" attribute="valueActive" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettings.AddMachineSettingsHere3" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeBool1" attribute="valueActive" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettings.AddMachineSettingsHere4" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue3" attribute="valueActive" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettings.AddMachineSettingsHere5" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue4" attribute="valueActive" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettings.AddMachineSettingsHere2" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue2" attribute="valueActive" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="session" refId="SessionVarEditRecipe" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue1" attribute="activateEditMode" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="session" refId="SessionVarEditRecipe" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeBool1" attribute="activateEditMode" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="session" refId="SessionVarEditRecipe" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue3" attribute="activateEditMode" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="session" refId="SessionVarEditRecipe" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue4" attribute="activateEditMode" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="session" refId="SessionVarEditRecipe" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue2" attribute="activateEditMode" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ConfigRecipeLoaded" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue1" attribute="activeVisibility" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ConfigRecipeLoaded" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeBool1" attribute="activeVisibility" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ConfigRecipeLoaded" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue3" attribute="activeVisibility" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ConfigRecipeLoaded" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue4" attribute="activeVisibility" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.ConfigRecipeLoaded" attribute="value" />
+			<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue2" attribute="activeVisibility" />
+		</Binding>
+	<Binding mode="oneWay">
+<Source xsi:type="expression" refId="MachineSettingsPreviewVisible" attribute="result" />
+<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue1" attribute="selectedVisibility" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="expression" refId="MachineSettingsPreviewVisible" attribute="result" />
+<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeBool1" attribute="selectedVisibility" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="expression" refId="MachineSettingsPreviewVisible" attribute="result" />
+<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue3" attribute="selectedVisibility" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="expression" refId="MachineSettingsPreviewVisible" attribute="result" />
+<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue4" attribute="selectedVisibility" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="expression" refId="MachineSettingsPreviewVisible" attribute="result" />
+<Target xsi:type="brease" contentRefId="RecipeMachConfig_content" widgetRefId="RecipeValue2" attribute="selectedVisibility" />
+</Binding>
+</Bindings>
+</BindingsSet>

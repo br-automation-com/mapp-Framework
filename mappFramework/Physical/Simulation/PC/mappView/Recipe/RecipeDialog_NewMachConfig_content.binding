@@ -1,27 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="RecipeDialog_NewMachConfig_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Bindings>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere1" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumInMachConfig1New" attribute="value" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere2" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumInMachConfig2New" attribute="value" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere3" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="DropDownMachConfig3New" attribute="selectedIndex" />
-        </Binding>
-		
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere4" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumInMachConfig4New" attribute="value" />
-        </Binding>
-        <Binding mode="twoWay">
-            <Source xsi:type="opcUa" refId="::RecipeMgr:MachineSettingsEdit.AddMachineSettingsHere5" attribute="value" />
-            <Target xsi:type="brease" contentRefId="RecipeDialog_NewMachConfig_content" widgetRefId="NumInMachConfig5New" attribute="value" />
-        </Binding>
         <Binding mode="oneWay">
             <Source xsi:type="opcUa" refId="::RecipeMgr:HmiRecipe.Status.MachineSettingsRecipeMissing" attribute="value" />
             <Target xsi:type="expression" refId="CannotCancelNewRecipe" attribute="MissingDefaultMachineRecipe" />
