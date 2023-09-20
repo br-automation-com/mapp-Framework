@@ -4,11 +4,22 @@
     <EventBinding id="RecipeDialog_EditButtons_content.BtnCancel.Click">
       <Source xsi:type="widgets.brease.Button.Event" contentRefId="RecipeDialog_EditButtons_content" widgetRefId="BtnCancel" event="Click" />
       <EventHandler>
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
-          </Target>
-        </Action>
+        <Sequence>
+          <Step order="0" deactivated="true">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="SessionVarEditRecipe">
+                <Method xsi:type="session.VariableAction.ToggleValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
       </EventHandler>
     </EventBinding>
     <EventBinding id="RecipeDialog_EditButtons_content.BtnSave.Click">
@@ -32,17 +43,17 @@
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Parameters.Category">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
-			</Operand>
-			<Operand datatype="ANY_STRING" name="ParametersRecipe">
-				<ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:PARAMETERS_RECIPE">
-					<Method xsi:type="opcUa.NodeAction.GetValue" />
-				</ReadTarget>
-			</Operand>
-			<Operand datatype="ANY_STRING" name="MachineConfigurationRecipe">
-				<ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:MACHINE_CONFIGURATION_RECIPE">
-					<Method xsi:type="opcUa.NodeAction.GetValue" />
-				</ReadTarget>
-			</Operand>
+      </Operand>
+      <Operand datatype="ANY_STRING" name="ParametersRecipe">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:PARAMETERS_RECIPE">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="ANY_STRING" name="MachineConfigurationRecipe">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:MACHINE_CONFIGURATION_RECIPE">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
       <EventHandler condition="">
         <Action>
           <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.SaveSelectedRecipe">
@@ -58,11 +69,22 @@
         </Action>
       </EventHandler>
       <EventHandler condition="">
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
-          </Target>
-        </Action>
+        <Sequence>
+          <Step order="0" deactivated="true">
+            <Action>
+              <Target xsi:type="session.VariableAction" refId="SessionVarEditRecipe">
+                <Method xsi:type="session.VariableAction.ToggleValueBool" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="EditRecipe_dialog" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
       </EventHandler>
     </EventBinding>
     <EventBinding id="EditRecipe_dialog.Opened">
@@ -72,18 +94,27 @@
           <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="dialogId = &quot;EditRecipe_dialog&quot; AND CategoryDropdown = 0">
+      <EventHandler>
         <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_EditPars_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
+          <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
+            <Method xsi:type="widgets.brease.ContentControl.Action.UnloadContent" />
           </Target>
-        </Action>
-      </EventHandler>
-      <EventHandler condition="dialogId = &quot;EditRecipe_dialog&quot; AND CategoryDropdown = 1">
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_EditMachConfig_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
-          </Target>
+          <Result>
+            <ResultHandler condition="dialogId = &quot;EditRecipe_dialog&quot; AND CategoryDropdown = 0 AND result = true">
+              <Action>
+                <Target xsi:type="clientSystem.Action">
+                  <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_EditPars_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
+                </Target>
+              </Action>
+            </ResultHandler>
+            <ResultHandler condition="dialogId = &quot;EditRecipe_dialog&quot; AND CategoryDropdown = 1 AND result = true">
+              <Action>
+                <Target xsi:type="clientSystem.Action">
+                  <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_EditMachConfig_content" dialogId="EditRecipe_dialog" areaId="AreaRecipe" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
         </Action>
       </EventHandler>
     </EventBinding>
