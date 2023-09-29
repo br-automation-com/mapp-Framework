@@ -143,9 +143,9 @@ ACTION LoadPreview:
 	END_IF;
 		
 	// Load preview when a recipe is selected
-	IF (MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR 
+	IF ((MpRecipeUIConnect.Recipe.List.SelectedIndex <> HmiRecipe.Status.LastSelectedIndex) OR 
 		(HmiRecipe.Status.LastMaxSelection <> MpRecipeUIConnect.Recipe.List.MaxSelection) OR
-		EDGENEG(HmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_CREATE) THEN		
+		EDGENEG(HmiRecipe.Status.LastStatus = mpRECIPE_UI_STATUS_CREATE)) AND NOT MpRecipeUIConnect.Recipe.Load THEN		
 		// Check selected recipe name is not empty
 		IF (brsstrlen(ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex])) > 0) THEN
 			MpRecipeSys.FileName := ADR(MpRecipeUIConnect.Recipe.List.Names[MpRecipeUIConnect.Recipe.List.SelectedIndex]);
