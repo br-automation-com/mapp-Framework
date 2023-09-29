@@ -300,6 +300,7 @@ _TEST PreviewShouldNotAffectActive(void)
 					break;
 
 				case 4:
+					TEST_BUSY_CONDITION(MpRecipeSys.Load == true);
 					TEST_BUSY_CONDITION(!SelectRecipe("preview.par"));
 					MpRecipeUIConnect.Recipe.Load = true;
 					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_LOAD);
@@ -378,6 +379,7 @@ _TEST Preview(void)
 					break;
 
 				case 4:
+					TEST_BUSY_CONDITION(MpRecipeSys.Load == true);
 					TEST_BUSY_CONDITION(!SelectRecipe("preview.par"));
 					MpRecipeUIConnect.Recipe.Load = true;
 					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_LOAD);
