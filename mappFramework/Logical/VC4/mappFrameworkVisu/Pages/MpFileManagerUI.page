@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.5.38 SP"?>
+<?AutomationStudio Version="4.10.6.39 SP"?>
 <Page xmlns="http://br-automation.co.at/AS/VC/Project" Name="MpFileManagerUI">
   <Property Name="Description" Value="mapp VC4 template MpFileManagerUI"/>
   <Property Name="Height" Value="480"/>
@@ -2037,7 +2037,7 @@
           <Property Name="Height" Value="96"/>
           <Property Name="Left" Value="247"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpDefault]"/>
-          <Property Name="Top" Value="212"/>
+          <Property Name="Top" Value="184"/>
           <Property Name="Width" Value="301"/>
         </Control>
         <Control ClassId="0x00001002" Name="cmdFIFO_Enable">
@@ -2046,21 +2046,23 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_58_0]"/>
-          <Property Name="Height" Value="43"/>
+          <Property Name="Height" Value="45"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="331"/>
+          <Property Name="Left" Value="248"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedForeColor" Value="253"/>
-          <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+          <Property Name="PressedTextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
+          <Property Name="PressedTextIndex" Value="31"/>
+          <Property Name="PressedTextSource" Value="SingleText"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
           <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
           <Property Name="TextIndex" Value="24"/>
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="129"/>
+          <Property Name="Top" Value="349"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_58_0]"/>
-          <Property Name="Width" Value="134"/>
+          <Property Name="Width" Value="130"/>
         </Control>
         <Control ClassId="0x00001002" Name="cmdOK">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
@@ -2068,21 +2070,21 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_68_0]"/>
-          <Property Name="Height" Value="42"/>
+          <Property Name="Height" Value="45"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="359"/>
+          <Property Name="Left" Value="411"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedForeColor" Value="253"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[MpControlButton]"/>
           <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
-          <Property Name="TextIndex" Value="23"/>
+          <Property Name="TextIndex" Value="30"/>
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="349"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_68_0]"/>
-          <Property Name="Width" Value="82"/>
+          <Property Name="Width" Value="130"/>
         </Control>
         <Control ClassId="0x00001007" Name="nmInScanInterval">
           <Property Name="ControlID" Value="0"/>
@@ -2096,7 +2098,7 @@
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
-          <Property Name="Top" Value="312"/>
+          <Property Name="Top" Value="289"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Parameters.Fifo.ScanInterval]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="140"/>
@@ -2114,7 +2116,7 @@
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FIFOLayerObjects.MaxNumberOfFilesVisiblity]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
-          <Property Name="Top" Value="248"/>
+          <Property Name="Top" Value="220"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Parameters.Fifo.MaxNumberOfFiles]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="140"/>
@@ -2130,7 +2132,7 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
           <Property Name="TextIndexOffset" Value="25"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="180"/>
+          <Property Name="Top" Value="147"/>
           <Property Name="Width" Value="134"/>
         </Control>
         <Control ClassId="0x00001018" Name="drpDwnFIFO_Device">
@@ -2155,7 +2157,7 @@
           <Property Name="TextDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.DeviceDataProvider]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleStrings"/>
-          <Property Name="Top" Value="180"/>
+          <Property Name="Top" Value="147"/>
           <Property Name="Width" Value="210"/>
         </Control>
         <Control ClassId="0x00001018" Name="drpDwnFIFO_Option">
@@ -2180,7 +2182,7 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIFIFOText]"/>
           <Property Name="TextIndexOffset" Value="0"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
-          <Property Name="Top" Value="214"/>
+          <Property Name="Top" Value="186"/>
           <Property Name="Width" Value="210"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtLabel_FIFOOption">
@@ -2194,7 +2196,7 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
           <Property Name="TextIndexOffset" Value="26"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="211"/>
+          <Property Name="Top" Value="183"/>
           <Property Name="Width" Value="134"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtLabel_MaxNumOfFiles">
@@ -2209,7 +2211,7 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
           <Property Name="TextIndexOffset" Value="27"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="244"/>
+          <Property Name="Top" Value="216"/>
           <Property Name="Width" Value="134"/>
         </Control>
         <Control ClassId="0x00001004" Name="txtLabel_ScanInterval">
@@ -2223,7 +2225,7 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
           <Property Name="TextIndexOffset" Value="28"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="307"/>
+          <Property Name="Top" Value="284"/>
           <Property Name="Width" Value="134"/>
         </Control>
         <Control ClassId="0x00001007" Name="numInMaxFileSize">
@@ -2239,7 +2241,7 @@
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FIFOLayerObjects.MaxFolderSizeVisiblity]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
-          <Property Name="Top" Value="277"/>
+          <Property Name="Top" Value="249"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Parameters.Fifo.MaxFolderSize]"/>
           <Property Name="ValueMode" Value="Standard"/>
           <Property Name="Width" Value="140"/>
@@ -2256,7 +2258,7 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[MpFileManagerUIText]"/>
           <Property Name="TextIndexOffset" Value="29"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="273"/>
+          <Property Name="Top" Value="245"/>
           <Property Name="Width" Value="134"/>
         </Control>
         <Control ClassId="0x00001001" Name="Background_Header">
@@ -2293,8 +2295,8 @@
           <Property Name="VirtualKey_LED" Value="False"/>
           <KeyActions>
             <KeyAction ClassId="0x0000016A">
-              <Property Name="CompletionDatapoint" Value="None"/>
-              <Property Name="CompletionValue" Value="0"/>
+              <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.Infrastructure.VC4.File.FileMgr.HmiFile.Status.FIFOLayerStatus]"/>
+              <Property Name="CompletionValue" Value="1"/>
               <Property Name="Description" Value=""/>
               <Property Name="Locking" Value="Never"/>
               <Property Name="Name" Value="Action_0"/>
@@ -2498,23 +2500,23 @@
       <Property Name="Down" Value="Source[embedded].Layer[Default].Control[txtSearchFilter]"/>
       <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
       <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[nmInScanInterval]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName]">
       <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
       <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[FileDialog_FIFO].Control[drpDwnFIFO_Device]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[FileDialog_FIFO].Control[drpDwnFIFO_Option]"/>
       <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName1]">
       <Property Name="Down" Value="Source[embedded].Layer[Default].Control[txtNewName]"/>
       <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
       <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[drpDwnFIFO_Device]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[drpDwnFIFO_Option]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[Default].Control[lbxAlarmName2]">
       <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[FileDialog_FIFO].Control[drpDwnFIFO_Device]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[FileDialog_FIFO].Control[drpDwnFIFO_Option]"/>
       <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName1]"/>
       <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName1]"/>
     </MovementEntry>
@@ -2528,17 +2530,17 @@
       <Property Name="Down" Value="Source[embedded].Layer[Default].Control[txtNewName]"/>
       <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
       <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[numInMaxFileSize]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FileDialog_FIFO].Control[numInMaxNumOfFiles]">
-      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[FileDialog_FIFO].Control[numInMaxFileSize]"/>
       <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
       <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
       <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[drpDwnFIFO_Option]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FileDialog_FIFO].Control[drpDwnFIFO_Device]">
       <Property Name="Down" Value="Source[embedded].Layer[FileDialog_FIFO].Control[drpDwnFIFO_Option]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName3]"/>
       <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
       <Property Name="Up" Value="Source[embedded].Layer[Default].Control[txtSearchFilter]"/>
     </MovementEntry>
@@ -2549,10 +2551,10 @@
       <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[drpDwnFIFO_Device]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[FileDialog_FIFO].Control[numInMaxFileSize]">
-      <Property Name="Down" Value="Source[embedded].Layer[FileDialog_FIFO].Control[nmInScanInterval]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
       <Property Name="Left" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
       <Property Name="Right" Value="Source[embedded].Layer[Default].Control[lbxAlarmName2]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[Default].Control[lbxAlarmName]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[FileDialog_FIFO].Control[numInMaxNumOfFiles]"/>
     </MovementEntry>
   </MovementOrder>
   <TabSequence>
