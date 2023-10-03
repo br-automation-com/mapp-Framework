@@ -10,6 +10,17 @@
 		<Variable name="Variable5" xsi:type="BOOL" value="true" />    
 -->		
 		<Variable name="SessionVarDefaultFileSelected" xsi:type="BOOL" value="false"/>
-		<Variable name="SessionVarFileContentActive" xsi:type="BOOL" value="false"/>		
+		<Variable name="SessionVarFileContentActive" xsi:type="BOOL" value="false"/>
+		
+		<Variable name="SessionVarFifoEnable" xsi:type="BOOL" value="false"/>	
+		<Variable name="SessionVarFifoDevice" xsi:type="ANY_STRING" value=""/>
+		<Variable name="SessionVarFifoDeviceIndex" xsi:type="ANY_INT" value="0"/>
+		<Variable name="SessionVarFifoType" xsi:type="ANY_INT" value="-1"/>
+		<Variable name="SessionVarFifoScanInterval" xsi:type="ANY_INT" value="60"/>
+		<Variable name="SessionVarFifoFileAge" xsi:type="ANY_INT" value="365"/>
+		<Variable name="SessionVarFifoFolderSize" xsi:type="ANY_REAL" value="1000.0"/>
+		<Variable name="SessionVarFifoNumOfFiles" xsi:type="ANY_INT" value="20"/>
+		
+			
 	</Variables>
 </VariablesSet>

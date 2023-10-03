@@ -53,6 +53,7 @@ ACTION FormatDeviceDataProvider:
 	brsstrcat(ADR(HmiFile.Status.TableConfig[1]), ADR(',"to":49, "visible":false}]}'));
 
 	// Create device data provider for FIFO drop down
+	brsmemset(ADR(HmiFile.Status.DeviceDataProvider), 0, SIZEOF(HmiFile.Status.DeviceDataProvider));
 	FOR i := 0 TO MaxDeviceNameIndex DO
 		IF (MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '') THEN
 			HmiFile.Status.DeviceDataProvider[i] := '{"value":"';
@@ -61,7 +62,8 @@ ACTION FormatDeviceDataProvider:
 			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i]));
 			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR('"}'));
 		ELSE
-			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[i]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[i]));
+			HmiFile.Status.DeviceDataProvider[i] := '{"value":"Disable","text":"Disable FIFO"}';	
+			EXIT;
 		END_IF
 	END_FOR
 
