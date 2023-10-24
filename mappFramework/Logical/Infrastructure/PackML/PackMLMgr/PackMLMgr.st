@@ -21,8 +21,13 @@ PROGRAM _INIT
 	MpPackMLModuleMain.Enable := TRUE;
 	MpPackMLModuleMain();
 	
+	//PackML Mode Initializations
+	
+	
 	// Initialize startup mode - Automatic Mode
 	HmiPackML.Commands.Mode := 1; 
+	
+	
 	
 END_PROGRAM
 

@@ -13,7 +13,7 @@ END_VAR
 VAR
 	HmiReport : ReportHmiInterfaceType; (*HMI interface structure*)
 	ReportExample : ReportExampleType; (*Structure for the example data used by the two types of reports*)
-	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappReportFiles',9('')])); (*MpFile connection to the HMI*)
+	MpFileManagerUIConnect : MpFileManagerUIConnectType; (*MpFile connection to the HMI*)
 END_VAR
 (*Variables*)
 VAR

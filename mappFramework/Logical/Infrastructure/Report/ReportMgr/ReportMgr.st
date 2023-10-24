@@ -29,6 +29,17 @@ PROGRAM _INIT
 	MpFileManagerUIReport.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	MpFileManagerUIReport.Enable := TRUE;
 	MpFileManagerUIReport();
+	
+	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappReportFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[2] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[3] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[7] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[8] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[9] := '';
 
 	// Fill an array to create example data for the example report
 	TimeIndex := 0;

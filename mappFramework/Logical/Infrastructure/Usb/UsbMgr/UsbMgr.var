@@ -10,6 +10,7 @@ END_VAR
 VAR CONSTANT
 	BrVendorId : UINT := 1615; (*B&R vendor id*)
 	BrProductId : UINT := 1001; (*B&R dongle product id*)
+	ERR_MAX_DEVICE : UINT := 50000; (*Maximum number of dongles reached*)
 END_VAR
 (*Structure Types*)
 VAR
@@ -28,5 +29,4 @@ VAR
 	Node : USINT; (*Node number*)
 	i : USINT;
 	tmpSTR : STRING[10];
-	ERR_MAX_DEVICE : UINT := 50000; (*Maximum number of dongles reached*)
 END_VAR

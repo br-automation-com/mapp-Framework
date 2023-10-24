@@ -29,6 +29,7 @@ PROGRAM _INIT
 	MpUserXManagerUISys.Enable := TRUE;
 	MpUserXManagerUISys.UIConnect := ADR(UserXMgrUIConnect);
 	MpUserXManagerUISys();
+	MpUserXManagerUISys.UISetup.FileDevice := 'mappUserXFiles';
 
 	MpUserXLoginUISys.MpLink := ADR(gMpLinkUserXLogin);
 	MpUserXLoginUISys.Enable := TRUE;
