@@ -6,13 +6,18 @@
       <EventHandler>
         <Parallel>
           <Action>
-            <Target xsi:type="clientSystem.Action">
-              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
+            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Cancel">
+              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            </Target>
+          </Action>
+          <Action deactivated="true">
+            <Target xsi:type="session.VariableAction" refId="SessionVarEditRecipe">
+              <Method xsi:type="session.VariableAction.ToggleValueBool" />
             </Target>
           </Action>
           <Action>
-            <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:MpRecipeUIConnect.MessageBox.Cancel">
-              <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            <Target xsi:type="clientSystem.Action">
+              <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
             </Target>
           </Action>
         </Parallel>
@@ -35,6 +40,11 @@
           <Action>
             <Target xsi:type="opcUa.NodeAction" refId="::RecipeMgr:HmiRecipe.Commands.CreateRecipe">
               <Method xsi:type="opcUa.NodeAction.SetValueBool" value="true" />
+            </Target>
+          </Action>
+          <Action deactivated="true">
+            <Target xsi:type="session.VariableAction" refId="SessionVarEditRecipe">
+              <Method xsi:type="session.VariableAction.ToggleValueBool" />
             </Target>
           </Action>
           <Action>
@@ -61,6 +71,13 @@
                 </Step>
                 <Step order="1">
                   <Action>
+                    <Target xsi:type="session.VariableAction" refId="SessionVarEditRecipe">
+                      <Method xsi:type="session.VariableAction.ToggleValueBool" />
+                    </Target>
+                  </Action>
+                </Step>
+                <Step order="2">
+                  <Action>
                     <Target xsi:type="clientSystem.Action">
                       <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
                     </Target>
@@ -79,18 +96,27 @@
           <Method xsi:type="widgets.brease.DropDownBox.Action.GetSelectedIndex" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="dialogId = &quot;NewRecipe_dialog&quot; AND CategoryDropdown = 0">
+      <EventHandler>
         <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_NewPars_content" dialogId="NewRecipe_dialog" areaId="AreaRecipe" />
+          <Target xsi:type="widgets.brease.ContentControl.Action" contentRefId="Recipe_content" widgetRefId="ContentCtrlPreview">
+            <Method xsi:type="widgets.brease.ContentControl.Action.UnloadContent" />
           </Target>
-        </Action>
-      </EventHandler>
-      <EventHandler condition="dialogId = &quot;NewRecipe_dialog&quot; AND CategoryDropdown = 1">
-        <Action>
-          <Target xsi:type="clientSystem.Action">
-            <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_NewMachConfig_content" dialogId="NewRecipe_dialog" areaId="AreaRecipe" />
-          </Target>
+          <Result>
+            <ResultHandler condition="dialogId = &quot;NewRecipe_dialog&quot; AND CategoryDropdown = 1 AND result = true">
+              <Action>
+                <Target xsi:type="clientSystem.Action">
+                  <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_NewMachConfig_content" dialogId="NewRecipe_dialog" areaId="AreaRecipe" />
+                </Target>
+              </Action>
+            </ResultHandler>
+            <ResultHandler condition="dialogId = &quot;NewRecipe_dialog&quot; AND CategoryDropdown = 0 AND result = true">
+              <Action>
+                <Target xsi:type="clientSystem.Action">
+                  <Method xsi:type="clientSystem.Action.LoadContentInDialogArea" contentId="RecipeDialog_NewPars_content" dialogId="NewRecipe_dialog" areaId="AreaRecipe" />
+                </Target>
+              </Action>
+            </ResultHandler>
+          </Result>
         </Action>
       </EventHandler>
     </EventBinding>

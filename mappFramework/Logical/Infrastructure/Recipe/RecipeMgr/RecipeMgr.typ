@@ -24,9 +24,10 @@ TYPE
 		LastLoadedProductRecipe : STRING[255]; (*Last loaded product recipe*)
 		ProductRecipeLoaded : BOOL; (*Product recipe was loaded*)
 		ConfigRecipeLoaded : BOOL; (*Config recipe was loaded*)
-		PreviousRangeStart : REAL;
-		PreviousRangeEnd : REAL;
+		PreviousRangeStart : REAL; (*Scroll range temp variables*)
+		PreviousRangeEnd : REAL; (*Scroll range temp variables*)
 		LastMaxSelection : UINT; (*The previous maximum number of recipes*)
+		SelectedIndex : UINT; (*The currently selected index*)
 		LastSelectedIndex : UINT; (*The previous selected index*)
 		LastStatus : MpRecipeUIStatusEnum; (*The previous UI status*)
 		EditDialogOpened : BOOL; (*Flag that the edit dialog box was opened*)

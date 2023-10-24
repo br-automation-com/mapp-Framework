@@ -346,7 +346,7 @@ _TEST Add_File(void)
 			switch (ArrangeSubState)
 			{
 				case 0:
-					FileCreate_0.pDevice = (UDINT)&"mappRecipeFiles";
+					FileCreate_0.pDevice = (UDINT)&"USER";
 					FileCreate_0.pFile = (UDINT)&CreateFileName;
 					ArrangeSubState = 1;
 					break;

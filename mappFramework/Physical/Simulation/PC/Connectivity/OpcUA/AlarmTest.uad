@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="E4.91">
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleName="Everyone" Access="0x005F" />
+      </ACL>
+      <ACL Id="2">
+        <ACE RoleName="Everyone" Access="0x007F" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView AclId="2">
+    <Module Name="&lt;Default&gt;">
+      <Task Name="AlarmMgr">
+        <Variable Name="AlarmExamples">
+          <Variable Name="LevelMonitoring" />
+          <Variable Name="DeviationMonitoring" />
+          <Variable Name="DeviationMonitoringSetpoint" />
+          <Variable Name="RateOfChange" />
+          <Variable Name="SnippetValue" />
+          <Variable Name="SetControlExample" />
+        </Variable>
+        <Variable Name="Alarms" EnableArrayElements="True" />
+        <Variable Name="SafetyInputs">
+          <Variable Name="EmergencyStop" />
+          <Variable Name="SafetyDoor" />
+          <Variable Name="AcknowledgeAlarms" />
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

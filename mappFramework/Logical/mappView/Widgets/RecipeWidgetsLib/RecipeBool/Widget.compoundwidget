@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CompoundWidget id="RecipeBool" width="415" height="30" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+  	<Widget xsi:type="widgets.brease.Label" id="LabelPar" top="0" left="0" width="160" zIndex="0" multiLine="true" text="$IAT/mappFramework/Recipe/Parameter1" wordWrap="true" fontSize="18px" bold="true" margin="0px 5px 0px 0px" />
+	<Widget xsi:type="widgets.brease.FlexLayoutPanel" id="FlexLayoutPanel1" top="0" left="165" width="125" height="30" zIndex="1" padding="0px" childMainAlign="end" childCrossAlign="start" margin="0px">
+      <Widgets>       
+        <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownParEdit" top="0" left="0" width="120" zIndex="1" dataProvider="[{'value':'0','text':'False'},{'value':'1','text':'True'}]" padding="0px 10px 0px 10px" selectedValue="0" visible="false" margin="0px 5px 0px 0px"/>
+		<Widget xsi:type="widgets.brease.DropDownBox" id="DropDownParSel" top="0" left="0" width="120" zIndex="2" dataProvider="[{'value':'0','text':'False'},{'value':'1','text':'True'}]" padding="0px 10px 0px 10px" selectedValue="0" enable="false" margin="0px 5px 0px 0px"/>
+      </Widgets>
+    </Widget>
+	<Widget xsi:type="widgets.brease.DropDownBox" id="DropDownParActive" top="0" left="290" width="120" zIndex="3" dataProvider="[{'value':'0','text':'False'},{'value':'1','text':'True'}]" padding="0px 10px 0px 10px" selectedValue="0" enable="false" margin="0px 5px 0px 0px"/>
+
+	<Widget xsi:type="widgets.brease.ImageList" 	id="tbEdit" 	top="0" left="0" width="1" height="1" 	zIndex="50" imageList="['']"  visible="false" selectedIndex="-1"/>
+	<Widget xsi:type="widgets.brease.ImageList" 	id="tbCheckSel" 	top="0" left="0" width="1" height="1" 	zIndex="51" imageList="['']"  visible="false" selectedIndex="-1"/>
+	<Widget xsi:type="widgets.brease.ImageList" 	id="tbCheckActive" 	top="0" left="0" width="1" height="1" 	zIndex="52" imageList="['']"  visible="false" selectedIndex="-1"/>
+  </Widgets>
+  
+  
+  <Properties>
+  
+	<Property xsi:type="LocalProperty" name="modifiedStyle" type="String" defaultValue="modified" category="Appearance" required="false" public="true">
+		<Description>Style for value difference</Description>
+		<Actions>
+			<GetAction name="GetStyle">
+				<Description>GetStyle for modification.</Description>
+			</GetAction>
+		</Actions>
+	</Property>  
+  
+  	<Property xsi:type="NonBindableProperty" name="text" type="String" defaultValue="Parameter" category="Appearance" localizable="true" required="false">
+      <Description>Text for label</Description>
+      <Mappings>
+        <Mapping widget="LabelPar" property="text"/>		
+      </Mappings>
+    </Property>
+	
+	<Property xsi:type="BindableProperty" name="activeVisibility" type="Boolean" defaultValue="true" readOnly="false" category="Behavior" typeRefId="" nodeRefId="">
+      <Description>Active input visibility</Description>
+      <Mappings>
+        <Mapping widget="DropDownParActive" property="visible" mode="twoWay"/>
+      </Mappings>
+    </Property>
+	
+	<Property xsi:type="BindableProperty" name="selectedVisibility" type="Boolean" defaultValue="true" readOnly="false" category="Behavior" typeRefId="" nodeRefId="">
+      <Description>Selected input visibility</Description>
+      <Mappings>
+        <Mapping widget="DropDownParSel" property="visible" mode="twoWay"/>
+      </Mappings>
+    </Property>
+	
+	<Property xsi:type="BindableProperty" name="activateEditMode" type="Boolean" defaultValue="false" readOnly="false" category="Behavior" typeRefId="" nodeRefId="">
+      <Description>Activate edit mode</Description>
+      <Mappings>
+        <Mapping widget="tbEdit" property="selectedIndex" mode="twoWay"/>
+      </Mappings>
+    </Property>
+	
+	
+	<Property xsi:type="BindableProperty" name="valuePreview" type="Number" defaultValue="0" readOnly="false" category="Data" typeRefId="" nodeRefId="">
+      <Description>Preview value</Description>
+      <Mappings>
+        <Mapping widget="DropDownParSel" property="selectedIndex" mode="twoWay"/>
+		<Mapping widget="tbCheckSel" property="selectedIndex" mode="twoWay"/>
+      </Mappings>
+    </Property>
+	
+	<Property xsi:type="BindableProperty" name="valueActive" type="Number" defaultValue="0" readOnly="false" category="Data" typeRefId="" nodeRefId="">
+      <Description>Active value</Description>
+      <Mappings>
+        <Mapping widget="DropDownParActive" property="selectedIndex" mode="twoWay"/>
+		<Mapping widget="tbCheckActive" property="selectedIndex" mode="twoWay"/>
+      </Mappings>
+    </Property>
+	
+	<Property xsi:type="BindableProperty" name="valueEdit" type="Number" defaultValue="0" readOnly="false" category="Data" typeRefId="" nodeRefId="">
+      <Description>Edit value</Description>
+      <Mappings>
+        <Mapping widget="DropDownParEdit" property="selectedIndex" mode="twoWay"/>
+      </Mappings>
+    </Property>
+  
+  </Properties>
+
+  <Events>
+    <!--
+    <Event name="">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+        <Mapping widget="" event="" />
+      </Mappings>
+    </Event>
+    -->
+  </Events>
+
+  <Actions>
+    
+    <!--<Action name="EditPar">
+      <Description>Description will be shown in property grid.</Description>
+      <Mappings>
+		<Mapping widget="tbEdit" action="SetValue" />
+      </Mappings>
+    </Action>
+-->    
+  </Actions>
+
+  <EventBindings>
+    <!-- source and target can only be widgets within the compound widget.-->
+    <EventBinding id="ActivateEditMode">
+      <Source xsi:type="widget.Event" widgetRefId="tbEdit" event="SelectedIndexChanged" />
+      <EventHandler condition="selectedIndex = 1">
+		<Sequence>
+			<Step order="0">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="DropDownParActive">
+					<Method name="SetVisible" value="false" />
+				  </Target>
+				</Action>
+			</Step>
+			<Step order="1">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="DropDownParSel">
+					<Method name="SetVisible" value="false" />
+				  </Target>
+				</Action>
+			</Step>
+			<Step order="2">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="DropDownParEdit">
+					<Method name="SetVisible" value="true" />
+				  </Target>
+				</Action>
+			</Step>
+		</Sequence>       
+      </EventHandler>
+	  <EventHandler condition="selectedIndex = 0">
+        <Sequence>
+			<Step order="0">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="DropDownParActive">
+					<Method name="SetVisible" value="true" />
+				  </Target>
+				</Action>
+			</Step>
+			<Step order="1">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="DropDownParSel">
+					<Method name="SetVisible" value="true" />
+				  </Target>
+				</Action>
+			</Step>
+			<Step order="2">
+				<Action>
+				  <Target xsi:type="widget.Action" widgetRefId="DropDownParEdit">
+					<Method name="SetVisible" value="false" />
+				  </Target>
+				</Action>
+			</Step>
+		</Sequence>  
+      </EventHandler>
+    </EventBinding>
+	
+	<EventBinding id="ValueDifferenceSel">
+      <Source xsi:type="widget.Event" widgetRefId="tbCheckSel" event="SelectedIndexChanged" />
+	  <Operand name="ActiveValue" datatype="ANY_REAL">
+			<ReadTarget xsi:type="widget.Action.Read" widgetRefId="DropDownParActive">	 
+				<Method name="GetSelectedIndex"/>
+			</ReadTarget>
+		</Operand>
+		<Operand name="SelValue" datatype="ANY_REAL">
+			<ReadTarget xsi:type="widget.Action.Read" widgetRefId="DropDownParSel">	 
+				<Method name="GetSelectedIndex"/>
+			</ReadTarget>
+		</Operand>
+		<Operand name="style" datatype="ANY_STRING">
+			<ReadTarget xsi:type="this.Action.Read">	 
+				<Method name="GetStyle"/>
+			</ReadTarget>
+		</Operand>
+      <EventHandler condition="SelValue &lt;&gt; ActiveValue">
+			<Action>
+			  <Target xsi:type="widget.Action" widgetRefId="DropDownParSel">
+				<Method name="SetStyle" value="=style" />
+			  </Target>
+			</Action>      
+      </EventHandler>
+	  <EventHandler condition="SelValue = ActiveValue">
+			<Action>
+			  <Target xsi:type="widget.Action" widgetRefId="DropDownParSel">
+				<Method name="SetStyle" value="default" />
+			  </Target>
+			</Action>    
+      </EventHandler>
+    </EventBinding>
+	
+	<EventBinding id="ValueDifferenceActive">
+      <Source xsi:type="widget.Event" widgetRefId="tbCheckActive" event="SelectedIndexChanged" />
+	  <Operand name="ActiveValue" datatype="ANY_REAL">
+			<ReadTarget xsi:type="widget.Action.Read" widgetRefId="DropDownParActive">	 
+				<Method name="GetSelectedIndex"/>
+			</ReadTarget>
+		</Operand>
+		<Operand name="SelValue" datatype="ANY_REAL">
+			<ReadTarget xsi:type="widget.Action.Read" widgetRefId="DropDownParSel">	 
+				<Method name="GetSelectedIndex"/>
+			</ReadTarget>
+		</Operand>
+		<Operand name="style" datatype="ANY_STRING">
+			<ReadTarget xsi:type="this.Action.Read">	 
+				<Method name="GetStyle"/>
+			</ReadTarget>
+		</Operand>
+      <EventHandler condition="SelValue &lt;&gt; ActiveValue">
+			<Action>
+			  <Target xsi:type="widget.Action" widgetRefId="DropDownParSel">
+				<Method name="SetStyle" value="=style" />
+			  </Target>
+			</Action>      
+      </EventHandler>
+	  <EventHandler condition="SelValue = ActiveValue">
+			<Action>
+			  <Target xsi:type="widget.Action" widgetRefId="DropDownParSel">
+				<Method name="SetStyle" value="default" />
+			  </Target>
+			</Action>    
+      </EventHandler>
+    </EventBinding>
+    
+  </EventBindings>
+
+
+</CompoundWidget>
