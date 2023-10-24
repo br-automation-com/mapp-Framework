@@ -22,7 +22,7 @@ PROGRAM _INIT
 	MpPackMLModuleMain();
 	
 	//PackML Mode Initializations
-	
+	StateInitialize;
 	
 	// Initialize startup mode - Automatic Mode
 	HmiPackML.Commands.Mode := 1; 
