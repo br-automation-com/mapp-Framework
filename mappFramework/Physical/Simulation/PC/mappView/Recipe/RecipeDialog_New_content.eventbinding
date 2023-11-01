@@ -16,6 +16,11 @@
             </Target>
           </Action>
           <Action>
+            <Target xsi:type="session.VariableAction" refId="SessionVarRecipeDialogOpen">
+              <Method xsi:type="session.VariableAction.SetValueBool" value="false" />
+            </Target>
+          </Action>
+          <Action>
             <Target xsi:type="clientSystem.Action">
               <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
             </Target>
@@ -48,6 +53,11 @@
             </Target>
           </Action>
           <Action>
+            <Target xsi:type="session.VariableAction" refId="SessionVarRecipeDialogOpen">
+              <Method xsi:type="session.VariableAction.SetValueBool" value="false" />
+            </Target>
+          </Action>
+          <Action>
             <Target xsi:type="clientSystem.Action">
               <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
             </Target>
@@ -77,6 +87,13 @@
                   </Action>
                 </Step>
                 <Step order="2">
+                  <Action>
+                    <Target xsi:type="session.VariableAction" refId="SessionVarRecipeDialogOpen">
+                      <Method xsi:type="session.VariableAction.SetValueBool" value="false" />
+                    </Target>
+                  </Action>
+                </Step>
+                <Step order="3">
                   <Action>
                     <Target xsi:type="clientSystem.Action">
                       <Method xsi:type="clientSystem.Action.CloseDialog" dialogId="NewRecipe_dialog" />
