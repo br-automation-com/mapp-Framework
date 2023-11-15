@@ -40,7 +40,7 @@ void AsLoggerLogBook(struct AsLoggerLogBook* inst)
     
     if (inst == NULL)
     {
-        logError("AsLoggerLogBook", "AsLoggerLogBook called with NULL instance", NULL);
+        logError("AsLoggerLogBook", "AsLoggerLogBook called with NULL instance", (UDINT)NULL);
         return;
     }
     logStore = getLogStore();    

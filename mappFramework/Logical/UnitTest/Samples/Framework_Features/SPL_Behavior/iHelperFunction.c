@@ -19,33 +19,33 @@
 
 void resetDataForTestSet()
 {
-	brsstrcpy((UDINT)OutputString, (UDINT)"");
-	CounterInSet = 0;
-	CounterInSet_LastChecked = -1;
-	CounterToStringBuffer[0] = 0;
+    brsstrcpy((UDINT)OutputString, (UDINT)"");
+    CounterInSet = 0;
+    CounterInSet_LastChecked = -1;
+    CounterToStringBuffer[0] = 0;
 }
 
 void checkAndWriteCounterIfChanged( unsigned long line, const char *file)
-{	
-	if(CounterInSet_LastChecked != CounterInSet)
-	{
-		addFailure((char*)OutputString, line, file);
-		
-		CounterInSet_LastChecked = CounterInSet;
-		brsitoa(CounterInSet + 1, (UDINT) CounterToStringBuffer);
+{   
+    if(CounterInSet_LastChecked != CounterInSet)
+    {
+        addFailure((char*)OutputString, line, file);
+        
+        CounterInSet_LastChecked = CounterInSet;
+        brsitoa(CounterInSet + 1, (UDINT) CounterToStringBuffer);
 
-		brsstrcpy((UDINT)OutputString, (UDINT)"( ");
-		brsstrcat((UDINT)OutputString, (UDINT)CounterToStringBuffer);		
-		/*		brsstrcat((UDINT)OutputString, (UDINT)". task cylce in TestSet) "); */
-		brsstrcat((UDINT)OutputString, (UDINT)". cylce) "); 
-		
-		addFailure((char*)OutputString, line, file);
-		
-	}
-	else if(OutputString[0]) 
-	{
-		/*		TEST_FAIL(OutputString);*/
-		addFailure((char*)OutputString, line, file);
-	}
+        brsstrcpy((UDINT)OutputString, (UDINT)"( ");
+        brsstrcat((UDINT)OutputString, (UDINT)CounterToStringBuffer);       
+        /*      brsstrcat((UDINT)OutputString, (UDINT)". task cylce in TestSet) "); */
+        brsstrcat((UDINT)OutputString, (UDINT)". cylce) "); 
+        
+        addFailure((char*)OutputString, line, file);
+        
+    }
+    else if(OutputString[0]) 
+    {
+        /*      TEST_FAIL(OutputString);*/
+        addFailure((char*)OutputString, line, file);
+    }
 
 }

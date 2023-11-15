@@ -7,6 +7,7 @@
 #include "UnitTest.h"
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define TIMEOUT_TEST_CASE								\
 	if (cycleCount >= 1000)								\
@@ -223,7 +224,7 @@ _TEARDOWN_TEST(void)
 	MpFileManagerUIConnect.File.Paste = 0;
 	MpFileManagerUIConnect.File.Refresh = 0;
 	MpFileManagerUIConnect.File.Rename = 0;
-	brsmemcpy(&MpFileManagerUIConnect.File.Filter, &"", sizeof(MpFileManagerUIConnect.File.Filter));
+	brsmemcpy((UDINT)&MpFileManagerUIConnect.File.Filter, (UDINT)&"", sizeof(MpFileManagerUIConnect.File.Filter));
 	
 	HmiFile.Commands.Delete = 0;
 	HmiFile.Commands.EnterFolder = 0;
@@ -256,7 +257,7 @@ _TEST Create_Directory(void)
 			{
 				case 0:
 					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
-					brsmemcpy(&MpFileManagerUIConnect.File.NewName, &DirName, sizeof(MpFileManagerUIConnect.File.NewName));
+					brsmemcpy((UDINT)&MpFileManagerUIConnect.File.NewName, (UDINT)&DirName, sizeof(MpFileManagerUIConnect.File.NewName));
 					ArrangeSubState = 1;
 					break;
 			
@@ -275,7 +276,7 @@ _TEST Create_Directory(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&DirName) == 0)
 						{
 							TEST_ABORT_MSG("Directory with chosen name already exists");
 						}
@@ -315,7 +316,7 @@ _TEST Create_Directory(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&DirName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -331,6 +332,7 @@ _TEST Create_Directory(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Add_File(void)
@@ -367,7 +369,7 @@ _TEST Add_File(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
 						{
 							TEST_ABORT_MSG("File with chosen name already exists");
 						}
@@ -423,7 +425,7 @@ _TEST Add_File(void)
 				case 5:
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -439,6 +441,7 @@ _TEST Add_File(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Copy_File(void)
@@ -459,7 +462,7 @@ _TEST Copy_File(void)
 				case 1:
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -505,7 +508,7 @@ _TEST Copy_File(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedFileName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CopiedFileName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -521,6 +524,7 @@ _TEST Copy_File(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Copy_Directory(void)
@@ -541,7 +545,7 @@ _TEST Copy_Directory(void)
 				case 1:
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&DirName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -587,7 +591,7 @@ _TEST Copy_Directory(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedDirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CopiedDirName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -603,6 +607,7 @@ _TEST Copy_Directory(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Rename_File(void)
@@ -617,14 +622,14 @@ _TEST Rename_File(void)
 			{
 				case 0:
 					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
-					brsmemcpy(&MpFileManagerUIConnect.File.NewName, &NewFileName, sizeof(MpFileManagerUIConnect.File.NewName));
+					brsmemcpy((UDINT)&MpFileManagerUIConnect.File.NewName, (UDINT)&NewFileName, sizeof(MpFileManagerUIConnect.File.NewName));
 					ArrangeSubState = 1;
 					break;
 				
 				case 1:
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedFileName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CopiedFileName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -659,7 +664,7 @@ _TEST Rename_File(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&NewFileName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -675,6 +680,7 @@ _TEST Rename_File(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Rename_Directory(void)
@@ -689,14 +695,14 @@ _TEST Rename_Directory(void)
 			{
 				case 0:
 					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
-					brsmemcpy(&MpFileManagerUIConnect.File.NewName, &NewDirName, sizeof(MpFileManagerUIConnect.File.NewName));
+					brsmemcpy((UDINT)&MpFileManagerUIConnect.File.NewName, (UDINT)&NewDirName, sizeof(MpFileManagerUIConnect.File.NewName));
 					ArrangeSubState = 1;
 					break;
 				
 				case 1:
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedDirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CopiedDirName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -731,7 +737,7 @@ _TEST Rename_Directory(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewDirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&NewDirName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -747,6 +753,7 @@ _TEST Rename_Directory(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Cut_Paste_File(void)
@@ -775,7 +782,7 @@ _TEST Cut_Paste_File(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&NewFileName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -796,7 +803,7 @@ _TEST Cut_Paste_File(void)
 					MpFileManagerUIConnect.File.Cut = 0;
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&DirName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					ActSubState = 2;
@@ -838,7 +845,7 @@ _TEST Cut_Paste_File(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&NewFileName) == 0)
 						{
 							InNewLocation = 1;
 						}
@@ -858,7 +865,7 @@ _TEST Cut_Paste_File(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&NewFileName) == 0)
 						{
 							InOldLocation = 1;
 						}
@@ -875,6 +882,7 @@ _TEST Cut_Paste_File(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Cut_Paste_Directory(void)
@@ -895,7 +903,7 @@ _TEST Cut_Paste_Directory(void)
 				case 1:
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewDirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&NewDirName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -929,7 +937,7 @@ _TEST Cut_Paste_Directory(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&DirName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					ActSubState = 4;
@@ -987,7 +995,7 @@ _TEST Cut_Paste_Directory(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewDirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&NewDirName) == 0)
 						{
 							InNewLocation = 1;
 						}
@@ -1007,7 +1015,7 @@ _TEST Cut_Paste_Directory(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewDirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&NewDirName) == 0)
 						{
 							InOldLocation = 1;
 						}
@@ -1024,6 +1032,7 @@ _TEST Cut_Paste_Directory(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Multiselect(void)
@@ -1044,7 +1053,7 @@ _TEST Multiselect(void)
 				case 1:
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&DirName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					ArrangeSubState = 2;
@@ -1126,7 +1135,7 @@ _TEST Multiselect(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedNewFileName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CopiedNewFileName) == 0)
 							MultiSelectFileCopy = 1;
 					}
 					ActSubState = 8;
@@ -1136,7 +1145,7 @@ _TEST Multiselect(void)
 					// Check for copied directory
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedNewDirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CopiedNewDirName) == 0)
 							MultiSelectDirCopy = 1;
 					}
 					ActSubState = 9;
@@ -1163,6 +1172,7 @@ _TEST Multiselect(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Search(void)
@@ -1174,7 +1184,7 @@ _TEST Search(void)
 		case 0:
 			// Set filter value to name of file
 			MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
-			brsmemcpy(&MpFileManagerUIConnect.File.Filter, &CreateFileName, sizeof(MpFileManagerUIConnect.File.Filter));
+			brsmemcpy((UDINT)&MpFileManagerUIConnect.File.Filter, (UDINT)&CreateFileName, sizeof(MpFileManagerUIConnect.File.Filter));
 			TestState = 1;
 			break;
 		
@@ -1196,14 +1206,14 @@ _TEST Search(void)
 				case 2:
 					// Check if the first item in the file list is the desired file
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[0].Name, &CreateFileName) == 0)
+					if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[0].Name, (UDINT)&CreateFileName) == 0)
 						NameMatch = 1;
 					ActSubState = 3;
 					break;
 				
 				case 3:
 					// Reset filter
-					brsmemcpy(&MpFileManagerUIConnect.File.Filter, &"", sizeof(MpFileManagerUIConnect.File.Filter));
+					brsmemcpy((UDINT)&MpFileManagerUIConnect.File.Filter,(UDINT) &"", sizeof(MpFileManagerUIConnect.File.Filter));
 					MpFileManagerUIConnect.File.Refresh = 1;
 					ActSubState = 4;
 					break;
@@ -1227,6 +1237,7 @@ _TEST Search(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Enter_Folder(void)
@@ -1239,7 +1250,7 @@ _TEST Enter_Folder(void)
 			// Select folder to enter
 			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 			{
-				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+				if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&DirName) == 0)
 					HmiFile.Status.SelectedIndex = i;
 			}
 			TestState = 1;
@@ -1268,7 +1279,7 @@ _TEST Enter_Folder(void)
 				case 3:
 					// Check if current directory matches what is expected
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					if(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &DirName) == 0)
+					if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.PathInfo.CurrentDir, (UDINT)&DirName) == 0)
 						NameMatch = 1;
 					ActSubState = 4;
 					break;
@@ -1297,6 +1308,7 @@ _TEST Enter_Folder(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Go_Up_Level(void)
@@ -1309,7 +1321,7 @@ _TEST Go_Up_Level(void)
 			// Select folder to enter
 			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 			{
-				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+				if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&DirName) == 0)
 					HmiFile.Status.SelectedIndex = i;
 			}
 			TestState = 1;
@@ -1338,7 +1350,7 @@ _TEST Go_Up_Level(void)
 				case 3:
 					// Check if folder was successfully entered
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					if(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &DirName) != 0)
+					if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.PathInfo.CurrentDir, (UDINT)&DirName) != 0)
 					{
 						TEST_ABORT_MSG("Directory was not successfully entered");
 					}
@@ -1360,7 +1372,7 @@ _TEST Go_Up_Level(void)
 				case 6:
 					// Check if folder level went back up to the root
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					if(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &"") == 0)
+					if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.PathInfo.CurrentDir, (UDINT)&"") == 0)
 						NameMatch = 1;
 					TestState = 2;
 					break;
@@ -1372,6 +1384,7 @@ _TEST Go_Up_Level(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Change_Sort(void)
@@ -1398,7 +1411,7 @@ _TEST Change_Sort(void)
 				case 1:
 					// Make sure sort worked correctly
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[0].Name, &DirName) == 0)
+					if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[0].Name, (UDINT)&DirName) == 0)
 						NameMatch = 1;
 					ActSubState = 2;
 					break;
@@ -1421,6 +1434,7 @@ _TEST Change_Sort(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Delete_File(void)
@@ -1433,7 +1447,7 @@ _TEST Delete_File(void)
 			// Select file to be deleted
 			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 			{
-				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+				if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
 					HmiFile.Status.SelectedIndex = i;
 			}
 			TestState = 1;
@@ -1473,7 +1487,7 @@ _TEST Delete_File(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
 							NameMatch = 1;
 					}
 					TestState = 2;
@@ -1487,6 +1501,7 @@ _TEST Delete_File(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Delete_Directory(void)
@@ -1499,7 +1514,7 @@ _TEST Delete_Directory(void)
 			// Select directory to be deleted
 			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 			{
-				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+				if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&DirName) == 0)
 					HmiFile.Status.SelectedIndex = i;
 			}
 			TestState = 1;
@@ -1539,7 +1554,7 @@ _TEST Delete_Directory(void)
 					// Check for file
 					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&DirName) == 0)
 							NameMatch = 1;
 					}
 					TestState = 2;
@@ -1553,6 +1568,7 @@ _TEST Delete_Directory(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST FIFO_20(void)
