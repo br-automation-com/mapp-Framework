@@ -20,22 +20,16 @@ PROGRAM _INIT
 	MpBackupCoreSys.Enable := TRUE;
 	MpBackupCoreSys();
 
+	MpFileManagerUIBackup.UISetup.FileListSize := 50;
+	FOR i:=0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames)/SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
+		MpFileManagerUIConnect.DeviceList.DeviceNames[i] := '';
+	END_FOR
+	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappBackupFiles';
+	
 	MpFileManagerUIBackup.MpLink := ADR(gMpLinkFileManagerUIBackup);
 	MpFileManagerUIBackup.UIConnect := ADR(MpFileManagerUIConnect);
 	MpFileManagerUIBackup.Enable := TRUE;
 	MpFileManagerUIBackup();
-	MpFileManagerUIBackup.UISetup.FileListSize := 50;
-	
-	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappBackupFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := 'USB1';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[2] := '';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[3] := '';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := '';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := '';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := '';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[7] := '';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[8] := '';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[9] := '';
 	
 	MpBackupCoreConfigSys.Enable := TRUE;
 	MpBackupCoreConfigSys.MpLink := ADR(gMpLinkBackupCore);
