@@ -510,10 +510,10 @@ _TEST Invalid(void)
 			switch (ArrangeSubState) {
 				case 0:
 					FileCopy_UT.enable = true;
-					FileCopy_UT.pSrcDev = "mappRecipeFiles";
-					FileCopy_UT.pSrc = "CSVformat\\Default.par";
-					FileCopy_UT.pDestDev = "mappRecipeFiles";
-					FileCopy_UT.pDest = "Invalid.par";
+					FileCopy_UT.pSrcDev = (UDINT)&"mappRecipeFiles";
+					FileCopy_UT.pSrc = (UDINT)&"CSVformat\\Default.par";
+					FileCopy_UT.pDestDev = (UDINT)&"mappRecipeFiles";
+					FileCopy_UT.pDest = (UDINT)&"Invalid.par";
 					FileCopy_UT.option= fiOVERWRITE;
 					FileCopy(&FileCopy_UT);
 					TEST_BUSY_CONDITION(FileCopy_UT.status == 65535);
