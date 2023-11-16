@@ -21,27 +21,45 @@ VAR
 	SetupState : USINT;
 	FileCreate_UT : FileCreate;
 	FileClose_UT : FileClose;
+	NumberOfDirs : UINT;
 	NumberOfFiles : UINT;
 	CurrentFile : UINT;
+	CurrentDir : UINT;
 	DirInfo_UT : DirInfo;
 	fileInfo : fiDIR_READ_DATA;
 	DirRead_UT : DirRead;
 	FileWrite_UT : FileWrite;
 	testData : {REDUND_UNREPLICABLE} STRING[1023] := 'testing data';
 	FileDelete_UT : FileDelete;
+	DirDeleteEx_UT : DirDeleteEx;
 	NameMatch : BOOL;
+END_VAR
+VAR CONSTANT
 	DirName : STRING[255] := 'FileTestDir';
 	CreateFileName : STRING[255] := 'FileTestFile.xml';
+END_VAR
+VAR
 	FileCreate_0 : FileCreate;
 	FileClose_0 : FileClose;
+END_VAR
+VAR CONSTANT
 	CopiedFileName : STRING[255] := 'FileTestFile(1).xml';
 	CopiedDirName : STRING[255] := 'FileTestDir(1)';
 	NewFileName : STRING[255] := 'FileRename.xml';
 	NewDirName : STRING[255] := 'DirRename';
+END_VAR
+VAR
 	InNewLocation : BOOL;
 	InOldLocation : BOOL;
+END_VAR
+VAR CONSTANT
 	CopiedNewFileName : STRING[255] := 'FileRename(1).xml';
 	CopiedNewDirName : STRING[255] := 'DirRename(1)';
+END_VAR
+VAR
 	MultiSelectFileCopy : BOOL;
 	MultiSelectDirCopy : BOOL;
+	IsSelected : ARRAY[0..2] OF BOOL;
+	MpFileManagerUIConnectSize : UDINT;
+	pMpFileManagerUIConnect : REFERENCE TO MpFileManagerUIConnectType; (*File manager connection to the HMI*)
 END_VAR

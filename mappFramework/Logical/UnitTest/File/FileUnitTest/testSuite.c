@@ -28,6 +28,8 @@ void _INIT initTestSuite(void)
 	
 	strcpy((char*)&TextNameSpace, "mappFramework/File/Alarms");
 	strcpy((char*)&TextID, "DeviceNotFound");
+	
+	PV_xgetadr("FileMgr:MpFileManagerUIConnect", (void*)&pMpFileManagerUIConnect, &MpFileManagerUIConnectSize);
 }
 
 
