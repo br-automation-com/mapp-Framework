@@ -322,6 +322,11 @@
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
+      <Operand datatype="BOOL" name="ProductRecipeLoaded">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.ProductRecipeLoaded">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
       <Operand datatype="BOOL" name="DeviceValid">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.DeviceValid">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
@@ -373,11 +378,23 @@
           </Result>
         </Action>
       </EventHandler>
+      <EventHandler condition="contentId = &quot;RecipePars_content&quot; AND NOT ProductRecipeLoaded AND DeviceValid AND NOT DialogOpen">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingLastRecipeText" header="$IAT/mappFramework/Recipe/MissingLastRecipeHeader" />
+          </Target>
+        </Action>
+      </EventHandler>
     </EventBinding>
     <EventBinding id="RecipeMachConfig_content.loaded">
       <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
       <Operand datatype="BOOL" name="DefaultMachineSettingsMissing">
         <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.MachineSettingsRecipeMissing">
+          <Method xsi:type="opcUa.NodeAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <Operand datatype="BOOL" name="ConfigRecipeLoaded">
+        <ReadTarget xsi:type="opcUa.NodeAction.Read" refId="::RecipeMgr:HmiRecipe.Status.ConfigRecipeLoaded">
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
@@ -430,6 +447,13 @@
               </Sequence>
             </ResultHandler>
           </Result>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="contentId = &quot;RecipeMachConfig_content&quot; AND NOT ConfigRecipeLoaded AND DeviceValid AND NOT DialogOpen">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingLastConfigText" header="$IAT/mappFramework/Recipe/MissingLastConfigHeader" />
+          </Target>
         </Action>
       </EventHandler>
     </EventBinding>
