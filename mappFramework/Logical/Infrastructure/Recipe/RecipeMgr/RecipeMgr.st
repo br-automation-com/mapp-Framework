@@ -48,6 +48,7 @@ PROGRAM _INIT
 	// Wait for MpRecipeSys to activate. This must be active before you can call the RegPar function blocks, which is below.
 	WHILE NOT(MpRecipeSys.Active OR MpRecipeSys.Error) DO
 		MpRecipeSys();
+		MpRecipeUISys();
 	END_WHILE
 
 	// Register the preview variables to the recipe. These preview variables are a buffer between the recipe system and the
@@ -89,6 +90,7 @@ PROGRAM _INIT
 	MpRecipeSys.Load := TRUE;
 	WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
 		MpRecipeSys();
+		MpRecipeUISys();
 	END_WHILE
 	MachineSettings := MachineSettingsPreview;
 	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedConfigRecipe), ADR('')) <> 0) THEN
@@ -102,7 +104,8 @@ PROGRAM _INIT
 
 	// Check if the default machine settings recipe is missing
 	IF MpRecipeSys.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
-		IF (HmiRecipe.Status.DefaultConfig = HmiRecipe.Parameters.FileName) OR (MpRecipeUIConnect.Recipe.List.Names[0] <> '') THEN
+		IF ((HmiRecipe.Status.DefaultConfig <> HmiRecipe.Parameters.FileName) AND (MpRecipeUIConnect.Recipe.List.Names[0] = '')) 
+			OR (HmiRecipe.Status.DefaultConfig = HmiRecipe.Parameters.FileName) THEN
 		  HmiRecipe.Status.MachineSettingsRecipeMissing := TRUE;
 		END_IF	
 		HmiRecipe.Status.LastLoadedConfigRecipe := '';
@@ -128,6 +131,7 @@ PROGRAM _INIT
 	MpRecipeSys.Load := TRUE;
 	WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
 		MpRecipeSys();
+		MpRecipeUISys();
 	END_WHILE
 	Parameters := ParametersPreview;
 	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedProductRecipe), ADR('')) <> 0) THEN
@@ -141,7 +145,8 @@ PROGRAM _INIT
 
 	// Check if the default parameters recipe is missing
 	IF MpRecipeSys.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN 
-		IF (HmiRecipe.Status.DefaultRecipe = HmiRecipe.Parameters.FileName) OR (MpRecipeUIConnect.Recipe.List.Names[0] <> '') THEN
+		IF ((HmiRecipe.Status.DefaultRecipe <> HmiRecipe.Parameters.FileName) AND (MpRecipeUIConnect.Recipe.List.Names[0] = '')) 
+			OR (HmiRecipe.Status.DefaultRecipe = HmiRecipe.Parameters.FileName) THEN
 			HmiRecipe.Status.ParameterRecipeMissing := TRUE;
 		END_IF	
 		HmiRecipe.Status.LastLoadedProductRecipe := '';

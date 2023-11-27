@@ -154,6 +154,7 @@ ACTION RecipeHMIcommands:
 					IF HmiRecipe.Status.ParameterRecipeMissing THEN
 						HmiRecipe.Status.LastLoadedProductRecipe := DEFAULT_PARAMETERS;
 						brsstrcat(ADR(HmiRecipe.Status.LastLoadedProductRecipe), ADR(PARAMETERS_FILE_EXTENSION));
+						HmiRecipeRetain.LastLoadedProductRecipe := HmiRecipe.Status.LastLoadedProductRecipe;
 						HmiRecipe.Status.ParameterRecipeMissing := FALSE;
 						// Otherwise, the last loaded recipe is the selected recipe
 					ELSE
@@ -167,6 +168,7 @@ ACTION RecipeHMIcommands:
 					IF HmiRecipe.Status.MachineSettingsRecipeMissing THEN
 						HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
 						brsstrcat(ADR(HmiRecipe.Status.LastLoadedConfigRecipe), ADR(MACHINE_CONFIG_FILE_EXTENSION));
+						HmiRecipeRetain.LastLoadedConfigRecipe := HmiRecipe.Status.LastLoadedConfigRecipe;
 						HmiRecipe.Status.MachineSettingsRecipeMissing := FALSE;
 						// Otherwise, the last loaded recipe is the selected recipe
 					ELSE
