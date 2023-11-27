@@ -378,7 +378,7 @@
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="contentId = &quot;RecipePars_content&quot; AND NOT ProductRecipeLoaded AND DeviceValid AND NOT DialogOpen">
+      <EventHandler condition="contentId = &quot;RecipePars_content&quot; AND NOT ProductRecipeLoaded AND NOT DefaultParametersMissing AND DeviceValid AND NOT DialogOpen">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingLastRecipeText" header="$IAT/mappFramework/Recipe/MissingLastRecipeHeader" />
@@ -449,7 +449,7 @@
           </Result>
         </Action>
       </EventHandler>
-      <EventHandler condition="contentId = &quot;RecipeMachConfig_content&quot; AND NOT ConfigRecipeLoaded AND DeviceValid AND NOT DialogOpen">
+      <EventHandler condition="contentId = &quot;RecipeMachConfig_content&quot; AND NOT ConfigRecipeLoaded AND NOT DefaultMachineSettingsMissing AND DeviceValid AND NOT DialogOpen">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.ShowMessageBox" type="OK" message="$IAT/mappFramework/Recipe/MissingLastConfigText" header="$IAT/mappFramework/Recipe/MissingLastConfigHeader" />
