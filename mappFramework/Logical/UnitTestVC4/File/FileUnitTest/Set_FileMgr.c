@@ -244,6 +244,20 @@ _CYCLIC_SET(void)
 	cycleCount++;
 }
 
+void addNames(bool NameMatch)
+{
+	if (NameMatch == false)
+	{
+		for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+		{
+			if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&"") != 0)
+			{
+				TEST_INFO(&MpFileManagerUIConnect.File.List.Items[i].Name);
+			}
+		}
+	}
+}
+
 _TEST Create_Directory(void)
 {
 	TIMEOUT_TEST_CASE;
@@ -277,7 +291,8 @@ _TEST Create_Directory(void)
 					{
 						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&DirName) == 0)
 						{
-							TEST_ABORT_MSG("Directory with chosen name already exists");
+							TEST_FAIL("Directory with chosen name already exists");
+							TEST_DONE;
 						}
 					}
 					TestState = 1;
@@ -328,6 +343,7 @@ _TEST Create_Directory(void)
 		case 2:
 			// Check save location for directory
 			TEST_ASSERT(NameMatch);
+			addNames(NameMatch);
 			TEST_DONE;
 			break;
 	}
@@ -370,7 +386,8 @@ _TEST Add_File(void)
 					{
 						if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
 						{
-							TEST_ABORT_MSG("File with chosen name already exists");
+							TEST_FAIL("File with chosen name already exists");
+							TEST_DONE;
 						}
 					}
 					TestState = 1;
@@ -390,7 +407,8 @@ _TEST Add_File(void)
 				case 1:
 					if((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
 					{
-						TEST_ABORT_MSG("FileCreate function block has an error");
+						TEST_FAIL("FileCreate function block has an error");
+						TEST_DONE;
 					}
 					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
 					FileClose_0.ident = FileCreate_0.ident;
@@ -402,7 +420,8 @@ _TEST Add_File(void)
 				case 2:
 					if((FileClose_0.status != 0) && (FileClose_0.status != 65535))
 					{
-						TEST_ABORT_MSG("FileClose function block has an error");
+						TEST_FAIL("FileClose function block has an error");
+						TEST_DONE;
 					}
 					TEST_BUSY_CONDITION(FileClose_0.status != 0);
 					FileClose_0.enable = 0;
@@ -437,6 +456,7 @@ _TEST Add_File(void)
 		case 2:
 			// Check save location for file
 			TEST_ASSERT(NameMatch);
+			addNames(NameMatch);
 			TEST_DONE;
 			break;
 	}
@@ -603,6 +623,7 @@ _TEST Copy_Directory(void)
 		case 2:
 			// Check if copied directory was found
 			TEST_ASSERT(NameMatch);
+			addNames(NameMatch);
 			TEST_DONE;
 			break;
 	}
@@ -676,6 +697,7 @@ _TEST Rename_File(void)
 		case 2:
 			// Check if renamed file was found
 			TEST_ASSERT(NameMatch);
+			addNames(NameMatch);
 			TEST_DONE;
 			break;
 	}
@@ -749,6 +771,7 @@ _TEST Rename_Directory(void)
 		case 2:
 			// Check if renamed directory was found
 			TEST_ASSERT(NameMatch);
+			addNames(NameMatch);
 			TEST_DONE;
 			break;
 	}
@@ -1233,6 +1256,7 @@ _TEST Search(void)
 		case 2:
 			// Check if filter worked
 			TEST_ASSERT(NameMatch);
+			addNames(NameMatch);
 			TEST_DONE;
 			break;
 	}
@@ -1304,6 +1328,7 @@ _TEST Enter_Folder(void)
 		
 		case 2:
 			TEST_ASSERT(NameMatch);
+			addNames(NameMatch);
 			TEST_DONE;
 			break;
 	}
@@ -1351,7 +1376,8 @@ _TEST Go_Up_Level(void)
 					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
 					if(brsstrcmp((UDINT)&MpFileManagerUIConnect.File.PathInfo.CurrentDir , (UDINT)&DirName) != 0)
 					{
-						TEST_ABORT_MSG("Directory was not successfully entered");
+						TEST_FAIL("Directory was not successfully entered");
+						TEST_DONE;
 					}
 					ActSubState = 4;
 					break;
@@ -1380,6 +1406,7 @@ _TEST Go_Up_Level(void)
 		
 		case 2:
 			TEST_ASSERT(NameMatch);
+			addNames(NameMatch);
 			TEST_DONE;
 			break;
 	}
@@ -1430,6 +1457,7 @@ _TEST Change_Sort(void)
 		
 		case 2:
 			TEST_ASSERT(NameMatch);
+			addNames(NameMatch);
 			TEST_DONE;
 			break;
 	}
@@ -1497,6 +1525,7 @@ _TEST Delete_File(void)
 		case 2:
 			// Check if file was deleted
 			TEST_ASSERT(!NameMatch);
+			addNames(!NameMatch);
 			TEST_DONE;
 			break;
 	}
@@ -1564,6 +1593,7 @@ _TEST Delete_Directory(void)
 		case 2:
 			// Check if file was deleted
 			TEST_ASSERT(!NameMatch);
+			addNames(!NameMatch);
 			TEST_DONE;
 			break;
 	}
