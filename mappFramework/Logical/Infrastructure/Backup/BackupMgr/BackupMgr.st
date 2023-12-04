@@ -107,7 +107,9 @@ PROGRAM _CYCLIC
 			ELSIF ((HmiBackup.Status.SelectedIndex <> HmiBackup.Status.LastSelectedIndex) AND (MpBackupCoreSys.CommandBusy <> TRUE)) THEN
 				HmiBackup.Status.LastSelectedIndex := HmiBackup.Status.SelectedIndex;
 				MpBackupCoreSys.Name := ADR(MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name);
-				MpBackupCoreSys.RequestInfo := TRUE;
+				IF MpFileManagerUIConnect.File.List.Items[HmiBackup.Status.SelectedIndex].Name <> '' THEN
+					MpBackupCoreSys.RequestInfo := TRUE;
+				END_IF
 			END_IF
 
 		BACKUP_CREATING:
