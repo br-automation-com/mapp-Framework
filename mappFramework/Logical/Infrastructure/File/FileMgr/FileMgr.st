@@ -12,10 +12,9 @@ PROGRAM _INIT
 	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := 'mappRecipeFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[2] := 'mappAuditFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[3] := 'mappReportFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := 'mappDataFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := 'mappBackupFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappAlarmXFiles';
-	MpFileManagerUIConnect.DeviceList.DeviceNames[7] := 'mappUserXFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := 'mappBackupFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := 'mappAlarmXFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := 'mappUserXFiles';
 	MpFileManagerUISys.Enable := TRUE;
 	MpFileManagerUISys.MpLink := ADR(gMpLinkFileManagerUIFile);
 	MpFileManagerUISys.UIConnect := ADR(MpFileManagerUIConnect);
@@ -25,10 +24,10 @@ PROGRAM _INIT
 	HmiFile.Status.DeleteStep := FILE_DISABLED;
 
 	// Initialize FIFO feature
-	HmiFile.Status.FifoConfigEnable := TRUE;
-	IF HmiFile.Parameters.Fifo.DeviceName = '' THEN
-		HmiFile.Parameters.Fifo.DeviceName := 'mappDataFiles';
-	END_IF
+//	HmiFile.Status.FifoConfigEnable := TRUE;
+//	IF HmiFile.Parameters.Fifo.DeviceName = '' THEN
+//		HmiFile.Parameters.Fifo.DeviceName := 'USER';
+//	END_IF
 
 	// MaxFolderSize is in kB
 	IF HmiFile.Parameters.Fifo.MaxFolderSize = 0 THEN
@@ -51,29 +50,26 @@ PROGRAM _INIT
 	PathCheck.PrgName[0] := 'RecipeMgr';
 	PathCheck.PrgName[1] := 'AuditMgr';
 	PathCheck.PrgName[2] := 'ReportMgr';
-	PathCheck.PrgName[3] := 'DataMgr';
-	PathCheck.PrgName[4] := 'BackupMgr';
-	PathCheck.PrgName[5] := 'AlarmMgr';
-	PathCheck.PrgName[6] := 'UserXMgr';
+	PathCheck.PrgName[3] := 'BackupMgr';
+	PathCheck.PrgName[4] := 'AlarmMgr';
+	PathCheck.PrgName[5] := 'UserXMgr';
+	PathCheck.PrgName[6] := 'UsbMgr';
 	PathCheck.PrgName[7] := 'UsbMgr';
-	PathCheck.PrgName[8] := 'UsbMgr';
 
 	PathCheck.Folder[0] := 'Recipe';
 	PathCheck.Folder[1] := 'Audit';
 	PathCheck.Folder[2] := 'Report';
-	PathCheck.Folder[3] := 'Data';
-	PathCheck.Folder[4] := 'Backup';
-	PathCheck.Folder[5] := 'AlarmX';
-	PathCheck.Folder[6] := 'UserX';
+	PathCheck.Folder[3] := 'Backup';
+	PathCheck.Folder[4] := 'AlarmX';
+	PathCheck.Folder[5] := 'UserX';
 
 	HmiFile.Status.DeviceDataProvider[0] := '{"value":"USER","text":"UserPath"}';
 	HmiFile.Status.DeviceDataProvider[1] := '{"value":"mappRecipeFiles","text":"mappRecipeFiles"}';
 	HmiFile.Status.DeviceDataProvider[2] := '{"value":"mappAuditFiles","text":"mappAuditFiles"}';
 	HmiFile.Status.DeviceDataProvider[3] := '{"value":"mappReportFiles","text":"mappReportFiles"}';
-	HmiFile.Status.DeviceDataProvider[4] := '{"value":"mappDataFiles","text":"mappDataFiles"}';
-	HmiFile.Status.DeviceDataProvider[5] := '{"value":"mappBackupFiles","text":"mappBackupFiles"}';
-	HmiFile.Status.DeviceDataProvider[6] := '{"value":"mappAlarmXFiles","text":"mappAlarmXFiles"}';
-	HmiFile.Status.DeviceDataProvider[7] := '{"value":"mappUserXFiles","text":"mappUserXFiles"}';
+	HmiFile.Status.DeviceDataProvider[4] := '{"value":"mappBackupFiles","text":"mappBackupFiles"}';
+	HmiFile.Status.DeviceDataProvider[5] := '{"value":"mappAlarmXFiles","text":"mappAlarmXFiles"}';
+	HmiFile.Status.DeviceDataProvider[6] := '{"value":"mappUserXFiles","text":"mappUserXFiles"}';
 
 	// Calculate offset for potential additional USB devices
 	FOR i := 0 TO ((SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames) / SIZEOF(MpFileManagerUIConnect.DeviceList.DeviceNames[0])) - 1) DO
