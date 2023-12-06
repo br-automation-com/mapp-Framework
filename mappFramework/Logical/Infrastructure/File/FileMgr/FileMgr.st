@@ -23,27 +23,24 @@ PROGRAM _INIT
 
 	HmiFile.Status.DeleteStep := FILE_DISABLED;
 
-	// Initialize FIFO feature
-//	HmiFile.Status.FifoConfigEnable := TRUE;
-//	IF HmiFile.Parameters.Fifo.DeviceName = '' THEN
-//		HmiFile.Parameters.Fifo.DeviceName := 'USER';
-//	END_IF
-
-	// MaxFolderSize is in kB
-	IF HmiFile.Parameters.Fifo.MaxFolderSize = 0 THEN
-		HmiFile.Parameters.Fifo.MaxFolderSize := 1000;
+	// Restored the retained values to the FIFO settings
+	HmiFile.Parameters.Fifo := FifoSettingsRetain;
+	// If the FIFO is disabled and parameters are 0, set default values
+	IF NOT HmiFile.Parameters.Fifo.Enable THEN 
+		IF HmiFile.Parameters.Fifo.MaxFolderSize = 0 THEN
+			HmiFile.Parameters.Fifo.MaxFolderSize := 1000;
+		END_IF
+		IF HmiFile.Parameters.Fifo.MaxNumberOfFiles = 0 THEN
+			HmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
+		END_IF
+		IF HmiFile.Parameters.Fifo.ScanInterval = 0 THEN
+			HmiFile.Parameters.Fifo.ScanInterval := 60;
+		END_IF
+		IF HmiFile.Parameters.Fifo.DeviceName = '' THEN
+			HmiFile.Parameters.Fifo.DeviceName := 'USER';
+		END_IF
 	END_IF
-
-	IF HmiFile.Parameters.Fifo.MaxNumberOfFiles = 0 THEN
-		HmiFile.Parameters.Fifo.MaxNumberOfFiles := 20;
-	END_IF
-
-	// ScanInterval is in minutes
-	IF HmiFile.Parameters.Fifo.ScanInterval = 0 THEN
-		HmiFile.Parameters.Fifo.ScanInterval := 60;
-	END_IF
-
-
+	
 	// Initialize which folders should exist
 	PathCheck.DeviceList := MpFileManagerUIConnect.DeviceList;
 			
@@ -77,9 +74,6 @@ PROGRAM _INIT
 			USBOffset := USBOffset + 1;
 		END_IF
 	END_FOR
-	
-	// Restored the retained values to the FIFO settings
-	HmiFile.Parameters.Fifo := FifoSettingsRetain;
 
 END_PROGRAM
 
