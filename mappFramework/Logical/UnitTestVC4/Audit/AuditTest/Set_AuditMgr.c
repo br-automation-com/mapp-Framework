@@ -8,6 +8,7 @@
 #include "UnitTest.h"
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define TIMEOUT_TEST_CASE									\
 	if (cycleCount >= 1000)									\
@@ -121,6 +122,8 @@ _TEST ExportArchive(void)
 			TEST_DONE;
 			break;
 	}
+	
+	TEST_BUSY;
 }
 
 _TEST AutomaticArchive(void)
@@ -192,6 +195,7 @@ _TEST AutomaticArchive(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 /*

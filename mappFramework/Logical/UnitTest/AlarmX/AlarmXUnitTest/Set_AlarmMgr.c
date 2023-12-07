@@ -34,6 +34,7 @@ _TEST CheckCommissioningModeActive(void)
 {
 	CommissioningModeActive = true;
 	TEST_ASSERT(Alarms[0] == false);
+	TEST_DONE;
 }
 
 /*

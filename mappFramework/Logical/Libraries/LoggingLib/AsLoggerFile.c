@@ -44,11 +44,11 @@ void AsLoggerFile(struct AsLoggerFile* inst)
 {
     LogStore_typ* logStore;
     UDINT arguments[LOGGING_MAX_ARGUMENTS];
-    USINT i, numberOfLinesWritten;
+    USINT i;
 
     if (inst == NULL)
     {
-        logError("AsLoggerFile", "AsLoggerFile called with NULL instance", NULL);
+        logError("AsLoggerFile", "AsLoggerFile called with NULL instance", (UDINT)NULL);
         return;
     }
     logStore = getLogStore();
@@ -75,13 +75,13 @@ void AsLoggerFile(struct AsLoggerFile* inst)
         
             if (strcmp(inst->device, "") == true)
             {
-                logError("AsLoggerFile", "device name empty", NULL);
+                logError("AsLoggerFile", "device name empty", (UDINT)NULL);
                 inst->status = ASLOGGER_ILLEGAL_DEVICENAME;
                 return;
             }
             if (strcmp(inst->fileName, "") == true)
             {
-                logError("AsLoggerFile", "file name empty", NULL);
+                logError("AsLoggerFile", "file name empty", (UDINT)NULL);
                 inst->status = ASLOGGER_ILLEGAL_FILENAME;
                 return;
             }
@@ -167,7 +167,7 @@ void AsLoggerFile(struct AsLoggerFile* inst)
                     //snprintf2(logString, (sizeof(logString) / sizeof(logString[0])) - 1, "file copy error %d", inst->internal.FileCopy_0.status);
                     arguments[0] = (UDINT)&inst->internal.FileCopy_0.status;
                     logDebug("AsLoggerFile", "file copy error %d", (UDINT)&arguments);
-                    logDebug("AsLoggerFile", "changing to ERROR state", NULL);
+                    logDebug("AsLoggerFile", "changing to ERROR state", (UDINT)NULL);
 
                     transit(inst->internal.state, AS_FILE_LOGGER_STATE_ERROR);
                 break;
@@ -200,7 +200,7 @@ void AsLoggerFile(struct AsLoggerFile* inst)
                     //snprintf2(logString, (sizeof(logString) / sizeof(logString[0])) - 1, "file delete error %d", inst->internal.FileDelete_0.status);
                     arguments[0] = (UDINT)&inst->internal.FileDelete_0.status;
                     logDebug("AsLoggerFile", "file delete error %d", (UDINT)&arguments);
-                    logDebug("AsLoggerFile", "changing to ERROR state", NULL);
+                    logDebug("AsLoggerFile", "changing to ERROR state", (UDINT)NULL);
                     transit(inst->internal.state, AS_FILE_LOGGER_STATE_ERROR);
                 break;
             }
@@ -230,8 +230,8 @@ void AsLoggerFile(struct AsLoggerFile* inst)
                     //snprintf2(logString, (sizeof(logString) / sizeof(logString[0])) - 1, "file create error %d", inst->internal.FileCreate_0.status);
                     arguments[0] = (UDINT)&inst->internal.FileCreate_0.status;
                     logDebug("AsLoggerFile", "file create error %d", (UDINT)&arguments);
-                    logDebug("AsLoggerFile", "changing to ERROR state", NULL);
-                    logDebug("AsLoggerFile", inst->internal.tempFileName, NULL);
+                    logDebug("AsLoggerFile", "changing to ERROR state", (UDINT)NULL);
+                    logDebug("AsLoggerFile", inst->internal.tempFileName, (UDINT)NULL);
                     transit(inst->internal.state, AS_FILE_LOGGER_STATE_ERROR);
                     inst->status = inst->internal.FileCreate_0.status;
             }
@@ -241,7 +241,6 @@ void AsLoggerFile(struct AsLoggerFile* inst)
             memset(&inst->internal.writeBuffer, 0, sizeof(inst->internal.writeBuffer));
             inst->internal.writeBufferUsed = 0;
             
-            numberOfLinesWritten = 0;
             for (i=inst->internal.outputIndex; i != logStore->inputIndex; incrementIndex(i))
             {
                 if (logStore->messages[i].level >= inst->level)
@@ -299,8 +298,8 @@ void AsLoggerFile(struct AsLoggerFile* inst)
                     //snprintf2(logString, (sizeof(logString) / sizeof(logString[0])) - 1, "file open error %d", inst->internal.FileOpen_0.status);
                     arguments[0] = (UDINT)&inst->internal.FileOpen_0.status;
                     logDebug("AsLoggerFile", "file open error %d", (UDINT)&arguments);
-                    logDebug("AsLoggerFile", "changing to ERROR state", NULL);
-                    logDebug("AsLoggerFile", inst->internal.tempFileName, NULL);
+                    logDebug("AsLoggerFile", "changing to ERROR state", (UDINT)NULL);
+                    logDebug("AsLoggerFile", inst->internal.tempFileName, (UDINT)NULL);
                     transit(inst->internal.state, AS_FILE_LOGGER_STATE_ERROR);
                     inst->status = inst->internal.FileOpen_0.status;
             }
@@ -329,8 +328,8 @@ void AsLoggerFile(struct AsLoggerFile* inst)
                     //snprintf2(logString, (sizeof(logString) / sizeof(logString[0])) - 1, "file write error %d", inst->internal.FileWrite_0.status);
                     arguments[0] = (UDINT)&inst->internal.FileWrite_0.status;
                     logDebug("AsLoggerFile", "file write error %d", (UDINT)&arguments);
-                    logDebug("AsLoggerFile", "changing to ERROR state", NULL);
-                    logDebug("AsLoggerFile", inst->internal.tempFileName, NULL);
+                    logDebug("AsLoggerFile", "changing to ERROR state", (UDINT)NULL);
+                    logDebug("AsLoggerFile", inst->internal.tempFileName, (UDINT)NULL);
                     transit(inst->internal.state, AS_FILE_LOGGER_STATE_ERROR);
                     inst->status = inst->internal.FileWrite_0.status;
             }
@@ -385,8 +384,8 @@ void AsLoggerFile(struct AsLoggerFile* inst)
                     //snprintf2(logString, (sizeof(logString) / sizeof(logString[0])) - 1, "file close error %d", inst->internal.FileClose_0.status);
                     arguments[0] = (UDINT)&inst->internal.FileClose_0.status;
                     logDebug("AsLoggerFile", "file close error %d", (UDINT)&arguments);
-                    logDebug("AsLoggerFile", "changing to ERROR state", NULL);
-                    logDebug("AsLoggerFile", inst->internal.tempFileName, NULL);
+                    logDebug("AsLoggerFile", "changing to ERROR state", (UDINT)NULL);
+                    logDebug("AsLoggerFile", inst->internal.tempFileName, (UDINT)NULL);
                     transit(inst->internal.state, AS_FILE_LOGGER_STATE_ERROR);
                     inst->status = inst->internal.FileClose_0.status;
             }

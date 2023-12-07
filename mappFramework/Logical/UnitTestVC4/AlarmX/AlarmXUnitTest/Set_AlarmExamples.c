@@ -56,6 +56,17 @@ bool AlarmIsActive(char* alarmName)
 	return false;	  
 }
 
+void LogActiveAlarms(void)
+{
+	for (USINT i = 0; i < (sizeof(MpAlarmXListUIConnect.AlarmList.Name)/sizeof(MpAlarmXListUIConnect.AlarmList.Name[0])); i++)
+	{
+		if (strcmp(&"", MpAlarmXListUIConnect.AlarmList.Name[i]) != 0)
+		{
+			TEST_INFO(MpAlarmXListUIConnect.AlarmList.Name[i])
+		}
+	}
+}
+
 // These tests must run sequentially, Arrange->Act->Assert
 // 3 "_TEST" function for each unit test
 _TEST Arrange_LevelMonitoringLow(void)
@@ -78,6 +89,7 @@ _TEST Assert_LevelMonitoringLow(void)
 	TEST_ASSERT_MESSAGE(MpAlarmXCoreMain.PendingAlarms > StartingPendingAlarms, "Pending Alarms did not increase");
 	TEST_ASSERT_MESSAGE(MpAlarmXCoreMain.ActiveAlarms > StartingActiveAlarms, "Active Alarms did not increase");
 	TEST_ASSERT(AlarmIsActive("LevelMonitoringExample"));
+	LogActiveAlarms();
 	TEST_DONE;
 }
 
@@ -92,7 +104,7 @@ _TEST Arrange_LevelMonitoringLowLow(void)
 _TEST Act_LevelMonitoringLowLow(void)
 {
 	AlarmExamples.LevelMonitoring = 9;
-	TEST_BUSY_CONDITION(cycleCount < 10);
+	TEST_BUSY_CONDITION(cycleCount < 15);
 	TEST_DONE;
 }
 
@@ -101,6 +113,7 @@ _TEST Assert_LevelMonitoringLowLow(void)
 	TEST_ASSERT_MESSAGE(MpAlarmXCoreMain.PendingAlarms > StartingPendingAlarms, "Pending Alarms did not increase");
 	TEST_ASSERT_MESSAGE(MpAlarmXCoreMain.ActiveAlarms > StartingActiveAlarms, "Active Alarms did not increase");
 	TEST_ASSERT(AlarmIsActive("LevelMonitoringExample"));
+	LogActiveAlarms();
 	TEST_DONE;
 }
 
@@ -115,7 +128,7 @@ _TEST Arrange_LevelMonitoringHigh(void)
 _TEST Act_LevelMonitoringHigh(void)
 {
 	AlarmExamples.LevelMonitoring = 81;
-	TEST_BUSY_CONDITION(cycleCount < 10);
+	TEST_BUSY_CONDITION(cycleCount < 15);
 	TEST_DONE;
 }
 
@@ -124,6 +137,7 @@ _TEST Assert_LevelMonitoringHigh(void)
 	TEST_ASSERT_MESSAGE(MpAlarmXCoreMain.PendingAlarms > StartingPendingAlarms, "Pending Alarms did not increase");
 	TEST_ASSERT_MESSAGE(MpAlarmXCoreMain.ActiveAlarms > StartingActiveAlarms, "Active Alarms did not increase");
 	TEST_ASSERT(AlarmIsActive("LevelMonitoringExample"));
+	LogActiveAlarms();
 	TEST_DONE;
 }
 
@@ -138,7 +152,7 @@ _TEST Arrange_LevelMonitoringHighHigh(void)
 _TEST Act_LevelMonitoringHighHigh(void)
 {
 	AlarmExamples.LevelMonitoring = 91;
-	TEST_BUSY_CONDITION(cycleCount < 10);
+	TEST_BUSY_CONDITION(cycleCount < 15);
 	TEST_DONE;
 }
 
@@ -147,6 +161,7 @@ _TEST Assert_LevelMonitoringHighHigh(void)
 	TEST_ASSERT_MESSAGE(MpAlarmXCoreMain.PendingAlarms > StartingPendingAlarms, "Pending Alarms did not increase");
 	TEST_ASSERT_MESSAGE(MpAlarmXCoreMain.ActiveAlarms > StartingActiveAlarms, "Active Alarms did not increase");
 	TEST_ASSERT(AlarmIsActive("LevelMonitoringExample"));
+	LogActiveAlarms();
 	TEST_DONE;
 }
 

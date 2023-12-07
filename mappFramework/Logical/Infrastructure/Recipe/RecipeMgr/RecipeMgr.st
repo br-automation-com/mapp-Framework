@@ -48,6 +48,7 @@ PROGRAM _INIT
 	// Wait for MpRecipeSys to activate. This must be active before you can call the RegPar function blocks, which is below.
 	WHILE NOT(MpRecipeSys.Active OR MpRecipeSys.Error) DO
 		MpRecipeSys();
+		MpRecipeUISys();
 	END_WHILE
 
 	// Register the preview variables to the recipe. These preview variables are a buffer between the recipe system and the
@@ -78,15 +79,18 @@ PROGRAM _INIT
 
 	// Load default Machine Settings recipe
 	HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
+	HmiRecipe.Status.DefaultConfig := DEFAULT_MACHINE_CONFIGURATION;
+	brsstrcat(ADR(HmiRecipe.Status.DefaultConfig),ADR(MACHINE_CONFIG_FILE_EXTENSION));
+	
 	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedConfigRecipe), ADR('')) <> 0) THEN
 		HmiRecipe.Parameters.FileName := HmiRecipeRetain.LastLoadedConfigRecipe;
 	ELSE
-		HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION;
-		brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(MACHINE_CONFIG_FILE_EXTENSION));
+		HmiRecipe.Parameters.FileName := HmiRecipe.Status.DefaultConfig;
 	END_IF		
 	MpRecipeSys.Load := TRUE;
 	WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
 		MpRecipeSys();
+		MpRecipeUISys();
 	END_WHILE
 	MachineSettings := MachineSettingsPreview;
 	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedConfigRecipe), ADR('')) <> 0) THEN
@@ -100,8 +104,12 @@ PROGRAM _INIT
 
 	// Check if the default machine settings recipe is missing
 	IF MpRecipeSys.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
-		HmiRecipe.Status.MachineSettingsRecipeMissing := TRUE;
+		IF ((HmiRecipe.Status.DefaultConfig <> HmiRecipe.Parameters.FileName) AND (MpRecipeUIConnect.Recipe.List.Names[0] = '')) 
+			OR (HmiRecipe.Status.DefaultConfig = HmiRecipe.Parameters.FileName) THEN
+		  HmiRecipe.Status.MachineSettingsRecipeMissing := TRUE;
+		END_IF	
 		HmiRecipe.Status.LastLoadedConfigRecipe := '';
+		HmiRecipeRetain.LastLoadedConfigRecipe := HmiRecipe.Status.LastLoadedConfigRecipe;
 		HmiRecipe.Status.ConfigRecipeLoaded := FALSE;
 	END_IF
 
@@ -111,16 +119,19 @@ PROGRAM _INIT
 
 	// Load default Parameter recipe
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
+	HmiRecipe.Status.DefaultRecipe := DEFAULT_PARAMETERS;
+	brsstrcat(ADR(HmiRecipe.Status.DefaultRecipe),ADR(PARAMETERS_FILE_EXTENSION));
+	
 	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedProductRecipe), ADR('')) <> 0) THEN
 		HmiRecipe.Parameters.FileName := HmiRecipeRetain.LastLoadedProductRecipe;
 	ELSE
-		HmiRecipe.Parameters.FileName := DEFAULT_PARAMETERS;
-		brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(PARAMETERS_FILE_EXTENSION));
+		HmiRecipe.Parameters.FileName := HmiRecipe.Status.DefaultRecipe;
 	END_IF	   
-	HmiRecipe.Status.PreviousRecipe := DEFAULT_PARAMETERS;
+	
 	MpRecipeSys.Load := TRUE;
 	WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
 		MpRecipeSys();
+		MpRecipeUISys();
 	END_WHILE
 	Parameters := ParametersPreview;
 	IF (brsstrcmp(ADR(HmiRecipeRetain.LastLoadedProductRecipe), ADR('')) <> 0) THEN
@@ -133,9 +144,13 @@ PROGRAM _INIT
 	HmiRecipe.Status.ProductRecipeLoaded := TRUE;
 
 	// Check if the default parameters recipe is missing
-	IF MpRecipeSys.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
-		HmiRecipe.Status.ParameterRecipeMissing := TRUE;
+	IF MpRecipeSys.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN 
+		IF ((HmiRecipe.Status.DefaultRecipe <> HmiRecipe.Parameters.FileName) AND (MpRecipeUIConnect.Recipe.List.Names[0] = '')) 
+			OR (HmiRecipe.Status.DefaultRecipe = HmiRecipe.Parameters.FileName) THEN
+			HmiRecipe.Status.ParameterRecipeMissing := TRUE;
+		END_IF	
 		HmiRecipe.Status.LastLoadedProductRecipe := '';
+		HmiRecipeRetain.LastLoadedProductRecipe := HmiRecipe.Status.LastLoadedProductRecipe;
 		HmiRecipe.Status.ProductRecipeLoaded := FALSE;
 	END_IF
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?AutomationStudio Version="4.10.6.39 SP"?>
+<?AutomationStudio Version="4.10.5.38 SP"?>
 <DataSource xmlns="http://br-automation.co.at/AS/VC/Project" Name="DataSource">
   <Property Name="AutoRefresh" Value="False"/>
   <Property Name="DefaultUpdateTime" Value="200"/>
@@ -9183,24 +9183,6 @@
               <Folder Name="Output">
                 <Property Name="Description" Value=""/>
                 <Property Name="FolderType" Value="Struct"/>
-                <DataPoint Name="PageUp">
-                  <Property Name="ConnectedBySharedResource" Value="False"/>
-                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-                  <Property Name="Description" Value=""/>
-                  <Property Name="PLCType" Value="BOOL"/>
-                  <Property Name="UpdateTime" Value="Default"/>
-                  <Property Name="UserID" Value="None"/>
-                  <Property Name="VCType" Value="BOOL"/>
-                </DataPoint>
-                <DataPoint Name="StepUp">
-                  <Property Name="ConnectedBySharedResource" Value="False"/>
-                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-                  <Property Name="Description" Value=""/>
-                  <Property Name="PLCType" Value="BOOL"/>
-                  <Property Name="UpdateTime" Value="Default"/>
-                  <Property Name="UserID" Value="None"/>
-                  <Property Name="VCType" Value="BOOL"/>
-                </DataPoint>
                 <DataPoint Name="RangeEnd">
                   <Property Name="ConnectedBySharedResource" Value="False"/>
                   <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
@@ -9224,34 +9206,6 @@
                   <Property Name="UpdateTime" Value="Default"/>
                   <Property Name="UserID" Value="None"/>
                   <Property Name="VCType" Value="SCALED"/>
-                </DataPoint>
-                <DataPoint Name="StepDown">
-                  <Property Name="ConnectedBySharedResource" Value="False"/>
-                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-                  <Property Name="Description" Value=""/>
-                  <Property Name="PLCType" Value="BOOL"/>
-                  <Property Name="UpdateTime" Value="Default"/>
-                  <Property Name="UserID" Value="None"/>
-                  <Property Name="VCType" Value="BOOL"/>
-                </DataPoint>
-                <DataPoint Name="EventText">
-                  <Property Name="ConnectedBySharedResource" Value="False"/>
-                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-                  <Property Name="Description" Value=""/>
-                  <Property Name="PLCType" Value="WSTRING[0..19]"/>
-                  <Property Name="StringLength" Value="100"/>
-                  <Property Name="UpdateTime" Value="Default"/>
-                  <Property Name="UserID" Value="None"/>
-                  <Property Name="VCType" Value="STRING[]"/>
-                </DataPoint>
-                <DataPoint Name="PageDown">
-                  <Property Name="ConnectedBySharedResource" Value="False"/>
-                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
-                  <Property Name="Description" Value=""/>
-                  <Property Name="PLCType" Value="BOOL"/>
-                  <Property Name="UpdateTime" Value="Default"/>
-                  <Property Name="UserID" Value="None"/>
-                  <Property Name="VCType" Value="BOOL"/>
                 </DataPoint>
               </Folder>
             </Folder>
@@ -9435,6 +9389,60 @@
                   <Property Name="VCType" Value="BOOL"/>
                 </DataPoint>
                 <DataPoint Name="ExportArchives">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="BOOL"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="BOOL"/>
+                </DataPoint>
+              </Folder>
+            </Folder>
+            <Folder Name="MpAuditTrailCEventsUIConnect">
+              <Property Name="Description" Value=""/>
+              <Property Name="FolderType" Value="Struct"/>
+              <Folder Name="Output">
+                <Property Name="Description" Value=""/>
+                <Property Name="FolderType" Value="Struct"/>
+                <DataPoint Name="EventText">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="WSTRING[0..19]"/>
+                  <Property Name="StringLength" Value="100"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="STRING[]"/>
+                </DataPoint>
+                <DataPoint Name="PageUp">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="BOOL"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="BOOL"/>
+                </DataPoint>
+                <DataPoint Name="StepUp">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="BOOL"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="BOOL"/>
+                </DataPoint>
+                <DataPoint Name="StepDown">
+                  <Property Name="ConnectedBySharedResource" Value="False"/>
+                  <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
+                  <Property Name="Description" Value=""/>
+                  <Property Name="PLCType" Value="BOOL"/>
+                  <Property Name="UpdateTime" Value="Default"/>
+                  <Property Name="UserID" Value="None"/>
+                  <Property Name="VCType" Value="BOOL"/>
+                </DataPoint>
+                <DataPoint Name="PageDown">
                   <Property Name="ConnectedBySharedResource" Value="False"/>
                   <Property Name="ConnectingVisus" Value="VC4\mappFrameworkVisu"/>
                   <Property Name="Description" Value=""/>

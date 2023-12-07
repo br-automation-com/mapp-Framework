@@ -28,6 +28,7 @@ void _INIT initTestSuite(void)
 	
 	strcpy((char*)&TextNameSpace, "mappFramework/File/Alarms");
 	strcpy((char*)&TextID, "DeviceNotFound");
+	strcpy(FileDeviceName, "mappUserXFiles");
 }
 
 
