@@ -8,21 +8,26 @@
 PROGRAM _INIT
 	
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('mappPackMLFiles'), pName := ADR('/'));
+	DirCreatePackML(enable := TRUE, pDevice := ADR('mappPackMLFiles'), pName := ADR('/'));
 
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
-		DirCreate_0(enable := FALSE);
+	IF DirCreatePackML.status = fiERR_DIR_ALREADY_EXIST THEN
+		DirCreatePackML(enable := FALSE);
 	END_IF 
 	
 	// Initialize mapp function blocks
-	MpPackMLModule_Main.Parameters := ADR(MpPackMLModulePar_Main);
-	MpPackMLModule_Main.MpLink := ADR(gPackMLModule_Main);
-	MpPackMLModule_Main.Enable := TRUE;
-	MpPackMLModule_Main();
+	MpPackMLModuleMain.Parameters := ADR(MpPackMLModuleParMain);
+	MpPackMLModuleMain.MpLink := ADR(gMpPackMLModuleMain);
+	MpPackMLModuleMain.Enable := TRUE;
+	MpPackMLModuleMain();
+	
+	//PackML Mode Initializations
+	StateInitialize;
 	
 	// Initialize startup mode - Automatic Mode
 	HmiPackML.Commands.Mode := 1; 
+	
+	
 	
 END_PROGRAM
 
@@ -33,21 +38,21 @@ PROGRAM _CYCLIC
 	HmiActions;
 	
 	// Assign MpLinks & UIConnects
-	MpPackMLModule_Main.Parameters := ADR(MpPackMLModulePar_Main);
-	MpPackMLModule_Main.MpLink := ADR(gPackMLModule_Main);
+	MpPackMLModuleMain.Parameters := ADR(MpPackMLModuleParMain);
+	MpPackMLModuleMain.MpLink := ADR(gMpPackMLModuleMain);
 
 	// Call function blocks
-	MpPackMLModule_Main();
+	MpPackMLModuleMain();
 	 
 END_PROGRAM
 
 PROGRAM _EXIT
 	
 	// Disable the function blocks to unlink the MpLinks
-	MpPackMLModule_Main.Enable := FALSE;
+	MpPackMLModuleMain.Enable := FALSE;
 	
 	// Call function blocks
-	MpPackMLModule_Main();
+	MpPackMLModuleMain();
 	 
 END_PROGRAM
 

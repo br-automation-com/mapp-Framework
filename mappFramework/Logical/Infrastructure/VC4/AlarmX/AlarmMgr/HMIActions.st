@@ -8,7 +8,7 @@ END_ACTION
 ACTION VC4_Cyclic:
 	
 	// AlarmHistory Export process has been completed
-	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
+	IF ((MpAlarmXHistoryMain.Export) AND (MpAlarmXHistoryMain.CommandDone)) THEN
 		HmiAlarmX.Status.HistoryExportLayer := DISPLAY;	  
 	END_IF	
 	
@@ -18,21 +18,21 @@ ACTION VC4_Cyclic:
 		// English
 		0:
 			MpAlarmXListUIConnect.Language := 'en';
-			MpAlarmXHistory_0.Language := ADR('en');
+			MpAlarmXHistoryMain.Language := ADR('en');
 			MpAlarmXHistoryUIConnect.Language := 'en';
-			QueryActiveAlarms_0.Language := ADR('en');
+			QueryActiveAlarms.Language := ADR('en');
 		// German
 		1:
 			MpAlarmXListUIConnect.Language := 'de';
-			MpAlarmXHistory_0.Language := ADR('de');
+			MpAlarmXHistoryMain.Language := ADR('de');
 			MpAlarmXHistoryUIConnect.Language := 'de';
-			QueryActiveAlarms_0.Language := ADR('de');
+			QueryActiveAlarms.Language := ADR('de');
 		// Chinese
 		2:
 			MpAlarmXListUIConnect.Language := 'zh';
-			MpAlarmXHistory_0.Language := ADR('zh');
+			MpAlarmXHistoryMain.Language := ADR('zh');
 			MpAlarmXHistoryUIConnect.Language := 'zh';
-			QueryActiveAlarms_0.Language := ADR('zh');	  
+			QueryActiveAlarms.Language := ADR('zh');	  
 		
 	END_CASE
 	

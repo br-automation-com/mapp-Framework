@@ -7,19 +7,20 @@
 #include "UnitTest.h"
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
 
-#define TIMEOUT_TEST_CASE								\
-	if (cycleCount >= 1000)								\
-	{													\
-	char abortMessage[80];								\
-	char substate[10];									\
-	memset(abortMessage, 0, sizeof(abortMessage));		\
-	memset(substate, 0, sizeof(substate));				\
-	itoa(TestState, substate, 10);						\
-	strcpy(abortMessage, "Timeout in State = ");		\
-	strcat(abortMessage, substate);						\
-	TEST_FAIL(abortMessage);							\
-	TEST_DONE;											\
+#define TIMEOUT_TEST_CASE									\
+	if (cycleCount >= 1000)									\
+	{														\
+		char abortMessage[80];								\
+		char substate[10];									\
+		memset(abortMessage, 0, sizeof(abortMessage));		\
+		memset(substate, 0, sizeof(substate));				\
+		itoa(TestState, substate, 10);						\
+		strcpy(abortMessage, "Timeout in State = ");		\
+		strcat(abortMessage, substate);						\
+		TEST_FAIL(abortMessage);							\
+		TEST_DONE;											\
 	}
 
 _SETUP_SET(void)
@@ -27,6 +28,11 @@ _SETUP_SET(void)
 	TestState = 0;
 	FileNumber = 0;
 
+	if (pMpFileManagerUIConnect == NULL)
+	{
+		TEST_ABORT_MSG("Failed to get address of MpFileManagerUIConnect");
+	}
+	
 	HmiFile_UT.Parameters.Fifo.Enable = false;
 	HmiFile_UT.Parameters.Fifo.ScanInterval = 60;
 	strcpy(HmiFile_UT.Parameters.Fifo.DeviceName, "mappUserXFiles");
@@ -39,16 +45,15 @@ _SETUP_SET(void)
 			{
 				TEST_BUSY_CONDITION(HmiFile_UT.Status.FifoSelect[i] != 0);
 			}
-
 			DirInfo_UT.enable = true;
-			DirInfo_UT.pDevice = (UDINT)&"mappUserXFiles";
+			DirInfo_UT.pDevice = (UDINT)&HmiFile_UT.Parameters.Fifo.DeviceName;
 			DirInfo_UT.pPath = (UDINT)&"";
 			DirInfo(&DirInfo_UT);
 			TEST_BUSY_CONDITION(DirInfo_UT.status == 65535);
 			TEST_ABORT_CONDITION(DirInfo_UT.status != 0);
 			NumberOfFiles = DirInfo_UT.filenum;
 			CurrentFile = 0;
-			SetupState = (NumberOfFiles == 0) ? 100 : 1;
+			SetupState = (NumberOfFiles == 0) ? 10 : 1;
 			break;
 
 		case 1:
@@ -73,23 +78,51 @@ _SETUP_SET(void)
 			TEST_ABORT_CONDITION(FileDelete_UT.status != 0);
 
 			CurrentFile++;
-			SetupState = (CurrentFile >= NumberOfFiles) ? 100 : 1;
+			SetupState = (CurrentFile >= NumberOfFiles) ? 10 : 1;
 			break;
 
 		case 10:
+			if (brsstrcmp((UDINT)&pMpFileManagerUIConnect->DeviceList.DeviceNames[pMpFileManagerUIConnect->DeviceList.SelectedIndex], (UDINT)&HmiFile_UT.Parameters.Fifo.DeviceName) == 0)
+			{
+				SetupState = 100;
+				TEST_BUSY;
+			}
+			for (USINT i=0; i<sizeof(pMpFileManagerUIConnect->DeviceList.DeviceNames)/sizeof(pMpFileManagerUIConnect->DeviceList.DeviceNames[0]); i++)
+			{
+				if (brsstrcmp((UDINT)&pMpFileManagerUIConnect->DeviceList.DeviceNames[i], (UDINT)&HmiFile_UT.Parameters.Fifo.DeviceName) == 0)
+				{
+					pMpFileManagerUIConnect->DeviceList.SelectedIndex = i;
+					break;
+				}
+			}
+			SetupState = 11;
+			break;
+		
+		case 11:
+			TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status == mpFILE_UI_STATUS_IDLE);
+			SetupState = 12;
+			break;
+		
+		case 12:
+			TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+			SetupState = 100;
+			break;
+			
+		case 20:
 			TEST_BUSY_CONDITION(MpFileManagerUIConnect_FIFO.Status == mpFILE_UI_STATUS_IDLE);
 			MpFileManagerUIConnect_FIFO.File.Refresh = true;
 			TEST_BUSY_CONDITION(MpFileManagerUIConnect_FIFO.Status == mpFILE_UI_STATUS_IDLE);
 			MpFileManagerUIConnect_FIFO.File.Refresh = false;
-			SetupState = 11;
+			SetupState = 21;
 			break;
 
-		case 11:
+		case 21:
 			TEST_BUSY_CONDITION(MpFileManagerUIConnect_FIFO.Status != mpFILE_UI_STATUS_IDLE);
 			SetupState = 100;
 			break;
 
 		case 100:
+			SetupState = 0;
 			TEST_DONE;
 	}
 	TEST_BUSY;
@@ -118,16 +151,16 @@ _SETUP_TEST(void) {
 	MultiSelectDirCopy = 0;
 	MultiSelectFileCopy = 0;
 	HmiFile.Status.SelectedIndex = 0;
-	MpFileManagerUIConnect.File.Copy = 0;
-	MpFileManagerUIConnect.File.CreateFolder = 0;
-	MpFileManagerUIConnect.File.Cut = 0;
-	MpFileManagerUIConnect.File.Delete = 0;
-	MpFileManagerUIConnect.File.EnterFolder = 0;
-	MpFileManagerUIConnect.File.FolderUp = 0;
-	MpFileManagerUIConnect.File.MultiSelect = 0;
-	MpFileManagerUIConnect.File.Paste = 0;
-	MpFileManagerUIConnect.File.Refresh = 0;
-	MpFileManagerUIConnect.File.Rename = 0;
+	pMpFileManagerUIConnect->File.Copy = 0;
+	pMpFileManagerUIConnect->File.CreateFolder = 0;
+	pMpFileManagerUIConnect->File.Cut = 0;
+	pMpFileManagerUIConnect->File.Delete = 0;
+	pMpFileManagerUIConnect->File.EnterFolder = 0;
+	pMpFileManagerUIConnect->File.FolderUp = 0;
+	pMpFileManagerUIConnect->File.MultiSelect = 0;
+	pMpFileManagerUIConnect->File.Paste = 0;
+	pMpFileManagerUIConnect->File.Refresh = 0;
+	pMpFileManagerUIConnect->File.Rename = 0;
 	
 	HmiFile_UT.Parameters.Fifo.Enable = false;
 	HmiFile_UT.Parameters.Fifo.ScanInterval = 60;
@@ -143,14 +176,16 @@ _SETUP_TEST(void) {
 			}
 
 			DirInfo_UT.enable = true;
-			DirInfo_UT.pDevice = (UDINT)&"mappUserXFiles";
+			DirInfo_UT.pDevice = (UDINT)&HmiFile_UT.Parameters.Fifo.DeviceName;
 			DirInfo_UT.pPath = (UDINT)&"";
 			DirInfo(&DirInfo_UT);
 			TEST_BUSY_CONDITION(DirInfo_UT.status == 65535);
 			TEST_ABORT_CONDITION(DirInfo_UT.status != 0);
 			NumberOfFiles = DirInfo_UT.filenum;
+			NumberOfDirs = DirInfo_UT.dirnum;
 			CurrentFile = 0;
-			SetupState = (NumberOfFiles == 0) ? 100 : 1;
+			CurrentDir = 2;
+			SetupState = (NumberOfFiles == 0) ? 3 : 1;
 			break;
 
 		case 1:
@@ -175,23 +210,86 @@ _SETUP_TEST(void) {
 			TEST_ABORT_CONDITION(FileDelete_UT.status != 0);
 			
 			CurrentFile++;
-			SetupState = (CurrentFile >= NumberOfFiles) ? 100 : 1;
+			SetupState = (CurrentFile >= NumberOfFiles) ? 3 : 1;
+			break;
+		
+		case 3:
+			DirRead_UT.enable = true;
+			DirRead_UT.pDevice = DirInfo_UT.pDevice;
+			DirRead_UT.entry = 2;
+			DirRead_UT.option = fiDIRECTORY;
+			DirRead_UT.pData = (UDINT)&fileInfo;
+			DirRead_UT.data_len = sizeof(fileInfo);
+			DirRead(&DirRead_UT);
+			TEST_BUSY_CONDITION(DirRead_UT.status == 65535);
+			if (DirRead_UT.status == fiERR_NO_MORE_ENTRIES)
+			{
+				SetupState = 10;
+				TEST_BUSY;
+			}
+			TEST_ABORT_CONDITION(DirRead_UT.status != 0);
+			SetupState = 4;
+			break;
+		
+		case 4:
+			DirDeleteEx_UT.enable = true;
+			DirDeleteEx_UT.pDevice = DirInfo_UT.pDevice;
+			DirDeleteEx_UT.pName = (UDINT)&fileInfo.Filename;
+			DirDeleteEx(&DirDeleteEx_UT);
+			TEST_BUSY_CONDITION(DirDeleteEx_UT.status == 65535);
+			TEST_ABORT_CONDITION(DirDeleteEx_UT.status != 0);
+		
+			CurrentDir++;
+			SetupState = (CurrentDir >= NumberOfDirs) ? 10 : 3;
 			break;
 		
 		case 10:
+			if (pMpFileManagerUIConnect->Status != 0)
+			{
+				pMpFileManagerUIConnect->DeviceList.SelectedIndex = 0;
+				TEST_BUSY;
+			}
+			if (brsstrcmp((UDINT)&pMpFileManagerUIConnect->DeviceList.DeviceNames[pMpFileManagerUIConnect->DeviceList.SelectedIndex], (UDINT)&HmiFile_UT.Parameters.Fifo.DeviceName) == 0)
+			{
+				SetupState = 100;
+				TEST_BUSY;
+			}
+			for (USINT i=0; i<sizeof(pMpFileManagerUIConnect->DeviceList.DeviceNames)/sizeof(pMpFileManagerUIConnect->DeviceList.DeviceNames[0]); i++)
+			{
+				if (brsstrcmp((UDINT)&pMpFileManagerUIConnect->DeviceList.DeviceNames[i], (UDINT)&HmiFile_UT.Parameters.Fifo.DeviceName) == 0)
+				{
+					pMpFileManagerUIConnect->DeviceList.SelectedIndex = i;
+					break;
+				}
+			}
+			SetupState = 11;
+			break;
+		
+		case 11:
+			TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status == mpFILE_UI_STATUS_IDLE);
+			SetupState = 12;
+			break;
+		
+		case 12:
+			TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+			SetupState = 100;
+			break;
+			
+		case 20:
 			TEST_BUSY_CONDITION(MpFileManagerUIConnect_FIFO.Status == mpFILE_UI_STATUS_IDLE);
 			MpFileManagerUIConnect_FIFO.File.Refresh = true;
 			TEST_BUSY_CONDITION(MpFileManagerUIConnect_FIFO.Status == mpFILE_UI_STATUS_IDLE);
 			MpFileManagerUIConnect_FIFO.File.Refresh = false;
-			SetupState = 11;
+			SetupState = 21;
 			break;
 
-		case 11:
+		case 21:
 			TEST_BUSY_CONDITION(MpFileManagerUIConnect_FIFO.Status != mpFILE_UI_STATUS_IDLE);
 			SetupState = 100;
 			break;
 
 		case 100:
+			SetupState = 0;
 			TEST_DONE;
 	}
 	TEST_BUSY;
@@ -206,6 +304,7 @@ _TEARDOWN_TEST(void)
 	ArrangeSubState = 0;
 	ActSubState = 0;
 	AssertSubState = 0;
+	SetupState = 0;
 	cycleCount = 0;
 	NameMatch = 0;
 	InNewLocation = 0;
@@ -213,17 +312,17 @@ _TEARDOWN_TEST(void)
 	MultiSelectDirCopy = 0;
 	MultiSelectFileCopy = 0;
 	HmiFile.Status.SelectedIndex = 0;
-	MpFileManagerUIConnect.File.Copy = 0;
-	MpFileManagerUIConnect.File.CreateFolder = 0;
-	MpFileManagerUIConnect.File.Cut = 0;
-	MpFileManagerUIConnect.File.Delete = 0;
-	MpFileManagerUIConnect.File.EnterFolder = 0;
-	MpFileManagerUIConnect.File.FolderUp = 0;
-	MpFileManagerUIConnect.File.MultiSelect = 0;
-	MpFileManagerUIConnect.File.Paste = 0;
-	MpFileManagerUIConnect.File.Refresh = 0;
-	MpFileManagerUIConnect.File.Rename = 0;
-	brsmemcpy(&MpFileManagerUIConnect.File.Filter, &"", sizeof(MpFileManagerUIConnect.File.Filter));
+	pMpFileManagerUIConnect->File.Copy = 0;
+	pMpFileManagerUIConnect->File.CreateFolder = 0;
+	pMpFileManagerUIConnect->File.Cut = 0;
+	pMpFileManagerUIConnect->File.Delete = 0;
+	pMpFileManagerUIConnect->File.EnterFolder = 0;
+	pMpFileManagerUIConnect->File.FolderUp = 0;
+	pMpFileManagerUIConnect->File.MultiSelect = 0;
+	pMpFileManagerUIConnect->File.Paste = 0;
+	pMpFileManagerUIConnect->File.Refresh = 0;
+	pMpFileManagerUIConnect->File.Rename = 0;
+	brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.Filter, (UDINT)&"", sizeof(pMpFileManagerUIConnect->File.Filter));
 	
 	HmiFile.Commands.Delete = 0;
 	HmiFile.Commands.EnterFolder = 0;
@@ -251,33 +350,33 @@ _TEST Create_Directory(void)
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input directory name
+			// Select UserX file device and input directory name
 			switch (ArrangeSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
-					brsmemcpy(&MpFileManagerUIConnect.File.NewName, &DirName, sizeof(MpFileManagerUIConnect.File.NewName));
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&DirName, sizeof(pMpFileManagerUIConnect->File.NewName));
 					ArrangeSubState = 1;
 					break;
 			
 				case 1:
-					MpFileManagerUIConnect.File.Refresh = 1;
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ArrangeSubState = 2;
 					break;
 			
 				case 2:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != 0);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ArrangeSubState = 3;
 					break;
 				
 				case 3:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != 0);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&DirName) == 0)
 						{
-							TEST_ABORT_MSG("Directory with chosen name already exists");
+							TEST_FAIL("Directory with chosen name already exists");
+							TEST_DONE;
 						}
 					}
 					TestState = 1;
@@ -290,32 +389,32 @@ _TEST Create_Directory(void)
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.CreateFolder = 1;
+					pMpFileManagerUIConnect->File.CreateFolder = 1;
 					ActSubState = 1;
 					break;
 					
 				case 1:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CREATE);
-					MpFileManagerUIConnect.File.CreateFolder = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CREATE);
+					pMpFileManagerUIConnect->File.CreateFolder = 0;
 					ActSubState = 2;
 				
 				case 2:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.File.Refresh = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 3;
 					break;
 				
 				case 3:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 4;
 					break;
 				
 				case 4:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&DirName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -331,6 +430,7 @@ _TEST Create_Directory(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Add_File(void)
@@ -343,33 +443,34 @@ _TEST Add_File(void)
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input file name
+			// Select UserX file device and input file name
 			switch (ArrangeSubState)
 			{
 				case 0:
-					FileCreate_0.pDevice = (UDINT)&"mappRecipeFiles";
+					FileCreate_0.pDevice = (UDINT)&"mappUserXFiles";
 					FileCreate_0.pFile = (UDINT)&CreateFileName;
 					ArrangeSubState = 1;
 					break;
 			
 				case 1:
-					MpFileManagerUIConnect.File.Refresh = 1;
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ArrangeSubState = 2;
 					break;
 			
 				case 2:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ArrangeSubState = 3;
 					break;
 				
 				case 3: // Check to make sure there isn't already a file by the specified name in the directory
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != 0);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != 0);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
 						{
-							TEST_ABORT_MSG("File with chosen name already exists");
+							TEST_FAIL("File with chosen name already exists");
+							TEST_DONE;
 						}
 					}
 					TestState = 1;
@@ -387,43 +488,47 @@ _TEST Add_File(void)
 					break;
 					
 				case 1:
-					if((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
-					{
-						TEST_ABORT_MSG("FileCreate function block has an error");
-					}
 					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
+					FileCreate_0.enable = 0;
+					if ((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
+					{
+						TEST_FAIL("FileCreate function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileCreate_0.status);
+						TEST_DONE;
+					}
 					FileClose_0.ident = FileCreate_0.ident;
 					FileClose_0.enable = 1;
-					FileCreate_0.enable = 0;
 					ActSubState = 2;
 					break;
 				
 				case 2:
-					if((FileClose_0.status != 0) && (FileClose_0.status != 65535))
-					{
-						TEST_ABORT_MSG("FileClose function block has an error");
-					}
 					TEST_BUSY_CONDITION(FileClose_0.status != 0);
 					FileClose_0.enable = 0;
-					MpFileManagerUIConnect.File.Refresh = 1;
+					if ((FileClose_0.status != 0) && (FileClose_0.status != 65535))
+					{
+						TEST_FAIL("FileClose function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileClose_0.status);
+						TEST_DONE;
+					}
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 3;
 					break;
 			
 				case 3:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 4;
 					break;
 			
 				case 4:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
 					ActSubState = 5;
 					break;
 				
 				case 5:
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -439,27 +544,71 @@ _TEST Add_File(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Copy_File(void)
 {
 	TIMEOUT_TEST_CASE;
 	
+	FileCreate(&FileCreate_0);
+	FileClose(&FileClose_0);
+	
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input name of file to be copied
+			// Select UserX file device and input name of file to be copied
 			switch (ArrangeSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+					FileCreate_0.pDevice = (UDINT)&"mappUserXFiles";
+					FileCreate_0.pFile = (UDINT)&CreateFileName;
+					FileCreate_0.enable = 1;
 					ArrangeSubState = 1;
 					break;
-				
+					
 				case 1:
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
+					FileCreate_0.enable = 0;
+					if ((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+						TEST_FAIL("FileCreate function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileCreate_0.status);
+						TEST_DONE;
+					}
+					FileClose_0.ident = FileCreate_0.ident;
+					FileClose_0.enable = 1;
+					ArrangeSubState = 2;
+					break;
+				
+				case 2:
+					TEST_BUSY_CONDITION(FileClose_0.status != 0);
+					FileClose_0.enable = 0;
+					if ((FileClose_0.status != 0) && (FileClose_0.status != 65535))
+					{
+						TEST_FAIL("FileClose function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileClose_0.status);
+						TEST_DONE;
+					}
+					ArrangeSubState = 3;
+					break;
+			
+				case 3:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					ArrangeSubState = 4;
+					break;
+				
+				case 4:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 10;
+					break;
+			
+				case 10:
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
+					{
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -472,40 +621,40 @@ _TEST Copy_File(void)
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.Copy = 1;
+					pMpFileManagerUIConnect->File.Copy = 1;
 					ActSubState = 1;
 					break;
 				
 				case 1:
-					MpFileManagerUIConnect.File.Copy = 0;
-					MpFileManagerUIConnect.File.Paste = 1;
+					pMpFileManagerUIConnect->File.Copy = 0;
+					pMpFileManagerUIConnect->File.Paste = 1;
 					ActSubState = 2;
 					break;
 			
 				case 2:
-					MpFileManagerUIConnect.File.Paste = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
+					pMpFileManagerUIConnect->File.Paste = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_PASTE);
 					ActSubState = 3;
 					break;
 			
 				case 3:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.File.Refresh = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 4;
 					break;
 			
 				case 4:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 5;
 					break;
 				
 				case 5:
 					// Check file list for copied file
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedFileName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&CopiedFileName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -521,6 +670,7 @@ _TEST Copy_File(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Copy_Directory(void)
@@ -530,18 +680,36 @@ _TEST Copy_Directory(void)
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input name of directory to be copied
+			// Select UserX file device and input name of directory to be copied
 			switch (ArrangeSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&DirName, sizeof(pMpFileManagerUIConnect->File.NewName));
+					pMpFileManagerUIConnect->File.CreateFolder = 1;
 					ArrangeSubState = 1;
 					break;
-				
+					
 				case 1:
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CREATE);
+					pMpFileManagerUIConnect->File.CreateFolder = 0;
+					ArrangeSubState = 2;
+				
+				case 2:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					ArrangeSubState = 3;
+					break;
+				
+				case 3:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 10;
+					break;
+				
+				case 10:
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&DirName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -554,40 +722,40 @@ _TEST Copy_Directory(void)
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.Copy = 1;
+					pMpFileManagerUIConnect->File.Copy = 1;
 					ActSubState = 1;
 					break;
 				
 				case 1:
-					MpFileManagerUIConnect.File.Copy = 0;
-					MpFileManagerUIConnect.File.Paste = 1;
+					pMpFileManagerUIConnect->File.Copy = 0;
+					pMpFileManagerUIConnect->File.Paste = 1;
 					ActSubState = 2;
 					break;
 			
 				case 2:
-					MpFileManagerUIConnect.File.Paste = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
+					pMpFileManagerUIConnect->File.Paste = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_PASTE);
 					ActSubState = 3;
 					break;
 			
 				case 3:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.File.Refresh = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 4;
 					break;
 			
 				case 4:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 5;
 					break;
 				
 				case 5:
 					// Check file list for copied directory
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedDirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&CopiedDirName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -603,28 +771,77 @@ _TEST Copy_Directory(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Rename_File(void)
 {
 	TIMEOUT_TEST_CASE;
 	
+	FileCreate(&FileCreate_0);
+	FileClose(&FileClose_0);
+	
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input name of file to be renamed and new name
+			// Select UserX file device and input name of file to be renamed and new name
 			switch (ArrangeSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
-					brsmemcpy(&MpFileManagerUIConnect.File.NewName, &NewFileName, sizeof(MpFileManagerUIConnect.File.NewName));
+					FileCreate_0.pDevice = (UDINT)&"mappUserXFiles";
+					FileCreate_0.pFile = (UDINT)&CopiedFileName;
+					FileCreate_0.enable = 1;
 					ArrangeSubState = 1;
 					break;
-				
+					
 				case 1:
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
+					FileCreate_0.enable = 0;
+					if ((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedFileName) == 0)
+						TEST_FAIL("FileCreate function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileCreate_0.status);
+						TEST_DONE;
+					}
+					FileClose_0.ident = FileCreate_0.ident;
+					FileClose_0.enable = 1;
+					ArrangeSubState = 2;
+					break;
+				
+				case 2:
+					TEST_BUSY_CONDITION(FileClose_0.status != 0);
+					FileClose_0.enable = 0;
+					if ((FileClose_0.status != 0) && (FileClose_0.status != 65535))
+					{
+						TEST_FAIL("FileClose function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileClose_0.status);
+						TEST_DONE;
+					}
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					ArrangeSubState = 10;
+					break;
+				
+				case 10:			
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					ArrangeSubState = 11;
+					break;
+			
+				case 11:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 12;
+					break;
+
+				case 12:
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&NewFileName, sizeof(pMpFileManagerUIConnect->File.NewName));
+					ArrangeSubState = 13;
+					break;
+				
+				case 13:
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
+					{
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&CopiedFileName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -637,29 +854,29 @@ _TEST Rename_File(void)
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.Rename = 1;
+					pMpFileManagerUIConnect->File.Rename = 1;
 					ActSubState = 1;
 					break;
 			
 				case 1:
-					MpFileManagerUIConnect.File.Rename = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.File.Refresh = 1;
+					pMpFileManagerUIConnect->File.Rename = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 2;
 					break;
 			
 				case 2:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 3;
 					break;
 				
 				case 3:
 					// Check file list for renamed file
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&NewFileName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -675,6 +892,7 @@ _TEST Rename_File(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Rename_Directory(void)
@@ -684,19 +902,41 @@ _TEST Rename_Directory(void)
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input name of directory to be renamed and new name
+			// Select UserX file device and input name of directory to be renamed and new name
 			switch (ArrangeSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
-					brsmemcpy(&MpFileManagerUIConnect.File.NewName, &NewDirName, sizeof(MpFileManagerUIConnect.File.NewName));
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&CopiedDirName, sizeof(pMpFileManagerUIConnect->File.NewName));
+					pMpFileManagerUIConnect->File.CreateFolder = 1;
 					ArrangeSubState = 1;
 					break;
-				
+					
 				case 1:
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CREATE);
+					pMpFileManagerUIConnect->File.CreateFolder = 0;
+					ArrangeSubState = 2;
+				
+				case 2:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					ArrangeSubState = 3;
+					break;
+				
+				case 3:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 10;
+					break;
+			
+				case 10:
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&NewDirName, sizeof(pMpFileManagerUIConnect->File.NewName));
+					ArrangeSubState = 11;
+					break;
+				
+				case 11:
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedDirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&CopiedDirName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -709,29 +949,29 @@ _TEST Rename_Directory(void)
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.Rename = 1;
+					pMpFileManagerUIConnect->File.Rename = 1;
 					ActSubState = 1;
 					break;
 				
 				case 1:
-					MpFileManagerUIConnect.File.Rename = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.File.Refresh = 1;
+					pMpFileManagerUIConnect->File.Rename = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 2;
 					break;
 			
 				case 2:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 3;
 					break;
 				
 				case 3:
 					// Check file list for renamed directory
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewDirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&NewDirName) == 0)
 						{
 							NameMatch = 1;
 						}
@@ -743,39 +983,92 @@ _TEST Rename_Directory(void)
 		
 		case 2:
 			// Check if renamed directory was found
+			TEST_INFO("File list items are");
+			for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
+			{
+				TEST_INFO(&pMpFileManagerUIConnect->File.List.Items[i].Name);
+			}
 			TEST_ASSERT(NameMatch);
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Cut_Paste_File(void)
 {
 	TIMEOUT_TEST_CASE;
 	
+	FileCreate(&FileCreate_0);
+	FileClose(&FileClose_0);
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input name of file to be cut
+			// Select UserX file device and input name of file to be cut
 			switch (ArrangeSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
-					MpFileManagerUIConnect.File.Refresh = 1;
+					FileCreate_0.pDevice = (UDINT)&"mappUserXFiles";
+					FileCreate_0.pFile = (UDINT)&NewFileName;
+					FileCreate_0.enable = 1;
 					ArrangeSubState = 1;
 					break;
-			
-			case 1:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					
+				case 1:
+					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
+					FileCreate_0.enable = 0;
+					if ((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
+					{
+						TEST_FAIL("FileCreate function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileCreate_0.status);
+						TEST_DONE;
+					}
+					FileClose_0.ident = FileCreate_0.ident;
+					FileClose_0.enable = 1;
 					ArrangeSubState = 2;
 					break;
 				
 				case 2:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(FileClose_0.status != 0);
+					FileClose_0.enable = 0;
+					if ((FileClose_0.status != 0) && (FileClose_0.status != 65535))
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+						TEST_FAIL("FileClose function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileClose_0.status);
+						TEST_DONE;
+					}
+					ArrangeSubState = 10;
+					break;
+			
+				case 10:
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&DirName, sizeof(pMpFileManagerUIConnect->File.NewName));
+					pMpFileManagerUIConnect->File.CreateFolder = 1;
+					ArrangeSubState = 11;
+					break;
+					
+				case 11:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CREATE);
+					pMpFileManagerUIConnect->File.CreateFolder = 0;
+					ArrangeSubState = 12;
+					break;
+				
+				case 12:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					ArrangeSubState = 13;
+					break;
+				
+				case 13:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 20;
+					break;
+				
+				case 20:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
+					{
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&NewFileName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -788,15 +1081,15 @@ _TEST Cut_Paste_File(void)
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.Cut = 1;
+					pMpFileManagerUIConnect->File.Cut = 1;
 					ActSubState = 1;
 					break;
 				
 				case 1:
-					MpFileManagerUIConnect.File.Cut = 0;
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					pMpFileManagerUIConnect->File.Cut = 0;
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&DirName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					ActSubState = 2;
@@ -804,41 +1097,41 @@ _TEST Cut_Paste_File(void)
 			
 				case 2:
 					HmiFile.Commands.EnterFolder = 1;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CHANGE_DIR);
 					HmiFile.Commands.EnterFolder = 0;
 					ActSubState = 3;
 					break;
 				
 				case 3:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.File.Paste = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Paste = 1;
 					ActSubState = 4;
 					break;
 			
 				case 4:
-					MpFileManagerUIConnect.File.Paste = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
+					pMpFileManagerUIConnect->File.Paste = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_PASTE);
 					ActSubState = 5;
 					break;
 			
 				case 5:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.File.Refresh = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 6;
 					break;
 			
 				case 6:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 7;
 					break;
 			
 				case 7:
 					// Check paste location for cut file
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&NewFileName) == 0)
 						{
 							InNewLocation = 1;
 						}
@@ -848,17 +1141,17 @@ _TEST Cut_Paste_File(void)
 					break;
 				
 				case 8:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CHANGE_DIR);
 					HmiFile.Commands.FolderUp = 0;
 					ActSubState = 9;
 					break;
 				
 				case 9:
 					// Check old location for cut file
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewFileName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&NewFileName) == 0)
 						{
 							InOldLocation = 1;
 						}
@@ -875,6 +1168,7 @@ _TEST Cut_Paste_File(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Cut_Paste_Directory(void)
@@ -884,18 +1178,59 @@ _TEST Cut_Paste_Directory(void)
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and input name of directory to be cut
+			// Select UserX file device and input name of directory to be cut
 			switch (ArrangeSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&DirName, sizeof(pMpFileManagerUIConnect->File.NewName));
+					pMpFileManagerUIConnect->File.CreateFolder = 1;
 					ArrangeSubState = 1;
 					break;
-				
+					
 				case 1:
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CREATE);
+					pMpFileManagerUIConnect->File.CreateFolder = 0;
+					ArrangeSubState = 2;
+				
+				case 2:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					ArrangeSubState = 3;
+					break;
+				
+				case 3:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 10;
+					break;
+				
+				case 10:
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&NewDirName, sizeof(pMpFileManagerUIConnect->File.NewName));
+					pMpFileManagerUIConnect->File.CreateFolder = 11;
+					ArrangeSubState = 11;
+					break;
+							
+				case 11:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CREATE);
+					pMpFileManagerUIConnect->File.CreateFolder = 0;
+					ArrangeSubState = 12;
+						
+				case 12:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					ArrangeSubState = 13;
+					break;
+						
+				case 13:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 14;
+					break;
+				
+				case 14:
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewDirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&NewDirName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					TestState = 1;
@@ -908,86 +1243,86 @@ _TEST Cut_Paste_Directory(void)
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.Cut = 1;
+					pMpFileManagerUIConnect->File.Cut = 1;
 					ActSubState = 1;
 					break;
 				
 				case 1:
-					MpFileManagerUIConnect.File.Cut = 0;
-					MpFileManagerUIConnect.File.Refresh = 1;
+					pMpFileManagerUIConnect->File.Cut = 0;
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 2;
 					break;
 				
 				case 2:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 3;
 					break;
 				
 				case 3:
 					// Find folder to paste directory into
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&DirName) == 0)
 							HmiFile.Status.SelectedIndex = i;
 					}
 					ActSubState = 4;
 					break;
 				
 				case 4:
-					MpFileManagerUIConnect.File.Refresh = 1;
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 5;
 					break;
 				
 				case 5:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 6;
 					break;
 			
 				case 6:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
 					HmiFile.Commands.EnterFolder = 1;
 					ActSubState = 7;
 					break;
 				
 				case 7:
 					HmiFile.Commands.EnterFolder = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CHANGE_DIR);
 					ActSubState = 8;
 					break;
 				
 				case 8:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.File.Paste = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Paste = 1;
 					ActSubState = 9;
 					break;
 			
 				case 9:
-					MpFileManagerUIConnect.File.Paste = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
+					pMpFileManagerUIConnect->File.Paste = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_PASTE);
 					ActSubState = 10;
 					break;
 			
 				case 10:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.File.Refresh = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 11;
 					break;
 			
 				case 11:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 12;
 					break;
 			
 				case 12:
 					// Check new location for cut directory
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewDirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&NewDirName) == 0)
 						{
 							InNewLocation = 1;
 						}
@@ -997,17 +1332,17 @@ _TEST Cut_Paste_Directory(void)
 					break;
 				
 				case 13:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CHANGE_DIR);
 					HmiFile.Commands.FolderUp = 0;
 					ActSubState = 14;
 					break;
 				
 				case 14:
 					// Check old location for cut directory
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &NewDirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&NewDirName) == 0)
 						{
 							InOldLocation = 1;
 						}
@@ -1024,55 +1359,121 @@ _TEST Cut_Paste_Directory(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Multiselect(void)
 {
 	TIMEOUT_TEST_CASE;
-	
+		
+	FileCreate(&FileCreate_0);
+	FileClose(&FileClose_0);
 	switch (TestState)
 	{
 		case 0:
-			// Select Recipe file device and navigate into directory with test files
+			// Select UserX file device and navigate into directory with test files
 			switch (ArrangeSubState)
 			{
+			
 				case 0:
-					MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&NewDirName, sizeof(pMpFileManagerUIConnect->File.NewName));
+					pMpFileManagerUIConnect->File.CreateFolder = 1;
 					ArrangeSubState = 1;
 					break;
-				
+					
 				case 1:
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
-					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
-							HmiFile.Status.SelectedIndex = i;
-					}
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CREATE);
+					pMpFileManagerUIConnect->File.CreateFolder = 0;
 					ArrangeSubState = 2;
-					break;
-			
-			case 2:
-					MpFileManagerUIConnect.File.Refresh = 1;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+				
+				case 2:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ArrangeSubState = 3;
 					break;
+				
+				case 3:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 10;
+					break;
+				
+				case 10:
+					FileCreate_0.pDevice = (UDINT)&"mappUserXFiles";
+					FileCreate_0.pFile = (UDINT)&CreateFileName;
+					FileCreate_0.enable = 1;
+					ArrangeSubState = 11;
+					break;
+					
+				case 11:
+					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
+					FileCreate_0.enable = 0;
+					if ((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
+					{
+						TEST_FAIL("FileCreate function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileCreate_0.status);
+						TEST_DONE;
+					}
+					FileClose_0.ident = FileCreate_0.ident;
+					FileClose_0.enable = 1;
+					ArrangeSubState = 12;
+					break;
+				
+				case 12:
+					TEST_BUSY_CONDITION(FileClose_0.status != 0);
+					FileClose_0.enable = 0;
+					if ((FileClose_0.status != 0) && (FileClose_0.status != 65535))
+					{
+						TEST_FAIL("FileClose function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileClose_0.status);
+						TEST_DONE;
+					}
+					ArrangeSubState = 20;
+					break;
 			
-			case 3:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					HmiFile.Commands.EnterFolder = 1;
-					ArrangeSubState = 4;
+				case 20:
+					FileCreate_0.pDevice = (UDINT)&"mappUserXFiles";
+					FileCreate_0.pFile = (UDINT)&NewFileName;
+					FileCreate_0.enable = 1;
+					ArrangeSubState = 21;
+					break;
+					
+				case 21:
+					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
+					FileCreate_0.enable = 0;
+					if ((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
+					{
+						TEST_FAIL("FileCreate function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileCreate_0.status);
+						TEST_DONE;
+					}
+					FileClose_0.ident = FileCreate_0.ident;
+					FileClose_0.enable = 1;
+					ArrangeSubState = 22;
 					break;
 				
-				case 4:
-					HmiFile.Commands.EnterFolder = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
-					ArrangeSubState = 5;
+				case 22:
+					TEST_BUSY_CONDITION(FileClose_0.status != 0);
+					FileClose_0.enable = 0;
+					if ((FileClose_0.status != 0) && (FileClose_0.status != 65535))
+					{
+						TEST_FAIL("FileClose function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileClose_0.status);
+						TEST_DONE;
+					}
+					ArrangeSubState = 30;
 					break;
-				
-				case 5:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+			
+				case 30:
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 31;
+					break;
+			
+				case 31:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
 					TestState = 1;
-					break;
 			}
 			break;
 		
@@ -1081,76 +1482,96 @@ _TEST Multiselect(void)
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.MultiSelect = 1;
+					pMpFileManagerUIConnect->File.MultiSelect = 1;
 					ActSubState = 1;
 					break;
 				
 				case 1:
-					MpFileManagerUIConnect.File.List.Items[0].IsSelected = 1;
-					MpFileManagerUIConnect.File.List.Items[1].IsSelected = 1;
+					pMpFileManagerUIConnect->File.List.Items[0].IsSelected = 0;
+					pMpFileManagerUIConnect->File.List.Items[1].IsSelected = 1;
+					pMpFileManagerUIConnect->File.List.Items[2].IsSelected = 1;
 					ActSubState = 2;
 					break;
 			
 				case 2:
-					MpFileManagerUIConnect.File.Copy = 1;
+					pMpFileManagerUIConnect->File.Copy = 1;
 					ActSubState = 3;
 					break;
 				
 				case 3:
-					MpFileManagerUIConnect.File.Copy = 0;
-					MpFileManagerUIConnect.File.MultiSelect = 0;
-					MpFileManagerUIConnect.File.Paste = 1;
+					pMpFileManagerUIConnect->File.Copy = 0;
+					pMpFileManagerUIConnect->File.MultiSelect = 0;
+					pMpFileManagerUIConnect->File.List.Items[0].IsSelected = 1;
+					pMpFileManagerUIConnect->File.List.Items[1].IsSelected = 0;
+					pMpFileManagerUIConnect->File.List.Items[2].IsSelected = 0;
 					ActSubState = 4;
 					break;
-			
+
 				case 4:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_PASTE);
-					MpFileManagerUIConnect.File.Paste = 0;
+					HmiFile.Commands.EnterFolder = 1;
 					ActSubState = 5;
 					break;
-			
+				
 				case 5:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.File.Refresh = 1;
+					HmiFile.Commands.EnterFolder = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CHANGE_DIR);
 					ActSubState = 6;
 					break;
-			
+				
 				case 6:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Paste = 1;
 					ActSubState = 7;
 					break;
 			
 				case 7:
-					// Check for copied file
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
-					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedNewFileName) == 0)
-							MultiSelectFileCopy = 1;
-					}
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_PASTE);
+					pMpFileManagerUIConnect->File.Paste = 0;
 					ActSubState = 8;
 					break;
-				
+			
 				case 8:
-					// Check for copied directory
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
-					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CopiedNewDirName) == 0)
-							MultiSelectDirCopy = 1;
-					}
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 9;
 					break;
 			
 				case 9:
-					HmiFile.Commands.FolderUp = 1;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
-					HmiFile.Commands.FolderUp = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 10;
 					break;
-				
+			
 				case 10:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					// Check for copied file
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
+					{
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&NewFileName) == 0)
+							MultiSelectFileCopy = 1;
+					}
+					ActSubState = 11;
+					break;
+				
+				case 11:
+					// Check for copied directory
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
+					{
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
+							MultiSelectDirCopy = 1;
+					}
+					ActSubState = 12;
+					break;
+			
+				case 12:
+					HmiFile.Commands.FolderUp = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					HmiFile.Commands.FolderUp = 0;
+					ActSubState = 13;
+					break;
+				
+				case 13:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
 					TestState = 2;
 					break;
 			}
@@ -1163,19 +1584,59 @@ _TEST Multiselect(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Search(void)
 {
 	TIMEOUT_TEST_CASE;
 	
+	FileCreate(&FileCreate_0);
+	FileClose(&FileClose_0);
 	switch (TestState)
 	{
 		case 0:
-			// Set filter value to name of file
-			MpFileManagerUIConnect.DeviceList.SelectedIndex = 0;
-			brsmemcpy(&MpFileManagerUIConnect.File.Filter, &CreateFileName, sizeof(MpFileManagerUIConnect.File.Filter));
-			TestState = 1;
+			switch (ArrangeSubState)
+			{
+				case 0:
+					FileCreate_0.pDevice = (UDINT)&"mappUserXFiles";
+					FileCreate_0.pFile = (UDINT)&NewFileName;
+					FileCreate_0.enable = 1;
+					ArrangeSubState = 1;
+					break;
+						
+				case 1:
+					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
+					FileCreate_0.enable = 0;
+					if ((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
+					{
+						TEST_FAIL("FileCreate function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileCreate_0.status);
+						TEST_DONE;
+					}
+					FileClose_0.ident = FileCreate_0.ident;
+					FileClose_0.enable = 1;
+					ArrangeSubState = 2;
+					break;
+					
+				case 2:
+					TEST_BUSY_CONDITION(FileClose_0.status != 0);
+					FileClose_0.enable = 0;
+					if ((FileClose_0.status != 0) && (FileClose_0.status != 65535))
+					{
+						TEST_FAIL("FileClose function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileClose_0.status);
+						TEST_DONE;
+					}
+					ArrangeSubState = 10;
+					break;
+				
+				case 10:			
+					// Set filter value to name of file
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.Filter, (UDINT)&NewFileName, sizeof(pMpFileManagerUIConnect->File.Filter));
+					TestState = 1;
+					break;
+			}
 			break;
 		
 		case 1:
@@ -1183,39 +1644,39 @@ _TEST Search(void)
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.Refresh = 1;
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 1;
 					break;
 				
 				case 1:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 2;
 					break;
 			
 				case 2:
 					// Check if the first item in the file list is the desired file
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[0].Name, &CreateFileName) == 0)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[0].Name, (UDINT)&NewFileName) == 0)
 						NameMatch = 1;
 					ActSubState = 3;
 					break;
 				
 				case 3:
 					// Reset filter
-					brsmemcpy(&MpFileManagerUIConnect.File.Filter, &"", sizeof(MpFileManagerUIConnect.File.Filter));
-					MpFileManagerUIConnect.File.Refresh = 1;
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.Filter,(UDINT) &"", sizeof(pMpFileManagerUIConnect->File.Filter));
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 4;
 					break;
 				
 				case 4:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 5;
 					break;
 				
 				case 5:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
 					TestState = 2;
 					break;
 			}
@@ -1227,6 +1688,7 @@ _TEST Search(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Enter_Folder(void)
@@ -1236,13 +1698,42 @@ _TEST Enter_Folder(void)
 	switch (TestState)
 	{
 		case 0:
-			// Select folder to enter
-			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+			
+			switch (ArrangeSubState)
 			{
-				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
-					HmiFile.Status.SelectedIndex = i;
-			}
-			TestState = 1;
+				case 0:
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&DirName, sizeof(pMpFileManagerUIConnect->File.NewName));
+					pMpFileManagerUIConnect->File.CreateFolder = 1;
+					ArrangeSubState = 1;
+					break;
+							
+				case 1:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CREATE);
+					pMpFileManagerUIConnect->File.CreateFolder = 0;
+					ArrangeSubState = 2;
+						
+				case 2:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					ArrangeSubState = 3;
+					break;
+						
+				case 3:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 10;
+					break;
+			
+				case 10:
+					// Select folder to enter
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
+					{
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&DirName) == 0)
+							HmiFile.Status.SelectedIndex = i;
+					}
+					TestState = 1;
+					break;
+			}	
 			break;
 		
 		case 1:
@@ -1261,14 +1752,14 @@ _TEST Enter_Folder(void)
 				
 				case 2:
 					HmiFile.Commands.EnterFolder = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CHANGE_DIR);
 					ActSubState = 3;
 					break;
 			
 				case 3:
 					// Check if current directory matches what is expected
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					if(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &DirName) == 0)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.PathInfo.CurrentDir, (UDINT)&DirName) == 0)
 						NameMatch = 1;
 					ActSubState = 4;
 					break;
@@ -1280,13 +1771,13 @@ _TEST Enter_Folder(void)
 					break;
 				
 				case 5:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CHANGE_DIR);
 					HmiFile.Commands.FolderUp = 0;
 					ActSubState = 6;
 					break;
 				
 				case 6:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
 					TestState = 2;
 					break;
 			}
@@ -1297,6 +1788,7 @@ _TEST Enter_Folder(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Go_Up_Level(void)
@@ -1306,13 +1798,41 @@ _TEST Go_Up_Level(void)
 	switch (TestState)
 	{
 		case 0:
-			// Select folder to enter
-			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+			switch (ArrangeSubState)
 			{
-				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
-					HmiFile.Status.SelectedIndex = i;
+				case 0:
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&DirName, sizeof(pMpFileManagerUIConnect->File.NewName));
+					pMpFileManagerUIConnect->File.CreateFolder = 1;
+					ArrangeSubState = 1;
+					break;
+							
+				case 1:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CREATE);
+					pMpFileManagerUIConnect->File.CreateFolder = 0;
+					ArrangeSubState = 2;
+						
+				case 2:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					ArrangeSubState = 3;
+					break;
+						
+				case 3:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 10;
+					break;
+			
+				case 10:
+					// Select folder to enter
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
+					{
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&DirName) == 0)
+							HmiFile.Status.SelectedIndex = i;
+					}
+					TestState = 1;
+					break;
 			}
-			TestState = 1;
 			break;
 		
 		case 1:
@@ -1331,16 +1851,17 @@ _TEST Go_Up_Level(void)
 				
 				case 2:
 					HmiFile.Commands.EnterFolder = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CHANGE_DIR);
 					ActSubState = 3;
 					break;
 			
 				case 3:
 					// Check if folder was successfully entered
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					if(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &DirName) != 0)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.PathInfo.CurrentDir, (UDINT)&DirName) != 0)
 					{
-						TEST_ABORT_MSG("Directory was not successfully entered");
+						TEST_FAIL("Directory was not successfully entered");
+						TEST_DONE;
 					}
 					ActSubState = 4;
 					break;
@@ -1352,15 +1873,15 @@ _TEST Go_Up_Level(void)
 					break;
 				
 				case 5:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_CHANGE_DIR);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CHANGE_DIR);
 					HmiFile.Commands.FolderUp = 0;
 					ActSubState = 6;
 					break;
 				
 				case 6:
 					// Check if folder level went back up to the root
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					if(brsstrcmp(&MpFileManagerUIConnect.File.PathInfo.CurrentDir , &"") == 0)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.PathInfo.CurrentDir, (UDINT)&"") == 0)
 						NameMatch = 1;
 					TestState = 2;
 					break;
@@ -1372,18 +1893,92 @@ _TEST Go_Up_Level(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Change_Sort(void)
 {
 	TIMEOUT_TEST_CASE;
 	
+	FileCreate(&FileCreate_0);
+	FileClose(&FileClose_0);
 	switch (TestState)
 	{
 		case 0:
-			// Change SortOrder value
-			MpFileManagerUIConnect.File.SortOrder = 5;
-			TestState = 1;
+			switch (ArrangeSubState) 
+			{
+				case 0:
+					FileCreate_0.pDevice = (UDINT)&"mappUserXFiles";
+					FileCreate_0.pFile = (UDINT)&CreateFileName;
+					FileCreate_0.enable = 1;
+					ArrangeSubState = 1;
+					break;
+							
+				case 1:
+					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
+					FileCreate_0.enable = 0;
+					if ((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
+					{
+						TEST_FAIL("FileCreate function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileCreate_0.status);
+						TEST_DONE;
+					}
+					FileClose_0.ident = FileCreate_0.ident;
+					FileClose_0.enable = 1;
+					ArrangeSubState = 2;
+					break;
+							
+				case 2:
+					TEST_BUSY_CONDITION(FileClose_0.status != 0);
+					FileClose_0.enable = 0;
+					if ((FileClose_0.status != 0) && (FileClose_0.status != 65535))
+					{
+						TEST_FAIL("FileClose function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileClose_0.status);
+						TEST_DONE;
+					}
+					ArrangeSubState = 3;
+					break;
+			
+				case 3:
+					FileCreate_0.pDevice = (UDINT)&"mappUserXFiles";
+					FileCreate_0.pFile = (UDINT)&NewFileName;
+					FileCreate_0.enable = 1;
+					ArrangeSubState = 4;
+					break;
+				
+				case 4:
+					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
+					FileCreate_0.enable = 0;
+					if ((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
+					{
+						TEST_FAIL("FileCreate function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileCreate_0.status);
+						TEST_DONE;
+					}
+					FileClose_0.ident = FileCreate_0.ident;
+					FileClose_0.enable = 1;
+					ArrangeSubState = 5;
+					break;
+				
+				case 5:
+					TEST_BUSY_CONDITION(FileClose_0.status != 0);
+					FileClose_0.enable = 0;
+					if ((FileClose_0.status != 0) && (FileClose_0.status != 65535))
+					{
+						TEST_FAIL("FileClose function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileClose_0.status);
+						TEST_DONE;
+					}
+					ArrangeSubState = 10;
+					break;
+				
+				case 10:			
+					// Change SortOrder value
+					pMpFileManagerUIConnect->File.SortOrder = mpFILE_SORT_BY_MOD_TIME_DESC;
+					TestState = 1;
+					break;
+			}
 			break;
 		
 		case 1:
@@ -1391,26 +1986,26 @@ _TEST Change_Sort(void)
 			{
 				case 0:
 					// Wait for sort to take effect
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_SORT);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_SORT);
 					ActSubState = 1;
 					break;
 			
 				case 1:
 					// Make sure sort worked correctly
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[0].Name, &DirName) == 0)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[0].Name, (UDINT)&NewFileName) == 0)
 						NameMatch = 1;
 					ActSubState = 2;
 					break;
 				
 				case 2:
-					MpFileManagerUIConnect.File.SortOrder = 0;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_SORT);
+					pMpFileManagerUIConnect->File.SortOrder = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_SORT);
 					ActSubState = 3;
 					break;
 			
 				case 3:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
 					TestState = 2;
 					break;
 			}
@@ -1421,59 +2016,100 @@ _TEST Change_Sort(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Delete_File(void)
 {
 	TIMEOUT_TEST_CASE;
 	
+	FileCreate(&FileCreate_0);
+	FileClose(&FileClose_0);
 	switch (TestState)
 	{
 		case 0:
-			// Select file to be deleted
-			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+			switch (ArrangeSubState) 
 			{
-				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
-					HmiFile.Status.SelectedIndex = i;
+				case 0:
+					FileCreate_0.pDevice = (UDINT)&"mappUserXFiles";
+					FileCreate_0.pFile = (UDINT)&CreateFileName;
+					FileCreate_0.enable = 1;
+					ArrangeSubState = 1;
+					break;
+							
+				case 1:
+					TEST_BUSY_CONDITION(FileCreate_0.status != 0);
+					FileCreate_0.enable = 0;
+					if ((FileCreate_0.status != 0) && (FileCreate_0.status != 65535))
+					{
+						TEST_FAIL("FileCreate function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileCreate_0.status);
+						TEST_DONE;
+					}
+					FileClose_0.ident = FileCreate_0.ident;
+					FileClose_0.enable = 1;
+					ArrangeSubState = 2;
+					break;
+							
+				case 2:
+					TEST_BUSY_CONDITION(FileClose_0.status != 0);
+					FileClose_0.enable = 0;
+					if ((FileClose_0.status != 0) && (FileClose_0.status != 65535))
+					{
+						TEST_FAIL("FileClose function block has an error");
+						TEST_ASSERT_EQUAL_INT(0, FileClose_0.status);
+						TEST_DONE;
+					}
+					ArrangeSubState = 10;
+					break;
+	
+				case 10:
+					// Select file to be deleted
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
+					{
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
+							HmiFile.Status.SelectedIndex = i;
+					}
+					TestState = 1;
+					break;
 			}
-			TestState = 1;
 			break;
-		
+
 		case 1:
 			// Delete file
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.Delete = 1;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_DELETE);
-					MpFileManagerUIConnect.File.Delete = 0;
+					pMpFileManagerUIConnect->File.Delete = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_DELETE);
+					pMpFileManagerUIConnect->File.Delete = 0;
 					ActSubState = 1;
 					break;
 			
 				case 1:
-					MpFileManagerUIConnect.MessageBox.Confirm = 1;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.MessageBox.Confirm = 0;
+					pMpFileManagerUIConnect->MessageBox.Confirm = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->MessageBox.Confirm = 0;
 					ActSubState = 2;
 					break;
 			
 				case 2:
-					MpFileManagerUIConnect.File.Refresh = 1;
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 3;
 					break;
 			
 				case 3:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 4;
 					break;
 				
 				case 4:
 					// Check for file
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &CreateFileName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&CreateFileName) == 0)
 							NameMatch = 1;
 					}
 					TestState = 2;
@@ -1487,6 +2123,7 @@ _TEST Delete_File(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST Delete_Directory(void)
@@ -1496,13 +2133,41 @@ _TEST Delete_Directory(void)
 	switch (TestState)
 	{
 		case 0:
-			// Select directory to be deleted
-			for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+			switch (ArrangeSubState)
 			{
-				if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
-					HmiFile.Status.SelectedIndex = i;
+				case 0:
+					brsmemcpy((UDINT)&pMpFileManagerUIConnect->File.NewName, (UDINT)&DirName, sizeof(pMpFileManagerUIConnect->File.NewName));
+					pMpFileManagerUIConnect->File.CreateFolder = 1;
+					ArrangeSubState = 1;
+					break;
+							
+				case 1:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_CREATE);
+					pMpFileManagerUIConnect->File.CreateFolder = 0;
+					ArrangeSubState = 2;
+						
+				case 2:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->File.Refresh = 1;
+					ArrangeSubState = 3;
+					break;
+						
+				case 3:
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
+					ArrangeSubState = 10;
+					break;
+
+				case 10:
+					// Select directory to be deleted
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
+					{
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&DirName) == 0)
+							HmiFile.Status.SelectedIndex = i;
+					}
+					TestState = 1;
+					break;
 			}
-			TestState = 1;
 			break;
 		
 		case 1:
@@ -1510,36 +2175,36 @@ _TEST Delete_Directory(void)
 			switch (ActSubState)
 			{
 				case 0:
-					MpFileManagerUIConnect.File.Delete = 1;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_DELETE);
-					MpFileManagerUIConnect.File.Delete = 0;
+					pMpFileManagerUIConnect->File.Delete = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_DELETE);
+					pMpFileManagerUIConnect->File.Delete = 0;
 					ActSubState = 1;
 					break;
 			
 				case 1:
-					MpFileManagerUIConnect.MessageBox.Confirm = 1;
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_IDLE);
-					MpFileManagerUIConnect.MessageBox.Confirm = 0;
+					pMpFileManagerUIConnect->MessageBox.Confirm = 1;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_IDLE);
+					pMpFileManagerUIConnect->MessageBox.Confirm = 0;
 					ActSubState = 2;
 					break;
 					break;
 			
 				case 2:
-					MpFileManagerUIConnect.File.Refresh = 1;
+					pMpFileManagerUIConnect->File.Refresh = 1;
 					ActSubState = 3;
 					break;
 			
 				case 3:
-					TEST_BUSY_CONDITION(MpFileManagerUIConnect.Status != mpFILE_UI_STATUS_REFRESH);
-					MpFileManagerUIConnect.File.Refresh = 0;
+					TEST_BUSY_CONDITION(pMpFileManagerUIConnect->Status != mpFILE_UI_STATUS_REFRESH);
+					pMpFileManagerUIConnect->File.Refresh = 0;
 					ActSubState = 4;
 					break;
 				
 				case 4:
 					// Check for file
-					for(int i = 0; i < sizeof(MpFileManagerUIConnect.File.List.Items)/sizeof(MpFileManagerUIConnect.File.List.Items[0]); i++)
+					for(int i = 0; i < sizeof(pMpFileManagerUIConnect->File.List.Items)/sizeof(pMpFileManagerUIConnect->File.List.Items[0]); i++)
 					{
-						if(brsstrcmp(&MpFileManagerUIConnect.File.List.Items[i].Name, &DirName) == 0)
+						if(brsstrcmp((UDINT)&pMpFileManagerUIConnect->File.List.Items[i].Name, (UDINT)&DirName) == 0)
 							NameMatch = 1;
 					}
 					TestState = 2;
@@ -1553,6 +2218,7 @@ _TEST Delete_Directory(void)
 			TEST_DONE;
 			break;
 	}
+	TEST_BUSY;
 }
 
 _TEST FIFO_20(void)

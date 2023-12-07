@@ -9,5 +9,6 @@
     <File Description="Main state machine logic">StateMachine.st</File>
     <File Description="Declaration for local helper functions" Private="true">LocalFunctions.fun</File>
     <File Description="Function to control the paper widget transform string">PackMLBaseModel.st</File>
+    <File>StateInitialize.st</File>
   </Files>
 </Program>

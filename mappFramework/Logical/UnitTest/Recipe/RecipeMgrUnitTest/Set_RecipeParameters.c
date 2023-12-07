@@ -301,9 +301,9 @@ _TEST PreviewShouldNotAffectActive(void)
 
 				case 4:
 					TEST_BUSY_CONDITION(!SelectRecipe("preview.par"));
-					MpRecipeUIConnect.Recipe.Load = true;
-					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_LOAD);
-					MpRecipeUIConnect.Recipe.Load = false;
+			   //	  MpRecipeUIConnect.Recipe.Load = true;
+					  TEST_BUSY_CONDITION(MpRecipeSys.CommandDone != true);
+			   //	  MpRecipeUIConnect.Recipe.Load = false;
 					ActSubState = 5;
 					break;
 
@@ -342,6 +342,7 @@ _TEST Preview(void)
 			strcpy(HmiRecipe.Parameters.FileName, "preview");
 			TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
 			TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
+			TEST_BUSY_CONDITION(MpRecipeSys.CommandDone != true);
 			TestState = TEST_ACT;
 			break;
 
@@ -355,8 +356,8 @@ _TEST Preview(void)
 			{
 				case 0:
 					HmiRecipe.Commands.CreateRecipe = true;
-					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_CREATE);
-					HmiRecipe.Commands.CreateRecipe = false;
+					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_CREATE);					
+					HmiRecipe.Commands.CreateRecipe = false;					
 					ActSubState = 1;
 					break;
 
@@ -368,6 +369,7 @@ _TEST Preview(void)
 
 				case 2:
 					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_REFRESH);
+					TEST_BUSY_CONDITION(MpRecipeSys.CommandDone != true);
 					ActSubState = 3;
 					break;
 
@@ -379,9 +381,7 @@ _TEST Preview(void)
 
 				case 4:
 					TEST_BUSY_CONDITION(!SelectRecipe("preview.par"));
-					MpRecipeUIConnect.Recipe.Load = true;
-					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_LOAD);
-					MpRecipeUIConnect.Recipe.Load = false;
+					TEST_BUSY_CONDITION(MpRecipeSys.CommandDone != true);
 					ActSubState = 5;
 					break;
 
@@ -417,6 +417,7 @@ _TEST Delete(void)
 					strcpy(HmiRecipe.Parameters.FileName, "test");
 					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
 					TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
+					TEST_INFO_POS(" ");
 					ArrangeSubState = 1;
 					break;
 
@@ -424,29 +425,34 @@ _TEST Delete(void)
 					HmiRecipe.Commands.CreateRecipe = true;
 					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_CREATE);
 					HmiRecipe.Commands.CreateRecipe = false;
+					TEST_INFO_POS(" ");
 					ArrangeSubState = 2;
 					break;
 
 				case 2:
 					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
 					TEST_BUSY_CONDITION(HmiRecipe.Status.ProductRecipeLoaded == false);
+					TEST_INFO_POS(" ");
 					ArrangeSubState = 3;
 					break;
 
 				case 3:
 					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status == mpRECIPE_UI_STATUS_REFRESH);
+					TEST_INFO_POS(" ");
 					ArrangeSubState = 4;
 					break;
 
 				case 4:
 					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
+					TEST_INFO_POS(" ");
 					ArrangeSubState = 5;
 					break;
 
 				case 5:
 					TEST_BUSY_CONDITION(!SelectRecipe("test.par"));
 					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
-					TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
+					TEST_BUSY_CONDITION(MpRecipeSys.CommandDone != true);
+					TEST_INFO_POS(" ");
 					TestState = TEST_ACT;
 					break;
 			}
@@ -508,10 +514,10 @@ _TEST Invalid(void)
 			switch (ArrangeSubState) {
 				case 0:
 					FileCopy_UT.enable = true;
-					FileCopy_UT.pSrcDev = "mappRecipeFiles";
-					FileCopy_UT.pSrc = "CSVformat\\Default.par";
-					FileCopy_UT.pDestDev = "mappRecipeFiles";
-					FileCopy_UT.pDest = "Invalid.par";
+					FileCopy_UT.pSrcDev = (UDINT)&"mappRecipeFiles";
+					FileCopy_UT.pSrc = (UDINT)&"CSVformat\\Default.par";
+					FileCopy_UT.pDestDev = (UDINT)&"mappRecipeFiles";
+					FileCopy_UT.pDest = (UDINT)&"Invalid.par";
 					FileCopy_UT.option= fiOVERWRITE;
 					FileCopy(&FileCopy_UT);
 					TEST_BUSY_CONDITION(FileCopy_UT.status == 65535);
@@ -536,6 +542,7 @@ _TEST Invalid(void)
 					TEST_BUSY_CONDITION(!SelectRecipe("Invalid.par"));
 					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_IDLE);
 					TEST_BUSY_CONDITION(HmiRecipe.Status.HMIcommand != REC_HMI_WAIT);
+					TEST_BUSY_CONDITION(MpRecipeSys.CommandDone != true);
 					TestState = TEST_ACT;
 					break;
 			}

@@ -8,11 +8,11 @@
 PROGRAM _INIT
 
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('mappAlarmXFiles'), pName := ADR('/'));
+	DirCreateAlarm(enable := TRUE, pDevice := ADR('mappAlarmXFiles'), pName := ADR('/'));
 
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
-		DirCreate_0(enable := FALSE);
+	IF DirCreateAlarm.status = fiERR_DIR_ALREADY_EXIST THEN
+		DirCreateAlarm(enable := FALSE);
 	END_IF
 	
 	 // Initial visibility setup
@@ -22,28 +22,28 @@ PROGRAM _INIT
 	AlarmSampleInit;
 
 	// Initialize mapp function blocks
-	MpAlarmXCore_0.Enable := TRUE;
-	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCore);
-	MpAlarmXCore_0();
+	MpAlarmXCoreMain.Enable := TRUE;
+	MpAlarmXCoreMain.MpLink := ADR(gMpLinkAlarmXCore);
+	MpAlarmXCoreMain();
 
-	MpAlarmXHistory_0.Enable := TRUE;
-	MpAlarmXHistory_0.DeviceName := ADR('mappAlarmXFiles');
-	MpAlarmXHistory_0.MpLink := ADR(gMpLinkAlarmXHistory);
-	MpAlarmXHistory_0();
+	MpAlarmXHistoryMain.Enable := TRUE;
+	MpAlarmXHistoryMain.DeviceName := ADR('mappAlarmXFiles');
+	MpAlarmXHistoryMain.MpLink := ADR(gMpLinkAlarmXHistory);
+	MpAlarmXHistoryMain();
 
-	MpAlarmXListUI_0.Enable := TRUE;
-	MpAlarmXListUI_0.MpLink := ADR(gMpLinkAlarmXCore);
-	MpAlarmXListUI_0.UISetup.AlarmListScrollWindow := 10;
-	MpAlarmXListUI_0.UISetup.AlarmListSize := 50;
-	MpAlarmXListUI_0.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
-	MpAlarmXListUI_0();
+	MpAlarmXListUIMain.Enable := TRUE;
+	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore);
+	MpAlarmXListUIMain.UISetup.AlarmListScrollWindow := 10;
+	MpAlarmXListUIMain.UISetup.AlarmListSize := 50;
+	MpAlarmXListUIMain.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
+	MpAlarmXListUIMain();
 
-	MpAlarmXHistoryUI_0.Enable := TRUE;
-	MpAlarmXHistoryUI_0.MpLink := ADR(gMpLinkAlarmXHistory);
-	MpAlarmXHistoryUI_0.UISetup.AlarmListScrollWindow := 10;
-	MpAlarmXHistoryUI_0.UISetup.AlarmListSize := (SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID) / SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID[0]));
-	MpAlarmXHistoryUI_0.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
-	MpAlarmXHistoryUI_0();
+	MpAlarmXHistoryUIMain.Enable := TRUE;
+	MpAlarmXHistoryUIMain.MpLink := ADR(gMpLinkAlarmXHistory);
+	MpAlarmXHistoryUIMain.UISetup.AlarmListScrollWindow := 10;
+	MpAlarmXHistoryUIMain.UISetup.AlarmListSize := (SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID) / SIZEOF(MpAlarmXListUIConnect.AlarmList.InstanceID[0]));
+	MpAlarmXHistoryUIMain.UISetup.TimeStampPattern := '%Y %m %d %H:%M:%S';
+	MpAlarmXHistoryUIMain();
 
 END_PROGRAM
 
@@ -53,8 +53,8 @@ PROGRAM _CYCLIC
 		MpAlarmXListUIConnect.AcknowledgeAll := TRUE;
 	END_IF
 
-	IF (HmiAlarmX.Commands.ExportAlarms = TRUE) THEN
-		MpAlarmXHistory_0.Export := TRUE;
+	IF (HmiAlarmX.Commands.ExportAlarms) THEN
+		MpAlarmXHistoryMain.Export := TRUE;
 	END_IF
 
 	// Call all cyclic actions
@@ -76,55 +76,56 @@ PROGRAM _CYCLIC
 		// Info is active. Add code here to resond to info situation.
 	END_IF
 
-	IF ((MpAlarmXHistory_0.Export = TRUE) AND (MpAlarmXHistory_0.CommandDone = TRUE)) THEN
+	IF ((MpAlarmXHistoryMain.Export) AND (MpAlarmXHistoryMain.CommandDone)) THEN
 		HmiAlarmX.Commands.ExportAlarms := FALSE;
-		MpAlarmXHistory_0.Export := FALSE;
+		MpAlarmXHistoryMain.Export := FALSE;
 	END_IF
 
 	// Error reset
-	IF NOT MpAlarmXCore_0.Error THEN
-		MpAlarmXCore_0.ErrorReset := FALSE;
+	IF NOT MpAlarmXCoreMain.Error THEN
+		MpAlarmXCoreMain.ErrorReset := FALSE;
 	END_IF
-	IF NOT MpAlarmXListUI_0.Error THEN
-		MpAlarmXListUI_0.ErrorReset := FALSE;
+	IF NOT MpAlarmXListUIMain.Error THEN
+		MpAlarmXListUIMain.ErrorReset := FALSE;
 	END_IF
-	IF NOT MpAlarmXHistory_0.Error THEN
-		MpAlarmXHistory_0.ErrorReset := FALSE;
+	IF NOT MpAlarmXHistoryMain.Error THEN
+		MpAlarmXHistoryMain.ErrorReset := FALSE;
 	END_IF
-	IF NOT MpAlarmXHistoryUI_0.Error THEN
-		MpAlarmXHistoryUI_0.ErrorReset := FALSE;
+	IF NOT MpAlarmXHistoryUIMain.Error THEN
+		MpAlarmXHistoryUIMain.ErrorReset := FALSE;
 	END_IF
 
-	// Assign MpLinks & UIConnects
-	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCore);
-	MpAlarmXListUI_0.MpLink := ADR(gMpLinkAlarmXCore);
-	MpAlarmXListUI_0.UIConnect := ADR(MpAlarmXListUIConnect);
-	MpAlarmXHistory_0.MpLink := ADR(gMpLinkAlarmXHistory);
-	MpAlarmXHistoryUI_0.MpLink := ADR(gMpLinkAlarmXHistory);
-	MpAlarmXHistoryUI_0.UIConnect := ADR(MpAlarmXHistoryUIConnect);
+	// Assign MpLinks & address references
+	MpAlarmXCoreMain.MpLink := ADR(gMpLinkAlarmXCore);
+	MpAlarmXListUIMain.MpLink := ADR(gMpLinkAlarmXCore);
+	MpAlarmXListUIMain.UIConnect := ADR(MpAlarmXListUIConnect);
+	MpAlarmXHistoryMain.MpLink := ADR(gMpLinkAlarmXHistory);
+	MpAlarmXHistoryMain.DeviceName := ADR('mappAlarmXFiles');
+	MpAlarmXHistoryUIMain.MpLink := ADR(gMpLinkAlarmXHistory);
+	MpAlarmXHistoryUIMain.UIConnect := ADR(MpAlarmXHistoryUIConnect);
 
 	// Call function blocks
-	MpAlarmXCore_0();
-	MpAlarmXListUI_0();
-	MpAlarmXHistory_0();
-	MpAlarmXHistoryUI_0();
-	
+	MpAlarmXCoreMain();
+	MpAlarmXListUIMain();
+	MpAlarmXHistoryMain();
+	MpAlarmXHistoryUIMain();
+
 END_PROGRAM
 
 PROGRAM _EXIT
 
 	// Disable the function blocls to unlink the MpLinks
-	MpAlarmXCore_0.Enable := FALSE;
-	MpAlarmXListUI_0.Enable := FALSE;
-	MpAlarmXHistory_0.Enable := FALSE;
-	MpAlarmXHistoryUI_0.Enable := FALSE;
-	QueryActiveAlarms_0.Enable := FALSE;
+	MpAlarmXCoreMain.Enable := FALSE;
+	MpAlarmXListUIMain.Enable := FALSE;
+	MpAlarmXHistoryMain.Enable := FALSE;
+	MpAlarmXHistoryUIMain.Enable := FALSE;
+	QueryActiveAlarms.Enable := FALSE;
 
 	// Call function blocks
-	MpAlarmXCore_0();
-	MpAlarmXListUI_0();
-	MpAlarmXHistory_0();
-	MpAlarmXHistoryUI_0();
-	QueryActiveAlarms_0();
+	MpAlarmXCoreMain();
+	MpAlarmXListUIMain();
+	MpAlarmXHistoryMain();
+	MpAlarmXHistoryUIMain();
+	QueryActiveAlarms();
 
 END_PROGRAM

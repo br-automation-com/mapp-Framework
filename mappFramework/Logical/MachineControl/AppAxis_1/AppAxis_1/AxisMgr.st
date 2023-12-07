@@ -23,14 +23,14 @@ PROGRAM _INIT
 	MpAxisParameters.Homing.Mode := mcHOMING_DEFAULT;
 
 	// Enable mapp function blocks
-	MpAxisBasic_0.Enable := TRUE;
-	MpAlarmXCore_0.Enable := TRUE;
+	MpAxisBasicAppAxis.Enable := TRUE;
+	MpAlarmXCoreAxis.Enable := TRUE;
 
 END_PROGRAM
 
 PROGRAM _CYCLIC
 
-	MpAxisBasic_0.MpLink := ADR(gMpLinkAppAxis_1);
+	MpAxisBasicAppAxis.MpLink := ADR(gMpLinkAppAxis_1);
 
 	// Call all actions
 	SimulationControl;
@@ -39,10 +39,10 @@ PROGRAM _CYCLIC
 	RecipeCyclic;
 
 	// Assign MpLink
-	MpAlarmXCore_0.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
+	MpAlarmXCoreAxis.MpLink := ADR(gMpLinkAlarmXCoreAppAxis_1);
 
 	// Call function block
-	MpAlarmXCore_0();
+	MpAlarmXCoreAxis();
 
 END_PROGRAM
 
@@ -50,13 +50,13 @@ PROGRAM _EXIT
 
 	// Disable the function blocls to unlink the MpLinks.
 	// Do NOT disable MpAxisBasic, as this can cause problems during project transfer.
-	MpRecipeRegPar_Par.Enable := FALSE;
-	MpRecipeRegPar_Cfg.Enable := FALSE;
-	MpAlarmXCore_0.Enable := FALSE;
+	MpRecipeRegParPar.Enable := FALSE;
+	MpRecipeRegParCfg.Enable := FALSE;
+	MpAlarmXCoreAxis.Enable := FALSE;
 
 	// Call function blocks
-	MpRecipeRegPar_Par();
-	MpRecipeRegPar_Cfg();
-	MpAlarmXCore_0();
+	MpRecipeRegParPar();
+	MpRecipeRegParCfg();
+	MpAlarmXCoreAxis();
 
 END_PROGRAM

@@ -15,9 +15,9 @@
     <Task Name="AlarmXUnit" Source="UnitTest.AlarmX.AlarmXUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
     <Task Name="AuditMgr" Source="Infrastructure.Audit.AuditMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AuditTest" Source="UnitTest.Audit.AuditTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
+    <Task Name="UsbMgr" Source="Infrastructure.Usb.UsbMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="BackupMgr" Source="Infrastructure.Backup.BackupMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="BackupUnit" Source="UnitTest.Backup.BackupUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
-    <Task Name="UsbMgr" Source="Infrastructure.Usb.UsbMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="RecipeMgr" Source="Infrastructure.Recipe.RecipeMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="RecipeMgrU" Source="UnitTest.Recipe.RecipeMgrUnitTest.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
     <Task Name="UserXMgr" Source="Infrastructure.UserX.UserXMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />

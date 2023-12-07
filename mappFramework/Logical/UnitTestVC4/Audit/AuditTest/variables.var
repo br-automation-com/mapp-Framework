@@ -1,0 +1,36 @@
+(********************************************************************
+ * COPYRIGHT --  
+ ********************************************************************
+ * Program: utTemplate_automated
+ * File: variables.var
+ * Author: -
+ * Created: - 
+ ********************************************************************
+ * Local variables of program utTemplate_automated
+ ********************************************************************)
+(*Describe the test*)
+VAR
+	Testsuite : UtMgrTestSuite := (Name:='AuditMgrVC4',Description:='AuditMgr VC4 Unit Tests',MetaInformation:='Meta');
+END_VAR
+(*Variables used in the tests*)
+VAR
+	cycleCount : {REDUND_UNREPLICABLE} UINT;
+	SampleTemperature : REAL;
+	DirInfo_0 : DirInfo;
+	TestComparisonNumber : USINT;
+	ActDelay : USINT;
+	ArrangeDelay : USINT;
+	AssertDelay : USINT;
+	DTSetTime_0 : DTSetTime;
+	HOUR : USINT := 16;
+	MINUTE : USINT := 0;
+	SET_TIME : DATE_AND_TIME := DT#2023-01-01-15:59:59;
+	MAX_FILE_SIZE : UDINT := 100; (*Maximum file size for automatic archiving (Kb)*)
+	SAMPLE_TEMP_VALUE : REAL := 5;
+	DEFAULT_TEMP_VALUE : REAL := 6;
+	TON_0 : TON;
+	TIMER_LENGTH : TIME := T#2s;
+	MpAuditTrailCmdDone : BOOL;
+	MpAuditTrailError : BOOL;
+	DelayCycles : USINT := 10;
+END_VAR

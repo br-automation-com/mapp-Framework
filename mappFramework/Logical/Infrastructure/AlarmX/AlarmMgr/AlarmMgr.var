@@ -1,12 +1,12 @@
 (*Function Blocks*)
 VAR
-	MpAlarmXHistory_0 : MpAlarmXHistory; (*MpAlarmXHistory instance*)
-	MpAlarmXHistoryUI_0 : MpAlarmXHistoryUI; (*MpAlarmXHistoryUI instance*)
-	MpAlarmXListUI_0 : MpAlarmXListUI; (*MpAlarmXList instance*)
-	MpAlarmXCore_0 : MpAlarmXCore; (*MpAlarmXCore instance*) (*ChangeStyleAlarmButton : USINT := 0; (*changeStyle of a AlarmFlyout in mappView*)
-	MpAlarmXControlExample_0 : {REDUND_UNREPLICABLE} MpAlarmXAlarmControl; (*MpAlarmXAlarmControl instance*)
-	QueryActiveAlarms_0 : {REDUND_UNREPLICABLE} MpAlarmXQuery; (*MpAlarmXQuery instance*)
-	DirCreate_0 : DirCreate; (*DirCreate instance*)
+	MpAlarmXHistoryMain : MpAlarmXHistory; (*MpAlarmXHistory instance*)
+	MpAlarmXHistoryUIMain : MpAlarmXHistoryUI; (*MpAlarmXHistoryUI instance*)
+	MpAlarmXListUIMain : MpAlarmXListUI; (*MpAlarmXList instance*)
+	MpAlarmXCoreMain : MpAlarmXCore; (*MpAlarmXCore instance*) (*ChangeStyleAlarmButton : USINT := 0; (*changeStyle of a AlarmFlyout in mappView*)
+	MpAlarmXControlExample : {REDUND_UNREPLICABLE} MpAlarmXAlarmControl; (*MpAlarmXAlarmControl instance*)
+	QueryActiveAlarms : {REDUND_UNREPLICABLE} MpAlarmXQuery; (*MpAlarmXQuery instance*)
+	DirCreateAlarm : DirCreate; (*DirCreate instance*)
 END_VAR
 (*Constants*)
 VAR CONSTANT

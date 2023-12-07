@@ -8,27 +8,43 @@
 PROGRAM _INIT
 
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('mappReportFiles'), pName := ADR('/'));
+	DirCreateReport(enable := TRUE, pDevice := ADR('mappReportFiles'), pName := ADR('/'));
 
+	// Wait for DirCreateReport to complete.
+	WHILE (DirCreateReport.status = ERR_FUB_BUSY) DO
+		DirCreateReport();
+	END_WHILE
+	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST THEN
-		DirCreate_0(enable := FALSE);
+	IF DirCreateReport.status = fiERR_DIR_ALREADY_EXIST OR (DirCreateReport.status = ERR_OK) THEN
+		DirCreateReport(enable := FALSE);
 	END_IF
 	
 	// Initialize mapp function blocks
-	MpReportCore_0.Language := ADR('en');
-	MpReportCore_0.DeviceName := ADR('mappReportFiles');
-	MpReportCore_0.MpLink := ADR(gMpLinkSimpleReport);
-	MpReportCore_0.Name := ADR(HmiReport.Parameters.Name);
+	MpReportCoreSys.Language := ADR('en');
+	MpReportCoreSys.DeviceName := ADR('mappReportFiles');
+	MpReportCoreSys.MpLink := ADR(gMpLinkSimpleReport);
+	MpReportCoreSys.Name := ADR(HmiReport.Parameters.Name);
 	HmiReport.Parameters.Name := 'SimpleReport';
 	HmiReport.Parameters.SortType := 'NameAsc';
-	MpReportCore_0();
+	MpReportCoreSys();
 
-	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
-	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
-	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
-	MpFileManagerUI_0.Enable := TRUE;
-	MpFileManagerUI_0();
+	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappReportFiles';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[2] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[3] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[4] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[5] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[6] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[7] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[8] := '';
+	MpFileManagerUIConnect.DeviceList.DeviceNames[9] := '';
+	
+	MpFileManagerUIReport.MpLink := ADR(gMpLinkFileManagerUIReport);
+	MpFileManagerUIReport.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUIReport.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
+	MpFileManagerUIReport.Enable := TRUE;
+	MpFileManagerUIReport();
 
 	// Fill an array to create example data for the example report
 	TimeIndex := 0;
@@ -50,7 +66,7 @@ END_PROGRAM
 PROGRAM _CYCLIC
 
 	// Once a report has been generated, clear the generate command
-	IF MpReportCore_0.CommandDone THEN
+	IF MpReportCoreSys.CommandDone THEN
 		MpFileManagerUIConnect.File.Refresh := TRUE;
 		HmiReport.Commands.Generate := FALSE;
 	END_IF
@@ -60,29 +76,29 @@ PROGRAM _CYCLIC
 	ReportFileExplorer;
 	
 	// Generate command
-	MpReportCore_0.Generate := HmiReport.Commands.Generate;
-	MpReportCore_0.Name := ADR(HmiReport.Parameters.Name);
+	MpReportCoreSys.Generate := HmiReport.Commands.Generate;
+	MpReportCoreSys.Name := ADR(HmiReport.Parameters.Name);
 	
 	// Assign address references
-	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
-	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIReport);
-	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUIReport.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUIReport.MpLink := ADR(gMpLinkFileManagerUIReport);
+	MpFileManagerUIReport.UIConnect := ADR(MpFileManagerUIConnect);
 
 	// Call function blocks
-	MpReportCore_0();
-	MpFileManagerUI_0();
+	MpReportCoreSys();
+	MpFileManagerUIReport();
 
 END_PROGRAM
 
 PROGRAM _EXIT
 
 	// Disable the function blocks to unlink the MpLinks
-	MpReportCore_0.Enable := FALSE;
-	MpFileManagerUI_0.Enable := FALSE;
+	MpReportCoreSys.Enable := FALSE;
+	MpFileManagerUIReport.Enable := FALSE;
 	
 	// Call function blocks
-	MpReportCore_0();
-	MpFileManagerUI_0();
+	MpReportCoreSys();
+	MpFileManagerUIReport();
 
 END_PROGRAM
 

@@ -301,9 +301,7 @@ _TEST Preview(void)
 
 				case 4:
 					TEST_BUSY_CONDITION(!SelectRecipe("preview.mcfg"));
-					MpRecipeUIConnect.Recipe.Load = true;
-					TEST_BUSY_CONDITION(MpRecipeUIConnect.Status != mpRECIPE_UI_STATUS_LOAD);
-					MpRecipeUIConnect.Recipe.Load = false;
+					  TEST_BUSY_CONDITION(MpRecipeSys.CommandDone != true);
 					ActSubState = 5;
 				break;
 
@@ -430,10 +428,10 @@ _TEST Invalid(void)
 			switch (ArrangeSubState) {
 				case 0:
 					FileCopy_UT.enable = true;
-					FileCopy_UT.pSrcDev = "mappRecipeFiles";
-					FileCopy_UT.pSrc = "CSVformat\\Machine.mcfg";
-					FileCopy_UT.pDestDev = "mappRecipeFiles";
-					FileCopy_UT.pDest = "MachineInvalid.mcfg";
+					FileCopy_UT.pSrcDev = (UDINT)&"mappRecipeFiles";
+					FileCopy_UT.pSrc = (UDINT)&"CSVformat\\Machine.mcfg";
+					FileCopy_UT.pDestDev = (UDINT)&"mappRecipeFiles";
+					FileCopy_UT.pDest = (UDINT)&"MachineInvalid.mcfg";
 					FileCopy_UT.option= fiOVERWRITE;
 					FileCopy(&FileCopy_UT);
 					TEST_BUSY_CONDITION(FileCopy_UT.status == 65535);

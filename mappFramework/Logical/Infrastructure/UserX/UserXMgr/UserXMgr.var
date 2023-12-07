@@ -1,9 +1,9 @@
 (*Function Blocks*)
 VAR
-	MpUserXLogin_0 : MpUserXLogin; (*MpUserXLogin instance*)
-	MpUserXManagerUI_0 : MpUserXManagerUI := (UISetup:=(FileDevice:='mappUserXFiles')); (*MpUserXManagerUI instance*)
-	MpUserXLoginUI_0 : MpUserXLoginUI; (*MpUserXLoginUI instance*)
-	DirCreate_0 : DirCreate; (*DirCreate instance*)
+	MpUserXLoginSys : MpUserXLogin; (*MpUserXLogin instance*)
+	MpUserXManagerUISys : MpUserXManagerUI := (UISetup:=(FileDevice:='mappUserXFiles')); (*MpUserXManagerUI instance*)
+	MpUserXLoginUISys : MpUserXLoginUI; (*MpUserXLoginUI instance*)
+	DirCreateUser : DirCreate; (*DirCreate instance*)
 END_VAR
 (*Constants*)
 VAR CONSTANT

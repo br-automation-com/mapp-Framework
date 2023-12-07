@@ -1,6 +1,6 @@
 ACTION AlarmHandling:
 
-	// CommissioningModeActive = TRUE will inhibit Alarms[0]. The alarm will not trigger even if the alarm condition is active.
+	// CommissioningModeActive will inhibit Alarms[0]. The alarm will not trigger even if the alarm condition is active.
 	// CommissioningModeActive = FALSE will NOT inhibit Alarms[0]. The alarm will trigger when the alarm condition is active.
 	// See Alarm.mpalarmxcore (must enable Advanced Features)
 	CommissioningModeActive;

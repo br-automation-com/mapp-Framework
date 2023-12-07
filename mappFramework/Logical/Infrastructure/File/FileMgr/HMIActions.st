@@ -53,6 +53,7 @@ ACTION FormatDeviceDataProvider:
 	brsstrcat(ADR(HmiFile.Status.TableConfig[1]), ADR(',"to":49, "visible":false}]}'));
 
 	// Create device data provider for FIFO drop down
+	brsmemset(ADR(HmiFile.Status.DeviceDataProvider), 0, SIZEOF(HmiFile.Status.DeviceDataProvider));
 	FOR i := 0 TO MaxDeviceNameIndex DO
 		IF (MpFileManagerUIConnect.DeviceList.DeviceNames[i] <> '') THEN
 			HmiFile.Status.DeviceDataProvider[i] := '{"value":"';
@@ -61,7 +62,8 @@ ACTION FormatDeviceDataProvider:
 			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR(MpFileManagerUIConnect.DeviceList.DeviceNames[i]));
 			brsstrcat(ADR(HmiFile.Status.DeviceDataProvider[i]), ADR('"}'));
 		ELSE
-			brsmemset(ADR(HmiFile.Status.DeviceDataProvider[i]), 0, SIZEOF(HmiFile.Status.DeviceDataProvider[i]));
+			HmiFile.Status.DeviceDataProvider[i] := '{"value":"Disable","text":"Disable FIFO"}';	
+			EXIT;
 		END_IF
 	END_FOR
 
@@ -69,9 +71,9 @@ END_ACTION
 
 ACTION FileManager:
 
-	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
-	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
-	MpFileManagerUI_0();
+	MpFileManagerUISys.MpLink := ADR(gMpLinkFileManagerUIFile);
+	MpFileManagerUISys.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUISys();
 
 	FOR i := 0 TO ((SIZEOF(HmiFile.Status.FileNames)/SIZEOF(HmiFile.Status.FileNames[0])) - 1) DO
 		HmiFile.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
@@ -88,9 +90,9 @@ ACTION FileManager:
 		END_IF
 
 		// Set file selected when the table is clicked Single and MultiSelect
-		IF (MpFileManagerUIConnect.File.MultiSelect = FALSE) THEN
+		IF (NOT MpFileManagerUIConnect.File.MultiSelect) THEN
 			MpFileManagerUIConnect.File.List.Items[i].IsSelected := (i = HmiFile.Status.SelectedIndex);
-		ELSIF (MpFileManagerUIConnect.File.MultiSelect = TRUE) AND (HmiFile.Commands.MultiSelect = TRUE) THEN
+		ELSIF (MpFileManagerUIConnect.File.MultiSelect) AND (HmiFile.Commands.MultiSelect) THEN
 			IF (i = HmiFile.Status.SelectedIndex) AND NOT MpFileManagerUIConnect.File.List.Items[i].IsSelected THEN
 				MpFileManagerUIConnect.File.List.Items[i].IsSelected := TRUE;
 				HmiFile.Commands.MultiSelect := FALSE;

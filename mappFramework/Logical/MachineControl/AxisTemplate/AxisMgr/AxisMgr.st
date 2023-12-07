@@ -23,14 +23,14 @@ PROGRAM _INIT
 	MpAxisParameters.Homing.Mode := mcHOMING_DEFAULT;
 
 	// Enable mapp function blocks
-	MpAxisBasic_0.Enable := TRUE;
+	MpAxisBasicAppAxis.Enable := TRUE;
 	MpAlarmXCore_0.Enable := TRUE;	
 
 END_PROGRAM
 
 PROGRAM _CYCLIC
 
-	MpAxisBasic_0.MpLink := ADR(gAxisTemplate);
+	MpAxisBasicAppAxis.MpLink := ADR(gAxisTemplate);
 
 	// Call all actions
 	SimulationControl;

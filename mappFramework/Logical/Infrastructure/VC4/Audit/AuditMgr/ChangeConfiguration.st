@@ -1,30 +1,30 @@
 ACTION ChangeConfiguration:
 
-	MpAuditTrailConfig_0.MpLink := ADR(gMpLinkAuditTrail);
-	MpAuditTrailConfig_0.Configuration := ADR(AuditTrailConfig);
+	MpAuditTrailConfigSys.MpLink := ADR(gMpLinkAuditTrail);
+	MpAuditTrailConfigSys.Configuration := ADR(AuditTrailConfig);
 
-	IF (MpAuditTrailConfig_0.Error = TRUE) THEN
-		IF (MpAuditTrailConfig_0.StatusID = mpAUDIT_ERR_CONFIG_LOAD) THEN
+	IF (MpAuditTrailConfigSys.Error) THEN
+		IF (MpAuditTrailConfigSys.StatusID = mpAUDIT_ERR_CONFIG_LOAD) THEN
 			LoadAuditConfiguration;
 		END_IF
-		MpAuditTrailConfig_0.Load := FALSE;
-		MpAuditTrailConfig_0.Save := FALSE;
-		MpAuditTrailConfig_0.ErrorReset := TRUE;
+		MpAuditTrailConfigSys.Load := FALSE;
+		MpAuditTrailConfigSys.Save := FALSE;
+		MpAuditTrailConfigSys.ErrorReset := TRUE;
 	END_IF
 
-	MpAuditTrailConfig_0();
-	MpAuditTrailConfig_0.ErrorReset := FALSE;
+	MpAuditTrailConfigSys();
+	MpAuditTrailConfigSys.ErrorReset := FALSE;
 
-	IF (MpAuditTrailConfig_0.CommandDone = TRUE) THEN
-		IF (MpAuditTrailConfig_0.Load = TRUE) THEN
+	IF (MpAuditTrailConfigSys.CommandDone) THEN
+		IF (MpAuditTrailConfigSys.Load) THEN
 			LoadAuditConfiguration;
 		END_IF
-		// After save the AuditTrail needs to restart
-		IF (MpAuditTrailConfig_0.Save = TRUE) THEN
-			MpAuditTrail_0.Enable := FALSE;
+		// after save the AuditTrail needs to restart
+		IF (MpAuditTrailConfigSys.Save) THEN
+			MpAuditTrailSys.Enable := FALSE;
 		END_IF
-		MpAuditTrailConfig_0.Load := FALSE;
-		MpAuditTrailConfig_0.Save := FALSE;
+		MpAuditTrailConfigSys.Load := FALSE;
+		MpAuditTrailConfigSys.Save := FALSE;
 	END_IF
 
 END_ACTION

@@ -29,14 +29,14 @@ void AsLoggerServer(struct AsLoggerServer* inst)
     
     if (inst == NULL)
     {
-        logError("AsLoggerServer", "AsLoggerServer called with NULL instance", NULL);
+        logError("AsLoggerServer", "AsLoggerServer called with NULL instance", (UDINT)NULL);
         return;
     }
     switch (inst->internal.state)
     {
         case  0 :
             inst->internal.open.enable = true;
-            inst->internal.open.pIfAddr = NULL;
+            inst->internal.open.pIfAddr = (UDINT)NULL;
             inst->internal.open.port = inst->port;
             TcpOpen(&inst->internal.open);
             inst->status = inst->internal.open.status;

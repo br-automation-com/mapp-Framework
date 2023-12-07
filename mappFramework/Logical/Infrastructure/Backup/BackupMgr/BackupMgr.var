@@ -1,9 +1,9 @@
 (*Function Blocks*)
 VAR
-	MpBackupCore_0 : MpBackupCore; (*MpBackupCore instance*)
-	MpBackupCoreConfig_0 : MpBackupCoreConfig; (*MpBackupCoreConfig instance*)
-	MpFileManagerUI_0 : MpFileManagerUI := (UISetup:=(FileListSize:=50)); (*MpFileManagerUI instance*)
-	DirCreate_0 : DirCreate; (*DirCreate instance*)
+	MpBackupCoreSys : MpBackupCore; (*MpBackupCore instance*)
+	MpBackupCoreConfigSys : MpBackupCoreConfig; (*MpBackupCoreConfig instance*)
+	MpFileManagerUIBackup : MpFileManagerUI; (*MpFileManagerUI instance*)
+	DirCreateBackup : DirCreate; (*DirCreate instance*)
 END_VAR
 (*Constants*)
 VAR CONSTANT
@@ -12,7 +12,7 @@ END_VAR
 (*Structure Types*)
 VAR
 	MpBackupConfiguration : MpBackupCoreConfigType; (*MpBackup configuration*)
-	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappBackupFiles','USB1',8('')])); (*MpFile connection to the HMI*)
+	MpFileManagerUIConnect : MpFileManagerUIConnectType; (*MpFile connection to the HMI*)
 	HmiBackup : BackupHmiInterfaceType; (*HMI interface structure*)
 END_VAR
 (*Enumerations*)

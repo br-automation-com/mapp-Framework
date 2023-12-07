@@ -107,7 +107,7 @@ LogStatus logMessage(char* name, LogLevel level, const char* message, UDINT pMsg
         return LOG_INVALID_ARGUMENTS;
     }
     
-    if (pMsgData == NULL)
+    if (pMsgData == (UDINT)NULL)
     {
         strcpy(formattedMessage, message);
     }

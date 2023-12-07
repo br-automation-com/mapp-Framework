@@ -1,0 +1,25 @@
+(********************************************************************
+ * COPYRIGHT --
+ ********************************************************************
+ * Program: utTemplate_automated
+ * File: variables.var
+ * Author: -
+ * Created: -
+ ********************************************************************
+ * Local variables of program utTemplate_automated
+ ********************************************************************)
+(*Describe the test*)
+VAR
+	Testsuite : UtMgrTestSuite := (Name:='AppAxis_1VC4',Description:='AppAxis_1 VC4 Unit Tests',MetaInformation:='Meta');
+END_VAR
+(*Variables used in the tests*)
+VAR
+	MpAlarmXListUIConnect : MpAlarmXListUIConnectType := (0); (*AlarmX list connection to the UI*)
+	MpAlarmXListUI_0 : MpAlarmXListUI; (*MpAlarmXList instance*)
+	MpAlarmXAcknowledgeAll_0 : MpAlarmXAcknowledgeAll;
+	StartingActiveAlarms : UDINT;
+	StartingPendingAlarms : UDINT;
+	cycleCount : USINT;
+	StartPosition : LREAL;
+	maxVelocity : REAL;
+END_VAR

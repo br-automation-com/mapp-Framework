@@ -1,0 +1,21 @@
+(********************************************************************
+ * COPYRIGHT --  
+ ********************************************************************
+ * Program: utTemplate_automated
+ * File: variables.var
+ * Author: -
+ * Created: - 
+ ********************************************************************
+ * Local variables of program utTemplate_automated
+ ********************************************************************)
+(*Describe the test*)
+VAR
+	Testsuite : UtMgrTestSuite := (Name:='AlarmMgrVC4',Description:='AlarmMgr VC4 Unit Tests',MetaInformation:='Meta');
+END_VAR
+(*Variables used in the tests*)
+VAR
+	MpAlarmXAcknowledgeAll_0 : MpAlarmXAcknowledgeAll;
+	StartingActiveAlarms : UDINT;
+	StartingPendingAlarms : UDINT;
+	cycleCount : USINT;
+END_VAR

@@ -1,11 +1,11 @@
 ACTION ArchiveExport:
 
 	// Assign variables to exchange with the HMI
-	MpAuditTrail_0.ExportArchive := HmiAudit.Commands.ExportArchives;
-	HmiAudit.Status.ArchiveAvailable := MpAuditTrail_0.ArchiveAvailable;
-	HmiAudit.Status.NumberOfArchives := MpAuditTrail_0.Info.NumberArchives;
+	MpAuditTrailSys.ExportArchive := HmiAudit.Commands.ExportArchives;
+	HmiAudit.Status.ArchiveAvailable := MpAuditTrailSys.ArchiveAvailable;
+	HmiAudit.Status.NumberOfArchives := MpAuditTrailSys.Info.NumberArchives;
 
-	IF (HmiAudit.Commands.ExportArchives AND MpAuditTrail_0.CommandDone) THEN
+	IF (HmiAudit.Commands.ExportArchives AND MpAuditTrailSys.CommandDone) THEN
 		HmiAudit.Commands.ExportArchives := FALSE;
 	END_IF
 
@@ -14,15 +14,15 @@ END_ACTION
 ACTION ArchiveSettings:
 
 	// Audit Trail Config implementation
-	IF (HmiAudit.Commands.SaveConfig = TRUE) THEN
+	IF (HmiAudit.Commands.SaveConfig) THEN
 		HmiAudit.Commands.SaveConfig := FALSE;
 		SaveAuditConfiguration;
-		MpAuditTrailConfig_0.Save := TRUE;
+		MpAuditTrailConfigSys.Save := TRUE;
 	END_IF
 
 	// After the configuration has been changed the AuditTrail is reset (disabled). This re-enables the component
-	IF MpAuditTrail_0.Active = FALSE THEN
-		MpAuditTrail_0.Enable := TRUE;
+	IF NOT MpAuditTrailSys.Active THEN
+		MpAuditTrailSys.Enable := TRUE;
 	END_IF
 
 END_ACTION
@@ -62,22 +62,22 @@ ACTION VC4_Cyclic:
 	
 		//English
 		0:
-			MpAuditTrail_0.Language := ADR('en');
-			MpAuditTrailUI_0.Language := ADR('en');
-			MpAuditTrail_CEvents.Language := ADR('en');
-			MpAuditTrail_CEvents_UI_0.Language := ADR('en');
+			MpAuditTrailSys.Language := ADR('en');
+			MpAuditTrailUISys.Language := ADR('en');
+			MpAuditTrailCEvents.Language := ADR('en');
+			MpAuditTrailCEventsUI.Language := ADR('en');
 		// German
 		1:
-			MpAuditTrail_0.Language := ADR('de');
-			MpAuditTrailUI_0.Language := ADR('de');
-			MpAuditTrail_CEvents.Language := ADR('de');
-			MpAuditTrail_CEvents_UI_0.Language := ADR('de');
+			MpAuditTrailSys.Language := ADR('de');
+			MpAuditTrailUISys.Language := ADR('de');
+			MpAuditTrailCEvents.Language := ADR('de');
+			MpAuditTrailCEventsUI.Language := ADR('de');
 		// Chinese
 		2:
-			MpAuditTrail_0.Language := ADR('zh');
-			MpAuditTrailUI_0.Language := ADR('zh');
-			MpAuditTrail_CEvents.Language := ADR('zh');
-			MpAuditTrail_CEvents_UI_0.Language := ADR('zh');
+			MpAuditTrailSys.Language := ADR('zh');
+			MpAuditTrailUISys.Language := ADR('zh');
+			MpAuditTrailCEvents.Language := ADR('zh');
+			MpAuditTrailCEventsUI.Language := ADR('zh');
 	
 	END_CASE 
 

@@ -19,12 +19,12 @@ ACTION AxisManual:
 	CASE ManualState OF
 		// Wait state
 		MANUAL_STATE_IDLE:
-			IF ((AxisControl.Command.JogNegative = TRUE) OR (AxisControl.Command.JogPositive = TRUE)) THEN
+			IF ((AxisControl.Command.JogNegative) OR (AxisControl.Command.JogPositive)) THEN
 				ManualState := MANUAL_STATE_JOG;
-			ELSIF ((AxisControl.Command.MoveAbsolute = TRUE) OR (AxisControl.Command.MoveAdditive = TRUE) OR (AxisControl.Command.MoveVelocity = TRUE)) THEN
-				MpAxisBasic_0.MoveAbsolute := AxisControl.Command.MoveAbsolute;
-				MpAxisBasic_0.MoveAdditive := AxisControl.Command.MoveAdditive;
-				MpAxisBasic_0.MoveVelocity := AxisControl.Command.MoveVelocity;
+			ELSIF ((AxisControl.Command.MoveAbsolute) OR (AxisControl.Command.MoveAdditive) OR (AxisControl.Command.MoveVelocity)) THEN
+				MpAxisBasicAppAxis.MoveAbsolute := AxisControl.Command.MoveAbsolute;
+				MpAxisBasicAppAxis.MoveAdditive := AxisControl.Command.MoveAdditive;
+				MpAxisBasicAppAxis.MoveVelocity := AxisControl.Command.MoveVelocity;
 				AxisControl.Command.MoveAbsolute := FALSE;
 				AxisControl.Command.MoveAdditive := FALSE;
 				ManualState := MANUAL_STATE_MOVE;
@@ -33,51 +33,51 @@ ACTION AxisManual:
 			END_IF
 			// Jog state
 		MANUAL_STATE_JOG:
-			MpAxisBasic_0.JogNegative := AxisControl.Command.JogNegative;
-			MpAxisBasic_0.JogPositive := AxisControl.Command.JogPositive;
-			IF (AxisControl.Command.Stop = TRUE) THEN
+			MpAxisBasicAppAxis.JogNegative := AxisControl.Command.JogNegative;
+			MpAxisBasicAppAxis.JogPositive := AxisControl.Command.JogPositive;
+			IF (AxisControl.Command.Stop) THEN
 				AxisControl.Command.Stop := FALSE;
-				MpAxisBasic_0.Stop := TRUE;
+				MpAxisBasicAppAxis.Stop := TRUE;
 				ManualState := MANUAL_STATE_STOPPING;
-			ELSIF ((AxisControl.Command.JogNegative = FALSE) AND (AxisControl.Command.JogPositive = FALSE)) THEN
-				MpAxisBasic_0.Stop := FALSE;
-				MpAxisBasic_0.JogPositive := FALSE;
-				MpAxisBasic_0.JogNegative := FALSE;
+			ELSIF ((NOT AxisControl.Command.JogNegative) AND (NOT AxisControl.Command.JogPositive)) THEN
+				MpAxisBasicAppAxis.Stop := FALSE;
+				MpAxisBasicAppAxis.JogPositive := FALSE;
+				MpAxisBasicAppAxis.JogNegative := FALSE;
 				ManualState := MANUAL_STATE_STOPPING;
 			END_IF
 			// Direct move state
 		MANUAL_STATE_MOVE:
-			IF (AxisControl.Command.Stop = TRUE) THEN
-				MpAxisBasic_0.MoveAbsolute := FALSE;
-				MpAxisBasic_0.MoveAdditive := FALSE;
+			IF (AxisControl.Command.Stop) THEN
+				MpAxisBasicAppAxis.MoveAbsolute := FALSE;
+				MpAxisBasicAppAxis.MoveAdditive := FALSE;
 				AxisControl.Command.Stop := FALSE;
-				MpAxisBasic_0.Stop := TRUE;
+				MpAxisBasicAppAxis.Stop := TRUE;
 				ManualState := MANUAL_STATE_STOPPING;
-			ELSIF (InPositionEdgePos.Q = TRUE) THEN
-				MpAxisBasic_0.MoveAbsolute := FALSE;
-				MpAxisBasic_0.MoveAdditive := FALSE;
+			ELSIF (InPositionEdgePos.Q) THEN
+				MpAxisBasicAppAxis.MoveAbsolute := FALSE;
+				MpAxisBasicAppAxis.MoveAdditive := FALSE;
 				ManualState := MANUAL_STATE_IDLE;
 				State := STATE_READY;
-			ELSIF (((AxisControl.Command.MoveVelocity = FALSE) AND (MpAxisBasic_0.MoveAbsolute = FALSE) AND (MpAxisBasic_0.MoveAdditive = FALSE)) OR AxisControl.Status.ErrorActive)	THEN
-				MpAxisBasic_0.MoveVelocity := FALSE;
+			ELSIF (((NOT AxisControl.Command.MoveVelocity) AND (NOT MpAxisBasicAppAxis.MoveAbsolute) AND (NOT MpAxisBasicAppAxis.MoveAdditive)) OR AxisControl.Status.ErrorActive)	THEN
+				MpAxisBasicAppAxis.MoveVelocity := FALSE;
 				ManualState := MANUAL_STATE_STOPPING;
-			ELSIF ((AxisControl.Command.JogNegative = TRUE) OR (AxisControl.Command.JogPositive = TRUE)) THEN
-				MpAxisBasic_0.MoveAbsolute := FALSE;
-				MpAxisBasic_0.MoveAdditive := FALSE;
+			ELSIF ((AxisControl.Command.JogNegative) OR (AxisControl.Command.JogPositive)) THEN
+				MpAxisBasicAppAxis.MoveAbsolute := FALSE;
+				MpAxisBasicAppAxis.MoveAdditive := FALSE;
 				ManualState := MANUAL_STATE_JOG;
 			END_IF
 			// Stopping active movements
 		MANUAL_STATE_STOPPING:
-			MpAxisBasic_0.JogNegative := FALSE;
-			MpAxisBasic_0.JogPositive := FALSE;
-			MpAxisBasic_0.MoveAbsolute := FALSE;
-			MpAxisBasic_0.MoveAdditive := FALSE;
+			MpAxisBasicAppAxis.JogNegative := FALSE;
+			MpAxisBasicAppAxis.JogPositive := FALSE;
+			MpAxisBasicAppAxis.MoveAbsolute := FALSE;
+			MpAxisBasicAppAxis.MoveAdditive := FALSE;
 			AxisControl.Command.MoveVelocity := FALSE;
-			MpAxisBasic_0.Stop := TRUE;
+			MpAxisBasicAppAxis.Stop := TRUE;
 
-			IF (MpAxisBasic_0.MoveActive = FALSE) THEN
-				MpAxisBasic_0.Stop := FALSE;
-				MpAxisBasic_0.MoveVelocity := FALSE;
+			IF (NOT MpAxisBasicAppAxis.MoveActive) THEN
+				MpAxisBasicAppAxis.Stop := FALSE;
+				MpAxisBasicAppAxis.MoveVelocity := FALSE;
 				ManualState := MANUAL_STATE_IDLE;
 				State := STATE_READY;
 			END_IF
@@ -89,12 +89,12 @@ ACTION AxisAutomatic:
 
 	CASE AutomaticState OF
 		AUTOMATIC_STATE_IDLE:
-			IF (AxisControl.Command.Start = TRUE) THEN
+			IF (AxisControl.Command.Start) THEN
 				AutomaticState := AUTOMATIC_STATE_RUNNING;
 			END_IF
 
 		AUTOMATIC_STATE_RUNNING:
-			MpAxisBasic_0.MoveVelocity := TRUE;
+			MpAxisBasicAppAxis.MoveVelocity := TRUE;
 			MpAxisParameters.Acceleration := AxisControl.Parameters.Acceleration;
 			MpAxisParameters.Deceleration := AxisControl.Parameters.Deceleration;
 			MpAxisParameters.Velocity := ABS(AxisControl.Parameters.Velocity);
@@ -104,17 +104,17 @@ ACTION AxisAutomatic:
 				MpAxisParameters.Direction := mcDIR_POSITIVE;
 			END_IF
 
-			IF ((AxisControl.Command.Start = FALSE) OR (AxisControl.Command.Stop = TRUE)) THEN
+			IF ((NOT AxisControl.Command.Start) OR (AxisControl.Command.Stop)) THEN
 				AxisControl.Command.Start := FALSE;
 				AxisControl.Command.Stop := FALSE;
-				MpAxisBasic_0.MoveVelocity := FALSE;
+				MpAxisBasicAppAxis.MoveVelocity := FALSE;
 				State := STATE_READY;
 				AutomaticState := AUTOMATIC_STATE_IDLE;
-			ELSIF (AxisControl.Command.UpdateVelocity = TRUE) THEN
+			ELSIF (AxisControl.Command.UpdateVelocity) THEN
 				AxisControl.Command.UpdateVelocity := FALSE;
-				MpAxisBasic_0.Update := TRUE;
-			ELSIF (MpAxisBasic_0.UpdateDone = TRUE) THEN
-				MpAxisBasic_0.Update := FALSE;
+				MpAxisBasicAppAxis.Update := TRUE;
+			ELSIF (MpAxisBasicAppAxis.UpdateDone) THEN
+				MpAxisBasicAppAxis.Update := FALSE;
 			END_IF
 	END_CASE
 

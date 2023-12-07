@@ -1,0 +1,8 @@
+VAR_CONFIG
+	::BackupMgr:MpBackupCoreSys.StatusID AT %Q.::BackupUnit:MpBlockStatus[0]; (*Insert your comment here...*)
+	::BackupMgr:MpBackupCoreConfigSys.StatusID AT %Q.::BackupUnit:MpBlockStatus[1]; (*Insert your comment here...*)
+	::BackupMgr:MpFileManagerUIBackup.StatusID AT %Q.::BackupUnit:MpBlockStatus[2]; (*Insert your comment here...*)
+	::BackupMgr:HmiBackup.Status AT %Q.::BackupUnit:HmiBackup.Status; (*Insert your comment here...*)
+	::BackupUnit:HmiBackup.Commands AT %Q.::BackupMgr:HmiBackup.Commands; (*Insert your comment here...*)
+	::BackupUnit:HmiBackup.Parameters AT %Q.::BackupMgr:HmiBackup.Parameters; (*Insert your comment here...*)
+END_VAR

@@ -11,9 +11,9 @@ END_ACTION
 
 ACTION VC4_Cyclic:
 
-	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIFile);
-	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
-	MpFileManagerUI_0();
+	MpFileManagerUISys.MpLink := ADR(gMpLinkFileManagerUIFile);
+	MpFileManagerUISys.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUISys();
 
 	FOR i := 0 TO ((SIZEOF(HmiFile.Status.FileNames)/SIZEOF(HmiFile.Status.FileNames[0])) - 1) DO
 		HmiFile.Status.FileNames[i] := MpFileManagerUIConnect.File.List.Items[i].Name;
@@ -57,9 +57,9 @@ ACTION VC4_Cyclic:
 	END_FOR
 
 	// Mutli selection
-	IF (MpFileManagerUIConnect.File.MultiSelect = FALSE) THEN
+	IF (NOT MpFileManagerUIConnect.File.MultiSelect) THEN
 		MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsSelected := TRUE;	
-	ELSIF (MpFileManagerUIConnect.File.MultiSelect = TRUE) AND HmiFile.Commands.FileList.Clicked THEN
+	ELSIF (MpFileManagerUIConnect.File.MultiSelect) AND HmiFile.Commands.FileList.Clicked THEN
 		MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsSelected := NOT MpFileManagerUIConnect.File.List.Items[HmiFile.Status.SelectedIndex].IsSelected;
 	END_IF
 	HmiFile.Commands.FileList.Clicked := FALSE;

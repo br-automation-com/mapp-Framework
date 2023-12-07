@@ -8,16 +8,16 @@
 PROGRAM _INIT
 	
 	// Create folder for this component on the user file device
-	DirCreate_0(enable := TRUE, pDevice := ADR('mappRecipeFiles'), pName := ADR('/'));
-	
+	DirCreateRecipe(enable := TRUE, pDevice := ADR('mappRecipeFiles'), pName := ADR('/'));
+
 	// Wait for DirCreate_0 to complete.
-	WHILE (DirCreate_0.status = ERR_FUB_BUSY) DO
-		DirCreate_0();
+	WHILE (DirCreateRecipe.status = ERR_FUB_BUSY) DO
+		DirCreateRecipe();
 	END_WHILE
 	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreate_0.status = fiERR_DIR_ALREADY_EXIST OR (DirCreate_0.status = ERR_OK) THEN
-		DirCreate_0(enable := FALSE);
+	IF DirCreateRecipe.status = fiERR_DIR_ALREADY_EXIST OR (DirCreateRecipe.status = ERR_OK) THEN
+		DirCreateRecipe(enable := FALSE);
 	END_IF
 
 	// Initialize mapp function blocks
@@ -29,25 +29,25 @@ PROGRAM _INIT
 	MpRecipeUISetup.AutoLoadHeader := TRUE;
 	MpRecipeUIConnect.New.FileName := 'newRecipe';
 	MpRecipeUIConnect.Recipe.Filter := '*par';
-	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
-	MpRecipeUI_0.Enable := TRUE;
-	MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
-	MpRecipeUI_0.UISetup := MpRecipeUISetup;
-	MpRecipeUI_0();
+	MpRecipeUISys.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeUISys.Enable := TRUE;
+	MpRecipeUISys.UIConnect := ADR(MpRecipeUIConnect);
+	MpRecipeUISys.UISetup := MpRecipeUISetup;
+	MpRecipeUISys();
 
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
 	HmiRecipe.Status.DeviceDataProvider[0] := '{"value":"mappRecipeFiles","text":"CF/PLC"}';
 	HmiRecipe.Parameters.DeviceName := 'mappRecipeFiles';
-	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
-	MpRecipe_0.Enable := TRUE;
-	MpRecipe_0.Category := ADR(HmiRecipe.Parameters.Category);
-	MpRecipe_0.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
-	MpRecipe_0.FileName := ADR(HmiRecipe.Parameters.FileName);
-	MpRecipe_0.Header := ADR(Header);
+	MpRecipeSys.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeSys.Enable := TRUE;
+	MpRecipeSys.Category := ADR(HmiRecipe.Parameters.Category);
+	MpRecipeSys.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
+	MpRecipeSys.FileName := ADR(HmiRecipe.Parameters.FileName);
+	MpRecipeSys.Header := ADR(Header);
 
-	// Wait for MpRecipe_0 to activate. This must be active before you can call the RegPar function blocks, which is below.
-	WHILE NOT(MpRecipe_0.Active OR MpRecipe_0.Error) DO
-		MpRecipe_0();
+	// Wait for MpRecipeSys to activate. This must be active before you can call the RegPar function blocks, which is below.
+	WHILE NOT(MpRecipeSys.Active OR MpRecipeSys.Error) DO
+		MpRecipeSys();
 	END_WHILE
 
 	// Register the preview variables to the recipe. These preview variables are a buffer between the recipe system and the
@@ -80,9 +80,9 @@ PROGRAM _INIT
 	HmiRecipe.Parameters.Category := MACHINE_CONFIGURATION_CATEGORY;
 	HmiRecipe.Parameters.FileName := DEFAULT_MACHINE_CONFIGURATION;
 	brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(MACHINE_CONFIG_FILE_EXTENSION));
-	MpRecipe_0.Load := TRUE;
-	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
-		MpRecipe_0();
+	MpRecipeSys.Load := TRUE;
+	WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
+		MpRecipeSys();
 	END_WHILE
 	MachineSettings := MachineSettingsPreview;
 	HmiRecipe.Status.LastLoadedConfigRecipe := DEFAULT_MACHINE_CONFIGURATION;
@@ -90,24 +90,24 @@ PROGRAM _INIT
 	HmiRecipe.Status.ConfigRecipeLoaded := TRUE;
 
 	// Check if the default machine settings recipe is missing
-	IF MpRecipe_0.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
+	IF MpRecipeSys.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
 		HmiRecipe.Status.MachineSettingsRecipeMissing := TRUE;
 		HmiRecipe.Status.LastLoadedConfigRecipe := '';
 		HmiRecipe.Status.ConfigRecipeLoaded := FALSE;
 	END_IF
 
-	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
-	MpRecipe_0.Load := FALSE;
-	MpRecipe_0();
+	MpRecipeSys.ErrorReset := MpRecipeSys.Error;
+	MpRecipeSys.Load := FALSE;
+	MpRecipeSys();
 
 	// Load default Parameter recipe
 	HmiRecipe.Parameters.Category := PARAMETERS_CATEGORY;
 	HmiRecipe.Parameters.FileName := DEFAULT_PARAMETERS;
 	brsstrcat(ADR(HmiRecipe.Parameters.FileName),ADR(PARAMETERS_FILE_EXTENSION));
 	HmiRecipe.Status.PreviousRecipe := DEFAULT_PARAMETERS;
-	MpRecipe_0.Load := TRUE;
-	WHILE NOT(MpRecipe_0.CommandDone OR MpRecipe_0.Error) DO
-		MpRecipe_0();
+	MpRecipeSys.Load := TRUE;
+	WHILE NOT(MpRecipeSys.CommandDone OR MpRecipeSys.Error) DO
+		MpRecipeSys();
 	END_WHILE
 	Parameters := ParametersPreview;
 	HmiRecipe.Status.LastLoadedProductRecipe := DEFAULT_PARAMETERS;
@@ -115,7 +115,7 @@ PROGRAM _INIT
 	HmiRecipe.Status.ProductRecipeLoaded := TRUE;
 
 	// Check if the default parameters recipe is missing
-	IF MpRecipe_0.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
+	IF MpRecipeSys.Info.Diag.StatusID.ID = mpRECIPE_ERR_LOAD_DATA THEN
 		HmiRecipe.Status.ParameterRecipeMissing := TRUE;
 		HmiRecipe.Status.LastLoadedProductRecipe := '';
 		HmiRecipe.Status.ProductRecipeLoaded := FALSE;
@@ -123,21 +123,21 @@ PROGRAM _INIT
 
 
 
-	MpRecipe_0.ErrorReset := MpRecipe_0.Error;
-	MpRecipe_0.Load := FALSE;
-	MpRecipe_0();
+	MpRecipeSys.ErrorReset := MpRecipeSys.Error;
+	MpRecipeSys.Load := FALSE;
+	MpRecipeSys();
 
 	// Trigger update notification so that the initial parameters are copied to the process
-	MpRecipe_0.UpdateNotification := TRUE;
+	MpRecipeSys.UpdateNotification := TRUE;
 
 	// Init Filemanager for exporting/importing files
-	MpFileManagerUI_0.Enable := TRUE;
-	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIRecipe);
-	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);
-	MpFileManagerUI_0.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
+	MpFileManagerUIRecipe.Enable := TRUE;
+	MpFileManagerUIRecipe.MpLink := ADR(gMpLinkFileManagerUIRecipe);
+	MpFileManagerUIRecipe.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUIRecipe.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
 	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappRecipeFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := '';
-	MpFileManagerUI_0();
+	MpFileManagerUIRecipe();
 
 	HmiRecipe.Status.HMIcommand := REC_HMI_WAIT;
 
@@ -154,46 +154,46 @@ PROGRAM _CYCLIC
 	LoadStatus;
 
 	// Reset commands on MpRecipe FUB
-	IF MpRecipe_0.CommandDone THEN
-		MpRecipe_0.Load := FALSE;
-		MpRecipe_0.Save := FALSE;
+	IF MpRecipeSys.CommandDone THEN
+		MpRecipeSys.Load := FALSE;
+		MpRecipeSys.Save := FALSE;
 		// Set update notification for machine category
-		IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_CATEGORY)) = 0) AND (MpRecipe_0.Save = TRUE)) THEN
-			MpRecipe_0.UpdateNotification := TRUE;
+		IF ((brsstrcmp(ADR(HmiRecipe.Parameters.Category), ADR(MACHINE_CONFIGURATION_CATEGORY)) = 0) AND (MpRecipeSys.Save)) THEN
+			MpRecipeSys.UpdateNotification := TRUE;
 		ELSE
-			MpRecipe_0.UpdateNotification := FALSE;
+			MpRecipeSys.UpdateNotification := FALSE;
 		END_IF
 	END_IF
 
 
 	// Error reset
-	IF NOT MpRecipe_0.Error THEN
-		MpRecipe_0.ErrorReset := FALSE;
+	IF NOT MpRecipeSys.Error THEN
+		MpRecipeSys.ErrorReset := FALSE;
 	END_IF
 
-	IF NOT MpRecipeUI_0.Error THEN
-		MpRecipeUI_0.ErrorReset := FALSE;
+	IF NOT MpRecipeUISys.Error THEN
+		MpRecipeUISys.ErrorReset := FALSE;
 	END_IF
 
 	// Assign MpLinks & address references
-	MpRecipe_0.MpLink := ADR(gMpLinkRecipeXml);
-	MpRecipe_0.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
-	MpRecipe_0.Header := ADR(Header);
-	MpRecipeUI_0.MpLink := ADR(gMpLinkRecipeXml);
-	MpRecipeUI_0.UIConnect := ADR(MpRecipeUIConnect);
-	MpFileManagerUI_0.MpLink := ADR(gMpLinkFileManagerUIRecipe);
+	MpRecipeSys.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeSys.DeviceName := ADR(HmiRecipe.Parameters.DeviceName);
+	MpRecipeSys.Header := ADR(Header);
+	MpRecipeUISys.MpLink := ADR(gMpLinkRecipeXml);
+	MpRecipeUISys.UIConnect := ADR(MpRecipeUIConnect);
+	MpFileManagerUIRecipe.MpLink := ADR(gMpLinkFileManagerUIRecipe);
 	MpRecipeRegPar_PreviewPar.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewPar.PVName := ADR('RecipeMgr:ParametersPreview');
 	MpRecipeRegPar_PreviewPar.Category := ADR(PARAMETERS_CATEGORY);
 	MpRecipeRegPar_PreviewCfg.MpLink := ADR(gMpLinkRecipeXml);
 	MpRecipeRegPar_PreviewCfg.PVName := ADR('RecipeMgr:MachineSettingsPreview');
 	MpRecipeRegPar_PreviewCfg.Category := ADR(MACHINE_CONFIGURATION_CATEGORY);
-	MpFileManagerUI_0.UIConnect := ADR(MpFileManagerUIConnect);	
+	MpFileManagerUIRecipe.UIConnect := ADR(MpFileManagerUIConnect);	
 
 	// Call function blocks
-	MpRecipe_0();
-	MpRecipeUI_0();
-	MpFileManagerUI_0();
+	MpRecipeSys();
+	MpRecipeUISys();
+	MpFileManagerUIRecipe();
 	MpRecipeRegPar_PreviewPar();
 	MpRecipeRegPar_PreviewCfg();
 
@@ -202,18 +202,18 @@ END_PROGRAM
 PROGRAM _EXIT
 
 	// Disable the function blocls to unlink the MpLinks
-	MpRecipe_0.Enable := FALSE;
-	MpRecipeUI_0.Enable := FALSE;
+	MpRecipeSys.Enable := FALSE;
+	MpRecipeUISys.Enable := FALSE;
 	MpRecipeRegPar_PreviewPar.Enable := FALSE;
 	MpRecipeRegPar_PreviewCfg.Enable := FALSE;
-	MpFileManagerUI_0.Enable := FALSE;
+	MpFileManagerUIRecipe.Enable := FALSE;
 
 	// Call function blocks
-	MpRecipe_0();
-	MpRecipeUI_0();
+	MpRecipeSys();
+	MpRecipeUISys();
 	MpRecipeRegPar_PreviewPar();
 	MpRecipeRegPar_PreviewCfg();
-	MpFileManagerUI_0();
+	MpFileManagerUIRecipe();
 
 END_PROGRAM
 

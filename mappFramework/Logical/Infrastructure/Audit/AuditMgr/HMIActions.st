@@ -1,11 +1,11 @@
 ACTION ArchiveExport:
 
 	// Assign variables to exchange with the HMI
-	MpAuditTrail_0.ExportArchive := HmiAudit.Commands.ExportArchives;
-	HmiAudit.Status.ArchiveAvailable := MpAuditTrail_0.ArchiveAvailable;
-	HmiAudit.Status.NumberOfArchives := MpAuditTrail_0.Info.NumberArchives;
+	MpAuditTrailSys.ExportArchive := HmiAudit.Commands.ExportArchives;
+	HmiAudit.Status.ArchiveAvailable := MpAuditTrailSys.ArchiveAvailable;
+	HmiAudit.Status.NumberOfArchives := MpAuditTrailSys.Info.NumberArchives;
 
-	IF (HmiAudit.Commands.ExportArchives AND MpAuditTrail_0.CommandDone) THEN
+	IF (HmiAudit.Commands.ExportArchives AND MpAuditTrailSys.CommandDone) THEN
 		HmiAudit.Commands.ExportArchives := FALSE;
 	END_IF
 
@@ -14,15 +14,15 @@ END_ACTION
 ACTION ArchiveSettings:
 
 	// Audit Trail Config implementation
-	IF (HmiAudit.Commands.SaveConfig = TRUE) THEN
+	IF (HmiAudit.Commands.SaveConfig) THEN
 		HmiAudit.Commands.SaveConfig := FALSE;
 		SaveAuditConfiguration;
-		MpAuditTrailConfig_0.Save := TRUE;
+		MpAuditTrailConfigSys.Save := TRUE;
 	END_IF
 
 	// After the configuration has been changed the AuditTrail is reset (disabled). This re-enables the component
-	IF MpAuditTrail_0.Active = FALSE THEN
-		MpAuditTrail_0.Enable := TRUE;
+	IF NOT MpAuditTrailSys.Active THEN
+		MpAuditTrailSys.Enable := TRUE;
 	END_IF
 
 END_ACTION

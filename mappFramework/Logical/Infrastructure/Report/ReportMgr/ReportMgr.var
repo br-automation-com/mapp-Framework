@@ -1,8 +1,8 @@
 (*Function Blocks*)
 VAR
-	MpReportCore_0 : MpReportCore; (*MpReport instance*)
-	MpFileManagerUI_0 : MpFileManagerUI; (*MpFileManagerUI instance*)
-	DirCreate_0 : DirCreate; (*DirCreate instance*)
+	MpReportCoreSys : MpReportCore; (*MpReport instance*)
+	MpFileManagerUIReport : MpFileManagerUI; (*MpFileManagerUI instance*)
+	DirCreateReport : DirCreate; (*DirCreate instance*)
 END_VAR
 (*Constants*)
 VAR CONSTANT
@@ -13,7 +13,7 @@ END_VAR
 VAR
 	HmiReport : ReportHmiInterfaceType; (*HMI interface structure*)
 	ReportExample : ReportExampleType; (*Structure for the example data used by the two types of reports*)
-	MpFileManagerUIConnect : MpFileManagerUIConnectType := (DeviceList:=(DeviceNames:=['mappReportFiles',9('')])); (*MpFile connection to the HMI*)
+	MpFileManagerUIConnect : MpFileManagerUIConnectType; (*MpFile connection to the HMI*)
 END_VAR
 (*Variables*)
 VAR
