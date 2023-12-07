@@ -30,10 +30,8 @@ ACTION FIFOOperation:
 			IF (HmiFile.Parameters.Fifo.Enable) THEN
 				// Wait for check the correct device selection
 				ScanFolderTimer.IN := TRUE;
-				HmiFile.Status.FifoConfigEnable := TRUE;
 				IF ScanFolderTimer.Q THEN
 					ScanFolderTimer.IN := FALSE;
-					HmiFile.Status.FifoConfigEnable := FALSE;
 					Fifo_Count := 0;
 					HmiFile.Status.DeleteStep := FILE_SCAN_FOLDER_WAIT;
 				END_IF

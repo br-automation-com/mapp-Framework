@@ -120,10 +120,17 @@
           <Method xsi:type="opcUa.NodeAction.GetValue" />
         </ReadTarget>
       </Operand>
-      <EventHandler condition="contentId = &quot;FileDialog_FIFO_dialog_content&quot; AND NOT FIFOenable">
+            <EventHandler condition="contentId = &quot;FileDialog_FIFO_dialog_content&quot; AND NOT FIFOenable">
         <Action>
           <Target xsi:type="widgets.brease.DropDownBox.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownDevice">
             <Method xsi:type="widgets.brease.DropDownBox.Action.SetSelectedIndex" index="= SelectedDeviceIndex" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="contentId = &quot;FileDialog_FIFO_dialog_content&quot; AND FIFOenable">
+        <Action>
+          <Target xsi:type="session.VariableAction" refId="SessionVarFifoDevice">
+            <Method xsi:type="session.VariableAction.SetValueString" value="=SelectedDevice" />
           </Target>
         </Action>
       </EventHandler>
@@ -133,13 +140,6 @@
             <Action>
               <Target xsi:type="session.VariableAction" refId="SessionVarFifoEnable">
                 <Method xsi:type="session.VariableAction.SetValueBool" value="=FIFOenable" />
-              </Target>
-            </Action>
-          </Step>
-          <Step order="1">
-            <Action>
-              <Target xsi:type="session.VariableAction" refId="SessionVarFifoDevice">
-                <Method xsi:type="session.VariableAction.SetValueString" value="=SelectedDevice" />
               </Target>
             </Action>
           </Step>
@@ -431,6 +431,23 @@
             </Action>
           </Step>
         </Sequence>
+      </EventHandler>
+    </EventBinding>
+	<EventBinding id="FileMgr.HmiFile.Status.DeleteStep.ValueChanged">
+      <Source xsi:type="opcUa.Event" refId="::FileMgr:HmiFile.Status.DeleteStep" event="ValueChanged" />
+      <EventHandler condition="newValue &gt;= 2">
+        <Action>
+          <Target xsi:type="widgets.brease.Button.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="BtnFIFOSave">
+            <Method xsi:type="widgets.brease.Button.Action.SetEnable" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="newValue &lt;= 1">
+        <Action>
+          <Target xsi:type="widgets.brease.Button.Action" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="BtnFIFOSave">
+            <Method xsi:type="widgets.brease.Button.Action.SetEnable" value="true" />
+          </Target>
+        </Action>
       </EventHandler>
     </EventBinding>
   </Bindings>

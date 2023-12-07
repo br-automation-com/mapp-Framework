@@ -32,9 +32,6 @@
 			<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="DropDownDevice" attribute="selectedIndex" />
 		</Binding>
 
-	<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::FileMgr:HmiFile.Status.FifoConfigEnable" attribute="value" />
-<Target xsi:type="brease" contentRefId="FileDialog_FIFO_dialog_content" widgetRefId="BtnFIFOSave" attribute="enable" />
-</Binding>
+	
 </Bindings>
 </BindingsSet>
