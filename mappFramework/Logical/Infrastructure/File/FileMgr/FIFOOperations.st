@@ -37,6 +37,7 @@ ACTION FIFOOperation:
 				END_IF
 			ELSE
 				HmiFile.Status.DeleteStep := FILE_DISABLED;
+				ScanFolderTimer.IN := FALSE;
 			END_IF
 
 		FILE_SCAN_FOLDER_WAIT:
