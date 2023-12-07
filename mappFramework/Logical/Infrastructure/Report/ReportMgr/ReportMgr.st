@@ -10,8 +10,13 @@ PROGRAM _INIT
 	// Create folder for this component on the user file device
 	DirCreateReport(enable := TRUE, pDevice := ADR('mappReportFiles'), pName := ADR('/'));
 
+	// Wait for DirCreateReport to complete.
+	WHILE (DirCreateReport.status = ERR_FUB_BUSY) DO
+		DirCreateReport();
+	END_WHILE
+	
 	// Check if folder already exist and if so disabled the function block call
-	IF DirCreateReport.status = fiERR_DIR_ALREADY_EXIST THEN
+	IF DirCreateReport.status = fiERR_DIR_ALREADY_EXIST OR (DirCreateReport.status = ERR_OK) THEN
 		DirCreateReport(enable := FALSE);
 	END_IF
 	
@@ -24,12 +29,6 @@ PROGRAM _INIT
 	HmiReport.Parameters.SortType := 'NameAsc';
 	MpReportCoreSys();
 
-	MpFileManagerUIReport.MpLink := ADR(gMpLinkFileManagerUIReport);
-	MpFileManagerUIReport.UIConnect := ADR(MpFileManagerUIConnect);
-	MpFileManagerUIReport.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
-	MpFileManagerUIReport.Enable := TRUE;
-	MpFileManagerUIReport();
-	
 	MpFileManagerUIConnect.DeviceList.DeviceNames[0] := 'mappReportFiles';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[1] := '';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[2] := '';
@@ -40,6 +39,12 @@ PROGRAM _INIT
 	MpFileManagerUIConnect.DeviceList.DeviceNames[7] := '';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[8] := '';
 	MpFileManagerUIConnect.DeviceList.DeviceNames[9] := '';
+	
+	MpFileManagerUIReport.MpLink := ADR(gMpLinkFileManagerUIReport);
+	MpFileManagerUIReport.UIConnect := ADR(MpFileManagerUIConnect);
+	MpFileManagerUIReport.UISetup.FileListSize := SIZEOF(MpFileManagerUIConnect.File.List.Items) / SIZEOF(MpFileManagerUIConnect.File.List.Items[0]);
+	MpFileManagerUIReport.Enable := TRUE;
+	MpFileManagerUIReport();
 
 	// Fill an array to create example data for the example report
 	TimeIndex := 0;
