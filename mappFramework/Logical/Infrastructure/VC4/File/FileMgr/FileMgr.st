@@ -40,6 +40,9 @@ PROGRAM _INIT
 			HmiFile.Parameters.Fifo.DeviceName := 'USER';
 		END_IF
 	END_IF
+	
+	// enable the FIFO configuration, used to prevent the user from making changes while the FIFO is actively deleting files
+	HmiFile.Status.FifoConfigEnable := TRUE;
 
 	// Initialize which folders should exist
 	PathCheck.DeviceList := MpFileManagerUIConnect.DeviceList;
