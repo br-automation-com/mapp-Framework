@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<OpcUaSource FileVersion="7" ArVersion="B4.82">
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="9" ArVersion="E4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
-        <ACE RoleId="3" RoleName="Service" Access="0x015F" />
-        <ACE RoleId="1" RoleName="Administrators" Access="0x017F" />
-        <ACE RoleId="4" RoleName="Operators" Access="0x015F" />
-        <ACE RoleId="2" RoleName="Everyone" Access="0x015F" />
+        <ACE RoleName="Service" Access="0x015F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+        <ACE RoleName="Operators" Access="0x015F" />
+        <ACE RoleName="Everyone" Access="0x015F" />
       </ACL>
       <ACL Id="3">
-        <ACE RoleId="3" RoleName="Service" Access="0x01FF" />
-        <ACE RoleId="1" RoleName="Administrators" Access="0x01FF" />
-        <ACE RoleId="4" RoleName="Operators" Access="0x01FF" />
-        <ACE RoleId="2" RoleName="Everyone" Access="0x017F" />
+        <ACE RoleName="Service" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+        <ACE RoleName="Operators" Access="0x01FF" />
+        <ACE RoleName="Everyone" Access="0x017F" />
       </ACL>
     </ACLAliases>
     <EURangeViolationAliases />
@@ -22,21 +23,21 @@
   <DefaultView AclId="3">
     <Module Name="&lt;Default&gt;">
       <Task Name="UserXMgr">
-        <Variable Name="UserXMgrUIConnect" AutomaticEnable="True">
+        <Variable Name="UserXMgrUIConnect" RecursiveEnable="1">
           <Variable Name="User">
             <Variable Name="List">
-              <Variable Name="UserNames" EnableArrayElements="True" />
-              <Variable Name="UserOptions" EnableArrayElements="True" />
+              <Variable Name="UserNames" RecursiveEnable="1" />
+              <Variable Name="UserOptions" RecursiveEnable="1" />
             </Variable>
             <Variable Name="Info">
-              <Variable Name="Roles" EnableArrayElements="True" />
-              <Variable Name="AdditionalData" EnableArrayElements="True" />
+              <Variable Name="Roles" RecursiveEnable="1" />
+              <Variable Name="AdditionalData" RecursiveEnable="1" />
             </Variable>
           </Variable>
           <Variable Name="Import">
             <Variable Name="Dialog">
               <Variable Name="List">
-                <Variable Name="FileNames" EnableArrayElements="True" />
+                <Variable Name="FileNames" RecursiveEnable="1" />
               </Variable>
             </Variable>
           </Variable>
@@ -46,14 +47,14 @@
           <Variable Name="Error" />
           <Variable Name="Active" />
         </Variable>
-        <Variable Name="UserXLoginUIConnect" AutomaticEnable="True" />
+        <Variable Name="UserXLoginUIConnect" RecursiveEnable="1" />
         <Variable Name="MpUserXLoginUISys">
           <Variable Name="Error" />
         </Variable>
         <Variable Name="MpUserXLoginSys">
           <Variable Name="Error" />
         </Variable>
-        <Variable Name="HmiUserX" AutomaticEnable="True" />
+        <Variable Name="HmiUserX" RecursiveEnable="1" />
       </Task>
     </Module>
   </DefaultView>

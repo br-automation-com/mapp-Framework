@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="7" ArVersion="E4.91">
+<OpcUaSource FileVersion="9" ArVersion="E4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
@@ -41,7 +41,7 @@
   <DefaultView AclId="3">
     <Module Name="&lt;Default&gt;">
       <Task Name="AppAxis_1">
-        <Variable Name="AxisControl" AutomaticEnable="True">
+        <Variable Name="AxisControl" RecursiveEnable="1">
           <Variable AclId="4" AclInherit="2" Name="Parameters">
             <Variable Name="Position" EngineeringUnitId="1" />
             <Variable Name="Distance" EngineeringUnitId="1" />
@@ -59,7 +59,7 @@
           </Variable>
           <Variable AclId="5" AclInherit="2" Name="Command" />
         </Variable>
-        <Variable AclId="3" AclInherit="2" Name="AxisRecipe" AutomaticEnable="True" />
+        <Variable AclId="3" AclInherit="2" Name="AxisRecipe" RecursiveEnable="1" />
         <Variable Name="MpAxisBasicAppAxis">
           <Variable AclInherit="1" Name="Active" />
         </Variable>

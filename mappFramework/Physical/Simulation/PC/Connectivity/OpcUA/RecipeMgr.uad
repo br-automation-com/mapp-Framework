@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="7" ArVersion="B4.82">
+<OpcUaSource FileVersion="9" ArVersion="E4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
@@ -23,15 +23,15 @@
   <DefaultView AclId="3">
     <Module Name="&lt;Default&gt;">
       <GlobalVariables Name="Global Variables">
-        <Variable Name="gUSBAvailable" EnableArrayElements="True" />
+        <Variable Name="gUSBAvailable" RecursiveEnable="1" />
       </GlobalVariables>
       <Task Name="RecipeMgr">
         <Variable Name="MpRecipeUIConnect">
           <Variable Name="Recipe">
             <Variable Name="List">
-              <Variable Name="Names" EnableArrayElements="True" />
+              <Variable Name="Names" RecursiveEnable="1" />
               <Variable Name="SelectedIndex" />
-              <Variable Name="LastModified" EnableArrayElements="True" />
+              <Variable Name="LastModified" RecursiveEnable="1" />
               <Variable Name="PageUp" />
               <Variable Name="PageDown" />
               <Variable Name="RangeStart" />
@@ -49,7 +49,7 @@
             <Variable Name="FileName" />
             <Variable Name="Create" />
           </Variable>
-          <Variable Name="MessageBox" AutomaticEnable="True">
+          <Variable Name="MessageBox" RecursiveEnable="1">
             <Variable Name="Confirm" />
             <Variable Name="Cancel" />
           </Variable>
@@ -58,12 +58,12 @@
           <Variable Name="ErrorReset" />
           <Variable Name="Error" />
         </Variable>
-        <Variable Name="Parameters" AutomaticEnable="True" />
-        <Variable Name="MachineSettings" AutomaticEnable="True" />
-        <Variable Name="MachineSettingsPreview" AutomaticEnable="True" />
-        <Variable Name="ParametersPreview" AutomaticEnable="True" />
-        <Variable Name="ParametersEdit" AutomaticEnable="True" />
-        <Variable Name="MachineSettingsEdit" AutomaticEnable="True" />
+        <Variable Name="Parameters" RecursiveEnable="1" />
+        <Variable Name="MachineSettings" RecursiveEnable="1" />
+        <Variable Name="MachineSettingsPreview" RecursiveEnable="1" />
+        <Variable Name="ParametersPreview" RecursiveEnable="1" />
+        <Variable Name="ParametersEdit" RecursiveEnable="1" />
+        <Variable Name="MachineSettingsEdit" RecursiveEnable="1" />
         <Variable Name="MpRecipeSys">
           <Variable Name="ErrorReset" />
           <Variable Name="UpdateNotification" />
@@ -75,10 +75,10 @@
         </Variable>
         <Variable Name="MACHINE_CONFIGURATION_RECIPE" />
         <Variable Name="PARAMETERS_RECIPE" />
-        <Variable Name="HmiRecipe" AutomaticEnable="True">
+        <Variable Name="HmiRecipe" RecursiveEnable="1">
           <Variable Name="Parameters" />
           <Variable Name="Status">
-            <Variable Name="DeviceDataProvider" EnableArrayElements="True" />
+            <Variable Name="DeviceDataProvider" RecursiveEnable="1" />
           </Variable>
         </Variable>
       </Task>

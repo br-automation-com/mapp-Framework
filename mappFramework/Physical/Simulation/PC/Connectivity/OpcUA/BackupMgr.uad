@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="7" ArVersion="B4.82">
+<OpcUaSource FileVersion="9" ArVersion="E4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
@@ -35,21 +35,21 @@
             </Variable>
           </Variable>
         </Variable>
-        <Variable Name="MpFileManagerUIConnect" AutomaticEnable="True">
+        <Variable Name="MpFileManagerUIConnect" RecursiveEnable="1">
           <Variable Name="File">
             <Variable Name="List">
-              <Variable Name="Items" EnableArrayElements="True" />
+              <Variable Name="Items" RecursiveEnable="1" />
             </Variable>
           </Variable>
         </Variable>
         <Variable Name="HmiBackup">
-          <Variable Name="Status" AutomaticEnable="True">
-            <Variable Name="FileNames" EnableArrayElements="True" />
-            <Variable Name="TimeStamps" EnableArrayElements="True" />
-            <Variable Name="TableConfig" EnableArrayElements="True" />
+          <Variable Name="Status" RecursiveEnable="1">
+            <Variable Name="FileNames" RecursiveEnable="1" />
+            <Variable Name="TimeStamps" RecursiveEnable="1" />
+            <Variable Name="TableConfig" RecursiveEnable="1" />
           </Variable>
-          <Variable Name="Commands" AutomaticEnable="True" />
-          <Variable Name="Parameters" AutomaticEnable="True" />
+          <Variable Name="Commands" RecursiveEnable="1" />
+          <Variable Name="Parameters" RecursiveEnable="1" />
         </Variable>
       </Task>
     </Module>

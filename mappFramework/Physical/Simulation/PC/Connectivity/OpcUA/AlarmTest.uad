@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="7" ArVersion="E4.91">
+<OpcUaSource FileVersion="9" ArVersion="E4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
@@ -25,7 +25,7 @@
           <Variable Name="SnippetValue" />
           <Variable Name="SetControlExample" />
         </Variable>
-        <Variable Name="Alarms" EnableArrayElements="True" />
+        <Variable Name="Alarms" RecursiveEnable="1" />
         <Variable Name="SafetyInputs">
           <Variable Name="EmergencyStop" />
           <Variable Name="SafetyDoor" />

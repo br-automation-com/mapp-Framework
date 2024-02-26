@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<OpcUaSource FileVersion="7" ArVersion="B4.82">
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="9" ArVersion="E4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
@@ -21,14 +22,14 @@
         <Variable Name="MpAuditTrailSys">
           <Variable Name="Active" />
         </Variable>
-        <Variable Name="HmiAudit" AutomaticEnable="True">
+        <Variable Name="HmiAudit" RecursiveEnable="1">
           <Variable Name="Status">
-            <Variable Name="TableConfig" EnableArrayElements="True" />
+            <Variable Name="TableConfig" RecursiveEnable="1" />
             <Variable Name="Query">
-              <Variable Name="EvTime" EnableArrayElements="True" />
-              <Variable Name="Text" EnableArrayElements="True" />
-              <Variable Name="DText" EnableArrayElements="True" />
-              <Variable Name="Op" EnableArrayElements="True" />
+              <Variable Name="EvTime" RecursiveEnable="1" />
+              <Variable Name="Text" RecursiveEnable="1" />
+              <Variable Name="DText" RecursiveEnable="1" />
+              <Variable Name="Op" RecursiveEnable="1" />
             </Variable>
             <Variable Name="DeviceDataProvider" />
           </Variable>

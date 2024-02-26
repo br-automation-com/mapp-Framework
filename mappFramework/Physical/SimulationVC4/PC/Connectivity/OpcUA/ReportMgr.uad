@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="7" ArVersion="E4.91">
+<OpcUaSource FileVersion="9" ArVersion="E4.91">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
@@ -23,22 +23,22 @@
   <DefaultView AclId="2">
     <Module Name="&lt;Default&gt;">
       <Task Name="ReportMgr">
-        <Variable Name="HmiReport" AutomaticEnable="True">
+        <Variable Name="HmiReport" RecursiveEnable="1">
           <Variable Name="Status">
-            <Variable Name="FileNames" EnableArrayElements="True" />
-            <Variable Name="TimeStamps" EnableArrayElements="True" />
+            <Variable Name="FileNames" RecursiveEnable="1" />
+            <Variable Name="TimeStamps" RecursiveEnable="1" />
           </Variable>
         </Variable>
         <Variable Name="MpFileManagerUIConnect">
           <Variable Name="DeviceList">
-            <Variable Name="DeviceNames" EnableArrayElements="True" />
+            <Variable Name="DeviceNames" RecursiveEnable="1" />
             <Variable Name="SelectedIndex" />
           </Variable>
           <Variable Name="File">
             <Variable Name="Refresh" />
             <Variable Name="Delete" />
             <Variable Name="List">
-              <Variable Name="Items" EnableArrayElements="True" />
+              <Variable Name="Items" RecursiveEnable="1" />
             </Variable>
           </Variable>
           <Variable Name="MessageBox">
@@ -50,12 +50,12 @@
           <Variable Name="Generate" />
           <Variable Name="Active" />
         </Variable>
-        <Variable Name="ReportExample" AutomaticEnable="True">
+        <Variable Name="ReportExample" RecursiveEnable="1">
           <Variable Name="SimpleReport">
-            <Variable Name="OeeLine" EnableArrayElements="True" />
+            <Variable Name="OeeLine" RecursiveEnable="1" />
           </Variable>
           <Variable Name="AdvancedReport">
-            <Variable Name="OeeLine" EnableArrayElements="True" />
+            <Variable Name="OeeLine" RecursiveEnable="1" />
           </Variable>
         </Variable>
       </Task>
